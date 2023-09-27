@@ -7,1021 +7,210 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Colleague View prototypes
+        Colleague View
       </h1>
 
-      <p>The aim of the Colleague View minimum viable product (MVP) is give customers' benefit information to agents answering the telephones, so that they can answer common questions.</p>
-      <p>The users that we are focusing on for MVP are agents that work on Employment and Support Allowance (ESA).</p>
-
-      <p>The scope of the MVP is to meet agents' needs for:</p>
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
-        <li>answering questions about next payment dates and amounts</li>
-        <li>viewing a customer's personal details</li>
-        <li>adding details about a call with a customer</li>
-        <li>viewing details about previous calls with a customer</li>
+      <p>Colleague view portal allows agents to access multiple benefits of a citizen.</p>
+      <p>The service is used for accessing the following things for citizen:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Answer basic customer queries about benefits they receive</li>
+        <li>Log the details of contact with a customer</li>
+        <li>Check previous contact the customer has had with the DWP</li>
+        <li>Access a customer's personal details</li>
       </ul>
 
-      <div class="govuk-tabs" data-module="govuk-tabs">
-        <h2 class="govuk-tabs__title">
-          Contents
-        </h2>
-        <ul class="govuk-tabs__list">
-          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#ur-prototypes">
-              User research prototypes
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#dev-baseline-prototype">
-              Development baseline prototype
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#error-designs">
-              Error designs
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#archived-designs">
-              Archived designs
-            </a>
-          </li>
-        </ul>
-        <!-- TAB1: User research prototypes -->
-        <div class="govuk-tabs__panel" id="ur-prototypes">
-          <h2 class="govuk-heading-l">User research prototypes</h2>
-          <!-- Future UR round -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green">Concept phase</strong><strong class="govuk-tag govuk-tag--purple">Sprint 63</strong> <strong class="govuk-tag govuk-tag--red">In progress</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">February 2025</span>
-              <h1 class="govuk-heading-m">Future UR rounds</h1>
+
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-with-summary-sections">
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-with-summary-sections-heading-1">
+                Prototype for demo   
+              </span> 
+            </h2>
+            <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+              Included latest version end to end prototype.
             </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-margin-top-3">In this round, we will perform <span class="govuk-body govuk-!-font-weight-bold">A/B testing</span> on below designs:</p>   
-              <details class="govuk-details govuk-!-margin-top-5 govuk-!-margin-bottom-2">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                    Contact history filter and summary cards
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <div class="govuk-!-margin-bottom-4">
-                    <a href="/prototype-sprint-wise/future-ur/contact-history.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - A</a>
-                  </div>
-                  <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-6">
-                    <a href="/prototype-sprint-wise/future-ur/contact-history-option-b.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - B</a>
-                  </div>
-                  <!-- goal -->
-                  <h3 class="govuk-heading-m"> UR 10 insights to consider for iterations</h3>
-                  <p class="govuk-body">What users said about:</p>
-                  <h2 class="govuk-heading-s">Filter</h2>                    
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>the benefit one is useful</li>
-                    <li>I wouldn't usually search by date</li>
-                    <li>looking for previous conversations, it's more likely we would look for other questions, not payment queries, as these would usually be answered straight away'.</li>
-                    <li>users feel confident in completing the call or starting the service again</li>
-                    <li>the ability to filter by type of contact was helpful, but users expressed the need to also filter based on if the contact was inbound or outbound (TCFC - acronym for telephone call from customer).</li>
-                    <li>request to have 'letters' and 'emails' specifically called out rather than be included in 'A different type of contact' - 'Especially letters, because they are quite common'</li>
-                    <li>it would be easier if it [the filter] was all on one screen without having to scroll' 'It's quicker if it's [all] on the screen'.</li>
-                    <li>ucd colleagues suggested that we use drop down options for the filter to shorten it. For example, rather than listing all queries immediately, include a drop down so that users can choose to show all queries they can filter against if this is what they are wanting to filter against. </li>
-                    <li>there is a potential to have the filter be dynamic depending on who is logged in once role based access is implemented. </li>
-                    <li>user suggested going with the drop down option - 'If I need a payment enquiry then I can click it, but if not, I don't need to see all of the different types'.</li>
-                  </ul>
-                  <h2 class="govuk-heading-s">Summary card</h2>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>I prefer benefit first and notes last.</li>
-                    <li>most users prefer fewer lines of notes visible straight away with 'See more' link after 2-3 lines.</li>
-                    <li>the term 'implicit consent' is used if contact is with a third party. The agent will only give limited information to third parties. A user suggested this be included in the 'More details' section of the contact log.</li>
-                    <li>what security the person has passed is 'good to have'.</li>
-                    <li>'I don't know what that means' - DLA agent on 'CHaRM referral'</li>
-                    <li>user was worried about security and privacy - should all agents have the ability to see all contact notes for all benefits?</li>
-                  </ul>
-                </div>
-              </details>
-              <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-2">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                    Fix for benefit details screen to show 'Adjustments' 
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <h4 class="govuk-heading-s">Design options</h4>
-                  <!-- goal -->
-                  <div class="govuk-!-margin-bottom-4">
-                    <a href="/prototype-sprint-wise/future-ur/dla-enhancements-and-benefit-adjustments/option-a/benefit-details?benefit=pip" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - A</a>
-                  </div>
-                  <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-6">
-                    <a href="/prototype-sprint-wise/future-ur/dla-enhancements-and-benefit-adjustments/option-b/benefit-details?benefit=pip" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - B</a>
-                  </div>
-                  <p class="govuk-body">Fix for benefit details screen to show 'Adjustments'</p>
-            <p class="govuk-body">We are receiving adjustment data from the SAS API instead of deductions. So, we would like to display the correct information for the benefits details section.</p>
-                </div>
-              </details>
-              <!-- DLA Type selection -->
-              <!-- <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-0">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                    View and select appropriate DLA type in Contact logging journey
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <h4 class="govuk-heading-s">Design options</h4>
-                  <div class="govuk-!-margin-bottom-4">
-                    <a href="/prototype-sprint-wise/future-ur/dla-type-selection/option-a/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - A</a>
-                  </div>
-                  <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-6">
-                    <a href="/prototype-sprint-wise/future-ur/dla-type-selection/option-b/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - B</a>
-                  </div>
-                  <p class="govuk-body">When DLA is an active benefit, the API only provides data to say DLA is active, but not what type of DLA. </p>
-                  <p class="govuk-body">We need to design a way for agents to select what type of DLA was discussed:</p>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>disability Living Allowance 65+</li>
-                    <li>disability Living Allowance Adult</li>
-                    <li>disability Living Allowance Child</li>
-                  </ul>
-                    </p>
-            <p class="govuk-body">We are receiving adjustment data from the SAS API instead of deductions. So, we would like to display the correct information for the benefits details section.</p>
-                </div>
-              </details> -->
           </div>
-          <!-- round-13 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green">Concept phase</strong><strong class="govuk-tag govuk-tag--purple">Sprint 67</strong> <strong class="govuk-tag govuk-tag--red">In progress</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">May 2025</span>
-              <h1 class="govuk-heading-m">UR round 13</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-margin-top-3">In this round, we will perform <span class="govuk-body govuk-!-font-weight-bold">usability testing</span> on structured data options for logging contact about other queries including payment. And also test how easily agent search relavant details from contact history filter and summary cards. </p>
-            <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-              <a href="/prototype-sprint-wise/ur-13/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-            <!-- <details class="govuk-details govuk-!-margin-top-5 govuk-!-margin-bottom-2">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                 DLA an active benefit
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <div class="govuk-!-margin-bottom-4">
-                  <a href="/prototype-dev-baseline/mvp-1_3/index.html" role="button" draggable="false" class="govuk-link govuk-!-margin-bottom-0" data-module="govuk-button">DLA an active benefit</a>
-                </div>
-                <form class="form button_to" action="/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active" method="post">
-                  <button draggable="false" data-module="govuk-button" class="govuk-button" type="submit">
-                    DLA an active benefit
-                  </button>
-                </form> 
-                <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-0">
-                  <a href="/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-static.html" role="button" draggable="false" class="govuk-link govuk-!-margin-bottom-0" data-module="govuk-button">DLA as a static benefit</a>
-                </div>
+          <div id="accordion-with-summary-sections-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-with-summary-sections-heading-1">
+            <!----------------- Latest prototype for Demo purpose---------------->
+            <section class="govuk-!-margin-top-3">
+              <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                <strong class="govuk-tag govuk-tag--turquoise">use for demo</strong><br>
+                <h2 class="govuk-heading-m">Latest prototype journey - Sprint 19-20</h2>
+                <h3 class="govuk-heading-3"><a href="for-demo-only/opt1/index.html">View Prototype</a>  </h3>
+                <p>Date: July 31 2023</p>
+              <!--
+              <ul class="govuk-list govuk-list--bullet">
+              <li>The all-in-one design lets users view all their benefit information in one place</li>
+              <li>This design shows the team’s work from alpha sprint 1 to sprint 9</li>
+              <li>The team stopped iterating the all-in-one design during sprint 9 in favour of the task-based design</li>
+              </ul>
+              -->
               </div>
-            </details> -->
-          </div>
-          <!-- round-12 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green">Concept phase</strong><strong class="govuk-tag govuk-tag--purple">Sprint 64</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">March 2025</span>
-              <h1 class="govuk-heading-m">UR round 12</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-margin-top-3">In this round, we will perform <span class="govuk-body govuk-!-font-weight-bold">A/B testing</span> on inbound or outbound structured data and test how agent will log the failed or disconnected phone calls. </p>
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  Design to capture inbound or outbound structured data
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <p>Design a way to capture inbound or outbound structured data for all contact types</p>
-                <h4 class="govuk-heading-s">Design options</h4>
-                <!-- goal -->
-                <div class="govuk-!-margin-bottom-4">
-                  <a href="/prototype-sprint-wise/ur-12/index-option-b.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - A</a>
-                </div>
-                <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-6">
-                  <a href="/prototype-sprint-wise/ur-12/index-option-c.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - B</a>
-                </div>
-                <h3 class="govuk-heading-m"> UR insights to consider for iterations</h3>
-                <p>As an agent, <br />
-                  <span class="govuk-body govuk-!-font-weight-bold">"I need to be able to filter by contact type when searching contact history
-                    So that I can quickly navigate to the relevant contact log".</span></p>
-                <p>UR round 9 finding - agents want to see if the contact was inbound or outbound. 
-                  This is also included in our business requirements. 
-                  We need to re-add the option for users to say whether contact was inbound or outbound - this needs to be for all contact, not just for telephony. </p>
-                <!-- <p>The most recent UR round has shown that users would like to see if contact was inbound or outbound as a priority, and would also like different types of contact to be specified in structured data for contact history.</p> -->
-                <!-- <p class="govuk-body">We researched with ESA Agents, PIP case workers, Assistive Technology team DWP colleagues</p> -->
+            </section>
+            <!----------------- Sprint-16 Prototype ---------------->
+            <section class="govuk-!-margin-top-3">
+              <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                <strong class="govuk-tag">V1.0</strong> <strong class="govuk-tag govuk-tag--grey">Completed</strong><br>
+                <h2 class="govuk-heading-m">Colleague view prototype journey - Sprint 19</h2>
+                  <h2 class="govuk-heading-s"><a href="sprint19/home-sprint3">View Prototype</a></h2>
+                  <p>Date: June 26 2023</p>
+              <!--
+              <ul class="govuk-list govuk-list--bullet">
+              <li>The all-in-one design lets users view all their benefit information in one place</li>
+              <li>This design shows the team’s work from alpha sprint 1 to sprint 9</li>
+              <li>The team stopped iterating the all-in-one design during sprint 9 in favour of the task-based design</li>
+              </ul>
+              -->
               </div>
-            </details>    
-            <details class="govuk-details govuk-!-margin-top-5">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  Log failed or disconnected phone calls
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <p>Design a journey to log failed or disconnected phone calls.</p>
-                <p class="govuk-body">We need to have a record of:</p>
+            </section>
+            <!----------------- Sprint-13 Prototype ---------------->
+            <section class="govuk-!-margin-top-3">
+              <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                <strong class="govuk-tag">V1.0</strong> <strong class="govuk-tag govuk-tag--grey">Completed</strong><br>
+                <h2 class="govuk-heading-m">Colleague view prototype journey - Sprint 13</h2>
+                  <h3 class="govuk-heading-s"><a href="sprint3/home-sprint3">View Prototype</a>  </h3>
+                  <p>Date: April 05 2023</p>
+              <!--
+              <ul class="govuk-list govuk-list--bullet">
+              <li>The all-in-one design lets users view all their benefit information in one place</li>
+              <li>This design shows the team’s work from alpha sprint 1 to sprint 9</li>
+              <li>The team stopped iterating the all-in-one design during sprint 9 in favour of the task-based design</li>
+              </ul>
+              -->
+              </div>
+            </section>            
+            <!----------------- Sprint-3 Prototype ---------------->
+              <section class="govuk-!-margin-top-3">
+                <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                  <strong class="govuk-tag">V1.0</strong> <strong class="govuk-tag govuk-tag--grey">Completed</strong><br>
+                  <h2 class="govuk-heading-m">Colleague view prototype journey - Sprint 3</h2>
+                    <h3 class="govuk-heading-s"><a href="sprint3/home-sprint3">View Prototype</a>  </h3>
+                    <p>Date: December 16 2022</p>
+                <!--
                 <ul class="govuk-list govuk-list--bullet">
-                  <li>inbound telephony that disconnects</li>
-                  <li>outbound call attempts if the claimant does not answer the phone</li>
-                  <!-- <li>looking for previous conversations, it's more likely we would look for other questions, not payment queries, as these would usually be answered straight away'.</li> -->
+                <li>The all-in-one design lets users view all their benefit information in one place</li>
+                <li>This design shows the team’s work from alpha sprint 1 to sprint 9</li>
+                <li>The team stopped iterating the all-in-one design during sprint 9 in favour of the task-based design</li>
                 </ul>
-                <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-                  <a href="/prototype-sprint-wise/ur-12/failed-disconnect-call-log/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
+                -->
                 </div>
-                <p>As an agent, <br />
-                  <span class="govuk-body govuk-!-font-weight-bold">"I need to be able to log if an outbound call was unanswered, so that there is an audit trail providing reasoning for further action".</span></p>
-                  <p>As an agent, <br />
-                    <span class="govuk-body govuk-!-font-weight-bold">"I need to be able to log if an inbound call was disconnected, so that if the claimant calls back and another agents answers, they can pick up the work where I left off".</span></p>
-                <!-- <table class="govuk-table">
-                  <caption class="govuk-table__caption govuk-table__caption--s">Scenarios for disconnected inbound telephony: </caption>
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">Call disconnecte</th>
-                      <th scope="col" class="govuk-table__header">Customer vulnerable?</th>
-                      <th scope="col" class="govuk-table__header">Call back made?</th>
-                      <th scope="col" class="govuk-table__header">Callback connected?</th>
-                      <th scope="col" class="govuk-table__header">Record</th>
-                    </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Yes</th>
-                      <td class="govuk-table__cell">No</td>
-                      <td class="govuk-table__cell">No</td>
-                      <td class="govuk-table__cell">N/A</td>
-                      <td class="govuk-table__cell">Info of the call before the disconnect only.</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Yes</th>
-                      <td class="govuk-table__cell">Yes</td>
-                      <td class="govuk-table__cell">Yes</td>
-                      <td class="govuk-table__cell">No</td>
-                      <td class="govuk-table__cell">Info of the call before the disconnect AND a note to say that a call back was made AND no response</td>
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Yes</th>
-                      <td class="govuk-table__cell">Yes</td>
-                      <td class="govuk-table__cell">Yes</td>
-                      <td class="govuk-table__cell">Yes</td>
-                      <td class="govuk-table__cell">Info of the call as normal. 2 logs are not needed as the agent is expected to call back straight away so can do so in the same journey.  </td>
-                    </tr>
-                  </tbody>
-                </table> -->
-              </div>
-            </details>
+              </section>
           </div>
-          <!-- round-10 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--green">Latest version</strong><strong class="govuk-tag govuk-tag--purple">Sprint 54</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">November 2024</span>
-              <h1 class="govuk-heading-m">UR round 10</h1>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-with-summary-sections-heading-2">
+                Prototypes for usability testing
+              </span>
+            </h2>
+            <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-2">
+              Prototypes are only for usability testing purpose.
             </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-2">Usability testing <span class="govuk-body">with ESA Agents</span></p>
-            <!-- <p class="govuk-body">With ESA Agents</p> -->
-            <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-              <a href="/prototype-sprint-wise/ur-10/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  UR reports and design documents
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                  <!-- goal -->
-                <h3 class="govuk-heading-m">Research goal</h3>
-                <!-- <p class="govuk-body">We researched with ESA Agents, PIP case workers, Assistive Technology team DWP colleagues</p> -->
-                <p class="govuk-body">In this round, we want to understand if:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>the multi-select function for call logging works</li>
-                  <li>agents can easily find the log they need in contact history</li>
-                  <li>test shorter call log journey</li>
-                  <li>perform <span class="govuk-body govuk-!-font-weight-bold">A/B testing</span> on <span class="govuk-body govuk-!-font-weight-bold">Contact history</span> new design along with <span class="govuk-body govuk-!-font-weight-bold">Filter</span>
+          </div>
+          <div id="accordion-with-summary-sections-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-with-summary-sections-heading-2">
+            <div class="govuk-list">
+              <!-----------------Prototype for Usability Round-5 (Sprint22)---------------->
+              <section class="govuk-!-margin-top-3">
+                <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                  <strong class="govuk-tag">V2.2</strong> <strong class="govuk-tag govuk-tag--red">In-progress</strong><br>
+                  <h2 class="govuk-heading-m">UR round 5 - Sprint 22  </h2>
+                  <p>Based on the outcome of UR round 2 and round 3 (Survey). As discussed GOV.UK Beta phase banner will be used in developed interface not for testing, so replaced with testing phase banner</p>
+                  <h3 class="govuk-heading-s"><a href="sprint22/opt1/index">View Prototype</a></h3>
                     <ul class="govuk-list govuk-list--bullet">
-                      <li>Contact history prototype - <a href="prototype-sprint-wise/ur-10/contact-history.html" class="govuk-link" rel="noreferrer noopener" target="_blank">Option a</a></li>
-                      <li>Contact history prototype - <a href="prototype-sprint-wise/ur-10/contact-history-b.html" class="govuk-link" rel="noreferrer noopener" target="_blank">Option b</a></li>
+                      <li>Discovery how agent finds detailed information about Awards components, deduction from payment</li>
+                    </ul>
+                    <p>Dates: August 09 2023</p>
+                </div>
+              </section>
+              <!-----------------Prototype for Usability Round-4 with two option (Sprint19)---------------->
+              <section class="govuk-!-margin-top-3">
+                <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                  <strong class="govuk-tag">V2.2</strong> <strong class="govuk-tag govuk-tag--red">In-progress</strong><br>
+                  <h2 class="govuk-heading-m">UR round 4 - Sprint 19  </h2>
+                  <p>Based on the outcome of UR round 2 and round 3 (Survey). As discussed GOV.UK Beta phase banner will be used in developed interface not for testing, so replaced with testing phase banner</p>
+                  <h3 class="govuk-heading-s"><a href="sprint19/opt1/index">Prototype option-1</a></h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>Discovery how agent finds detailed information about Awards components, deduction from payment</li>
+                    </ul>
+                    <h3 class="govuk-heading-s"><a href="sprint19/opt2/index">Prototype option-2</a></h3>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>AB testing and discovery how agent finds detailed information about Awards components, deduction from payment</li>
                       </ul>
-                  </li>
-                </ul>
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Mural
-                    </dt>
-                    <dd class="govuk-summary-list__value"> Not available yet
-                      <!-- <a class="govuk-link" href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1699611965127/04e582c9b5a19c9fbbdc1e4dfa7e06f9fd336763?wid=0-1720545785069" rel="noreferrer noopener" target="_blank">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a> -->
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Design documentation
-                    </dt>
-                    <dd class="govuk-summary-list__value"> Not available yet
-                      <!-- <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/spaces/SU/pages/133693049361/Sprint+44+-+Design+iteration+for+UR8">Sprint 44<span class="govuk-visually-hidden"> of prototype flow</span></a> -->
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Research documents
-                    </dt>
-                    <dd class="govuk-summary-list__value"> Not available yet
-                      <!-- Some user research was completed with this prototype and the feedback has been stored in  <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/x/CYLPBh8" rel="noreferrer noopener" target="_blank">Research activity log</a>. -->
-                    </dd>
-                    <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a>
-                    </dd> -->
-                  </div>
-                </dl>
+
+                      <p>Dates: June 26 2023</p>
+                </div>
+              </section>
+
+              <!-----------------Prototype for Usability Round-2 with two option (Sprint13)---------------->
+
+              <section class="govuk-!-margin-top-3">
+                <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                  <strong class="govuk-tag">V2.1</strong> <strong class="govuk-tag govuk-tag--grey">Completed</strong><br>
+                  <h2 class="govuk-heading-m">UR round 2 - Sprint 13 </h2>
+                  <p>Prototype has been updated based on GDS standards (GOVUK) and DWP design system to consideration of agent facing service</p>
+                  <h3 class="govuk-heading-s"><a href="sprint13/opt1/index">Prototype option-1</a> </h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Display upcoming payment in tabular format for Payment and awards page</li>
+                    <li>Adding note in separate page</li>
+                  </ul>
+                  <h3 class="govuk-heading-s"><a href="sprint13/opt2/index">Prototype option-2</a> </h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>AB testing of Payment and awards page with tile design</li>
+                  </ul>
+
+                  <p>This design is tested in Beta Sprint 12 and 13</p>
+                  <p>Dates: April 05 2023</p>
+
+                </div>
+              </section>
+          </div>
+          </div>
+        </div>
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-with-summary-sections-heading-3">
+                Extra scenario
+              </span>
+            </h2>
+            <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-3">
+              Included all extra scenarios prototypes for e.g. type error messages, cookies.
             </div>
-          </details>
+          </div>
+          <div id="accordion-with-summary-sections-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-with-summary-sections-heading-3">
+            <!-----------------Failure Scenarios---------------->
+          
+            <section class="govuk-!-margin-top-1">
+              <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                <strong class="govuk-tag">V3.0</strong> <strong class="govuk-tag govuk-tag--grey">Completed</strong><br>
+                <h2 class="govuk-heading-m">Failure scanrios - Error prototypes</h2>
+                <h3 class="govuk-heading-s"><a href="error-handling/prototype/index.html">Colleague View prototype for Error handling scenarios</a> </h3>
+                <p class="govuk-!-margin-bottom-0">Dates: May 09 2023</p>
+              </div>
+            </section>
+            <!-----------------Cookies - Essential cookies (strictly necessary)---------------->
             
-          </div>
-          <!-- round-8 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 47</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">August 2024</span>
-              <h1 class="govuk-heading-m">UR round 8</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-2">Usability testing <span class="govuk-body">with ESA Agents</span></p>
-            <!-- <p class="govuk-body">With ESA Agents</p> -->
-            <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-              <a href="/prototype-sprint-wise/ur-8/scenario-1/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  UR reports and design documents
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <!-- goal -->
-                <h3 class="govuk-heading-m">Research goal</h3>
-                <!-- <p class="govuk-body">We researched with ESA Agents, PIP case workers, Assistive Technology team DWP colleagues</p> -->
-                <p class="govuk-body">In this round, we want to understand if:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>the multi-select function for call logging works</li>
-                  <li>agents can easily find the log they need in contact history</li>
-                  <li>the removal of 'customer' causes any confusion for users</li>
-                  <li>users feel confident in completing the call or starting the service again</li>
-                </ul>
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Mural
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1699611965127/04e582c9b5a19c9fbbdc1e4dfa7e06f9fd336763?wid=0-1720545785069" rel="noreferrer noopener" target="_blank">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a>
-                    </dd>
-                  </div>
-                  <!-- <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Figma
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="https://www.figma.com/design/wOH6HKZOhsthnVr17JeEn9/One-Colleague-View-(July-2024)?node-id=12718-124573">Design iteration<span class="govuk-visually-hidden"> of prototype flow</span></a>
-                    </dd>
-                  </div> -->
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Design documentation
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/spaces/SU/pages/133693049361/Sprint+44+-+Design+iteration+for+UR8">Sprint 44<span class="govuk-visually-hidden"> of prototype flow</span></a>
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Research documents
-                    </dt>
-                    <dd class="govuk-summary-list__value"> Not available yet
-                      <!-- Some user research was completed with this prototype and the feedback has been stored in  <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/x/CYLPBh8" rel="noreferrer noopener" target="_blank">Research activity log</a>. -->
-                    </dd>
-                    <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a>
-                    </dd> -->
-                  </div>
-                </dl>
+            <section class="govuk-!-margin-top-3">
+              <div class="govuk-!-padding-4" style="border:1px solid #999999;">
+                <strong class="govuk-tag">V3.0</strong> <strong class="govuk-tag govuk-tag--grey">Completed</strong><br>
+                <h2 class="govuk-heading-m">Cookies</h2>
+                  <h3 class="govuk-heading-s"><a href="cookies/prototype/index.html">Cookies on the DWP Design System website</a> </h3>
+                  <p class="govuk-body">Cookies are small data files that a website sends to a user’s computer. They’re used to store information about how users browse a website.</p>
+                  <p class="govuk-!-margin-bottom-0">Dates: May 09 2023</p>
               </div>
-            </details>
-          </div>
-          <!-- round-7 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 30/31</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">December 2023</span>
-              <h3 class="govuk-heading-m">UR round 7</h3>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-2">Usability testing <span class="govuk-body"> with ESA Agents, PIP case workers, Assistive Technology team DWP colleagues</span></p>
-            <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-              <a href="ur7-user-research-prototypes.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  UR reports and design documents
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <!-- goal -->
-                <h3 class="govuk-heading-m">Research goal</h3>
-                <!-- <p class="govuk-body">We researched with ESA Agents, PIP case workers, Assistive Technology team DWP colleagues</p> -->
-                <p class="govuk-body">To test two prototypes that show a different call-recording screen flow each, to identify the following points in why we tested below</p>
-                <!-- What we did -->
-                <h3 class="govuk-heading-m">What we tested</h3>
-                <p class="govuk-body">Payment information, deductions, contact recording, finding past records</p>
-                <!-- why -->
-                <h3 class="govuk-heading-m">Why we tested</h3>
-                <!-- <p class="govuk-body">We researched with ESA Agents, PIP case workers, Assistive Technology team DWP colleagues</p> -->
-                <p class="govuk-body">To test two prototypes that show a different call-recording flow, to identify:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>Anywhere our design no longer supports what agents need to do, given changes to the prototype. This is for a main user task of payment-related queries.</li>
-                  <li>Where our design does and does not support frontline colleagues making a record of a call, using our newly designed call-recording function.</li>
-                  <li>Where our design does and does not support frontline colleagues finding a past record.</li>
-                  <li>Where our design meets accessibility needs</li>
-                </ul>
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Mural
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1699611965127/04e582c9b5a19c9fbbdc1e4dfa7e06f9fd336763?wid=0-1720527932696" rel="noreferrer noopener" target="_blank">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a>
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Design documentation
-                    </dt>
-                    <dd class="govuk-summary-list__value">To be linked
-                      <!-- <a class="govuk-link" href="#">Design iteration<span class="govuk-visually-hidden"> of prototype flow</span></a> -->
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Research documents
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/x/CYLPBh8" rel="noreferrer noopener" target="_blank">Research activity log</a>
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-          </div>
-          <!-- round-6 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 25</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">September 2023</span>
-              <h1 class="govuk-heading-m">UR round 6</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-2">Discovery interview <span class="govuk-body">with ESA agents</span></p>
-            <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-              <a href="/prototype-sprint-wise/sprint22/opt1/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  UR reports and design documents
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <!-- goal -->
-                <h3 class="govuk-heading-m">Research goal</h3>
-                <p class="govuk-body">To understand need of contact recording and contact history, check / update personal details information</p>
-                <!-- What we did -->
-                <h3 class="govuk-heading-m">What we tested</h3>
-                <p class="govuk-body">Round 6 was an interview round as we needed more details about the contact recording user journey before we could iterate the design.</p>
-                <!-- why -->
-                <h3 class="govuk-heading-m">Why we tested</h3>
-                <p class="govuk-body">In this round, we wanted to understand:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>what users need to see within contact recording and contact history</li>
-                  <li>how agents update a customers' personal details and log safeguarding issues</li>
-                  <li>more about payment statuses</li>
-                  <li>agents' use of specific words that are used in relation to their jobs</li>
-                  <li>questions that an agent asks if a caller is not an appointee, family or carer and calls on behalf of someone else</li>
-                </ul>
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Mural
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="#" rel="noreferrer noopener" target="_blank">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a> (In progress)
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Design documentation
-                    </dt>
-                    <dd class="govuk-summary-list__value">To be linked
-                      <!-- <a class="govuk-link" href="#">Design iteration<span class="govuk-visually-hidden"> of prototype flow</span></a> -->
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Research documents
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/x/CYLPBh8" rel="noreferrer noopener" target="_blank">Research activity log</a>.
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-          </div>
-          <!-- round-5 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 22</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">August 2023</span>
-              <h1 class="govuk-heading-m">UR round 5</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-2">Discovery Interview and Usability testing <span class="govuk-body">with PIP Case Workers</span></p>
-            <!-- <p class="govuk-body">With ESA Agents</p> -->
-            <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-              <a href="prototype-sprint-wise/ur-5/opt1/index" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View round 5 prototype</a>
-            </div>
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  UR reports and design documents
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <!-- goal -->
-                <h3 class="govuk-heading-m">Research goal</h3>
-                <p class="govuk-body">reaserch goal to test how easily agent are able to answer query about payment. </p>
-                <!-- What we did -->
-                <h3 class="govuk-heading-m">What we tested</h3>
-                <p class="govuk-body">We tested journeys that included agents answering questions about: </p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>next payment dates</li>
-                  <li>next payment amounts</li>
-                  <li>previous payments</li>
-                  <li>breakdowns of benefits </li>
-                </ul>
-                <!-- why -->
-                <h3 class="govuk-heading-m">Why we tested</h3>
-                <p class="govuk-body">We haven't tested yet</p>
-                <!-- <p class="govuk-body">To test two prototypes that show a different call-recording flow, to identify:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>Anywhere our design no longer supports what agents need to do, given changes to the prototype. This is for a main user task of payment-related queries.</li>
-                  <li>Where our design does and does not support frontline colleagues making a record of a call, using our newly designed call-recording function.</li>
-                  <li>Where our design does and does not support frontline colleagues finding a past record.</li>
-                </ul> -->
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Mural
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="#" rel="noreferrer noopener" target="_blank">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a> (In-progress)
-                    </dd>
-                    <!-- <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a>
-                    </dd> -->
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Design documentation
-                    </dt>
-                    <dd class="govuk-summary-list__value">To be linked
-                      <!-- <a class="govuk-link" href="https://www.figma.com/design/wOH6HKZOhsthnVr17JeEn9/One-Colleague-View-(July-2024)?node-id=14652-270191&t=OtiIWonlOqUS0okV-4">Design iteration<span class="govuk-visually-hidden"> of prototype flow</span></a> -->
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Research documents
-                    </dt>
-                    <dd class="govuk-summary-list__value"> 
-                      <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/x/CYLPBh8" rel="noreferrer noopener" target="_blank">Research activity log</a>.
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-          </div>
-          <!-- round-4 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 19</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">July 2023</span>
-              <h1 class="govuk-heading-m">UR round 4</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-2">Interviews and Usability testing <span class="govuk-body">with ESA Customer Service Advisors</span></p>
-            <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-              <a href="ur4-user-research-prototypes.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View round 4 prototype</a>
-            </div>
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  UR reports and design documents
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <!-- goal -->
-                <h3 class="govuk-heading-m">Research goal</h3>
-                <p class="govuk-body">We focused on the screens that agents will use to answer questions about next payment dates and amounts.</p>
-                <!-- What we did -->
-                <h3 class="govuk-heading-m">What we tested</h3>
-                <p class="govuk-body">We tested journeys that included agents answering questions about: </p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>next payment dates</li>
-                  <li>next payment amounts</li>
-                  <!-- <li>previous payments</li>
-                  <li>breakdowns of benefits </li> -->
-                </ul>
-                <!-- why -->
-                <h3 class="govuk-heading-m">Why we tested</h3>
-                <p class="govuk-body">We tested how quickly and acuurately an agents will find answer questions about next payment dates and amounts.</p>
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Mural
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="#" rel="noreferrer noopener" target="_blank">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a> (In-progress)
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Design documentation
-                    </dt>
-                    <dd class="govuk-summary-list__value">To be linked
-                      <!-- <a class="govuk-link" href="https://www.figma.com/design/wOH6HKZOhsthnVr17JeEn9/One-Colleague-View-(July-2024)?node-id=14652-270190&t=OtiIWonlOqUS0okV-4">Design iteration<span class="govuk-visually-hidden"> of prototype flow</span></a> -->
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Research documents
-                    </dt>
-                    <dd class="govuk-summary-list__value"> 
-                      <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/x/CYLPBh8" rel="noreferrer noopener" target="_blank">Research activity log</a>.
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-          </div>
-          <!-- round-3 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 18</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">June 2023</span>
-              <h1 class="govuk-heading-m">UR round 3</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-padding-top-2">survey <span class="govuk-body">with ESA and PIP agents</span></p>
-            <!-- <div class="govuk-!-margin-top-2 govuk-!-margin-bottom-4">
-              <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View round 3 findings</a>
-            </div> -->
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  UR reports and design documents
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <!-- goal -->
-                <h3 class="govuk-heading-m">Research goal</h3>
-                <p class="govuk-body">Understand when agent would ask if customer was present when someone else calls on their behalf.</p>
-                <p class="govuk-body"> Understand citizen that would call DWP, information that would be required to check customer details is up to date.</p>
-                <!-- What we did -->
-                <h3 class="govuk-heading-m">What we tested</h3>
-                <p class="govuk-body">Survey based on findings from UR round 2. </p>
-                <!-- why -->
-                <h3 class="govuk-heading-m">Why we tested</h3>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>to understand what personal information an agent needs about a customer</li>
-                  <li>to understand how and when agents add notes about a call</li>
-                  <li>to understand when agents ask if a customer is with the caller if someone is calling on their behalf</li>
-                </ul>
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Design documentation
-                    </dt>
-                    <dd class="govuk-summary-list__value">To be linked
-                      <!-- <a class="govuk-link" href="https://www.figma.com/design/wOH6HKZOhsthnVr17JeEn9/One-Colleague-View-(July-2024)?node-id=12718-124573">Design iteration<span class="govuk-visually-hidden"> of prototype flow</span></a> -->
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Research documents
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/x/CYLPBh8" rel="noreferrer noopener" target="_blank">Research activity log</a>
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-          </div>
-          <!-- round-2 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 14/15</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">April 2023</span>
-              <h1 class="govuk-heading-m">UR round 2</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-top-2">Usability testing <span class="govuk-body">with ESA Customer Service Advisors</span></p>
-            <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
-              <a href="ur2-user-research-prototypes.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-            <details class="govuk-details govuk-!-margin-bottom-0">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
-                  UR reports and design documents
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <!-- goal -->
-                <h3 class="govuk-heading-m">Research goal</h3>
-                <p class="govuk-body">Improve understanding of ESA telephony agents activities.</p>
-                <!-- What we did -->
-                <h3 class="govuk-heading-m">What we tested</h3>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>Payment Amount and Date Query Journey</li>
-                  <li>Recording Contact Journey</li>
-                </ul>
-                <!-- why -->
-                <h3 class="govuk-heading-m">Why we tested</h3>
-                <p class="govuk-body">We focused to test how an agent answer payment date and amount questions:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>Responding to payment enquiries from customers</li>
-                  <li>Logging the receipt of a query from a customer</li>
-                </ul>
-                <p class="govuk-body">Usability testing the to-be agent journey for:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li>Payment amount and date query journey</li>
-                  <li>Contact recording journey</li>
-                  <li>Gather data on two different designs for Payments and Awards screens.</li>
-                </ul>
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Mural
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="#" rel="noreferrer noopener" target="_blank">Screenshot on mural<span class="govuk-visually-hidden"> of prototype flow</span></a> (In-progress)
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Design documentation
-                    </dt>
-                    <dd class="govuk-summary-list__value">To be linked
-                      <!-- <a class="govuk-link" href="https://www.figma.com/design/wOH6HKZOhsthnVr17JeEn9/One-Colleague-View-(July-2024)?node-id=14652-269853&t=OtiIWonlOqUS0okV-4">Design iteration<span class="govuk-visually-hidden"> of prototype flow</span></a> -->
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Research documents
-                    </dt>
-                    <dd class="govuk-summary-list__value"> 
-                      <a class="govuk-link" href="https://dwpdigital.atlassian.net/wiki/x/CYLPBh8" rel="noreferrer noopener" target="_blank">Research activity log</a>.
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-          </div>
-          <!-- round-1 -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">June 2022</span>
-              <h1 class="govuk-heading-m">Round 1</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">Round 1 was a discovery round to find out more about the pain points agents have with the existing process.</p>
-            <!-- <p class="govuk-body">The aims of this round are:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>adding contact history and note from structure data.</li>
-              <li>view added contact history</li>
-              <li>use filter of contact history</li>
-            </ul> -->
-            <div class="govuk-!-margin-top-4">
-              <a href="sprint3/home-sprint3" role="button" draggable="false" class="govuk-button"  data-module="govuk-button">View round 1 prototype</a>
-              <p class="govuk-body govuk-!-margin-bottom-0"><a href=" https://dwpdigital.atlassian.net/wiki/spaces/SU/pages/132869325927/UR1" class="govuk-link govuk-!-font-weight-bold">UR reports/findings</a></p>
-            </div>
+            </section>
           </div>
         </div>
-        <!-- TAB2: Development baseline prototype-->
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="dev-baseline-prototype">
-          <h2 class="govuk-heading-l">Development baseline prototype</h2>
-          <!-- Verson 1.3: Baseline for dev -->
-          <!-- <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 63</strong> <strong class="govuk-tag govuk-tag--red">In progress</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">March 2025</span>
-              <h1 class="govuk-heading-m"> Structured data and filters (1.3)</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">
-              In this prototype we have implemented "Add date and keyword filter to Payment history" where agent have ability to filter payment history by date range will improve usability.
- 
-            </p>
-            <div class="govuk-!-margin-top-4">
-              <a href="prototype-dev-baseline/mvp-1_3/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" alt="Colleague View Prototype 1.2">Prototype - version 1.3</a>
-            </div>
-          </div> -->
-          <!-- Verson 1.2: Baseline for dev -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 56</strong>  <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">Jan 2025</span>
-              <h1 class="govuk-heading-m">Shorter contact logging 1.2</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">This version of prototype includes:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>the multi-select function for call logging works</li>
-              <li>new design for shorter call log journey</li>
-              <li>new design for contact history and filter</li>
-              <li>no benefit contact logging journey</li> 
-              <!-- <li>unanswered outgoing calls</li>  -->
-              
-            </ul>
-            <div class="govuk-!-margin-top-4">
-              <a href="prototype-dev-baseline/mvp-1_2/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" alt="Colleague View Prototype 1.2">Prototype - version 1.2</a>
-            </div>
-          </div>
-          <!-- Verson 1.1.1: Baseline for dev -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 56</strong>  <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">March 2025</span>
-              <h1 class="govuk-heading-m">DLA enhancements and benefit adjustments 1.1.1</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">Fix for benefit details screen to show 'Adjustments'</p>
-            <p class="govuk-body">We are receiving adjustment data from the SAS API instead of deductions. So, we would like to display the correct information for the benefits details section.</p>
-            <div class="govuk-!-margin-top-4">
-              <a href="prototype-dev-baseline/dla-enhancements-and-benefit-adjustments/benefit-details?benefit=pip" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" alt="Colleague View Prototype 1.2">Prototype - version 1.1.1</a>
-            </div>
-          </div>
-          <!-- Verson 1.1: Baseline for dev -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 52</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">Sep 2024</span>
-              <h1 class="govuk-heading-m">Payment micro UI 1.1</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">This version of prototype includes:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>all changes part of Collague View MVP</li>
-              <li>content changes made till Sprint 52</li>
-              <li>redesign of Benefit payments</li>
-            </ul>
-            <div class="govuk-!-margin-top-4">
-              <a href="prototype-dev-baseline/mvp-1_1/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">Prototype - version 1.1</a>
-            </div>
-          </div>
-          <!-- MVP 1.0: Baseline for dev based on UR7-opt2 outcome -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 39</strong> <strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">March 2024: Business release</span>
-              <h1 class="govuk-heading-m">Prototype MVP 1.0</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">This prototype builds on the UR 7 option 2 journey to include changes required based on feedback from Service Modernisation. This design allows agents to access a customer's benefit information if they had a different type of contact with the user other than a phone call. There is also an option to only view a customer’s benefit information - this is for Quality Checkers and team leads.</p>
-            <p class="govuk-body">These additional screens have not been tested with users. The Colleague View team and Service Modernisation are aware of the risks of releasing a service with no user research on particular journeys.</p>
-            <div class="govuk-!-margin-top-4">
-              <!-- <a href="prototype-dev-baseline/mvp-1_0/index.html " role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" aria-disabled="true" disabled>View prototype</a> -->
-              <a href="prototype-dev-baseline/mvp-1_0/index.html " role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-          </div>
-          <!-- MVP 0.8: Baseline for Testing team based on UR7-opt1 outcome -->
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-          <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 35</strong> <strong class="govuk-tag">Completed</strong></div>
-          <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-            <span class="govuk-caption-m">January 2024: Technical release</span>
-            <h1 class="govuk-heading-m">Prototype MVP 0.8</h1>
-          </div>
-          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-          <p class="govuk-body">This prototype aligns with what the development team have built, as of January 2024. This is so that the test engineers have a correct version to test against.</p>
-          <!-- <p class="govuk-body">The aims of this round are:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>adding contact history and note from structure data.</li>
-            <li>view added contact history</li>
-            <li>use filter of contact history</li>
-          </ul> -->
-          <div class="govuk-!-margin-top-4">
-            <a href="/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-          </div>
-          </div>
-        </div>
-        <!-- TAB3: Error designs-->
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="error-designs">
-          <h2 class="govuk-heading-l">Error designs</h2>
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-half">
-              <div class="govuk-!-padding-6" style="background-color:#f3f2f1; border-radius:10px;">
-                <div class="govuk-!-text-align-right"><strong class="govuk-tag">Completed</strong></div>
-                <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-                  <h1 class="govuk-heading-m">Technical errors</h1>
-                </div>
-                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-                <p class="govuk-body">These are messages that the user will see if something technical has not happened as expected, such as a failed API call.</p>
-                </ul>
-                <div class="govuk-!-margin-top-4">
-                  <a href="extra-scenarios/error-handling/tech-Error/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-                </div>
+      
+
+                  
               </div>
             </div>
-            <div class="govuk-grid-column-one-half">
-              <div class="govuk-!-padding-6" style="background-color:#f3f2f1; border-radius:10px;">
-                <div class="govuk-!-text-align-right"><strong class="govuk-tag">Completed</strong></div>
-                <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-                  <h1 class="govuk-heading-m">Input errors</h1>
-                </div>
-                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-                <p class="govuk-body">These are messages that the user gives information that we are not able to use, such as an incorrect National Insurance number.</p>
-                </ul>
-                <div class="govuk-!-margin-top-4">
-                  <a href="extra-scenarios/error-handling/user-input-Error/index" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- TAB4: Archived designs-->
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="archived-designs">
-          <h2 class="govuk-heading-l">Archived designs</h2>
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">September - October 2023</span>
-              <h1 class="govuk-heading-m">Filter design</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">Functionality that enabled users to look at different benefits payment history information separately would help meet user needs, allowing users to quickly review payment and loged contact history information related to specific benefits.</p>
-            </ul>
-            <div class="govuk-!-margin-top-4">
-              <a href="extra-scenarios/filter-design/filter-featre.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-          </div>
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">August - September 2023</span>
-              <h1 class="govuk-heading-m">Senior agent: Note redaction journey</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">Please note this journey captures only the redaction workflow. User research is required to progress with end to end design for redaction workflow for Senior Agent.</p>
-            </ul>
-            <div class="govuk-!-margin-top-4">
-              <a href="extra-scenarios/note-redaction-journey/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-          </div>
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">May - June 2023</span>
-              <h1 class="govuk-heading-m">Cookies</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">Cookies are small data files that a website sends to a user’s computer. They’re used to store information about how users browse a website.</p>
-            </ul>
-            <div class="govuk-!-margin-top-4">
-              <a href="extra-scenarios/cookies/prototype/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-          </div>
-          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag">Completed</strong></div>
-            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">March 2025</span>
-              <h1 class="govuk-heading-m">Benefit selection - DLA types</h1>
-            </div>
-            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <!-- <p class="govuk-body">Cookies are small data files that a website sends to a user’s computer. They’re used to store information about how users browse a website.</p> -->
-            <div class="govuk-!-margin-top-4">
-              <a href="extra-scenarios/cookies/prototype/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 {% endblock %}

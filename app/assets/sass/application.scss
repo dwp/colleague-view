@@ -1,23 +1,39 @@
-//
-// For guidance on how to add CSS and SCSS see:
-// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
 
-// Add extra styles here
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
 
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import "lib/extensions/extensions";
+
+// Patterns that aren't in Frontend
+@import "patterns/contents-list";
+@import "patterns/mainstream-guide";
+@import "patterns/pagination";
+@import "patterns/related-items";
+@import "patterns/step-by-step-header";
+@import "patterns/step-by-step-nav";
+@import "patterns/step-by-step-related";
+@import "patterns/task-list";
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 @import "navigation/header-navigation";
-@import "navigation/header-navigation-v2";
+
 @import "govuk-pagination/govuk-pagination";
+
 @import "moj-pagination/moj-pagination";
+
 @import "sub-navigation/moj-sub-navigation";
-@import "moj-pagination/moj-filter";
+
 @import "big-number";
+
 @import "dwp-keydetailbar";
+
 @import "dwp-dialog";
-@import "nhs-card";
-@import "_moj-filter";
-@import "_moj-side-navigation";
-@import "_new-filter";
+
+//@import "width-container";
 
 
 .customer-view-card-group {
@@ -76,7 +92,7 @@
     /*text-decoration: none;*/
 }
 
-.customer-view-card-list>li:last-child {
+.customer-view-card-list>li:last-child, ul>li:last-child, ol>li:last-child {
     margin-bottom: 0;
 }
 
@@ -105,63 +121,4 @@
   .customer-view-card__content {
       padding: 24px;
   }
-}
-
-
-.govuk-hidden {
-    display: none;
-}
-
-.govuk-show {
-    display: block;
-}
-
-.govuk-summary-list__row th, .govuk-summary-list__row td   {
-    text-align: left;
-    vertical-align: top;
-}
-
-.govuk-summary-list__row td   {
-    text-align: left;
-    vertical-align: top;
-}
-
-tr.govuk-summary-list__row:not(.govuk-summary-list__row--no-actions) > :last-child {
-
-    // text-align: right;
-    padding-right: 0;
-}
-
-.govuk-summary-list__actions {
- text-align: right;
-}
-
-.break-line-colleague-view {
-
-    word-break: break-all;
-}
-
-.govuk-cv-overflow {
-    overflow-x:auto;
-}
-
-.govuk-cv-notification-banner {
-    margin-bottom: 30px;
-
-}
-.govuk-cv-notification-banner .govuk-notification-banner__content p {
-    min-width: 100%;
-}
-
-.govuk-cv-notification-banner .govuk-notification-banner__heading {
-    font-weight: 400;
-    font-size: 1.1875rem;
-    font-size: 19px;
-    line-height: 1.31579;
-}
-.colleague-view-benefit-list {
-    width: auto;
-    text-align: left;
-    font-weight: 600;
-    // padding-top: 5px;
 }
