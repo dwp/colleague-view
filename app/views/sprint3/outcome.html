@@ -1,0 +1,60 @@
+{% extends "layout.html" %} {% block pageTitle %} Question page template – {{
+serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">What was the outcome of the queries?</h1>
+
+    <form class="form" action="/confirmation" method="post">
+      {% for benefit, enquiryTypes in enquiries %}
+      <h1 class="govuk-heading-l">{{benefit}}</h1>
+      {% for enquiryType, enquiries in enquiryTypes %}
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">
+              {{enquiryType | replace("-"," ") | capitalize}}
+            </th>
+            <th scope="col" class="govuk-table__header">
+              Note
+            </th>
+            <th scope="col" class="govuk-table__header">
+              Outcome
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% for enquiry in enquiries %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              {{enquiry}}
+            </td>
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <a class="govuk-link" href="#">Add note</a>
+            </td>
+            <td class="govuk-table__cell govuk-!-width-one-quarter">
+              <div class="govuk-form-group">
+                <select
+                  class="govuk-select"
+                  id="sort"
+                  name="outcome[{{benefit}}][{{enquiryType}}][{{enquiry}}]"
+                >
+                  <option value="resolved" selected>Resolved</option>
+                  <option value="escalated">Escalated</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% endfor %} {% endfor %}
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

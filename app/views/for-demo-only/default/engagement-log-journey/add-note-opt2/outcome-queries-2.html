@@ -1,0 +1,260 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  {% include "sprint13/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint13/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <form action="/sprint13/confirmation-contact-looged" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  What was the outcome of the queries?
+                </h1>
+              </legend>
+              <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+                <div class="govuk-accordion__section">
+                  <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                      <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                        Employment and Support Allowance
+                      </span>
+                    </h2>
+                  </div>
+                  <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                    <h3 class="govuk-heading-m">Payment</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                Add note
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label" for="more-detail">
+                                  Write your notes here
+                                </label>
+                                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+                              </div>
+                              <button class="govuk-button" data-module="govuk-button">
+                                Save note
+                              </button>
+                            </div>
+                          </details>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Choose enquiry status</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="published">Choose enquiry status</option>
+                              <option value="updated" selected>Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                Add note
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label" for="more-detail">
+                                  Write your notes here
+                                </label>
+                                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+                              </div>
+                              <button class="govuk-button" data-module="govuk-button">
+                                Save note
+                              </button>
+                            </div>
+                          </details>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Choose enquiry status</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="published">Choose enquiry status</option>
+                              <option value="updated" selected>Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                Add note
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label" for="more-detail">
+                                  Write your notes here
+                                </label>
+                                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+                              </div>
+                              <button class="govuk-button" data-module="govuk-button">
+                                Save note
+                              </button>
+                            </div>
+                          </details>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Choose enquiry status</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="published">Choose enquiry status</option>
+                              <option value="updated" selected>Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      </dl>
+                  </div>
+                </div>
+                <div class="govuk-accordion__section">
+                  <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                      <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                        Carer's Allowance (CA)
+                      </span>
+                    </h2>
+                  </div>
+                  <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                Add note
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label" for="more-detail">
+                                  Write your notes here
+                                </label>
+                                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+                              </div>
+                              <button class="govuk-button" data-module="govuk-button">
+                                Save note
+                              </button>
+                            </div>
+                          </details>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Choose enquiry status</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="published">Choose enquiry status</option>
+                            <option value="updated" selected>Escalated</option>
+                            <option value="views">Resolved</option>
+                          </select>
+                        </dd>
+                      </div>
+
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Date of birth
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                              <span class="govuk-details__summary-text">
+                                Add note
+                              </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label" for="more-detail">
+                                  Write your notes here
+                                </label>
+                                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+                              </div>
+                              <button class="govuk-button" data-module="govuk-button">
+                                Save note
+                              </button>
+                            </div>
+                          </details>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="published">Choose enquiry status</option>
+                            <option value="updated" selected>Escalated</option>
+                            <option value="views">Resolved</option>
+                          </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          72 Guild Street<br>London<br>SE23 6FH
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> address</span>
+                          </a>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Contact details
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p class="govuk-body">07700 900457</p>
+                          <p class="govuk-body">sarah.phillips@example.com</p>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> contact details</span>
+                          </a>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

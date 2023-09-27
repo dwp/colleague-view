@@ -1,0 +1,45 @@
+{% extends "layout.html" %} {% block pageTitle %} Question page template – {{
+serviceName }} – GOV.UK Prototype Kit {% endblock %} {% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">What benefits are they calling about?</h1>
+    <form class="form" action="/query/0" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input
+                class="govuk-checkboxes__input"
+                id="esa"
+                name="benefits"
+                type="checkbox"
+                value="Employment Support Allowance (ESA)"
+              />
+              <label class="govuk-label govuk-checkboxes__label" for="esa">
+                Employment Support Allowance (ESA)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input
+                class="govuk-checkboxes__input"
+                id="ca"
+                name="benefits"
+                type="checkbox"
+                value="Carers Allowance (CA)"
+              />
+              <label class="govuk-label govuk-checkboxes__label" for="ca">
+                Carers Allowance (CA)
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

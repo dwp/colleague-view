@@ -1,0 +1,124 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import "lib/extensions/extensions";
+
+// Patterns that aren't in Frontend
+@import "patterns/contents-list";
+@import "patterns/mainstream-guide";
+@import "patterns/pagination";
+@import "patterns/related-items";
+@import "patterns/step-by-step-header";
+@import "patterns/step-by-step-nav";
+@import "patterns/step-by-step-related";
+@import "patterns/task-list";
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+@import "navigation/header-navigation";
+
+@import "govuk-pagination/govuk-pagination";
+
+@import "moj-pagination/moj-pagination";
+
+@import "sub-navigation/moj-sub-navigation";
+
+@import "big-number";
+
+@import "dwp-keydetailbar";
+
+@import "dwp-dialog";
+
+//@import "width-container";
+
+
+.customer-view-card-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+.customer-view-card-group__item {
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+.customer-view-card-group__item .customer-view-card {
+    margin-bottom: 32px;
+}
+
+.customer-view-card {
+    margin-bottom: 40px;
+    background: #fff;
+    border: 1px solid #d8dde0;
+    position: relative;
+    width: 100%;
+}
+.customer-view-card--clickable {
+    border-bottom-width: 4px;
+}
+.customer-view-card--clickable:hover {
+    border-color: #aeb7bd;
+}
+
+.customer-view-card--clickable:active {
+    border-color: #aeb7bd;
+    bottom: -1px;
+}
+
+.customer-view-card__content {
+    padding: 24px;
+    position: relative;
+}
+.customer-view-card__content>*:first-child {
+    margin-top: 0;
+}
+.customer-view-card__heading, .customer-view-card__metadata, .customer-view-card__description {
+    margin-bottom: 16px;
+}
+
+.customer-view-card__content>*:last-child {
+    margin-bottom: 0;
+}
+
+.customer-view-card--clickable:hover .customer-view-card__heading a, .customer-view-card--clickable:hover .customer-view-card__link, .customer-view-card--clickable:active .customer-view-card__heading a, .customer-view-card--clickable:active .customer-view-card__link {
+    color: #003078;
+    /*text-decoration: none;*/
+}
+
+.customer-view-card-list>li:last-child, ul>li:last-child, ol>li:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 48.0525em){
+
+  .customer-view-card-group {
+      margin-bottom: 40px;
+  }
+
+}
+
+@media (max-width: 48.0525em){
+  .customer-view-card-group__item {
+      flex: 0 0 100%;
+  }
+}
+
+
+@media (max-width: 48.0525em){
+  .customer-view-card-group__item .customer-view-card {
+      margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 40.0625em){
+  .customer-view-card__content {
+      padding: 24px;
+  }
+}

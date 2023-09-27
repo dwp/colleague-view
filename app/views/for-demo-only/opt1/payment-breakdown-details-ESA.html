@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Payment breakdown details
+{% endblock %}
+
+{% block header %}
+  {% include "for-demo-only/common/opt1/header-navigation_PaymentandAwards-active.html" %}
+    {% include "for-demo-only/common/opt1/keydetail-bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "for-demo-only/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "for-demo-only/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">Payment breakdown</h1>
+    <h2 class="govuk-heading-m govuk-!-margin-top-6">Employment and Support Allowance (ESA)</h2>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Award amount
+        </dt>
+        <dd class="govuk-summary-list__value">
+          £160.95
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Payment frequency
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Every 2 weeks
+        </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Next paid date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            21 April 2023
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Next payment amount
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £125.20
+            <div class="govuk-grid-row govuk-!-margin-top-2">
+              <div class="govuk-grid-column-one-half">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      Show payment breakdown
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <table class="govuk-table">
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header">Payment type</th>
+                          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                          <td class="govuk-table__cell">Award</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£160.95</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                          <td class="govuk-table__cell">Total deductions</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£35.75</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">Total</th>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£125.20</td>
+                        </tr>
+                      </tbody>
+                  </table>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </dd>
+        </div>
+      </dl>
+
+  </div>
+</div>
+
+{% endblock %}

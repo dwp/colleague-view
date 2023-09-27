@@ -1,0 +1,48 @@
+{% extends "layout.html" %} {% block pageTitle %} Confirmation page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %}{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %} {% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Session complete</h1>
+      <div class="govuk-panel__body">
+        Customer reference number<br /><strong>HDJ2123F</strong>
+      </div>
+    </div>
+    <div
+      class="govuk-notification-banner"
+      role="region"
+      aria-labelledby="govuk-notification-banner-title"
+      data-module="govuk-notification-banner"
+    >
+      <div class="govuk-notification-banner__header">
+        <h2
+          class="govuk-notification-banner__title"
+          id="govuk-notification-banner-title"
+        >
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          A feedback from link has been sent to the customers mobile number.
+        </p>
+      </div>
+    </div>
+    <a
+      style="text-decoration:none;"
+      href="/"
+      id="reset"
+      class="govuk-button govuk-button--secondary"
+      data-module="govuk-button"
+      type="button"
+      style="margin-bottom:0;"
+    >
+      Reset for next engagement
+    </a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends "colleague-view-layout.html" %} {% block pageTitle %} Payments {%
+endblock %} {% block content %} {{ govukBreadcrumbs({ items: [ { text:
+"Overview", href: "/overview" }, { text: "Payments", href: "/payments" } ] }) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">Payments</h1>
+    {% set benefitAndAwardsHtml %}
+    <h1 class="govuk-heading-l">Benefits & awards summary</h1>
+    {% for benefit in user.benefits %}
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">
+        {{benefit.name}}
+      </caption>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Award amount</th>
+          <td class="govuk-table__cell">{{benefit.awardAmount}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Payment frequency</th>
+          <td class="govuk-table__cell">{{benefit.paymentFrequency}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Last paid date</th>
+          <td class="govuk-table__cell">{{benefit.lastPaidDate}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Last payment amount</th>
+          <td class="govuk-table__cell">
+            {{benefit.lastPaymentAmount}}
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Payment breakdown
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <table class="govuk-table">
+                  <tbody class="govuk-table__body">
+                    {% for key,value in benefit.paymentBreakdown %}
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">
+                        {{key}}
+                      </th>
+                      <td class="govuk-table__cell">£{{value}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Next payment date</th>
+          <td class="govuk-table__cell">{{benefit.nextPaymentDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+    {% endfor %} {% endset -%} {% set paymentHistoryHtml %}
+    <h1 class="govuk-heading-l">Payment history</h1>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half">
+            Benefit
+          </th>
+          <th
+            scope="col"
+            class="govuk-table__header govuk-table__header--numeric"
+          >
+            Payment amount
+          </th>
+          <th
+            scope="col"
+            class="govuk-table__header govuk-table__header--numeric"
+          >
+            Status
+          </th>
+          <th
+            scope="col"
+            class="govuk-table__header govuk-table__header--numeric"
+          >
+            Paid date
+          </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for payment in user.paymentHistory %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{payment.name}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            {{payment.paymentAmount}}
+          </td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            {{payment.status}}
+          </td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            {{payment.paidDate}}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endset -%} {{ govukTabs({ items: [ { label: "Benefit & Awards", id:
+    "benefit-awards", panel: { html: benefitAndAwardsHtml } }, { label: "Payment
+    History", id: "payment-history", panel: { html: paymentHistoryHtml } } ] })
+    }}
+  </div>
+</div>
+
+{% endblock %}
