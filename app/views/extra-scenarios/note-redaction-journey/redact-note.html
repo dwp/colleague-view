@@ -23,14 +23,14 @@
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="contact-history-detail" method="post" novalidate>
+        <form action="contact-history-detail-redacted" method="post" novalidate>
           <div class="govuk-form-group">
             <h1 class="govuk-label-wrapper">
-              <label class="govuk-label govuk-label--l" for="{{notesName}}">
+              <label class="govuk-label govuk-label--l" for="redact-note">
                 Redact note 
               </label>
             </h1>
-            <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="{{notesName}}" name="{{notesName}}" rows="5" aria-describedby="more-detail-hint">{{notesValue}}</textarea>
+            <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="redact-note" name="redact-note" rows="5" aria-describedby="more-detail-hint">Note explaining that the payment is believed to be updated. Customer has recently updated the Bank Details. Christopher’s new account is in HSBC bank with NINO shared LG123456A.</textarea>
             <div id="more-detail-hint" class="govuk-hint">
               You have 200 characters remaining
             </div>
@@ -50,7 +50,7 @@
             <button class="govuk-button" data-module="govuk-button">
               Save and Continue
             </button>
-            <a class="govuk-link" href="contact-history-detail.html">Cancel</a>
+            <a class="govuk-link" href="contact-history-detail-redacted.html">Cancel</a>
           </div>
         </form>
       </div>
