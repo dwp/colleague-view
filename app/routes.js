@@ -4103,6 +4103,27 @@ router.post('/sprint22/opt1/home-page-first-time', function (req, res) {
 
 })
 
+
+// for demo prototype only
+
+router.post('/for-demo-only/opt1/engagement-log-journey/what-service-called-about', function (req, res) {
+  // Make a variable and give it the value from 'how-many-balls'
+  var completeSession = req.session.data['Do-you-want-to-complete-the-session-forDemo']
+
+  // Check whether the variable matches a condition
+  if (completeSession == "Yes") {
+    // Send user to next page
+    res.redirect('/for-demo-only/opt1/engagement-log-journey/what-service-called-about');
+  } else {
+    // Send user back to same page
+    res.redirect('/for-demo-only/opt1/home-page');
+  }
+
+});
+
+
+
+
 // Add your routes here - above the module.exports line
 
 module.exports = router
