@@ -93,14 +93,13 @@
                     Missing Payment 
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    <strong class="govuk-tag govuk-tag--green">Resolved</strong>
+                    <strong class="govuk-tag govuk-tag--red">Escalated</strong>
                   </dd> 
                   <dd class="govuk-summary-list__value">
                       <div class="govuk-body"><span class="govuk-!-font-weight-bold govuk-!-padding-right-1">Note:</span>by Agent (1003)
                         <span class="govuk-caption-m govuk-!-font-size-16 govuk-!-padding-top-1">10 February 2023 at 12:00</span>
                       </div>
-                      <p class="govuk-body default-note">Note explaining that the payment is believed to be updated. Customer has recently updated the Bank Details. Christopher’s new account is in HSBC bank with NINO shared LG123456A.</p>
-                      
+                      <p class="govuk-body">{{data['redact-note']}}</p>
                       <a class="govuk-link" href="redact-note.html">
                         Redact note<span class="govuk-visually-hidden"> name</span>
                       </a>
@@ -114,8 +113,7 @@
                     Explanation
                   </dt>
                   <dd class="govuk-summary-list__value">
-                   
-                    <strong class="govuk-tag govuk-tag--red">Escalated</strong>
+                    <strong class="govuk-tag govuk-tag--green">Resolved</strong>
                   </dd>
                   <!-- <dd class="govuk-summary-list__actions">
                    <a class="govuk-link" href="#"> 
@@ -147,6 +145,5 @@
         <h1 class="govuk-heading-m">Friday 14 April 2023, 12:15</h1>
       </div>
     </div>
-
 
 {% endblock %}

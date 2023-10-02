@@ -5,29 +5,19 @@
 {% endblock %}
 
 {% block header %}
-  {% include "for-demo-only/common/opt1/header-navigation_EngagementHistory-active.html" %}
-    {% include "for-demo-only/common/opt1/keydetail-bar.html" %}
+  {% include "sprint22/common/opt1/header-navigation_EngagementHistory-active.html" %}
+    {% include "sprint22/common/opt1/keydetail-bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "for-demo-only/common/footer.html" %}
+  {% include "sprint22/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-{% include "for-demo-only/common/phase-banner--user-research.html" %}
-<!-- <div class="govuk-breadcrumbs">
-<ol class="govuk-breadcrumbs__list">
-  <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
-  </li>
-  <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="#">Contact history</a>
-  </li>
-</ol>
-</div> -->
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% include "sprint22/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -41,7 +31,7 @@
                 <!-- <p class="govuk-body-s">Label name</p>
                 <p class="govuk-body govuk-!-font-weight-bold ">Value</p> -->
                 <span class="govuk-caption-m">Logged on</span>
-                <h3 class="govuk-heading-s">14 April 2023, 12:00</h3>
+                <h3 class="govuk-heading-s">Mon 10 February 2023, 12:00</h3>
               </div>
               <div class="govuk-grid-column-one-half govuk-!-text-align-right">
                 <!-- <p class="govuk-body-s">Label name</p>
@@ -55,7 +45,7 @@
                 <!-- <p class="govuk-body-s">Label name</p>
                 <p class="govuk-body govuk-!-font-weight-bold ">Value</p> -->
                 <span class="govuk-caption-m">Requested by</span>
-                <h3 class="govuk-heading-s">George Wood (Corporate PAB)</h3>
+                <h3 class="govuk-heading-s">Jane Doe (Appointee)</h3>
               </div>
               <div class="govuk-grid-column-one-half govuk-!-text-align-right">
                 <!-- <p class="govuk-body-s">Label name</p>
@@ -67,7 +57,7 @@
           </div>
         </div>
         <span class="govuk-caption-m">Started at</span>
-        <h1 class="govuk-heading-m">Friday 14 April 2023, 12:00</h1>
+        <h1 class="govuk-heading-m">Mon 31 Jan 2022, 11:45</h1>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
             <div class="colleague-view-upcomming-payment-benefit">
@@ -76,77 +66,80 @@
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                  Next Payment Date
+                   Next Payment Date<strong class="govuk-tag govuk-tag--green">Resolved</strong> 
                   </dt>
                    <dd class="govuk-summary-list__value">
-                    <strong class="govuk-tag govuk-tag--green">Resolved</strong>
-                  </dd> 
-                  <dd class="govuk-summary-list__value">
-                    
-                    <!-- <p class="govuk-body">
+                    <p class="govuk-body">
                       Note explaining that the payment is believed to be updated. Customer has recently updated the Bank Details. Christopher’s new account is in HSBC bank with NINO shared LG123456A.
-                    </p> -->
-                  </dd>
+                    </p>
+                    <a class="govuk-link" href="redact-note.html">
+                      Redact note<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                  </dd> 
+                  <!-- <dd class="govuk-summary-list__actions govuk-!-text-align-left">
+                    
+                    <p class="govuk-body">
+                      Note explaining that the payment is believed to be updated. Customer has recently updated the Bank Details. Christopher’s new account is in HSBC bank with NINO shared LG123456A.
+                    </p>
+                    <a class="govuk-link" href="#">
+                      Redact note<span class="govuk-visually-hidden"> name</span>
+                    </a>
+                  </dd> -->
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Missing Payment 
+                    Date of birth <strong class="govuk-tag govuk-tag--red">Escalated</strong> 
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    <strong class="govuk-tag govuk-tag--green">Resolved</strong>
+                    <p class="govuk-body">
+                      Note explaining that the payment is believed to be updated. Customer has recently updated the Bank Details. Christopher’s new account is in HSBC bank with NINO shared LG123456A.
+                    </p>
+                    <a class="govuk-link" href="#">
+                      Redact note<span class="govuk-visually-hidden"> name</span>
+                    </a>
                   </dd> 
-                  <dd class="govuk-summary-list__value">
-                      <div class="govuk-body"><span class="govuk-!-font-weight-bold govuk-!-padding-right-1">Note:</span>by Agent (1003)
-                        <span class="govuk-caption-m govuk-!-font-size-16 govuk-!-padding-top-1">10 February 2023 at 12:00</span>
-                      </div>
-                      <p class="govuk-body default-note">Note explaining that the payment is believed to be updated. Customer has recently updated the Bank Details. Christopher’s new account is in HSBC bank with NINO shared LG123456A.</p>
-                      
-                      <a class="govuk-link" href="redact-note.html">
-                        Redact note<span class="govuk-visually-hidden"> name</span>
-                      </a>
-                  </dd>
+                  <!-- <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> date of birth</span>
+                    </a>
+                  </dd> -->
                 </div>
               </dl>
               <h2 class="govuk-heading-m">Progress chasing</h2>
               <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Explanation
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                   
-                    <strong class="govuk-tag govuk-tag--red">Escalated</strong>
-                  </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                   <a class="govuk-link" href="#"> 
-                      Change<span class="govuk-visually-hidden"> name</span>
-                   </a>
-                  </dd> -->
-                </div>
-              </dl>
-              <h2 class="govuk-heading-m">Change of circumstances</h2>
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Change of Address
+                    Next Payment Date
                   </dt>
                   <dd class="govuk-summary-list__value">
                     <strong class="govuk-tag govuk-tag--green">Resolved</strong>
                   </dd>
-                  <!-- <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#"> 
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
                       Change<span class="govuk-visually-hidden"> name</span>
                     </a>
-                  </dd> -->
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date of birth
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <strong class="govuk-tag govuk-tag--red">Escalated</strong>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                      Change<span class="govuk-visually-hidden"> date of birth</span>
+                    </a>
+                  </dd>
                 </div>
               </dl>
             </div>
           </div>
         </div>
         <span class="govuk-caption-m">Ended at</span>
-        <h1 class="govuk-heading-m">Friday 14 April 2023, 12:15</h1>
+        <h1 class="govuk-heading-m">Mon 31 Jan 2022, 12:00</h1>
       </div>
     </div>
-
 
 {% endblock %}
