@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Which benefits did you discuss with Christopher Fox?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/sprint27/common/opt1/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint27/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/benefitPages.html" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Which benefits did you discuss with Christopher Fox?
+                </h1>
+              </legend>
+              <div id="waste-hint" class="govuk-hint">
+                Select all that apply.
+              </div>
+              <div class="govuk-checkboxes govuk-!-margin-top-5" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="EAS" name="What-services-have-they-called-about" type="checkbox" value="esa">
+                  <label class="govuk-label govuk-checkboxes__label" for="EAS">
+                    Employment and Support Allowance (ESA)
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="PIP" name="What-services-have-they-called-about" type="checkbox" value="pip">
+                  <label class="govuk-label govuk-checkboxes__label" for="PIP">
+                    Personal Independence Payment (PIP)
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="CA" name="What-services-have-they-called-about" type="checkbox" value="ca">
+                  <label class="govuk-label govuk-checkboxes__label" for="CA">
+                    Carer's Allowance (CA)
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

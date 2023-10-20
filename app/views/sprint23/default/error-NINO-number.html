@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Invalid NINO
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "sprint13/common/phase-banner.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint13/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#full-name-input">{{errMsg}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-xl">Check a customer’s benefit information</h1>
+    <p class="govuk-body govuk-!-font-weight-bold">Use this service to:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Answer basic customer queries about benefits they receive</li>
+      <li>Log the details of contact with a customer</li>
+      <li>Check previous contact the customer has had with the DWP</li>
+      <li>Access a customer's personal details</li>
+    </ul>
+      <form class="form button_to" action="/sprint13/engagement-type" method="post">
+        <div class="govuk-form-group govuk-!-margin-top-7 govuk-!-margin-bottom-2 govuk-form-group--error">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="national-insurance-number">
+              Enter a National Insurance number
+            </label>
+          </h2>
+
+          <div id="national-insurance-number-hint" class="govuk-hint">
+            It’s found on the customer’s National Insurance card, benefit letter, payslip or P60. For example, ‘QQ123456Q’.
+          </div>
+          <p id="national-insurance-number-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> {{errMsg}}
+          </p>
+          <input class="govuk-input govuk-input--width-10 govuk-input--error" id="national-insurance-number" name="national-insurance-number" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint" value="{{ data['national-insurance-number'] }}">
+        </div>
+
+          <button draggable="false" data-module="govuk-button" class="govuk-button govuk-button--start govuk-!-margin-top-5" type="submit">
+            Start now<svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" focusable="false" aria-hidden="true">
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </button>
+        </form>
+
+    <h2 class="govuk-heading-m">Before you start</h2>
+
+    <p class="govuk-body">
+      The online service is also available in
+      <a class="govuk-link" href="#">Welsh (Cymraeg)</a>.
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-visually-hidden">
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-link govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+
+
+{% endblock %}

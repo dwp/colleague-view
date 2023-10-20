@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Homepage
+{% endblock %}
+
+
+{% block header %}
+  {% include "sprint23/common/opt2/header-navigation_home-active.html" %}
+      {% include "sprint23/common/opt2/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint23/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "sprint23/common/phase-banner--user-research.html" %}
+<div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
+  </li>
+</ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Account home</h1>
+        </div>
+        <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+          <!-- <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add note
+          </button> -->
+          <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add call details</a>
+          <!-- <p class="govuk-body">
+            <a href="engagement-log-journey/add-note" class="govuk-link govuk-link--no-visited-state">Add call details</a>
+          </p> -->
+        </div>
+      </div>
+      <ul class="govuk-grid-row customer-view-card-group">
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="personal-details.html">Christopher Fox's details</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">View Christopher Fox's personal details.</p>
+                </div>
+              </div>
+            </li>
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="contact-history.html">Contact history</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">View notes and details for previous contact with Christopher Fox.</p>
+                </div>
+              </div>
+            </li>
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="payment-and-awards.html">Upcoming and historic benefit payments</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">Check payments and details for benefits that Christopher Fox gets.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+    </div>
+  </div>
+
+{% endblock %}

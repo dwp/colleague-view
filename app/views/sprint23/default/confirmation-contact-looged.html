@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Contact logged confirmation
+{% endblock %}
+
+
+{% block footer %}
+  {% include "sprint13/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Contact logged</h1>
+      </div>
+      <form action="/sprint13/home-page" method="post" novalidate>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Reset for next contact
+        </button>
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

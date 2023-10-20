@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Is this an incoming or outgoing telephone call?
+{% endblock %}
+
+{% block header %}
+  {% include "sprint23/common/opt1/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint23/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "sprint23/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="engagement-with" method="post">
+
+              <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Is this an incoming or outgoing telephone call?
+              </h1>
+            </legend>
+            <div id="changed-name-hint" class="govuk-hint">
+              Select one option
+            </div>
+            <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="incoming-telephone-call" name="What-type-of-engagement-is-it-sprint27" type="radio" value="Incoming telephone call">
+                <label class="govuk-label govuk-radios__label" for="incoming-telephone-call">
+                  Incoming
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="incoming-telephone-call-2" name="What-type-of-engagement-is-it-sprint27" type="radio" value="Outgoing telephone call">
+                <label class="govuk-label govuk-radios__label" for="incoming-telephone-call-2">
+                  Outgoing
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+              <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+            </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}

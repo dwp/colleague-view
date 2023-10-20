@@ -1,0 +1,1712 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What was the outcome of the queries?
+{% endblock %}
+
+{% block header %}
+  {% include "for-demo-only/common/opt1/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+
+
+{% block footer %}
+  {% include "for-demo-only/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "for-demo-only/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <form action="/for-demo-only/opt1/confirmation-contact-looged" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  What was the outcome of the queries?
+                </h1>
+              </legend>
+              <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+                <div class="govuk-accordion__section {{isEsa}}">
+                  <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                      <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                        Employment and Support Allowance
+                      </span>
+                    </h2>
+                  </div>
+                  <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                    <h3 class="govuk-heading-m {{esaPayment}}">Payment enquiry</h3>
+                    <dl class="govuk-summary-list {{esaNextPaymentDate}}">
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaNextPaymentDateNotes}}</p>
+                          <a class="govuk-link {{esaNextPaymentDateAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaNextPaymentDateNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaNextPaymentDateEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaNextPaymentDateNotes">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Amount
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaNextPaymentAmountNotes}}</p>
+                          <a class="govuk-link {{esaNextPaymentAmountAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaNextPaymentAmountNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaNextPaymentAmountEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaNextPaymentAmountNotes">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaMissingPayment}}">
+                        <dt class="govuk-summary-list__key">
+                          Missing Payment
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaMissingPaymentNotes}}</p>
+                          <a class="govuk-link {{esaMissingPaymentAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaMissingPaymentNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaMissingPaymentEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaMissingPaymentNotes">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{esaProcessChasing}}">Processing Chasing enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaNewClaim}}">
+                        <dt class="govuk-summary-list__key">
+                          New Claim
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaPcOption1}}</p>
+                          <a class="govuk-link {{esaPcOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaPcOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaClaimClosureContact}}">
+                        <dt class="govuk-summary-list__key">
+                          Claim Closure Contact
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaPcOption2}}</p>
+                          <a class="govuk-link {{esaPcOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaPcOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaExplanation}}">
+                        <dt class="govuk-summary-list__key">
+                          Explanation
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaPcOption3}}</p>
+                          <a class="govuk-link {{esaPcOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaPcOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaAppealReconsiSupSOS}}">
+                        <dt class="govuk-summary-list__key">
+                          Appeal, Reconsideration, Supersessions, SOS
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaPcOption4}}</p>
+                          <a class="govuk-link {{esaPcOption4AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption4">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaPcOption4EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption4">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaInterventionsPlanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Planned (Award Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaPcOption5}}</p>
+                          <a class="govuk-link {{esaPcOption5AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption5">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaPcOption5EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption5">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaInterventionsUnplanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Unplanned (CoC Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaPcOption6}}</p>
+                          <a class="govuk-link {{esaPcOption6AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption6">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaPcOption6EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption6">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaSevereDisablementPremium}}">
+                        <dt class="govuk-summary-list__key">
+                          Severe Disablement Premium (SDP)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaPcOption7}}</p>
+                          <a class="govuk-link {{esaPcOption7AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption7">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaPcOption7EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaPcOption7">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{esaCoc}}">Change of circumstances enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaSpcAccAdmis}}">
+                        <dt class="govuk-summary-list__key">
+                          Special Accommodation Admission/Discharge
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption1}}</p>
+                          <a class="govuk-link {{esaCocOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeofAddress}}">
+                        <dt class="govuk-summary-list__key">
+                          Change of Address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption2}}</p>
+                          <a class="govuk-link {{esaCocOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeHospitalStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Hospital Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption3}}</p>
+                          <a class="govuk-link {{esaCocOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaSavingsInvestments}}">
+                        <dt class="govuk-summary-list__key">
+                          Savings and Investments
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption4}}</p>
+                          <a class="govuk-link {{esaCocOption4AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption4">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption4EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption4">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeCarerStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Carer's Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption5}}</p>
+                          <a class="govuk-link {{esaCocOption5AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption5">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption5EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption5">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaCareHomeAdmission}}">
+                        <dt class="govuk-summary-list__key">
+                          Care Home Admission
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption6}}</p>
+                          <a class="govuk-link {{esaCocOption6AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption6">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption6EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption6">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangesEarnings}}">
+                        <dt class="govuk-summary-list__key">
+                          Changes to Earnings
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption7}}</p>
+                          <a class="govuk-link {{esaCocOption7AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption7">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption7EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption7">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeBankDetails}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Bank Details
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption8}}</p>
+                          <a class="govuk-link {{esaCocOption8AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption8">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption8EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption8">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeFamilyUnit}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Family Unit
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption9}}</p>
+                          <a class="govuk-link {{esaCocOption9AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption9">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption9EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption9">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeMedicalCondition}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Medical Condition
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption10}}</p>
+                          <a class="govuk-link {{esaCocOption10AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption10">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption10EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaCocOption10">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{esaLoe}}">Letter of Entitlement enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaLoeRequest}}">
+                        <dt class="govuk-summary-list__key">
+                          LoE Request
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaLoeOption1}}</p>
+                          <a class="govuk-link {{esaLoeOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaLoeOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaLoeOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaLoeOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{esaGeneral}}">General enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaMedicalEvidenceEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Medical Evidence Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption1}}</p>
+                          <a class="govuk-link {{esaGeneralOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaGeneralOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaGeneralOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaJobcentreAppointmentEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Jobcentre Appointment or Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption2}}</p>
+                          <a class="govuk-link {{esaGeneralOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaGeneralOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaGeneralOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaGeneralEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          General Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption3}}</p>
+                          <a class="govuk-link {{esaGeneralOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaGeneralOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/esaGeneralOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+                <div class="govuk-accordion__section {{isPip}}">
+                  <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                      <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                        Personal Independence Payment
+                      </span>
+                    </h2>
+                  </div>
+                  <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                    <h3 class="govuk-heading-m {{pipPayment}}">Payment enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{pipNextPaymentDate}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipNextPaymentDateNotes}}</p>
+                          <a class="govuk-link {{pipNextPaymentDateAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipNextPaymentDateNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipNextPaymentDateEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipNextPaymentDateNotes">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Amount
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipNextPaymentAmountNotes}}</p>
+                          <a class="govuk-link {{pipNextPaymentAmountAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipNextPaymentAmountNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipNextPaymentAmountEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipNextPaymentAmountNotes">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipMissingPayment}}">
+                        <dt class="govuk-summary-list__key">
+                          Missing Payment
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipMissingPaymentNotes}}</p>
+                          <a class="govuk-link {{pipMissingPaymentAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipMissingPaymentNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipMissingPaymentEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipMissingPaymentNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{pipProcessChasing}}">Processing Chasing enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{pipNewClaim}}">
+                        <dt class="govuk-summary-list__key">
+                          New Claim
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipPcOption1}}</p>
+                          <a class="govuk-link {{pipPcOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipPcOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipClaimClosureContact}}">
+                        <dt class="govuk-summary-list__key">
+                          Claim Closure Contact
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipPcOption2}}</p>
+                          <a class="govuk-link {{pipPcOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipPcOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipExplanation}}">
+                        <dt class="govuk-summary-list__key">
+                          Explanation
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipPcOption3}}</p>
+                          <a class="govuk-link {{pipPcOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipPcOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipAppealReconsiSupSOS}}">
+                        <dt class="govuk-summary-list__key">
+                          Appeal, Reconsideration, Supersessions, SOS
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipPcOption4}}</p>
+                          <a class="govuk-link {{pipPcOption4AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption4">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipPcOption4EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption4">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipInterventionsPlanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Planned (Award Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipPcOption5}}</p>
+                          <a class="govuk-link {{pipPcOption5AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption5">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipPcOption5EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption5">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipInterventionsUnplanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Unplanned (CoC Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipPcOption6}}</p>
+                          <a class="govuk-link {{pipPcOption6AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption6">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipPcOption6EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption6">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipSevereDisablementPremium}}">
+                        <dt class="govuk-summary-list__key">
+                          Severe Disablement Premium (SDP)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipPcOption7}}</p>
+                          <a class="govuk-link {{pipPcOption7AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption7">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipPcOption7EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipPcOption7">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{pipCoc}}">Change of circumstances enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{pipSpcAccAdmis}}">
+                        <dt class="govuk-summary-list__key">
+                          Special Accommodation Admission/Discharge
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption1}}</p>
+                          <a class="govuk-link {{pipCocOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeofAddress}}">
+                        <dt class="govuk-summary-list__key">
+                          Change of Address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption2}}</p>
+                          <a class="govuk-link {{pipCocOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeHospitalStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Hospital Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption3}}</p>
+                          <a class="govuk-link {{pipCocOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipSavingsInvestments}}">
+                        <dt class="govuk-summary-list__key">
+                          Savings and Investments
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption4}}</p>
+                          <a class="govuk-link {{pipCocOption4AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption4">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption4EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption4">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeCarerStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Carer's Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption5}}</p>
+                          <a class="govuk-link {{pipCocOption5AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption5">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption5EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption5">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipCareHomeAdmission}}">
+                        <dt class="govuk-summary-list__key">
+                          Care Home Admission
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption6}}</p>
+                          <a class="govuk-link {{pipCocOption6AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption6">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption6EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption6">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangesEarnings}}">
+                        <dt class="govuk-summary-list__key">
+                          Changes to Earnings
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption7}}</p>
+                          <a class="govuk-link {{pipCocOption7AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption7">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption7EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption7">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeBankDetails}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Bank Details
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption8}}</p>
+                          <a class="govuk-link {{pipCocOption8AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption8">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption8EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption8">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeFamilyUnit}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Family Unit
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption9}}</p>
+                          <a class="govuk-link {{pipCocOption9AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption9">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption9EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption9">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeMedicalCondition}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Medical Condition
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipCocOption10}}</p>
+                          <a class="govuk-link {{pipCocOption10AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption10">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipCocOption10EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipCocOption10">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{pipLoe}}">Letter of Entitlement enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row  {{pipLoeRequest}}">
+                        <dt class="govuk-summary-list__key">
+                          LoE Request
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipLoeOption1}}</p>
+                          <a class="govuk-link {{pipLoeOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipLoeOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipLoeOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipLoeOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{pipGeneral}}">General enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{pipMedicalEvidenceEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Medical Evidence Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipGeneralOption1}}</p>
+                          <a class="govuk-link {{pipGeneralOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipGeneralOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipGeneralOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipGeneralOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipJobcentreAppointmentEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Jobcentre Appointment or Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipGeneralOption2}}</p>
+                          <a class="govuk-link {{pipGeneralOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipGeneralOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipGeneralOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipGeneralOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipGeneralEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          General Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{pipGeneralOption3}}</p>
+                          <a class="govuk-link {{pipGeneralOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipGeneralOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{pipGeneralOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/pipGeneralOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="views">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+                <div class="govuk-accordion__section {{isCa}}">
+                  <div class="govuk-accordion__section-header">
+                    <h2 class="govuk-accordion__section-heading">
+                      <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                        Carer's Allowance
+                      </span>
+                    </h2>
+                  </div>
+                  <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                    <h3 class="govuk-heading-m {{caPayment}}">Payment enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{caNextPaymentDate}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caNextPaymentDateNotes}}</p>
+                          <a class="govuk-link {{caNextPaymentDateAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caNextPaymentDateNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caNextPaymentDateEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caNextPaymentDateNotes">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Amount
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caNextPaymentAmountNotes}}</p>
+                          <a class="govuk-link {{caNextPaymentAmountAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caNextPaymentAmountNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caNextPaymentAmountEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caNextPaymentAmountNotes">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caMissingPayment}}">
+                        <dt class="govuk-summary-list__key">
+                          Missing Payment
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caMissingPaymentNotes}}</p>
+                          <a class="govuk-link {{caMissingPaymentAddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caMissingPaymentNotes">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caMissingPaymentEditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caMissingPaymentNotes">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{caProcessChasing}}">Processing Chasing enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{caNewClaim}}">
+                        <dt class="govuk-summary-list__key">
+                          New Claim
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caPcOption1}}</p>
+                          <a class="govuk-link {{caPcOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caPcOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caClaimClosureContact}}">
+                        <dt class="govuk-summary-list__key">
+                          Claim Closure Contact
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caPcOption2}}</p>
+                          <a class="govuk-link {{caPcOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caPcOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caExplanation}}">
+                        <dt class="govuk-summary-list__key">
+                          Explanation
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caPcOption3}}</p>
+                          <a class="govuk-link {{caPcOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caPcOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caAppealReconsiSupSOS}}">
+                        <dt class="govuk-summary-list__key">
+                          Appeal, Reconsideration, Supersessions, SOS
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caPcOption4}}</p>
+                          <a class="govuk-link {{caPcOption4AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption4">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caPcOption4EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption4">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caInterventionsPlanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Planned (Award Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caPcOption5}}</p>
+                          <a class="govuk-link {{caPcOption5AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption5">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caPcOption5EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption5">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caInterventionsUnplanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Unplanned (CoC Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caPcOption6}}</p>
+                          <a class="govuk-link {{caPcOption6AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption6">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caPcOption6EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption6">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caSevereDisablementPremium}}">
+                        <dt class="govuk-summary-list__key">
+                          Severe Disablement Premium (SDP)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caPcOption7}}</p>
+                          <a class="govuk-link {{caPcOption7AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption7">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caPcOption7EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caPcOption7">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{caCoc}}">Change of circumstances enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{caSpcAccAdmis}}">
+                        <dt class="govuk-summary-list__key">
+                          Special Accommodation Admission/Discharge
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption1}}</p>
+                          <a class="govuk-link {{caCocOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeofAddress}}">
+                        <dt class="govuk-summary-list__key">
+                          Change of Address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption2}}</p>
+                          <a class="govuk-link {{caCocOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeHospitalStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Hospital Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption3}}</p>
+                          <a class="govuk-link {{caCocOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caSavingsInvestments}}">
+                        <dt class="govuk-summary-list__key">
+                          Savings and Investments
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption4}}</p>
+                          <a class="govuk-link {{caCocOption4AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption4">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption4EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption4">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeCarerStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Carer's Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption5}}</p>
+                          <a class="govuk-link {{caCocOption5AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption5">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption5EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption5">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caCareHomeAdmission}}">
+                        <dt class="govuk-summary-list__key">
+                          Care Home Admission
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption6}}</p>
+                          <a class="govuk-link {{caCocOption6AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption6">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption6EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption6">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangesEarnings}}">
+                        <dt class="govuk-summary-list__key">
+                          Changes to Earnings
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption7}}</p>
+                          <a class="govuk-link {{caCocOption7AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption7">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption7EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption7">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeBankDetails}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Bank Details
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption8}}</p>
+                          <a class="govuk-link {{caCocOption8AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption8">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption8EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption8">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeFamilyUnit}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Family Unit
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption9}}</p>
+                          <a class="govuk-link {{caCocOption9AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption9">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption9EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption9">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeMedicalCondition}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Medical Condition
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caCocOption10}}</p>
+                          <a class="govuk-link {{caCocOption10AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption10">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caCocOption10EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caCocOption10">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{caLoe}}">Letter of Entitlement enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{caLoeRequest}}">
+                        <dt class="govuk-summary-list__key">
+                          LoE Request
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caLoeOption1}}</p>
+                          <a class="govuk-link {{caLoeOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caLoeOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caLoeOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caLoeOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{caGeneral}}">General enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{caMedicalEvidenceEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Medical Evidence Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caGeneralOption1}}</p>
+                          <a class="govuk-link {{caGeneralOption1AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caGeneralOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caGeneralOption1EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caGeneralOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caJobcentreAppointmentEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Jobcentre Appointment or Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caGeneralOption2}}</p>
+                          <a class="govuk-link {{caGeneralOption2AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caGeneralOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caGeneralOption2EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caGeneralOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caGeneralEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          General Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{caGeneralOption3}}</p>
+                          <a class="govuk-link {{caGeneralOption3AddNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caGeneralOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{caGeneralOption3EditNotes}}" href="/for-demo-only/opt1/engagement-log-journey/add-note/caGeneralOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <select class="govuk-select" id="sort" name="sort">
+                              <option value="Select option" selected>Select option</option>
+                              <option value="Escalated">Escalated</option>
+                              <option value="Resolved">Resolved</option>
+                            </select>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}
