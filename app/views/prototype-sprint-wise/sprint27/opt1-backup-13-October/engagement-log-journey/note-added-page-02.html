@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add notes
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/sprint27/common/opt1/header-navigation_home-active.html" %}
+      {% include "prototype-sprint-wise/sprint27/common/opt1/keydetail-bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "prototype-sprint-wise/sprint27/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint27/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">You have added 1 note</h1>
+        <div class="govuk-form-group">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date and time
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <!-- 10 July 2023, 13:03 -->
+                <p id="todayDate"></p>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Note details
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['add-note'] }}
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <form method="post" novalidate action="../home-page">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="add-another-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Do you want to add another note?
+              </legend>
+              <div id="add-another-hint" class="govuk-hint">
+                You must tell us about your choices.
+              </div>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="add-another" name="add-another" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="add-another">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="add-another-2" name="add-another" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="add-another-2">
+                    No
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const d = new Date();
+      document.getElementById("todayDate").innerHTML = d;
+  </script>
+
+{% endblock %}
