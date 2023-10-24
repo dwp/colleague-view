@@ -5,28 +5,28 @@
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/header.html" %}
+  {% include "sprint23/common/header.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-{% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
+{% include "sprint23/common/phase-banner--user-research.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+  {% include "sprint23/common/footer.html" %}
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-panel__title">Call completed</h1>
-        <form action="../index" method="post" novalidate>
+        <h1 class="govuk-panel__title">Session completed</h1>
+        <form action="../returning-user/index" method="post" novalidate>
           <div class="govuk-form-group">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Call start date and time
+                  Session start date and time
                 </dt>
                 <dd class="govuk-summary-list__value">
                   <p id="todayDate"></p>
@@ -39,7 +39,7 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Length of call
+                  Length of session
                 </dt>
                 <dd class="govuk-summary-list__value">
                   15 minutes
@@ -53,7 +53,7 @@
             </dl>
           </div>
           <button class="govuk-button" data-module="govuk-button">
-            Check another customer's benefit information
+            Accept a new call
           </button>
       </form>
     </div>

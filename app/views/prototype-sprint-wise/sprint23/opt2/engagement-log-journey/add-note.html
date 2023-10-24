@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block header %}
-  {% include "sprint23/common/opt1/header_keydetail_bar.html" %}
+  {% include "sprint23/common/opt2/header-navigation_home-active.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar-call-log.html" %}
 {% endblock %}
-
 
 {% block footer %}
   {% include "sprint23/common/footer.html" %}
@@ -20,16 +20,19 @@
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="/sprint23/opt1/engagement-log-journey/outcome-queries" method="post" novalidate>
+        <form action="call-details-added" method="post" novalidate>
           <div class="govuk-form-group">
             <h1 class="govuk-label-wrapper">
-              <label class="govuk-label govuk-label--l" for="{{notesName}}">
-                Add notes
+              <label class="govuk-label govuk-label--l" for="more-information">
+                Add more information about this call
               </label>
             </h1>
-            <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="{{notesName}}" name="{{notesName}}" rows="5" aria-describedby="more-detail-hint">{{notesValue}}</textarea>
             <div id="more-detail-hint" class="govuk-hint">
-              You have 200 characters remaining
+              You will be able to add or change this information later.
+            </div>
+            <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="more-information" name="more-information" rows="5" aria-describedby="more-detail-hint" value="{{ data['more-information'] }}">{{ data['more-information'] }}</textarea>
+            <div id="more-detail-hint" class="govuk-hint">
+              You have 2000 characters remaining
             </div>
           </div>
           <button class="govuk-button" data-module="govuk-button">
