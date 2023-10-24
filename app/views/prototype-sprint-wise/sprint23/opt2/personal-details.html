@@ -6,7 +6,7 @@ Christopher Fox's details
 
 {% block header %}
   {% include "sprint23/common/opt1/header-navigation_PersonalDetails-active.html" %}
-    {% include "sprint23/common/opt1/keydetail-bar.html" %}
+  {% include "sprint23/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 
@@ -33,7 +33,20 @@ Christopher Fox's details
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-xl">Christopher Fox's details</h1>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-xl">Christopher Fox's details</h1>
+        </div>
+        <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+          <!-- <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add note
+          </button> -->
+          <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add call details</a>
+          <!-- <p class="govuk-body">
+            <a href="engagement-log-journey/add-note" class="govuk-link govuk-link--no-visited-state">Add call details</a>
+          </p> -->
+        </div>
+      </div>
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -179,7 +192,7 @@ Christopher Fox's details
               </details>
             </dd>
           </div>
-        </dl>
+      </dl>
       <h2 class="govuk-heading-m">Contact details</h2>
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
@@ -237,7 +250,7 @@ Christopher Fox's details
             </details>
           </dd>
         </div>
-        </dl>
+      </dl>
     </div>
   </div>
 

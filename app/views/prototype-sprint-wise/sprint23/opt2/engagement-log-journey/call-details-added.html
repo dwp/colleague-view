@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+You have added details about this call
+{% endblock %}
+
+{% block header %}
+{% include "sprint23/common/opt2/header-navigation_home-active.html" %}
+{% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar-call-log.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "sprint23/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "sprint23/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l">You have added details about this call</h1>
+        <!-- display reasons for call -->
+        <h2 class="govuk-heading-m">Reasons for call</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Employment and Support Allowance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Next payment date 
+            </dd>
+            </dd>
+            <!-- <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag">
+                Resolved
+              </strong>
+            </dd> -->
+            <dd class="govuk-summary-list__actions govuk-!-width-one-third">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <strong class="govuk-tag">Resolved</strong>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> contact details</span></a>
+                </li>
+              </ul>
+          </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Employment and Support Allowance
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Next payment amount 
+            </dd>
+            </dd>
+            <!-- <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag">
+                Resolved
+              </strong>
+            </dd> -->
+            <dd class="govuk-summary-list__actions govuk-!-width-one-third">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <strong class="govuk-tag">Resolved</strong>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> contact details</span></a>
+                </li>
+              </ul>
+          </dd>
+          </div>
+        </dl>
+        <!-- display added notes/more information about the call -->
+        <h2 class="govuk-heading-m">More information</h2>
+        <div class="govuk-grid-row govuk-!-margin-bottom-0">
+          <div class="govuk-grid-column-two-thirds">
+            <!-- <div class="govuk-inset-text">
+              This is an example of what more information could look like. This is another example to show what a missing note could look like.
+            </div> -->
+            <!-- <p class="govuk-body">
+              <a href="#" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+            </p> -->
+            <p class="govuk-body">{{ data['more-information'] or "Not provided"  }} </p>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <p class="govuk-body govuk-!-text-align-right">
+              <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+            </p>
+          </div>
+        </div>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-1 govuk-!-margin-bottom-9">
+        <!-- Do you want to add more information -->
+        <form method="post" action="/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-note" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="add-another-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Do you want to add more information about this call?
+              </legend>
+              <div id="add-another-hint" class="govuk-hint">
+                You will write note about this call.
+              </div>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="add-another" name="add-another" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="add-another">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="add-another-2" name="add-another" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="add-another-2">
+                    No
+                  </label>
+                </div>
+              </div>
+        
+            </fieldset>
+          </div>
+        
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+    
+{% endblock %}
+
+

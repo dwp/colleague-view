@@ -6,7 +6,7 @@ Contact history
 
 {% block header %}
   {% include "sprint23/common/opt1/header-navigation_contactHistory-active.html" %}
-    {% include "sprint23/common/opt1/keydetail-bar.html" %}
+  {% include "sprint23/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 
@@ -32,52 +32,25 @@ Contact history
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl">Contact history</h1>
-    <div class="govuk-tabs" data-module="govuk-tabs">
-        <h2 class="govuk-tabs__title">
-          Contents
-        </h2>
-        <!-- Tab button here -->
-        <ul class="govuk-tabs__list">
-          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#add-to-contact-history">
-              Add to contact history
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#view-contact-history">
-              View contact history
-            </a>
-          </li>
-        </ul>
-        <!-- Tab1 content start here -->
-        <div class="govuk-tabs__panel" id="add-to-contact-history">
-          <h2 class="govuk-heading-l">Add to contact history</h2>
-          <form action="engagement-log-journey/what-service-called-about" method="post" novalidate>
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                    <h3 class="govuk-fieldset__heading">
-                      You have not added anything to the contact history during this call
-                    </h3>
-                  </legend>
-                </fieldset>
-              </div>
-              <button class="govuk-button" data-module="govuk-button">
-                Add to contact history
-              </button>
-          </form>
-        </div>
-        <!-- Tab2 content start here -->
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view-contact-history">
-          <h2 class="govuk-heading-l">Contact history</h2>
-          <!-- Filter section start here -->
-          <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Contact history</h1>
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <!-- <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add note
+        </button> -->
+        <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add call details</a>
+        <!-- <p class="govuk-body">
+          <a href="engagement-log-journey/add-note" class="govuk-link govuk-link--no-visited-state">Add call details</a>
+        </p> -->
+      </div>
+    </div>
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
             Show filter
-          </button>
-
-          <!-- Filter section display benefit options -->
-          <div class="govuk-visually-hidden" id="filter-section">
+    </button>
+    <!-- Filter section display benefit options -->
+    <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
               <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -113,10 +86,9 @@ Contact history
               </button>
               <a class="govuk-link" href="#" id="cancel-filter-link" onclick="cancelFilter()">Cancel</a>
             </div>
-          </div>
-
-         <!-- data table -->
-         <table class="govuk-table">
+    </div>
+    <!-- data table -->
+    <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date of contact</th>
@@ -139,9 +111,9 @@ Contact history
               <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">View</a></td>
             </tr>
           </tbody>
-        </table>
-         <!-- table pagination -->
-        <nav class="moj-pagination" aria-label="Pagination navigation">
+    </table>
+    <!-- table pagination -->
+    <nav class="moj-pagination" aria-label="Pagination navigation">
           <ul class="moj-pagination__list govuk-visually-hidden">
            <li class="moj-pagination__item  moj-pagination__item--prev">
              <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
@@ -162,10 +134,7 @@ Contact history
            </li>
          </ul>
           <p class="moj-pagination__results">Showing <b>01</b> to <b>01</b> of <b>01</b> page</p>
-        </nav>
-
-        </div>
-    </div>
+    </nav>
   </div>
 </div>
 

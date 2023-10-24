@@ -56,6 +56,7 @@
             </a>
           </li>
         </ul>
+        <!-- Tab1 - Upcoming payments -->
         <div class="govuk-tabs__panel" id="upcoming-payments">
           <h2 class="govuk-heading-l">Upcoming payments</h2>
             <div class="govuk-grid-row">
@@ -226,6 +227,7 @@
               </div>
             </div>
         </div>
+        <!-- Tab2 - Payment history -->
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="payment-history">
           <h2 class="govuk-heading-l">Payment history</h2>
           <!-- <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
@@ -250,19 +252,19 @@
                 </legend>
                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="filter-1" name="select-Benefit-to-filter" type="checkbox" value="Employment and Support Allowance (ESA)" >
+                    <input class="govuk-checkboxes__input" id="filter-1" name="select-Benefit-to-filter" type="checkbox" value="Employment and Support Allowance (ESA)" {{ checked("select-Benefit-to-filter", "Employment and Support Allowance (ESA)") }} >
                     <label class="govuk-label govuk-checkboxes__label" for="filter-1">
                       Employment and Support Allowance (ESA)
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="filter-2" name="select-Benefit-to-filter" type="checkbox" value="Carer's Allowance (CA)">
+                    <input class="govuk-checkboxes__input" id="filter-2" name="select-Benefit-to-filter" type="checkbox" value="Carer's Allowance (CA)" {{ checked("select-Benefit-to-filter", "Carer's Allowance (CA)") }} >
                     <label class="govuk-label govuk-checkboxes__label" for="filter-2">
                       Carer's Allowance (CA)
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="filter-3" name="select-Benefit-to-filter" type="checkbox" value="Personal Independence Payment (PIP)">
+                    <input class="govuk-checkboxes__input" id="filter-3" name="select-Benefit-to-filter" type="checkbox" value="Personal Independence Payment (PIP)" {{ checked("select-Benefit-to-filter", "Personal Independence Payment (PIP)") }} >
                     <label class="govuk-label govuk-checkboxes__label" for="filter-3">
                       Personal Independence Payment (PIP)
                     </label>
@@ -281,8 +283,10 @@
           <div class="govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
             <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
             <ul class="moj-filter-tags govuk-!-margin-bottom-2">
-              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ data['select-Benefit-to-filter'] }}</a></li>
-              <!-- <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> PIP</a></li> -->
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>ESA</a></li>
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>CA</a></li>
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>PIP</a></li>
+              <!-- <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ data['select-Benefit-to-filter'] }}</a></li> -->
             </ul>
             <!-- <ul class="govuk-list govuk-list--bullet">
               {% for filterBenefit in data['select-Benefit-to-filter'] %}
@@ -296,12 +300,12 @@
             <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
-                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Due Date</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Benefit</th>
+                <th scope="col" class="govuk-table__header">Payment date</th>
                 <th scope="col" class="govuk-table__header ">Status</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount before deductions</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount after deductions</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
@@ -415,12 +419,12 @@
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
-                  <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Due Date</th>
-                  <th scope="col" class="govuk-table__header ">Status</th>
-                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+                  <th scope="col" class="govuk-table__header govuk-!-width-one-third">Benefit</th>
+                  <th scope="col" class="govuk-table__header">Payment date</th>
+                  <th scope="col" class="govuk-table__header">Status</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount before deductions</th>
                   <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
-                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount after deductions</th>
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
@@ -516,12 +520,12 @@
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
-                  <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Due Date</th>
+                  <th scope="col" class="govuk-table__header govuk-!-width-one-third">Benefit</th>
+                  <th scope="col" class="govuk-table__header">Payment date</th>
                   <th scope="col" class="govuk-table__header ">Status</th>
-                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount before deductions</th>
                   <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
-                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount after deductions</th>
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
@@ -617,12 +621,12 @@
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                  <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
-                  <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Due Date</th>
+                  <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Benefit</th>
+                  <th scope="col" class="govuk-table__header">Payment date</th>
                   <th scope="col" class="govuk-table__header ">Status</th>
-                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount before deductions</th>
                   <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
-                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount after deductions</th>
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
@@ -714,6 +718,7 @@
             </nav>
            </div>
         </div>
+        <!-- Tab3 - Details and breakdowns of benefits -->
         <div class="govuk-tabs__panel" id="award-breakdown">
           <h2 class="govuk-heading-l">Details and breakdowns of benefits</h2>
           <div class="govuk-grid-row">
@@ -853,7 +858,7 @@
                                 </div>
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Estimated Next Payment Amount
+                                    Estimated next payment amount
                                   </dt>
                                   <dd class="govuk-summary-list__value">
                                     £479.00
@@ -861,7 +866,7 @@
                                 </div>
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Last Payment Date
+                                    Last payment date
                                   </dt>
                                   <dd class="govuk-summary-list__value">
                                     17 July 2023
@@ -869,7 +874,7 @@
                                 </div>
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Last Payment Amount
+                                    Last payment amount
                                   </dt>
                                   <dd class="govuk-summary-list__value">
                                     £519.00
@@ -914,7 +919,7 @@
                                 </div>
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Benefit Type
+                                    Benefit type
                                   </dt>
                                   <dd class="govuk-summary-list__value">
                                     ESA IR
@@ -1067,7 +1072,7 @@
                                 </div>
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Benefit Type
+                                    Benefit type
                                   </dt>
                                   <dd class="govuk-summary-list__value">
                                     --
