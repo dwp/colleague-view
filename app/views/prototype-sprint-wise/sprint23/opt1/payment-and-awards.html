@@ -240,7 +240,9 @@
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
             Show filter
           </button>
-
+          <button class="govuk-button govuk-button--secondary govuk-visually-hidden" data-module="govuk-button" id="hide-filter-btn" onclick="cancelFilter()">
+            Hide filter
+          </button>
           <!-- Filter section display benefit options -->
           <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
@@ -278,6 +280,7 @@
               </button>
               <a class="govuk-link" href="#" id="cancel-filter-link" onclick="cancelFilter()">Cancel</a>
             </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           </div>
           <!-- Display Applied / selected filter here -->
           <div class="govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
@@ -1200,12 +1203,14 @@
       // alert("Hello world");
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
+      var hideFilterBtn = document.getElementById('hide-filter-btn');
       var esaTable = document.getElementById('table-ESA');
       var caTable = document.getElementById('table-CA');
       var pipTable = document.getElementById('table-PIP');
       // alert("Hello world",link.className);
       // link.style.display = 'block'; 
       link.classList.remove("govuk-visually-hidden");
+      hideFilterBtn.classList.remove("govuk-visually-hidden");
       link2.classList.add("govuk-visually-hidden");
       esaTable.classList.add("govuk-visually-hidden");
       document.getElementById("filter-1").checked = false;
@@ -1216,8 +1221,10 @@
     function cancelFilter() {
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
+      var hideFilterBtn = document.getElementById('hide-filter-btn');
       // var link4 = document.getElementById('apply-filter-btn');
       link.classList.add("govuk-visually-hidden");
+      hideFilterBtn.classList.add("govuk-visually-hidden");
       link2.classList.remove("govuk-visually-hidden");
       document.getElementById("filter-1").checked = false;
       document.getElementById("filter-2").checked = false;
@@ -1229,6 +1236,7 @@
       var link3 = document.getElementById('filter-selected');
       // var link4 = document.getElementById('apply-filter-btn');
       var link2 = document.getElementById('show-filter-btn');
+      var hideFilterBtn = document.getElementById('hide-filter-btn');
       var link5 = document.getElementById('filter-section'); 
       var tableDefault = document.getElementById('default-table')
       var esaTable = document.getElementById('table-ESA');
@@ -1237,7 +1245,7 @@
       if (document.getElementById("filter-1").checked == true) {
         link3.classList.remove("govuk-visually-hidden");
         link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
+        hideFilterBtn.classList.add("govuk-visually-hidden");
         link5.classList.add("govuk-visually-hidden");
         tableDefault.classList.add("govuk-visually-hidden");
         esaTable.classList.remove("govuk-visually-hidden");
@@ -1247,7 +1255,7 @@
       else if (document.getElementById("filter-2").checked == true) {
         link3.classList.remove("govuk-visually-hidden");
         link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
+        hideFilterBtn.classList.add("govuk-visually-hidden");
         link5.classList.add("govuk-visually-hidden");
         tableDefault.classList.add("govuk-visually-hidden");
         caTable.classList.remove("govuk-visually-hidden");
@@ -1256,7 +1264,7 @@
     } else if (document.getElementById("filter-3").checked == true) {
         link3.classList.remove("govuk-visually-hidden");
         link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
+        hideFilterBtn.classList.add("govuk-visually-hidden");
         link5.classList.add("govuk-visually-hidden");
         tableDefault.classList.add("govuk-visually-hidden");
         pipTable.classList.remove("govuk-visually-hidden");
@@ -1270,8 +1278,10 @@
       var esaTable = document.getElementById('table-ESA');
       var caTable = document.getElementById('table-CA');
       var pipTable = document.getElementById('table-PIP');
-      var tableDefault = document.getElementById('default-table')
+      var tableDefault = document.getElementById('default-table');
+      var hideFilterBtn = document.getElementById('hide-filter-btn');
       // var link4 = document.getElementById('apply-filter-btn');
+      hideFilterBtn.classList.add("govuk-visually-hidden");
       link3.classList.add("govuk-visually-hidden");
       tableDefault.classList.remove("govuk-visually-hidden");
       esaTable.classList.add("govuk-visually-hidden");
