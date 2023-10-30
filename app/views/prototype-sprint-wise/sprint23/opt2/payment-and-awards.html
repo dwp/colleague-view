@@ -6,17 +6,17 @@
 
 {% block header %}
   {% include "sprint23/common/opt1/header-navigation_PaymentandAwards-active.html" %}
-  {% include "sprint23/common/opt2/keydetail-bar.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "sprint23/common/footer.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "sprint23/common/phase-banner--user-research.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
 <div class="govuk-breadcrumbs">
 <ol class="govuk-breadcrumbs__list">
   <li class="govuk-breadcrumbs__list-item">
@@ -37,10 +37,12 @@
         <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
       </div>
       <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-        <!-- <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Add note
-        </button> -->
-        <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add call details</a>
+        <form action="/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+        <!-- <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add or view call details</a> -->
         <!-- <p class="govuk-body">
           <a href="engagement-log-journey/add-note" class="govuk-link govuk-link--no-visited-state">Add call details</a>
         </p> -->

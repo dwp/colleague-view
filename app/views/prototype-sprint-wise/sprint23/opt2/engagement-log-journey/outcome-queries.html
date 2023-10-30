@@ -4,18 +4,18 @@ Contact history
 {% endblock %}
 
 {% block header %}
-{% include "sprint23/common/opt2/header-navigation_home-active.html" %}
+{% include "prototype-sprint-wise/sprint23/common/opt2/header-navigation_home-active.html" %}
 {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar-call-log.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "sprint23/common/footer.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "sprint23/common/phase-banner--user-research.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
 
 {% endblock %}
 
@@ -32,7 +32,7 @@ Contact history
                     <dl class="govuk-summary-list {{esaPayment}}">
                       <div class="govuk-summary-list__row {{esaNextPaymentDate}}">
                         <dt class="govuk-summary-list__key">
-                          Next Payment Date
+                          Next payment date
                         </dt>
                         <!-- <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
                           <p>{{esaNextPaymentDateNotes}}</p>
@@ -43,6 +43,7 @@ Contact history
                             Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
                           </a><span class="govuk-body"> (optional)</span>
                         </dd> -->
+
                         <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
                           <span class="govuk-visually-hidden"> Select option</span>
                           <div class="govuk-form-group govuk-!-margin-bottom-0">
@@ -72,7 +73,7 @@ Contact history
                       </div>
                       <div class="govuk-summary-list__row {{esaNextPaymentAmount}}">
                         <dt class="govuk-summary-list__key">
-                          Next Payment Amount
+                          Next payment amount
                         </dt>
                         <!-- <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
                           <p>{{esaNextPaymentAmountNotes}}</p>
@@ -112,7 +113,7 @@ Contact history
                       </div>
                       <div class="govuk-summary-list__row {{esaMissingPayment}}">
                         <dt class="govuk-summary-list__key">
-                          Missing Payment
+                          Missing payment
                         </dt>
                         <!-- <dd class="govuk-summary-list__value">
                           <p>{{esaMissingPaymentNotes}}</p>
@@ -158,17 +159,7 @@ Contact history
                         <dt class="govuk-summary-list__key">
                           New Claim
                         </dt>
-                        <!-- <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-                          <p>{{esaPcOption1}}</p>
-                          <a class="govuk-link {{esaPcOption1AddNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaPcOption1">
-                            Add Note</span><span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <a class="govuk-link {{esaPcOption1EditNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaPcOption1">
-                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <span class="govuk-body"> (optional)</span>
-                        </dd> -->
-                        <dd class="govuk-summary-list__value govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
                           <span class="govuk-visually-hidden"> Select option</span>
                           <div class="govuk-form-group govuk-!-margin-bottom-0">
                             <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -204,7 +195,7 @@ Contact history
                           </a>
                           <span class="govuk-body"> (optional)</span>
                         </dd> -->
-                        <dd class="govuk-summary-list__value govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
                           <span class="govuk-visually-hidden"> Select option</span>
                           <div class="govuk-form-group govuk-!-margin-bottom-0">
                             <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -230,17 +221,7 @@ Contact history
                         <dt class="govuk-summary-list__key">
                           Explanation
                         </dt>
-                        <!-- <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-                          <p>{{esaPcOption3}}</p>
-                          <a class="govuk-link {{esaPcOption3AddNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaPcOption3">
-                            Add Note <span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <a class="govuk-link {{esaPcOption3EditNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaPcOption3">
-                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <span class="govuk-body"> (optional)</span>
-                        </dd> -->
-                        <dd class="govuk-summary-list__value govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
                           <span class="govuk-visually-hidden"> Select option</span>
                           <div class="govuk-form-group govuk-!-margin-bottom-0">
                             <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -266,17 +247,7 @@ Contact history
                         <dt class="govuk-summary-list__key">
                           Appeal, Reconsideration, Supersessions, SOS
                         </dt>
-                        <!-- <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-                          <p>{{esaPcOption4}}</p>
-                          <a class="govuk-link {{esaPcOption4AddNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaPcOption4">
-                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <a class="govuk-link {{esaPcOption4EditNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaPcOption4">
-                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <span class="govuk-body"> (optional)</span>
-                        </dd> -->
-                        <dd class="govuk-summary-list__value govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
                           <span class="govuk-visually-hidden"> Select option</span>
                           <div class="govuk-form-group govuk-!-margin-bottom-0">
                             <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -302,17 +273,7 @@ Contact history
                         <dt class="govuk-summary-list__key">
                           Interventions - Planned (Award Reviews)
                         </dt>
-                        <!-- <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-                          <p>{{esaPcOption5}}</p>
-                          <a class="govuk-link {{esaPcOption5AddNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaPcOption5">
-                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <a class="govuk-link {{esaPcOption5EditNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaPcOption5">
-                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <span class="govuk-body"> (optional)</span>
-                        </dd> -->
-                        <dd class="govuk-summary-list__value govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
                           <span class="govuk-visually-hidden"> Select option</span>
                           <div class="govuk-form-group govuk-!-margin-bottom-0">
                             <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -413,17 +374,7 @@ Contact history
                         <dt class="govuk-summary-list__key">
                           Special Accommodation Admission/Discharge
                         </dt>
-                        <!-- <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-                          <p>{{esaCocOption1}}</p>
-                          <a class="govuk-link {{esaCocOption1AddNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaCocOption1">
-                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <a class="govuk-link {{esaCocOption1EditNotes}}" href="/sprint23/opt1/engagement-log-journey/add-note/esaCocOption1">
-                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
-                          </a>
-                          <span class="govuk-body"> (optional)</span>
-                        </dd> -->
-                        <dd class="govuk-summary-list__value govuk-summary-list__actions govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
                           <span class="govuk-visually-hidden"> Select option</span>
                           <div class="govuk-form-group govuk-!-margin-bottom-0">
                             <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -2697,11 +2648,11 @@ Contact history
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="add-another-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
-                Do you want to add more information about this call?
+                Do you want to add anything else about these enquiries?
               </legend>
-              <div id="add-another-hint" class="govuk-hint">
+              <!-- <div id="add-another-hint" class="govuk-hint">
                 You will write note about this call.
-              </div>
+              </div> -->
               <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="add-another" name="add-another" type="radio" value="Yes">

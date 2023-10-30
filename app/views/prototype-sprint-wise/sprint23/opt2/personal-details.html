@@ -5,18 +5,18 @@ Christopher Fox's details
 {% endblock %}
 
 {% block header %}
-  {% include "sprint23/common/opt1/header-navigation_PersonalDetails-active.html" %}
-  {% include "sprint23/common/opt2/keydetail-bar.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt1/header-navigation_PersonalDetails-active.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "sprint23/common/footer.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-{% include "sprint23/common/phase-banner--user-research.html" %}
+{% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
 <div class="govuk-breadcrumbs">
 <ol class="govuk-breadcrumbs__list">
   <li class="govuk-breadcrumbs__list-item">
@@ -38,10 +38,12 @@ Christopher Fox's details
           <h1 class="govuk-heading-xl">Christopher Fox's details</h1>
         </div>
         <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-          <!-- <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Add note
-          </button> -->
-          <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add call details</a>
+          <form action="/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about" method="post">
+            <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+              Add or view call details
+            </button>
+          </form>
+          <!-- <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add or view call details</a> -->
           <!-- <p class="govuk-body">
             <a href="engagement-log-journey/add-note" class="govuk-link govuk-link--no-visited-state">Add call details</a>
           </p> -->
@@ -111,7 +113,7 @@ Christopher Fox's details
                   </span>
                 </summary>
                 <div class="govuk-details__text">
-                  1 London Road <br>London <br>LN 101
+                  5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
                 </div>
               </details>
             </dd>
@@ -131,8 +133,8 @@ Christopher Fox's details
                   <table class="govuk-table">
                     <thead class="govuk-table__head">
                       <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Award Start Date</th>
-                        <th scope="col" class="govuk-table__header">Award End Date</th>
+                        <th scope="col" class="govuk-table__header">Claim start date</th>
+                        <th scope="col" class="govuk-table__header">Claim end date</th>
                       </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -154,8 +156,8 @@ Christopher Fox's details
                   <table class="govuk-table">
                     <thead class="govuk-table__head">
                       <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Award Start Date</th>
-                        <th scope="col" class="govuk-table__header">Award End Date</th>
+                        <th scope="col" class="govuk-table__header">Claim start date</th>
+                        <th scope="col" class="govuk-table__header">Claim end date</th>
                       </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -177,8 +179,8 @@ Christopher Fox's details
                   <table class="govuk-table">
                     <thead class="govuk-table__head">
                       <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Award Start Date</th>
-                        <th scope="col" class="govuk-table__header">Award End Date</th>
+                        <th scope="col" class="govuk-table__header">Claim start date</th>
+                        <th scope="col" class="govuk-table__header">Claim end date</th>
                       </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -245,7 +247,7 @@ Christopher Fox's details
                 </span>
               </summary>
               <div class="govuk-details__text">
-                15 Greater London Road <br>London <br>SW1X 7HS
+                5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
               </div>
             </details>
           </dd>

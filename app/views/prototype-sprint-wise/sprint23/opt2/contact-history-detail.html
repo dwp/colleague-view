@@ -5,18 +5,18 @@
 {% endblock %}
 
 {% block header %}
-  {% include "sprint23/common/opt1/header-navigation_contactHistory-active.html" %}
-    {% include "sprint23/common/opt1/keydetail-bar.html" %}
+{% include "prototype-sprint-wise/sprint23/common/opt1/header-navigation_contactHistory-active.html" %}
+{% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "sprint23/common/footer.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-{% include "sprint23/common/phase-banner--user-research.html" %}
+{% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
 <!-- <div class="govuk-breadcrumbs">
 <ol class="govuk-breadcrumbs__list">
   <li class="govuk-breadcrumbs__list-item">
@@ -35,106 +35,70 @@
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Details about incoming telephone call on 17 October 2023</h1>
       </div>
-      <div class="govuk-grid-column-full">
-        <div class="govuk-grid-row govuk-!-margin-bottom-6 colleague-view-container-light-grey">
-          <div class="govuk-grid-column-one-three">
-            <div class="govuk-grid-row"> 
-              <div class="govuk-grid-column-one-third">
-                <span class="govuk-caption-m">Caller</span>
-                <h3 class="govuk-heading-s">Jane Doe (Appointee)</h3>
+            <!-- call started at -->
+            <div class="govuk-grid-column-full">
+              <span class="govuk-caption-m">Started at</span>
+              <h2 class="govuk-heading-m">Monday 17 Oct 2023, 13:03</h2>
               </div>
-              <div class="govuk-grid-column-one-third">
-                <!-- <p class="govuk-body-s">Label name</p>
-                <p class="govuk-body govuk-!-font-weight-bold ">Value</p> -->
-                <span class="govuk-caption-m">Call taken by</span>
-                <h3 class="govuk-heading-s">Agent (1003)</h3>
-              </div>
-              <div class="govuk-grid-column-one-third">
-                <!-- <p class="govuk-body-s">Label name</p>
-                <p class="govuk-body govuk-!-font-weight-bold ">Value</p> -->
-                <span class="govuk-caption-m">Length of call</span>
-                <h3 class="govuk-heading-s">15 Minutes</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="govuk-grid-column-full">
-        <span class="govuk-caption-m">Started at</span>
-        <h2 class="govuk-heading-m">Tuesday 17 April 2023, 12:00</h2>
-        </div>
-          <div class="govuk-grid-column-full">
+        <!-- Benefits discussed -->
+          <div class="govuk-grid-column-full govuk-!-margin-top-4 govuk-!-margin-bottom-4">
             <div class="colleague-view-upcomming-payment-benefit">
-              <h3 class="govuk-heading-m">Employment and Support Allowance</h3>
-              <!-- <h2 class="govuk-heading-s">Payment enquiry</h2> -->
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                  Next payment date
-                  </dt>
-                   <dd class="govuk-summary-list__value">
-                    <strong class="govuk-tag govuk-tag--green">Resolved</strong>
-                  </dd> 
-                  <dd class="govuk-summary-list__value">
-                    
-                    <p class="govuk-body">
-                      There is no note added
-                    </p>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Next payment amount
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    <strong class="govuk-tag govuk-tag--green">Resolved</strong>
-                  </dd> 
-                  <dd class="govuk-summary-list__value">
-                      <div class="govuk-body"><span class="govuk-!-font-weight-bold govuk-!-padding-right-1">Note:</span>by Agent (1003)
-                        <span class="govuk-caption-m govuk-!-font-size-16 govuk-!-padding-top-1">17 October 2023 at 12:00</span>
-                      </div>
-                      <p class="govuk-body">This is an example to show what a note could look like.</p>
-                  </dd>
-                </div>
-              </dl>
-              <!-- <h2 class="govuk-heading-m">Progress chasing</h2>
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Explanation
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    <strong class="govuk-tag govuk-tag--green">Resolved</strong>
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                   <a class="govuk-link" href="#"> 
-                      Change<span class="govuk-visually-hidden"> name</span>
-                   </a>
-                  </dd>
-                </div>
-              </dl> -->
-              <!-- <h2 class="govuk-heading-m">Change of circumstances</h2> -->
-              <!-- <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Change of Address
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    <strong class="govuk-tag govuk-tag--green">Resolved</strong>
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#"> 
-                      Change<span class="govuk-visually-hidden"> name</span>
-                    </a>
-                  </dd>
-                </div>
-              </dl> -->
-            </div>
+              <h2 class="govuk-heading-m">
+                Benefits discussed
+              </h2>
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header ">Benefits</th>
+                    <th scope="col" class="govuk-table__header">Type of enquiry</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Employment and Support Allowance</td>
+                    <td class="govuk-table__cell">Next payment date</td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Employment and Support Allowance</td>
+                    <td class="govuk-table__cell">Next payment amount</td>
+                    <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+                  </tr>
+                </tbody>
+              </table>
           </div>
+          </div>
+        <!-- Call and Agent information -->
+          <div class="govuk-grid-column-full">
+            <div class="govuk-grid-row govuk-!-margin-bottom-6 colleague-view-container-light-grey">
+              <div class="govuk-grid-column-one-three">
+                <div class="govuk-grid-row"> 
+                   <div class="govuk-grid-column-one-third">
+                     <span class="govuk-caption-m">Caller</span>
+                      <h3 class="govuk-heading-s">Jane Doe (Appointee)</h3>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                                <!-- <p class="govuk-body-s">Label name</p>
+                                <p class="govuk-body govuk-!-font-weight-bold ">Value</p> -->
+                       <span class="govuk-caption-m">Call taken by</span>
+                      <h3 class="govuk-heading-s">Agent (1003)</h3>
+                     </div>
+                      <div class="govuk-grid-column-one-third">
+                                <!-- <p class="govuk-body-s">Label name</p>
+                                <p class="govuk-body govuk-!-font-weight-bold ">Value</p> -->
+                        <span class="govuk-caption-m">Length of call</span>
+                         <h3 class="govuk-heading-s">15 Minutes</h3>
+                       </div>
+                      </div>
+                     </div>
+                     </div>
+                   </div>
+                                <!-- call ended at -->
       <div class="govuk-grid-column-full">
-          <span class="govuk-caption-m">Ended at</span>
-          <h3 class="govuk-heading-m">Tuesday 17 October 2023, 12:15</h3>
-        </div>
+        <span class="govuk-caption-m">Ended at</span>
+        <h3 class="govuk-heading-m">Monday 17 Oct 2023, 13:18</h3>
+      </div>
       </div>
     </div>
 

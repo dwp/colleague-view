@@ -6819,8 +6819,8 @@ res.render('sprint23/opt2/engagement-log-journey/outcome-queries', {
 // this is for NINO number
 
 router.post('/prototype-sprint-wise/sprint23/opt1/engagement-type', function (req, res) {
-  req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
-  req.session.data['Who-is-the-engagement-with-sprint27'] = '';
+  req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] = '';
+  req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
   req.session.data['What-services-have-they-called-about'] = '';
@@ -6857,8 +6857,8 @@ if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req
 
 // for returning user
 router.post('/prototype-sprint-wise/sprint23/opt1/returning-user/engagement-type', function (req, res) {
-req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
-req.session.data['Who-is-the-engagement-with-sprint27'] = '';
+req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] = '';
+req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = '';
 req.session.data['Who-is-the-engagement-with'] = '';
 
 if (req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == 'qq123456q') {
@@ -6879,16 +6879,19 @@ res.render('prototype-sprint-wise/sprint23/opt1/error-NINO-number', { "errMsg": 
 // this is for radio selection
 router.post('/prototype-sprint-wise/sprint23/opt1/engagement-with', function (req, res) {
 
-req.session.data['Who-is-the-engagement-with-sprint27'] = '';
+req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = '';
 
 // Make a variable and give it the value from 'how-many-balls'
-var howManyBalls = req.session.data['What-type-of-engagement-is-it-sprint27'];
+var howManyBalls = req.session.data['What-type-of-engagement-is-it-sprint23-opt1'];
 // Check whether the variable matches a condition
 if (howManyBalls == "Incoming telephone call" || howManyBalls == "Outgoing telephone call") {
+
+  var a = " with";
+  req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] = howManyBalls + "  " + a;
   // Send user to next page
   res.redirect('/prototype-sprint-wise/sprint23/opt1/engagement-with');
 } else {
-  req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
+  req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] = '';
   // Send user back to same page
   res.redirect('back');
 }
@@ -8077,22 +8080,22 @@ router.post('/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/confirm
   });
 
 
-// this is for radio selection for Session complete
-router.post('prototype-sprint-wise/sprint23/opt1/engagement-log-journey/session-completed', function (req, res) {
-  var completeSession2 = req.session.data['have-session-completed']
-  
+  // this is for radio selection for Session complete
+router.post('/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/session-completed', function (req, res) {
+  var completeSession = req.session.data['Do-you-want-to-complete-the-session']
+
   // Check whether the variable matches a condition
-  if (completeSession2 == "No") {
+  if (completeSession == "Yes") {
     // Send user to next page
-    res.redirect('prototype-sprint-wise/sprint23/opt1/engagement-log-journey/session-completed');
+    res.redirect('/prototype-sprint-wise/sprint23/opt1/contact-history-callSummeryAddedd#add-to-contact-history');
   } else {
-    res.redirect('prototype-sprint-wise/sprint23/opt1/contact-history-callSummeryAddedd#add-to-contact-history');
+    res.redirect('/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/session-completed');
   }
-  
-  });
+
+});
+
 
 // End of sprint-wise sprint23 opt-1 here
-
 
 
 
@@ -8100,9 +8103,9 @@ router.post('prototype-sprint-wise/sprint23/opt1/engagement-log-journey/session-
 
 // this is for NINO number
 
-router.post('/prototype-sprint-wise/sprint23/opt2/engagement-type', function (req, res) {
-  req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
-  req.session.data['Who-is-the-engagement-with-sprint27'] = '';
+router.post('/prototype-sprint-wise/sprint23/opt2/call-type', function (req, res) {
+  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
+  req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
   req.session.data['What-services-have-they-called-about'] = '';
@@ -8122,12 +8125,12 @@ router.post('/prototype-sprint-wise/sprint23/opt2/engagement-type', function (re
   req.session.data['pip-general'] = '';
   req.session.data['ca-general'] = '';
 
-if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-prototype-sprint23'] == 'qq123456q') {
+if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'qq123456q') {
   // Send user to next page
-  res.render('prototype-sprint-wise/sprint23/opt2/engagement-type');
+  res.render('prototype-sprint-wise/sprint23/opt2/call-type');
 } else {
   var errMsg = "";
-  if (req.session.data['national-insurance-number-prototype-sprint23'] == '' || req.session.data['national-insurance-number-prototype-sprint23'] == undefined) {
+  if (req.session.data['national-insurance-number-sprint23-opt2'] == '' || req.session.data['national-insurance-number-sprint23-opt2'] == undefined) {
     errMsg = "National Insurance Number is mandatory";
   } else {
     errMsg = "Enter a National Insurance number in the correct format";
@@ -8138,14 +8141,14 @@ if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req
 })
 
 // for returning user
-router.post('/prototype-sprint-wise/sprint23/opt2/returning-user/engagement-type', function (req, res) {
-req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
-req.session.data['Who-is-the-engagement-with-sprint27'] = '';
+router.post('/prototype-sprint-wise/sprint23/opt2/returning-user/call-type', function (req, res) {
+req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
+req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
 req.session.data['Who-is-the-engagement-with'] = '';
 
 if (req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == 'qq123456q') {
 // Send user to next page
-res.render('prototype-sprint-wise/sprint23/opt2/returning-user/engagement-type');
+res.render('prototype-sprint-wise/sprint23/opt2/returning-user/call-type');
 } else {
 var errMsg = "";
 if (req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == '' || req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == undefined) {
@@ -8159,18 +8162,22 @@ res.render('prototype-sprint-wise/sprint23/opt2/error-NINO-number', { "errMsg": 
 })
 
 // this is for radio selection
-router.post('/prototype-sprint-wise/sprint23/opt2/engagement-with', function (req, res) {
+router.post('/prototype-sprint-wise/sprint23/opt2/call-with', function (req, res) {
 
-req.session.data['Who-is-the-engagement-with-sprint27'] = '';
+req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
 
 // Make a variable and give it the value from 'how-many-balls'
-var howManyBalls = req.session.data['What-type-of-engagement-is-it-sprint27'];
+var contactType = req.session.data['What-type-of-engagement-is-it-sprint23-opt2'];
 // Check whether the variable matches a condition
-if (howManyBalls == "Incoming telephone call" || howManyBalls == "Outgoing telephone call") {
+if (contactType == "Incoming call" || contactType == "Outgoing call") {
+
+  var b = " with";
+  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = contactType + "  " + b;
+
   // Send user to next page
-  res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-with');
+  res.redirect('/prototype-sprint-wise/sprint23/opt2/call-with');
 } else {
-  req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
+  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
   // Send user back to same page
   res.redirect('back');
 }
@@ -8191,20 +8198,6 @@ if (req.session.data['Who-is-the-engagement-with'] == "Christopher Fox" || req.s
 }
 
 })
-
-// this is for radio selection for Session complete
-router.post('prototype-sprint-wise/sprint23/opt2/engagement-log-journey/confirmation-complete-session', function (req, res) {
-var completeSession2 = req.session.data['Do-you-want-to-complete-the-session-2']
-
-// Check whether the variable matches a condition
-if (completeSession2 == "Yes") {
-  // Send user to next page
-  res.redirect('prototype-sprint-wise/sprint23/opt2/contact-history-callSummeryAddedd#add-to-contact-history');
-} else {
-  res.redirect('prototype-sprint-wise/sprint23/opt2/engagement-log-journey/session-completed');
-}
-
-});
 
 // this is for radio selection for Session complete when no notes added.
 router.post('/prototype-sprint-wise/sprint23/opt2/returning-user/contact-history', function (req, res) {
@@ -9355,6 +9348,76 @@ res.render('prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-note'
   "notesValue": req.session.data[req.params.name]
 });
 });
+
+router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/confirmation-complete-session', function (req, res) {
+  console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
+  if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/confirmation-complete-session');
+  }else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/confirmation-complete-session');
+  }if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/confirmation-complete-session');
+  }else {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/no-contactAdded');
+  }
+  });
+
+// this is for radio selection for Session complete
+router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-note', function (req, res) {
+  var addMore = req.session.data['add-another'];
+  
+  // Check whether the variable matches a condition
+  if (addMore == "Yes")  {
+    // Send user to next page
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-note');
+  } else {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/call-details-added-withoutNote');
+  }
+
+  });
+
+
+  // this is for radio selection for Session complete
+  router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/session-completed', function (req, res) {
+    var completeSession2 = req.session.data['Do-you-want-to-complete-the-session-opt2']
+  
+    // Check whether the variable matches a condition
+    if (completeSession2 == "Yes") {
+      // Send user to next page
+      res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about');
+    } else {
+      res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/session-completed');
+    }
+  
+  });
+
+// Adding another call details
+router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about', function (req, res) {
+  console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
+  if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-another-calld-details');
+  }else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-another-calld-details');
+  }if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-another-calld-details');
+  }else {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about');
+  }
+  });
+
+    // this is for radio selection for Session complete
+    router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about', function (req, res) {
+      var addMoreDetails = req.session.data['Do-you-want-to-add-more-information']
+    
+      // Check whether the variable matches a condition
+      if (addMoreDetails == "Yes") {
+        // Send user to next page
+        res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about');
+      } else {
+        res.redirect('/prototype-sprint-wise/sprint23/opt2/home-page');
+      }
+    
+    });
 
 // End of sprint-wise sprint23 opt-2 here
 
