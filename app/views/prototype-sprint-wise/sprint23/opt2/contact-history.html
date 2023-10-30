@@ -5,18 +5,18 @@ Contact history
 {% endblock %}
 
 {% block header %}
-  {% include "sprint23/common/opt1/header-navigation_contactHistory-active.html" %}
-  {% include "sprint23/common/opt2/keydetail-bar.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt1/header-navigation_contactHistory-active.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "sprint23/common/footer.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "sprint23/common/phase-banner--user-research.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
 <div class="govuk-breadcrumbs">
 <ol class="govuk-breadcrumbs__list">
   <li class="govuk-breadcrumbs__list-item">
@@ -34,13 +34,18 @@ Contact history
   <div class="govuk-grid-column-full">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Contact history</h1>
+        <h1 class="govuk-heading-xl">Call history</h1>
       </div>
       <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
         <!-- <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
           Add note
         </button> -->
-        <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add call details</a>
+        <!-- <a href="engagement-log-journey/what-service-called-about" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Add or view call details</a> -->
         <!-- <p class="govuk-body">
           <a href="engagement-log-journey/add-note" class="govuk-link govuk-link--no-visited-state">Add call details</a>
         </p> -->
@@ -91,24 +96,54 @@ Contact history
     <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date of contact</th>
-              <th scope="col" class="govuk-table__header">Type of contact</th>
-              <th scope="col" class="govuk-table__header ">Benefit</th>
+              <th scope="col" class="govuk-table__header">Date and time of call</th>
+              <th scope="col" class="govuk-table__header">Type of call</th>
+              <th scope="col" class="govuk-table__header ">Benefits discussed</th>
               <th scope="col" class="govuk-table__header">Type of enquiry </th>
-              <th scope="col" class="govuk-table__header ">Notes</th>
               <th scope="col" class="govuk-table__header">Status</th>
-              <th scope="col" class="govuk-table__header">Action</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Action</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">14 April 2023</td>
+              <td class="govuk-table__cell">Mon 17 Oct 2023, 13:03</td>
               <td class="govuk-table__cell">Incoming telephone call</td>
               <td class="govuk-table__cell">Employment and Support Allowance</td>
-              <td class="govuk-table__cell">Next Payment Date</td>
-              <td class="govuk-table__cell">Note explaining that the payment is believed to be updated. Customer has recently...</td>
-              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-              <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">View</a></td>
+              <td class="govuk-table__cell">Next payment date</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Mon 17 Oct 2023, 13:03</td>
+              <td class="govuk-table__cell">Incoming telephone call</td>
+              <td class="govuk-table__cell">Employment and Support Allowance</td>
+              <td class="govuk-table__cell">Next payment amount</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Mon 17 Oct 2023, 13:03</td>
+              <td class="govuk-table__cell">Incoming telephone call</td>
+              <td class="govuk-table__cell">Employment and Support Allowance</td>
+              <td class="govuk-table__cell">Missing payment</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Mon 14 Oct 2023, 11:15</td>
+              <td class="govuk-table__cell">Incoming telephone call</td>
+              <td class="govuk-table__cell">Personal Independence Payment (PIP)</td>
+              <td class="govuk-table__cell">Missing payment</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Mon 03 Oct 2023, 13:03</td>
+              <td class="govuk-table__cell">Incoming telephone call</td>
+              <td class="govuk-table__cell">Employment and Support Allowance</td>
+              <td class="govuk-table__cell">Missing payment</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
             </tr>
           </tbody>
     </table>
@@ -133,7 +168,7 @@ Contact history
              <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
            </li>
          </ul>
-          <p class="moj-pagination__results">Showing <b>01</b> to <b>01</b> of <b>01</b> page</p>
+          <p class="moj-pagination__results">Showing <b>01</b> to <b>02</b> of <b>01</b> page</p>
     </nav>
   </div>
 </div>

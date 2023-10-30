@@ -88,7 +88,7 @@ Contact history
                               Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
                             </a>
                           </dd>
-                          <dd class="govuk-summary-list__value govuk-summary-list__actions govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <!-- <dd class="govuk-summary-list__value govuk-summary-list__actions govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0" id="show-default-message1">
                             <span class="govuk-visually-hidden"> Select option</span>
                             <div class="govuk-form-group govuk-!-margin-bottom-0">
                               <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
@@ -108,7 +108,32 @@ Contact history
                                 </div>
                               </fieldset>
                             </div>
-                        </dd>
+                          </dd> -->
+                          <!-- show error message -->
+                          <dd class="govuk-summary-list__value govuk-summary-list__actions govuk-!-width-one-third govuk-!-text-align-left" id="show-ErrorResolved-message">
+                            <span class="govuk-visually-hidden"> Select option</span>
+                            <div class="govuk-form-group govuk-!-margin-bottom-0 govuk-form-group--error">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <p id="whereDoYouLive-error" class="govuk-error-message">
+                                  <span class="govuk-visually-hidden">Error:</span> Select whether enquiry was resolved
+                                </p>
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                    <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item govuk-!-margin-right-0">
+                                    <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                    <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </dd>
                         </div>
                         <div class="govuk-summary-list__row {{esaNextPaymentAmount}}">
                           <dt class="govuk-summary-list__key">
@@ -2877,7 +2902,7 @@ Contact history
                 </div>
               </fieldset>
             </div>
-            <button class="govuk-button" data-module="govuk-button" onclick="show-ErrorResolved-message()">
+            <button class="govuk-button" data-module="govuk-button">
               Save and continue
             </button>
           </form>

@@ -19,7 +19,7 @@ Do you want to add anything else to the contact history?
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="" method="post">
+        <form class="form" action="session-completed" method="post">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -32,13 +32,13 @@ Do you want to add anything else to the contact history?
               </div> -->
               <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-session-completed-1" name="have-session-completed" type="radio" value="Yes">
+                  <input class="govuk-radios__input" id="have-session-completed-1" name="Do-you-want-to-complete-the-session" type="radio" value="Yes">
                   <label class="govuk-label govuk-radios__label" for="have-session-completed-1">
                     Yes, add more information to the contact history
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-session-completed-2" name="have-session-completed" type="radio" value="No">
+                  <input class="govuk-radios__input" id="have-session-completed-2" name="Do-you-want-to-complete-the-session" type="radio" value="No">
                   <label class="govuk-label govuk-radios__label" for="have-session-completed-2">
                     No, complete the call
                   </label>
@@ -52,20 +52,20 @@ Do you want to add anything else to the contact history?
         </form>
       </div>
       <div class="govuk-grid-column-full">
-        <div class="govuk-!-margin-top-5">
-          <h3 class="govuk-heading-s">
+        <div class="govuk-!-margin-top-8">
+          <p class="govuk-body">
             You have added this information to the contact history during this call.
-          </h3>
+          </p>
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <!-- <th scope="col" class="govuk-table__header">Date</th> -->
                 <!-- <th scope="col" class="govuk-table__header">Interaction Type</th> -->
-                <th scope="col" class="govuk-table__header ">Benefit</th>
-                <th scope="col" class="govuk-table__header">Enquiry type</th>
-                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Notes</th>
+                <th scope="col" class="govuk-table__header ">Benefits discussed</th>
+                <th scope="col" class="govuk-table__header">Type of enquiry</th>
+                <th scope="col" class="govuk-table__header ">Notes <span class="govuk-body govuk-hint">(optional)</span></th>
                 <th scope="col" class="govuk-table__header">Status</th>
-                <th scope="col" class="govuk-table__header">Action</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Action</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
@@ -74,9 +74,9 @@ Do you want to add anything else to the contact history?
                 <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
                 <td class="govuk-table__cell">Employment and Support Allowance</td>
                 <td class="govuk-table__cell">Next payment date</td>
-                <td class="govuk-table__cell govuk-!-width-one-quarter">--</td>
+                <td class="govuk-table__cell govuk-!-width-one-quarter"></td>
                 <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                <td class="govuk-table__cell"><a href="#" class="govuk-link">Edit note</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
               </tr>
               <tr class="govuk-table__row">
                 <!-- <td class="govuk-table__cell">14 April 2023</td> -->
@@ -85,7 +85,7 @@ Do you want to add anything else to the contact history?
                 <td class="govuk-table__cell">Next payment amount</td>
                 <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of what more information could look like...</td>
                 <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                <td class="govuk-table__cell"><a href="#" class="govuk-link">Edit note</a></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
               </tr>
             </tbody>
           </table>

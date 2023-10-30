@@ -1,28 +1,28 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Contact logged confirmation
+Call completed
 {% endblock %}
 
 {% block header %}
-  {% include "sprint23/common/header.html" %}
+  <!-- {% include "prototype-sprint-wise/sprint23/common/opt2/header_keydetail_bar.html" %} -->
+  {% include "prototype-sprint-wise/sprint23/common/header.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-{% include "sprint23/common/phase-banner--user-research.html" %}
-{% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar-call-log.html" %}
+{% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "sprint23/common/footer.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-panel__title">Session completed</h1>
-        <form action="../returning-user/index" method="post" novalidate>
+        <h1 class="govuk-panel__title">Call completed</h1>
+        <form action="../index" method="post" novalidate>
           <div class="govuk-form-group">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
@@ -54,7 +54,7 @@
             </dl>
           </div>
           <button class="govuk-button" data-module="govuk-button">
-            Accept a new call
+            Start service again
           </button>
       </form>
     </div>

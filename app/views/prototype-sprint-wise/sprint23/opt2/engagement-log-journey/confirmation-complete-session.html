@@ -1,96 +1,169 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Do you want to add anything else to the contact history?
+  Do you want to add more information before complete this call?
 {% endblock %}
 
 {% block header %}
-  {% include "sprint23/common/opt1/header_keydetail_bar.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt2/header_keydetail_bar.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-{% include "sprint23/common/phase-banner--user-research.html" %}
+{% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block footer %}
-  {% include "sprint23/common/footer.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      You have added details about this call
+    </h1>
+    <h2 class="govuk-heading-m">Reasons for call</h2>
+    <!-- display reasons for call -->
+    <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Employment and Support Allowance
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Next payment date 
+        </dd>
+        </dd>
+        <!-- <dd class="govuk-summary-list__value">
+          <strong class="govuk-tag">
+            Resolved
+          </strong>
+        </dd> -->
+        <dd class="govuk-summary-list__actions govuk-!-width-one-third">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item">
+              <strong class="govuk-tag">Resolved</strong>
+            </li>
+            <li class="govuk-summary-list__actions-list-item">
+              <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> contact details</span></a>
+            </li>
+          </ul>
+      </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Employment and Support Allowance
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Next payment amount 
+        </dd>
+        </dd>
+        <!-- <dd class="govuk-summary-list__value">
+          <strong class="govuk-tag">
+            Resolved
+          </strong>
+        </dd> -->
+        <dd class="govuk-summary-list__actions govuk-!-width-one-third">
+          <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item">
+              <strong class="govuk-tag">Resolved</strong>
+            </li>
+            <li class="govuk-summary-list__actions-list-item">
+              <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> contact details</span></a>
+            </li>
+          </ul>
+      </dd>
+      </div>
+    </dl>
+    <!-- display added notes/more information about the call -->
+    <h3 class="govuk-heading-m">More information</h3>
+    <div class="govuk-grid-row govuk-!-margin-bottom-0">
       <div class="govuk-grid-column-two-thirds">
+        <!-- <div class="govuk-inset-text">
+          This is an example of what more information could look like. This is another example to show what a missing note could look like.
+        </div> -->
+        <!-- <p class="govuk-body">
+          <a href="#" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+        </p> -->
+        <p class="govuk-body">{{ data['more-information'] or "Not provided"  }} </p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-text-align-right">
+          <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+        </p>
+      </div>
+    </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0">
+    <!-- <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header ">Benefits discussed</th>
+          <th scope="col" class="govuk-table__header">Type of enquiry</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Employment and Support Allowance</td>
+          <td class="govuk-table__cell">Next payment date</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+          <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">Remove</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Employment and Support Allowance</td>
+          <td class="govuk-table__cell">Next payment amount</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+          <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">Remove</a></td>
+        </tr>
+      </tbody>
+    </table> -->
+  <!-- display added notes/more information about the call -->
+  <!-- <h3 class="govuk-heading-s">More information</h3>
+  <div class="govuk-grid-row govuk-!-margin-bottom-0">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">{{ data['more-information'] or "Not provided"  }} </p>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <p class="govuk-body govuk-!-text-align-right">
+        <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+      </p>
+    </div>
+  </div> -->
+  </div>
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
         <form class="form" action="session-completed" method="post">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
-                  Do you want to add anything else to the contact history?
-                </h1>
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h3 class="govuk-fieldset__heading">
+                  Do you want to add more reasons for this call?
+                </h3>
               </legend>
               <div id="changed-name-hint" class="govuk-hint">
                 Select one option.
               </div>
               <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-1" name="Do-you-want-to-complete-the-session" type="radio" value="Yes">
+                  <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-1" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="Yes">
                   <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-1">
-                    Yes, add more information to the contact history
+                    Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-2" name="Do-you-want-to-complete-the-session" type="radio" value="No">
+                  <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-2" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="No">
                   <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-2">
-                    No, I want to complete the session
+                    No, complete the call
                   </label>
                 </div>
               </div>
             </fieldset>
           </div>
           <button class="govuk-button" data-module="govuk-button">
-            Continue
+            Save and continue
           </button>
         </form>
-      </div>
-      <div class="govuk-grid-column-full">
-        <div class="govuk-!-margin-top-5">
-          <h3 class="govuk-heading-s">
-            You have added this information to the contact history during this call.
-          </h3>
-          <table class="govuk-table">
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <!-- <th scope="col" class="govuk-table__header">Date</th> -->
-                <!-- <th scope="col" class="govuk-table__header">Interaction Type</th> -->
-                <th scope="col" class="govuk-table__header ">Benefit</th>
-                <th scope="col" class="govuk-table__header">Enquiry Type</th>
-                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Notes</th>
-                <th scope="col" class="govuk-table__header">Status</th>
-                <th scope="col" class="govuk-table__header">Action</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <!-- <td class="govuk-table__cell">14 April 2023</td> -->
-                <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
-                <td class="govuk-table__cell">Employment and Support Allowance</td>
-                <td class="govuk-table__cell">Next payment date</td>
-                <td class="govuk-table__cell govuk-!-width-one-quarter">--</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">Edit note</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <!-- <td class="govuk-table__cell">14 April 2023</td> -->
-                <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
-                <td class="govuk-table__cell">Employment and Support Allowance</td>
-                <td class="govuk-table__cell">Next payment amount</td>
-                <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of what more information could look like...</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">Edit note</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+  </div>
+</div>
 
 {% endblock %}
