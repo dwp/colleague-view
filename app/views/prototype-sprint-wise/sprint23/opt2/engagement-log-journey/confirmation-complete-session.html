@@ -19,11 +19,47 @@
 
 {% block content %}
 <div class="govuk-grid-row">
+   <!-- Ask to complete session -->
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-8">
+      <form class="form" action="session-completed" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Do you want to add more reasons for this call?
+              </h1>
+            </legend>
+            <div id="changed-name-hint" class="govuk-hint">
+              Select one option.
+            </div>
+            <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-1" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-2" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-2">
+                  No, complete the call
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </form>
+  </div>
+  <!-- summary of call details added -->
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l">
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0">
+    <h2 class="govuk-heading-m">
       You have added details about this call
-    </h1>
-    <h2 class="govuk-heading-m">Reasons for call</h2>
+    </h2>
+    <h3 class="govuk-heading-s">Reasons for call</h3>
     <!-- display reasons for call -->
     <dl class="govuk-summary-list govuk-!-margin-bottom-7">
       <div class="govuk-summary-list__row">
@@ -93,7 +129,6 @@
         </p>
       </div>
     </div>
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0">
     <!-- <table class="govuk-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
@@ -130,39 +165,6 @@
       </p>
     </div>
   </div> -->
-  </div>
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-8">
-        <form class="form" action="session-completed" method="post">
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <h3 class="govuk-fieldset__heading">
-                  Do you want to add more reasons for this call?
-                </h3>
-              </legend>
-              <div id="changed-name-hint" class="govuk-hint">
-                Select one option.
-              </div>
-              <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-1" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="Yes">
-                  <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-1">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-2" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="No">
-                  <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-2">
-                    No, complete the call
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-          <button class="govuk-button" data-module="govuk-button">
-            Save and continue
-          </button>
-        </form>
   </div>
 </div>
 
