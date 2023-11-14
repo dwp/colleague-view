@@ -76,20 +76,9 @@ Contact history
               </thead>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <!-- <td class="govuk-table__cell">14 April 2023</td> -->
-                  <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
-                  <td class="govuk-table__cell">Employment and Support Allowance</td>
-                  <td class="govuk-table__cell">Next payment date</td>
-                  <td class="govuk-table__cell govuk-!-width-one-quarter"></td>
-                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                  <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <!-- <td class="govuk-table__cell">14 April 2023</td> -->
-                  <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
-                  <td class="govuk-table__cell">Employment and Support Allowance</td>
-                  <td class="govuk-table__cell">Next payment amount</td>
-                  <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of what more information could look like...</td>
+                  <td class="govuk-table__cell">{{ data['What-services-have-they-called-about'] }}</td>
+                  <td class="govuk-table__cell">{{ data['esa-payment'] }}</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter">{{ data['esaNextPaymentDateNotes'] }}</td>
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
                 </tr>
