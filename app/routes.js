@@ -7029,669 +7029,669 @@ res.render('prototype-sprint-wise/sprint23/opt1/engagement-log-journey/what-quer
 router.post('/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/outcome-queries', function (req, res) {
 
 // console.log('Value of the data outcome route:--------------->',req.session.data);
-var isEsa = 'govuk-visually-hidden';
-var isPip = 'govuk-visually-hidden';
-var isCa = 'govuk-visually-hidden';
+var isEsa = 'govuk-!-display-none';
+var isPip = 'govuk-!-display-none';
+var isCa = 'govuk-!-display-none';
 if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
-  isEsa = '';
+  isEsa = 'govuk-!-display-block';
 }
 if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
-  isPip = '';
+  isPip = 'govuk-!-display-block';
 }
 if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
-  isCa = '';
+  isCa = 'govuk-!-display-block';
 }
 //For esa Payment
-var esaPayment = 'govuk-visually-hidden';
-var esaMissingPayment = 'govuk-visually-hidden';
-var esaNextPaymentDate = 'govuk-visually-hidden';
-var esaNextPaymentAmount = 'govuk-visually-hidden';
+var esaPayment = 'govuk-!-display-none';
+var esaMissingPayment = 'govuk-!-display-none';
+var esaNextPaymentDate = 'govuk-!-display-none';
+var esaNextPaymentAmount = 'govuk-!-display-none';
 if (req.session.data['esa-payment'] && req.session.data['esa-payment'].includes('Next Payment Date')) {
-  esaNextPaymentDate = '';
-  esaPayment = '';
+  esaNextPaymentDate = 'govuk-!-display-block';
+  esaPayment = 'govuk-!-display-block';
 }
 if (req.session.data['esa-payment'] && req.session.data['esa-payment'].includes('Next Payment Amount')) {
-  esaNextPaymentAmount = '';
-  esaPayment = '';
+  esaNextPaymentAmount = 'govuk-!-display-block';
+  esaPayment = 'govuk-!-display-block';
 }
 if (req.session.data['esa-payment'] && req.session.data['esa-payment'].includes('Missing Payment')) {
-  esaMissingPayment = '';
-  esaPayment = '';
+  esaMissingPayment = 'govuk-!-display-block';
+  esaPayment = 'govuk-!-display-block';
 }
 
 //For esa Process Chasing
-var esaProcessChasing = 'govuk-visually-hidden';
-var esaNewClaim = 'govuk-visually-hidden';
-var esaClaimClosureContact = 'govuk-visually-hidden';
-var esaExplanation = 'govuk-visually-hidden';
-var esaAppealReconsiSupSOS = 'govuk-visually-hidden';
-var esaInterventionsPlanned = 'govuk-visually-hidden';
-var esaInterventionsUnplanned = 'govuk-visually-hidden';
-var esaSevereDisablementPremium = 'govuk-visually-hidden';
+var esaProcessChasing = 'govuk-!-display-none';
+var esaNewClaim = 'govuk-!-display-none';
+var esaClaimClosureContact = 'govuk-!-display-none';
+var esaExplanation = 'govuk-!-display-none';
+var esaAppealReconsiSupSOS = 'govuk-!-display-none';
+var esaInterventionsPlanned = 'govuk-!-display-none';
+var esaInterventionsUnplanned = 'govuk-!-display-none';
+var esaSevereDisablementPremium = 'govuk-!-display-none';
 
 if (req.session.data['esa-process-chasing'] && req.session.data['esa-process-chasing'].includes('New Claim')) {
-  esaNewClaim = '';
-  esaProcessChasing = '';
+  esaNewClaim = 'govuk-!-display-block';
+  esaProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['esa-process-chasing'] && req.session.data['esa-process-chasing'].includes('Claim Closure Contact')) {
-  esaClaimClosureContact = '';
-  esaProcessChasing = '';
+  esaClaimClosureContact = 'govuk-!-display-block';
+  esaProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['esa-process-chasing'] && req.session.data['esa-process-chasing'].includes('Explanation')) {
-  esaExplanation = '';
-  esaProcessChasing = '';
+  esaExplanation = 'govuk-!-display-block';
+  esaProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['esa-process-chasing'] && req.session.data['esa-process-chasing'].includes('Appeal, Reconsideration, Supersessions, SOS')) {
-  esaAppealReconsiSupSOS = '';
-  esaProcessChasing = '';
+  esaAppealReconsiSupSOS = 'govuk-!-display-block';
+  esaProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['esa-process-chasing'] && req.session.data['esa-process-chasing'].includes('Interventions - Planned (Award Reviews)')) {
-  esaInterventionsPlanned = '';
-  esaProcessChasing = '';
+  esaInterventionsPlanned = 'govuk-!-display-block';
+  esaProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['esa-process-chasing'] && req.session.data['esa-process-chasing'].includes('Interventions - Unplanned (CoC Reviews)')) {
-  esaInterventionsUnplanned = '';
-  esaProcessChasing = '';
+  esaInterventionsUnplanned = 'govuk-!-display-block';
+  esaProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['esa-process-chasing'] && req.session.data['esa-process-chasing'].includes('Severe Disablement Premium (SDP)')) {
-  esaSevereDisablementPremium = '';
-  esaProcessChasing = '';
+  esaSevereDisablementPremium = 'govuk-!-display-block';
+  esaProcessChasing = 'govuk-!-display-block';
 }
 
-var esaCoc = 'govuk-visually-hidden';
-var esaSpcAccAdmis = 'govuk-visually-hidden';
-var esaChangeofAddress = 'govuk-visually-hidden';
-var esaChangeHospitalStatus = 'govuk-visually-hidden';
-var esaSavingsInvestments = 'govuk-visually-hidden';
-var esaChangeCarerStatus = 'govuk-visually-hidden';
-var esaCareHomeAdmission = 'govuk-visually-hidden';
-var esaChangesEarnings = 'govuk-visually-hidden';
-var esaChangeBankDetails = 'govuk-visually-hidden';
-var esaChangeFamilyUnit = 'govuk-visually-hidden';
-var esaChangeMedicalCondition = 'govuk-visually-hidden';
+var esaCoc = 'govuk-!-display-none';
+var esaSpcAccAdmis = 'govuk-!-display-none';
+var esaChangeofAddress = 'govuk-!-display-none';
+var esaChangeHospitalStatus = 'govuk-!-display-none';
+var esaSavingsInvestments = 'govuk-!-display-none';
+var esaChangeCarerStatus = 'govuk-!-display-none';
+var esaCareHomeAdmission = 'govuk-!-display-none';
+var esaChangesEarnings = 'govuk-!-display-none';
+var esaChangeBankDetails = 'govuk-!-display-none';
+var esaChangeFamilyUnit = 'govuk-!-display-none';
+var esaChangeMedicalCondition = 'govuk-!-display-none';
 //For esa CoC
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Special Accommodation Admission/Discharge')) {
-  esaSpcAccAdmis = '';
-  esaCoc = '';
+  esaSpcAccAdmis = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Change of Address')) {
-  esaChangeofAddress = '';
-  esaCoc = '';
+  esaChangeofAddress = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Change to Hospital Status')) {
-  esaChangeHospitalStatus = '';
-  esaCoc = '';
+  esaChangeHospitalStatus = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Savings and Investments')) {
-  esaSavingsInvestments = '';
-  esaCoc = '';
+  esaSavingsInvestments = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Change to Carer’s Status')) {
-  esaChangeCarerStatus = '';
-  esaCoc = '';
+  esaChangeCarerStatus = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Care Home Admission')) {
-  esaCareHomeAdmission = '';
-  esaCoc = '';
+  esaCareHomeAdmission = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Changes to Earnings')) {
-  esaChangesEarnings = '';
-  esaCoc = '';
+  esaChangesEarnings = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Change to Bank Details')) {
-  esaChangeBankDetails = '';
-  esaCoc = '';
+  esaChangeBankDetails = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Change to Family Unit')) {
-  esaChangeFamilyUnit = '';
-  esaCoc = '';
+  esaChangeFamilyUnit = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 if (req.session.data['esa-coc'] && req.session.data['esa-coc'].includes('Change to Medical Condition')) {
-  esaChangeMedicalCondition = '';
-  esaCoc = '';
+  esaChangeMedicalCondition = 'govuk-!-display-block';
+  esaCoc = 'govuk-!-display-block';
 }
 
-var esaLoe = 'govuk-visually-hidden';
-var esaLoeRequest = 'govuk-visually-hidden';
+var esaLoe = 'govuk-!-display-none';
+var esaLoeRequest = 'govuk-!-display-none';
 
 if (req.session.data['esa-loe'] && req.session.data['esa-loe'].includes('LoE Request')) {
-  esaLoeRequest = '';
-  esaLoe = '';
+  esaLoeRequest = 'govuk-!-display-block';
+  esaLoe = 'govuk-!-display-block';
 }
 
-var esaGeneral = 'govuk-visually-hidden';
-var esaMedicalEvidenceEnquiry = 'govuk-visually-hidden';
-var esaJobcentreAppointmentEnquiry = 'govuk-visually-hidden';
-var esaGeneralEnquiry = 'govuk-visually-hidden';
+var esaGeneral = 'govuk-!-display-none';
+var esaMedicalEvidenceEnquiry = 'govuk-!-display-none';
+var esaJobcentreAppointmentEnquiry = 'govuk-!-display-none';
+var esaGeneralEnquiry = 'govuk-!-display-none';
 
 if (req.session.data['esa-general'] && req.session.data['esa-general'].includes('Medical Evidence Enquiry')) {
-  esaMedicalEvidenceEnquiry = '';
-  esaGeneral = '';
+  esaMedicalEvidenceEnquiry = 'govuk-!-display-block';
+  esaGeneral = 'govuk-!-display-block';
 }
 if (req.session.data['esa-general'] && req.session.data['esa-general'].includes('Jobcentre Appointment or Enquiry')) {
-  esaJobcentreAppointmentEnquiry = '';
-  esaGeneral = '';
+  esaJobcentreAppointmentEnquiry = 'govuk-!-display-block';
+  esaGeneral = 'govuk-!-display-block';
 }
 if (req.session.data['esa-general'] && req.session.data['esa-general'].includes('General Enquiry')) {
-  esaGeneralEnquiry = '';
-  esaGeneral = '';
+  esaGeneralEnquiry = 'govuk-!-display-block';
+  esaGeneral = 'govuk-!-display-block';
 }
 
 
 
 //For pip Payment
-var pipPayment = 'govuk-visually-hidden';
-var pipMissingPayment = 'govuk-visually-hidden';
-var pipNextPaymentDate = 'govuk-visually-hidden';
-var pipNextPaymentAmount = 'govuk-visually-hidden';
+var pipPayment = 'govuk-!-display-none';
+var pipMissingPayment = 'govuk-!-display-none';
+var pipNextPaymentDate = 'govuk-!-display-none';
+var pipNextPaymentAmount = 'govuk-!-display-none';
 if (req.session.data['pip-payment'] && req.session.data['pip-payment'].includes('Next Payment Date')) {
-  pipNextPaymentDate = '';
-  pipPayment = '';
+  pipNextPaymentDate = 'govuk-!-display-block';
+  pipPayment = 'govuk-!-display-block';
 }
 if (req.session.data['pip-payment'] && req.session.data['pip-payment'].includes('Next Payment Amount')) {
-  pipNextPaymentAmount = '';
-  pipPayment = '';
+  pipNextPaymentAmount = 'govuk-!-display-block';
+  pipPayment = 'govuk-!-display-block';
 }
 if (req.session.data['pip-payment'] && req.session.data['pip-payment'].includes('Missing Payment')) {
-  pipMissingPayment = '';
-  pipPayment = '';
+  pipMissingPayment = 'govuk-!-display-block';
+  pipPayment = 'govuk-!-display-block';
 }
 
 //For pip Process Chasing
-var pipProcessChasing = 'govuk-visually-hidden';
-var pipNewClaim = 'govuk-visually-hidden';
-var pipClaimClosureContact = 'govuk-visually-hidden';
-var pipExplanation = 'govuk-visually-hidden';
-var pipAppealReconsiSupSOS = 'govuk-visually-hidden';
-var pipInterventionsPlanned = 'govuk-visually-hidden';
-var pipInterventionsUnplanned = 'govuk-visually-hidden';
-var pipSevereDisablementPremium = 'govuk-visually-hidden';
+var pipProcessChasing = 'govuk-!-display-none';
+var pipNewClaim = 'govuk-!-display-none';
+var pipClaimClosureContact = 'govuk-!-display-none';
+var pipExplanation = 'govuk-!-display-none';
+var pipAppealReconsiSupSOS = 'govuk-!-display-none';
+var pipInterventionsPlanned = 'govuk-!-display-none';
+var pipInterventionsUnplanned = 'govuk-!-display-none';
+var pipSevereDisablementPremium = 'govuk-!-display-none';
 
 if (req.session.data['pip-process-chasing'] && req.session.data['pip-process-chasing'].includes('New Claim')) {
-  pipNewClaim = '';
-  pipProcessChasing = '';
+  pipNewClaim = 'govuk-!-display-block';
+  pipProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['pip-process-chasing'] && req.session.data['pip-process-chasing'].includes('Claim Closure Contact')) {
-  pipClaimClosureContact = '';
-  pipProcessChasing = '';
+  pipClaimClosureContact = 'govuk-!-display-block';
+  pipProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['pip-process-chasing'] && req.session.data['pip-process-chasing'].includes('Explanation')) {
-  pipExplanation = '';
-  pipProcessChasing = '';
+  pipExplanation = 'govuk-!-display-block';
+  pipProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['pip-process-chasing'] && req.session.data['pip-process-chasing'].includes('Appeal, Reconsideration, Supersessions, SOS')) {
-  pipAppealReconsiSupSOS = '';
-  pipProcessChasing = '';
+  pipAppealReconsiSupSOS = 'govuk-!-display-block';
+  pipProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['pip-process-chasing'] && req.session.data['pip-process-chasing'].includes('Interventions - Planned (Award Reviews)')) {
-  pipInterventionsPlanned = '';
-  pipProcessChasing = '';
+  pipInterventionsPlanned = 'govuk-!-display-block';
+  pipProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['pip-process-chasing'] && req.session.data['pip-process-chasing'].includes('Interventions - Unplanned (CoC Reviews)')) {
-  pipInterventionsUnplanned = '';
-  pipProcessChasing = '';
+  pipInterventionsUnplanned = 'govuk-!-display-block';
+  pipProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['pip-process-chasing'] && req.session.data['pip-process-chasing'].includes('Severe Disablement Premium (SDP)')) {
-  pipSevereDisablementPremium = '';
-  pipProcessChasing = '';
+  pipSevereDisablementPremium = 'govuk-!-display-block';
+  pipProcessChasing = 'govuk-!-display-block';
 }
 
-var pipCoc = 'govuk-visually-hidden';
-var pipSpcAccAdmis = 'govuk-visually-hidden';
-var pipChangeofAddress = 'govuk-visually-hidden';
-var pipChangeHospitalStatus = 'govuk-visually-hidden';
-var pipSavingsInvestments = 'govuk-visually-hidden';
-var pipChangeCarerStatus = 'govuk-visually-hidden';
-var pipCareHomeAdmission = 'govuk-visually-hidden';
-var pipChangesEarnings = 'govuk-visually-hidden';
-var pipChangeBankDetails = 'govuk-visually-hidden';
-var pipChangeFamilyUnit = 'govuk-visually-hidden';
-var pipChangeMedicalCondition = 'govuk-visually-hidden';
+var pipCoc = 'govuk-!-display-none';
+var pipSpcAccAdmis = 'govuk-!-display-none';
+var pipChangeofAddress = 'govuk-!-display-none';
+var pipChangeHospitalStatus = 'govuk-!-display-none';
+var pipSavingsInvestments = 'govuk-!-display-none';
+var pipChangeCarerStatus = 'govuk-!-display-none';
+var pipCareHomeAdmission = 'govuk-!-display-none';
+var pipChangesEarnings = 'govuk-!-display-none';
+var pipChangeBankDetails = 'govuk-!-display-none';
+var pipChangeFamilyUnit = 'govuk-!-display-none';
+var pipChangeMedicalCondition = 'govuk-!-display-none';
 //For pip CoC
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Special Accommodation Admission/Discharge')) {
-  pipSpcAccAdmis = '';
-  pipCoc = '';
+  pipSpcAccAdmis = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Change of Address')) {
-  pipChangeofAddress = '';
-  pipCoc = '';
+  pipChangeofAddress = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Change to Hospital Status')) {
-  pipChangeHospitalStatus = '';
-  pipCoc = '';
+  pipChangeHospitalStatus = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Savings and Investments')) {
-  pipSavingsInvestments = '';
-  pipCoc = '';
+  pipSavingsInvestments = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Change to Carer’s Status')) {
-  pipChangeCarerStatus = '';
-  pipCoc = '';
+  pipChangeCarerStatus = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Care Home Admission')) {
-  pipCareHomeAdmission = '';
-  pipCoc = '';
+  pipCareHomeAdmission = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Changes to Earnings')) {
-  pipChangesEarnings = '';
-  pipCoc = '';
+  pipChangesEarnings = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Change to Bank Details')) {
-  pipChangeBankDetails = '';
-  pipCoc = '';
+  pipChangeBankDetails = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Change to Family Unit')) {
-  pipChangeFamilyUnit = '';
-  pipCoc = '';
+  pipChangeFamilyUnit = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 if (req.session.data['pip-coc'] && req.session.data['pip-coc'].includes('Change to Medical Condition')) {
-  pipChangeMedicalCondition = '';
-  pipCoc = '';
+  pipChangeMedicalCondition = 'govuk-!-display-block';
+  pipCoc = 'govuk-!-display-block';
 }
 
-var pipLoe = 'govuk-visually-hidden';
-var pipLoeRequest = 'govuk-visually-hidden';
+var pipLoe = 'govuk-!-display-none';
+var pipLoeRequest = 'govuk-!-display-none';
 
 if (req.session.data['pip-loe'] && req.session.data['pip-loe'].includes('LoE Request')) {
-  pipLoeRequest = '';
-  pipLoe = '';
+  pipLoeRequest = 'govuk-!-display-block';
+  pipLoe = 'govuk-!-display-block';
 }
 
-var pipGeneral = 'govuk-visually-hidden';
-var pipMedicalEvidenceEnquiry = 'govuk-visually-hidden';
-var pipJobcentreAppointmentEnquiry = 'govuk-visually-hidden';
-var pipGeneralEnquiry = 'govuk-visually-hidden';
+var pipGeneral = 'govuk-!-display-none';
+var pipMedicalEvidenceEnquiry = 'govuk-!-display-none';
+var pipJobcentreAppointmentEnquiry = 'govuk-!-display-none';
+var pipGeneralEnquiry = 'govuk-!-display-none';
 
 if (req.session.data['pip-general'] && req.session.data['pip-general'].includes('Medical Evidence Enquiry')) {
-  pipMedicalEvidenceEnquiry = '';
-  pipGeneral = '';
+  pipMedicalEvidenceEnquiry = 'govuk-!-display-block';
+  pipGeneral = 'govuk-!-display-block';
 }
 if (req.session.data['pip-general'] && req.session.data['pip-general'].includes('Jobcentre Appointment or Enquiry')) {
-  pipJobcentreAppointmentEnquiry = '';
-  pipGeneral = '';
+  pipJobcentreAppointmentEnquiry = 'govuk-!-display-block';
+  pipGeneral = 'govuk-!-display-block';
 }
 if (req.session.data['pip-general'] && req.session.data['pip-general'].includes('General Enquiry')) {
-  pipGeneralEnquiry = '';
-  pipGeneral = '';
+  pipGeneralEnquiry = 'govuk-!-display-block';
+  pipGeneral = 'govuk-!-display-block';
 }
 
 
 //For ca
-var caPayment = 'govuk-visually-hidden';
-var caMissingPayment = 'govuk-visually-hidden';
-var caNextPaymentDate = 'govuk-visually-hidden';
-var caNextPaymentAmount = 'govuk-visually-hidden';
+var caPayment = 'govuk-!-display-none';
+var caMissingPayment = 'govuk-!-display-none';
+var caNextPaymentDate = 'govuk-!-display-none';
+var caNextPaymentAmount = 'govuk-!-display-none';
 if (req.session.data['ca-payment'] && req.session.data['ca-payment'].includes('Next Payment Date')) {
-  caNextPaymentDate = '';
-  caPayment = '';
+  caNextPaymentDate = 'govuk-!-display-block';
+  caPayment = 'govuk-!-display-block';
 }
 if (req.session.data['ca-payment'] && req.session.data['ca-payment'].includes('Next Payment Amount')) {
-  caNextPaymentAmount = '';
-  caPayment = '';
+  caNextPaymentAmount = 'govuk-!-display-block';
+  caPayment = 'govuk-!-display-block';
 }
 if (req.session.data['ca-payment'] && req.session.data['ca-payment'].includes('Missing Payment')) {
-  caMissingPayment = '';
-  caPayment = '';
+  caMissingPayment = 'govuk-!-display-block';
+  caPayment = 'govuk-!-display-block';
 }
 
 //For pip Process Chasing
-var caProcessChasing = 'govuk-visually-hidden';
-var caNewClaim = 'govuk-visually-hidden';
-var caClaimClosureContact = 'govuk-visually-hidden';
-var caExplanation = 'govuk-visually-hidden';
-var caAppealReconsiSupSOS = 'govuk-visually-hidden';
-var caInterventionsPlanned = 'govuk-visually-hidden';
-var caInterventionsUnplanned = 'govuk-visually-hidden';
-var caSevereDisablementPremium = 'govuk-visually-hidden';
+var caProcessChasing = 'govuk-!-display-none';
+var caNewClaim = 'govuk-!-display-none';
+var caClaimClosureContact = 'govuk-!-display-none';
+var caExplanation = 'govuk-!-display-none';
+var caAppealReconsiSupSOS = 'govuk-!-display-none';
+var caInterventionsPlanned = 'govuk-!-display-none';
+var caInterventionsUnplanned = 'govuk-!-display-none';
+var caSevereDisablementPremium = 'govuk-!-display-none';
 
 if (req.session.data['ca-process-chasing'] && req.session.data['ca-process-chasing'].includes('New Claim')) {
-  caNewClaim = '';
-  caProcessChasing = '';
+  caNewClaim = 'govuk-!-display-block';
+  caProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['ca-process-chasing'] && req.session.data['ca-process-chasing'].includes('Claim Closure Contact')) {
-  caClaimClosureContact = '';
-  caProcessChasing = '';
+  caClaimClosureContact = 'govuk-!-display-block';
+  caProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['ca-process-chasing'] && req.session.data['ca-process-chasing'].includes('Explanation')) {
-  caExplanation = '';
-  caProcessChasing = '';
+  caExplanation = 'govuk-!-display-block';
+  caProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['ca-process-chasing'] && req.session.data['ca-process-chasing'].includes('Appeal, Reconsideration, Supersessions, SOS')) {
-  caAppealReconsiSupSOS = '';
-  caProcessChasing = '';
+  caAppealReconsiSupSOS = 'govuk-!-display-block';
+  caProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['ca-process-chasing'] && req.session.data['ca-process-chasing'].includes('Interventions - Planned (Award Reviews)')) {
-  caInterventionsPlanned = '';
-  caProcessChasing = '';
+  caInterventionsPlanned = 'govuk-!-display-block';
+  caProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['ca-process-chasing'] && req.session.data['ca-process-chasing'].includes('Interventions - Unplanned (CoC Reviews)')) {
-  caInterventionsUnplanned = '';
-  caProcessChasing = '';
+  caInterventionsUnplanned = 'govuk-!-display-block';
+  caProcessChasing = 'govuk-!-display-block';
 }
 if (req.session.data['ca-process-chasing'] && req.session.data['ca-process-chasing'].includes('Severe Disablement Premium (SDP)')) {
-  caSevereDisablementPremium = '';
-  caProcessChasing = '';
+  caSevereDisablementPremium = 'govuk-!-display-block';
+  caProcessChasing = 'govuk-!-display-block';
 }
 
-var caCoc = 'govuk-visually-hidden';
-var caSpcAccAdmis = 'govuk-visually-hidden';
-var caChangeofAddress = 'govuk-visually-hidden';
-var caChangeHospitalStatus = 'govuk-visually-hidden';
-var caSavingsInvestments = 'govuk-visually-hidden';
-var caChangeCarerStatus = 'govuk-visually-hidden';
-var caCareHomeAdmission = 'govuk-visually-hidden';
-var caChangesEarnings = 'govuk-visually-hidden';
-var caChangeBankDetails = 'govuk-visually-hidden';
-var caChangeFamilyUnit = 'govuk-visually-hidden';
-var caChangeMedicalCondition = 'govuk-visually-hidden';
+var caCoc = 'govuk-!-display-none';
+var caSpcAccAdmis = 'govuk-!-display-none';
+var caChangeofAddress = 'govuk-!-display-none';
+var caChangeHospitalStatus = 'govuk-!-display-none';
+var caSavingsInvestments = 'govuk-!-display-none';
+var caChangeCarerStatus = 'govuk-!-display-none';
+var caCareHomeAdmission = 'govuk-!-display-none';
+var caChangesEarnings = 'govuk-!-display-none';
+var caChangeBankDetails = 'govuk-!-display-none';
+var caChangeFamilyUnit = 'govuk-!-display-none';
+var caChangeMedicalCondition = 'govuk-!-display-none';
 //For pip CoC
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Special Accommodation Admission/Discharge')) {
-  caSpcAccAdmis = '';
-  caCoc = '';
+  caSpcAccAdmis = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Change of Address')) {
-  caChangeofAddress = '';
-  caCoc = '';
+  caChangeofAddress = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Change to Hospital Status')) {
-  caChangeHospitalStatus = '';
-  caCoc = '';
+  caChangeHospitalStatus = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Savings and Investments')) {
-  caSavingsInvestments = '';
-  caCoc = '';
+  caSavingsInvestments = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Change to Carer’s Status')) {
-  caChangeCarerStatus = '';
-  caCoc = '';
+  caChangeCarerStatus = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Care Home Admission')) {
-  caCareHomeAdmission = '';
-  caCoc = '';
+  caCareHomeAdmission = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Changes to Earnings')) {
-  caChangesEarnings = '';
-  caCoc = '';
+  caChangesEarnings = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Change to Bank Details')) {
-  caChangeBankDetails = '';
-  caCoc = '';
+  caChangeBankDetails = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Change to Family Unit')) {
-  caChangeFamilyUnit = '';
-  caCoc = '';
+  caChangeFamilyUnit = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 if (req.session.data['ca-coc'] && req.session.data['ca-coc'].includes('Change to Medical Condition')) {
-  caChangeMedicalCondition = '';
-  caCoc = '';
+  caChangeMedicalCondition = 'govuk-!-display-block';
+  caCoc = 'govuk-!-display-block';
 }
 
-var caLoe = 'govuk-visually-hidden';
-var caLoeRequest = 'govuk-visually-hidden';
+var caLoe = 'govuk-!-display-none';
+var caLoeRequest = 'govuk-!-display-none';
 
 if (req.session.data['ca-loe'] && req.session.data['ca-loe'].includes('LoE Request')) {
-  caLoeRequest = '';
-  caLoe = '';
+  caLoeRequest = 'govuk-!-display-block';
+  caLoe = 'govuk-!-display-block';
 }
 
-var caGeneral = 'govuk-visually-hidden';
-var caMedicalEvidenceEnquiry = 'govuk-visually-hidden';
-var caJobcentreAppointmentEnquiry = 'govuk-visually-hidden';
-var caGeneralEnquiry = 'govuk-visually-hidden';
+var caGeneral = 'govuk-!-display-none';
+var caMedicalEvidenceEnquiry = 'govuk-!-display-none';
+var caJobcentreAppointmentEnquiry = 'govuk-!-display-none';
+var caGeneralEnquiry = 'govuk-!-display-none';
 
 if (req.session.data['ca-general'] && req.session.data['ca-general'].includes('Medical Evidence Enquiry')) {
-  caMedicalEvidenceEnquiry = '';
-  caGeneral = '';
+  caMedicalEvidenceEnquiry = 'govuk-!-display-block';
+  caGeneral = 'govuk-!-display-block';
 }
 if (req.session.data['ca-general'] && req.session.data['ca-general'].includes('Jobcentre Appointment or Enquiry')) {
-  caJobcentreAppointmentEnquiry = '';
-  caGeneral = '';
+  caJobcentreAppointmentEnquiry = 'govuk-!-display-block';
+  caGeneral = 'govuk-!-display-block';
 }
 if (req.session.data['ca-general'] && req.session.data['ca-general'].includes('General Enquiry')) {
-  caGeneralEnquiry = '';
-  caGeneral = '';
+  caGeneralEnquiry = 'govuk-!-display-block';
+  caGeneral = 'govuk-!-display-block';
 }
 
 
 //For notes
-var esaNextPaymentDateAddNotes = 'govuk-visually-hidden';
-var esaNextPaymentDateEditNotes = 'govuk-visually-hidden';
-var esaNextPaymentAmountAddNotes = 'govuk-visually-hidden';
-var esaNextPaymentAmountEditNotes = 'govuk-visually-hidden';
-var esaMissingPaymentAddNotes = 'govuk-visually-hidden';
-var esaMissingPaymentEditNotes = 'govuk-visually-hidden';
-var esaPcOption1AddNotes = 'govuk-visually-hidden';
-var esaPcOption1EditNotes = 'govuk-visually-hidden';
-var esaPcOption2AddNotes = 'govuk-visually-hidden';
-var esaPcOption2EditNotes = 'govuk-visually-hidden';
-var esaPcOption3AddNotes = 'govuk-visually-hidden';
-var esaPcOption3EditNotes = 'govuk-visually-hidden';
-var esaPcOption4AddNotes = 'govuk-visually-hidden';
-var esaPcOption4EditNotes = 'govuk-visually-hidden';
-var esaPcOption5AddNotes = 'govuk-visually-hidden';
-var esaPcOption5EditNotes = 'govuk-visually-hidden';
-var esaPcOption6AddNotes = 'govuk-visually-hidden';
-var esaPcOption6EditNotes = 'govuk-visually-hidden';
-var esaPcOption7AddNotes = 'govuk-visually-hidden';
-var esaPcOption7EditNotes = 'govuk-visually-hidden';
-var esaCocOption1AddNotes = 'govuk-visually-hidden';
-var esaCocOption1EditNotes = 'govuk-visually-hidden';
-var esaCocOption2AddNotes = 'govuk-visually-hidden';
-var esaCocOption2EditNotes = 'govuk-visually-hidden';
-var esaCocOption3AddNotes = 'govuk-visually-hidden';
-var esaCocOption3EditNotes = 'govuk-visually-hidden';
-var esaCocOption4AddNotes = 'govuk-visually-hidden';
-var esaCocOption4EditNotes = 'govuk-visually-hidden';
-var esaCocOption5AddNotes = 'govuk-visually-hidden';
-var esaCocOption5EditNotes = 'govuk-visually-hidden';
-var esaCocOption6AddNotes = 'govuk-visually-hidden';
-var esaCocOption6EditNotes = 'govuk-visually-hidden';
-var esaCocOption7AddNotes = 'govuk-visually-hidden';
-var esaCocOption7EditNotes = 'govuk-visually-hidden';
-var esaCocOption8AddNotes = 'govuk-visually-hidden';
-var esaCocOption8EditNotes = 'govuk-visually-hidden';
-var esaCocOption9AddNotes = 'govuk-visually-hidden';
-var esaCocOption9EditNotes = 'govuk-visually-hidden';
-var esaCocOption10AddNotes = 'govuk-visually-hidden';
-var esaCocOption10EditNotes = 'govuk-visually-hidden';
-var esaLoeOption1AddNotes = 'govuk-visually-hidden';
-var esaLoeOption1EditNotes = 'govuk-visually-hidden';
-var esaGeneralOption1AddNotes = 'govuk-visually-hidden';
-var esaGeneralOption1EditNotes = 'govuk-visually-hidden';
-var esaGeneralOption2AddNotes = 'govuk-visually-hidden';
-var esaGeneralOption2EditNotes = 'govuk-visually-hidden';
-var esaGeneralOption3AddNotes = 'govuk-visually-hidden';
-var esaGeneralOption3EditNotes = 'govuk-visually-hidden';
+var esaNextPaymentDateAddNotes = 'govuk-!-display-none';
+var esaNextPaymentDateEditNotes = 'govuk-!-display-none';
+var esaNextPaymentAmountAddNotes = 'govuk-!-display-none';
+var esaNextPaymentAmountEditNotes = 'govuk-!-display-none';
+var esaMissingPaymentAddNotes = 'govuk-!-display-none';
+var esaMissingPaymentEditNotes = 'govuk-!-display-none';
+var esaPcOption1AddNotes = 'govuk-!-display-none';
+var esaPcOption1EditNotes = 'govuk-!-display-none';
+var esaPcOption2AddNotes = 'govuk-!-display-none';
+var esaPcOption2EditNotes = 'govuk-!-display-none';
+var esaPcOption3AddNotes = 'govuk-!-display-none';
+var esaPcOption3EditNotes = 'govuk-!-display-none';
+var esaPcOption4AddNotes = 'govuk-!-display-none';
+var esaPcOption4EditNotes = 'govuk-!-display-none';
+var esaPcOption5AddNotes = 'govuk-!-display-none';
+var esaPcOption5EditNotes = 'govuk-!-display-none';
+var esaPcOption6AddNotes = 'govuk-!-display-none';
+var esaPcOption6EditNotes = 'govuk-!-display-none';
+var esaPcOption7AddNotes = 'govuk-!-display-none';
+var esaPcOption7EditNotes = 'govuk-!-display-none';
+var esaCocOption1AddNotes = 'govuk-!-display-none';
+var esaCocOption1EditNotes = 'govuk-!-display-none';
+var esaCocOption2AddNotes = 'govuk-!-display-none';
+var esaCocOption2EditNotes = 'govuk-!-display-none';
+var esaCocOption3AddNotes = 'govuk-!-display-none';
+var esaCocOption3EditNotes = 'govuk-!-display-none';
+var esaCocOption4AddNotes = 'govuk-!-display-none';
+var esaCocOption4EditNotes = 'govuk-!-display-none';
+var esaCocOption5AddNotes = 'govuk-!-display-none';
+var esaCocOption5EditNotes = 'govuk-!-display-none';
+var esaCocOption6AddNotes = 'govuk-!-display-none';
+var esaCocOption6EditNotes = 'govuk-!-display-none';
+var esaCocOption7AddNotes = 'govuk-!-display-none';
+var esaCocOption7EditNotes = 'govuk-!-display-none';
+var esaCocOption8AddNotes = 'govuk-!-display-none';
+var esaCocOption8EditNotes = 'govuk-!-display-none';
+var esaCocOption9AddNotes = 'govuk-!-display-none';
+var esaCocOption9EditNotes = 'govuk-!-display-none';
+var esaCocOption10AddNotes = 'govuk-!-display-none';
+var esaCocOption10EditNotes = 'govuk-!-display-none';
+var esaLoeOption1AddNotes = 'govuk-!-display-none';
+var esaLoeOption1EditNotes = 'govuk-!-display-none';
+var esaGeneralOption1AddNotes = 'govuk-!-display-none';
+var esaGeneralOption1EditNotes = 'govuk-!-display-none';
+var esaGeneralOption2AddNotes = 'govuk-!-display-none';
+var esaGeneralOption2EditNotes = 'govuk-!-display-none';
+var esaGeneralOption3AddNotes = 'govuk-!-display-none';
+var esaGeneralOption3EditNotes = 'govuk-!-display-none';
 
 //pip
-var pipNextPaymentDateAddNotes = 'govuk-visually-hidden';
-var pipNextPaymentDateEditNotes = 'govuk-visually-hidden';
-var pipNextPaymentAmountAddNotes = 'govuk-visually-hidden';
-var pipNextPaymentAmountEditNotes = 'govuk-visually-hidden';
-var pipMissingPaymentAddNotes = 'govuk-visually-hidden';
-var pipMissingPaymentEditNotes = 'govuk-visually-hidden';
-var pipPcOption1AddNotes = 'govuk-visually-hidden';
-var pipPcOption1EditNotes = 'govuk-visually-hidden';
-var pipPcOption2AddNotes = 'govuk-visually-hidden';
-var pipPcOption2EditNotes = 'govuk-visually-hidden';
-var pipPcOption3AddNotes = 'govuk-visually-hidden';
-var pipPcOption3EditNotes = 'govuk-visually-hidden';
-var pipPcOption4AddNotes = 'govuk-visually-hidden';
-var pipPcOption4EditNotes = 'govuk-visually-hidden';
-var pipPcOption5AddNotes = 'govuk-visually-hidden';
-var pipPcOption5EditNotes = 'govuk-visually-hidden';
-var pipPcOption6AddNotes = 'govuk-visually-hidden';
-var pipPcOption6EditNotes = 'govuk-visually-hidden';
-var pipPcOption7AddNotes = 'govuk-visually-hidden';
-var pipPcOption7EditNotes = 'govuk-visually-hidden';
-var pipCocOption1AddNotes = 'govuk-visually-hidden';
-var pipCocOption1EditNotes = 'govuk-visually-hidden';
-var pipCocOption2AddNotes = 'govuk-visually-hidden';
-var pipCocOption2EditNotes = 'govuk-visually-hidden';
-var pipCocOption3AddNotes = 'govuk-visually-hidden';
-var pipCocOption3EditNotes = 'govuk-visually-hidden';
-var pipCocOption4AddNotes = 'govuk-visually-hidden';
-var pipCocOption4EditNotes = 'govuk-visually-hidden';
-var pipCocOption5AddNotes = 'govuk-visually-hidden';
-var pipCocOption5EditNotes = 'govuk-visually-hidden';
-var pipCocOption6AddNotes = 'govuk-visually-hidden';
-var pipCocOption6EditNotes = 'govuk-visually-hidden';
-var pipCocOption7AddNotes = 'govuk-visually-hidden';
-var pipCocOption7EditNotes = 'govuk-visually-hidden';
-var pipCocOption8AddNotes = 'govuk-visually-hidden';
-var pipCocOption8EditNotes = 'govuk-visually-hidden';
-var pipCocOption9AddNotes = 'govuk-visually-hidden';
-var pipCocOption9EditNotes = 'govuk-visually-hidden';
-var pipCocOption10AddNotes = 'govuk-visually-hidden';
-var pipCocOption10EditNotes = 'govuk-visually-hidden';
-var pipLoeOption1AddNotes = 'govuk-visually-hidden';
-var pipLoeOption1EditNotes = 'govuk-visually-hidden';
-var pipGeneralOption1AddNotes = 'govuk-visually-hidden';
-var pipGeneralOption1EditNotes = 'govuk-visually-hidden';
-var pipGeneralOption2AddNotes = 'govuk-visually-hidden';
-var pipGeneralOption2EditNotes = 'govuk-visually-hidden';
-var pipGeneralOption3AddNotes = 'govuk-visually-hidden';
-var pipGeneralOption3EditNotes = 'govuk-visually-hidden';
+var pipNextPaymentDateAddNotes = 'govuk-!-display-none';
+var pipNextPaymentDateEditNotes = 'govuk-!-display-none';
+var pipNextPaymentAmountAddNotes = 'govuk-!-display-none';
+var pipNextPaymentAmountEditNotes = 'govuk-!-display-none';
+var pipMissingPaymentAddNotes = 'govuk-!-display-none';
+var pipMissingPaymentEditNotes = 'govuk-!-display-none';
+var pipPcOption1AddNotes = 'govuk-!-display-none';
+var pipPcOption1EditNotes = 'govuk-!-display-none';
+var pipPcOption2AddNotes = 'govuk-!-display-none';
+var pipPcOption2EditNotes = 'govuk-!-display-none';
+var pipPcOption3AddNotes = 'govuk-!-display-none';
+var pipPcOption3EditNotes = 'govuk-!-display-none';
+var pipPcOption4AddNotes = 'govuk-!-display-none';
+var pipPcOption4EditNotes = 'govuk-!-display-none';
+var pipPcOption5AddNotes = 'govuk-!-display-none';
+var pipPcOption5EditNotes = 'govuk-!-display-none';
+var pipPcOption6AddNotes = 'govuk-!-display-none';
+var pipPcOption6EditNotes = 'govuk-!-display-none';
+var pipPcOption7AddNotes = 'govuk-!-display-none';
+var pipPcOption7EditNotes = 'govuk-!-display-none';
+var pipCocOption1AddNotes = 'govuk-!-display-none';
+var pipCocOption1EditNotes = 'govuk-!-display-none';
+var pipCocOption2AddNotes = 'govuk-!-display-none';
+var pipCocOption2EditNotes = 'govuk-!-display-none';
+var pipCocOption3AddNotes = 'govuk-!-display-none';
+var pipCocOption3EditNotes = 'govuk-!-display-none';
+var pipCocOption4AddNotes = 'govuk-!-display-none';
+var pipCocOption4EditNotes = 'govuk-!-display-none';
+var pipCocOption5AddNotes = 'govuk-!-display-none';
+var pipCocOption5EditNotes = 'govuk-!-display-none';
+var pipCocOption6AddNotes = 'govuk-!-display-none';
+var pipCocOption6EditNotes = 'govuk-!-display-none';
+var pipCocOption7AddNotes = 'govuk-!-display-none';
+var pipCocOption7EditNotes = 'govuk-!-display-none';
+var pipCocOption8AddNotes = 'govuk-!-display-none';
+var pipCocOption8EditNotes = 'govuk-!-display-none';
+var pipCocOption9AddNotes = 'govuk-!-display-none';
+var pipCocOption9EditNotes = 'govuk-!-display-none';
+var pipCocOption10AddNotes = 'govuk-!-display-none';
+var pipCocOption10EditNotes = 'govuk-!-display-none';
+var pipLoeOption1AddNotes = 'govuk-!-display-none';
+var pipLoeOption1EditNotes = 'govuk-!-display-none';
+var pipGeneralOption1AddNotes = 'govuk-!-display-none';
+var pipGeneralOption1EditNotes = 'govuk-!-display-none';
+var pipGeneralOption2AddNotes = 'govuk-!-display-none';
+var pipGeneralOption2EditNotes = 'govuk-!-display-none';
+var pipGeneralOption3AddNotes = 'govuk-!-display-none';
+var pipGeneralOption3EditNotes = 'govuk-!-display-none';
 
 //CA
-var caNextPaymentDateAddNotes = 'govuk-visually-hidden';
-var caNextPaymentDateEditNotes = 'govuk-visually-hidden';
-var caNextPaymentAmountAddNotes = 'govuk-visually-hidden';
-var caNextPaymentAmountEditNotes = 'govuk-visually-hidden';
-var caMissingPaymentAddNotes = 'govuk-visually-hidden';
-var caMissingPaymentEditNotes = 'govuk-visually-hidden';
-var caPcOption1AddNotes = 'govuk-visually-hidden';
-var caPcOption1EditNotes = 'govuk-visually-hidden';
-var caPcOption2AddNotes = 'govuk-visually-hidden';
-var caPcOption2EditNotes = 'govuk-visually-hidden';
-var caPcOption3AddNotes = 'govuk-visually-hidden';
-var caPcOption3EditNotes = 'govuk-visually-hidden';
-var caPcOption4AddNotes = 'govuk-visually-hidden';
-var caPcOption4EditNotes = 'govuk-visually-hidden';
-var caPcOption5AddNotes = 'govuk-visually-hidden';
-var caPcOption5EditNotes = 'govuk-visually-hidden';
-var caPcOption6AddNotes = 'govuk-visually-hidden';
-var caPcOption6EditNotes = 'govuk-visually-hidden';
-var caPcOption7AddNotes = 'govuk-visually-hidden';
-var caPcOption7EditNotes = 'govuk-visually-hidden';
-var caCocOption1AddNotes = 'govuk-visually-hidden';
-var caCocOption1EditNotes = 'govuk-visually-hidden';
-var caCocOption2AddNotes = 'govuk-visually-hidden';
-var caCocOption2EditNotes = 'govuk-visually-hidden';
-var caCocOption3AddNotes = 'govuk-visually-hidden';
-var caCocOption3EditNotes = 'govuk-visually-hidden';
-var caCocOption4AddNotes = 'govuk-visually-hidden';
-var caCocOption4EditNotes = 'govuk-visually-hidden';
-var caCocOption5AddNotes = 'govuk-visually-hidden';
-var caCocOption5EditNotes = 'govuk-visually-hidden';
-var caCocOption6AddNotes = 'govuk-visually-hidden';
-var caCocOption6EditNotes = 'govuk-visually-hidden';
-var caCocOption7AddNotes = 'govuk-visually-hidden';
-var caCocOption7EditNotes = 'govuk-visually-hidden';
-var caCocOption8AddNotes = 'govuk-visually-hidden';
-var caCocOption8EditNotes = 'govuk-visually-hidden';
-var caCocOption9AddNotes = 'govuk-visually-hidden';
-var caCocOption9EditNotes = 'govuk-visually-hidden';
-var caCocOption10AddNotes = 'govuk-visually-hidden';
-var caCocOption10EditNotes = 'govuk-visually-hidden';
-var caLoeOption1AddNotes = 'govuk-visually-hidden';
-var caLoeOption1EditNotes = 'govuk-visually-hidden';
-var caGeneralOption1AddNotes = 'govuk-visually-hidden';
-var caGeneralOption1EditNotes = 'govuk-visually-hidden';
-var caGeneralOption2AddNotes = 'govuk-visually-hidden';
-var caGeneralOption2EditNotes = 'govuk-visually-hidden';
-var caGeneralOption3AddNotes = 'govuk-visually-hidden';
-var caGeneralOption3EditNotes = 'govuk-visually-hidden';
+var caNextPaymentDateAddNotes = 'govuk-!-display-none';
+var caNextPaymentDateEditNotes = 'govuk-!-display-none';
+var caNextPaymentAmountAddNotes = 'govuk-!-display-none';
+var caNextPaymentAmountEditNotes = 'govuk-!-display-none';
+var caMissingPaymentAddNotes = 'govuk-!-display-none';
+var caMissingPaymentEditNotes = 'govuk-!-display-none';
+var caPcOption1AddNotes = 'govuk-!-display-none';
+var caPcOption1EditNotes = 'govuk-!-display-none';
+var caPcOption2AddNotes = 'govuk-!-display-none';
+var caPcOption2EditNotes = 'govuk-!-display-none';
+var caPcOption3AddNotes = 'govuk-!-display-none';
+var caPcOption3EditNotes = 'govuk-!-display-none';
+var caPcOption4AddNotes = 'govuk-!-display-none';
+var caPcOption4EditNotes = 'govuk-!-display-none';
+var caPcOption5AddNotes = 'govuk-!-display-none';
+var caPcOption5EditNotes = 'govuk-!-display-none';
+var caPcOption6AddNotes = 'govuk-!-display-none';
+var caPcOption6EditNotes = 'govuk-!-display-none';
+var caPcOption7AddNotes = 'govuk-!-display-none';
+var caPcOption7EditNotes = 'govuk-!-display-none';
+var caCocOption1AddNotes = 'govuk-!-display-none';
+var caCocOption1EditNotes = 'govuk-!-display-none';
+var caCocOption2AddNotes = 'govuk-!-display-none';
+var caCocOption2EditNotes = 'govuk-!-display-none';
+var caCocOption3AddNotes = 'govuk-!-display-none';
+var caCocOption3EditNotes = 'govuk-!-display-none';
+var caCocOption4AddNotes = 'govuk-!-display-none';
+var caCocOption4EditNotes = 'govuk-!-display-none';
+var caCocOption5AddNotes = 'govuk-!-display-none';
+var caCocOption5EditNotes = 'govuk-!-display-none';
+var caCocOption6AddNotes = 'govuk-!-display-none';
+var caCocOption6EditNotes = 'govuk-!-display-none';
+var caCocOption7AddNotes = 'govuk-!-display-none';
+var caCocOption7EditNotes = 'govuk-!-display-none';
+var caCocOption8AddNotes = 'govuk-!-display-none';
+var caCocOption8EditNotes = 'govuk-!-display-none';
+var caCocOption9AddNotes = 'govuk-!-display-none';
+var caCocOption9EditNotes = 'govuk-!-display-none';
+var caCocOption10AddNotes = 'govuk-!-display-none';
+var caCocOption10EditNotes = 'govuk-!-display-none';
+var caLoeOption1AddNotes = 'govuk-!-display-none';
+var caLoeOption1EditNotes = 'govuk-!-display-none';
+var caGeneralOption1AddNotes = 'govuk-!-display-none';
+var caGeneralOption1EditNotes = 'govuk-!-display-none';
+var caGeneralOption2AddNotes = 'govuk-!-display-none';
+var caGeneralOption2EditNotes = 'govuk-!-display-none';
+var caGeneralOption3AddNotes = 'govuk-!-display-none';
+var caGeneralOption3EditNotes = 'govuk-!-display-none';
 
-if (req.session.data['esaNextPaymentDateNotes'] == '' || req.session.data['esaNextPaymentDateNotes'] == undefined) { esaNextPaymentDateAddNotes = ''; } else { esaNextPaymentDateEditNotes = ''; }
-if (req.session.data['esaNextPaymentAmountNotes'] == '' || req.session.data['esaNextPaymentAmountNotes'] == undefined) { esaNextPaymentAmountAddNotes = ''; } else { esaNextPaymentAmountEditNotes = ''; }
-if (req.session.data['esaMissingPaymentNotes'] == '' || req.session.data['esaMissingPaymentNotes'] == undefined) { esaMissingPaymentAddNotes = ''; } else { esaMissingPaymentEditNotes = ''; }
+if (req.session.data['esaNextPaymentDateNotes'] == '' || req.session.data['esaNextPaymentDateNotes'] == undefined) { esaNextPaymentDateAddNotes = 'govuk-!-display-block'; } else { esaNextPaymentDateEditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaNextPaymentAmountNotes'] == '' || req.session.data['esaNextPaymentAmountNotes'] == undefined) { esaNextPaymentAmountAddNotes = 'govuk-!-display-block'; } else { esaNextPaymentAmountEditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaMissingPaymentNotes'] == '' || req.session.data['esaMissingPaymentNotes'] == undefined) { esaMissingPaymentAddNotes = 'govuk-!-display-block'; } else { esaMissingPaymentEditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['esaPcOption1'] == '' || req.session.data['esaPcOption1'] == undefined) { esaPcOption1AddNotes = ''; } else { esaPcOption1EditNotes = ''; }
-if (req.session.data['esaPcOption2'] == '' || req.session.data['esaPcOption2'] == undefined) { esaPcOption2AddNotes = ''; } else { esaPcOption2EditNotes = ''; }
-if (req.session.data['esaPcOption3'] == '' || req.session.data['esaPcOption3'] == undefined) { esaPcOption3AddNotes = ''; } else { esaPcOption3EditNotes = ''; }
-if (req.session.data['esaPcOption4'] == '' || req.session.data['esaPcOption4'] == undefined) { esaPcOption4AddNotes = ''; } else { esaPcOption4EditNotes = ''; }
-if (req.session.data['esaPcOption5'] == '' || req.session.data['esaPcOption5'] == undefined) { esaPcOption5AddNotes = ''; } else { esaPcOption5AddNotes = ''; }
-if (req.session.data['esaPcOption6'] == '' || req.session.data['esaPcOption6'] == undefined) { esaPcOption6AddNotes = ''; } else { esaPcOption6AddNotes = ''; }
-if (req.session.data['esaPcOption7'] == '' || req.session.data['esaPcOption7'] == undefined) { esaPcOption7AddNotes = ''; } else { esaPcOption7EditNotes = ''; }
+if (req.session.data['esaPcOption1'] == '' || req.session.data['esaPcOption1'] == undefined) { esaPcOption1AddNotes = 'govuk-!-display-block'; } else { esaPcOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaPcOption2'] == '' || req.session.data['esaPcOption2'] == undefined) { esaPcOption2AddNotes = 'govuk-!-display-block'; } else { esaPcOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaPcOption3'] == '' || req.session.data['esaPcOption3'] == undefined) { esaPcOption3AddNotes = 'govuk-!-display-block'; } else { esaPcOption3EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaPcOption4'] == '' || req.session.data['esaPcOption4'] == undefined) { esaPcOption4AddNotes = 'govuk-!-display-block'; } else { esaPcOption4EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaPcOption5'] == '' || req.session.data['esaPcOption5'] == undefined) { esaPcOption5AddNotes = 'govuk-!-display-block'; } else { esaPcOption5AddNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaPcOption6'] == '' || req.session.data['esaPcOption6'] == undefined) { esaPcOption6AddNotes = 'govuk-!-display-block'; } else { esaPcOption6AddNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaPcOption7'] == '' || req.session.data['esaPcOption7'] == undefined) { esaPcOption7AddNotes = 'govuk-!-display-block'; } else { esaPcOption7EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['esaCocOption1'] == '' || req.session.data['esaCocOption1'] == undefined) { esaCocOption1AddNotes = ''; } else { esaCocOption1EditNotes = ''; }
-if (req.session.data['esaCocOption2'] == '' || req.session.data['esaCocOption2'] == undefined) { esaCocOption2AddNotes = ''; } else { esaCocOption2EditNotes = ''; }
-if (req.session.data['esaCocOption3'] == '' || req.session.data['esaCocOption3'] == undefined) { esaCocOption3AddNotes = ''; } else { esaCocOption3EditNotes = ''; }
-if (req.session.data['esaCocOption4'] == '' || req.session.data['esaCocOption4'] == undefined) { esaCocOption4AddNotes = ''; } else { esaCocOption4EditNotes = ''; }
-if (req.session.data['esaCocOption5'] == '' || req.session.data['esaCocOption5'] == undefined) { esaCocOption5AddNotes = ''; } else { esaCocOption5EditNotes = ''; }
-if (req.session.data['esaCocOption6'] == '' || req.session.data['esaCocOption6'] == undefined) { esaCocOption6AddNotes = ''; } else { esaCocOption6EditNotes = ''; }
-if (req.session.data['esaCocOption7'] == '' || req.session.data['esaCocOption7'] == undefined) { esaCocOption7AddNotes = ''; } else { esaCocOption7EditNotes = ''; }
-if (req.session.data['esaCocOption8'] == '' || req.session.data['esaCocOption8'] == undefined) { esaCocOption8AddNotes = ''; } else { esaCocOption8EditNotes = ''; }
-if (req.session.data['esaCocOption9'] == '' || req.session.data['esaCocOption9'] == undefined) { esaCocOption9AddNotes = ''; } else { esaCocOption9EditNotes = ''; }
-if (req.session.data['esaCocOption10'] == '' || req.session.data['esaCocOption10'] == undefined) { esaCocOption10AddNotes = ''; } else { esaCocOption10EditNotes = ''; }
+if (req.session.data['esaCocOption1'] == '' || req.session.data['esaCocOption1'] == undefined) { esaCocOption1AddNotes = 'govuk-!-display-block'; } else { esaCocOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption2'] == '' || req.session.data['esaCocOption2'] == undefined) { esaCocOption2AddNotes = 'govuk-!-display-block'; } else { esaCocOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption3'] == '' || req.session.data['esaCocOption3'] == undefined) { esaCocOption3AddNotes = 'govuk-!-display-block'; } else { esaCocOption3EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption4'] == '' || req.session.data['esaCocOption4'] == undefined) { esaCocOption4AddNotes = 'govuk-!-display-block'; } else { esaCocOption4EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption5'] == '' || req.session.data['esaCocOption5'] == undefined) { esaCocOption5AddNotes = 'govuk-!-display-block'; } else { esaCocOption5EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption6'] == '' || req.session.data['esaCocOption6'] == undefined) { esaCocOption6AddNotes = 'govuk-!-display-block'; } else { esaCocOption6EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption7'] == '' || req.session.data['esaCocOption7'] == undefined) { esaCocOption7AddNotes = 'govuk-!-display-block'; } else { esaCocOption7EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption8'] == '' || req.session.data['esaCocOption8'] == undefined) { esaCocOption8AddNotes = 'govuk-!-display-block'; } else { esaCocOption8EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption9'] == '' || req.session.data['esaCocOption9'] == undefined) { esaCocOption9AddNotes = 'govuk-!-display-block'; } else { esaCocOption9EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaCocOption10'] == '' || req.session.data['esaCocOption10'] == undefined) { esaCocOption10AddNotes = 'govuk-!-display-block'; } else { esaCocOption10EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['esaLoeOption1'] == '' || req.session.data['esaLoeOption1'] == undefined) { esaLoeOption1AddNotes = ''; } else { esaLoeOption1EditNotes = ''; }
+if (req.session.data['esaLoeOption1'] == '' || req.session.data['esaLoeOption1'] == undefined) { esaLoeOption1AddNotes = 'govuk-!-display-block'; } else { esaLoeOption1EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['esaGeneralOption1'] == '' || req.session.data['esaGeneralOption1'] == undefined) { esaGeneralOption1AddNotes = ''; } else { esaGeneralOption1EditNotes = ''; }
-if (req.session.data['esaGeneralOption2'] == '' || req.session.data['esaGeneralOption2'] == undefined) { esaGeneralOption2AddNotes = ''; } else { esaGeneralOption2EditNotes = ''; }
-if (req.session.data['esaGeneralOption3'] == '' || req.session.data['esaGeneralOption3'] == undefined) { esaGeneralOption3AddNotes = ''; } else { esaGeneralOption3EditNotes = ''; }
+if (req.session.data['esaGeneralOption1'] == '' || req.session.data['esaGeneralOption1'] == undefined) { esaGeneralOption1AddNotes = 'govuk-!-display-block'; } else { esaGeneralOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaGeneralOption2'] == '' || req.session.data['esaGeneralOption2'] == undefined) { esaGeneralOption2AddNotes = 'govuk-!-display-block'; } else { esaGeneralOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['esaGeneralOption3'] == '' || req.session.data['esaGeneralOption3'] == undefined) { esaGeneralOption3AddNotes = 'govuk-!-display-block'; } else { esaGeneralOption3EditNotes = 'govuk-!-display-block'; }
 
 
 //pip
-if (req.session.data['pipNextPaymentDateNotes'] == '' || req.session.data['pipNextPaymentDateNotes'] == undefined) { pipNextPaymentDateAddNotes = ''; } else { pipNextPaymentDateEditNotes = ''; }
-if (req.session.data['pipNextPaymentAmountNotes'] == '' || req.session.data['pipNextPaymentAmountNotes'] == undefined) { pipNextPaymentAmountAddNotes = ''; } else { pipNextPaymentAmountEditNotes = ''; }
-if (req.session.data['pipMissingPaymentNotes'] == '' || req.session.data['pipMissingPaymentNotes'] == undefined) { pipMissingPaymentAddNotes = ''; } else { pipMissingPaymentEditNotes = ''; }
+if (req.session.data['pipNextPaymentDateNotes'] == '' || req.session.data['pipNextPaymentDateNotes'] == undefined) { pipNextPaymentDateAddNotes = 'govuk-!-display-block'; } else { pipNextPaymentDateEditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipNextPaymentAmountNotes'] == '' || req.session.data['pipNextPaymentAmountNotes'] == undefined) { pipNextPaymentAmountAddNotes = 'govuk-!-display-block'; } else { pipNextPaymentAmountEditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipMissingPaymentNotes'] == '' || req.session.data['pipMissingPaymentNotes'] == undefined) { pipMissingPaymentAddNotes = 'govuk-!-display-block'; } else { pipMissingPaymentEditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['pipPcOption1'] == '' || req.session.data['pipPcOption1'] == undefined) { pipPcOption1AddNotes = ''; } else { pipPcOption1EditNotes = ''; }
-if (req.session.data['pipPcOption2'] == '' || req.session.data['pipPcOption2'] == undefined) { pipPcOption2AddNotes = ''; } else { pipPcOption2EditNotes = ''; }
-if (req.session.data['pipPcOption3'] == '' || req.session.data['pipPcOption3'] == undefined) { pipPcOption3AddNotes = ''; } else { pipPcOption3EditNotes = ''; }
-if (req.session.data['pipPcOption4'] == '' || req.session.data['pipPcOption4'] == undefined) { pipPcOption4AddNotes = ''; } else { pipPcOption4EditNotes = ''; }
-if (req.session.data['pipPcOption5'] == '' || req.session.data['pipPcOption5'] == undefined) { pipPcOption5AddNotes = ''; } else { pipPcOption5AddNotes = ''; }
-if (req.session.data['pipPcOption6'] == '' || req.session.data['pipPcOption6'] == undefined) { pipPcOption6AddNotes = ''; } else { pipPcOption6AddNotes = ''; }
-if (req.session.data['pipPcOption7'] == '' || req.session.data['pipPcOption7'] == undefined) { pipPcOption7AddNotes = ''; } else { pipPcOption7EditNotes = ''; }
+if (req.session.data['pipPcOption1'] == '' || req.session.data['pipPcOption1'] == undefined) { pipPcOption1AddNotes = 'govuk-!-display-block'; } else { pipPcOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipPcOption2'] == '' || req.session.data['pipPcOption2'] == undefined) { pipPcOption2AddNotes = 'govuk-!-display-block'; } else { pipPcOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipPcOption3'] == '' || req.session.data['pipPcOption3'] == undefined) { pipPcOption3AddNotes = 'govuk-!-display-block'; } else { pipPcOption3EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipPcOption4'] == '' || req.session.data['pipPcOption4'] == undefined) { pipPcOption4AddNotes = 'govuk-!-display-block'; } else { pipPcOption4EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipPcOption5'] == '' || req.session.data['pipPcOption5'] == undefined) { pipPcOption5AddNotes = 'govuk-!-display-block'; } else { pipPcOption5AddNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipPcOption6'] == '' || req.session.data['pipPcOption6'] == undefined) { pipPcOption6AddNotes = 'govuk-!-display-block'; } else { pipPcOption6AddNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipPcOption7'] == '' || req.session.data['pipPcOption7'] == undefined) { pipPcOption7AddNotes = 'govuk-!-display-block'; } else { pipPcOption7EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['pipCocOption1'] == '' || req.session.data['pipCocOption1'] == undefined) { pipCocOption1AddNotes = ''; } else { pipCocOption1EditNotes = ''; }
-if (req.session.data['pipCocOption2'] == '' || req.session.data['pipCocOption2'] == undefined) { pipCocOption2AddNotes = ''; } else { pipCocOption2EditNotes = ''; }
-if (req.session.data['pipCocOption3'] == '' || req.session.data['pipCocOption3'] == undefined) { pipCocOption3AddNotes = ''; } else { pipCocOption3EditNotes = ''; }
-if (req.session.data['pipCocOption4'] == '' || req.session.data['pipCocOption4'] == undefined) { pipCocOption4AddNotes = ''; } else { pipCocOption4EditNotes = ''; }
-if (req.session.data['pipCocOption5'] == '' || req.session.data['pipCocOption5'] == undefined) { pipCocOption5AddNotes = ''; } else { pipCocOption5EditNotes = ''; }
-if (req.session.data['pipCocOption6'] == '' || req.session.data['pipCocOption6'] == undefined) { pipCocOption6AddNotes = ''; } else { pipCocOption6EditNotes = ''; }
-if (req.session.data['pipCocOption7'] == '' || req.session.data['pipCocOption7'] == undefined) { pipCocOption7AddNotes = ''; } else { pipCocOption7EditNotes = ''; }
-if (req.session.data['pipCocOption8'] == '' || req.session.data['pipCocOption8'] == undefined) { pipCocOption8AddNotes = ''; } else { pipCocOption8EditNotes = ''; }
-if (req.session.data['pipCocOption9'] == '' || req.session.data['pipCocOption9'] == undefined) { pipCocOption9AddNotes = ''; } else { pipCocOption9EditNotes = ''; }
-if (req.session.data['pipCocOption10'] == '' || req.session.data['pipCocOption10'] == undefined) { pipCocOption10AddNotes = ''; } else { pipCocOption10EditNotes = ''; }
+if (req.session.data['pipCocOption1'] == '' || req.session.data['pipCocOption1'] == undefined) { pipCocOption1AddNotes = 'govuk-!-display-block'; } else { pipCocOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption2'] == '' || req.session.data['pipCocOption2'] == undefined) { pipCocOption2AddNotes = 'govuk-!-display-block'; } else { pipCocOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption3'] == '' || req.session.data['pipCocOption3'] == undefined) { pipCocOption3AddNotes = 'govuk-!-display-block'; } else { pipCocOption3EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption4'] == '' || req.session.data['pipCocOption4'] == undefined) { pipCocOption4AddNotes = 'govuk-!-display-block'; } else { pipCocOption4EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption5'] == '' || req.session.data['pipCocOption5'] == undefined) { pipCocOption5AddNotes = 'govuk-!-display-block'; } else { pipCocOption5EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption6'] == '' || req.session.data['pipCocOption6'] == undefined) { pipCocOption6AddNotes = 'govuk-!-display-block'; } else { pipCocOption6EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption7'] == '' || req.session.data['pipCocOption7'] == undefined) { pipCocOption7AddNotes = 'govuk-!-display-block'; } else { pipCocOption7EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption8'] == '' || req.session.data['pipCocOption8'] == undefined) { pipCocOption8AddNotes = 'govuk-!-display-block'; } else { pipCocOption8EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption9'] == '' || req.session.data['pipCocOption9'] == undefined) { pipCocOption9AddNotes = 'govuk-!-display-block'; } else { pipCocOption9EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipCocOption10'] == '' || req.session.data['pipCocOption10'] == undefined) { pipCocOption10AddNotes = 'govuk-!-display-block'; } else { pipCocOption10EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['pipLoeOption1'] == '' || req.session.data['pipLoeOption1'] == undefined) { pipLoeOption1AddNotes = ''; } else { pipLoeOption1EditNotes = ''; }
+if (req.session.data['pipLoeOption1'] == '' || req.session.data['pipLoeOption1'] == undefined) { pipLoeOption1AddNotes = 'govuk-!-display-block'; } else { pipLoeOption1EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['pipGeneralOption1'] == '' || req.session.data['pipGeneralOption1'] == undefined) { pipGeneralOption1AddNotes = ''; } else { pipGeneralOption1EditNotes = ''; }
-if (req.session.data['pipGeneralOption2'] == '' || req.session.data['pipGeneralOption2'] == undefined) { pipGeneralOption2AddNotes = ''; } else { pipGeneralOption2EditNotes = ''; }
-if (req.session.data['pipGeneralOption3'] == '' || req.session.data['pipGeneralOption3'] == undefined) { pipGeneralOption3AddNotes = ''; } else { pipGeneralOption3EditNotes = ''; }
+if (req.session.data['pipGeneralOption1'] == '' || req.session.data['pipGeneralOption1'] == undefined) { pipGeneralOption1AddNotes = 'govuk-!-display-block'; } else { pipGeneralOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipGeneralOption2'] == '' || req.session.data['pipGeneralOption2'] == undefined) { pipGeneralOption2AddNotes = 'govuk-!-display-block'; } else { pipGeneralOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['pipGeneralOption3'] == '' || req.session.data['pipGeneralOption3'] == undefined) { pipGeneralOption3AddNotes = 'govuk-!-display-block'; } else { pipGeneralOption3EditNotes = 'govuk-!-display-block'; }
 
 //CA
-if (req.session.data['caNextPaymentDateNotes'] == '' || req.session.data['caNextPaymentDateNotes'] == undefined) { caNextPaymentDateAddNotes = ''; } else { caNextPaymentDateEditNotes = ''; }
-if (req.session.data['caNextPaymentAmountNotes'] == '' || req.session.data['caNextPaymentAmountNotes'] == undefined) { caNextPaymentAmountAddNotes = ''; } else { caNextPaymentAmountEditNotes = ''; }
-if (req.session.data['caMissingPaymentNotes'] == '' || req.session.data['caMissingPaymentNotes'] == undefined) { caMissingPaymentAddNotes = ''; } else { caMissingPaymentEditNotes = ''; }
+if (req.session.data['caNextPaymentDateNotes'] == '' || req.session.data['caNextPaymentDateNotes'] == undefined) { caNextPaymentDateAddNotes = 'govuk-!-display-block'; } else { caNextPaymentDateEditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caNextPaymentAmountNotes'] == '' || req.session.data['caNextPaymentAmountNotes'] == undefined) { caNextPaymentAmountAddNotes = 'govuk-!-display-block'; } else { caNextPaymentAmountEditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caMissingPaymentNotes'] == '' || req.session.data['caMissingPaymentNotes'] == undefined) { caMissingPaymentAddNotes = 'govuk-!-display-block'; } else { caMissingPaymentEditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['caPcOption1'] == '' || req.session.data['caPcOption1'] == undefined) { caPcOption1AddNotes = ''; } else { caPcOption1EditNotes = ''; }
-if (req.session.data['caPcOption2'] == '' || req.session.data['caPcOption2'] == undefined) { caPcOption2AddNotes = ''; } else { caPcOption2EditNotes = ''; }
-if (req.session.data['caPcOption3'] == '' || req.session.data['caPcOption3'] == undefined) { caPcOption3AddNotes = ''; } else { caPcOption3EditNotes = ''; }
-if (req.session.data['caPcOption4'] == '' || req.session.data['caPcOption4'] == undefined) { caPcOption4AddNotes = ''; } else { caPcOption4EditNotes = ''; }
-if (req.session.data['caPcOption5'] == '' || req.session.data['caPcOption5'] == undefined) { caPcOption5AddNotes = ''; } else { caPcOption5AddNotes = ''; }
-if (req.session.data['caPcOption6'] == '' || req.session.data['caPcOption6'] == undefined) { caPcOption6AddNotes = ''; } else { caPcOption6AddNotes = ''; }
-if (req.session.data['caPcOption7'] == '' || req.session.data['caPcOption7'] == undefined) { caPcOption7AddNotes = ''; } else { caPcOption7EditNotes = ''; }
+if (req.session.data['caPcOption1'] == '' || req.session.data['caPcOption1'] == undefined) { caPcOption1AddNotes = 'govuk-!-display-block'; } else { caPcOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caPcOption2'] == '' || req.session.data['caPcOption2'] == undefined) { caPcOption2AddNotes = 'govuk-!-display-block'; } else { caPcOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caPcOption3'] == '' || req.session.data['caPcOption3'] == undefined) { caPcOption3AddNotes = 'govuk-!-display-block'; } else { caPcOption3EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caPcOption4'] == '' || req.session.data['caPcOption4'] == undefined) { caPcOption4AddNotes = 'govuk-!-display-block'; } else { caPcOption4EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caPcOption5'] == '' || req.session.data['caPcOption5'] == undefined) { caPcOption5AddNotes = 'govuk-!-display-block'; } else { caPcOption5AddNotes = 'govuk-!-display-block'; }
+if (req.session.data['caPcOption6'] == '' || req.session.data['caPcOption6'] == undefined) { caPcOption6AddNotes = 'govuk-!-display-block'; } else { caPcOption6AddNotes = 'govuk-!-display-block'; }
+if (req.session.data['caPcOption7'] == '' || req.session.data['caPcOption7'] == undefined) { caPcOption7AddNotes = 'govuk-!-display-block'; } else { caPcOption7EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['caCocOption1'] == '' || req.session.data['caCocOption1'] == undefined) { caCocOption1AddNotes = ''; } else { caCocOption1EditNotes = ''; }
-if (req.session.data['caCocOption2'] == '' || req.session.data['caCocOption2'] == undefined) { caCocOption2AddNotes = ''; } else { caCocOption2EditNotes = ''; }
-if (req.session.data['caCocOption3'] == '' || req.session.data['caCocOption3'] == undefined) { caCocOption3AddNotes = ''; } else { caCocOption3EditNotes = ''; }
-if (req.session.data['caCocOption4'] == '' || req.session.data['caCocOption4'] == undefined) { caCocOption4AddNotes = ''; } else { caCocOption4EditNotes = ''; }
-if (req.session.data['caCocOption5'] == '' || req.session.data['caCocOption5'] == undefined) { caCocOption5AddNotes = ''; } else { caCocOption5EditNotes = ''; }
-if (req.session.data['caCocOption6'] == '' || req.session.data['caCocOption6'] == undefined) { caCocOption6AddNotes = ''; } else { caCocOption6EditNotes = ''; }
-if (req.session.data['caCocOption7'] == '' || req.session.data['caCocOption7'] == undefined) { caCocOption7AddNotes = ''; } else { caCocOption7EditNotes = ''; }
-if (req.session.data['caCocOption8'] == '' || req.session.data['caCocOption8'] == undefined) { caCocOption8AddNotes = ''; } else { caCocOption8EditNotes = ''; }
-if (req.session.data['caCocOption9'] == '' || req.session.data['caCocOption9'] == undefined) { caCocOption9AddNotes = ''; } else { caCocOption9EditNotes = ''; }
-if (req.session.data['caCocOption10'] == '' || req.session.data['caCocOption10'] == undefined) { caCocOption10AddNotes = ''; } else { caCocOption10EditNotes = ''; }
+if (req.session.data['caCocOption1'] == '' || req.session.data['caCocOption1'] == undefined) { caCocOption1AddNotes = 'govuk-!-display-block'; } else { caCocOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption2'] == '' || req.session.data['caCocOption2'] == undefined) { caCocOption2AddNotes = 'govuk-!-display-block'; } else { caCocOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption3'] == '' || req.session.data['caCocOption3'] == undefined) { caCocOption3AddNotes = 'govuk-!-display-block'; } else { caCocOption3EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption4'] == '' || req.session.data['caCocOption4'] == undefined) { caCocOption4AddNotes = 'govuk-!-display-block'; } else { caCocOption4EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption5'] == '' || req.session.data['caCocOption5'] == undefined) { caCocOption5AddNotes = 'govuk-!-display-block'; } else { caCocOption5EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption6'] == '' || req.session.data['caCocOption6'] == undefined) { caCocOption6AddNotes = 'govuk-!-display-block'; } else { caCocOption6EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption7'] == '' || req.session.data['caCocOption7'] == undefined) { caCocOption7AddNotes = 'govuk-!-display-block'; } else { caCocOption7EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption8'] == '' || req.session.data['caCocOption8'] == undefined) { caCocOption8AddNotes = 'govuk-!-display-block'; } else { caCocOption8EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption9'] == '' || req.session.data['caCocOption9'] == undefined) { caCocOption9AddNotes = 'govuk-!-display-block'; } else { caCocOption9EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caCocOption10'] == '' || req.session.data['caCocOption10'] == undefined) { caCocOption10AddNotes = 'govuk-!-display-block'; } else { caCocOption10EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['caLoeOption1'] == '' || req.session.data['caLoeOption1'] == undefined) { caLoeOption1AddNotes = ''; } else { caLoeOption1EditNotes = ''; }
+if (req.session.data['caLoeOption1'] == '' || req.session.data['caLoeOption1'] == undefined) { caLoeOption1AddNotes = 'govuk-!-display-block'; } else { caLoeOption1EditNotes = 'govuk-!-display-block'; }
 
-if (req.session.data['caGeneralOption1'] == '' || req.session.data['caGeneralOption1'] == undefined) { caGeneralOption1AddNotes = ''; } else { caGeneralOption1EditNotes = ''; }
-if (req.session.data['caGeneralOption2'] == '' || req.session.data['caGeneralOption2'] == undefined) { caGeneralOption2AddNotes = ''; } else { caGeneralOption2EditNotes = ''; }
-if (req.session.data['caGeneralOption3'] == '' || req.session.data['caGeneralOption3'] == undefined) { caGeneralOption3AddNotes = ''; } else { caGeneralOption3EditNotes = ''; }
+if (req.session.data['caGeneralOption1'] == '' || req.session.data['caGeneralOption1'] == undefined) { caGeneralOption1AddNotes = 'govuk-!-display-block'; } else { caGeneralOption1EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caGeneralOption2'] == '' || req.session.data['caGeneralOption2'] == undefined) { caGeneralOption2AddNotes = 'govuk-!-display-block'; } else { caGeneralOption2EditNotes = 'govuk-!-display-block'; }
+if (req.session.data['caGeneralOption3'] == '' || req.session.data['caGeneralOption3'] == undefined) { caGeneralOption3AddNotes = 'govuk-!-display-block'; } else { caGeneralOption3EditNotes = 'govuk-!-display-block'; }
 
 res.render('prototype-sprint-wise/sprint23/opt1/engagement-log-journey/outcome-queries', {
 
