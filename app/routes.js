@@ -7034,6 +7034,7 @@ var isPip = 'govuk-!-display-none';
 var isCa = 'govuk-!-display-none';
 if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
   isEsa = 'govuk-!-display-block';
+  // req.session.data['What-services-have-they-called-about'] = 'Employment and support allowance';
 }
 if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
   isPip = 'govuk-!-display-block';
@@ -8314,9 +8315,7 @@ res.render('prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-quer
 router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/outcome-queries', function (req, res) {
 
 // console.log('Value of the data outcome route:--------------->',req.session.data);
-// var isEsa = 'govuk-visually-hidden';
-// var isPip = 'govuk-visually-hidden';
-// var isCa = 'govuk-visually-hidden';
+
 var isEsa = 'govuk-!-display-none';
 var isPip = 'govuk-!-display-none';
 var isCa = 'govuk-!-display-none';
@@ -8401,6 +8400,7 @@ if (req.session.data['esa-process-chasing'] && req.session.data['esa-process-cha
   esaProcessChasing = 'govuk-!-display-block';
 }
 
+//For esa change of circs
 // var esaCoc = 'govuk-visually-hidden';
 // var esaSpcAccAdmis = 'govuk-visually-hidden';
 // var esaChangeofAddress = 'govuk-visually-hidden';
@@ -9389,6 +9389,7 @@ res.render('prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-note'
 });
 });
 
+
 router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/confirmation-complete-session', function (req, res) {
   console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
   if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
@@ -9404,6 +9405,7 @@ router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/confirm
 
 // this is for radio selection for Session complete
 router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-note', function (req, res) {
+
   var addMore = req.session.data['add-another'];
   
   // Check whether the variable matches a condition
@@ -9444,6 +9446,21 @@ router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-se
     res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about');
   }
   });
+
+
+  //Add another reason
+    router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/addReason', function (req, res) {
+      var callReason = req.session.data['addMoreReason']
+    
+      // Check whether the variable matches a condition
+      if (callReason == "Yes") {
+        // Send user to next page
+        res.redirect('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about');
+      } else {
+        res.redirect('/prototype-sprint-wise/sprint23/opt2/home-page');
+      }
+    
+    });
 
     // this is for radio selection for Session complete
     router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/what-service-called-about', function (req, res) {
