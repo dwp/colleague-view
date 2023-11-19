@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Homepage
+{% endblock %}
+
+
+{% block header %}
+  {% include "sprint22/common/agent-dashboard-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "sprint22/common/phase-banner--user-research.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint22/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Check box response</h1>
+        <p class="govuk-body">Total nuber of benefit: {{ data['select-benefit'] | length }}</p>
+        <p class="govuk-body">{{ pageLength }}</p>
+        <p class="govuk-body"> {{isEsa}} </p>
+    </div>
+  </div>
+
+{% endblock %}

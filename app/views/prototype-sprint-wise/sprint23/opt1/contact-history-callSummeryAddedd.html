@@ -62,7 +62,7 @@ Contact history
             <h3 class="govuk-heading-s">
               You have added this information to the contact history during this call.
             </h3>
-            <table class="govuk-table">
+            <table class="govuk-table {{esaPayment}}">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                   <!-- <th scope="col" class="govuk-table__header">Date</th> -->
@@ -75,21 +75,30 @@ Contact history
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
+                <tr class="govuk-table__row {{esaNextPaymentDate}}">
                   <!-- <td class="govuk-table__cell">{{ data['What-services-have-they-called-about'] }}</td>
                   <td class="govuk-table__cell">{{ data['esa-payment'] }}</td> -->
                   <td class="govuk-table__cell">Employment and Support Allowance (ESA)</td>
                   <td class="govuk-table__cell">Next payment date</td>
-                  <td class="govuk-table__cell govuk-!-width-one-quarter">{{ data['esaNextPaymentDateNotes'] }}</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter"><p>{{esaNextPaymentDateNotes}}</p></td>
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
                 </tr>
-                <tr class="govuk-table__row">
+                <tr class="govuk-table__row {{esaNextPaymentAmount}}">
                   <!-- <td class="govuk-table__cell">{{ data['What-services-have-they-called-about'] }}</td>
                   <td class="govuk-table__cell">{{ data['esa-payment'] }}</td> -->
                   <td class="govuk-table__cell">Employment and Support Allowance (ESA)</td>
                   <td class="govuk-table__cell">Next payment amount</td>
-                  <td class="govuk-table__cell govuk-!-width-one-quarter">{{ data['esaNextPaymentDateNotes'] }}</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter"><p>{{esaNextPaymentAmountNotes}}</p></td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
+                </tr>
+                <tr class="govuk-table__row {{esaMissingPayment}}">
+                  <!-- <td class="govuk-table__cell">{{ data['What-services-have-they-called-about'] }}</td>
+                  <td class="govuk-table__cell">{{ data['esa-payment'] }}</td> -->
+                  <td class="govuk-table__cell">Employment and Support Allowance (ESA)</td>
+                  <td class="govuk-table__cell">Missing payment</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter"><p>{{esaMissingPaymentNotes}}</p></td>
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
                   <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
                 </tr>
