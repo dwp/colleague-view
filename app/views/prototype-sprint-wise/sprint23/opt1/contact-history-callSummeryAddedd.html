@@ -80,27 +80,22 @@ Contact history
                   <td class="govuk-table__cell">{{ data['esa-payment'] }}</td> -->
                   <td class="govuk-table__cell">Employment and Support Allowance (ESA)</td>
                   <td class="govuk-table__cell">Next payment date</td>
-                  <td class="govuk-table__cell govuk-!-width-one-quarter"><p>{{esaNextPaymentDateNotes}}</p></td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter">{{ data['esaNextPaymentDateNotes'] }}</td>
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                  <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link {{esaNextPaymentDateEditNotes}}" href="/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/add-note/esaNextPaymentDateNotes">
+                    Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                  </a></td>
                 </tr>
                 <tr class="govuk-table__row {{esaNextPaymentAmount}}">
                   <!-- <td class="govuk-table__cell">{{ data['What-services-have-they-called-about'] }}</td>
                   <td class="govuk-table__cell">{{ data['esa-payment'] }}</td> -->
                   <td class="govuk-table__cell">Employment and Support Allowance (ESA)</td>
                   <td class="govuk-table__cell">Next payment amount</td>
-                  <td class="govuk-table__cell govuk-!-width-one-quarter"><p>{{esaNextPaymentAmountNotes}}</p></td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter">{{ data['esaNextPaymentAmountNotes'] }}</td>
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                  <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
-                </tr>
-                <tr class="govuk-table__row {{esaMissingPayment}}">
-                  <!-- <td class="govuk-table__cell">{{ data['What-services-have-they-called-about'] }}</td>
-                  <td class="govuk-table__cell">{{ data['esa-payment'] }}</td> -->
-                  <td class="govuk-table__cell">Employment and Support Allowance (ESA)</td>
-                  <td class="govuk-table__cell">Missing payment</td>
-                  <td class="govuk-table__cell govuk-!-width-one-quarter"><p>{{esaMissingPaymentNotes}}</p></td>
-                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                  <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">Edit note</a></td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link {{esaNextPaymentAmountEditNotes}}" href="/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/add-note/esaNextPaymentAmountNotes">
+                    Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                  </a></td>
                 </tr>
               </tbody>
             </table>
