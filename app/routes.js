@@ -6840,12 +6840,12 @@ router.post('/prototype-sprint-wise/sprint23/opt1/engagement-type', function (re
   req.session.data['pip-general'] = '';
   req.session.data['ca-general'] = '';
 
-if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-prototype-sprint23'] == 'qq123456q') {
+if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23'] == 'qq123456q') {
   // Send user to next page
   res.render('prototype-sprint-wise/sprint23/opt1/engagement-type');
 } else {
   var errMsg = "";
-  if (req.session.data['national-insurance-number-prototype-sprint23'] == '' || req.session.data['national-insurance-number-prototype-sprint23'] == undefined) {
+  if (req.session.data['national-insurance-number-sprint23'] == '' || req.session.data['national-insurance-number-sprint23'] == undefined) {
     errMsg = "National Insurance Number is mandatory";
   } else {
     errMsg = "Enter a National Insurance number in the correct format";
