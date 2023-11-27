@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Home
+Homepage
 {% endblock %}
 
 {% block header %}
@@ -16,47 +16,48 @@
 
 {% block beforeContent %}
 {% include "for-demo-only/common/phase-banner--user-research.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl">Homepage</h1>
-    <ul class="govuk-grid-row customer-view-card-group">
-          <li class="govuk-grid-column-one-third customer-view-card-group__item">
-            <div class="customer-view-card customer-view-card--clickable">
-              <div class="customer-view-card__content">
-                <h2 class="customer-view-card__heading govuk-heading-m">
-                  <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="personal-details.html">Personal details</a>
-                </h2>
-                <p class="govuk-body customer-view-card__description">View customer's personal informations.</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Homepage</h1>
+      <ul class="govuk-grid-row customer-view-card-group">
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="personal-details.html">Personal details</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">View customer's personal informations.</p>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="govuk-grid-column-one-third customer-view-card-group__item">
-            <div class="customer-view-card customer-view-card--clickable">
-              <div class="customer-view-card__content">
-                <h2 class="customer-view-card__heading govuk-heading-m">
-                  <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="contact-history.html">Contact history</a>
-                </h2>
-                <p class="govuk-body customer-view-card__description">Check the previous contact logged about a customer.</p>
+            </li>
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="contact-history.html">Contact history</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">Check the previous contact logged about a customer.</p>
+                </div>
               </div>
-            </div>
-          </li>
-          <li class="govuk-grid-column-one-third customer-view-card-group__item">
-            <div class="customer-view-card customer-view-card--clickable">
-              <div class="customer-view-card__content">
-                <h2 class="customer-view-card__heading govuk-heading-m">
-                  <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="payment-and-awards.html">Payments and Awards</a>
-                </h2>
-                <p class="govuk-body customer-view-card__description">Check customer's next payments and their payment history.</p>
+            </li>
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="payment-and-awards.html">Payments and Awards</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">Check customer's next payments and their payment history.</p>
+                </div>
               </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
 
+    </div>
   </div>
-</div>
 
 {% endblock %}
