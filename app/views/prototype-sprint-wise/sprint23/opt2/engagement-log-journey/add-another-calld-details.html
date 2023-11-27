@@ -22,94 +22,83 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-0">
-    <h1 class="govuk-heading-l">Information added about this call</h1>
-    <!-- display reasons for call -->
-    <h2 class="govuk-heading-m">Reasons for this call</h2>
-    <dl class="govuk-summary-list  govuk-!-margin-bottom-7">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Employment and Support Allowance
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Next payment date 
-            </dd>
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <strong class="govuk-tag">
-                Resolved
-              </strong>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Employment and Support Allowance
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Next payment amount 
-            </dd>
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <strong class="govuk-tag">
-                Resolved
-              </strong>
-            </dd>
-          </div>
-    </dl>
-    <!-- display added notes/more information about the call -->
-          <!-- display added notes/more information about the call -->
-          <h3 class="govuk-heading-m">More information</h3>
-          <div class="govuk-grid-row govuk-!-margin-bottom-0">
-            <div class="govuk-grid-column-two-thirds">
-              <!-- <div class="govuk-inset-text">
-                This is an example of what more information could look like. This is another example to show what a missing note could look like.
-              </div> -->
-              <!-- <p class="govuk-body">
-                <a href="#" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-              </p> -->
-              <p class="govuk-body">{{ data['more-information'] or "Not provided"  }} </p>
+    <h1 class="govuk-heading-l">You have added information about this call</h1>
+    <!-- <h2 class="govuk-heading-m">Reasons for this call</h2> -->
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header ">Benefit</th>
+          <th scope="col" class="govuk-table__header">Question asked</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+          <td class="govuk-table__cell">Next payment date</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+          <td class="govuk-table__cell">Next payment amount</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <h3 class="govuk-heading-m govuk-!-margin-top-8">Discussed anything else</h3> -->
+    <!-- <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          More information about this call
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['addNote'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="add-Note.html">
+            Add or change<span class="govuk-visually-hidden"> More information</span>
+          </a>
+        </dd>
+      </div>
+    </dl> -->
+    <h2 class="govuk-heading-m">More information about this call</h2>
+    <div class="govuk-grid-row govuk-!-margin-bottom-0">
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body">{{ data['addNote'] or "Not provided"  }} </p> 
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body govuk-!-text-align-right">
+          <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+        </p>
+      </div>
+    </div>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0 govuk-!-margin-bottom-9">
+    <form action="../home-page" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            Do you want to add another benefit or reason for this call?
+          </legend>
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                Yes
+              </label>
             </div>
-            <div class="govuk-grid-column-one-third">
-              <p class="govuk-body govuk-!-text-align-right">
-                <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-              </p>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                No
+              </label>
             </div>
           </div>
-          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0">
-  </div>
-  
-  <!-- add another call details -->
-  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-5">
-        <form class="form" action="/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/addReason" method="post">
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <h2 class="govuk-fieldset__heading">
-                  Do you want to add more reasons for this call?
-                </h2>
-              </legend>
-              <!-- <div id="changed-name-hint" class="govuk-hint">
-                Select options whether to add another call details.
-              </div> -->
-              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="addMoreReason-1" name="addMoreReason" type="radio" value="Yes">
-                  <label class="govuk-label govuk-radios__label" for="addMoreReason-1">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="addMoreReason-2" name="addMoreReason" type="radio" value="No">
-                  <label class="govuk-label govuk-radios__label" for="addMoreReason-2">
-                    No
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-          <button class="govuk-button" data-module="govuk-button">
-            Save and continue
-          </button>
-        </form>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
   </div>
   </div>
 
