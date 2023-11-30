@@ -5,7 +5,7 @@ What questions did the caller ask about Employment and Support Allowance?
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/header_keydetail_bar.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt1/header_keydetail_bar.html" %}
 {% endblock %}
 
 
@@ -20,8 +20,22 @@ What questions did the caller ask about Employment and Support Allowance?
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  <a href="#">Select any option for payment reason.</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <form action="questionAnswered" method="post" novalidate>
-          <div class="govuk-form-group">
+          <div class="govuk-form-group govuk-form-group--error">
             <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
@@ -29,8 +43,11 @@ What questions did the caller ask about Employment and Support Allowance?
                 </h1>
               </legend>
               <div id="countries-hint" class="govuk-hint">
-                Select all that apply
+                Select all that apply.
               </div>
+              <p id="nationality-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select any option for payment reason.
+              </p>
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="nextPaymentDate_esa" name="questionAsk_esa" type="checkbox" value="Next payment date">

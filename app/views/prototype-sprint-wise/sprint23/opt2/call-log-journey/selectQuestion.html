@@ -5,7 +5,7 @@ What questions did the caller ask about Employment and Support Allowance?
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt1/header_keydetail_bar.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt2/header_keydetail_bar.html" %}
 {% endblock %}
 
 
@@ -29,37 +29,37 @@ What questions did the caller ask about Employment and Support Allowance?
                 </h1>
               </legend>
               <div id="countries-hint" class="govuk-hint">
-                Select all that apply
+                Select all that apply.
               </div>
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="nextPaymentDate_esa" name="questionAsk_esa" type="checkbox" value="Next payment date">
-                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate_esa">
+                  <input class="govuk-checkboxes__input" id="nextPaymentDate" name="questionAsk" type="checkbox" value="Next payment date" {{ checked ('questionAsk', 'Next payment date') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
                     Next payment date
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="nextPaymentAmount_esa" name="questionAsk_esa" type="checkbox" value="Next payment amount">
-                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentAmount_esa">
+                  <input class="govuk-checkboxes__input" id="nextPaymentAmount" name="questionAsk" type="checkbox" value="Next payment amount" {{ checked ('questionAsk', 'Next payment amount') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentAmount">
                     Next payment amount
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="missingPayment_esa" name="questionAsk_esa" type="checkbox" value="Missing payment">
-                  <label class="govuk-label govuk-checkboxes__label" for="missingPayment_esa">
+                  <input class="govuk-checkboxes__input" id="missingPayment" name="questionAsk" type="checkbox" value="Missing payment" {{ checked ('questionAsk', 'Missing payment') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="missingPayment">
                     Missing payment
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="reasonForChange_esa" name="questionAsk_esa" type="checkbox" value="Change in payment amount">
-                  <label class="govuk-label govuk-checkboxes__label" for="reasonForChange_esa">
+                  <input class="govuk-checkboxes__input" id="reasonForChange" name="questionAsk" type="checkbox" value="Change in payment amount" {{ checked ('questionAsk', 'Change in payment amount') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="reasonForChange">
                     Change in payment amount
                   </label>
                 </div>
                 <div class="govuk-checkboxes__divider">or</div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="somethingElse_esa" name="questionAsk_esa" type="checkbox" value="Something else" data-behaviour="exclusive">
-                  <label class="govuk-label govuk-checkboxes__label" for="somethingElse_esa">
+                  <input class="govuk-checkboxes__input" id="somethingElse" name="questionAsk" type="checkbox" value="Something else" data-behaviour="exclusive" {{ checked ('questionAsk_esa', 'Something else') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
                     Something else
                   </label>
                 </div>
