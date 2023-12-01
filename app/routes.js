@@ -2210,7 +2210,6 @@ router.post('/sprint13/opt2/engagement-type', function (req, res) {
   }
 })
 
-
 // this is for radio selection
 router.post('/sprint13/opt2/engagement-with', function (req, res) {
 
@@ -2227,7 +2226,6 @@ router.post('/sprint13/opt2/engagement-with', function (req, res) {
   }
 
 })
-
 
 router.post('/sprint13/opt2/home-page-first-time', function (req, res) {
   // Make a variable and give it the value from 'how-many-balls'
@@ -2325,7 +2323,6 @@ router.post('/sprint13/opt2/engagement-log-journey/benefitPages', function (req,
   }
 });
 
-
 router.post('/sprint13/opt2/engagement-log-journey/what-queries-dealt-with-PIP', function (req, res) {
   var isPip = req.session.data['What-services-have-they-called-about'].includes('pip');
   var isCa = req.session.data['What-services-have-they-called-about'].includes('ca');
@@ -2368,7 +2365,6 @@ router.post('/sprint13/opt2/engagement-log-journey/what-queries-dealt-with-CA', 
     "pageLength": pageLength
   });
 });
-
 
 router.post('/sprint13/opt2/engagement-log-journey/outcome-queries', function (req, res) {
 
@@ -2920,7 +2916,6 @@ router.get('/sprint13/opt1/engagement-log-journey/add-note/:name', function (req
     "notesValue": req.session.data[req.params.name]
   });
 });
-
 
 // Outcome for Option2
 
@@ -3963,8 +3958,6 @@ router.get('/sprint13/opt2/engagement-log-journey/add-note/:name', function (req
   });
 });
 
-
-
 // this is for NINO number for UR round-5
 router.post('/sprint22/opt1/engagement-type', function (req, res) {
 
@@ -4037,8 +4030,6 @@ router.post('/sprint22/opt1/home-page-first-time', function (req, res) {
 
 })
 
-
-
 router.post('/prototype-sprint-wise/sprint22/opt1/engagement-log-journey/what-service-called-about', function (req, res) {
   // Make a variable and give it the value from 'how-many-balls'
   var completeSession = req.session.data['Do-you-want-to-complete-the-session-forDemo']
@@ -4053,11 +4044,6 @@ router.post('/prototype-sprint-wise/sprint22/opt1/engagement-log-journey/what-se
   }
 
 });
-
-
-
-// for end to end journey sprint-wise
-
 
 // this is for NINO number for Demo prototype 
 router.post('/prototype-sprint-wise/sprint22/opt1/engagement-type', function (req, res) {
@@ -4096,7 +4082,6 @@ router.post('/prototype-sprint-wise/sprint22/opt1/engagement-type', function (re
     res.render('prototype-sprint-wise/sprint22/opt1/error-NINO-number', { "errMsg": errMsg });
   }
 })
-
 
 // this is for radio selection
 router.post('/prototype-sprint-wise/sprint22/engagement-with', function (req, res) {
@@ -4187,19 +4172,12 @@ router.post('/prototype-sprint-wise/sprint27/opt2/engagement-type', function (re
 })
 
 
-// for add another note (optin-1)
 
-router.post('/prototype-sprint-wise/sprint27/opt1/home-page', function (req, res) {
 
-  var addnote = req.session.data['add-another'];
-  // Check whether the variable matches a condition
-  if (addnote == "Yes") {
-    // Send user to next page
-    res.redirect('/prototype-sprint-wise/sprint27/opt2/engagement-log-journey/add-note');
-  } else {
-    res.redirect('/prototype-sprint-wise/sprint27/opt1/home-page');
-  }
-})
+
+
+
+
 
 
 
@@ -4289,33 +4267,29 @@ if (howManyBalls == "Incoming telephone call" || howManyBalls == "Outgoing telep
 })
 
 router.post('/prototype-sprint-wise/sprint23/opt1/home-page-first-time', function (req, res) {
-// Make a variable and give it the value from 'how-many-balls'
-if (req.session.data['Who-is-the-engagement-with'] == "Christopher Fox" || req.session.data['Who-is-the-engagement-with'] == "Jane Doe") {
-  // Send user to next page
-  req.session.data['Who-is-the-engagement-with'] = "with " + req.session.data['Who-is-the-engagement-with'];
-  res.redirect('/prototype-sprint-wise/sprint23/opt1/home-page-first-time');
-} else {
-  // Send user back to same page
-  // res.redirect('/prototype-sprint-wise/sprint23/opt1/wrong-option-selected');
-  req.session.data['Who-is-the-engagement-with'] = '';
-  res.redirect('back');
-}
-
+  // Make a variable and give it the value from 'how-many-balls'
+  if (req.session.data['Who-is-the-engagement-with'] == "Christopher Fox" || req.session.data['Who-is-the-engagement-with'] == "Jane Doe") {
+    // Send user to next page
+    req.session.data['Who-is-the-engagement-with'] = "with " + req.session.data['Who-is-the-engagement-with'];
+    res.redirect('/prototype-sprint-wise/sprint23/opt1/home-page-first-time');
+  } else {
+    // Send user back to same page
+    // res.redirect('/prototype-sprint-wise/sprint23/opt1/wrong-option-selected');
+    req.session.data['Who-is-the-engagement-with'] = '';
+    res.redirect('back');
+  }
 })
-
 
 // this is for radio selection for Session complete when no notes added.
 router.post('/prototype-sprint-wise/sprint23/opt1/returning-user/contact-history', function (req, res) {
-var completeSession = req.session.data['Do-you-want-to-complete-the-session']
-
-// Check whether the variable matches a condition
-if (completeSession == "Yes") {
-  // Send user to next page
-  res.redirect('/prototype-sprint-wise/sprint23/opt1/returning-user/contact-history');
-} else {
-  res.redirect('/prototype-sprint-wise/sprint23/opt1/returning-user/confirmation-complete-session-Error');
-}
-
+  var completeSession = req.session.data['Do-you-want-to-complete-the-session']
+  // Check whether the variable matches a condition
+  if (completeSession == "Yes") {
+    // Send user to next page
+    res.redirect('/prototype-sprint-wise/sprint23/opt1/returning-user/contact-history');
+  } else {
+    res.redirect('/prototype-sprint-wise/sprint23/opt1/returning-user/confirmation-complete-session-Error');
+  }
 });
 
 router.post('/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/benefitPages', function (req, res) {
@@ -5471,10 +5445,6 @@ router.post('/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/confirm
   }
   });
 
-
-  
-
-
   // this is for radio selection for Session complete
 router.post('/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/session-completed', function (req, res) {
   var completeSession = req.session.data['Do-you-want-to-complete-the-session']
@@ -5489,9 +5459,7 @@ router.post('/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/session
 
 });
 
-
 // this is for new design contact type/contact log flow
-
 
 router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/questionAnswered', function(req, res) {
 
@@ -5540,9 +5508,16 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/checkAnswer',
     }
 })
 
-
-
 // End of sprint-wise sprint23 opt-1 here
+
+
+
+
+
+
+
+
+
 
 // this is all about sprintwise Sprint23 opt2 - (Design iteration1)
 
@@ -5569,6 +5544,7 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-type', function (req, res
   req.session.data['esa-general'] = '';
   req.session.data['pip-general'] = '';
   req.session.data['ca-general'] = '';
+  req.session.data.outcomePage ='';
 
 if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'qq123456q') {
   // Send user to next page
@@ -5657,7 +5633,6 @@ if (completeSession == "Yes") {
 }
 
 });
-
 
 router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/outcome-queries', function (req, res) {
 
@@ -6764,9 +6739,8 @@ router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-not
   }
   });
 
-
   // this is for radio selection for Session complete
-  router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/session-completed', function (req, res) {
+router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/session-completed', function (req, res) {
     var completeSession2 = req.session.data['Do-you-want-to-complete-the-session-opt2']
   
     // Check whether the variable matches a condition
@@ -6779,9 +6753,8 @@ router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-not
   
   });
 
-
   //Add another reason
-  router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/addReason', function (req, res) {
+router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/addReason', function (req, res) {
       var callReason = req.session.data['addMoreReason']
     
       // Check whether the variable matches a condition
@@ -6794,11 +6767,9 @@ router.post('/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-not
     
     });
 
-    router.post('/prototype-sprint-wise/sprint23/opt2/contact-history-ui',function(req,res){
+router.post('/prototype-sprint-wise/sprint23/opt2/contact-history-ui',function(req,res){
       res.render("/prototype-sprint-wise/sprint23/opt2/contact-history")
-    })
-
-
+  })
 
 // Adding another call details
 // router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/what-service-called-about', function (req, res) {
@@ -6833,7 +6804,12 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/selectBenefit
   req.session.data['chpa_wasQuestionResolved'] = '';
   req.session.data['addNote'] = '';
 
-  res.redirect('/prototype-sprint-wise/sprint23/opt2/call-log-journey/selectBenefit');
+  if(req.session.data.outcomePage === ''){
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/call-log-journey/selectBenefit');
+  } else {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_add_view');
+  }
+
 
 })
 
@@ -6973,39 +6949,93 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswerFo
 
 })
 
+// router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note', function(req, res) {
+
+//   if (req.session.data['discussAnthingElse'] == 'Yes' ) {
+//     res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note")
+//   } else {
+//         // res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged")
+//         var isNpd = 'govuk-!-display-none';
+//         var isNpa = 'govuk-!-display-none';
+//         var isMp = 'govuk-!-display-none';
+//         var isRfch = 'govuk-!-display-none';
+
+//         if(req.session.data['questionAsk'].includes('Next payment date')) {
+//           isNpd = '';
+//         }
+//         if(req.session.data['questionAsk'].includes('Next payment amount')) {
+//           isNpa = '';
+//         }
+//         if(req.session.data['questionAsk'].includes('Missing payment')) {
+//           isMp = '';
+//         }
+//         if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+//           isRfch = '';
+//         } 
+
+//         //All variable render here
+//         res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged', {
+//         "isNpd": isNpd,
+//         "isNpa": isNpa,
+//         "isMp": isMp,
+//         "isRfch": isRfch,
+//         })
+//     }
+// })
+
 router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note', function(req, res) {
-
-  if (req.session.data['discussAnthingElse'] == 'Yes' ) {
-    res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note")
-  } else {
-        // res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged")
-        var isNpd = 'govuk-!-display-none';
-        var isNpa = 'govuk-!-display-none';
-        var isMp = 'govuk-!-display-none';
-        var isRfch = 'govuk-!-display-none';
-
-        if(req.session.data['questionAsk'].includes('Next payment date')) {
-          isNpd = '';
-        }
-        if(req.session.data['questionAsk'].includes('Next payment amount')) {
-          isNpa = '';
-        }
-        if(req.session.data['questionAsk'].includes('Missing payment')) {
-          isMp = '';
-        }
-        if(req.session.data['questionAsk'].includes('Change in payment amount')) {
-          isRfch = '';
-        } 
-
-        //All variable render here
-        res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged', {
-        "isNpd": isNpd,
-        "isNpa": isNpa,
-        "isMp": isMp,
-        "isRfch": isRfch,
-        })
+  //All variable render here
+  let outcomePageData = [];
+  outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
+  req.session.data['questionAsk'].map((item)=>{
+    if(item === "Next payment date"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['npd_wasQuestionResolved']
+      });
+    }if(item === "Next payment amount"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['npa_wasQuestionResolved']
+      });
+    }if(item === "Missing payment"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['ma_wasQuestionResolved']
+      });
+    }if(item === "Change in payment amount"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['chpa_wasQuestionResolved']
+      });
     }
+  });
+  req.session.data.outcomePage =outcomePageData;
+ if (req.session.data['discussAnthingElse'] == 'Yes' ) {
+   res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note")
+ } else {
+   res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged', {
+     "outcomePage":req.session.data.outcomePage
+   });
+ }
 })
+
+
+// /add view already added note
+router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_add_view', function(req, res) {
+  //All variable render here
+  
+//  if (req.session.data['discussAnthingElse'] == 'Yes' ) {
+//    res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note")
+//  } else {
+//    res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged', {
+//      "outcomePage":req.session.data.outcomePage
+//    });
+//  }
+ res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_add_view")
+
+})
+
 
 router.post('/prototype-sprint-wise/sprint23/opt2/addAnotherBenefit', function(req, res) {
   req.session.data['whichBenefitDiscussed'] = '';
@@ -7023,7 +7053,6 @@ router.post('/prototype-sprint-wise/sprint23/opt2/addAnotherBenefit', function(r
     }
 })
 
-
 // Unhappy scenario condition - add another reason?
 router.post('/prototype-sprint-wise/sprint23/opt2/goToHome', function(req, res) {
 
@@ -7035,8 +7064,20 @@ router.post('/prototype-sprint-wise/sprint23/opt2/goToHome', function(req, res) 
     }
 })
 
-
 // End of sprint-wise sprint23 opt-2 here
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Filter for payment history and contact history (Bhavin)
 
@@ -7159,6 +7200,11 @@ router.post('/prototype-sprint-wise/sprint23/opt2/contact-history',function(req,
   req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment (PIP)')?true:false;
   res.redirect('contact-history');
 })
+
+
+
+
+
 
 
 
