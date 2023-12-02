@@ -145,7 +145,7 @@ Contact history
               </div>
             </div>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <!-- filter by Benefits / Enquiry type / Status -->
+            <!-- filter by Benefits -->
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-two-thirds">
                 <div class="govuk-form-group">
@@ -156,40 +156,40 @@ Contact history
                     <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                       <div class="govuk-checkboxes__item">
                         {% if data.tableFilterEsa == true%}
-                          <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and support Allowance" checked="checked">
+                          <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" checked="checked">
                           <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
-                            Employment and support Allowance
+                            Employment and Support Allowance
                           </label>
                         {% else %}
-                          <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and support Allowance">
+                          <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
                           <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
-                            Employment and support Allowance
+                            Employment and Support Allowance
                           </label>
                         {% endif%}
                       </div>
                       <div class="govuk-checkboxes__item">
                         {% if data.tableFilterJa == true%}
-                        <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Jobseeker Allowance" checked="checked">
+                        <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked="checked">
                         <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
-                          Jobseeker Allowance
+                          Carer's Allowance
                         </label>
                         {% else %}
-                        <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Jobseeker Allowance">
+                        <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
                         <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
-                          Jobseeker Allowance
+                          Carer's Allowance
                         </label>
                         {% endif%}
                       </div>
                       <div class="govuk-checkboxes__item">
                         {% if data.tableFilterPip == true%}
-                        <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment (PIP)" checked="checked">
+                        <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment" checked="checked">
                         <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
-                          Personal Independence Payment (PIP)
+                          Personal Independence Payment
                         </label>
                         {% else %}
-                        <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment (PIP)">
+                        <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
                         <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
-                          Personal Independence Payment (PIP)
+                          Personal Independence Payment
                         </label>
                         {% endif%}
                       </div>
@@ -208,7 +208,7 @@ Contact history
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         </div>
       </form>
-      <!-- <h6>{{tableData[0]}}</h6> -->
+    <!-- <h6>{{tableData[0]}}</h6> -->
     <!-- data table -->
     {% if data['tableValue'].length > 0%}
     <table class="govuk-table">
@@ -266,43 +266,203 @@ Contact history
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Mon 17 Oct 2023, 13:03</td>
+            <td class="govuk-table__cell">Thur 10 Aug 2023, 13:03</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment date</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 09 Aug 2023, 09:03</td>
             <td class="govuk-table__cell">Incoming telephone call</td>
             <td class="govuk-table__cell">Employment and Support Allowance</td>
             <td class="govuk-table__cell">Next payment date</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
             <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Mon 17 Oct 2023, 13:03</td>
+            <td class="govuk-table__cell">Tue 8 Aug 2023, 09:20</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Next payment date</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 7 Aug 2023, 13:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 7 Aug 2023, 09:15</td>
             <td class="govuk-table__cell">Incoming telephone call</td>
             <td class="govuk-table__cell">Employment and Support Allowance</td>
             <td class="govuk-table__cell">Next payment amount</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
             <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Mon 17 Oct 2023, 13:03</td>
+            <td class="govuk-table__cell">Fri 28 Jul 2023, 11:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-28-July.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 22 Jul 2023, 08:30</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Thu 29 Jun 2023, 09:03</td>
             <td class="govuk-table__cell">Incoming telephone call</td>
             <td class="govuk-table__cell">Employment and Support Allowance</td>
-            <td class="govuk-table__cell">Missing payment</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
             <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Mon 14 Oct 2023, 11:15</td>
+            <td class="govuk-table__cell">Wed 28 Jun 2023, 12:15</td>
             <td class="govuk-table__cell">Incoming telephone call</td>
-            <td class="govuk-table__cell">Personal Independence Payment (PIP)</td>
-            <td class="govuk-table__cell">Missing payment</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Next payment date</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
             <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
           </tr>
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Mon 03 Oct 2023, 13:03</td>
+            <td class="govuk-table__cell">Wed 28 Jun 2023, 12:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 21 Jun 2023, 10:00</td>
             <td class="govuk-table__cell">Incoming telephone call</td>
             <td class="govuk-table__cell">Employment and Support Allowance</td>
-            <td class="govuk-table__cell">Missing payment</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-21-June.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 21 Jun 2023, 10:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-21-June.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Tue 13 Jun 2023, 10:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 26 May 2023, 13:03</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Change in payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 22 May 2023,15:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 15 May 2023, 09:15</td>
+            <td class="govuk-table__cell">Outgoing telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 15 May 2023, 09:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 12 May 2023, 08:30</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 11 May 2023, 15:30</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-11-May.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 01 May 2023, 10:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-01-May.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 19 April 2023, 11:15</td>
+            <td class="govuk-table__cell">Outgoing telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 19 April 2023, 11:01</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 17 April 2023, 11:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 14 April 2023, 09:10</td>
+            <td class="govuk-table__cell">Outgoing telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 14 April 2023, 09:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
             <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
           </tr>
         </tbody>
