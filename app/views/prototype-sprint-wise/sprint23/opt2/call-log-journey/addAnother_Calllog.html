@@ -27,7 +27,7 @@
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header ">Benefit</th>
               <th scope="col" class="govuk-table__header">Question asked</th>
-              <th scope="col govuk-!-width-one-quarter" class="govuk-table__header">Status</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
@@ -54,21 +54,6 @@
         {% endif %}
           </tbody>
         </table>
-
-
-        <!-- Free text added -->
-        <!-- <h2 class="govuk-heading-m">More information about this call</h2>
-        <div class="govuk-grid-row govuk-!-margin-bottom-0">
-          <div class="govuk-grid-column-two-thirds">
-            <p class="govuk-body">{{ data['addNote'] or "Not provided"  }} </p> 
-          </div>
-          <div class="govuk-grid-column-one-third">
-            <p class="govuk-body govuk-!-text-align-right">
-              <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-            </p>
-          </div>
-        </div>
-        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0 govuk-!-margin-bottom-8"> -->
         <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-9">
           <h2 class="govuk-heading-m">More information about this call</h2>
           <p class="govuk-body govuk-!-margin-bottom-2">{{ data['addNote'] or "Not provided"  }} </p> 
@@ -76,7 +61,6 @@
             <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
           </p> 
         </div>
-
         <!-- add more beneft/reason -->
         <form action="/prototype-sprint-wise/sprint23/opt2/addAnotherBenefit" method="post" novalidate>
           <div class="govuk-form-group">

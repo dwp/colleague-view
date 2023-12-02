@@ -58,7 +58,7 @@
               Was the next payment date question resolved?
             </dt>
             <dd class="govuk-summary-list__value">
-              <strong class="govuk-tag {{setStatus}}">
+              <strong class="govuk-tag {{isNpdResolved}}">
                 {{ data['npd_wasQuestionResolved'] }}
               </strong>
             </dd>
@@ -73,7 +73,7 @@
               Was the next payment amount question resolved?
             </dt>
             <dd class="govuk-summary-list__value">
-              <strong class="govuk-tag {{setStatus}}">
+              <strong class="govuk-tag {{isNpaResolved}}">
                 {{ data['npa_wasQuestionResolved'] }}
               </strong>
             </dd>
@@ -88,7 +88,7 @@
               Was the missing amount question resolved?
             </dt>
             <dd class="govuk-summary-list__value">
-              <strong class="govuk-tag {{setStatus}}">
+              <strong class="govuk-tag {{isMaRresolved}}">
                 {{ data['ma_wasQuestionResolved'] }}
               </strong>
             </dd>
@@ -103,7 +103,7 @@
               Was the change in payment amount question resolved?
             </dt>
             <dd class="govuk-summary-list__value">
-              <strong class="govuk-tag {{setStatus}}">
+              <strong class="govuk-tag {{isRfchRresolved}}">
                 {{ data['chpa_wasQuestionResolved'] }}
               </strong>
             </dd>
@@ -118,7 +118,7 @@
               Was something else question resolved?
             </dt>
             <dd class="govuk-summary-list__value">
-              <strong class="govuk-tag">
+              <strong class="govuk-tag {{isSERresolved}}">
                 {{ data['smelse_wasQuestionResolved'] }}
               </strong>
             </dd>

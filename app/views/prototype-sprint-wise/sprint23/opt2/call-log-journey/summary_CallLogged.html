@@ -27,7 +27,7 @@
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header ">Benefit</th>
               <th scope="col" class="govuk-table__header">Question asked</th>
-              <th scope="col govuk-!-width-one-quarter" class="govuk-table__header">Status</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
@@ -37,7 +37,7 @@
                 <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
                 <td class="govuk-table__cell">{{ item.question }}</td>
                 <td class="govuk-table__cell">
-                  <strong class="govuk-tag">{{item.result}}</strong>
+                  <strong class="govuk-tag {{isQResolved}}">{{item.result}}</strong>
                 </td>
               </tr>
             {% endfor %}
@@ -47,7 +47,7 @@
               <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
               <td class="govuk-table__cell">{{ item.question }}</td>
               <td class="govuk-table__cell">
-                <strong class="govuk-tag">{{item.result}}</strong>
+                <strong class="govuk-tag {{isQResolved}}">{{item.result}}</strong>
               </td>
             </tr>
           {% endfor %}
