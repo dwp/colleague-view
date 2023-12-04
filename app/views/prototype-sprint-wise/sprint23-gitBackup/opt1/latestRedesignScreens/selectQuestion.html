@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What questions did the caller ask about Employment and Support Allowance?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/sprint23/common/opt1/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="questionAnswered" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  What questions did the caller ask about {{ data['whichBenefitDiscussed'] }}?
+                </h1>
+              </legend>
+              <div id="countries-hint" class="govuk-hint">
+                Select all that apply.
+              </div>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nextPaymentDate_esa" name="questionAsk_esa" type="checkbox" value="Next payment date">
+                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate_esa">
+                    Next payment date
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nextPaymentAmount_esa" name="questionAsk_esa" type="checkbox" value="Next payment amount">
+                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentAmount_esa">
+                    Next payment amount
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="missingPayment_esa" name="questionAsk_esa" type="checkbox" value="Missing payment">
+                  <label class="govuk-label govuk-checkboxes__label" for="missingPayment_esa">
+                    Missing payment
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="reasonForChange_esa" name="questionAsk_esa" type="checkbox" value="Change in payment amount">
+                  <label class="govuk-label govuk-checkboxes__label" for="reasonForChange_esa">
+                    Change in payment amount
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__divider">or</div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="somethingElse_esa" name="questionAsk_esa" type="checkbox" value="Something else" data-behaviour="exclusive">
+                  <label class="govuk-label govuk-checkboxes__label" for="somethingElse_esa">
+                    Something else
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

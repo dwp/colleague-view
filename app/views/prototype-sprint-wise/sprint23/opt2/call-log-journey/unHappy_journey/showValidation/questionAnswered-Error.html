@@ -28,123 +28,121 @@
             <div class="govuk-error-summary__body">
               <ul class="govuk-list govuk-error-summary__list">
                 <li>
-                  <a href="#npd_resolved">Please select an option for next payment date</a>
-                </li>
-                <li>
-                  <a href="#npa_resolved">Please select an option for next payment amount</a>
+                  <a href="#npd_resolved">Select whether the enquiry was resolved </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
         <h1 class="govuk-heading-l">
-          Outcome of questions - Display error page
+          Outcome of questions
         </h1>
-        <!-- <p class="govuk-body">
-          This is mandatory to select whether questions asked was resolved or not.
-        </p> -->
-        <div class="govuk-inset-text">
-          This is mandatory to select whether questions asked was resolved or not.
-        </div>
-        <form action="checkAnswer" method="post" novalidate>
-          <div class="govuk-form-group {{isNpd}} govuk-form-group--error">
+        <form action="/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswer2" method="post" novalidate>
+          <!-- for eas -->
+            <div class="govuk-form-group govuk-form-group--error {{isNpd}}">
               <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                  <h1 class="govuk-fieldset__heading">
-                    Was the next payment date question resolved?
-                  </h1>
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Was the <span class="govuk-!-font-weight-bold">next payment date</span> question resolved?
+                  </h2>
                 </legend>
-                <p id="radio-stacked-error" class="govuk-error-message">
-                  <span class="govuk-visually-hidden">Error:</span> Please select an option
-                  </p>
+                <p id="nationality-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Select whether the enquiry was resolved 
+                </p>
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="npd_resolved" name="npd_wasQuestionResolved" type="radio" value="Resolved">
+                    <input class="govuk-radios__input" id="npd_resolved" name="npd_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('npd_wasQuestionResolved', 'Resolved') }}>
                     <label class="govuk-label govuk-radios__label" for="npd_resolved">
-                      Resolved
+                      Yes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="npd_Not-resolved" name="npd_wasQuestionResolved" type="radio" value="Not resolved">
+                    <input class="govuk-radios__input" id="npd_Not-resolved" name="npd_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('npd_wasQuestionResolved', 'Not resolved') }}>
                     <label class="govuk-label govuk-radios__label" for="npd_Not-resolved">
-                      Not resolved
+                      Not
                     </label>
                   </div>
                 </div>
               </fieldset>
-          </div>
-          <div class="govuk-form-group {{isNpa}} govuk-form-group--error">
+            </div>
+            <div class="govuk-form-group govuk-form-group--error {{isNpa}}">
               <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                  <h1 class="govuk-fieldset__heading">
-                    Was the next payment amount question resolved?
-                  </h1>
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Was the <span class="govuk-!-font-weight-bold">next payment amount </span> question resolved?
+                  </h2>
                 </legend>
-                <p id="radio-stacked-error" class="govuk-error-message">
-                  <span class="govuk-visually-hidden">Error:</span> Please select an option
-                  </p>
+                <p id="nationality-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Select whether the enquiry was resolved 
+                </p>
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="npa_resolved" name="npa_wasQuestionResolved" type="radio" value="Resolved">
+                    <input class="govuk-radios__input" id="npa_resolved" name="npa_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('npa_wasQuestionResolved', 'Resolved') }}>
                     <label class="govuk-label govuk-radios__label" for="npa_resolved">
-                      Resolved
+                      Yes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="npa_Not-resolved" name="npa_wasQuestionResolved" type="radio" value="Not resolved">
+                    <input class="govuk-radios__input" id="npa_Not-resolved" name="npa_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('npa_wasQuestionResolved', 'Not resolved') }}>
                     <label class="govuk-label govuk-radios__label" for="npa_Not-resolved">
-                      Not resolved
+                      Not
                     </label>
                   </div>
                 </div>
               </fieldset>
-          </div>
-          <!-- <div class="govuk-form-group {{isMp}}">
+            </div>
+            <div class="govuk-form-group govuk-form-group--error {{isMp}}">
               <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                  <h1 class="govuk-fieldset__heading">
-                    Has missing payment question resolved?
-                  </h1>
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Was the <span class="govuk-!-font-weight-bold">missing amount</span> question resolved?
+                  </h2>
                 </legend>
+                <p id="nationality-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Select whether the enquiry was resolved 
+                </p>
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="npa_resolved" name="npa_wasQuestionResolved" type="radio" value="Resolved">
-                    <label class="govuk-label govuk-radios__label" for="npa_resolved">
-                      Resolved
+                    <input class="govuk-radios__input" id="ma_resolved" name="ma_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('ma_wasQuestionResolved', 'Resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="ma_resolved">
+                      Yes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="npa_Not-resolved" name="npa_wasQuestionResolved" type="radio" value="Not resolved">
-                    <label class="govuk-label govuk-radios__label" for="npa_Not-resolved">
-                      Not resolved
+                    <input class="govuk-radios__input" id="ma_Not-resolved" name="ma_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('ma_wasQuestionResolved', 'Not resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="ma_Not-resolved">
+                      Not
                     </label>
                   </div>
                 </div>
               </fieldset>
-          </div>
-          <div class="govuk-form-group {{isRfch}}">
+            </div>
+            <div class="govuk-form-group govuk-form-group--error {{isRfch}}">
               <fieldset class="govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                  <h1 class="govuk-fieldset__heading">
-                    Has reason for a change in payment question resolved?
-                  </h1>
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Was the <span class="govuk-!-font-weight-bold">change in payment amount</span> question resolved?
+                  </h2>
                 </legend>
+                <p id="nationality-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Select whether the enquiry was resolved 
+                </p>
                 <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="npa_resolved" name="npa_wasQuestionResolved" type="radio" value="Resolved">
-                    <label class="govuk-label govuk-radios__label" for="npa_resolved">
-                      Resolved
+                    <input class="govuk-radios__input" id="chpa_resolved" name="chpa_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('chpa_wasQuestionResolved', 'Resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="chpa_resolved">
+                      Yes
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="npa_Not-resolved" name="npa_wasQuestionResolved" type="radio" value="Not resolved">
-                    <label class="govuk-label govuk-radios__label" for="npa_Not-resolved">
-                      Not resolved
+                    <input class="govuk-radios__input" id="chpa_Not-resolved" name="chpa_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('chpa_wasQuestionResolved', 'Not resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="chpa_Not-resolved">
+                      Not
                     </label>
                   </div>
                 </div>
               </fieldset>
-          </div> -->
+            </div>
           <button class="govuk-button" data-module="govuk-button">
             Save and continue
           </button>
