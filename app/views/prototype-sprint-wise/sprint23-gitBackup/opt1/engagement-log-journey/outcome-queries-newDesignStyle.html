@@ -1,0 +1,1193 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What was the outcome of the queries?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/sprint27/common/opt1/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint27/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "prototype-sprint-wise/sprint27/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-8">
+          What was the outcome of the queries?
+        </h1>
+          <div class="{{isEsa}} colleague-view-upcomming-payment-benefit">
+            <h2 class="govuk-heading-m">
+              Employment and Support Allowance
+            </h2>
+            <div class="{{isEsa}}">
+                    <table class="govuk-table {{esaPayment}}">
+                      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Payment</caption> -->
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Payment Enquiry</th>
+                          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row {{esaNextPaymentDate}}">
+                          <td class="govuk-table__cell">Next Payment Date</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nextPaymentDate" name="nextPaymentDate" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label govuk-!-static-margin-0" for="nextPaymentDate">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nextPaymentDate-2" name="nextPaymentDate" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label govuk-!-static-margin-0" for="nextPaymentDate-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaNextPaymentAmount}}">
+                          <td class="govuk-table__cell">Next Payment Amount</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaMissingPayment}}">
+                          <td class="govuk-table__cell">Missing Payment</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="govuk-table {{esaProcessChasing}}">
+                      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Payment</caption> -->
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Processing Chasing enquiry</th>
+                          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row {{esaNewClaim}}">
+                          <td class="govuk-table__cell">New Claim</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nextPaymentDate" name="nextPaymentDate" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label govuk-!-static-margin-0" for="nextPaymentDate">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nextPaymentDate-2" name="nextPaymentDate" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label govuk-!-static-margin-0" for="nextPaymentDate-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="govuk-table__row{{esaClaimClosureContact}}">
+                          <td class="govuk-table__cell">Claim Closure Contact</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaExplanation}}">
+                          <td class="govuk-table__cell">Explanation</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaAppealReconsiSupSOS}}">
+                          <td class="govuk-table__cell">Appeal, Reconsideration, Supersessions, SOS</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaInterventionsPlanned}}">
+                          <td class="govuk-table__cell">Interventions - Planned (Award Reviews)</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaInterventionsUnplanned}}">
+                          <td class="govuk-table__cell">Interventions - Unplanned (CoC Reviews)</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaSevereDisablementPremium}}">
+                          <td class="govuk-table__cell">Severe Disablement Premium (SDP)</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h3 class="govuk-heading-m {{esaCoc}}">Change of circumstances enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaSpcAccAdmis}}">
+                        <dt class="govuk-summary-list__key">
+                          Special Accommodation Admission/Discharge
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption1}}</p>
+                          <a class="govuk-link {{esaCocOption1AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption1EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeofAddress}}">
+                        <dt class="govuk-summary-list__key">
+                          Change of Address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption2}}</p>
+                          <a class="govuk-link {{esaCocOption2AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption2EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeHospitalStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Hospital Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption3}}</p>
+                          <a class="govuk-link {{esaCocOption3AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption3EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaSavingsInvestments}}">
+                        <dt class="govuk-summary-list__key">
+                          Savings and Investments
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption4}}</p>
+                          <a class="govuk-link {{esaCocOption4AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption4">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption4EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption4">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeCarerStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Carer's Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption5}}</p>
+                          <a class="govuk-link {{esaCocOption5AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption5">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption5EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption5">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaCareHomeAdmission}}">
+                        <dt class="govuk-summary-list__key">
+                          Care Home Admission
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption6}}</p>
+                          <a class="govuk-link {{esaCocOption6AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption6">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption6EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption6">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangesEarnings}}">
+                        <dt class="govuk-summary-list__key">
+                          Changes to Earnings
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption7}}</p>
+                          <a class="govuk-link {{esaCocOption7AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption7">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption7EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption7">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeBankDetails}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Bank Details
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption8}}</p>
+                          <a class="govuk-link {{esaCocOption8AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption8">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption8EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption8">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeFamilyUnit}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Family Unit
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption9}}</p>
+                          <a class="govuk-link {{esaCocOption9AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption9">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption9EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption9">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeMedicalCondition}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Medical Condition
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption10}}</p>
+                          <a class="govuk-link {{esaCocOption10AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption10">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption10EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption10">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{esaLoe}}">Letter of Entitlement enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaLoeRequest}}">
+                        <dt class="govuk-summary-list__key">
+                          LoE Request
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaLoeOption1}}</p>
+                          <a class="govuk-link {{esaLoeOption1AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaLoeOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaLoeOption1EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaLoeOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{esaGeneral}}">General enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaMedicalEvidenceEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Medical Evidence Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption1}}</p>
+                          <a class="govuk-link {{esaGeneralOption1AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption1EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaJobcentreAppointmentEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Jobcentre Appointment or Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption2}}</p>
+                          <a class="govuk-link {{esaGeneralOption2AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption2EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaGeneralEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          General Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption3}}</p>
+                          <a class="govuk-link {{esaGeneralOption3AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption3EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+            </div>
+          </div>
+          <div class="{{isEsa}} colleague-view-upcomming-payment-benefit">
+            <h2 class="govuk-heading-m">
+              Carer’s allowance
+            </h2>
+            <div class="{{isEsa}}">
+                    <table class="govuk-table {{esaPayment}}">
+                      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Payment</caption> -->
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Payment Enquiry</th>
+                          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row {{esaNextPaymentDate}}">
+                          <td class="govuk-table__cell">Next Payment Date</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nextPaymentDate" name="nextPaymentDate" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label govuk-!-static-margin-0" for="nextPaymentDate">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nextPaymentDate-2" name="nextPaymentDate" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label govuk-!-static-margin-0" for="nextPaymentDate-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaNextPaymentAmount}}">
+                          <td class="govuk-table__cell">Next Payment Amount</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaMissingPayment}}">
+                          <td class="govuk-table__cell">Missing Payment</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table class="govuk-table {{esaProcessChasing}}">
+                      <!-- <caption class="govuk-table__caption govuk-table__caption--m">Payment</caption> -->
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Processing Chasing enquiry</th>
+                          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row {{esaNewClaim}}">
+                          <td class="govuk-table__cell">New Claim</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nextPaymentDate" name="nextPaymentDate" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label govuk-!-static-margin-0" for="nextPaymentDate">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nextPaymentDate-2" name="nextPaymentDate" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label govuk-!-static-margin-0" for="nextPaymentDate-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="govuk-table__row{{esaClaimClosureContact}}">
+                          <td class="govuk-table__cell">Claim Closure Contact</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaExplanation}}">
+                          <td class="govuk-table__cell">Explanation</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaAppealReconsiSupSOS}}">
+                          <td class="govuk-table__cell">Appeal, Reconsideration, Supersessions, SOS</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaInterventionsPlanned}}">
+                          <td class="govuk-table__cell">Interventions - Planned (Award Reviews)</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaInterventionsUnplanned}}">
+                          <td class="govuk-table__cell">Interventions - Unplanned (CoC Reviews)</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                        <tr class="govuk-table__row {{esaSevereDisablementPremium}}">
+                          <td class="govuk-table__cell">Severe Disablement Premium (SDP)</td>
+                          <td class="govuk-table__cell">
+                            <div class="govuk-form-group govuk-!-margin-bottom-0">
+                              <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                                <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="changedName">
+                                      Resolved
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                      Not resolved
+                                    </label>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                        </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h3 class="govuk-heading-m {{esaCoc}}">Change of circumstances enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaSpcAccAdmis}}">
+                        <dt class="govuk-summary-list__key">
+                          Special Accommodation Admission/Discharge
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption1}}</p>
+                          <a class="govuk-link {{esaCocOption1AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption1EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeofAddress}}">
+                        <dt class="govuk-summary-list__key">
+                          Change of Address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption2}}</p>
+                          <a class="govuk-link {{esaCocOption2AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption2EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeHospitalStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Hospital Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption3}}</p>
+                          <a class="govuk-link {{esaCocOption3AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption3EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaSavingsInvestments}}">
+                        <dt class="govuk-summary-list__key">
+                          Savings and Investments
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption4}}</p>
+                          <a class="govuk-link {{esaCocOption4AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption4">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption4EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption4">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeCarerStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Carer's Status
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption5}}</p>
+                          <a class="govuk-link {{esaCocOption5AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption5">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption5EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption5">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaCareHomeAdmission}}">
+                        <dt class="govuk-summary-list__key">
+                          Care Home Admission
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption6}}</p>
+                          <a class="govuk-link {{esaCocOption6AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption6">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption6EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption6">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangesEarnings}}">
+                        <dt class="govuk-summary-list__key">
+                          Changes to Earnings
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption7}}</p>
+                          <a class="govuk-link {{esaCocOption7AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption7">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption7EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption7">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeBankDetails}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Bank Details
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption8}}</p>
+                          <a class="govuk-link {{esaCocOption8AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption8">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption8EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption8">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeFamilyUnit}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Family Unit
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption9}}</p>
+                          <a class="govuk-link {{esaCocOption9AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption9">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption9EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption9">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeMedicalCondition}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Medical Condition
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaCocOption10}}</p>
+                          <a class="govuk-link {{esaCocOption10AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption10">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaCocOption10EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaCocOption10">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{esaLoe}}">Letter of Entitlement enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaLoeRequest}}">
+                        <dt class="govuk-summary-list__key">
+                          LoE Request
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaLoeOption1}}</p>
+                          <a class="govuk-link {{esaLoeOption1AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaLoeOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaLoeOption1EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaLoeOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-m {{esaGeneral}}">General enquiry</h3>
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row {{esaMedicalEvidenceEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Medical Evidence Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption1}}</p>
+                          <a class="govuk-link {{esaGeneralOption1AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption1">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption1EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption1">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaJobcentreAppointmentEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Jobcentre Appointment or Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption2}}</p>
+                          <a class="govuk-link {{esaGeneralOption2AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption2">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption2EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption2">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaGeneralEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          General Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <p>{{esaGeneralOption3}}</p>
+                          <a class="govuk-link {{esaGeneralOption3AddNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption3">
+                            Add Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                          <a class="govuk-link {{esaGeneralOption3EditNotes}}" href="/prototype-sprint-wise/sprint27/opt1/engagement-log-journey/add-note/esaGeneralOption3">
+                            Edit Note<span class="govuk-visually-hidden"> for enquiry type</span>
+                          </a>
+                        </dd>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <select class="govuk-select" id="sort" name="sort">
+                            <option value="Select option" selected>Select option</option>
+                            <option value="Escalated">Escalated</option>
+                            <option value="Resolved">Resolved</option>
+                          </select>
+                      </dd>
+                      </div>
+                    </dl>
+            </div>
+          </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </div>
+    </div>
+
+{% endblock %}

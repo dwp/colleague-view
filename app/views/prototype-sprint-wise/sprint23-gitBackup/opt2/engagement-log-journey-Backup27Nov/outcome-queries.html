@@ -1,0 +1,2036 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Were these enquiries resolved?
+{% endblock %}
+
+{% block header %}
+{% include "prototype-sprint-wise/sprint23/common/opt2/header-navigation_inside.html" %} 
+{% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar-call-log.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-8">Were these enquiries resolved?</h1>
+        <div class="govuk-form-group govuk-!-margin-bottom-8">
+          <!-- Accordion 1 -->
+          <div class="{{isEsa}}">
+                  <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Employment and Support Allowance</h2>
+                  <div class="govuk-form-group">
+                    <h3 class="govuk-heading-s {{esaPayment}}">Payment enquiry</h3>
+                    <dl class="govuk-summary-list {{esaPayment}}">
+                      <div class="govuk-summary-list__row {{esaNextPaymentDate}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Next payment date
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Next payment amount
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="nextPaymentamt-1" name="nextPaymentamt-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="nextPaymentamt-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="nextPaymentamt-2" name="nextPaymentamt-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="nextPaymentamt-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      <!-- <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Remove<span class="govuk-visually-hidden">enquiry</span>
+                        </a>
+                      </dd> -->
+                      </div>
+                      <div class="govuk-summary-list__row {{esaMissingPayment}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Missing payment
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="missingPaymentamt-1" name="missingPaymentamt-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="missingPaymentamt-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="missingPaymentamt-2" name="missingPaymentamt-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="missingPaymentamt-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{esaProcessChasing}}">Processing Chasing enquiry</h3>
+                    <dl class="govuk-summary-list {{esaProcessChasing}}">
+                      <div class="govuk-summary-list__row {{esaNewClaim}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          New Claim
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="newClaim-1" name="newClaim-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="newClaim-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="newClaim-2" name="newClaim" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="newClaim-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaClaimClosureContact}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Claim Closure Contact
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="claimClosureContact-1" name="claimClosureContact-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="claimClosureContact-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="claimClosureContact-2" name="claimClosureContact-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="claimClosureContact-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaExplanation}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Explanation
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="explanation-1" name="explanation-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="explanation-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="explanation-2" name="explanation-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="explanation-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaAppealReconsiSupSOS}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Appeal, Reconsideration, Supersessions, SOS
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="appealRS-1" name="appealRS-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="appealRS-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="appealRS-2" name="appealRS-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="appealRS-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaInterventionsPlanned}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Interventions - Planned (Award Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="interventionsPlanned-1" name="interventionsPlanned-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="interventionsPlanned-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="interventionsPlanned-2" name="interventionsPlanned-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="interventionsPlanned-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaInterventionsUnplanned}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Interventions - Unplanned (CoC Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="interventionsUnplanned-1" name="interventionsUnplanned-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="interventionsUnplanned-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="interventionsUnplanned-2" name="interventionsUnplanned" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="interventionsUnplanned-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaSevereDisablementPremium}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Severe Disablement Premium (SDP)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="SDP-1" name="SDP-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="SDP-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="SDP-2" name="SDP-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="SDP-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{esaCoc}}">Change of circumstances enquiry</h3>
+                    <dl class="govuk-summary-list {{esaCoc}}">
+                      <div class="govuk-summary-list__row {{esaSpcAccAdmis}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Special Accommodation Admission/Discharge
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="SAA-1" name="SAA-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="SAA-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="SAA-2" name="SAA-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="SAA-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeofAddress}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Change of Address
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="coa-1" name="coa-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="coa-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="coa-2" name="coa-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="coa-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeHospitalStatus}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Change to Hospital Status
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="chs-1" name="chs-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="chs-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="chs-2" name="chs-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="chs-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaSavingsInvestments}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Savings and Investments
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="si-1" name="si-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="si-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="si-2" name="si-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="si-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeCarerStatus}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Change to Carer's Status
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="coCS-1" name="coCS-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="coCS-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="coCS-2" name="coCS-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="coCS-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaCareHomeAdmission}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Care Home Admission
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="cha-1" name="cha-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="cha-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="cha-2" name="cha-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="cha-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangesEarnings}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Changes to Earnings
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="changeEarning-1" name="changeEarning-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="changeEarning-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="changeEarning-2" name="changeEarning-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="changeEarning-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeBankDetails}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Change to Bank Details
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="changebankDetails-1" name="changebankDetails-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="changebankDetails-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="changebankDetails-2" name="changebankDetails-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="changebankDetails-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeFamilyUnit}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Change to Family Unit
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="changeFamilyUnit-1" name="changeFamilyUnit-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="changeFamilyUnit-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="changeFamilyUnit-2" name="changeFamilyUnit-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="changeFamilyUnit-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaChangeMedicalCondition}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Change to Medical Condition
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="changeMedicalCondition-1" name="changeMedicalCondition-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="changeMedicalCondition-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="changeMedicalCondition-2" name="changeMedicalCondition-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="changeMedicalCondition-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{esaLoe}}">Letter of Entitlement enquiry</h3>
+                    <dl class="govuk-summary-list {{esaLoe}}">
+                      <div class="govuk-summary-list__row {{esaLoeRequest}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          LoE Request
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="LoE-1" name="LoE-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="LoE-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="LoE-2" name="LoE-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="LoE-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{esaGeneral}}">General enquiry</h3>
+                    <dl class="govuk-summary-list {{esaGeneral}}">
+                      <div class="govuk-summary-list__row {{esaMedicalEvidenceEnquiry}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Medical Evidence Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="medicalEvidenceEnquiry-1" name="medicalEvidenceEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="medicalEvidenceEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="medicalEvidenceEnquiry-2" name="medicalEvidenceEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="medicalEvidenceEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaJobcentreAppointmentEnquiry}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Jobcentre Appointment or Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="jobcentreAppointment-1" name="jobcentreAppointment-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="jobcentreAppointment-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="jobcentreAppointment-2" name="jobcentreAppointment-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="jobcentreAppointment-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaGeneralEnquiry}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          General Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="generalEnquiry-1" name="generalEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="generalEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="generalEnquiry-2" name="generalEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="generalEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                  </div>
+          </div>
+          <!-- Accordion 2 -->
+          <div class="{{isPip}}">
+                  <h2 class="govuk-heading-m">Personal Independence Payment</h2>
+                  <div class="govuk-form-group">
+                    <h3 class="govuk-heading-s {{pipPayment}}">Payment enquiry</h3>
+                    <dl class="govuk-summary-list {{pipPayment}}">
+                      <div class="govuk-summary-list__row {{pipNextPaymentDate}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipPaymentEnquiry-1" name="pipPaymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipPaymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="pipPaymentEnquiry-2" name="pipPaymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipPaymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Next Payment Amount
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipNextPaymentamt-1" name="pipNextPaymentamt-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipNextPaymentamt-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="pipNextPaymentamt-2" name="pipNextPaymentamt-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipNextPaymentamt-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipMissingPayment}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Missing payment
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipMissingPaymentamt-1" name="pipMissingPaymentamt-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipMissingPaymentamt-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="pipMissingPaymentamt-2" name="pipMissingPaymentamt-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipMissingPaymentamt-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{pipProcessChasing}}">Processing Chasing enquiry</h3>
+                    <dl class="govuk-summary-list {{pipProcessChasing}}">
+                      <div class="govuk-summary-list__row {{pipNewClaim}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          New Claim
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipNewClaim-1" name="pipNewClaim-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipNewClaim-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipNewClaim-2" name="pipNewClaim-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipNewClaim-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipClaimClosureContact}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Claim Closure Contact
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipClaimCcontact-1" name="pipClaimCcontact-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipClaimCcontact-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipClaimCcontact-2" name="pipClaimCcontact-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipClaimCcontact-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipExplanation}}">
+                        <dt class="govuk-summary-list__key">
+                          Explanation
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipExplaination-1" name="pipExplaination-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipExplaination-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipExplaination-2" name="pipExplaination-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipExplaination-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipAppealReconsiSupSOS}}">
+                        <dt class="govuk-summary-list__key">
+                          Appeal, Reconsideration, Supersessions, SOS
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipARSSOS-1" name="pipARSSOS-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipARSSOS-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipARSSOS-2" name="pipARSSOS-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipARSSOS-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipInterventionsPlanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Planned (Award Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipIP-1" name="pipIP-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipIP-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipIP-2" name="pipIP-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipIP-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipInterventionsUnplanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Unplanned (CoC Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipIUP-1" name="pipIUP-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipIUP-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipIUP-2" name="pipIUP-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipIUP-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipSevereDisablementPremium}}">
+                        <dt class="govuk-summary-list__key">
+                          Severe Disablement Premium (SDP)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipSDP-1" name="pipSDP-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipSDP-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="pipSDP-2" name="pipSDP-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="pipSDP-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{pipCoc}}">Change of circumstances enquiry</h3>
+                    <dl class="govuk-summary-list {{pipCoc}}">
+                      <div class="govuk-summary-list__row {{pipSpcAccAdmis}}">
+                        <dt class="govuk-summary-list__key">
+                          Special Accommodation Admission/Discharge
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeofAddress}}">
+                        <dt class="govuk-summary-list__key">
+                          Change of Address
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeHospitalStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Hospital Status
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipSavingsInvestments}}">
+                        <dt class="govuk-summary-list__key">
+                          Savings and Investments
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeCarerStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Carer's Status
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipCareHomeAdmission}}">
+                        <dt class="govuk-summary-list__key">
+                          Care Home Admission
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangesEarnings}}">
+                        <dt class="govuk-summary-list__key">
+                          Changes to Earnings
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeBankDetails}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Bank Details
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeFamilyUnit}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Family Unit
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipChangeMedicalCondition}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Medical Condition
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-summary-list__actions govuk-!-width-one-third govuk-!-margin-bottom-0 govuk-!-padding-bottom-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{pipLoe}}">Letter of Entitlement enquiry</h3>
+                    <dl class="govuk-summary-list {{pipLoe}}">
+                      <div class="govuk-summary-list__row {{pipLoeRequest}}">
+                        <dt class="govuk-summary-list__key">
+                          LoE Request
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{pipGeneral}}">General enquiry</h3>
+                    <dl class="govuk-summary-list {{pipGeneral}}">
+                      <div class="govuk-summary-list__row {{pipMedicalEvidenceEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Medical Evidence Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipJobcentreAppointmentEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Jobcentre Appointment or Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipGeneralEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          General Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-1" name="paymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="paymentEnquiry-2" name="paymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="paymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                  </div>
+          </div>
+          <!-- Accordion 3 -->
+          <div class="{{isCa}}">
+                  <h2 class="govuk-heading-m">Carer's Allowance</h2>
+                  <div class="govuk-form-group">
+                    <h3 class="govuk-heading-s {{caPayment}}">Payment enquiry</h3>
+                    <dl class="govuk-summary-list {{caPayment}}">
+                      <div class="govuk-summary-list__row {{caNextPaymentDate}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caPaymentEnquiry-1" name="caPaymentEnquiry-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caPaymentEnquiry-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="caPaymentEnquiry-2" name="caPaymentEnquiry-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caPaymentEnquiry-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Next Payment Amount
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caNextPaymentamt-1" name="caNextPaymentamt-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caNextPaymentamt-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="caNextPaymentamt-2" name="caNextPaymentamt-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caNextPaymentamt-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caMissingPayment}}">
+                        <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                          Missing Payment
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-width-two-thirds">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Were these enquiries resolved?
+                              </legend>
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caMissingPaymentamt-1" name="caMissingPaymentamt-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caMissingPaymentamt-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item govuk-!-padding-right-0 govuk-!-margin-right-0">
+                                  <input class="govuk-radios__input" id="caMissingPaymentamt-2" name="caMissingPaymentamt-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caMissingPaymentamt-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{caProcessChasing}}">Processing Chasing enquiry</h3>
+                    <dl class="govuk-summary-list {{caProcessChasing}}">
+                      <div class="govuk-summary-list__row {{caNewClaim}}">
+                        <dt class="govuk-summary-list__key">
+                          New Claim
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caNewclaim-1" name="caNewclaim-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caNewclaim-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caNewclaim-2" name="caNewclaim-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caNewclaim-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caClaimClosureContact}}">
+                        <dt class="govuk-summary-list__key">
+                          Claim Closure Contact
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caClaimClosure-1" name="caClaimClosure-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caClaimClosure-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caClaimClosure-2" name="caClaimClosure-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caClaimClosure-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caExplanation}}">
+                        <dt class="govuk-summary-list__key">
+                          Explanation
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caExplaination-1" name="caExplaination-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caExplaination-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caExplaination-2" name="caExplaination-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caExplaination-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caAppealReconsiSupSOS}}">
+                        <dt class="govuk-summary-list__key">
+                          Appeal, Reconsideration, Supersessions, SOS
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caAppealRS-1" name="caAppealRS-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caAppealRS-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caAppealRS-2" name="caAppealRS-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caAppealRS-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caInterventionsPlanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Planned (Award Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caIP-1" name="caIP-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caIP-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caIP-2" name="caIP-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caIP-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caInterventionsUnplanned}}">
+                        <dt class="govuk-summary-list__key">
+                          Interventions - Unplanned (CoC Reviews)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCoCreview-1" name="caCoCreview-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCoCreview-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCoCreview-2" name="caCoCreview-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCoCreview-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caSevereDisablementPremium}}">
+                        <dt class="govuk-summary-list__key">
+                          Severe Disablement Premium (SDP)
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caSDP-1" name="caSDP-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caSDP-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caSDP-2" name="caSDP-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caSDP-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{caCoc}}">Change of circumstances enquiry</h3>
+                    <dl class="govuk-summary-list {{caCoc}}">
+                      <div class="govuk-summary-list__row {{caSpcAccAdmis}}">
+                        <dt class="govuk-summary-list__key">
+                          Special Accommodation Admission/Discharge
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caSAA-1" name="caSAA-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caSAA-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caSAA-2" name="caSAA-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caSAA-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeofAddress}}">
+                        <dt class="govuk-summary-list__key">
+                          Change of Address
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCoA-1" name="caCoA-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCoA-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCoA-2" name="caCoA-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCoA-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeHospitalStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Hospital Status
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCoHS-1" name="caCoHS-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCoHS-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCoHS-2" name="caCoHS-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCoHS-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caSavingsInvestments}}">
+                        <dt class="govuk-summary-list__key">
+                          Savings and Investments
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caSI-1" name="caSI-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caSI-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caSI-2" name="caSI-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caSI-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeCarerStatus}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Carer's Status
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCoCS-1" name="caCoCS-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCoCS-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCoCS-2" name="caCoCS-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCoCS-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caCareHomeAdmission}}">
+                        <dt class="govuk-summary-list__key">
+                          Care Home Admission
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCHA-1" name="caCHA-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCHA-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCHA-2" name="caCHA-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCHA-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangesEarnings}}">
+                        <dt class="govuk-summary-list__key">
+                          Changes to Earnings
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCE-1" name="caCE-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCE-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCE-2" name="caCE-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCE-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeBankDetails}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Bank Details
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCbankDetails-1" name="caCbankDetails-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCbankDetails-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCbankDetails-2" name="caCbankDetails-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCbankDetails-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeFamilyUnit}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Family Unit
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCFamilyU-1" name="caCFamilyU-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCFamilyU-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCFamilyU-2" name="caCFamilyU-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCFamilyU-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caChangeMedicalCondition}}">
+                        <dt class="govuk-summary-list__key">
+                          Change to Medical Condition
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCMC-1" name="caCMC-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCMC-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caCMC-2" name="caCMC-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caCMC-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{caLoe}}">Letter of Entitlement enquiry</h3>
+                    <dl class="govuk-summary-list {{caLoe}}">
+                      <div class="govuk-summary-list__row {{caLoeRequest}}">
+                        <dt class="govuk-summary-list__key">
+                          LoE Request
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caLoErequest-1" name="caLoErequest-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caLoErequest-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caLoErequest-2" name="caLoErequest-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caLoErequest-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                    <h3 class="govuk-heading-s {{caGeneral}}">General enquiry</h3>
+                    <dl class="govuk-summary-list {{caGeneral}}">
+                      <div class="govuk-summary-list__row {{caMedicalEvidenceEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Medical Evidence Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caMEE-1" name="caMEE-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caMEE-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caMEE-2" name="caMEE-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caMEE-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caJobcentreAppointmentEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          Jobcentre Appointment or Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caJA-1" name="caJA-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caJA-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caJA-2" name="caJA-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caJA-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caGeneralEnquiry}}">
+                        <dt class="govuk-summary-list__key">
+                          General Enquiry
+                        </dt>
+                        <dd class="govuk-summary-list__value govuk-!-margin-bottom-0 govuk-!-padding-0">
+                          <span class="govuk-visually-hidden"> Select option</span>
+                          <div class="govuk-form-group govuk-!-margin-bottom-0">
+                            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                              <div class="govuk-radios govuk-radios--inline govuk-radios--small" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caGE-1" name="caGE-action" type="radio" value="Resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caGE-1">
+                                    Resolved
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="caGE-2" name="caGE-action" type="radio" value="Not resolved">
+                                  <label class="govuk-label govuk-radios__label govuk-!-padding-bottom-0" for="caGE-2">
+                                    Not resolved
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                      </dd>
+                      </div>
+                    </dl>
+                  </div>
+           </div>
+        </div>
+
+        <!-- Do you want to add more information -->
+        <form method="post" action="/prototype-sprint-wise/sprint23/opt2/engagement-log-journey/add-note" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
+                Do you want to add anything else about these enquiries?
+              </legend>
+              <!-- <div id="add-another-hint" class="govuk-hint">
+                You will write note about this call.
+              </div> -->
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="add-another" name="add-another" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="add-another">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="add-another-2" name="add-another" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="add-another-2">
+                    No
+                  </label>
+                </div>
+              </div>
+        
+            </fieldset>
+          </div>
+        
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+    
+{% endblock %}
+
+

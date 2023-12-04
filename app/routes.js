@@ -4214,9 +4214,9 @@ if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req
 } else {
   var errMsg = "";
   if (req.session.data['national-insurance-number-sprint23'] == '' || req.session.data['national-insurance-number-sprint23'] == undefined) {
-    errMsg = "National Insurance Number is mandatory";
+    errMsg = "Enter the customer's National Insurance number";
   } else {
-    errMsg = "Enter a National Insurance number in the correct format";
+    errMsg = "Enter the customer's National Insurance number in the correct format";
   }
   // Send user to error page
   res.render('prototype-sprint-wise/sprint23/opt1/error-NINO-number', { "errMsg": errMsg });
@@ -5551,33 +5551,12 @@ if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' |
 } else {
   var errMsg = "";
   if (req.session.data['national-insurance-number-sprint23-opt2'] == '' || req.session.data['national-insurance-number-sprint23-opt2'] == undefined) {
-    errMsg = "National Insurance Number is mandatory";
+    errMsg = "Enter the customer's National Insurance number";
   } else {
-    errMsg = "Enter a National Insurance number in the correct format";
+    errMsg = "Enter the customer's National Insurance number in the correct format";
   }
   // Send user to error page
-  res.render('prototype-sprint-wise/sprint23/opt2/error-NINO-number', { "errMsg": errMsg });
-}
-})
-
-// for returning user
-router.post('/prototype-sprint-wise/sprint23/opt2/returning-user/call-type', function (req, res) {
-req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
-req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
-req.session.data['Who-is-the-engagement-with'] = '';
-
-if (req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == 'qq123456q') {
-// Send user to next page
-res.render('prototype-sprint-wise/sprint23/opt2/returning-user/call-type');
-} else {
-var errMsg = "";
-if (req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == '' || req.session.data['national-insurance-number-prototype-sprint-wise/sprint23'] == undefined) {
-  errMsg = "National Insurance Number is mandatory";
-} else {
-  errMsg = "Enter a National Insurance number in the correct format";
-}
-// Send user to error page
-res.render('prototype-sprint-wise/sprint23/opt2/error-NINO-number', { "errMsg": errMsg });
+  res.render('prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-NINO-number', { "errMsg": errMsg });
 }
 })
 
@@ -5588,35 +5567,37 @@ req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
 
 // Make a variable and give it the value from 'how-many-balls'
 var contactType = req.session.data['What-type-of-engagement-is-it-sprint23-opt2'];
-// Check whether the variable matches a condition
-if (contactType == "Incoming call" || contactType == "Outgoing call") {
 
+if (req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] == '') {
+    // Send user to error page
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-Call-Type');
+} else{
   var b = " with";
   req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = contactType + "  " + b;
-
   // Send user to next page
   res.redirect('/prototype-sprint-wise/sprint23/opt2/call-with');
-} else {
-  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
-  // Send user back to same page
-  res.redirect('back');
 }
+// Check whether the variable matches a condition
+// if (contactType == "Incoming call" || contactType == "Outgoing call") {
+
+//   var b = " with";
+//   req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = contactType + "  " + b;
+//   // Send user to next page
+//   res.redirect('/prototype-sprint-wise/sprint23/opt2/call-with');
+// } else {
+//   // Send user to error page
+//   res.redirect('/prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-Call-Type');
+// }
 
 })
-
-router.post('/prototype-sprint-wise/sprint23/opt2/home-page-first-time', function (req, res) {
-// Make a variable and give it the value from 'how-many-balls'
-if (req.session.data['Who-is-the-engagement-with'] == "Christopher Fox" || req.session.data['Who-is-the-engagement-with'] == "Jane Doe") {
-  // Send user to next page
-  req.session.data['Who-is-the-engagement-with'] = "with " + req.session.data['Who-is-the-engagement-with'];
-  res.redirect('/prototype-sprint-wise/sprint23/opt2/home-page-first-time');
-} else {
-  // Send user back to same page
-  // res.redirect('/prototype-sprint-wise/sprint23/opt2/wrong-option-selected');
-  req.session.data['Who-is-the-engagement-with'] = '';
-  res.redirect('back');
+router.post('/prototype-sprint-wise/sprint23/opt2/account-Home', function (req, res) {
+  
+  if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == '') {
+    // Send user to error page
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-Call-With');
+} else{
+  res.redirect('/prototype-sprint-wise/sprint23/opt2/home-page');
 }
-
 })
 
 // this is for radio selection for Session complete when no notes added.
@@ -6843,29 +6824,28 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/selectQuestio
   } 
 })
 
-router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/questionAnswered', function(req, res) {
+router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/wasQuestionResolved', function(req, res) {
 
-  var isNpd = 'govuk-!-display-none';
+    var isNpd = 'govuk-!-display-none';
     var isNpa = 'govuk-!-display-none';
     var isMp = 'govuk-!-display-none';
     var isRfch = 'govuk-!-display-none';
 
-      // Send user to error page
     if (req.session.data['questionAsk'].includes('Something else')) {
       res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/unHappy_journey/noQuestion/askedClQ")
     } else {
-    if(req.session.data['questionAsk'].includes('Next payment date')) {
-      isNpd = 'govuk-!-display-block';
-    }
-    if(req.session.data['questionAsk'].includes('Next payment amount')) {
-      isNpa = 'govuk-!-display-block';
-    }
-    if(req.session.data['questionAsk'].includes('Missing payment')) {
-      isMp = 'govuk-!-display-block';
-    }
-    if(req.session.data['questionAsk'].includes('Change in payment amount')) {
-      isRfch = 'govuk-!-display-block';
-    }
+      if(req.session.data['questionAsk'].includes('Next payment date')) {
+        isNpd = 'govuk-!-display-block';
+      }
+      if(req.session.data['questionAsk'].includes('Next payment amount')) {
+        isNpa = 'govuk-!-display-block';
+      }
+      if(req.session.data['questionAsk'].includes('Missing payment')) {
+        isMp = 'govuk-!-display-block';
+      }
+      if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+        isRfch = 'govuk-!-display-block';
+      }
     
     //All variable render here
     res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/questionAnswered', {
@@ -6876,6 +6856,7 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/questionAnswe
     })
   }
 })
+
 
 router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswer', function(req, res) {
 
@@ -6889,6 +6870,77 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswer',
     var isMaRresolved = '';
     var isRfchRresolved = '';
 
+    if(req.session.data['questionAsk'].includes('Next payment date')) {
+      isNpd = '';
+    }
+    if(req.session.data['questionAsk'].includes('Next payment amount')) {
+      isNpa = '';
+    }
+    if(req.session.data['questionAsk'].includes('Missing payment')) {
+      isMp = '';
+    }
+    if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+      isRfch = '';
+    }
+    if(req.session.data['questionAsk'].includes('Something else')) {
+      isSE = '';
+    }
+    if(req.session.data['npd_wasQuestionResolved'].includes('Not resolved')) {
+      isNpdResolved = 'govuk-tag--red';
+    } 
+    if(req.session.data['npa_wasQuestionResolved'].includes('Not resolved')) {
+      isNpaResolved = 'govuk-tag--red';
+    }
+    if(req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+      isMaRresolved = 'govuk-tag--red';
+    }
+    if(req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')) {
+      isRfchRresolved = 'govuk-tag--red';
+    }
+
+    // if (req.session.data['npd_wasQuestionResolved'] == '' || req.session.data['npa_wasQuestionResolved'] =='' || req.session.data['ma_wasQuestionResolved'] =='' || req.session.data['chpa_wasQuestionResolved'] =='') {
+    if ((req.session.data['npd_wasQuestionResolved'].includes('Not resolved') || req.session.data['npd_wasQuestionResolved'].includes('Resolved')) || (req.session.data['npa_wasQuestionResolved'].includes('Not resolved') || req.session.data['npa_wasQuestionResolved'].includes('Resolved')) || (req.session.data['ma_wasQuestionResolved'].includes('Not resolved') || req.session.data['ma_wasQuestionResolved'].includes('Resolved')) || (req.session.data['chpa_wasQuestionResolved'].includes('Not resolved') || req.session.data['chpa_wasQuestionResolved'].includes('Resolved'))) {
+      //All variable render here
+        res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswer', {
+          "isNpd": isNpd,
+          "isNpa": isNpa,
+          "isMp": isMp,
+          "isRfch": isRfch,
+          "isSE": isSE,
+          "isNpdResolved": isNpdResolved,
+          "isNpaResolved": isNpaResolved,
+          "isMaRresolved": isMaRresolved,
+          "isRfchRresolved": isRfchRresolved,
+          })
+
+    } else {
+      //All variable render here
+      res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/unHappy_journey/showValidation/questionAnswered-Error', {
+        "isNpd": isNpd,
+        "isNpa": isNpa,
+        "isMp": isMp,
+        "isRfch": isRfch,
+        "isSE": isSE,
+        "isNpdResolved": isNpdResolved,
+        "isNpaResolved": isNpaResolved,
+        "isMaRresolved": isMaRresolved,
+        "isRfchRresolved": isRfchRresolved,
+        });
+    }
+
+})
+
+
+router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswer2', function(req, res) {
+  var isNpd = 'govuk-!-display-none';
+    var isNpa = 'govuk-!-display-none';
+    var isMp = 'govuk-!-display-none';
+    var isRfch = 'govuk-!-display-none';
+    var isSE = 'govuk-!-display-none';
+    var isNpdResolved = '';
+    var isNpaResolved = '';
+    var isMaRresolved = '';
+    var isRfchRresolved = '';
 
     if(req.session.data['questionAsk'].includes('Next payment date')) {
       isNpd = '';
@@ -6930,11 +6982,9 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswer',
     "isNpaResolved": isNpaResolved,
     "isMaRresolved": isMaRresolved,
     "isRfchRresolved": isRfchRresolved,
-
     })
-
 })
-
+  
 // check answer for something else question type
 router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswerForsomethingElse', function(req, res) {
 
@@ -6945,18 +6995,18 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswerFo
   var isSE = 'govuk-!-display-none';
   var isSERresolved = '';
 
-  if(req.session.data['questionAsk'].includes('Next payment date')) {
-    isNpd = '';
-  }
-  if(req.session.data['questionAsk'].includes('Next payment amount')) {
-    isNpa = '';
-  }
-  if(req.session.data['questionAsk'].includes('Missing payment')) {
-    isMp = '';
-  }
-  if(req.session.data['questionAsk'].includes('Change in payment amount')) {
-    isRfch = '';
-  }
+  // if(req.session.data['questionAsk'].includes('Next payment date')) {
+  //   isNpd = '';
+  // }
+  // if(req.session.data['questionAsk'].includes('Next payment amount')) {
+  //   isNpa = '';
+  // }
+  // if(req.session.data['questionAsk'].includes('Missing payment')) {
+  //   isMp = '';
+  // }
+  // if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+  //   isRfch = '';
+  // }
   if(req.session.data['questionAsk'].includes('Something else')) {
     isSE = '';
   }
@@ -6964,15 +7014,38 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswerFo
     isSERresolved = 'govuk-tag--red';
   }
   
-  //All variable render here
-  res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswer', {
-  "isNpd": isNpd,
-  "isNpa": isNpa,
-  "isMp": isMp,
-  "isRfch": isRfch,
-  "isSE": isSE,
-  "isSERresolved": isSERresolved,
-  })
+  if (req.session.data['smelse_wasQuestionResolved'].includes('Resolved') || req.session.data['smelse_wasQuestionResolved'].includes('Not resolved')) {
+    console.log('Rahul')
+    //All variable render here
+    res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswer', {
+      "isNpd": isNpd,
+      "isNpa": isNpa,
+      "isMp": isMp,
+      "isRfch": isRfch,
+      "isSE": isSE,
+      // "isNpdResolved": isNpdResolved,
+      // "isNpaResolved": isNpaResolved,
+      // "isMaRresolved": isMaRresolved,
+      // "isRfchRresolved": isRfchRresolved,
+      "isSERresolved": isSERresolved,
+      })
+
+  } else {
+    console.log('Neha')
+    //All variable render here
+    res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/unHappy_journey/showValidation/somethingElse-Error', {
+      "isNpd": isNpd,
+      "isNpa": isNpa,
+      "isMp": isMp,
+      "isRfch": isRfch,
+      "isSE": isSE,
+      "isSERresolved": isSERresolved,
+      // "isNpdResolved": isNpdResolved,
+      // "isNpaResolved": isNpaResolved,
+      // "isMaRresolved": isMaRresolved,
+      // "isRfchRresolved": isRfchRresolved,
+      });
+  }
 
 })
 
@@ -7084,6 +7157,12 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/addAnother_Ca
 
 // check phone call progress and complete confirmation.
 router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/confirm_Complete_PhoneCall', function (req, res) {
+  if(req.session.data.outcomePage === ''){
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/call-log-journey/no-contactAdded');
+  } else {
+    res.redirect('/prototype-sprint-wise/sprint23/opt2/call-log-journey/confirmation-complete-session');
+  }
+
   res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/confirmation-complete-session")
   });
 
@@ -7104,7 +7183,6 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/phoneCall-com
   }
 
 });
-
 
 router.post('/prototype-sprint-wise/sprint23/opt2/addAnotherBenefit', function(req, res) {
   req.session.data['whichBenefitDiscussed'] = '';
@@ -7131,6 +7209,11 @@ router.post('/prototype-sprint-wise/sprint23/opt2/goToHome', function(req, res) 
         res.redirect("/prototype-sprint-wise/sprint23/opt2/home-page")
         
     }
+})
+
+
+// for all page check validation and show message
+router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkValidation', function(req, res) {
 })
 
 // End of sprint-wise sprint23 opt-2 here
