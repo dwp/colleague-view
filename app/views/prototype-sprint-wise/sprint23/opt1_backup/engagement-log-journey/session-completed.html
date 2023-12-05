@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Call completed
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/sprint23/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-panel__title">Call completed</h1>
+        <form action="../index" method="post" novalidate>
+          <div class="govuk-form-group">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Call start date and time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p id="todayDate"></p>
+                </dd>
+                <!-- <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="add-note">
+                    Edit<span class="govuk-visually-hidden"> name</span>
+                  </a>
+                </dd> -->
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Length of call
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  15 minutes
+                </dd>
+                <!-- <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="add-note">
+                    Edit<span class="govuk-visually-hidden"> name</span>
+                  </a>
+                </dd> -->
+              </div>
+            </dl>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Start service again
+          </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    var nowDate = new Date(); 
+    var date = nowDate.getDate()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getFullYear()+ ', ' +nowDate.getHours()+':'+nowDate.getMinutes();
+    document.getElementById("todayDate").innerHTML = date;
+    </script>
+
+{% endblock %}
