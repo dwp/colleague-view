@@ -7215,7 +7215,7 @@ router.post('/prototype-sprint-wise/sprint23/opt1/contact-history',function(req,
     return context;
   });
   if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
-    console.log('Executing benefit logic: ',req.body.benefit);
+    // console.log('Executing benefit logic: ',req.body.benefit);
     tableValue = tableValue.filter((context) => {
       context = req.body.benefit.includes(context.benefit);
       return context;
@@ -7254,7 +7254,7 @@ router.post('/prototype-sprint-wise/sprint23/opt2/contact-history',function(req,
     return context;
   });
   if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
-    console.log('Executing benefit logic: ',req.body.benefit);
+    // console.log('Executing benefit logic: ',req.body.benefit);
     tableValue = tableValue.filter((context) => {
       context = req.body.benefit.includes(context.benefit);
       return context;
