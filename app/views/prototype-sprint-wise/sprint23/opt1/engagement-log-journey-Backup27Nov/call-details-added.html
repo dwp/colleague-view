@@ -1,0 +1,216 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+You have added details about this call
+{% endblock %}
+
+{% block header %}
+{% include "prototype-sprint-wise/sprint23/common/opt2/header-navigation_inside.html" %} 
+{% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar-call-log.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Check details you have added about this call</h1>
+        <!-- display reasons for call -->
+        <div class="govuk-form-group govuk-!-margin-bottom-8">
+          <!-- Accordion 1 -->
+          <div class="{{isEsa}}">
+                  <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Employment and Support Allowance</h2>
+                  <div class="govuk-form-group">
+                    <dl class="govuk-summary-list {{esaPayment}}">
+                      <div class="govuk-summary-list__row {{esaNextPaymentDate}}">
+                        <dt class="govuk-summary-list__key">
+                          Next payment date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">Resolved</strong><br/>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{esaNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key">
+                          Next payment amount
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div>
+                      <!-- <div class="govuk-summary-list__row {{esaMissingPayment}}">
+                        <dt class="govuk-summary-list__key">
+                          Missing payment
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div> -->
+                    </dl>
+                  </div>
+          </div>
+          <!-- Accordion 2 -->
+          <!-- <div class="{{isPip}}">
+                  <h2 class="govuk-heading-m">Personal Independence Payment</h2>
+                  <div class="govuk-form-group">
+                    <dl class="govuk-summary-list {{pipPayment}}">
+                      <div class="govuk-summary-list__row {{pipNextPaymentDate}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Amount
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{pipMissingPayment}}">
+                        <dt class="govuk-summary-list__key">
+                          Missing payment
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+          </div> -->
+          <!-- Accordion 3 -->
+          <!-- <div class="{{isCa}}">
+                  <h2 class="govuk-heading-m">Carer's Allowance</h2>
+                  <div class="govuk-form-group">
+                    <dl class="govuk-summary-list {{caPayment}}">
+                      <div class="govuk-summary-list__row {{caNextPaymentDate}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caNextPaymentAmount}}">
+                        <dt class="govuk-summary-list__key">
+                          Next Payment Amount
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div>
+                      <div class="govuk-summary-list__row {{caMissingPayment}}">
+                        <dt class="govuk-summary-list__key">
+                          Missing Payment
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                          <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> name</span>
+                          </a>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+           </div> -->
+        </div>
+        <!-- display added notes/more information about the call -->
+        <h2 class="govuk-heading-m">More information</h2>
+        <div class="govuk-grid-row govuk-!-margin-bottom-0">
+          <div class="govuk-grid-column-two-thirds">
+            <!-- <div class="govuk-inset-text">
+              This is an example of what more information could look like. This is another example to show what a missing note could look like.
+            </div> -->
+            <!-- <p class="govuk-body">
+              <a href="#" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+            </p> -->
+            <p class="govuk-body">{{ data['more-information'] or "Not provided"  }} </p>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <p class="govuk-body govuk-!-text-align-right">
+              <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+            </p>
+          </div>
+        </div>
+        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-1 govuk-!-margin-bottom-9">
+        <!-- Do you want to add more information -->
+        <form method="post" action="/prototype-sprint-wise/sprint23/opt2/home-page" novalidate>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+    
+{% endblock %}
+
+

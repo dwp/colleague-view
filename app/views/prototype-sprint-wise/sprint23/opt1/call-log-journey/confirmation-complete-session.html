@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Do you want to add more information before complete this call?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/sprint23/common/opt1/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- Ask to complete session -->
+    <div class="govuk-!-margin-bottom-8">
+      <form class="form" action="phoneCall-completed" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Do you want to add more reasons for this call?
+            </h1>
+            </legend>
+            <div id="changed-name-hint" class="govuk-hint">
+              Select one option.
+            </div>
+            <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-1" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-1">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-2" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-2">
+                  No, complete the call
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </form>
+    </div>
+    <!-- summary of call details added -->
+    <h3 class="govuk-heading-s">
+      You have added this information to the contact history during this call.
+    </h3>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header ">Benefit</th>
+          <th scope="col" class="govuk-table__header">Question asked</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% if outcomePage.length > 0%}
+        {% for item in outcomePage %}
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
+            <td class="govuk-table__cell">{{ item.question }}</td>
+            <td class="govuk-table__cell">
+              <!-- <strong class="govuk-tag">{{item.result}}</strong> -->
+              {% if item.result == 'Resolved' %}
+              <stong class="govuk-tag govuk-tag--green">Resolved</strong>
+            {%elif item.result == 'Does not apply'%}
+              <span class="govuk-body">Does not apply</span>
+            {%else%}
+              <stong class="govuk-tag govuk-tag--red">Escalated</strong>
+            {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        {% for item in data.outcomePage %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
+          <td class="govuk-table__cell">{{ item.question }}</td>
+          <td class="govuk-table__cell">
+            <!-- <strong class="govuk-tag">{{item.result}}</strong> -->
+            {% if item.result == 'Resolved' %}
+            <stong class="govuk-tag govuk-tag--green">Resolved</strong>
+          {%elif item.result == 'Does not apply'%}
+            <span class="govuk-body">Does not apply</span>
+          {%else%}
+            <stong class="govuk-tag govuk-tag--red">Escalated</strong>
+          {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+      </tbody>
+    </table>
+    <div class="govuk-!-margin-top-6">
+      <h2 class="govuk-heading-m">More information about this call</h2>
+      <p class="govuk-body govuk-!-margin-bottom-2">{{ data['addNote'] or "Not provided"  }} </p> 
+      <p class="govuk-body">
+        <a href="add-note-2" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+      </p> 
+    </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

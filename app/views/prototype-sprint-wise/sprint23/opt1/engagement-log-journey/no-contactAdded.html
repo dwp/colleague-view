@@ -5,7 +5,7 @@ Do you want to add anything else to the contact history?
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt1/header_keydetail_bar.html" %}
+  {% include "prototype-sprint-wise/sprint23/common/opt2/header_keydetail_bar.html" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,17 +21,17 @@ Do you want to add anything else to the contact history?
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">
-          Information added to this call
+          Add call details
         </h1>
-        <h2 class="govuk-heading-s">
+        <!-- <h2 class="govuk-heading-s">
           You have not added anything to the contact history during this call.
-        </h2>
+        </h2> -->
         <div class="govuk-inset-text">
           Before you complete the call, you need to add details about what you discussed with the caller.
         </div>
-        <form action="what-service-called-about" method="post" novalidate>
+        <form action="/prototype-sprint-wise/sprint23/opt1/call-log-journey/selectBenefit" method="post" novalidate>
           <button class="govuk-button" data-module="govuk-button">
-            Add to contact history
+            Add call details
           </button>
       </form>
       </div>

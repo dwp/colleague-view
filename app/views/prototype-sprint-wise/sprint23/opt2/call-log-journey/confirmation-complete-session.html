@@ -63,7 +63,7 @@
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header ">Benefit</th>
           <th scope="col" class="govuk-table__header">Question asked</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Outcome</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -73,7 +73,14 @@
             <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
             <td class="govuk-table__cell">{{ item.question }}</td>
             <td class="govuk-table__cell">
-              <strong class="govuk-tag">{{item.result}}</strong>
+              <!-- <strong class="govuk-tag">{{item.result}}</strong> -->
+              {% if item.result == 'Resolved' %}
+              <stong class="govuk-tag">Resolved</strong>
+            {%elif item.result == 'Does not apply'%}
+              <span class="govuk-body">Does not apply</span>
+            {%else%}
+              <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
+            {% endif %}
             </td>
           </tr>
         {% endfor %}
@@ -83,7 +90,14 @@
           <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
           <td class="govuk-table__cell">{{ item.question }}</td>
           <td class="govuk-table__cell">
-            <strong class="govuk-tag">{{item.result}}</strong>
+            <!-- <strong class="govuk-tag">{{item.result}}</strong> -->
+            {% if item.result == 'Resolved' %}
+            <stong class="govuk-tag">Resolved</strong>
+          {%elif item.result == 'Does not apply'%}
+            <span class="govuk-body">Does not apply</span>
+          {%else%}
+            <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
+          {% endif %}
           </td>
         </tr>
       {% endfor %}
@@ -91,8 +105,8 @@
       </tbody>
     </table>
     <div class="govuk-!-margin-top-6">
-      <h2 class="govuk-heading-m">More information about this call</h2>
-      <p class="govuk-body govuk-!-margin-bottom-2">{{ data['addNote'] or "Not provided"  }} </p> 
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">More information about this call</h2>
+      <p class="govuk-body govuk-!-margin-bottom-2">{{ data['notes'] or "Not provided"  }} </p> 
       <p class="govuk-body">
         <a href="add-note-2" class="govuk-link govuk-link--no-visited-state">Add or change</a>
       </p> 

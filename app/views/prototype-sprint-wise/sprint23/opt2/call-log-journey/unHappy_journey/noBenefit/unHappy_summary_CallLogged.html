@@ -21,7 +21,7 @@
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">You have added information about this call</h1>
-          <h2 class="govuk-heading-m">
+          <!-- <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
             What did you discuss with the caller?
           </h2>
           <div class="govuk-grid-row govuk-!-margin-bottom-0">
@@ -34,8 +34,23 @@
               </p>
             </div>
           </div>
-          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0 govuk-!-margin-bottom-9">
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-!-margin-top-0 govuk-!-margin-bottom-9"> -->
 
+          <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                What did you discuss with the caller?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addNote'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="add-Note.html">
+                  Add or change<span class="govuk-visually-hidden"> More information</span>
+                </a>
+              </dd>
+            </div>
+          </dl> 
         <form action="/prototype-sprint-wise/sprint23/opt2/goToHome" method="post" novalidate>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
