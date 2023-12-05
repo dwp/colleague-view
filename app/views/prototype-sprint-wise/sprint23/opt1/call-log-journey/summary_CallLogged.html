@@ -35,19 +35,30 @@
             {% if outcomePage.length > 0%}
             {% for item in outcomePage %}
               <tr class="govuk-table__row">
+                {%set benefit=""%}
+                {%if item.benefit == "Employment and Support Allowance (ESA)"%}
+                  {%set benefit="esa"%}
+                {%elif item.benefit == "Personal Independence Payment (PIP)"%}
+                  {%set benefit="pip"%}
+                {%elif item.benefit == "Carer's Allowance (CA)"%}
+                  {%set benefit="ca"%}
+                {%endif%}
+                {%set noteId%}
+                  {{benefit}}{{item.question | replace(" ","")}}
+                {%endset%}
                 <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
                 <td class="govuk-table__cell">{{ item.question }}</td>
                 <td class="govuk-table__cell">
                   <!-- <strong class="govuk-tag {{isQResolved}}">{{item.result}}</strong> -->
                   {% if item.result == 'Resolved' %}
-                    <stong class="govuk-tag govuk-tag--green">Resolved</strong>
+                    <stong class="govuk-tag">Resolved</strong>
                   {%elif item.result == 'Does not apply'%}
                     <span class="govuk-body">Does not apply</span>
                   {%else%}
-                        <stong class="govuk-tag govuk-tag--red">Not resolved</strong>
+                        <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
                   {% endif %}
                 </td>
-                <td class="govuk-table__cell"> {{ data['addNote'] }}<a href="add-Note.html" class="govuk-link">Add note</a></td>
+                <td class="govuk-table__cell">{{ item.notes }}<a href="/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note/{{noteId}}" class="govuk-link">Add note</a></td>
               </tr>
             {% endfor %}
             {% else %}
@@ -58,14 +69,14 @@
                   <td class="govuk-table__cell">
                   <!-- <strong class="govuk-tag {{isQResolved}}">{{item.result}}</strong> -->
                   {% if item.result == 'Resolved' %}
-                    <stong class="govuk-tag govuk-tag--green">Resolved</strong>
+                    <stong class="govuk-tag">Resolved</strong>
                   {%elif item.result == 'Does not apply'%}
                     <span class="govuk-body">Does not apply</span>
                   {%else%}
-                        <stong class="govuk-tag govuk-tag--red">Not resolved</strong>
+                        <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
                   {% endif %}
                   </td>
-                  <td class="govuk-table__cell"> {{ data['addNote'] }}<a href="add-Note.html" class="govuk-link">Add note</a></td>
+                  <td class="govuk-table__cell"> {{ item.notes }}<a href="/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note/{{noteId}}" class="govuk-link">Add note</a></td>
                 </tr>
                 {% endfor %}
             {% endif %}

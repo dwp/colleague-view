@@ -54,63 +54,65 @@
         </button>
       </form>
     </div>
+  </div>
     <!-- summary of call details added -->
-    <h3 class="govuk-heading-s">
-      You have added this information to the contact history during this call.
-    </h3>
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header ">Benefit</th>
-          <th scope="col" class="govuk-table__header">Question asked</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        {% if outcomePage.length > 0%}
-        {% for item in outcomePage %}
+  <div class="govuk-grid-column-full">
+    <div>
+      <h3 class="govuk-heading-s">
+        You have added this information to the contact history during this call.
+      </h3>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
-            <td class="govuk-table__cell">{{ item.question }}</td>
-            <td class="govuk-table__cell">
-              <!-- <strong class="govuk-tag">{{item.result}}</strong> -->
-              {% if item.result == 'Resolved' %}
-              <stong class="govuk-tag govuk-tag--green">Resolved</strong>
-            {%elif item.result == 'Does not apply'%}
-              <span class="govuk-body">Does not apply</span>
-            {%else%}
-              <stong class="govuk-tag govuk-tag--red">Escalated</strong>
-            {% endif %}
-            </td>
+            <th scope="col" class="govuk-table__header ">Benefit</th>
+            <th scope="col" class="govuk-table__header">Question asked</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Notes<span class="govuk-hint">(optional)</span</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Outcome</th>
+            <th scope="col" class="govuk-table__header ">Action</th>
           </tr>
-        {% endfor %}
-      {% else %}
-        {% for item in data.outcomePage %}
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
-          <td class="govuk-table__cell">{{ item.question }}</td>
-          <td class="govuk-table__cell">
-            <!-- <strong class="govuk-tag">{{item.result}}</strong> -->
-            {% if item.result == 'Resolved' %}
-            <stong class="govuk-tag govuk-tag--green">Resolved</strong>
-          {%elif item.result == 'Does not apply'%}
-            <span class="govuk-body">Does not apply</span>
-          {%else%}
-            <stong class="govuk-tag govuk-tag--red">Escalated</strong>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% if outcomePage.length > 0%}
+          {% for item in outcomePage %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
+              <td class="govuk-table__cell">{{ item.question }}</td>
+              <td class="govuk-table__cell">{{ item.question }}</td>
+              <td class="govuk-table__cell">
+                <!-- <strong class="govuk-tag {{isQResolved}}">{{item.result}}</strong> -->
+                {% if item.result == 'Resolved' %}
+                  <stong class="govuk-tag">Resolved</strong>
+                {%elif item.result == 'Does not apply'%}
+                  <span class="govuk-body">Does not apply</span>
+                {%else%}
+                      <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
+                {% endif %}
+              </td>
+              <td class="govuk-table__cell"><a href="#" class="govuk-link">Add note</a></td>
+            </tr>
+          {% endfor %}
+          {% else %}
+              {% for item in data.outcomePage %}
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">{{ item.benefit }}</th>
+                <td class="govuk-table__cell">{{ item.question }}</td>
+                <td class="govuk-table__cell">{{ item.question }}</td>
+                <td class="govuk-table__cell">
+                <!-- <strong class="govuk-tag {{isQResolved}}">{{item.result}}</strong> -->
+                {% if item.result == 'Resolved' %}
+                  <stong class="govuk-tag">Resolved</strong>
+                {%elif item.result == 'Does not apply'%}
+                  <span class="govuk-body">Does not apply</span>
+                {%else%}
+                      <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
+                {% endif %}
+                </td>
+                <td class="govuk-table__cell"><a href="#" class="govuk-link">Add note</a></td>
+              </tr>
+              {% endfor %}
           {% endif %}
-          </td>
-        </tr>
-      {% endfor %}
-    {% endif %}
-      </tbody>
-    </table>
-    <div class="govuk-!-margin-top-6">
-      <h2 class="govuk-heading-m">More information about this call</h2>
-      <p class="govuk-body govuk-!-margin-bottom-2">{{ data['addNote'] or "Not provided"  }} </p> 
-      <p class="govuk-body">
-        <a href="add-note-2" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-      </p> 
-    </div>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

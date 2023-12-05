@@ -48,7 +48,7 @@ Contact history
     <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
       Show filter
     </button>
-    <button class="govuk-visually-hidden govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn" onclick="cancelFilter()">
+    <button class="govuk-visually-hidden govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn" onclick="hideFilter()">
       Hide filter
     </button>
     
@@ -57,7 +57,6 @@ Contact history
         <!-- earlier filter design -->
         <div class="govuk-visually-hidden govuk-!-margin-bottom-8" id="old-filter-design">
           <h3 class="govuk-heading-m">Filters</h3>
-          <form action="/form-handler" method="post" novalidate>
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-full">
                 <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Date range</h3>
@@ -202,12 +201,10 @@ Contact history
               <button class="govuk-button" data-module="govuk-button" id="apply-filter-btn" onclick="applyFilter()">
                 Apply filter
               </button>
-              <!-- <a class="govuk-link" href="/prototype-sprint-wise/sprint23/opt2/contact-history" id="cancel-filter-link" onclick="cancelFilter()">Clear filter</a> -->
-              <button class="govuk-button" data-module="govuk-button" id="cancel-filter-link" onclick="cancelFilter()">
+              <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="cancel-filter-link" onclick="cancelFilter()">
                 Clear filter
               </button>
             </div>
-          </form>
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
         </div>
       </form>
@@ -521,6 +518,17 @@ Contact history
       link2.classList.add("govuk-visually-hidden");
       esaTable.classList.add("govuk-visually-hidden");
     }
+    function hideFilter() {
+      var link2 = document.getElementById('show-filter-btn');
+      var esaTable = document.getElementById('table-ESA');
+      var hideFilterBtn = document.getElementById('hide-filter-btn');
+      var showOldFilter = document.getElementById('old-filter-design');
+      hideFilterBtn.classList.add("govuk-visually-hidden");
+      showOldFilter.classList.add("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+    }
+
     function cancelFilter() {
       const send = XMLHttpRequest.prototype.send;
       XMLHttpRequest.prototype.send = function (body) {
