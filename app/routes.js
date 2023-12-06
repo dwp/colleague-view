@@ -7118,7 +7118,7 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/check-for-add
 // new code bhavin shared at 4:50pm, 5 dec
 router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', function(req, res) {
   //All variable render here
-  if(req.headers.referer == "http://colleague-view.herokuapp.com/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note"){
+  if(req.headers.referer == "https://colleague-view.herokuapp.com/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note"){
     let outcomePageData=[];
     let outcomePageDataUpdated=[];
     let shortBenefitName="";
