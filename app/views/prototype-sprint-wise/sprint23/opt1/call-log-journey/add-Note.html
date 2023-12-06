@@ -21,7 +21,6 @@
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         {%set noteId = data.idname%}
-        <h4>Id value: {{noteId}}</h4>
         <form action="summary_CallLogged" method="post" novalidate>
           <div class="govuk-form-group">
             <h1 class="govuk-label-wrapper">
@@ -33,7 +32,7 @@
               </div>
             </h1>
             <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="{{noteId}}" name="{{noteId}}" value="{{noteId}}" rows="5" aria-describedby="more-detail-hint"> {{ data['addNote'] }}</textarea>
-            <div id="more-detail-hint" class="govuk-hint">
+            <div class="govuk-hint">
               You have 500 characters remaining
             </div>
           </div>
