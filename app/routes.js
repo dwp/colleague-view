@@ -5484,6 +5484,25 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-type', function (req, res
   req.session.data.outcomePage ='';
   req.session.data.notes = '';
 
+  req.session.data.esaNextpaymentdate = '';
+  req.session.data.esaNextpaymentamount = '';
+  req.session.data.esaMissingpayment = '';
+  req.session.data.esaChangeinpaymentamount = '';
+  req.session.data.esaSomethingelse = '';
+
+  req.session.data.pipNextpaymentdate = '';
+  req.session.data.pipNextpaymentamount = '';
+  req.session.data.pipMissingpayment = '';
+  req.session.data.pipChangeinpaymentamount = '';
+  req.session.data.pipSomethingelse = '';
+
+  req.session.data.caNextpaymentdate = '';
+  req.session.data.caNextpaymentamount = '';
+  req.session.data.caMissingpayment = '';
+  req.session.data.caChangeinpaymentamount = '';
+  req.session.data.caSomethingelse = '';
+
+
 if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23'] == 'QQ 12 34 56 Q') {
   // Send user to next page
   res.render('prototype-sprint-wise/sprint23/opt1/call-type');
@@ -7094,13 +7113,78 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/check-for-add
 })
 
 // new code bhavin shared at 4:50pm, 5 dec
+router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', function(req, res) {
+  //All variable render here
+  if(req.headers.referer == "http://localhost:5000/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note"){
+    let outcomePageData=[];
+    let outcomePageDataUpdated=[];
+    let shortBenefitName="";
+    console.log('value of the req.session.data.outcomePage INITIALLY: ',req.session.data.outcomePage);
+    outcomePageData = req.session.data.outcomePage;
+    outcomePageData.map((item)=>{
+      if(item.benefit === "Employment and Support Allowance"){
+        shortBenefitName = "esa";
+      }else if(item.benefit === "Personal Independence Payment"){
+        shortBenefitName = "pip";
+      }else{
+        shortBenefitName = "ca";
+      }
+      const itemName = shortBenefitName+item.question.replaceAll(" ","");
+      console.log('Notes value for itemName: ',itemName);
+      console.log('Notes value for req.session.data[itemName]: ',req.session.data[itemName]);
+      item = {...item,"notes":req.session.data[itemName]};
+      outcomePageDataUpdated.push(item);
+    });
+    console.log('value of the outcomePageData : ',outcomePageDataUpdated);
+    req.session.data.outcomePage = outcomePageDataUpdated;
+    console.log('value of the outcomePage: ',req.session.data.outcomePage);
+    res.render('prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', {
+      "outcomePage":req.session.data.outcomePage,
+    });
+  }else{
+    let outcomePageData = [];
+    outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
+    req.session.data['questionAsk'].map((item)=>{
+      if(item === "Next payment date"){
+        outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+        "question":item,
+        "result":req.session.data['npd_wasQuestionResolved']
+        });
+      }if(item === "Next payment amount"){
+        outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+        "question":item,
+        "result":req.session.data['npa_wasQuestionResolved']
+        }); 
+      }if(item === "Missing payment"){
+        outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+        "question":item,
+        "result":req.session.data['ma_wasQuestionResolved']
+        });
+      }if(item === "Change in payment amount"){
+        outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+        "question":item,
+        "result":req.session.data['chpa_wasQuestionResolved']
+        });
+      }if(item === "Something else"){
+        outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+        "question":item,
+        "result":req.session.data['smelse_wasQuestionResolved']
+        });
+      }
+    });
+    req.session.data.outcomePage =outcomePageData;
+    res.render('prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', {
+      "outcomePage":req.session.data.outcomePage,
+    });
+    }
+  });
+
+// existing code
 // router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', function(req, res) {
-//   // console.log('value of the previous url2: ',req.headers.referer);
-// //All variable render here
-// if(req.headers.referer == "/prototype-sprint-wise/sprint23/opt1/call-log-journey/checkAnswer"){
+
+//   //All variable render here
 //   let outcomePageData = [];
 //   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
- 
 //   req.session.data['questionAsk'].map((item)=>{
 //     if(item === "Next payment date"){
 //       outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
@@ -7130,80 +7214,18 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/check-for-add
 //     }
 //   });
 //   req.session.data.outcomePage =outcomePageData;
-//   res.render('prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', {
-//     "outcomePage":req.session.data.outcomePage,
-//   });
-// }
-// if(req.headers.referer == "http://localhost:5000/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note"){
-//   let outcomePageData=[];
-//   let outcomePageDataUpdated=[];
-//   let shortBenefitName="";
-//   console.log('value of the req.session.data.outcomePage INITIALLY: ',req.session.data.outcomePage);
-//   outcomePageData = req.session.data.outcomePage;
-//   outcomePageData.map((item)=>{
-//     if(item.benefit === "Employment and Support Allowance (ESA)"){
-//       shortBenefitName = "esa";
-//     }else if(item.benefit === "Personal Independence Payment (PIP)"){
-//       shortBenefitName = "pip";
-//     }else{
-//       shortBenefitName = "ca";
-//     }
-//     const itemName = shortBenefitName+item.question.replaceAll(" ","");
-//     console.log('Notes value for itemName: ',itemName);
-//     console.log('Notes value for req.session.data[itemName]: ',req.session.data[itemName]);
-//     item = {...item,"notes":req.session.data[itemName]};
-//     outcomePageDataUpdated.push(item);
-//   });
-//   console.log('value of the outcomePageData : ',outcomePageDataUpdated);
-//   req.session.data.outcomePage = outcomePageDataUpdated;
-//   console.log('value of the outcomePage: ',req.session.data.outcomePage);
-//   res.render('prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', {
-//     "outcomePage":req.session.data.outcomePage,
-//   });
-// }
- 
-// })
-
-// existing code
-router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', function(req, res) {
-
-  //All variable render here
-  let outcomePageData = [];
-  outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
-  req.session.data['questionAsk'].map((item)=>{
-    if(item === "Next payment date"){
-      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
-      "question":item,
-      "result":req.session.data['npd_wasQuestionResolved']
-      });
-    }if(item === "Next payment amount"){
-      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
-      "question":item,
-      "result":req.session.data['npa_wasQuestionResolved']
-      });
-    }if(item === "Missing payment"){
-      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
-      "question":item,
-      "result":req.session.data['ma_wasQuestionResolved']
-      });
-    }if(item === "Change in payment amount"){
-      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
-      "question":item,
-      "result":req.session.data['chpa_wasQuestionResolved']
-      });
-    }if(item === "Something else"){
-      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
-      "question":item,
-      "result":req.session.data['smelse_wasQuestionResolved']
-      });
-    }
-  });
-  req.session.data.outcomePage =outcomePageData;
-   res.render('prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', {
-     "outcomePage":req.session.data.outcomePage,
-   });
+//    res.render('prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', {
+//      "outcomePage":req.session.data.outcomePage,
+//    });
   
-  })
+//   })
+
+
+router.get('/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note/:id',function(req,res){
+  console.log('User is adding new notes: ',req.params.id.trim());
+  req.session.data.idname = req.params.id.trim();
+  res.redirect('/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note');
+});
 
 // check phone call progress and complete confirmation.
 router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/confirm_Complete_PhoneCall', function (req, res) {
@@ -7390,6 +7412,7 @@ router.post('/prototype-sprint-wise/sprint23/opt2/account-Home', function (req, 
   
   if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == '') {
     // Send user to error page
+    console.log('Rahul testing');
     res.redirect('/prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-Call-With');
 } else{
   res.redirect('/prototype-sprint-wise/sprint23/opt2/home-page');
@@ -7902,6 +7925,7 @@ router.post('/prototype-sprint-wise/sprint23/opt1/contact-history',function(req,
 // for contact h opt-2
 // Contact history filter code start here
 router.post('/prototype-sprint-wise/sprint23/opt2/contact-history',function(req,res){
+  var showdateErrorMsg = 'govuk-visually-hidden';
   console.log('step 2');
   let fromDate; let toDate;
   if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
@@ -7944,12 +7968,8 @@ router.post('/prototype-sprint-wise/sprint23/opt2/contact-history',function(req,
   req.session.data.tableFilterEsa = req.body.benefit.includes('Employment and support Allowance')?true:false;
   req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
   req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
-  res.redirect('contact-history');
+  res.redirect('contact-history')
 })
-
-
-
-
 
 
 
