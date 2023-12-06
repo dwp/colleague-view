@@ -5501,6 +5501,7 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-type', function (req, res
   req.session.data.caMissingpayment = '';
   req.session.data.caChangeinpaymentamount = '';
   req.session.data.caSomethingelse = '';
+  req.session.data.tableValue = '';
 
 
 if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23'] == 'QQ 12 34 56 Q') {
@@ -5528,7 +5529,8 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-with', function (req, res
   
   if (req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] == '') {
       // Send user to error page
-      res.redirect('/prototype-sprint-wise/sprint23/opt1/showValidationMsg/error-Call-Type');
+      // res.redirect('/prototype-sprint-wise/sprint23/opt1/showValidationMsg/error-Call-Type');
+      res.redirect('back');
   } else{
     var b = " with";
     req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] = contactType + "  " + b;
@@ -7115,7 +7117,7 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/check-for-add
 // new code bhavin shared at 4:50pm, 5 dec
 router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallLogged', function(req, res) {
   //All variable render here
-  if(req.headers.referer == "http://localhost:5000/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note"){
+  if(req.headers.referer == "http://colleague-view.herokuapp.com/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note"){
     let outcomePageData=[];
     let outcomePageDataUpdated=[];
     let shortBenefitName="";
@@ -7367,6 +7369,7 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-type', function (req, res
   req.session.data['ca-general'] = '';
   req.session.data.outcomePage ='';
   req.session.data.notes = '';
+  req.session.data.tableValue = '';
 
 if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ 12 34 56 Q') {
   // Send user to next page
@@ -7412,8 +7415,8 @@ router.post('/prototype-sprint-wise/sprint23/opt2/account-Home', function (req, 
   
   if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == '') {
     // Send user to error page
-    console.log('Rahul testing');
-    res.redirect('/prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-Call-With');
+    // res.redirect('/prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-Call-With');
+    res.redirect('back');
 } else{
   res.redirect('/prototype-sprint-wise/sprint23/opt2/home-page');
 }
@@ -7925,8 +7928,7 @@ router.post('/prototype-sprint-wise/sprint23/opt1/contact-history',function(req,
 // for contact h opt-2
 // Contact history filter code start here
 router.post('/prototype-sprint-wise/sprint23/opt2/contact-history',function(req,res){
-  var showdateErrorMsg = 'govuk-visually-hidden';
-  console.log('step 2');
+
   let fromDate; let toDate;
   if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
     fromDate = new Date(`${req.body['from-date-month']}/${req.body['from-date-day']}/${req.body['from-date-year']}`);
