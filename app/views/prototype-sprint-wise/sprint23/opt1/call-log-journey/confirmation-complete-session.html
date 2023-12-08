@@ -89,9 +89,9 @@
                 {% endif %}
               </td>
               {%if item.notes.length >0 %}
-              <td class="govuk-table__cell"><a href="/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note/{{noteId}}" class="govuk-link">Edit note</a></td>
+              <td class="govuk-table__cell"><a href="#" class="govuk-link">Edit note</a></td>
             {%else%}
-            <td class="govuk-table__cell"><a href="/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note/{{noteId}}" class="govuk-link">Add note</a></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">Add note</a></td>
             {%endif%}
             </tr>
           {% endfor %}
@@ -111,7 +111,11 @@
                       <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
                 {% endif %}
                 </td>
-                <td class="govuk-table__cell"><a href="#" class="govuk-link">Add note</a></td>
+                {%if item.notes.length >0 %}
+                <td class="govuk-table__cell"><a href="#" class="govuk-link">Edit note</a></td>
+              {%else%}
+              <td class="govuk-table__cell"><a href="#" class="govuk-link">Add note</a></td>
+              {%endif%}
               </tr>
               {% endfor %}
           {% endif %}
