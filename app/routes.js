@@ -5460,6 +5460,15 @@ router.post('/prototype-sprint-wise/sprint27/opt2/engagement-type', function (re
 
 // })
 
+
+router.post('/prototype-sprint-wise/sprint23/opt1/index', function (req, res) {
+  req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] = '';
+  req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
+  
+  res.redirect('/prototype-sprint-wise/sprint23/opt1/index');
+})
+
 router.post('/prototype-sprint-wise/sprint23/opt1/call-type', function (req, res) {
   req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] = '';
   req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = '';
@@ -7129,8 +7138,8 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-log-journey/summary_CallL
         shortBenefitName = "esa";
       }else if(item.benefit === "Personal Independence Payment"){
         shortBenefitName = "pip";
-      }else{
-        shortBenefitName = "ca";
+      } else {
+        shortBenefitName = "ca"
       }
       const itemName = shortBenefitName+item.question.replaceAll(" ","");
       console.log('Notes value for itemName: ',itemName);
@@ -7346,6 +7355,12 @@ router.get('/prototype-sprint-wise/sprint23/opt1/call-log-journey/add-Note/:name
 // this is all about sprintwise Sprint23 opt2 - (Design iteration1)
 
 // this is for NINO number
+router.post('/prototype-sprint-wise/sprint23/opt2/index', function (req, res) {
+  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
+  req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
+  res.redirect('/prototype-sprint-wise/sprint23/opt2/index');
+})
 
 router.post('/prototype-sprint-wise/sprint23/opt2/call-type', function (req, res) {
   req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
@@ -7749,7 +7764,7 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-log-journey/check-for-add
   });
   req.session.data.outcomePage =outcomePageData;
  if (req.session.data['discussAnthingElse'] == 'Yes' ) {
-   res.redirect("/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note")
+   res.redirect('/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note');
  } else {
    res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged', {
      "outcomePage":req.session.data.outcomePage,
