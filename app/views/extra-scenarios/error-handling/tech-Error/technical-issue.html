@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Sorry, there is a problem with the service
+{% endblock %}
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "extra-scenarios/error-handling/common/phase-banner--user-research.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      Sorry, there is a problem with the service
+    </h1>
+    <p class="govuk-body">We have not saved the national insurance number. When the service is available, you will have to start again.<p>
+
+    <a href="#" role="button" draggable="false" class="govuk-button govuk-!-margin-top-2 govuk-!-margin-bottom-8" data-module="govuk-button">
+      Start again
+    </a>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+  </div>
+
+</div>
+
+{% endblock %}
