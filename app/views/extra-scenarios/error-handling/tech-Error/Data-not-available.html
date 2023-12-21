@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Display error message - prototype
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "extra-scenarios/error-handling/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="index.html">Go back to the error handling scenarios</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Success API call, No data available</h1>
+
+    <h2 class="govuk-heading-m">scenarios are:</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="Success-API-call-data-Not-Available/data-not-available-1.html">No data available - General message</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="Success-API-call-data-Not-Available/data-not-available-2.html">No data available - Display message on internal page </a>
+        </li>
+      </ul>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-visually-hidden">
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-link govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+
+{% endblock %}

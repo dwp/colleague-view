@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Service is unavailable
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "extra-scenarios/error-handling/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="index.html">Back to 'Error handling scenarios'</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Service is unavailable</h1>
+
+    <h2 class="govuk-heading-m">scenarios are:</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="Service-unavailable/service-unavailable-1.html">Service is unavailable - General message</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="Service-unavailable/service-unavailable-2.html">Service is unavailable - When you know when a service will be available </a>
+        </li>
+      </ul>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-visually-hidden">
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-link govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+
+{% endblock %}

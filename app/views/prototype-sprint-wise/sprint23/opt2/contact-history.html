@@ -209,6 +209,24 @@ Contact history
         </div>
       </form>
     <!-- <h6>{{tableData[0]}}</h6> -->
+      <!-- Display Applied / selected filter here -->
+      <div class="govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Filters applied</h3>
+        <p class="govuk-body govuk-!-margin-bottom-0">Date range</p>
+        <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+          {% for filterDate in data['from-date-day'] %}
+          <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterDate }}</a></li>
+          {% endfor %}
+        </ul>
+        <p class="govuk-body govuk-!-margin-bottom-0">Benefit</p>
+        <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+          {% for filterBenefit in data['benefit'] %}
+          <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
+          {% endfor %}
+        </ul>
+        <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+      </div>
+
     <!-- data table -->
     {% if data['tableValue'].length > 0%}
     <table class="govuk-table">

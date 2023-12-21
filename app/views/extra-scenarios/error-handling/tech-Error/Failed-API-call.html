@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: Failed API call
+{% endblock %}
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/header.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "extra-scenarios/error-handling/common/phase-banner--user-research.html" %}
+  <!-- <a class="govuk-back-link" href="javascript:window.history.back()">Back</a> -->
+  <a class="govuk-back-link" href="index.html">Back to the Tech errors</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Failed API call</h1>
+
+    <h2 class="govuk-heading-m">scenarios are:</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="Failed-API-call/Failed-API-call-1.html">Problem with service - while service loading</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="Failed-API-call/Failed-API-call-2.html">Problem with service - after NINO enter</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="Failed-API-call/Failed-API-call-2_2.html#failedAPI">Problem with service - Display message on internal page</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="Failed-API-call/Failed-API-call-3.html#failedAPI-2">Problem with service - Data not available</a>
+        </li>
+      </ul>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-visually-hidden">
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-link govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+
+{% endblock %}
