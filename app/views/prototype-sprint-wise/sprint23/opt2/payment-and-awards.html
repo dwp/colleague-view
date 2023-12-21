@@ -316,7 +316,7 @@
         <!-- Filters end here -->
        
         <!-- Display Applied / selected filter here -->
-        <div class="govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
+        <div class="govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected2">
           <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
           <ul class="moj-filter-tags govuk-!-margin-bottom-2">
             {% for filterBenefit in data['benefit'] %}
@@ -939,44 +939,43 @@
     }
 
     function applyFilter() {
-
-      // var link3 = document.getElementById('filter-selected');
-      var link2 = document.getElementById('show-filter-btn');
-      var link5 = document.getElementById('filter-section'); 
-      var tableDefault = document.getElementById('default-table')
-      var esaTable = document.getElementById('table-ESA');
-      var caTable = document.getElementById('table-CA');
-      var pipTable = document.getElementById('table-PIP');
+    // var link3 = document.getElementById('filter-selected');
+    var link2 = document.getElementById('show-filter-btn');
+    var link5 = document.getElementById('filter-section'); 
+    var tableDefault = document.getElementById('default-table')
+    var esaTable = document.getElementById('table-ESA');
+    var caTable = document.getElementById('table-CA');
+    var pipTable = document.getElementById('table-PIP');
+    // link3.classList.remove("govuk-visually-hidden");
+    if (document.getElementById("filter-1").checked == true) {
       // link3.classList.remove("govuk-visually-hidden");
-      if (document.getElementById("filter-1").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        esaTable.classList.remove("govuk-visually-hidden");
-        caTable.classList.add("govuk-visually-hidden");
-        pipTable.classList.add("govuk-visually-hidden");
-      }
-      else if (document.getElementById("filter-2").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        caTable.classList.remove("govuk-visually-hidden");
-        esaTable.classList.add("govuk-visually-hidden");
-        pipTable.classList.add("govuk-visually-hidden");
-    } else if (document.getElementById("filter-3").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        pipTable.classList.remove("govuk-visually-hidden");
-        esaTable.classList.add("govuk-visually-hidden");
-        caTable.classList.add("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      link5.classList.add("govuk-visually-hidden");
+      tableDefault.classList.add("govuk-visually-hidden");
+      esaTable.classList.remove("govuk-visually-hidden");
+      caTable.classList.add("govuk-visually-hidden");
+      pipTable.classList.add("govuk-visually-hidden");
     }
-  }
+    else if (document.getElementById("filter-2").checked == true) {
+      // link3.classList.remove("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      // link4.classList.add("govuk-visually-hidden");
+      link5.classList.add("govuk-visually-hidden");
+      tableDefault.classList.add("govuk-visually-hidden");
+      caTable.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+      pipTable.classList.add("govuk-visually-hidden");
+    } else if (document.getElementById("filter-3").checked == true) {
+      // link3.classList.remove("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      // link4.classList.add("govuk-visually-hidden");
+      link5.classList.add("govuk-visually-hidden");
+      tableDefault.classList.add("govuk-visually-hidden");
+      pipTable.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+      caTable.classList.add("govuk-visually-hidden");
+    }
+}
 
     function clearFilter() {
       var link3 = document.getElementById('filter-selected');

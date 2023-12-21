@@ -32,9 +32,20 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-!-width-two-thirds">
-      <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="call-log-journey/selectBenefit" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
+  <div class="govuk-grid-column-full">
     <div class="govuk-tabs" data-module="govuk-tabs">
       <h2 class="govuk-tabs__title">
         Contents
@@ -56,6 +67,7 @@
           </a>
         </li>
       </ul>
+      <!-- TAB-1 start here -->
       <div class="govuk-tabs__panel" id="upcoming-payments">
         <h2 class="govuk-heading-l">Upcoming payments</h2>
           <div class="govuk-grid-row">
@@ -226,11 +238,16 @@
             </div>
           </div>
       </div>
+      <!-- TAB-2 start here -->
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="payment-history">
         <h2 class="govuk-heading-l">Payment history</h2>
         <!-- Filter section start here -->
         <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
           Show filter
+        </button>
+            <!-- Filter section start here -->
+        <button class="govuk-visually-hidden govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn" onclick="cancelFilter()">
+          Hide filter
         </button>
         <!-- Filter section display benefit options -->
         <form action="/prototype-sprint-wise/sprint23/opt2/payment-and-awards" method="post">
@@ -289,11 +306,26 @@
               <button class="govuk-button" data-module="govuk-button" id="apply-filter-btn" onclick="applyFilter()">
                 Apply filter
               </button>
-              <a class="govuk-link" href="#" id="cancel-filter-link" onclick="cancelFilter()">Cancel</a>
+              <!-- <a class="govuk-link" href="#" id="cancel-filter-link" onclick="cancelFilter()">Cancel</a> -->
+              <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="cancel-filter-link" onclick="cancelFilter()">
+                Clear filter
+              </button>
             </div>
           </div>
         </form>
         <!-- Filters end here -->
+       
+        <!-- Display Applied / selected filter here -->
+        <div class=" govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
+          <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+            {% for filterBenefit in data['benefit'] %}
+            <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
+            {% endfor %}
+          </ul>
+          <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+        </div>
+
         {% if data['paymentTableData'].length > 0%}
           <div id="default-table">          
             <table class="govuk-table">
@@ -420,7 +452,7 @@
         </div>
         {%endif%}
         <nav class="moj-pagination" aria-label="Pagination navigation" role="navigation">
-          <!-- <ul class="moj-pagination__list">
+          <ul class="moj-pagination__list">
             <li class="moj-pagination__item  moj-pagination__item--prev">
               <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
             </li>
@@ -438,10 +470,11 @@
             <li class="moj-pagination__item  moj-pagination__item--next">
               <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
             </li>
-          </ul> -->
+          </ul>
           <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>10</b> results</p>
         </nav>
       </div>
+      <!-- TAB-3 start here -->
       <div class="govuk-tabs__panel" id="award-breakdown">
         <h2 class="govuk-heading-l">Details and breakdowns of benefits</h2>
         <div class="govuk-grid-row">
@@ -879,13 +912,13 @@
       // alert("Hello world");
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
+      var hdFilter = document.getElementById('hide-filter-btn');
       var esaTable = document.getElementById('table-ESA');
       var caTable = document.getElementById('table-CA');
       var pipTable = document.getElementById('table-PIP');
-      // alert("Hello world",link.className);
-      // link.style.display = 'block'; 
       link.classList.remove("govuk-visually-hidden");
       link2.classList.add("govuk-visually-hidden");
+      hdFilter.classList.remove("govuk-visually-hidden");
       esaTable.classList.add("govuk-visually-hidden");
       document.getElementById("filter-1").checked = false;
       document.getElementById("filter-2").checked = false;
@@ -895,8 +928,10 @@
     function cancelFilter() {
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
+      var hdFilter = document.getElementById('hide-filter-btn');
       // var link4 = document.getElementById('apply-filter-btn');
       link.classList.add("govuk-visually-hidden");
+      hdFilter.classList.add("govuk-visually-hidden");
       link2.classList.remove("govuk-visually-hidden");
       document.getElementById("filter-1").checked = false;
       document.getElementById("filter-2").checked = false;
@@ -906,17 +941,16 @@
     function applyFilter() {
 
       var link3 = document.getElementById('filter-selected');
-      // var link4 = document.getElementById('apply-filter-btn');
       var link2 = document.getElementById('show-filter-btn');
       var link5 = document.getElementById('filter-section'); 
       var tableDefault = document.getElementById('default-table')
       var esaTable = document.getElementById('table-ESA');
       var caTable = document.getElementById('table-CA');
       var pipTable = document.getElementById('table-PIP');
+      // link3.classList.remove("govuk-visually-hidden");
       if (document.getElementById("filter-1").checked == true) {
-        link3.classList.remove("govuk-visually-hidden");
+        // link3.classList.remove("govuk-visually-hidden");
         link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
         link5.classList.add("govuk-visually-hidden");
         tableDefault.classList.add("govuk-visually-hidden");
         esaTable.classList.remove("govuk-visually-hidden");
@@ -924,7 +958,7 @@
         pipTable.classList.add("govuk-visually-hidden");
       }
       else if (document.getElementById("filter-2").checked == true) {
-        link3.classList.remove("govuk-visually-hidden");
+        // link3.classList.remove("govuk-visually-hidden");
         link2.classList.remove("govuk-visually-hidden");
         // link4.classList.add("govuk-visually-hidden");
         link5.classList.add("govuk-visually-hidden");
@@ -933,7 +967,7 @@
         esaTable.classList.add("govuk-visually-hidden");
         pipTable.classList.add("govuk-visually-hidden");
     } else if (document.getElementById("filter-3").checked == true) {
-        link3.classList.remove("govuk-visually-hidden");
+        // link3.classList.remove("govuk-visually-hidden");
         link2.classList.remove("govuk-visually-hidden");
         // link4.classList.add("govuk-visually-hidden");
         link5.classList.add("govuk-visually-hidden");
@@ -941,6 +975,8 @@
         pipTable.classList.remove("govuk-visually-hidden");
         esaTable.classList.add("govuk-visually-hidden");
         caTable.classList.add("govuk-visually-hidden");
+    } else if (document.getElementsByName("benefit") != '') {
+       link3.classList.remove("govuk-visually-hidden");
     }
   }
 
@@ -949,7 +985,8 @@
       var esaTable = document.getElementById('table-ESA');
       var caTable = document.getElementById('table-CA');
       var pipTable = document.getElementById('table-PIP');
-      var tableDefault = document.getElementById('default-table')
+      var tableDefault = document.getElementById('default-table');
+      var hdFilter = document.getElementById('hide-filter-btn');
       // var link4 = document.getElementById('apply-filter-btn');
       link3.classList.add("govuk-visually-hidden");
       tableDefault.classList.remove("govuk-visually-hidden");
@@ -957,6 +994,7 @@
       caTable.classList.add("govuk-visually-hidden");
       pipTable.classList.add("govuk-visually-hidden");
       link.classList.remove("govuk-visually-hidden");
+      hdFilter.classList.add("govuk-visually-hidden");
       document.getElementById("filter-1").checked = false;
       document.getElementById("filter-2").checked = false;
       document.getElementById("filter-3").checked = false;
