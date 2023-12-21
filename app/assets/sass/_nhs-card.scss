@@ -8,6 +8,7 @@
   width:100%
 }
 
+
 @media (min-width: 40.0625em) {
   .nhsuk-card {
       margin-bottom:30px
@@ -366,4 +367,18 @@
 
 .nhsuk-card--no-visited-state:visited {
   color: #1d70b8;
+}
+
+
+
+.nhsuk-card {
+  position: relative;
+} 
+.nhsuk-card a::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
