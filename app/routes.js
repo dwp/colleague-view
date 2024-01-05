@@ -5533,15 +5533,12 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-with', function (req, res
   req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = '';
   
   // Make a variable and give it the value from 'how-many-balls'
-  var contactType = req.session.data['What-type-of-engagement-is-it-sprint23-opt1'];
   
   if (req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] == '') {
       // Send user to error page
       // res.redirect('/prototype-sprint-wise/sprint23/opt1/showValidationMsg/error-Call-Type');
       res.redirect('back');
   } else{
-    var b = " with";
-    req.session.data['What-type-of-engagement-is-it-sprint23-opt1'] = contactType + "  " + b;
     // Send user to next page
     res.redirect('/prototype-sprint-wise/sprint23/opt1/call-with');
   }
@@ -5549,11 +5546,16 @@ router.post('/prototype-sprint-wise/sprint23/opt1/call-with', function (req, res
 
   router.post('/prototype-sprint-wise/sprint23/opt1/account-Home', function (req, res) {
   
+    var contactType = req.session.data['Who-is-the-engagement-with-sprint23-opt1'];
+
     if (req.session.data['Who-is-the-engagement-with-sprint23-opt1'] == '') {
       // Send user to error page
       // res.redirect('/prototype-sprint-wise/sprint23/opt1/showValidationMsg/error-Call-With');
       res.redirect('back');
   } else{
+    var b = " with";
+    // req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = contactType + "  " + b;
+    req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = b + " " + contactType;
     res.redirect('/prototype-sprint-wise/sprint23/opt1/home-page');
   }
   })
@@ -7412,27 +7414,26 @@ router.post('/prototype-sprint-wise/sprint23/opt2/call-with', function (req, res
 
 req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
 
-// Make a variable and give it the value from 'how-many-balls'
-var contactType = req.session.data['What-type-of-engagement-is-it-sprint23-opt2'];
-
 if (req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] == '') {
     // Send user to error page
     res.redirect('/prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-Call-Type');
 } else{
-  var b = " with";
-  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = contactType + "  " + b;
   // Send user to next page
   res.redirect('/prototype-sprint-wise/sprint23/opt2/call-with');
 }
 })
 
 router.post('/prototype-sprint-wise/sprint23/opt2/account-Home', function (req, res) {
+
+  var contactType = req.session.data['Who-is-the-engagement-with-sprint23-opt2'];
   
   if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == '') {
     // Send user to error page
     // res.redirect('/prototype-sprint-wise/sprint23/opt2/showValidationMsg/error-Call-With');
     res.redirect('back');
 } else{
+  var b = " with";
+  req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = b + " " + contactType;
   res.redirect('/prototype-sprint-wise/sprint23/opt2/home-page');
 }
 })

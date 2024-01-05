@@ -303,14 +303,18 @@
         <!-- Filters end here -->
         
         <!-- Display Applied / selected filter here -->
-        <div class=" govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
+        <div class="govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
           <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
-          <ul class="moj-filter-tags govuk-!-margin-bottom-2">
-            {% for filterBenefit in data['benefit'] %}
-            <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
-            {% endfor %}
-          </ul>
-          <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+          {% if data['benefit'].length > 0%}
+            <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+              {% for filterBenefit in data['benefit'] %}
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
+              {% endfor %}
+            </ul>
+            <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+          {% else %}
+          <span class="govuk-body">There is no filter selected</span>
+        {%endif%}
         </div>
 
         {% if data['paymentTableData'].length > 0%}
