@@ -5,13 +5,11 @@ Contact history
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt1/header-navigation_contactHistory-active.html" %}
-  {% include "prototype-sprint-wise/sprint23/common/opt1/keydetail-bar.html" %}
+  {% include "extra-scenarios/error-handling/common/opt1/header_keydetail_bar.html" %}
 {% endblock %}
 
-
 {% block footer %}
-  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
 {% endblock %}
 
 
@@ -20,7 +18,7 @@ Contact history
 <div class="govuk-breadcrumbs">
 <ol class="govuk-breadcrumbs__list">
   <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
+    <a class="govuk-breadcrumbs__link" href="#">Home</a>
   </li>
   <li class="govuk-breadcrumbs__list-item">
     <a class="govuk-breadcrumbs__link" href="#">Contact history</a>
@@ -58,7 +56,7 @@ Contact history
               <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                   <h3 class="govuk-fieldset__heading">
-                    You have not added anything to the contact history during this call.
+                    You have not added anything to the contact history during this call
                   </h3>
                 </legend>
               </fieldset>
@@ -110,7 +108,7 @@ Contact history
                                   <label class="govuk-label govuk-date-input__label" for="from-date-day">
                                         Day
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="01">
                                 </div>
                               </div>
                               <div class="govuk-date-input__item">
@@ -118,7 +116,7 @@ Contact history
                                   <label class="govuk-label govuk-date-input__label" for="from-date-month">
                                         Month
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="05">
                                 </div>
                               </div>
                               <div class="govuk-date-input__item">
@@ -126,7 +124,7 @@ Contact history
                                   <label class="govuk-label govuk-date-input__label" for="from-date-year">
                                         Year
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="2023">
                                 </div>
                               </div>
                             </div>
@@ -148,7 +146,7 @@ Contact history
                                       <label class="govuk-label govuk-date-input__label" for="to-date-day">
                                         Day
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-day" name="to-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.toDay}}">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-day" name="to-date-day" type="text" inputmode="numeric" autocomplete="on" value="10">
                                     </div>
                                   </div>
                                   <div class="govuk-date-input__item">
@@ -156,7 +154,7 @@ Contact history
                                       <label class="govuk-label govuk-date-input__label" for="to-date-month">
                                         Month
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-month" name="to-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.toMonth}}">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-month" name="to-date-month" type="text" inputmode="numeric" autocomplete="on" value="08">
                                     </div>
                                   </div>
                                   <div class="govuk-date-input__item">
@@ -164,7 +162,7 @@ Contact history
                                       <label class="govuk-label govuk-date-input__label" for="to-date-year">
                                         Year
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="to-date-year" name="to-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.toYear}}">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="to-date-year" name="to-date-year" type="text" inputmode="numeric" autocomplete="on" value="2023">
                                     </div>
                                   </div>
                                 </div>
@@ -185,43 +183,22 @@ Contact history
                         </legend>
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            {% if data.tableFilterEsa == true%}
-                              <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" checked="checked">
-                              <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
-                                Employment and Support Allowance
-                              </label>
-                            {% else %}
-                              <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
-                              <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
-                                Employment and Support Allowance
-                              </label>
-                            {% endif%}
+                            <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                              Employment and Support Allowance
+                            </label>
                           </div>
                           <div class="govuk-checkboxes__item">
-                            {% if data.tableFilterJa == true%}
-                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked="checked">
-                            <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
-                              Carer's Allowance
-                            </label>
-                            {% else %}
                             <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
                             <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
                               Carer's Allowance
                             </label>
-                            {% endif%}
                           </div>
                           <div class="govuk-checkboxes__item">
-                            {% if data.tableFilterPip == true%}
-                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment" checked="checked">
+                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment" checked>
                             <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
                               Personal Independence Payment
                             </label>
-                            {% else %}
-                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
-                            <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
-                              Personal Independence Payment
-                            </label>
-                            {% endif%}
                           </div>
                         </div>
                       </fieldset>
@@ -239,64 +216,22 @@ Contact history
                 </div>
             </div>
           </form>
-          <!-- <h6>{{tableData[0]}}</h6> -->
-          <!-- data table -->
-          {% if data['tableValue'].length > 0%}
-          <!-- dynamic table -->
-          <table class="govuk-table">
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Date and time of call</th>
-                <th scope="col" class="govuk-table__header">Type of call</th>
-                <th scope="col" class="govuk-table__header ">Benefits discussed</th>
-                <th scope="col" class="govuk-table__header">Type of enquiry </th>
-                <th scope="col" class="govuk-table__header">Status</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Action</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              {% for item in data['tableValue'] %}
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{item.createdDate}}</td>
-                <td class="govuk-table__cell">{{item.directionality}}</td>
-                <td class="govuk-table__cell">{{item.benefit}}</td>
-                <td class="govuk-table__cell">{{item.querySubContext}}</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">{{item.outcome}}</strong></td>
-                <!-- <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail#view-contact-history" class="govuk-link">View details</a></td> -->
-
-                {% if item.contextID == "28JULY2023"%}
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="show28July()">View details</a></td>
-              {% elif item.contextID == "21JUNE2023" %}
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="show21June()">View details</a></td>
-                {% elif item.contextID == "11MAY2023" %}
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="show11May()">View details</a></td>
-                {% elif item.contextID == "01MAY2023" %}
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="show01May()">View details</a></td>
-              {% else %}
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
-              {% endif %}
-              </tr>
-              {%endfor%}
-            </tbody>
-          </table>
-          <!-- table pagination -->
-          <nav class="moj-pagination" aria-label="Pagination navigation">
-            <ul class="moj-pagination__list govuk-!-display-none">
-              <li class="moj-pagination__item  moj-pagination__item--prev">
-                <a class="moj-pagination__link" href="">Previous<span class="govuk-!-display-none"> page</span></a>
-              </li>
-              <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 30">1</a></li>
-              <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2 of 30" aria-current="page">2</li>
-              <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3" aria-label="Page 3 of 30">3</a></li>
-              <li class="moj-pagination__item moj-pagination__item--dots">…</li>
-              <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=5" aria-label="Page 5 of 30">5</a></li>
-              <li class="moj-pagination__item  moj-pagination__item--next">
-                <a class="moj-pagination__link" href="">Next<span class="govuk-!-display-none"> page</span></a>
-              </li>
+          <!-- Display Applied / selected filter here -->
+          <div class="govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
+            <span class="govuk-body">Date range</span>
+            <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> from 01 May 2023</a></li>
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> to 15 August 2023</a></li>
             </ul>
-            <p class="moj-pagination__results">Showing <b>01</b> to <b>{{data['tableValue'].length}}</b> of <b>01</b> page</p>
-          </nav>
-          {% else %}
+            <span class="govuk-body">Benefit</span>
+            <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> Employment and Support Allowance</a></li>
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span> Personal Independence Payment</a></li>
+            </ul>
+            <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+          </div>
+          <!-- data table -->
           <!-- hard code table -->
           <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -327,14 +262,6 @@ Contact history
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Tue 8 Aug 2023, 09:20</td>
-                <td class="govuk-table__cell">Incoming telephone call</td>
-                <td class="govuk-table__cell">Carer's Allowance</td>
-                <td class="govuk-table__cell">Next payment date</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
-              </tr>
-              <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Mon 7 Aug 2023, 13:00</td>
                 <td class="govuk-table__cell">Incoming telephone call</td>
                 <td class="govuk-table__cell">Personal Independence Payment</td>
@@ -359,14 +286,6 @@ Contact history
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="show28July()">View details</a></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Fri 22 Jul 2023, 08:30</td>
-                <td class="govuk-table__cell">Incoming telephone call</td>
-                <td class="govuk-table__cell">Carer's Allowance</td>
-                <td class="govuk-table__cell">Next payment amount</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
-              </tr>
-              <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Thu 29 Jun 2023, 09:03</td>
                 <td class="govuk-table__cell">Incoming telephone call</td>
                 <td class="govuk-table__cell">Employment and Support Allowance</td>
@@ -375,33 +294,9 @@ Contact history
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Wed 28 Jun 2023, 12:15</td>
-                <td class="govuk-table__cell">Incoming telephone call</td>
-                <td class="govuk-table__cell">Carer's Allowance</td>
-                <td class="govuk-table__cell">Next payment date</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Wed 28 Jun 2023, 12:00</td>
-                <td class="govuk-table__cell">Incoming telephone call</td>
-                <td class="govuk-table__cell">Carer's Allowance</td>
-                <td class="govuk-table__cell">Something else</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
-              </tr>
-              <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Wed 21 Jun 2023, 10:00</td>
                 <td class="govuk-table__cell">Incoming telephone call</td>
                 <td class="govuk-table__cell">Employment and Support Allowance</td>
-                <td class="govuk-table__cell">Something else</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="show21June()">View details</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Wed 21 Jun 2023, 10:00</td>
-                <td class="govuk-table__cell">Incoming telephone call</td>
-                <td class="govuk-table__cell">Carer's Allowance</td>
                 <td class="govuk-table__cell">Something else</td>
                 <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="show21June()">View details</a></td>
@@ -430,7 +325,8 @@ Contact history
                 <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
               </tr>
-              <tr class="govuk-table__row">
+
+              <!-- <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Mon 15 May 2023, 09:15</td>
                 <td class="govuk-table__cell">Outgoing telephone call</td>
                 <td class="govuk-table__cell">Employment and Support Allowance</td>
@@ -487,14 +383,6 @@ Contact history
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Mon 17 April 2023, 11:00</td>
-                <td class="govuk-table__cell">Incoming telephone call</td>
-                <td class="govuk-table__cell">Carer's Allowance</td>
-                <td class="govuk-table__cell">Something else</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
-                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
-              </tr>
-              <tr class="govuk-table__row">
                 <td class="govuk-table__cell">Fri 14 April 2023, 09:10</td>
                 <td class="govuk-table__cell">Outgoing telephone call</td>
                 <td class="govuk-table__cell">Personal Independence Payment</td>
@@ -509,7 +397,7 @@ Contact history
                 <td class="govuk-table__cell">Something else</td>
                 <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
                 <td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link" onclick="showCommon()">View details</a></td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
           <!-- table pagination -->
@@ -518,7 +406,7 @@ Contact history
             <li class="moj-pagination__item  moj-pagination__item--prev">
               <a class="moj-pagination__link" href="">Previous<span class="govuk-!-display-none"> page</span></a>
             </li>
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 30">1</a></li>
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 10">1</a></li>
             <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2 of 30" aria-current="page">2</li>
             <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3" aria-label="Page 3 of 30">3</a></li>
             <li class="moj-pagination__item moj-pagination__item--dots">…</li>
@@ -527,9 +415,8 @@ Contact history
               <a class="moj-pagination__link" href="">Next<span class="govuk-!-display-none"> page</span></a>
             </li>
           </ul>
-          <p class="moj-pagination__results">Showing <b>01</b> to <b>25</b> of <b>01</b> page</p>
+          <p class="moj-pagination__results">Showing <b>01</b> to <b>10</b> of <b>01</b> page</p>
           </nav>
-          {%endif%}
         </div>
         <!-- viewdetail-28July -->
         <div id="showCHDetail-28july" class="govuk-!-display-none">
