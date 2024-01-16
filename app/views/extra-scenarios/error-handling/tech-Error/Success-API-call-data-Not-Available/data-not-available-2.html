@@ -9,24 +9,15 @@
     {% include "extra-scenarios/error-handling/common/opt1/keydetail-bar.html" %}
 {% endblock %}
 
+{% block beforeContent %}
+{% include "extra-scenarios/error-handling/common/phase-banner.html" %}
+<a class="govuk-back-link" href="../index.html#successAPI-dataNotavailable">Back</a>
+{% endblock %}
 
 {% block footer %}
   {% include "extra-scenarios/error-handling/common/footer.html" %}
 {% endblock %}
 
-
-{% block beforeContent %}
-<div class="govuk-breadcrumbs">
-<ol class="govuk-breadcrumbs__list">
-  <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
-  </li>
-  <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="#">Personal details</a>
-  </li>
-</ol>
-</div>
-{% endblock %}
 
 {% block content %}
 
@@ -198,14 +189,14 @@
           </dd>
         </div>
         </dl>
-        <h2 class="govuk-heading-m">Address</h2>
+        <h2 class="govuk-heading-m" id="dataNotAvailable">Address</h2>
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Correspondence address
             </dt>
             <dd class="govuk-summary-list__value">
-              <details class="govuk-details" data-module="govuk-details">
+              <details class="govuk-details" data-module="govuk-details" open>
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
                     Show Correspondence address
@@ -214,7 +205,8 @@
                 <div class="govuk-details__text">
                   <h3 class="govuk-heading-m">Data not available</h3>
                   <p class="govuk-body">
-                    There is no data found for correspondence address.
+                    <!-- There is no data found for correspondence address. -->
+                    This information is not available
                   </p>
                 </div>
               </details>
