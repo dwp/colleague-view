@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Display error message - prototype
+  Tech error - prototype
 {% endblock %}
 
 
@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "extra-scenarios/error-handling/common/phase-banner--user-research.html" %}
+  {% include "extra-scenarios/error-handling/common/phase-banner.html" %}
   <a class="govuk-back-link" href="/#error-designs">Back</a>
 {% endblock %}
 
@@ -24,31 +24,128 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Error handling scenarios</span>
-    <h1 class="govuk-heading-l">Technical errors</h1>
-
-    <h2 class="govuk-heading-m">Different scenarios are:</h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a class="govuk-link" href="Failed-API-call.html">Failed API call</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="Data-not-available.html">Success API call, No data available</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="Service-is-unavailable.html">Service is unavailable</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="Service-timeout.html">Session time out</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="user-errors.html">User errors</a>
-        </li>
-      </ul>
-
+    <h1 class="govuk-heading-l">Tech errors</h1>
+    <!-- Failed API -->
+    <div class="govuk-!-padding-6 govuk-!-margin-top-6" style="background-color:#f3f2f1; border-radius:10px;">
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Failed API call</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Scenarios</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third govuk-table__header--numeric"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Problem with service - while service loading</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <a href="Failed-API-call/Failed-API-call-1.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+            </td>
+          </tr>
+            <td class="govuk-table__cell">Problem with service - after NINO enter</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <a href="Failed-API-call/Failed-API-call-2.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Problem with service - Display message on internal page</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <a href="Failed-API-call/Failed-API-call-2_2.html#failedAPI" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Problem with service - Data not available</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <a href="Failed-API-call/Failed-API-call-3.html#failedAPI-2" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+     <!-- Success API call, No data available-->
+    <div class="govuk-!-padding-6 govuk-!-margin-top-6" style="background-color:#f3f2f1; border-radius:10px;" id="successAPI-dataNotavailable">
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Success API call, No data available</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Scenarios</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third govuk-table__header--numeric"> </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+            <td class="govuk-table__cell">No data available - General message</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <a href="Success-API-call-data-Not-Available/data-not-available-1.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">No data available - Display message on internal page</td>
+            <td class="govuk-table__cell govuk-table__cell--numeric">
+              <a href="Success-API-call-data-Not-Available/data-not-available-2.html#dataNotAvailable" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      <!-- Service is unavailable -->     
+      <div class="govuk-!-padding-6 govuk-!-margin-top-6" style="background-color:#f3f2f1; border-radius:10px;" id="service-unavailable">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Service is unavailable</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Scenarios</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-third govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Service is unavailable - General message</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="Service-unavailable/service-unavailable-1.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+              <td class="govuk-table__cell">Service is unavailable - When you know when a service will be available</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="Service-unavailable/service-unavailable-2.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Session time out -->
+      <div class="govuk-!-padding-6 govuk-!-margin-top-6" style="background-color:#f3f2f1; border-radius:10px;" id="session-timeout">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Session time out</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Scenarios</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-third govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">A timeout warning</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="Session-time-out/service-unavailable-2.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+              <td class="govuk-table__cell">You have been signed out</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="Session-time-out/service-timeout-1.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">When the user is not signed in to a service</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="Session-time-out/service-unavailable-3.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   </div>
 
-  <div class="govuk-grid-column-one-third govuk-visually-hidden">
-    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+  <!-- <div class="govuk-grid-column-one-third govuk-visually-hidden">
 
     <aside class="app-related-items" role="complementary">
       <h2 class="govuk-heading-m" id="subsection-title">
@@ -74,7 +171,7 @@
         </ul>
       </nav>
     </aside>
-  </div>
+  </div> -->
 </div>
 
 {% endblock %}

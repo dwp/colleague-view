@@ -16,8 +16,8 @@
 
 
 {% block beforeContent %}
-  {% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
-  <a class="govuk-back-link" href="../Failed-API-call.html">Back</a>
+{% include "extra-scenarios/error-handling/common/phase-banner.html" %}
+<a class="govuk-back-link" href="../index">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -63,7 +63,7 @@
                     <div class="colleague-view-upcomming-payment-benefit">
                       <h1 class="govuk-heading-m">Sorry, there is a problem with the service</h1>
                       <p class="govuk-body">
-                        We have not saved citizen information. When the service is available, you will have to try again.
+                        This information is not available. Try again later.
                       </p>
                       <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
                         Try again
