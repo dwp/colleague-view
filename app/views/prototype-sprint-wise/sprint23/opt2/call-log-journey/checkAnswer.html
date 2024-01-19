@@ -129,6 +129,47 @@
             </dd>
           </div>
         </dl>
+
+        <!-- try using table component here -->
+        <!-- <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">Summary card table</h2>
+          </div> -->
+
+              <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                  <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                              Benefit discussed
+                          </th>
+                          <td class="govuk-summary-list__value">
+                              Table data
+                          </td>
+                          <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                              <a href="#">
+                                  Change
+                                  <span class="govuk-visually-hidden"> table data</span>
+                              </a>
+                          </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            {{ data['whichBenefitDiscussed'] }}
+                          </th>
+                          <td class="govuk-summary-list__value">
+                              Table data
+                          </td>
+                          <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                              <a href="#">
+                                  Change
+                                  <span class="govuk-visually-hidden"> table data</span>
+                              </a>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+
+
         <form action="discussAnythingElse" method="post" novalidate>
           <input type="hidden" name="answers-checked" value="true">
           <button class="govuk-button" data-module="govuk-button">

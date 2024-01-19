@@ -1,0 +1,478 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Which types of enquiry did Christopher Fox have?
+{% endblock %}
+
+{% block header %}
+  {% include "sprint23/common/opt1/inside/header-navigation_contactHistory-active.html" %}
+    {% include "sprint23/common/opt1/keydetail-bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "sprint23/common/phase-banner--user-research.html" %}
+    <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="../home-page.html">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Contact history</a>
+      </li>
+    </ol>
+    </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint23/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl">Contact history</h1>
+        <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+              Contents
+            </h2>
+            <!-- Tab button here -->
+            <ul class="govuk-tabs__list">
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#add-to-contact-history">
+                  Add to contact history
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#view-contact-history">
+                  View contact history
+                </a>
+              </li>
+            </ul>
+            <!-- Tab1 content start here -->
+            <div class="govuk-tabs__panel" id="add-to-contact-history">
+              <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+              <form action="/sprint23/opt1/engagement-log-journey/outcome-queries" method="post" novalidate>
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                      <h2 class="govuk-fieldset__heading">
+                        Which types of enquiry did Christopher Fox have?
+                      </h2>
+                    </legend>
+                    <span class="govuk-caption-m govuk-!-margin-top-5">{{pageLength}}</span>
+                    <h3 class="govuk-heading-m">Carer's Allowance (CA)</h3>
+                    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+                      <div class="govuk-accordion__section">
+                        <div class="govuk-accordion__section-header">
+                          <h2 class="govuk-accordion__section-heading">
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                              Payment
+                            </span>
+                          </h2>
+                        </div>
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <div class="govuk-form-group">
+                                  <fieldset class="govuk-fieldset" aria-describedby="ca-payment-hint">
+      
+                                    <div id="ca-payment-hint" class="govuk-hint">
+                                      Select all that apply.
+                                    </div>
+                                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                      <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="ca-payment-1" name="ca-payment" type="checkbox" value="Next Payment Date">
+                                        <label class="govuk-label govuk-checkboxes__label" for="ca-payment-1">
+                                          Next Payment Date
+                                        </label>
+                                      </div>
+                                      <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="ca-payment-2" name="ca-payment" type="checkbox" value="Next Payment Amount">
+                                        <label class="govuk-label govuk-checkboxes__label" for="ca-payment-2">
+                                          Next Payment Amount
+                                        </label>
+                                      </div>
+                                      <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="ca-payment-3" name="ca-payment" type="checkbox" value="Missing Payment">
+                                        <label class="govuk-label govuk-checkboxes__label" for="ca-payment-3">
+                                          Missing Payment
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </fieldset>
+                                </div>
+                        </div>
+                      </div>
+                      <div class="govuk-accordion__section">
+                        <div class="govuk-accordion__section-header">
+                          <h2 class="govuk-accordion__section-heading">
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                              Progress chasing
+                            </span>
+                          </h2>
+                        </div>
+                        <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="ca-process-chasing-hint">
+      
+                              <div id="ca-process-chasing-hint" class="govuk-hint">
+                                Select all that apply.
+                              </div>
+                              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-process-chasing-1" name="ca-process-chasing" type="checkbox" value="New Claim">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-process-chasing-1">
+                                    New Claim
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-process-chasing-2" name="ca-process-chasing" type="checkbox" value="Claim Closure Contact">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-process-chasing-2">
+                                    Claim Closure Contact
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-process-chasing-3" name="ca-process-chasing" type="checkbox" value="Explanation">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-process-chasing-3">
+                                    Explanation
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-process-chasing-4" name="ca-process-chasing" type="checkbox" value="Appeal, Reconsideration, Supersessions, SOS">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-process-chasing-4">
+                                    Appeal, Reconsideration, Supersessions, SOS
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-process-chasing-5" name="ca-process-chasing" type="checkbox" value="Interventions - Planned (Award Reviews)">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-process-chasing-5">
+                                    Interventions - Planned (Award Reviews)
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-process-chasing-6" name="ca-process-chasing" type="checkbox" value="Interventions - Unplanned (CoC Reviews)">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-process-chasing-6">
+                                    Interventions - Unplanned (CoC Reviews)
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-process-chasing-7" name="ca-process-chasing" type="checkbox" value="Severe Disablement Premium (SDP)">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-process-chasing-7">
+                                    Severe Disablement Premium (SDP)
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="govuk-accordion__section">
+                        <div class="govuk-accordion__section-header">
+                          <h2 class="govuk-accordion__section-heading">
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                              Change of circumstances
+                            </span>
+                          </h2>
+                        </div>
+                        <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="ca-coc-hint">
+      
+                              <div id="ca-coc-hint" class="govuk-hint">
+                                Select all that apply.
+                              </div>
+                              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-1" name="ca-coc" type="checkbox" value="Special Accommodation Admission/Discharge">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-1">
+                                    Special Accommodation Admission/Discharge
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-2" name="ca-coc" type="checkbox" value="Change of Address">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-2">
+                                    Change of Address
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-3" name="ca-coc" type="checkbox" value="Change to Hospital Status">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-3">
+                                    Change to Hospital Status
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-4" name="ca-coc" type="checkbox" value="Savings and Investments">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-4">
+                                    Savings and Investments
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-5" name="ca-coc" type="checkbox" value="Change to Carer's Status">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-5">
+                                    Change to Carer’s Status
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-6" name="ca-coc" type="checkbox" value="Care Home Admission">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-6">
+                                    Care Home Admission
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-7" name="ca-coc" type="checkbox" value="Changes to Earnings">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-7">
+                                    Changes to Earnings
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-8" name="ca-coc" type="checkbox" value="Change to Bank Details">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-8">
+                                    Change to Bank Details
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-9" name="ca-coc" type="checkbox" value="Change to Family Unit">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-9">
+                                    Change to Family Unit
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-coc-10" name="ca-coc" type="checkbox" value="Change to Medical Condition">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-coc-10">
+                                    Change to Medical Condition
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="govuk-accordion__section">
+                        <div class="govuk-accordion__section-header">
+                          <h2 class="govuk-accordion__section-heading">
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                              Letter of Entitlement
+                            </span>
+                          </h2>
+                        </div>
+                        <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="ca-loe-hint">
+      
+                              <div id="ca-loe-hint" class="govuk-hint">
+                                Select all that apply.
+                              </div>
+                              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-loe-1" name="ca-loe" type="checkbox" value="LoE Request">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-loe-1">
+                                    LoE Request
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="govuk-accordion__section">
+                        <div class="govuk-accordion__section-header">
+                          <h2 class="govuk-accordion__section-heading">
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                              General
+                            </span>
+                          </h2>
+                        </div>
+                        <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="ca-general-hint">
+      
+                              <div id="ca-general-hint" class="govuk-hint">
+                                Select all that apply.
+                              </div>
+                              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-general-1" name="ca-general" type="checkbox" value="Medical Evidence Enquiry">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-general-1">
+                                    Medical Evidence Enquiry
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-general-2" name="ca-general" type="checkbox" value="Jobcentre Appointment or Enquiry">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-general-2">
+                                    Jobcentre Appointment or Enquiry
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ca-general-3" name="ca-general" type="checkbox" value="General Enquiry">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ca-general-3">
+                                    General Enquiry
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <button class="govuk-button" data-module="govuk-button">
+                  Save and continue
+                </button>
+              </form>
+            </div>
+            <!-- Tab2 content start here -->
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view-contact-history">
+              <h2 class="govuk-heading-l">Contact history</h2>
+              <!-- Filter section start here -->
+              <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
+                Show filter
+              </button>
+        
+              <!-- Filter section display benefit options -->
+              <div class="govuk-visually-hidden" id="filter-section">
+                <div class="govuk-form-group govuk-!-margin-bottom-3">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">
+                        Filter by benefit
+                      </h2>
+                    </legend>
+                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="filter-1" name="select-Benefit-to-filter" type="checkbox" value="Employment and Support Allowance (ESA)" {{ checked("select-Benefit-to-filter", "Employment and Support Allowance (ESA)") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="filter-1">
+                          Employment and Support Allowance (ESA)
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="filter-2" name="select-Benefit-to-filter" type="checkbox" value="Jobseeker's Allowance (JSA)" {{ checked("select-Benefit-to-filter", "Jobseeker's Allowance (JSA)") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="filter-2">
+                          Jobseeker's Allowance (JSA)
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="filter-3" name="select-Benefit-to-filter" type="checkbox" value="Personal Independence Payment (PIP)" {{ checked("select-Benefit-to-filter", "Personal Independence Payment (PIP)") }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="filter-3">
+                          Personal Independence Payment (PIP)
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="govuk-button-group">
+                  <button class="govuk-button" data-module="govuk-button" id="apply-filter-btn" onclick="applyFilter()">
+                    Apply filter
+                  </button>
+                  <a class="govuk-link" href="#" id="cancel-filter-link" onclick="cancelFilter()">Cancel</a>
+                </div>
+              </div>
+        
+             <!-- data table -->
+             <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date</th>
+                  <th scope="col" class="govuk-table__header">Interaction Type</th>
+                  <th scope="col" class="govuk-table__header ">Benefit</th>
+                  <th scope="col" class="govuk-table__header">Enquiry Type</th>
+                  <th scope="col" class="govuk-table__header ">Notes</th>
+                  <th scope="col" class="govuk-table__header">Status</th>
+                  <th scope="col" class="govuk-table__header">Action</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">14 April 2023</td>
+                  <td class="govuk-table__cell">Incoming telephone call</td>
+                  <td class="govuk-table__cell">Employment and Support Allowance</td>
+                  <td class="govuk-table__cell">Next Payment Date</td>
+                  <td class="govuk-table__cell">Note explaining that the payment is believed to be updated. Customer has recently...</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+                  <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">View</a></td>
+                </tr>
+              </tbody>
+            </table>
+             <!-- table pagination -->
+            <nav class="moj-pagination" aria-label="Pagination navigation">
+              <ul class="moj-pagination__list govuk-visually-hidden">
+               <li class="moj-pagination__item  moj-pagination__item--prev">
+                 <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+               </li>
+        
+               <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 30">1</a></li>
+        
+               <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2 of 30" aria-current="page">2</li>
+        
+               <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3" aria-label="Page 3 of 30">3</a></li>
+        
+               <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+        
+               <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=5" aria-label="Page 5 of 30">5</a></li>
+        
+               <li class="moj-pagination__item  moj-pagination__item--next">
+                 <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
+               </li>
+             </ul>
+              <p class="moj-pagination__results">Showing <b>01</b> to <b>01</b> of <b>01</b> page</p>
+            </nav>
+        
+            </div>
+        </div>
+      </div>
+    </div>
+    
+        <!-- logic for filter function -->
+        
+        <script type="text/javascript">
+          function showFilter() {
+            // document.getElementById("demo").innerHTML = "Hello World";
+            // alert("Hello world");
+            var link = document.getElementById('filter-section');
+            var link2 = document.getElementById('show-filter-btn');
+            var esaTable = document.getElementById('table-ESA');
+            // alert("Hello world",link.className);
+            // link.style.display = 'block'; 
+            link.classList.remove("govuk-visually-hidden");
+            link2.classList.add("govuk-visually-hidden");
+            esaTable.classList.add("govuk-visually-hidden");
+          }
+        
+          function cancelFilter() {
+            var link = document.getElementById('filter-section');
+            var link2 = document.getElementById('show-filter-btn');
+            // var link4 = document.getElementById('apply-filter-btn');
+            link.classList.add("govuk-visually-hidden");
+            link2.classList.remove("govuk-visually-hidden");
+          }
+        
+          function applyFilter() {
+        
+            var link3 = document.getElementById('filter-selected');
+            // var link4 = document.getElementById('apply-filter-btn');
+            var link2 = document.getElementById('show-filter-btn');
+            var link5 = document.getElementById('filter-section'); 
+            var tableDefault = document.getElementById('default-table')
+            var esaTable = document.getElementById('table-ESA');
+            link3.classList.remove("govuk-visually-hidden");
+            link2.classList.remove("govuk-visually-hidden");
+            // link4.classList.add("govuk-visually-hidden");
+            link5.classList.add("govuk-visually-hidden");
+            tableDefault.classList.add("govuk-visually-hidden");
+            esaTable.classList.remove("govuk-visually-hidden");
+          }
+        
+          function clearFilter() {
+            var link3 = document.getElementById('filter-selected');
+            var esaTable = document.getElementById('table-ESA');
+            var tableDefault = document.getElementById('default-table')
+            // var link4 = document.getElementById('apply-filter-btn');
+            link3.classList.add("govuk-visually-hidden");
+            tableDefault.classList.remove("govuk-visually-hidden");
+            esaTable.classList.add("govuk-visually-hidden");
+            link.classList.remove("govuk-visually-hidden");
+            
+          }
+          
+          
+          </script>
+
+{% endblock %}
