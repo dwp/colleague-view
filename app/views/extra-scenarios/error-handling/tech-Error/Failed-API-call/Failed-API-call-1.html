@@ -9,8 +9,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-{% include "extra-scenarios/error-handling/common/phase-banner.html" %}
-  <a class="govuk-back-link" href="../index">Back</a>
+  {% include "extra-scenarios/error-handling/common/phase-banner.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -26,9 +25,9 @@
     <p class="govuk-body">
       Try again later.
     </p>
-    <!-- <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-      Start again
-    </a> -->
+    <p class="govuk-body">
+      You can also <a href="https://dwp.service-now.com/itsupport" class="govuk-link">report this problem on DWP Place</a>.
+    </p>
   </div>
 
   <div class="govuk-grid-column-one-third govuk-visually-hidden">
