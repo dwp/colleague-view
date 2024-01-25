@@ -23,15 +23,6 @@
         <h1 class="govuk-heading-l">
           Outcomes of questions
         </h1>
-        <!-- <p class="govuk-body">
-          This is mandatory to select whether questions asked was resolved or not.
-        </p> -->
-        <!-- <div class="govuk-inset-text">
-          This is mandatory to select whether questions asked was resolved or not.
-        </div> -->
-        <!-- <h2 class="govuk-heading-m">
-          Were questions resolved?
-        </h2> -->
         <form action="checkAnswer" method="post" novalidate>
           <!-- for eas -->
             <div class="govuk-form-group {{isNpd}}">
@@ -74,7 +65,7 @@
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="npa_Not-resolved" name="npa_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('npa_wasQuestionResolved', 'Not resolved') }}>
                     <label class="govuk-label govuk-radios__label" for="npa_Not-resolved">
-                      No
+                      No 
                     </label>
                   </div>
                 </div>
@@ -91,13 +82,13 @@
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="ma_resolved" name="ma_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('ma_wasQuestionResolved', 'Resolved') }}>
                     <label class="govuk-label govuk-radios__label" for="ma_resolved">
-                      Yes
+                      Yes 
                     </label>
                   </div>
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="ma_Not-resolved" name="ma_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('ma_wasQuestionResolved', 'Not resolved') }}>
                     <label class="govuk-label govuk-radios__label" for="ma_Not-resolved">
-                      No
+                      No 
                     </label>
                   </div>
                 </div>

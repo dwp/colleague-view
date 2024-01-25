@@ -11,12 +11,12 @@ Contact history
 
 
 {% block footer %}
-  {% include "sprint23/common/footer.html" %}
+  {% include "prototype-dev-baseline/prototype-dev-QA/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "sprint23/common/phase-banner--user-research.html" %}
+  {% include "prototype-dev-baseline/prototype-dev-QA/common/phase-banner--user-research.html" %}
 <div class="govuk-breadcrumbs">
 <ol class="govuk-breadcrumbs__list">
   <li class="govuk-breadcrumbs__list-item">
@@ -65,8 +65,6 @@ Contact history
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                  <!-- <th scope="col" class="govuk-table__header">Date</th> -->
-                  <!-- <th scope="col" class="govuk-table__header">Interaction Type</th> -->
                   <th scope="col" class="govuk-table__header ">Benefit</th>
                   <th scope="col" class="govuk-table__header">Enquiry Type</th>
                   <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Notes</th>
@@ -75,23 +73,31 @@ Contact history
                 </tr>
               </thead>
               <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
+                <tr class="govuk-table__row {{esaNextPaymentDate}}">
+                  <td class="govuk-table__cell">Employment and Support Allowance</td>
+                  <td class="govuk-table__cell">Next payment date</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of next payment date note could look like...</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href= "/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/add-payment-note/add-note-nextpd">Edit note</a>
+                  </td>
+                </tr>
+                <tr class="govuk-table__row {{esaNextPaymentAmount}}">
                   <!-- <td class="govuk-table__cell">14 April 2023</td> -->
                   <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
                   <td class="govuk-table__cell">Employment and Support Allowance</td>
-                  <td class="govuk-table__cell">Next payment date</td>
-                  <td class="govuk-table__cell govuk-!-width-one-quarter">--</td>
+                  <td class="govuk-table__cell">Next payment amount</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of next payment amount note could look like...</td>
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                  <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">Edit note</a></td>
+                  <td class="govuk-table__cell"><a href="/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/add-payment-note/add-note-nextpa" class="govuk-link">Edit note</a></td>
                 </tr>
-                <tr class="govuk-table__row">
+                <tr class="govuk-table__row {{esaMissingPayment}}">
                   <!-- <td class="govuk-table__cell">14 April 2023</td> -->
                   <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
                   <td class="govuk-table__cell">Employment and Support Allowance</td>
                   <td class="govuk-table__cell">Next payment amount</td>
                   <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of what more information could look like...</td>
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
-                  <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">Edit note</a></td>
+                  <td class="govuk-table__cell"><a href="/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/add-payment-note/add-note-missingpayment" class="govuk-link">Edit note</a></td>
                 </tr>
               </tbody>
             </table>

@@ -8101,21 +8101,21 @@ router.post('/prototype-dev-baseline/sprint23/opt1/call-with', function (req, re
   }
   })
 
-  router.post('/prototype-dev-baseline/sprint23/opt1/account-Home', function (req, res) {
-  
-    var contactType = req.session.data['Who-is-the-engagement-with-sprint23-opt1'];
+router.post('/prototype-dev-baseline/sprint23/opt1/account-Home', function (req, res) {
 
-    if (req.session.data['Who-is-the-engagement-with-sprint23-opt1'] == '') {
-      // Send user to error page
-      // res.redirect('/prototype-dev-baseline/sprint23/opt1/showValidationMsg/error-Call-With');
-      res.redirect('back');
-  } else{
-    var b = " with";
-    // req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = contactType + "  " + b;
-    req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = b + " " + contactType;
-    res.redirect('/prototype-dev-baseline/sprint23/opt1/home-page');
-  }
-  })
+  var contactType = req.session.data['Who-is-the-engagement-with-sprint23-opt1'];
+
+  if (req.session.data['Who-is-the-engagement-with-sprint23-opt1'] == '') {
+    // Send user to error page
+    // res.redirect('/prototype-dev-baseline/sprint23/opt1/showValidationMsg/error-Call-With');
+    res.redirect('back');
+} else{
+  var b = " with";
+  // req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = contactType + "  " + b;
+  req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = b + " " + contactType;
+  res.redirect('/prototype-dev-baseline/sprint23/opt1/home-page');
+}
+})
 
 // this is for radio selection for Session complete when no notes added.
 router.post('/prototype-dev-baseline/sprint23/opt1/returning-user/contact-history', function (req, res) {
@@ -9324,42 +9324,6 @@ router.post('/prototype-dev-baseline/sprint23/opt1/call-log-journey/questionAnsw
     }
 })
 
-// router.post('/prototype-dev-baseline/sprint23/opt1/call-log-journey/checkAnswer', function(req, res) {
-//   var setStatus;
-//   if (req.session.data['npd_wasQuestionResolved'] == 'Resolved' || req.session.data['npa_wasQuestionResolved'] == 'Resolved'){
-//     var setStatus = '';
-//     req.session.data['npd_wasQuestionResolved'] == 'Resolved';
-//     req.render('setStatus')
-//   } else {
-//     setStatus = 'govuk-tag--grey';
-//     req.session.data['npd_wasQuestionResolved'] == 'Not Resolved';
-//     req.render('setStatus')
-//   }
-
-
-//   if (req.session.data['npd_wasQuestionResolved'] == 'Resolved' || req.session.data['npd_wasQuestionResolved'] == 'Not resolved' && req.session.data['npa_wasQuestionResolved'] == 'Resolved' || req.session.data['npa_wasQuestionResolved'] == 'Not resolved' ) {
-//         res.redirect("/prototype-dev-baseline/sprint23/opt1/call-log-journey/checkAnswer")
-//     } else {
-//         res.redirect("/prototype-dev-baseline/sprint23/opt1/call-log-journey/questionAnswered-Error")
-//     }
-// })
-
-
-// new route for option1 added from here
-
-// check on pressing complete session button
-// router.post('/prototype-dev-baseline/sprint23/opt1/call-log-journey/confirmation-complete-session', function (req, res) {
-//   console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
-//   if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
-//     res.redirect('/prototype-dev-baseline/sprint23/opt1/call-log-journey/confirmation-complete-session');
-//   }else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
-//     res.redirect('/prototype-dev-baseline/sprint23/opt1/call-log-journey/confirmation-complete-session');
-//   }if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
-//     res.redirect('/prototype-dev-baseline/sprint23/opt1/call-log-journey/confirmation-complete-session');
-//   }else {
-//     res.redirect('/prototype-dev-baseline/sprint23/opt1/call-log-journey/no-contactAdded');
-//   }
-//   });
 
 // this is for radio selection for Session complete
 router.post('/prototype-dev-baseline/sprint23/opt1/engagement-log-journey/add-note', function (req, res) {
@@ -9898,11 +9862,12 @@ router.get('/prototype-dev-baseline/sprint23/opt1/call-log-journey/add-Note/:nam
   });
 
 
-//baseline prototype for QA / Dev
 
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-type', function (req, res) {
-  req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
+  //baseline prototype for QA / Dev
+
+
+router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-with', function (req, res) {
   req.session.data['Who-is-the-engagement-with-sprint27'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
@@ -9924,8 +9889,9 @@ router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-type', fun
   req.session.data['ca-general'] = '';
 
 if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23'] == 'QQ 12 34 56 Q') {
+
   // Send user to next page
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-type');
+  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-with');
 } else {
   var errMsg = "";
   if (req.session.data['national-insurance-number-sprint23'] == '' || req.session.data['national-insurance-number-sprint23'] == undefined) {
@@ -9938,44 +9904,22 @@ if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req
 }
 })
 
-// for returning user
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/returning-user/engagement-type', function (req, res) {
-req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
-req.session.data['Who-is-the-engagement-with-sprint27'] = '';
-req.session.data['Who-is-the-engagement-with'] = '';
 
-if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23'] == 'qq123456q') {
-// Send user to next page
-res.render('prototype-dev-baseline/prototype-dev-QA/opt1/returning-user/engagement-type');
-} else {
-var errMsg = "";
-if (req.session.data['national-insurance-number-sprint23'] == '' || req.session.data['national-insurance-number-sprint23'] == undefined) {
-  errMsg = "National Insurance Number is mandatory";
-} else {
-  errMsg = "Enter a National Insurance number in the correct format";
+
+router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/home-page', function (req, res) {
+
+  var contactType = req.session.data['Who-is-the-engagement-with-sprint27'];
+
+  if (req.session.data['Who-is-the-engagement-with-sprint27'] == '') {
+    // Send user to error page
+    // res.redirect('/prototype-dev-baseline/sprint23/opt1/showValidationMsg/error-Call-With');
+    res.redirect('back');
+} else{
+  var b = " Incoming telephone call with";
+  // req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = contactType + "  " + b;
+  req.session.data['Who-is-the-engagement-with-sprint27'] = b + " " + contactType;
+  res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/home-page');
 }
-// Send user to error page
-res.render('prototype-dev-baseline/prototype-dev-QA/opt1/error-NINO-number', { "errMsg": errMsg });
-}
-})
-
-// this is for radio selection
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-with', function (req, res) {
-
-req.session.data['Who-is-the-engagement-with-sprint27'] = '';
-
-// Make a variable and give it the value from 'how-many-balls'
-var howManyBalls = req.session.data['What-type-of-engagement-is-it-sprint27'];
-// Check whether the variable matches a condition
-if (howManyBalls == "Incoming telephone call" || howManyBalls == "Outgoing telephone call") {
-  // Send user to next page
-  res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-with');
-} else {
-  req.session.data['What-type-of-engagement-is-it-sprint27'] = '';
-  // Send user back to same page
-  res.redirect('back');
-}
-
 })
 
 router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/home-page-first-time', function (req, res) {

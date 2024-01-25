@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Error: Did you resolve caller's questions?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/sprint23/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="/prototype-sprint-wise/sprint23/opt2/call-log-journey/checkAnswerForsomethingElse" method="post" novalidate>
+          <!-- for eas -->
+            <div class="govuk-form-group govuk-form-group--error {{isSE}}">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading">
+                    Did you resolve caller's questions?
+                  </h1>
+                </legend>
+                <p id="whereDoYouLive-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Select the country where you live
+                </p>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="se_resolved" name="smelse_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('smelse_wasQuestionResolved', 'Resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="se_resolved">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="se_Not-resolved" name="smelse_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('smelse_wasQuestionResolved', 'Not resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="se_Not-resolved">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,623 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact history
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/prototype-dev-QA/common/opt2/header-navigation_contactHistory-active.html" %}
+  {% include "prototype-dev-baseline/prototype-dev-QA/common/opt2/keydetail-bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-dev-baseline/prototype-dev-QA/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/prototype-dev-QA/common/phase-banner--user-research.html" %}
+<div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">Contact history</a>
+  </li>
+</ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Contact history</h1>
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="call-log-journey/selectBenefit" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Filter section start here -->
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
+      Show filter
+    </button>
+    <button class="govuk-visually-hidden govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn" onclick="hideFilter()">
+      Hide filter
+    </button>
+    
+    <!-- Filter section display benefit options -->
+      <form action="contact-history" method="post">
+        <!-- earlier filter design -->
+        <div class="govuk-visually-hidden govuk-!-margin-bottom-8" id="old-filter-design">
+          <h3 class="govuk-heading-m">Filters</h3>
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Date range</h3>
+                <div id="passport-issued-hint" class="govuk-hint">
+                  Please select date range that is within last 12 months.
+                </div>
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-one-third">
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                        <legend class="govuk-fieldset__legend">
+                          From date
+                        </legend>
+                        <div id="date-range-from-hint" class="govuk-hint">
+                          For example, 13 03 2023
+                        </div>
+                        <div class="govuk-date-input" id="from-date">
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="from-date-day">
+                                    Day
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="from-date-month">
+                                    Month
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="from-date-year">
+                                    Year
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <div class="govuk-grid-column-one-third">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-to-hint">
+                            <legend class="govuk-fieldset__legend">
+                              To date
+                            </legend>
+                            <div id="date-range-to-hint" class="govuk-hint">
+                              For example, 22 04 2023
+                            </div>
+                            <div class="govuk-date-input" id="to-date">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-day" name="to-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.toDay}}">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-month" name="to-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.toMonth}}">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="to-date-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="to-date-year" name="to-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.toYear}}">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <!-- filter by Benefits -->
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-two-thirds">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        Benefit
+                    </legend>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        {% if data.tableFilterEsa == true%}
+                          <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" checked="checked">
+                          <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                            Employment and Support Allowance
+                          </label>
+                        {% else %}
+                          <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
+                          <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                            Employment and Support Allowance
+                          </label>
+                        {% endif%}
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        {% if data.tableFilterJa == true%}
+                        <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked="checked">
+                        <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                          Carer's Allowance
+                        </label>
+                        {% else %}
+                        <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
+                        <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                          Carer's Allowance
+                        </label>
+                        {% endif%}
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        {% if data.tableFilterPip == true%}
+                        <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment" checked="checked">
+                        <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
+                          Personal Independence Payment
+                        </label>
+                        {% else %}
+                        <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
+                        <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
+                          Personal Independence Payment
+                        </label>
+                        {% endif%}
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <div class="govuk-button-group">
+              <button class="govuk-button" data-module="govuk-button" id="apply-filter-btn" onclick="applyFilter()">
+                Apply filter
+              </button>
+              <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="cancel-filter-link" onclick="cancelFilter()">
+                Clear filter
+              </button>
+            </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+        </div>
+      </form>
+    <!-- <h6>{{tableData[0]}}</h6> -->
+      <!-- Display Applied / selected filter here -->
+      <div class="govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Filters applied</h3>
+        <p class="govuk-body govuk-!-margin-bottom-0">Date range</p>
+        <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+          {% for filterDate in data['from-date-day'] %}
+          <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterDate }}</a></li>
+          {% endfor %}
+        </ul>
+        <p class="govuk-body govuk-!-margin-bottom-0">Benefit</p>
+        <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+          {% for filterBenefit in data['benefit'] %}
+          <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
+          {% endfor %}
+        </ul>
+        <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+      </div>
+
+    <!-- data table -->
+    {% if data['tableValue'].length > 0%}
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date and time of call</th>
+          <th scope="col" class="govuk-table__header">Type of call</th>
+          <th scope="col" class="govuk-table__header ">Benefits discussed</th>
+          <th scope="col" class="govuk-table__header">Type of enquiry </th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Action</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for item in data['tableValue'] %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{item.createdDate}}</td>
+          <td class="govuk-table__cell">{{item.directionality}}</td>
+          <td class="govuk-table__cell">{{item.benefit}}</td>
+          <td class="govuk-table__cell">{{item.querySubContext}}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">{{item.outcome}}</strong></td>
+          {% if item.contextID == "28JULY2023"%}
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-28-July.html" class="govuk-link">View details</a></td>
+          {% elif item.contextID == "21JUNE2023" %}
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-21-June.html" class="govuk-link">View details</a></td>
+            {% elif item.contextID == "11MAY2023" %}
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-11-May.html" class="govuk-link">View details</a></td>
+            {% elif item.contextID == "01MAY2023" %}
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-01-May.html" class="govuk-link">View details</a></td>
+          {% else %}
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID={{item.contextID}}" class="govuk-link">View details</a></td>
+          {% endif %}
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+    <!-- table pagination -->
+    <nav class="moj-pagination" aria-label="Pagination navigation">
+      <ul class="moj-pagination__list govuk-visually-hidden">
+        <li class="moj-pagination__item  moj-pagination__item--prev">
+          <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+        </li>
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 30">1</a></li>
+        <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2 of 30" aria-current="page">2</li>
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3" aria-label="Page 3 of 30">3</a></li>
+        <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=5" aria-label="Page 5 of 30">5</a></li>
+        <li class="moj-pagination__item  moj-pagination__item--next">
+          <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
+        </li>
+      </ul>
+      <p class="moj-pagination__results">Showing <b>01</b> to <b>{{data['tableValue'].length}}</b> of <b>01</b> page</p>
+    </nav>
+    {% else %}
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date and time of call</th>
+            <th scope="col" class="govuk-table__header">Type of call</th>
+            <th scope="col" class="govuk-table__header ">Benefits discussed</th>
+            <th scope="col" class="govuk-table__header">Type of enquiry </th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Thur 10 Aug 2023, 13:03</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment date</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213deb" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 09 Aug 2023, 09:03</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment date</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213deb" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Tue 8 Aug 2023, 09:20</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Next payment date</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213dec" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 7 Aug 2023, 13:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213dec" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 7 Aug 2023, 09:15</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213dez" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 28 Jul 2023, 11:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-28-July.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 22 Jul 2023, 08:30</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Thu 29 Jun 2023, 09:03</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 28 Jun 2023, 12:15</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Next payment date</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 28 Jun 2023, 12:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 21 Jun 2023, 10:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-21-June.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 21 Jun 2023, 10:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-21-June.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Tue 13 Jun 2023, 10:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 26 May 2023, 13:03</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Change in payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 22 May 2023,15:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 15 May 2023, 09:15</td>
+            <td class="govuk-table__cell">Outgoing telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 15 May 2023, 09:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213dej" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 12 May 2023, 08:30</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213dej" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 11 May 2023, 15:30</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-11-May.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 01 May 2023, 10:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-viewDetails/viewDetail-01-May.html" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 19 April 2023, 11:15</td>
+            <td class="govuk-table__cell">Outgoing telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213del" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Wed 19 April 2023, 11:01</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213del" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mon 17 April 2023, 11:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Carer's Allowance</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213dem" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 14 April 2023, 09:10</td>
+            <td class="govuk-table__cell">Outgoing telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213dem" class="govuk-link">View details</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Fri 14 April 2023, 09:00</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment</td>
+            <td class="govuk-table__cell">Something else</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">resolved</strong></td>
+            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="contact-history-detail.html?contextID=6564c6ade9f2f60321213dem" class="govuk-link">View details</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- table pagination -->
+      <nav class="moj-pagination" aria-label="Pagination navigation">
+        <ul class="moj-pagination__list govuk-visually-hidden">
+        <li class="moj-pagination__item  moj-pagination__item--prev">
+          <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+        </li>
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 30">1</a></li>
+        <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2 of 30" aria-current="page">2</li>
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3" aria-label="Page 3 of 30">3</a></li>
+        <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+        <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=5" aria-label="Page 5 of 30">5</a></li>
+        <li class="moj-pagination__item  moj-pagination__item--next">
+          <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
+        </li>
+      </ul>
+      <p class="moj-pagination__results">Showing <b>01</b> to <b>25</b> of <b>01</b> page</p>
+      </nav>
+    {%endif%}
+  </div>
+</div>
+
+
+  <!-- logic for filter function -->
+
+  <script type="text/javascript">
+    function showFilter() {
+      // document.getElementById("demo").innerHTML = "Hello World";
+      // alert("Hello world");
+      var link = document.getElementById('filter-section');
+      var link2 = document.getElementById('show-filter-btn');
+      var esaTable = document.getElementById('table-ESA');
+      var hideFilterBtn = document.getElementById('hide-filter-btn');
+      var showOldFilter = document.getElementById('old-filter-design');
+      // alert("Hello world",link.className);
+      // link.style.display = 'block'; 
+      hideFilterBtn.classList.remove("govuk-visually-hidden");
+      // link.classList.remove("govuk-visually-hidden");
+      showOldFilter.classList.remove("govuk-visually-hidden");
+      link2.classList.add("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+    }
+    function hideFilter() {
+      var link2 = document.getElementById('show-filter-btn');
+      var esaTable = document.getElementById('table-ESA');
+      var hideFilterBtn = document.getElementById('hide-filter-btn');
+      var showOldFilter = document.getElementById('old-filter-design');
+      hideFilterBtn.classList.add("govuk-visually-hidden");
+      showOldFilter.classList.add("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+    }
+
+    function cancelFilter() {
+      const send = XMLHttpRequest.prototype.send;
+      XMLHttpRequest.prototype.send = function (body) {
+        const newBody = JSON.parse(body);
+        newBody['from-date-day']='';
+        newBody['from-date-month']='';
+        newBody['from-date-year']='';
+        newBody['to-date-day']='';
+        newBody['to-date-month']='';
+        newBody['to-date-year']='';
+        newBody['ESA-benefit']='';
+        newBody['JA-benefit']='';
+        newBody['PIP-benefit']='';
+        send.call(this, JSON.stringify(newBody));
+      };
+      document.getElementById('from-date-day').value = "";
+      document.getElementById('from-date-month').value = "";
+      document.getElementById('from-date-year').value = "";
+
+      document.getElementById('to-date-day').value = "";
+      document.getElementById('to-date-month').value = "";
+      document.getElementById('to-date-year').value = "";
+
+      var link = document.getElementById('filter-section');
+      var link2 = document.getElementById('show-filter-btn');
+      var hideFilterBtn = document.getElementById('hide-filter-btn');
+      var showOldFilter = document.getElementById('old-filter-design');
+      // var link4 = document.getElementById('apply-filter-btn');
+      link.classList.add("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      hideFilterBtn.classList.add("govuk-visually-hidden");
+      showOldFilter.classList.add("govuk-visually-hidden");
+    }
+    function applyFilter() {
+      var link3 = document.getElementById('filter-selected');
+      // var link4 = document.getElementById('apply-filter-btn');
+      var link2 = document.getElementById('show-filter-btn');
+      var link5 = document.getElementById('filter-section'); 
+      var tableDefault = document.getElementById('default-table')
+      var esaTable = document.getElementById('table-ESA');
+      link3.classList.remove("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      // link4.classList.add("govuk-visually-hidden");
+      link5.classList.add("govuk-visually-hidden");
+      tableDefault.classList.add("govuk-visually-hidden");
+      esaTable.classList.remove("govuk-visually-hidden");
+    }
+    function clearFilter() {
+      var link3 = document.getElementById('filter-selected');
+      var esaTable = document.getElementById('table-ESA');
+      var tableDefault = document.getElementById('default-table')
+      // var link4 = document.getElementById('apply-filter-btn');
+      link3.classList.add("govuk-visually-hidden");
+      tableDefault.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+      link.classList.remove("govuk-visually-hidden");
+    }
+       // show contact details section
+       function showContactDetails() {
+        var showContactDetails = document.getElementById('showCtDetails');
+        var defaultContactHistory = document.getElementById('showContactHistory-bydefault');
+        defaultContactHistory.classList.add("govuk-visually-hidden");
+        showContactDetails.classList.remove("govuk-visually-hidden");
+    }
+    function showContactHistory() {
+        var showContactDetails = document.getElementById('showCtDetails');
+        var defaultContactHistory = document.getElementById('showContactHistory-bydefault');
+        defaultContactHistory.classList.remove("govuk-visually-hidden");
+        showContactDetails.classList.add("govuk-visually-hidden");
+
+    }
+    </script>
+
+{% endblock %}
