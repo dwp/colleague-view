@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Error:Who is calling?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/prototype-dev-QA/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint23/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "sprint23/common/phase-banner--user-research.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="../home-page" method="post">
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  <a href="#Who-is-the-engagement-with-1">Select who is calling</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Who is calling?
+              </h1>
+            </legend>
+            <div id="changed-name-hint" class="govuk-hint">
+              Select one option
+            </div>
+            <p id="passport-issued-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select who is calling
+            </p>
+            <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-sprint23-opt2" type="radio" value="Christopher Fox" aria-describedby="Customer-hint" onchange="handleRadio('Who-is-the-engagement-with','(Customer)')">
+                <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-1">
+                  Christopher Fox
+                </label>
+                <div id="Customer-hint" class="govuk-hint govuk-radios__hint" name="govuk-hint govuk-radios__hint">
+                  Customer
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Who-is-the-engagement-with-2" name="Who-is-the-engagement-with-sprint23-opt2" type="radio" value="George Wood" aria-describedby="Corporate-PAB-hint" onchange="handleRadio('Who-is-the-engagement-with','(Corporate PAB)')">
+                <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-2">
+                  George Wood
+                </label>
+                <div id="Corporate-PAB-hint" class="govuk-hint govuk-radios__hint" name="govuk-hint govuk-radios__hint">
+                  Corporate Personal Acting Body 
+                  <!-- <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-1" type="text" value="(Corporate PAB)" hidden> -->
+                </div>
+              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Who-is-the-engagement-with-3" name="Who-is-the-engagement-with-sprint23-opt2" type="radio" value="Susan Jones" aria-describedby="Partner-hint" onchange="handleRadio('Who-is-the-engagement-with','(Partner)')">
+              <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-3">
+                Susan Jones
+              </label>
+              <div id="Partner-hint" class="govuk-hint govuk-radios__hint" name="govuk-hint govuk-radios__hint">
+                Partner 
+                <!-- <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-1" type="text" value="(Partner)" hidden> -->
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Who-is-the-engagement-with-5" name="Who-is-the-engagement-with-sprint23-opt2" type="radio" value="Someone else">
+              <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-5">
+                Someone else  
+              </label>
+            </div>
+            <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with" name="Who-is-the-engagement-with" type="text" autocomplete="on" hidden>
+            </div>
+          </fieldset>
+         </div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function handleRadio(name, value) {
+      document.getElementById(name).value = value;
+    }
+  </script>
+    
+{% endblock %}
