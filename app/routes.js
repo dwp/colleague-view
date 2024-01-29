@@ -9867,7 +9867,7 @@ router.get('/prototype-dev-baseline/sprint23/opt1/call-log-journey/add-Note/:nam
   //baseline prototype for QA / Dev
 
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-with', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/who-is-calling', function (req, res) {
   req.session.data['Who-is-the-engagement-with-sprint27'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
@@ -9891,7 +9891,7 @@ router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-with', fun
 if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23'] == 'QQ 12 34 56 Q') {
 
   // Send user to next page
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-with');
+  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/who-is-calling');
 } else {
   var errMsg = "";
   if (req.session.data['national-insurance-number-sprint23'] == '' || req.session.data['national-insurance-number-sprint23'] == undefined) {
@@ -9906,7 +9906,7 @@ if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req
 
 
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/home-page', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/home', function (req, res) {
 
   var contactType = req.session.data['Who-is-the-engagement-with-sprint27'];
 
@@ -9918,7 +9918,7 @@ router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/home-page', function 
   var b = " Incoming telephone call with";
   // req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = contactType + "  " + b;
   req.session.data['Who-is-the-engagement-with-sprint27'] = b + " " + contactType;
-  res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/home-page');
+  res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/home');
 }
 })
 
