@@ -9867,7 +9867,7 @@ router.get('/prototype-dev-baseline/sprint23/opt1/call-log-journey/add-Note/:nam
   //baseline prototype for QA / Dev
 
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/who-is-calling', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/who-is-calling', function (req, res) {
   req.session.data['Who-is-the-engagement-with-sprint27'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
@@ -9891,7 +9891,7 @@ router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/who-is-calling', func
 if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23'] == 'QQ 12 34 56 Q') {
 
   // Send user to next page
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/who-is-calling');
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/who-is-calling');
 } else {
   var errMsg = "";
   if (req.session.data['national-insurance-number-sprint23'] == '' || req.session.data['national-insurance-number-sprint23'] == undefined) {
@@ -9900,13 +9900,13 @@ if (req.session.data['national-insurance-number-sprint23'] == 'QQ123456Q' || req
     errMsg = "Enter a National Insurance number in the correct format";
   }
   // Send user to error page
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/error-NINO-number', { "errMsg": errMsg });
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/error-NINO-number', { "errMsg": errMsg });
 }
 })
 
 
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/home', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/home', function (req, res) {
 
   var contactType = req.session.data['Who-is-the-engagement-with-sprint27'];
 
@@ -9918,19 +9918,19 @@ router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/home', function (req,
   var b = " Incoming telephone call with";
   // req.session.data['Who-is-the-engagement-with-sprint23-opt1'] = contactType + "  " + b;
   req.session.data['Who-is-the-engagement-with-sprint27'] = b + " " + contactType;
-  res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/home');
+  res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/home');
 }
 })
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/home-page-first-time', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/home-page-first-time', function (req, res) {
 // Make a variable and give it the value from 'how-many-balls'
 if (req.session.data['Who-is-the-engagement-with'] == "Christopher Fox" || req.session.data['Who-is-the-engagement-with'] == "Jane Doe") {
   // Send user to next page
   req.session.data['Who-is-the-engagement-with'] = "with " + req.session.data['Who-is-the-engagement-with'];
-  res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/home-page-first-time');
+  res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/home-page-first-time');
 } else {
   // Send user back to same page
-  // res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/wrong-option-selected');
+  // res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/wrong-option-selected');
   req.session.data['Who-is-the-engagement-with'] = '';
   res.redirect('back');
 }
@@ -9938,20 +9938,20 @@ if (req.session.data['Who-is-the-engagement-with'] == "Christopher Fox" || req.s
 })
 
 // this is for radio selection for Session complete when no notes added.
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/returning-user/contact-history', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/returning-user/contact-history', function (req, res) {
 var completeSession = req.session.data['Do-you-want-to-complete-the-session']
 
 // Check whether the variable matches a condition
 if (completeSession == "Yes") {
   // Send user to next page
-  res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/returning-user/contact-history');
+  res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/returning-user/contact-history');
 } else {
-  res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/returning-user/confirmation-complete-session-Error');
+  res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/returning-user/confirmation-complete-session-Error');
 }
 
 });
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/reasons-for-call', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/reasons-for-call', function (req, res) {
 var pageLength = '';
 var isEsa = req.session.data['What-services-have-they-called-about'].includes('esa');
 var isPip = req.session.data['What-services-have-they-called-about'].includes('pip');
@@ -9965,49 +9965,49 @@ if (req.session.data['What-services-have-they-called-about'].length == 1) {
 }
 
 if (isEsa && isPip) {
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-ESA', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-PIP',
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-ESA', {
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-PIP',
     "pageLength": pageLength
   });
 }
 if (isEsa && isCa && !isPip) {
   // console.log('considition executed isEsa && isCa && !isPip');
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-ESA', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-CA',
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-ESA', {
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-CA',
     "pageLength": pageLength
   });
 }
 if (isEsa && !isPip && !isCa) {
   // console.log('considition executed isEsa && !isPip && !isCa');
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-ESA', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome',
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-ESA', {
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/outcome',
     "pageLength": pageLength
   });
 }
 if (!isEsa && isPip && isCa) {
   // console.log('considition executed !isEsa && isPip && isCa');
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-PIP', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-CA',
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-PIP', {
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-CA',
     "pageLength": pageLength
   });
 }
 if (!isEsa && isPip && !isCa) {
   // console.log('considition executed !isEsa && isPip && !isCa');
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-PIP', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome',
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-PIP', {
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/outcome',
     "pageLength": pageLength
   });
 }
 if (!isEsa && !isPip && isCa) {
   // console.log('considition executed !isEsa && !isPip && isCa');
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-CA', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome',
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-CA', {
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/outcome',
     "pageLength": pageLength
   });
 }
 });
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-PIP', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-PIP', function (req, res) {
 var isPip = req.session.data['What-services-have-they-called-about'].includes('pip');
 var isCa = req.session.data['What-services-have-they-called-about'].includes('ca');
 var pageLength = '';
@@ -10020,21 +10020,21 @@ if (req.session.data['What-services-have-they-called-about'].length == 1) {
 }
 if (isPip && isCa) {
   // console.log('considition executed !isEsa && isPip && isCa');
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-PIP', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-CA',
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-PIP', {
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-CA',
     "pageLength": pageLength
   });
 }
 if (isPip && !isCa) {
   // console.log('considition executed !isEsa && isPip && !isCa');
-  res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-PIP', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome',
+  res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-PIP', {
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/outcome',
     "pageLength": pageLength
   });
 }
 });
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-CA', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-CA', function (req, res) {
 var pageLength = '';
 if (req.session.data['What-services-have-they-called-about'].length == 1) {
   pageLength = 'Services 1 of 1';
@@ -10043,13 +10043,13 @@ if (req.session.data['What-services-have-they-called-about'].length == 1) {
 } else {
   pageLength = 'Services 3 of 3';
 }
-res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-CA', {
+res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/what-queries-dealt-with-CA', {
   "pageLength": pageLength
 });
 });
 
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/outcome', function (req, res) {
 
 // console.log('Value of the data outcome route:--------------->',req.session.data);
 var isEsa = 'govuk-visually-hidden';
@@ -10716,7 +10716,7 @@ if (req.session.data['caGeneralOption1'] == '' || req.session.data['caGeneralOpt
 if (req.session.data['caGeneralOption2'] == '' || req.session.data['caGeneralOption2'] == undefined) { caGeneralOption2AddNotes = ''; } else { caGeneralOption2EditNotes = ''; }
 if (req.session.data['caGeneralOption3'] == '' || req.session.data['caGeneralOption3'] == undefined) { caGeneralOption3AddNotes = ''; } else { caGeneralOption3EditNotes = ''; }
 
-res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome', {
+res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/outcome', {
 
   "isEsa": isEsa,
   "isPip": isPip,
@@ -11080,39 +11080,39 @@ res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/
 });
 });
 
-router.get('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/add-note/:name', function (req, res) {
+router.get('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/add-note/:name', function (req, res) {
 // console.log(' Add Notes route is called - GET: ',req.params.name);
-res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/add-note', {
+res.render('prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/add-note', {
   "notesName": req.params.name,
   "notesValue": req.session.data[req.params.name]
 });
 });
 
 // this is for radio selection for Session complete
-// router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/confirmation-complete-session', function (req, res) {
+// router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/confirmation-complete-session', function (req, res) {
 // console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
 // if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
-//   res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/session-completed');
+//   res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/session-completed');
 // }else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
-//   res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/session-completed');
+//   res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/session-completed');
 // }if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
-//   res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/session-completed');
+//   res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/session-completed');
 // }else {
-//   res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/complete-session/no-contactAdded');
+//   res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/complete-session/no-contactAdded');
 // }
 // });
 
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/confirmation-complete-session', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/add-anything-else', function (req, res) {
   console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
   if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
-    res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/confirmation-complete-session');
+    res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/add-anything-else');
   }else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
-    res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/confirmation-complete-session');
+    res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/add-anything-else');
   }if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
-    res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/confirmation-complete-session');
+    res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/engagement-log-journey/add-anything-else');
   }else {
-    res.redirect('/prototype-dev-baseline/prototype-dev-QA/opt1/complete-session/no-contactAdded'); 
+    res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/complete-session/no-contactAdded'); 
   }
   });
 
