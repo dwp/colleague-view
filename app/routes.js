@@ -9951,7 +9951,7 @@ if (completeSession == "Yes") {
 
 });
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/benefitPages', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/reasons-for-call', function (req, res) {
 var pageLength = '';
 var isEsa = req.session.data['What-services-have-they-called-about'].includes('esa');
 var isPip = req.session.data['What-services-have-they-called-about'].includes('pip');
@@ -9980,7 +9980,7 @@ if (isEsa && isCa && !isPip) {
 if (isEsa && !isPip && !isCa) {
   // console.log('considition executed isEsa && !isPip && !isCa');
   res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-ESA', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome-queries',
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome',
     "pageLength": pageLength
   });
 }
@@ -9994,14 +9994,14 @@ if (!isEsa && isPip && isCa) {
 if (!isEsa && isPip && !isCa) {
   // console.log('considition executed !isEsa && isPip && !isCa');
   res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-PIP', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome-queries',
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome',
     "pageLength": pageLength
   });
 }
 if (!isEsa && !isPip && isCa) {
   // console.log('considition executed !isEsa && !isPip && isCa');
   res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-CA', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome-queries',
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome',
     "pageLength": pageLength
   });
 }
@@ -10028,7 +10028,7 @@ if (isPip && isCa) {
 if (isPip && !isCa) {
   // console.log('considition executed !isEsa && isPip && !isCa');
   res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/what-queries-dealt-with-PIP', {
-    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome-queries',
+    "nextUrl": '/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome',
     "pageLength": pageLength
   });
 }
@@ -10049,7 +10049,7 @@ res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/
 });
 
 
-router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome-queries', function (req, res) {
+router.post('/prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome', function (req, res) {
 
 // console.log('Value of the data outcome route:--------------->',req.session.data);
 var isEsa = 'govuk-visually-hidden';
@@ -10716,7 +10716,7 @@ if (req.session.data['caGeneralOption1'] == '' || req.session.data['caGeneralOpt
 if (req.session.data['caGeneralOption2'] == '' || req.session.data['caGeneralOption2'] == undefined) { caGeneralOption2AddNotes = ''; } else { caGeneralOption2EditNotes = ''; }
 if (req.session.data['caGeneralOption3'] == '' || req.session.data['caGeneralOption3'] == undefined) { caGeneralOption3AddNotes = ''; } else { caGeneralOption3EditNotes = ''; }
 
-res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome-queries', {
+res.render('prototype-dev-baseline/prototype-dev-QA/opt1/engagement-log-journey/outcome', {
 
   "isEsa": isEsa,
   "isPip": isPip,
