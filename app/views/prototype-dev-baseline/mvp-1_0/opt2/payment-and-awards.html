@@ -5,18 +5,18 @@
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt1/header-navigation_PaymentandAwards-active.html" %}
-  {% include "prototype-sprint-wise/sprint23/common/opt1/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/mvp-1_0/common/opt2/header-navigation_PaymentandAwards-active.html" %}
+  {% include "prototype-dev-baseline/mvp-1_0/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+  {% include "prototype-dev-baseline/mvp-1_0/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
+  {% include "prototype-dev-baseline/mvp-1_0/common/phase-banner--user-research.html" %}
 <div class="govuk-breadcrumbs">
 <ol class="govuk-breadcrumbs__list">
   <li class="govuk-breadcrumbs__list-item">
@@ -32,7 +32,20 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl govuk-!-width-two-thirds">Upcoming and historic benefit payments</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="call-log-journey/selectBenefit" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-full">
     <div class="govuk-tabs" data-module="govuk-tabs">
       <h2 class="govuk-tabs__title">
         Contents
@@ -56,29 +69,22 @@
       </ul>
       <!-- TAB-1 start here -->
       <div class="govuk-tabs__panel" id="upcoming-payments">
-        <h2 class="govuk-heading-l">Upcoming payments</h2>
+        <h2 class="govuk-heading-l">Confirmed payments</h2>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
-              <div class="govuk-warning-text govuk-!-margin-bottom-2">
-                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                <strong class="govuk-warning-text__text">
-                  <span class="govuk-warning-text__assistive">Warning</span>
-                  Pending, issued or cancelled payments.
-                </strong>
-              </div>
               <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
                   <div class="colleague-view-upcomming-payment-benefit">
-                    <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-2">Issued</strong>
+                    
                     <div class="gem-c-big-number govuk-!-margin-bottom-3">
                       <p class="gem-c-big-number__label">
-                        The next Personal Independence Payment (PIP) payment for
+                        Personal Independence Payment
                       </p>
-                      <span class="gem-c-big-number__value govuk-!-font-size-48">
+                      <span class="gem-c-big-number__value govuk-!-font-size-36">
                         £479.00
                       </span>
-                      <span class="govuk-visually-hidden">&nbsp;</span>
                       <p class="govuk-body govuk-!-margin-top-1">is on 14 August 2023</p>
+                      <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-2">Issued</strong>
                       </div>
                       <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
                         <summary class="govuk-details__summary">
@@ -115,111 +121,71 @@
                             </div>
                 </div>
                 <div class="govuk-grid-column-one-half">
-                                <div class="colleague-view-upcomming-payment-benefit">
-                                  <strong class="govuk-tag govuk-tag--orange govuk-!-margin-bottom-2">Pending</strong>
-                                  <div class="gem-c-big-number govuk-!-margin-bottom-3">
-                                    <p class="gem-c-big-number__label">
-                                      The next Employment and Support Allowance (ESA) payment for
-                                    </p>
-                                    <span class="gem-c-big-number__value govuk-!-font-size-48">
-                                      £184.13
-                                    </span>
-                                    <span class="govuk-visually-hidden">&nbsp;</span>
-                                    <p class="govuk-body govuk-!-margin-top-1">is on 15 August 2023</p>
-                                  </div>
-                                  <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
-                                    <summary class="govuk-details__summary">
-                                      <span class="govuk-details__summary-text">
-                                        View payment breakdown
-                                      </span>
-                                    </summary>
-                                    <div class="govuk-details__text">
-                                      <table class="govuk-table">
-                                        <caption class="govuk-table__caption govuk-table__caption--m">Payment breakdown</caption>
-                                        <thead class="govuk-table__head">
-                                          <tr class="govuk-table__row">
-                                            <th scope="col" class="govuk-table__header">Payment type</th>
-                                            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody class="govuk-table__body">
-                                          <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell">Award</td>
-                                            <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-                                          </tr>
-                                          <tr class="govuk-table__row">
-                                            <td class="govuk-table__cell">Total deductions</td>
-                                            <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
-                                          </tr>
-                                          <tr class="govuk-table__row">
-                                            <th scope="row" class="govuk-table__header">Total</th>
-                                            <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
-                                          </tr>
-                                        </tbody>
-                                    </table>
-                                    </div>
-                                  </details>
-                                </div>
+                  <div class="colleague-view-upcomming-payment-benefit">
+                    <div class="gem-c-big-number govuk-!-margin-bottom-3">
+                      <p class="gem-c-big-number__label">
+                        Employment and Support Allowance
+                      </p>
+                      <span class="gem-c-big-number__value govuk-!-font-size-36">
+                        £184.13
+                      </span>
+                      <p class="govuk-body govuk-!-margin-top-1">is on 15 August 2023</p>
+                      <strong class="govuk-tag govuk-tag--orange govuk-!-margin-bottom-2">Pending</strong>
+                    </div>
+                    <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          View payment breakdown
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <table class="govuk-table">
+                          <caption class="govuk-table__caption govuk-table__caption--m">Payment breakdown</caption>
+                          <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                              <th scope="col" class="govuk-table__header">Payment type</th>
+                              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                            </tr>
+                          </thead>
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Award</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Total deductions</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <th scope="row" class="govuk-table__header">Total</th>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+                            </tr>
+                          </tbody>
+                      </table>
+                      </div>
+                    </details>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="govuk-grid-row govuk-!-margin-top-5">
             <div class="govuk-grid-column-full">
-              <h2 class="govuk-heading-m">Estimated payments</h2>
-              <div class="govuk-warning-text govuk-!-margin-bottom-2">
-                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                <strong class="govuk-warning-text__text">
-                  <span class="govuk-warning-text__assistive">Warning</span>
-                  These payments and amounts are not confirmed.
-                </strong>
-              </div>
+              <h2 class="govuk-heading-l">Estimated payments</h2>
               <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
                   <div class="colleague-view-upcomming-payment-benefit">
                     <div class="gem-c-big-number govuk-!-margin-bottom-3">
                         <p class="gem-c-big-number__label">
-                          The next Carer's Allowance payment is for
+                          Carer's Allowance
                         </p>
-                        <span class="gem-c-big-number__value govuk-!-font-size-48">
-                          £278.80
+                        <span class="gem-c-big-number__value govuk-!-font-size-36">
+                          £278.80 <span class="govuk-body"> (estimated)</span>
                         </span>
                         <span class="govuk-visually-hidden">&nbsp;</span>
-                        <!--<p class="govuk-body govuk-!-margin-top-1">is on 30 June 2023</p>-->
+                        <p class="govuk-body govuk-!-margin-top-1">Date to be confirmed</p>
                       </div>
-                      <!--<details class="govuk-details" data-module="govuk-details">
-                        <summary class="govuk-details__summary">
-                          <span class="govuk-details__summary-text">
-                            View payment breakdown
-                          </span>
-                        </summary>
-                        <div class="govuk-details__text">
-                          <h4 class="govuk-heading-m">Payment breakdown</h4>
-                          <table class="govuk-table">
-                            <thead class="govuk-table__head">
-                              <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Payment type</th>
-                                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
-                              </tr>
-                            </thead>
-                            <tbody class="govuk-table__body">
-                              <tr class="govuk-table__row">
-                                <td class="govuk-table__cell">Award</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-                              </tr>
-                              <tr class="govuk-table__row">
-                                <td class="govuk-table__cell">Total deductions</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
-                              </tr>
-                              <tr class="govuk-table__row">
-                                <th scope="row" class="govuk-table__header">Total</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
-                              </tr>
-                            </tbody>
-                        </table>
-                                </div>
-                              </details>-->
-                            </div>
+                    </div>
               </div>
               </div>
             </div>
@@ -237,7 +203,7 @@
           Hide filter
         </button>
         <!-- Filter section display benefit options -->
-        <form action="/prototype-sprint-wise/sprint23/opt1/payment-and-awards" method="post">
+        <form action="/prototype-sprint-wise/sprint23/opt2/payment-and-awards" method="post">
           <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
               <fieldset class="govuk-fieldset">
@@ -301,20 +267,16 @@
           </div>
         </form>
         <!-- Filters end here -->
-        
+       
         <!-- Display Applied / selected filter here -->
-        <div class="govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
+        <div class="govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected2">
           <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
-          {% if data['benefit'].length > 0%}
-            <ul class="moj-filter-tags govuk-!-margin-bottom-2">
-              {% for filterBenefit in data['benefit'] %}
-              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
-              {% endfor %}
-            </ul>
-            <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
-          {% else %}
-          <span class="govuk-body">There is no filter selected</span>
-        {%endif%}
+          <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+            {% for filterBenefit in data['benefit'] %}
+            <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
+            {% endfor %}
+          </ul>
+          <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
         </div>
 
         {% if data['paymentTableData'].length > 0%}
@@ -930,46 +892,43 @@
     }
 
     function applyFilter() {
-
-      var link3 = document.getElementById('filter-selected');
-      var link2 = document.getElementById('show-filter-btn');
-      var link5 = document.getElementById('filter-section'); 
-      var tableDefault = document.getElementById('default-table')
-      var esaTable = document.getElementById('table-ESA');
-      var caTable = document.getElementById('table-CA');
-      var pipTable = document.getElementById('table-PIP');
+    // var link3 = document.getElementById('filter-selected');
+    var link2 = document.getElementById('show-filter-btn');
+    var link5 = document.getElementById('filter-section'); 
+    var tableDefault = document.getElementById('default-table')
+    var esaTable = document.getElementById('table-ESA');
+    var caTable = document.getElementById('table-CA');
+    var pipTable = document.getElementById('table-PIP');
+    // link3.classList.remove("govuk-visually-hidden");
+    if (document.getElementById("filter-1").checked == true) {
       // link3.classList.remove("govuk-visually-hidden");
-      if (document.getElementById("filter-1").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        esaTable.classList.remove("govuk-visually-hidden");
-        caTable.classList.add("govuk-visually-hidden");
-        pipTable.classList.add("govuk-visually-hidden");
-      }
-      else if (document.getElementById("filter-2").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        caTable.classList.remove("govuk-visually-hidden");
-        esaTable.classList.add("govuk-visually-hidden");
-        pipTable.classList.add("govuk-visually-hidden");
-    } else if (document.getElementById("filter-3").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        pipTable.classList.remove("govuk-visually-hidden");
-        esaTable.classList.add("govuk-visually-hidden");
-        caTable.classList.add("govuk-visually-hidden");
-    } else if (document.getElementsByName("benefit") != '') {
-       link3.classList.remove("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      link5.classList.add("govuk-visually-hidden");
+      tableDefault.classList.add("govuk-visually-hidden");
+      esaTable.classList.remove("govuk-visually-hidden");
+      caTable.classList.add("govuk-visually-hidden");
+      pipTable.classList.add("govuk-visually-hidden");
     }
-  }
+    else if (document.getElementById("filter-2").checked == true) {
+      // link3.classList.remove("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      // link4.classList.add("govuk-visually-hidden");
+      link5.classList.add("govuk-visually-hidden");
+      tableDefault.classList.add("govuk-visually-hidden");
+      caTable.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+      pipTable.classList.add("govuk-visually-hidden");
+    } else if (document.getElementById("filter-3").checked == true) {
+      // link3.classList.remove("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      // link4.classList.add("govuk-visually-hidden");
+      link5.classList.add("govuk-visually-hidden");
+      tableDefault.classList.add("govuk-visually-hidden");
+      pipTable.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+      caTable.classList.add("govuk-visually-hidden");
+    }
+}
 
     function clearFilter() {
       var link3 = document.getElementById('filter-selected');
