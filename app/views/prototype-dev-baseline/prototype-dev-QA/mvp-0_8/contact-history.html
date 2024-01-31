@@ -72,14 +72,13 @@ Contact history
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view-contact-history">
           <div id="showContactHistory-bydefault">
             <h2 class="govuk-heading-l">View contact history</h2>
-            <!-- Filter section start here -->
-            <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
-              Show filter
-            </button>
-            <button class="govuk-visually-hidden govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn" onclick="cancelFilter()">
-              Hide filter
-            </button>
-
+                      <!-- Filter section start here -->
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
+            Show filter
+          </button>
+          <button class="govuk-!-display-none govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn" onclick="hideFilter()">
+            Hide filter
+          </button>
           <!-- Filter section -->
           <form action="contact-history" method="post">
             <!-- both benefit and ate filter-->
@@ -372,8 +371,7 @@ Contact history
   <!-- logic for filter function -->
 
   <script type="text/javascript">
-
-function showFilter() {
+    function showFilter() {
       // document.getElementById("demo").innerHTML = "Hello World";
       // alert("Hello world");
       var link = document.getElementById('filter-section');
@@ -411,7 +409,6 @@ function showFilter() {
       hideFilterBtn.classList.add("govuk-visually-hidden");
       showOldFilter.classList.add("govuk-visually-hidden");
     }
-
 
     function applyFilter() {
 
