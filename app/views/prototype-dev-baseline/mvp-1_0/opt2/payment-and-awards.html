@@ -129,7 +129,7 @@
                           Employment and Support Allowance
                         </span>
                         <div class="gem-c-big-number__value govuk-!-font-size-48 govuk-!-margin-top-3 govuk-!-margin-bottom-3">
-                          £184.13
+                          £184.12
                         </div>
                         <span class="govuk-body">is on 15 August 2023</span> <br/>
                         <strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2 govuk-!-margin-bottom-2">Pending</strong>
@@ -868,8 +868,6 @@
   <!-- logic for filter function -->
   <script type="text/javascript">
     function showFilter() {
-      // document.getElementById("demo").innerHTML = "Hello World";
-      // alert("Hello world");
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
       var hdFilter = document.getElementById('hide-filter-btn');
@@ -884,12 +882,10 @@
       document.getElementById("filter-2").checked = false;
       document.getElementById("filter-3").checked = false;
     }
-
     function cancelFilter() {
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
       var hdFilter = document.getElementById('hide-filter-btn');
-      // var link4 = document.getElementById('apply-filter-btn');
       link.classList.add("govuk-visually-hidden");
       hdFilter.classList.add("govuk-visually-hidden");
       link2.classList.remove("govuk-visually-hidden");
@@ -897,9 +893,7 @@
       document.getElementById("filter-2").checked = false;
       document.getElementById("filter-3").checked = false;
     }
-
     function applyFilter() {
-
       var link3 = document.getElementById('filter-selected');
       var link2 = document.getElementById('show-filter-btn');
       var link5 = document.getElementById('filter-section'); 
@@ -939,7 +933,6 @@
        link3.classList.remove("govuk-visually-hidden");
     }
   }
-
     function clearFilter() {
       var link3 = document.getElementById('filter-selected');
       var esaTable = document.getElementById('table-ESA');
@@ -947,7 +940,6 @@
       var pipTable = document.getElementById('table-PIP');
       var tableDefault = document.getElementById('default-table');
       var hdFilter = document.getElementById('hide-filter-btn');
-      // var link4 = document.getElementById('apply-filter-btn');
       link3.classList.add("govuk-visually-hidden");
       tableDefault.classList.remove("govuk-visually-hidden");
       esaTable.classList.add("govuk-visually-hidden");
@@ -960,8 +952,7 @@
       document.getElementById("filter-3").checked = false;
       
     }
-    
-    </script>
+  </script>
 
 
 {% endblock %}
