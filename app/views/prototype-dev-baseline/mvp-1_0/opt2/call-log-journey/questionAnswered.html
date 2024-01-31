@@ -23,15 +23,6 @@
         <h1 class="govuk-heading-l">
           Outcomes of questions
         </h1>
-        <!-- <p class="govuk-body">
-          This is mandatory to select whether questions asked was resolved or not.
-        </p> -->
-        <!-- <div class="govuk-inset-text">
-          This is mandatory to select whether questions asked was resolved or not.
-        </div> -->
-        <!-- <h2 class="govuk-heading-m">
-          Were questions resolved?
-        </h2> -->
         <form action="checkAnswer" method="post" novalidate>
           <!-- for eas -->
           <div class="govuk-form-group {{isNpd}}">
@@ -45,13 +36,13 @@
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="npd_resolved" name="npd_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('npd_wasQuestionResolved', 'Resolved') }}>
                   <label class="govuk-label govuk-radios__label" for="npd_resolved">
-                    Yes <span class="govuk-visually-hidden">The next payment date question was resolved</span>
+                    Yes <span class="govuk-visually-hidden">the next payment date question was resolved</span>
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="npd_Not-resolved" name="npd_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('npd_wasQuestionResolved', 'Not resolved') }}>
                   <label class="govuk-label govuk-radios__label" for="npd_Not-resolved">
-                    No <span class="govuk-visually-hidden">The next payment date question was not resolved</span>
+                    No <span class="govuk-visually-hidden">the next payment date question was not resolved</span>
                   </label>
                 </div>
               </div>
@@ -68,13 +59,13 @@
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="npa_resolved" name="npa_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('npa_wasQuestionResolved', 'Resolved') }}>
                   <label class="govuk-label govuk-radios__label" for="npa_resolved">
-                    Yes <span class="govuk-visually-hidden">The next payment amount question was resolved</span>
+                    Yes <span class="govuk-visually-hidden">the next payment amount question was resolved</span>
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="npa_Not-resolved" name="npa_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('npa_wasQuestionResolved', 'Not resolved') }}>
                   <label class="govuk-label govuk-radios__label" for="npa_Not-resolved">
-                    No <span class="govuk-visually-hidden">The next payment amount question was not resolved</span>
+                    No <span class="govuk-visually-hidden">the next payment amount question was not resolved</span>
                   </label>
                 </div>
               </div>
@@ -91,13 +82,13 @@
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="ma_resolved" name="ma_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('ma_wasQuestionResolved', 'Resolved') }}>
                   <label class="govuk-label govuk-radios__label" for="ma_resolved">
-                    Yes <span class="govuk-visually-hidden">The missing payment question was resolved</span>
+                    Yes <span class="govuk-visually-hidden">the missing payment question was resolved</span>
                   </label>
                 </div>
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="ma_Not-resolved" name="ma_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('ma_wasQuestionResolved', 'Not resolved') }}>
                   <label class="govuk-label govuk-radios__label" for="ma_Not-resolved">
-                    No <span class="govuk-visually-hidden">The missing payment question was not resolved</span>
+                    No <span class="govuk-visually-hidden">the missing payment question was not resolved</span>
                   </label>
                 </div>
               </div>

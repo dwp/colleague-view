@@ -76,17 +76,17 @@
                 <div class="govuk-grid-column-one-half">
                   <div class="nhsuk-card">
                     <div class="nhsuk-card__content">
-                      <div class="gem-c-big-number govuk-!-margin-bottom-3">
-                        <p class="gem-c-big-number__label">
+                      <div class="gem-c-big-number">
+                        <span class="gem-c-big-number__label">
                           Personal Independence Payment
-                        </p>
-                        <span class="gem-c-big-number__value govuk-!-font-size-36">
-                          £479.00
                         </span>
-                        <p class="govuk-body govuk-!-margin-top-1">is on 14 August 2023</p>
-                        <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-2">Issued</strong>
+                        <div class="gem-c-big-number__value govuk-!-font-size-48 govuk-!-margin-top-3 govuk-!-margin-bottom-3">
+                          £479.00
+                        </div>
+                        <span class="govuk-body">is on 14 August 2023</span> <br/>
+                        <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-top-2 govuk-!-margin-bottom-2">Issued</strong>
                       </div>
-                      <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <details class="govuk-details" data-module="govuk-details">
                         <summary class="govuk-details__summary">
                           <span class="govuk-details__summary-text">
                             View payment breakdown
@@ -124,17 +124,17 @@
                 <div class="govuk-grid-column-one-half">
                   <div class="nhsuk-card">
                     <div class="nhsuk-card__content">
-                      <div class="gem-c-big-number govuk-!-margin-bottom-3">
-                        <p class="gem-c-big-number__label">
+                      <div class="gem-c-big-number">
+                        <span class="gem-c-big-number__label">
                           Employment and Support Allowance
-                        </p>
-                        <span class="gem-c-big-number__value govuk-!-font-size-36">
-                          £184.13
                         </span>
-                        <p class="govuk-body govuk-!-margin-top-1">is on 15 August 2023</p>
-                        <strong class="govuk-tag govuk-tag--orange govuk-!-margin-bottom-2">Pending</strong>
+                        <div class="gem-c-big-number__value govuk-!-font-size-48 govuk-!-margin-top-3 govuk-!-margin-bottom-3">
+                          £184.13
+                        </div>
+                        <span class="govuk-body">is on 15 August 2023</span> <br/>
+                        <strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2 govuk-!-margin-bottom-2">Pending</strong>
                       </div>
-                      <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
+                      <details class="govuk-details" data-module="govuk-details">
                         <summary class="govuk-details__summary">
                           <span class="govuk-details__summary-text">
                             View payment breakdown
@@ -179,15 +179,14 @@
                 <div class="govuk-grid-column-one-half">
                   <div class="nhsuk-card">
                     <div class="nhsuk-card__content">
-                      <div class="gem-c-big-number govuk-!-margin-bottom-3">
-                          <p class="gem-c-big-number__label">
+                      <div class="gem-c-big-number">
+                          <span class="gem-c-big-number__label">
                             Carer's Allowance
-                          </p>
-                          <span class="gem-c-big-number__value govuk-!-font-size-36">
-                            £278.80 <span class="govuk-body"> (estimated)</span>
                           </span>
-                          <span class="govuk-visually-hidden">&nbsp;</span>
-                          <p class="govuk-body govuk-!-margin-top-1">Date to be confirmed</p>
+                          <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-3 govuk-!-margin-bottom-3">
+                            £278.80 <span class="govuk-body"> (estimated)</span>
+                          </div>
+                          <span class="govuk-body">Date to be confirmed</span>
                       </div>
                     </div>
                   </div>
@@ -208,7 +207,7 @@
           Hide filter
         </button>
         <!-- Filter section display benefit options -->
-        <form action="/prototype-sprint-wise/sprint23/opt2/payment-and-awards" method="post">
+        <form action="/prototype-dev-baseline/mvp-1_0/opt2/payment-and-awards#payment-history" method="post">
           <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
               <fieldset class="govuk-fieldset">
@@ -272,16 +271,20 @@
           </div>
         </form>
         <!-- Filters end here -->
-       
+        
         <!-- Display Applied / selected filter here -->
-        <div class="govuk-visually-hidden govuk-!-padding-top-0 moj-filter__selected" id="filter-selected2">
+        <div class="govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
           <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
-          <ul class="moj-filter-tags govuk-!-margin-bottom-2">
-            {% for filterBenefit in data['benefit'] %}
-            <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
-            {% endfor %}
-          </ul>
-          <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+          {% if data['benefit'].length > 0%}
+            <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+              {% for filterBenefit in data['benefit'] %}
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
+              {% endfor %}
+            </ul>
+            <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+          {% else %}
+          <span class="govuk-body">There is no filter selected</span>
+        {%endif%}
         </div>
 
         {% if data['paymentTableData'].length > 0%}
@@ -314,98 +317,98 @@
         {% else %}
         <div id="default-table">          
           <table class="govuk-table">
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
-              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Due Date</th>
-              <th scope="col" class="govuk-table__header ">Status</th>
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
-              <td class="govuk-table__cell">01 August 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
-              <td class="govuk-table__cell">18 July 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Carer Allowance</th>
-              <td class="govuk-table__cell">21 July 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
-              <td class="govuk-table__cell">14 July 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£479.00</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
-              <td class="govuk-table__cell">04 July 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£377.23</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£368.26</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
-              <td class="govuk-table__cell">20 June 2023</td>
-              <td class="govuk-table__cell">Cancelled</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Carer Allowance</th>
-              <td class="govuk-table__cell">23 June 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
-              <td class="govuk-table__cell">14 June 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£479.80</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
-              <td class="govuk-table__cell">06 June 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
-              <td class="govuk-table__cell">12 May 2023</td>
-              <td class="govuk-table__cell">Issued</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£40.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric">£519.00</td>
-            </tr>
-          </tbody>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Due Date</th>
+                <th scope="col" class="govuk-table__header ">Status</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+                <td class="govuk-table__cell">01 August 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+                <td class="govuk-table__cell">18 July 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Carer Allowance</th>
+                <td class="govuk-table__cell">21 July 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
+                <td class="govuk-table__cell">14 July 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£479.00</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+                <td class="govuk-table__cell">04 July 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£377.23</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£368.26</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+                <td class="govuk-table__cell">20 June 2023</td>
+                <td class="govuk-table__cell">Cancelled</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Carer Allowance</th>
+                <td class="govuk-table__cell">23 June 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
+                <td class="govuk-table__cell">14 June 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£479.80</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+                <td class="govuk-table__cell">06 June 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
+                <td class="govuk-table__cell">12 May 2023</td>
+                <td class="govuk-table__cell">Issued</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£40.00</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">£519.00</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         {%endif%}
@@ -415,9 +418,9 @@
               <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
             </li>
 
-            <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1" aria-current="page">1</li>
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 1">1</a></li>
 
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 2">2</a></li>
+            <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2" aria-current="page">2</a></li>
 
             <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 3">3</a></li>
 
@@ -429,7 +432,7 @@
               <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
             </li>
           </ul>
-          <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>10</b> results</p>
+          <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>60</b> results</p>
         </nav>
       </div>
       <!-- TAB-3 start here -->
@@ -863,7 +866,6 @@
 
 
   <!-- logic for filter function -->
-
   <script type="text/javascript">
     function showFilter() {
       // document.getElementById("demo").innerHTML = "Hello World";
@@ -897,43 +899,46 @@
     }
 
     function applyFilter() {
-    // var link3 = document.getElementById('filter-selected');
-    var link2 = document.getElementById('show-filter-btn');
-    var link5 = document.getElementById('filter-section'); 
-    var tableDefault = document.getElementById('default-table')
-    var esaTable = document.getElementById('table-ESA');
-    var caTable = document.getElementById('table-CA');
-    var pipTable = document.getElementById('table-PIP');
-    // link3.classList.remove("govuk-visually-hidden");
-    if (document.getElementById("filter-1").checked == true) {
+
+      var link3 = document.getElementById('filter-selected');
+      var link2 = document.getElementById('show-filter-btn');
+      var link5 = document.getElementById('filter-section'); 
+      var tableDefault = document.getElementById('default-table')
+      var esaTable = document.getElementById('table-ESA');
+      var caTable = document.getElementById('table-CA');
+      var pipTable = document.getElementById('table-PIP');
       // link3.classList.remove("govuk-visually-hidden");
-      link2.classList.remove("govuk-visually-hidden");
-      link5.classList.add("govuk-visually-hidden");
-      tableDefault.classList.add("govuk-visually-hidden");
-      esaTable.classList.remove("govuk-visually-hidden");
-      caTable.classList.add("govuk-visually-hidden");
-      pipTable.classList.add("govuk-visually-hidden");
-    }
-    else if (document.getElementById("filter-2").checked == true) {
-      // link3.classList.remove("govuk-visually-hidden");
-      link2.classList.remove("govuk-visually-hidden");
-      // link4.classList.add("govuk-visually-hidden");
-      link5.classList.add("govuk-visually-hidden");
-      tableDefault.classList.add("govuk-visually-hidden");
-      caTable.classList.remove("govuk-visually-hidden");
-      esaTable.classList.add("govuk-visually-hidden");
-      pipTable.classList.add("govuk-visually-hidden");
+      if (document.getElementById("filter-1").checked == true) {
+        // link3.classList.remove("govuk-visually-hidden");
+        link2.classList.remove("govuk-visually-hidden");
+        link5.classList.add("govuk-visually-hidden");
+        tableDefault.classList.add("govuk-visually-hidden");
+        esaTable.classList.remove("govuk-visually-hidden");
+        caTable.classList.add("govuk-visually-hidden");
+        pipTable.classList.add("govuk-visually-hidden");
+      }
+      else if (document.getElementById("filter-2").checked == true) {
+        // link3.classList.remove("govuk-visually-hidden");
+        link2.classList.remove("govuk-visually-hidden");
+        // link4.classList.add("govuk-visually-hidden");
+        link5.classList.add("govuk-visually-hidden");
+        tableDefault.classList.add("govuk-visually-hidden");
+        caTable.classList.remove("govuk-visually-hidden");
+        esaTable.classList.add("govuk-visually-hidden");
+        pipTable.classList.add("govuk-visually-hidden");
     } else if (document.getElementById("filter-3").checked == true) {
-      // link3.classList.remove("govuk-visually-hidden");
-      link2.classList.remove("govuk-visually-hidden");
-      // link4.classList.add("govuk-visually-hidden");
-      link5.classList.add("govuk-visually-hidden");
-      tableDefault.classList.add("govuk-visually-hidden");
-      pipTable.classList.remove("govuk-visually-hidden");
-      esaTable.classList.add("govuk-visually-hidden");
-      caTable.classList.add("govuk-visually-hidden");
+        // link3.classList.remove("govuk-visually-hidden");
+        link2.classList.remove("govuk-visually-hidden");
+        // link4.classList.add("govuk-visually-hidden");
+        link5.classList.add("govuk-visually-hidden");
+        tableDefault.classList.add("govuk-visually-hidden");
+        pipTable.classList.remove("govuk-visually-hidden");
+        esaTable.classList.add("govuk-visually-hidden");
+        caTable.classList.add("govuk-visually-hidden");
+    } else if (document.getElementsByName("benefit") != '') {
+       link3.classList.remove("govuk-visually-hidden");
     }
-}
+  }
 
     function clearFilter() {
       var link3 = document.getElementById('filter-selected');
@@ -957,5 +962,6 @@
     }
     
     </script>
+
 
 {% endblock %}
