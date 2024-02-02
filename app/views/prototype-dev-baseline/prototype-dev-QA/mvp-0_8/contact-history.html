@@ -45,7 +45,7 @@ Contact history
             </a>
           </li>
           <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#view-contact-history">
+            <a class="govuk-tabs__tab" href="#view">
               View contact history
             </a>
           </li>
@@ -53,23 +53,61 @@ Contact history
         <!-- Tab1 content start here -->
         <div class="govuk-tabs__panel" id="add-to-contact-history">
           <h2 class="govuk-heading-l">Add to contact history</h2>
-          <form action="engagement-log-journey/benefits-discussed" method="post" novalidate>
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                    <h3 class="govuk-fieldset__heading">
-                      You have not added anything to the contact history during this call
-                    </h3>
-                  </legend>
-                </fieldset>
-              </div>
-              <button class="govuk-button" data-module="govuk-button" onclick="alert(global_var['a']['b']);">
-                Add to contact history
-              </button>
+          <h2 class="govuk-heading-s govuk-!-padding-bottom-3 {{displayCallLoggedMessage}}">You have not added anything to the contact history during this call</h2>
+          <form action="contact-history/benefits-discussed" method="post" novalidate>
+            <button class="govuk-button" data-module="govuk-button" onclick="alert(global_var['a']['b']);">
+              Add to contact history
+            </button>
           </form>
+          <!-- call loged summary -->
+          <div class="govuk-!-margin-top-5 {{displayCallLogged}}">
+            <h3 class="govuk-heading-s">
+              You have added this information to the contact history during this call.
+            </h3>
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header ">Benefit</th>
+                  <th scope="col" class="govuk-table__header">Enquiry Type</th>
+                  <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Notes</th>
+                  <th scope="col" class="govuk-table__header">Status</th>
+                  <th scope="col" class="govuk-table__header">Action</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row {{esaNextPaymentDate}}">
+                  <td class="govuk-table__cell">Employment and Support Allowance</td>
+                  <td class="govuk-table__cell">Next payment date</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of next payment date note could look like...</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href= "/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/contact-history/add-payment-note/add-note-nextpd">Edit note</a>
+                  </td>
+                </tr>
+                <tr class="govuk-table__row {{esaNextPaymentAmount}}">
+                  <!-- <td class="govuk-table__cell">14 April 2023</td> -->
+                  <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
+                  <td class="govuk-table__cell">Employment and Support Allowance</td>
+                  <td class="govuk-table__cell">Next payment amount</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of next payment amount note could look like...</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+                  <td class="govuk-table__cell"><a href="/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/contact-history/add-payment-note/add-note-nextpa" class="govuk-link">Edit note</a></td>
+                </tr>
+                <tr class="govuk-table__row {{esaMissingPayment}}">
+                  <!-- <td class="govuk-table__cell">14 April 2023</td> -->
+                  <!-- <td class="govuk-table__cell">Incoming telephone call</td> -->
+                  <td class="govuk-table__cell">Employment and Support Allowance</td>
+                  <td class="govuk-table__cell">Next payment amount</td>
+                  <td class="govuk-table__cell govuk-!-width-one-quarter">This is an example of what more information could look like...</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+                  <td class="govuk-table__cell"><a href="/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/contact-history/add-payment-note/add-note-missingpayment" class="govuk-link">Edit note</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
         </div>
         <!-- Tab2 content start here -->
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view-contact-history">
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view">
           <div id="showContactHistory-bydefault">
             <h2 class="govuk-heading-l">View contact history</h2>
           <!-- Filter section start here -->
@@ -338,19 +376,19 @@ Contact history
                 <div class="govuk-grid-column-one-third">
                   <span class="govuk-caption-m">Caller</span>
                   <div>
-                    <span class="govuk-body govuk-!-font-weight-bold">Jane Doe (Appointee)</span>
+                    <span class="govuk-body govuk-!-font-weight-bold break-line-colleague-view">Jane Doe (Appointee)</span>
                   </div>
                 </div>
                 <div class="govuk-grid-column-one-third">
                   <span class="govuk-caption-m">Call taken by</span>
                   <div>
-                    <span class="govuk-body govuk-!-font-weight-bold">Agent (1003)</span>
+                    <span class="govuk-body govuk-!-font-weight-bold break-line-colleague-view">Agent (1003)</span>
                   </div>
                 </div>
                 <div class="govuk-grid-column-one-third">
                   <span class="govuk-caption-m">Length of call</span>
                   <div>
-                    <span class="govuk-body govuk-!-font-weight-bold">15 Minutes</span>
+                    <span class="govuk-body govuk-!-font-weight-bold break-line-colleague-view">15 Minutes</span>
                   </div>
                 </div>
               </div>
