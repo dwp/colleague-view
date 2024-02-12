@@ -325,34 +325,34 @@
         </div>
 
         {% if data['paymentTableData'].length > 0%}
-          <div id="default-table">          
+          <div id="default-table" class="govuk-cv-overflow">          
             <table class="govuk-table">
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
-                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Due Date</th>
-                <th scope="col" class="govuk-table__header ">Status</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
-                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              {% for item in data['paymentTableData'] %}
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">{{item.benefit}}</th>
-                <td class="govuk-table__cell">{{item.dueData}}</td>
-                <td class="govuk-table__cell">{{item.status}}</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric">{{item.award}}</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric">{{item.deduction}}</td>
-                <td class="govuk-table__cell govuk-table__cell--numeric">{{item.amount}}</td>
-              </tr>
-              {%endfor%}
-            </tbody>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
+                  <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Due Date</th>
+                  <th scope="col" class="govuk-table__header ">Status</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                {% for item in data['paymentTableData'] %}
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">{{item.benefit}}</th>
+                  <td class="govuk-table__cell">{{item.dueData}}</td>
+                  <td class="govuk-table__cell">{{item.status}}</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">{{item.award}}</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">{{item.deduction}}</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">{{item.amount}}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
             </table>
           </div>
         {% else %}
-        <div id="default-table">          
+        <div id="default-table" class="govuk-cv-overflow">          
           <table class="govuk-table">
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
@@ -539,30 +539,32 @@
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">Components</dt>
                       <dd class="govuk-summary-list__value">
-                        <table class="govuk-table">
-                          <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                              <th scope="col" class="govuk-table__header">Component</th>
-                              <th scope="col" class="govuk-table__header">Amount</th>
-                              <th scope="col" class="govuk-table__header">Rate</th><th scope="col" class="govuk-table__header">Start date</th>
-                              <th scope="col" class="govuk-table__header">End date</th>
-                            </tr>
-                          </thead>
-                          <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                              <td class="govuk-table__cell">Daily living</td>
-                              <td class="govuk-table__cell">£329.20</td>
-                              <td class="govuk-table__cell">Standard</td><td class="govuk-table__cell">08 November 2020</td>
-                              <td class="govuk-table__cell">02 December 2023</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                              <td class="govuk-table__cell">Mobility</td>
-                              <td class="govuk-table__cell">£229.80</td>
-                              <td class="govuk-table__cell">Enhanced</td><td class="govuk-table__cell">08 November 2020</td>
-                              <td class="govuk-table__cell">02 December 2023</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <div class="govuk-cv-overflow">
+                          <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                              <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Component</th>
+                                <th scope="col" class="govuk-table__header">Amount</th>
+                                <th scope="col" class="govuk-table__header">Rate</th><th scope="col" class="govuk-table__header">Start date</th>
+                                <th scope="col" class="govuk-table__header">End date</th>
+                              </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Daily living</td>
+                                <td class="govuk-table__cell">£329.20</td>
+                                <td class="govuk-table__cell">Standard</td><td class="govuk-table__cell">08 November 2020</td>
+                                <td class="govuk-table__cell">02 December 2023</td>
+                              </tr>
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Mobility</td>
+                                <td class="govuk-table__cell">£229.80</td>
+                                <td class="govuk-table__cell">Enhanced</td><td class="govuk-table__cell">08 November 2020</td>
+                                <td class="govuk-table__cell">02 December 2023</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -691,30 +693,32 @@
                         Components
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        <table class="govuk-table">
-                          <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                              <th scope="col" class="govuk-table__header">Components</th>
-                              <th scope="col" class="govuk-table__header">Amount</th>
-                              <th scope="col" class="govuk-table__header">Start date</th>
-                              <th scope="col" class="govuk-table__header">End date</th>
-                            </tr>
-                          </thead>
-                          <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                              <td class="govuk-table__cell">Personal allowance</td>
-                              <td class="govuk-table__cell">£154.00</td>
-                              <td class="govuk-table__cell">11 May 2023</td>
-                              <td class="govuk-table__cell">10 May 2024</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                              <td class="govuk-table__cell">Client group premium</td>
-                              <td class="govuk-table__cell">£39.10</td>
-                              <td class="govuk-table__cell">11 May 2023</td>
-                              <td class="govuk-table__cell">10 May 2024</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                        <div class="govuk-cv-overflow">
+                          <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                              <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Components</th>
+                                <th scope="col" class="govuk-table__header">Amount</th>
+                                <th scope="col" class="govuk-table__header">Start date</th>
+                                <th scope="col" class="govuk-table__header">End date</th>
+                              </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Personal allowance</td>
+                                <td class="govuk-table__cell">£154.00</td>
+                                <td class="govuk-table__cell">11 May 2023</td>
+                                <td class="govuk-table__cell">10 May 2024</td>
+                              </tr>
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Client group premium</td>
+                                <td class="govuk-table__cell">£39.10</td>
+                                <td class="govuk-table__cell">11 May 2023</td>
+                                <td class="govuk-table__cell">10 May 2024</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                         </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -837,26 +841,26 @@
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">Components</dt>
                       <dd class="govuk-summary-list__value">
-                        <table class="govuk-table">
-                              
-                              <thead class="govuk-table__head">
-                                <tr class="govuk-table__row">
-                                  <th scope="col" class="govuk-table__header">Components</th>
-                                  <th scope="col" class="govuk-table__header">Amount</th>
-                                  <th scope="col" class="govuk-table__header">Start date</th>
-                                  <th scope="col" class="govuk-table__header">End date</th>
-                                </tr>
-                              </thead>
-                              <tbody class="govuk-table__body">
-                                <tr class="govuk-table__row">
-                                  <td class="govuk-table__cell">Carer allowance</td>
-                                  <td class="govuk-table__cell">£278.80</td>
-                                  <td class="govuk-table__cell">23 June 2023</td>
-                                  <td class="govuk-table__cell">No end date</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                        
+                        <div class="govuk-cv-overflow">
+                          <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                              <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Components</th>
+                                <th scope="col" class="govuk-table__header">Amount</th>
+                                <th scope="col" class="govuk-table__header">Start date</th>
+                                <th scope="col" class="govuk-table__header">End date</th>
+                              </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Carer allowance</td>
+                                <td class="govuk-table__cell">£278.80</td>
+                                <td class="govuk-table__cell">23 June 2023</td>
+                                <td class="govuk-table__cell">No end date</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       </dd>
                     </div><div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
@@ -866,30 +870,7 @@
                         £0.00
                       </dd>
                     </div>
-                    <!-- <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Estimated next payment amount
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £278.80
-                      </dd>
-                    </div> -->
-                    <!-- <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last payment date
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        21 July 2023
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last payment amount
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £278.80
-                      </dd>
-                    </div> -->
+                    
                   </dl>
                 </div>
               </div>
