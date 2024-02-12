@@ -34,36 +34,37 @@ Contact history
   <div class="govuk-grid-column-full">
     <h1 class="govuk-heading-xl">Contact history</h1>
     <div class="govuk-tabs" data-module="govuk-tabs">
-        <h2 class="govuk-tabs__title">
-          Contents
-        </h2>
-        <!-- Tab button here -->
-        <ul class="govuk-tabs__list">
-          <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-            <a class="govuk-tabs__tab" href="#add-to-contact-history">
-              Add to contact history
-            </a>
-          </li>
-          <li class="govuk-tabs__list-item">
-            <a class="govuk-tabs__tab" href="#view">
-              View contact history
-            </a>
-          </li>
-        </ul>
-        <!-- Tab1 content start here -->
-        <div class="govuk-tabs__panel" id="add-to-contact-history">
-          <h2 class="govuk-heading-l">Add to contact history</h2>
-          <h2 class="govuk-heading-s govuk-!-padding-bottom-3 {{displayCallLoggedMessage}}">You have not added anything to the contact history during this call</h2>
-          <form action="contact-history/benefits-discussed" method="post" novalidate>
-            <button class="govuk-button" data-module="govuk-button" onclick="alert(global_var['a']['b']);">
-              Add to contact history
-            </button>
-          </form>
-          <!-- call loged summary -->
-          <div class="govuk-!-margin-top-5 {{displayCallLogged}}">
-            <h3 class="govuk-heading-s">
-              You have added this information to the contact history during this call.
-            </h3>
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <!-- Tab button here -->
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#add-to-contact-history">
+            Add to contact history
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#view">
+            View contact history
+          </a>
+        </li>
+      </ul>
+      <!-- Tab1 content start here -->
+      <div class="govuk-tabs__panel" id="add-to-contact-history">
+        <h2 class="govuk-heading-l">Add to contact history</h2>
+        <h2 class="govuk-heading-s govuk-!-padding-bottom-3 {{displayCallLoggedMessage}}">You have not added anything to the contact history during this call</h2>
+        <form action="contact-history/benefits-discussed" method="post" novalidate>
+          <button class="govuk-button" data-module="govuk-button" onclick="alert(global_var['a']['b']);">
+            Add to contact history
+          </button>
+        </form>
+        <!-- call loged summary -->
+        <div class="govuk-!-margin-top-5 {{displayCallLogged}}">
+          <h3 class="govuk-heading-s">
+            You have added this information to the contact history during this call.
+          </h3>
+          <div class="govuk-cv-overflow"> 
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -104,12 +105,13 @@ Contact history
               </tbody>
             </table>
           </div>
-
         </div>
-        <!-- Tab2 content start here -->
-        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view">
-          <div id="showContactHistory-bydefault">
-            <h2 class="govuk-heading-l">View contact history</h2>
+
+      </div>
+      <!-- Tab2 content start here -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view">
+        <div id="showContactHistory-bydefault">
+          <h2 class="govuk-heading-l">View contact history</h2>
           <!-- Filter section start here -->
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
             Show filter
@@ -274,7 +276,8 @@ Contact history
                 </div>
             </div>
           </form>
-            <!-- data table -->
+          <!-- data table -->
+          <div class="govuk-cv-overflow">
             <table class="govuk-table">
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -305,30 +308,31 @@ Contact history
                 </tr>
               </tbody>
             </table>
-            <!-- table pagination -->
-            <nav class="moj-pagination" aria-label="Pagination navigation">
-              <ul class="moj-pagination__list govuk-visually-hidden">
-                <!-- <li class="moj-pagination__item  moj-pagination__item--prev">
-                  <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
-                </li> -->
-        
-                <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1 of 30" aria-current="page">1</li>
-
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 1 of 30">2</a></li>
-      
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 3 of 30">3</a></li>
-        
-                <li class="moj-pagination__item moj-pagination__item--dots">…</li>
-        
-                <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 5 of 30">5</a></li>
-        
-                <li class="moj-pagination__item  moj-pagination__item--next">
-                  <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
-                </li>
-              </ul>
-              <p class="moj-pagination__results">Showing <b>01</b> to <b>01</b> of <b>01</b> page</p>
-            </nav>
           </div>
+          <!-- table pagination -->
+          <nav class="moj-pagination" aria-label="Pagination navigation">
+            <ul class="moj-pagination__list govuk-visually-hidden">
+              <!-- <li class="moj-pagination__item  moj-pagination__item--prev">
+                <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+              </li> -->
+      
+              <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1 of 30" aria-current="page">1</li>
+
+              <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 1 of 30">2</a></li>
+    
+              <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 3 of 30">3</a></li>
+      
+              <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+      
+              <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 5 of 30">5</a></li>
+      
+              <li class="moj-pagination__item  moj-pagination__item--next">
+                <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
+              </li>
+            </ul>
+            <p class="moj-pagination__results">Showing <b>01</b> to <b>01</b> of <b>01</b> page</p>
+          </nav>
+        </div>
           <!-- contact details section -->
           <div class="govuk-visually-hidden" id="showCtDetails">
             <a class="govuk-back-link" href="javascript:void(0);" onclick="showContactHistory();">Back</a>
@@ -399,7 +403,7 @@ Contact history
               <h2 class="govuk-heading-m">Monday 17 Oct 2023, 13:18</h2>
             </div>
          </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
