@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Display error message - prototype
+{% endblock %}
+
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "extra-scenarios/error-handling/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="../index">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Tech-error</span>
+    <h1 class="govuk-heading-l">Success API call, No data available</h1>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Screen</th>
+          <th scope="col" class="govuk-table__header">Validation rule</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Personal details</td>
+          <td class="govuk-table__cell">No data available for Correspondence address</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="data-not-available-2#dataNotAvailable" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Upcoming payments</td>
+          <td class="govuk-table__cell">When there is no data available from SAS API</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="data-not-available-3#estimated-payment" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
