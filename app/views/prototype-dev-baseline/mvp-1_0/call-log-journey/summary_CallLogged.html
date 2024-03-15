@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner--user-research.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -70,11 +71,13 @@
         </table>
 
         <div class="govuk-!-margin-bottom-8 govuk-!-margin-top-8">
-          <h2 class="govuk-heading-m ">More information about this call</h2>
-          <p class="govuk-body govuk-!-margin-bottom-2">{{notes or "Not provided"  }} </p> 
-          <p class="govuk-body">
-            <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-          </p> 
+          <div class="govuk-inset-text">
+            <h2 class="govuk-heading-s">More information about this call</h2>
+            <p class="govuk-body govuk-!-margin-bottom-2">{{notes or "Not provided"  }} </p> 
+            <p class="govuk-body">
+              <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+            </p> 
+          </div>
         </div>
 
         <!-- add more beneft/reason -->

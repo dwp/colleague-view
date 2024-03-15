@@ -6,7 +6,7 @@ Homepage
 
 
 {% block header %}
-  {% include "prototype-dev-baseline/common/opt2/header-navigation_home-active.html" %}
+  {% include "prototype-dev-baseline/common/header.html" %}
   {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
@@ -18,12 +18,12 @@ Homepage
 {% block beforeContent %}
   {% include "prototype-dev-baseline/common/phase-banner--user-research.html" %}
   <div class="govuk-breadcrumbs">
-  <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
-    </li>
-  </ol>
-  </div>
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="home-page">Home</a>
+        </li>
+    </ol>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -36,7 +36,7 @@ Homepage
         </div>
         <div class="govuk-grid-column-one-third govuk-!-text-align-right">
           <form action="call-log-journey/selectBenefit" method="post">
-            <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            <button class="govuk-button {{hideAddNote}}" data-module="govuk-button" onclick="global_var['a']['b']=1;">
               Add or view call details
             </button>
           </form>
