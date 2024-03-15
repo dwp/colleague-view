@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Error: What questions did the caller ask about Employment and Support Allowance?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="../../questionAnswered" method="post" novalidate>
+          <div class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">
+                There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  <li>
+                    <a href="#npd_resolved">Please select an option for next payment date</a>
+                  </li>
+                  <li>
+                    <a href="#npa_resolved">Please select an option for next payment amount</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-form-group govuk-form-group--error">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  What questions did the caller ask about {{ data['whichBenefitDiscussed'] }}?
+                </h1>
+              </legend>
+              <div id="countries-hint" class="govuk-hint">
+                Select all that apply.
+              </div>
+              <p id="nationality-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Select any option for payment reason.
+              </p>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nextPaymentDate" name="questionAsk" type="checkbox" value="Next payment date" {{ checked ('questionAsk', 'Next payment date') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
+                    Next payment date
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nextPaymentAmount" name="questionAsk" type="checkbox" value="Next payment amount" {{ checked ('questionAsk', 'Next payment amount') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentAmount">
+                    Next payment amount
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="missingPayment" name="questionAsk" type="checkbox" value="Missing payment" {{ checked ('questionAsk', 'Missing payment') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="missingPayment">
+                    Missing payment
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="reasonForChange" name="questionAsk" type="checkbox" value="Change in payment amount" {{ checked ('questionAsk', 'Change in payment amount') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="reasonForChange">
+                    Change in payment amount
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__divider">or</div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="somethingElse" name="questionAsk" type="checkbox" value="Something else" data-behaviour="exclusive" {{ checked ('questionAsk_esa', 'Something else') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+                    Something else
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

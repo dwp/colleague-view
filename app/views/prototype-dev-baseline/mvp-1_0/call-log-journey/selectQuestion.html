@@ -14,6 +14,7 @@ What questions did the caller ask about Employment and Support Allowance?
 {% endblock %}
 
 {% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner--user-research.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -24,7 +25,7 @@ What questions did the caller ask about Employment and Support Allowance?
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
+                <h1 class="govuk-fieldset__heading govuk-heading-l">
                   What questions did the caller ask about {{ data['whichBenefitDiscussed'] }}?
                 </h1>
               </legend>

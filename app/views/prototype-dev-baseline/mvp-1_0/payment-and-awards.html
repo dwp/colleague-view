@@ -4,11 +4,11 @@
   Payments and Awards
 {% endblock %}
 
+
 {% block header %}
-  {% include "prototype-dev-baseline/common/opt2/header-navigation_PaymentandAwards-active.html" %}
+  {% include "prototype-dev-baseline/common/header.html" %}
   {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
 {% endblock %}
-
 
 {% block footer %}
   {% include "prototype-dev-baseline/common/footer.html" %}
@@ -17,16 +17,17 @@
 
 {% block beforeContent %}
   {% include "prototype-dev-baseline/common/phase-banner--user-research.html" %}
-<div class="govuk-breadcrumbs">
-<ol class="govuk-breadcrumbs__list">
-  <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
-  </li>
-  <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="#">Payments and awards</a>
-  </li>
-</ol>
-</div>
+  <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Payments and awards</a>
+      </li>
+    </ol>
+  </div>
 {% endblock %}
 
 {% block content %}
@@ -53,7 +54,7 @@
       <ul class="govuk-tabs__list">
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
           <a class="govuk-tabs__tab" href="#upcoming-payments">
-            Upcoming payments
+            Next payments
           </a>
         </li>
         <li class="govuk-tabs__list-item">
@@ -69,7 +70,7 @@
       </ul>
       <!-- TAB-1 start here -->
       <div class="govuk-tabs__panel" id="upcoming-payments">
-        <h2 class="govuk-heading-l">Confirmed payments</h2>
+        <h2 class="govuk-heading-l">Next payments</h2>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
               <div class="govuk-grid-row">
@@ -80,7 +81,7 @@
                         <span class="gem-c-big-number__label">
                           Personal Independence Payment
                         </span>
-                        <div class="gem-c-big-number__value govuk-!-font-size-48 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
+                        <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
                           £479.00
                         </div>
                         <span class="govuk-body">is on 14 August 2023</span> <br/>
@@ -128,7 +129,7 @@
                         <span class="gem-c-big-number__label">
                           Employment and Support Allowance
                         </span>
-                        <div class="gem-c-big-number__value govuk-!-font-size-48 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
+                        <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
                           £184.13
                         </div>
                         <span class="govuk-body">is on 15 August 2023</span> <br/>
@@ -172,21 +173,18 @@
               </div>
             </div>
           </div>
-          <div class="govuk-grid-row govuk-!-margin-top-5">
+          <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
-              <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Estimated payments</h2>
               <div class="govuk-grid-row">
                 <div class="govuk-grid-column-one-half">
                   <div class="nhsuk-card">
                     <div class="nhsuk-card__content">
-                      <div class="gem-c-big-number">
-                          <span class="gem-c-big-number__label">
-                            Carer's Allowance
-                          </span>
-                          <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
-                            £278.80 <span class="govuk-body"> (estimated)</span>
-                          </div>
-                          <span class="govuk-body">Date to be confirmed</span>
+                      <div class="govuk-warning-text govuk-!-padding-0">
+                        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                        <strong class="govuk-warning-text__text">
+                          <span class="govuk-visually-hidden">Warning</span>
+                          The next payment amount and date for Carer's Allowance (CA) is not confirmed. Check again later.
+                        </strong>
                       </div>
                     </div>
                   </div>
@@ -292,7 +290,7 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Benefit</th>
-                <th scope="col" class="govuk-table__header">Due Date</th>
+                <th scope="col" class="govuk-table__header">Due date</th>
                 <th scope="col" class="govuk-table__header ">Status</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
@@ -319,7 +317,7 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Benefit</th>
-                <th scope="col" class="govuk-table__header">Due Date</th>
+                <th scope="col" class="govuk-table__header">Due date</th>
                 <th scope="col" class="govuk-table__header ">Status</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
@@ -413,13 +411,12 @@
         {%endif%}
         <nav class="moj-pagination" aria-label="Pagination navigation" role="navigation">
           <ul class="moj-pagination__list">
-            <li class="moj-pagination__item  moj-pagination__item--prev">
+            <!-- <li class="moj-pagination__item  moj-pagination__item--prev">
               <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
-            </li>
+            </li> -->
+            <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1" aria-current="page">1</a></li>
 
-            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 1">1</a></li>
-
-            <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2" aria-current="page">2</a></li>
+            <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 2">2</a></li>
 
             <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 3">3</a></li>
 
@@ -492,7 +489,7 @@
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount
+                        Amount before deductions
                       </dt>
                       <dd class="govuk-summary-list__value">
                         £559.00
@@ -642,7 +639,7 @@
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount
+                        Amount before deductions
                       </dt>
                       <dd class="govuk-summary-list__value">
                         £193.10
@@ -746,6 +743,13 @@
                   </h3>
                 </div>
                 <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                  <div class="govuk-warning-text govuk-!-padding-0 govuk-!-width-two-thirds">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The next payment amount and date for Carer's Allowance (CA) is not confirmed. Check again later.
+                    </strong>
+                  </div>
                   <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
@@ -789,7 +793,7 @@
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount
+                        Amount before deductions
                       </dt>
                       <dd class="govuk-summary-list__value">
                         £278.80

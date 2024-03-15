@@ -4,11 +4,11 @@
 Christopher Fox's details
 {% endblock %}
 
+
 {% block header %}
-  {% include "prototype-dev-baseline/common/opt2/header-navigation_PersonalDetails-active.html" %}
+  {% include "prototype-dev-baseline/common/header.html" %}
   {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
 {% endblock %}
-
 
 {% block footer %}
   {% include "prototype-dev-baseline/common/footer.html" %}
@@ -17,15 +17,16 @@ Christopher Fox's details
 
 {% block beforeContent %}
 {% include "prototype-dev-baseline/common/phase-banner--user-research.html" %}
+<!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
 <div class="govuk-breadcrumbs">
-<ol class="govuk-breadcrumbs__list">
-  <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
-  </li>
-  <li class="govuk-breadcrumbs__list-item">
-    <a class="govuk-breadcrumbs__link" href="#">Personal details</a>
-  </li>
-</ol>
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Personal details</a>
+    </li>
+  </ol>
 </div>
 {% endblock %}
 
@@ -59,16 +60,7 @@ Christopher Fox's details
           Date of birth
         </dt>
         <dd class="govuk-summary-list__value">
-          <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                Show date of birth
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              15 October 1977
-            </div>
-          </details>
+          15 October 1977
         </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -77,7 +69,6 @@ Christopher Fox's details
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['national-insurance-number-sprint23-opt2'] | upper  }}
-            
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -85,16 +76,7 @@ Christopher Fox's details
             Nationality
           </dt>
           <dd class="govuk-summary-list__value">
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Show nationality
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                British citizen
-              </div>
-            </details>
+            British citizen
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -102,16 +84,7 @@ Christopher Fox's details
             Home address
           </dt>
           <dd class="govuk-summary-list__value">
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Show home address
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
-              </div>
-            </details>
+            5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -119,75 +92,32 @@ Christopher Fox's details
             Benefits Christopher Fox gets
           </dt>
           <dd class="govuk-summary-list__value">
-            <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Carer's Allowance (CA)
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <table class="govuk-table">
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">Start date</th>
-                      <th scope="col" class="govuk-table__header">End date</th>
-                    </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell">23 June 2023</td>
-                      <td class="govuk-table__cell">No end date</td>
-                    </tr>
-                  </tbody>
-              </table>
-              </div>
-            </details>
-            <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Employment and Support Allowance (ESA)
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <table class="govuk-table">
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">Start date</th>
-                      <th scope="col" class="govuk-table__header">End date</th>
-                    </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell">11 May 2023</td>
-                      <td class="govuk-table__cell">10 May 2024</td>
-                    </tr>
-                  </tbody>
-              </table>
-              </div>
-            </details>
-            <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Personal Independence Payment (PIP)
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <table class="govuk-table">
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">Start date</th>
-                      <th scope="col" class="govuk-table__header">End date</th>
-                    </tr>
-                  </thead>
-                  <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <td class="govuk-table__cell">08 November 2020</td>
-                      <td class="govuk-table__cell">02 December 2023</td>
-                    </tr>
-                  </tbody>
-              </table>
-              </div>
-            </details>
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Benefit</th>
+                  <th scope="col" class="govuk-table__header">Start date</th>
+                  <th scope="col" class="govuk-table__header">End date</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Carer's Allowance</td>
+                  <td class="govuk-table__cell">23 June 2023</td>
+                  <td class="govuk-table__cell">No end date</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Employment and Support Allowance</td>
+                  <td class="govuk-table__cell">11 May 2023</td>
+                  <td class="govuk-table__cell">10 May 2024</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">Personal Independence Payment</td>
+                  <td class="govuk-table__cell">08 November 2020</td>
+                  <td class="govuk-table__cell">02 December 2023</td>
+                </tr>
+              </tbody>
+            </table>
           </dd>
         </div>
       </dl>
@@ -198,18 +128,9 @@ Christopher Fox's details
           Mobile numbers
         </dt>
         <dd class="govuk-summary-list__value">
-          <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                Show mobile numbers
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              <div class="govuk-body govuk-body">07700 900 000</div>
-              <div class="govuk-body govuk-body">07700 900 457</div>
-              <div class="govuk-body govuk-body govuk-!-margin-bottom-0">+1 123 1231234</div>
-            </div>
-          </details>
+          <div class="govuk-body govuk-body">07700 900 000</div>
+          <!-- <div class="govuk-body govuk-body">07700 900 457</div>
+          <div class="govuk-body govuk-body govuk-!-margin-bottom-0">+1 123 1231234</div> -->
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -217,18 +138,9 @@ Christopher Fox's details
           Landline numbers
         </dt>
         <dd class="govuk-summary-list__value">
-          <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                Show landline numbers
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              <div class="govuk-body govuk-body">020 1234 1234</div>
-              <div class="govuk-body govuk-body">0117 123 1234</div>
-              <div class="govuk-body govuk-body govuk-!-margin-bottom-0">01234 123 123</div>
-            </div>
-          </details>
+          <div class="govuk-body govuk-body">020 1234 1234</div>
+          <!-- <div class="govuk-body govuk-body">0117 123 1234</div>
+          <div class="govuk-body govuk-body govuk-!-margin-bottom-0">01234 123 123</div> -->
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -236,19 +148,13 @@ Christopher Fox's details
           Address we can send letters to
         </dt>
         <dd class="govuk-summary-list__value">
-          <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-              <span class="govuk-details__summary-text">
-                Show address we can send letters to 
-              </span>
-            </summary>
-            <div class="govuk-details__text">
-              5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
-            </div>
-          </details>
+          5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
         </dd>
       </div>
       </dl>
+      <p class="govuk-body">
+        <a href="home-page" class="govuk-link">Back to home</a>
+      </p>
   </div>
 </div>
 

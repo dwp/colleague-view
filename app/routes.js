@@ -8,8 +8,8 @@ const moment = require('moment');
 const data = require('./views/prototype-sprint-wise/sprint23/opt2/data.json');
 const paymentData = require('./views/prototype-sprint-wise/sprint23/opt2/payment-data.json');
 
-const dataMVP10 = require('./views/prototype-dev-baseline/mvp-1_0/data.json');
-const paymentDataMVP10 = require('./views/prototype-dev-baseline/mvp-1_0/payment-data.json');
+const dataMVP1_0 = require('./views/prototype-dev-baseline/mvp-1_0/data.json');
+const paymentDataMVP1_0 = require('./views/prototype-dev-baseline/mvp-1_0/payment-data.json');
 
 
 // Add your routes here - above the module.exports line
@@ -9279,56 +9279,92 @@ router.get('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/contact-history', f
 
 // this is for NINO number
 router.post('/prototype-dev-baseline/mvp-1_0/index', function (req, res) {
-  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
+  req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   res.redirect('/prototype-dev-baseline/mvp-1_0/index');
 })
 
-router.post('/prototype-dev-baseline/mvp-1_0/call-type', function (req, res) {
-  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
-  req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
-  req.session.data['Who-is-the-engagement-with'] = '';
-  req.session.data['Do-you-want-to-complete-the-session'] = '';
-  req.session.data['What-services-have-they-called-about'] = '';
-  req.session.data['esaPayment'] = '';
-  req.session.data['pipPayment'] = '';
-  req.session.data['caPayment'] = '';
-  req.session.data['ca-payment'] = '';
-  req.session.data['esa-payment'] = '';
-  req.session.data['pip-payment'] = '';
-  req.session.data['esa-process-chasing'] = '';
-  req.session.data['pip-process-chasing'] = '';
-  req.session.data['ca-process-chasing'] = '';
-  req.session.data['esa-coc'] = '';
-  req.session.data['pip-coc'] = '';
-  req.session.data['ca-coc'] = '';
-  req.session.data['esa-general'] = '';
-  req.session.data['pip-general'] = '';
-  req.session.data['ca-general'] = '';
-  req.session.data.outcomePage ='';
-  req.session.data.notes = '';
-  req.session.data.tableValue = '';
+// router.post('/prototype-dev-baseline/mvp-1_0/call-type', function (req, res) {
+//   req.session.data['What-type-of-contact'] = '';
+//   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
+//   req.session.data['Who-is-the-engagement-with'] = '';
+//   req.session.data['Do-you-want-to-complete-the-session'] = '';
+//   req.session.data['What-services-have-they-called-about'] = '';
+//   req.session.data['esaPayment'] = '';
+//   req.session.data['pipPayment'] = '';
+//   req.session.data['caPayment'] = '';
+//   req.session.data['ca-payment'] = '';
+//   req.session.data['esa-payment'] = '';
+//   req.session.data['pip-payment'] = '';
+//   req.session.data['esa-process-chasing'] = '';
+//   req.session.data['pip-process-chasing'] = '';
+//   req.session.data['ca-process-chasing'] = '';
+//   req.session.data['esa-coc'] = '';
+//   req.session.data['pip-coc'] = '';
+//   req.session.data['ca-coc'] = '';
+//   req.session.data['esa-general'] = '';
+//   req.session.data['pip-general'] = '';
+//   req.session.data['ca-general'] = '';
+//   req.session.data.outcomePage ='';
+//   req.session.data.notes = '';
+//   req.session.data.tableValue = '';
 
-if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ 12 34 56 Q') {
-  // Send user to next page
-  res.render('prototype-dev-baseline/mvp-1_0/call-type');
-} else {
-  var errMsg = "";
-  if (req.session.data['national-insurance-number-sprint23-opt2'] == '' || req.session.data['national-insurance-number-sprint23-opt2'] == undefined) {
-    errMsg = "Enter the customer's National Insurance number";
-  } else {
-    errMsg = "Enter the customer's National Insurance number in the correct format";
-  }
-  // Send user to error page
-  res.render('prototype-dev-baseline/mvp-1_0/showValidationMsg/error-NINO-number', { "errMsg": errMsg });
-}
-})
+// if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ 12 34 56 Q') {
+//   // Send user to next page
+//   res.render('prototype-dev-baseline/mvp-1_0/call-type');
+// } else {
+//   var errMsg = "";
+//   if (req.session.data['national-insurance-number-sprint23-opt2'] == '' || req.session.data['national-insurance-number-sprint23-opt2'] == undefined) {
+//     errMsg = "Enter the customer's National Insurance number";
+//   } else {
+//     errMsg = "Enter the customer's National Insurance number in the correct format";
+//   }
+//   // Send user to error page
+//   res.render('prototype-dev-baseline/mvp-1_0/showValidationMsg/error-NINO-number', { "errMsg": errMsg });
+// }
+// })
 
 // this is for radio selection
 
-router.post('/prototype-dev-baseline/mvp-1_0/call-with', function (req, res) {
-  req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] = '';
+
+
+
+
+// router.post('/prototype-dev-baseline/mvp-1_0/call-with', function (req, res) {
+
+//   var hideCompleteCall = 'govuk-!-display-block';
+//   var hideKeyDatailInfo = 'govuk-!-display-block';
+//   var hideAddNote = 'govuk-!-display-block';
+
+//   if (req.session.data['What-type-of-contact'] == 'Telephone') {
+      
+//     res.render('prototype-dev-baseline/mvp-1_0/call-with');
+//   } else {
+//     if (req.session.data['What-type-of-contact'] == 'A different type of contact') {
+
+//       hideCompleteCall = 'govuk-!-display-none';
+//       hideKeyDatailInfo = 'govuk-!-display-none';
+//       res.render('prototype-dev-baseline/mvp-1_0/home-page', { 
+//         "hideCompleteCall": hideCompleteCall,
+//         "hideKeyDatailInfo": hideKeyDatailInfo,
+//       });
+//     } else {
+//       hideCompleteCall = 'govuk-!-display-none';
+//       hideAddNote = 'govuk-!-display-none';
+//       hideKeyDatailInfo = 'govuk-!-display-none';
+//       res.render('prototype-dev-baseline/mvp-1_0/home-page', { 
+//         "hideCompleteCall": hideCompleteCall,
+//         "hideKeyDatailInfo": hideKeyDatailInfo,
+//         "hideAddNote": hideAddNote,
+//       });
+//     }
+//   }
+// });
+
+
+router.post('/prototype-dev-baseline/mvp-1_0/why-you-checking-benefit-Info', function (req, res) {
+  req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
@@ -9354,7 +9390,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-with', function (req, res) {
 
 if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ 12 34 56 Q') {
   // Send user to next page
-  res.render('prototype-dev-baseline/mvp-1_0/call-with');
+  res.render('prototype-dev-baseline/mvp-1_0/why-you-checking-benefit-Info');
 } else {
   var errMsg = "";
   if (req.session.data['national-insurance-number-sprint23-opt2'] == '' || req.session.data['national-insurance-number-sprint23-opt2'] == undefined) {
@@ -9367,18 +9403,20 @@ if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' |
 }
 })
 
-// router.post('/prototype-dev-baseline/mvp-1_0/call-with', function (req, res) {
 
-// req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
+router.post('/prototype-dev-baseline/mvp-1_0/view-only-user/home-page', function (req, res) {
 
-// if (req.session.data['What-type-of-engagement-is-it-sprint23-opt2'] == '') {
-//     // Send user to error page
-//     res.redirect('/prototype-dev-baseline/mvp-1_0/showValidationMsg/error-Call-Type');
-// } else{
-//   // Send user to next page
-//   res.redirect('/prototype-dev-baseline/mvp-1_0/call-with');
-// }
-// })
+  if (req.session.data['why-to-check-customer-inforomaton'] == '') { 
+    res.redirect('back');
+  } else {
+    if (req.session.data['why-to-check-customer-inforomaton'] == 'To view information only') { 
+      res.render('prototype-dev-baseline/mvp-1_0/view-only-user/home-page');   
+    } else {
+        res.render('prototype-dev-baseline/mvp-1_0/what-type-of-contact');
+      } 
+    }
+});
+
 
 router.post('/prototype-dev-baseline/mvp-1_0/account-Home', function (req, res) {
 
@@ -9389,9 +9427,15 @@ router.post('/prototype-dev-baseline/mvp-1_0/account-Home', function (req, res) 
     // res.redirect('/prototype-dev-baseline/mvp-1_0/showValidationMsg/error-Call-With');
     res.redirect('back');
 } else{
-  var b = "Incoming telephone call with";
+  if (req.session.data['What-type-of-contact'] == 'Telephone call'){
+    var b = "with";
+    req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = b + " " + contactType;
+    res.redirect('/prototype-dev-baseline/mvp-1_0/home-page');
+  } else{
+  var b = "with";
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = b + " " + contactType;
-  res.redirect('/prototype-dev-baseline/mvp-1_0/home-page');
+  res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page');
+}
 }
 })
 
@@ -9799,7 +9843,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/goToHome', function(req, res) {
 router.post('/prototype-dev-baseline/mvp-1_0/payment-and-awards',function(req,res){
   let paymentTableData;
   if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
-    paymentTableData = paymentData.data.filter((context) => {
+    paymentTableData = paymentDataMVP1_0.data.filter((context) => {
       context = req.body.benefit.includes(context.benefit);
       return context;
     });
@@ -9811,13 +9855,81 @@ router.post('/prototype-dev-baseline/mvp-1_0/payment-and-awards',function(req,re
     req.session.data.paymentTableFilterEsa = false;
     req.session.data.paymentTableFilterCa = false;
     req.session.data.paymentTableFilterPip = false;
-    req.session.data.paymentTableData = paymentData.data;
+    req.session.data.paymentTableData = paymentDataMVP1_0.data;
   }
   res.redirect('payment-and-awards#payment-history');
 });
 
 // Contact history filter code start here
 router.post('/prototype-dev-baseline/mvp-1_0/contact-history',function(req,res){
+
+  let fromDate; let toDate;
+  if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
+    fromDate = new Date(`${req.body['from-date-month']}/${req.body['from-date-day']}/${req.body['from-date-year']}`);
+    req.session.data.fromDay = parseInt(req.body['from-date-day']);
+    req.session.data.fromMonth = parseInt(req.body['from-date-month']);
+    req.session.data.fromYear = parseInt(req.body['from-date-year']);
+  }
+  if (req.body['to-date-day'] !== undefined && req.body['to-date-day'] !== '') {
+    toDate = new Date(`${req.body['to-date-month']}/${req.body['to-date-day']}/${req.body['to-date-year']} 23:59:59`);
+    req.session.data.toDay = parseInt(req.body['to-date-day']);
+    req.session.data.toMonth = parseInt(req.body['to-date-month']);
+    req.session.data.toYear = parseInt(req.body['to-date-year']);
+  }
+  let tableValue = dataMVP1_0.contacts.filter((context) => {
+    if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
+      context = new Date(context.createdDate) >= fromDate && new Date(context.createdDate) <= toDate;
+    }
+    return context;
+  });
+  if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
+    // console.log('Executing benefit logic: ',req.body.benefit);
+    tableValue = tableValue.filter((context) => {
+      context = req.body.benefit.includes(context.benefit);
+      return context;
+    });
+  }
+  tableValue.map((item)=>{
+    item.createdDate = moment(new Date(item.createdDate)).format('llll');
+  });
+  req.session.data.tableValue =tableValue;
+  req.session.data.fromDay = req.body['from-date-day']?req.body['from-date-day']:'';
+  req.session.data.fromMonth = req.body['from-date-month']?req.body['from-date-month']:'';
+  req.session.data.fromYear = req.body['from-date-year']?req.body['from-date-year']:'';
+ 
+  req.session.data.toDay = req.body['to-date-day']?req.body['to-date-day']:'';
+  req.session.data.toMonth = req.body['to-date-month']?req.body['to-date-month']:'';
+  req.session.data.toYear = req.body['to-date-year']?req.body['to-date-year']:'';
+
+  req.session.data.tableFilterEsa = req.body.benefit.includes('Employment and support Allowance')?true:false;
+  req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
+  req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
+  res.redirect('contact-history')
+})
+
+// Payment history 
+router.post('/prototype-dev-baseline/mvp-1_0/payment-and-awards',function(req,res){
+  let paymentTableData;
+  if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
+    paymentTableData = paymentDataMVP1_0.data.filter((context) => {
+      context = req.body.benefit.includes(context.benefit);
+      return context;
+    });
+    req.session.data.paymentTableData = paymentTableData;
+    req.session.data.paymentTableFilterEsa = req.body.benefit.includes('Employment and Support Allowance')?true:false;
+    req.session.data.paymentTableFilterCa = req.body.benefit.includes('Carer\'s Allowance')?true:false;
+    req.session.data.paymentTableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
+  }else{
+    req.session.data.paymentTableFilterEsa = false;
+    req.session.data.paymentTableFilterCa = false;
+    req.session.data.paymentTableFilterPip = false;
+    req.session.data.paymentTableData = paymentDataMVP1_0.data;
+  }
+  res.redirect('payment-and-awards#payment-history');
+});
+
+// Contact history filter code start here
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-history',function(req,res){
 
   let fromDate; let toDate;
   if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
@@ -9861,6 +9973,503 @@ router.post('/prototype-dev-baseline/mvp-1_0/contact-history',function(req,res){
   req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
   req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
   res.redirect('contact-history')
+})
+
+  // View only user --- Contact history filter code start here
+router.post('/prototype-dev-baseline/mvp-1_0/view-only-user/contact-history',function(req,res){
+
+  let fromDate; let toDate;
+  if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
+    fromDate = new Date(`${req.body['from-date-month']}/${req.body['from-date-day']}/${req.body['from-date-year']}`);
+    req.session.data.fromDay = parseInt(req.body['from-date-day']);
+    req.session.data.fromMonth = parseInt(req.body['from-date-month']);
+    req.session.data.fromYear = parseInt(req.body['from-date-year']);
+  }
+  if (req.body['to-date-day'] !== undefined && req.body['to-date-day'] !== '') {
+    toDate = new Date(`${req.body['to-date-month']}/${req.body['to-date-day']}/${req.body['to-date-year']} 23:59:59`);
+    req.session.data.toDay = parseInt(req.body['to-date-day']);
+    req.session.data.toMonth = parseInt(req.body['to-date-month']);
+    req.session.data.toYear = parseInt(req.body['to-date-year']);
+  }
+  let tableValue = data.contacts.filter((context) => {
+    if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
+      context = new Date(context.createdDate) >= fromDate && new Date(context.createdDate) <= toDate;
+    }
+    return context;
+  });
+  if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
+    // console.log('Executing benefit logic: ',req.body.benefit);
+    tableValue = tableValue.filter((context) => {
+      context = req.body.benefit.includes(context.benefit);
+      return context;
+    });
+  }
+  tableValue.map((item)=>{
+    item.createdDate = moment(new Date(item.createdDate)).format('llll');
+  });
+  req.session.data.tableValue =tableValue;
+  req.session.data.fromDay = req.body['from-date-day']?req.body['from-date-day']:'';
+  req.session.data.fromMonth = req.body['from-date-month']?req.body['from-date-month']:'';
+  req.session.data.fromYear = req.body['from-date-year']?req.body['from-date-year']:'';
+ 
+  req.session.data.toDay = req.body['to-date-day']?req.body['to-date-day']:'';
+  req.session.data.toMonth = req.body['to-date-month']?req.body['to-date-month']:'';
+  req.session.data.toYear = req.body['to-date-year']?req.body['to-date-year']:'';
+
+  req.session.data.tableFilterEsa = req.body.benefit.includes('Employment and support Allowance')?true:false;
+  req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
+  req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
+  res.redirect('contact-history')
+})
+
+
+
+// Contact log details fro A different contact type
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirmation-complete-session', function (req, res) {
+  // console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
+  if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirmation-complete-session');
+  }else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirmation-complete-session');
+  }if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirmation-complete-session');
+  }else {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/no-contactAdded');
+  }
+  });
+  // this is for radio selection for Session complete
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/engagement-log-journey/add-note', function (req, res) {
+
+  var addMore = req.session.data['add-another'];
+  
+  // Check whether the variable matches a condition
+  if (addMore == "Yes")  {
+    // Send user to next page
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/engagement-log-journey/add-note');
+  } else {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/engagement-log-journey/call-details-added-withoutNote');
+  }
+  });
+
+  // this is for radio selection for Session complete
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/engagement-log-journey/session-completed', function (req, res) {
+    var completeSession2 = req.session.data['Do-you-want-to-complete-the-session-opt2']
+  
+    // Check whether the variable matches a condition
+    if (completeSession2 == "Yes") {
+      // Send user to next page
+      res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/engagement-log-journey/what-service-called-about');
+    } else {
+      res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/engagement-log-journey/session-completed');
+    }
+  
+  });
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-history-ui',function(req,res){
+      res.render("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-history")
+  })
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit', function(req, res) {
+  req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['questionAsk'] = '';
+  req.session.data['npd_wasQuestionResolved'] = '';
+  req.session.data['npa_wasQuestionResolved'] = '';
+  req.session.data['ma_wasQuestionResolved'] = '';
+  req.session.data['chpa_wasQuestionResolved'] = '';
+  req.session.data['addNote'] = '';
+
+  if(req.session.data.outcomePage === ''){
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit');
+  } else {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/addAnother_Calllog');
+  }
+
+})
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectQuestion', function(req, res) {
+
+  let outcomePageData = [];
+  outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
+    // Send user to error page
+  if (req.session.data['whichBenefitDiscussed'] == '') {
+    // errMsg_Benefit = "Select which benefit did you discuss with the caller";
+    // res.render('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error', { "errMsg_Benefit": errMsg_Benefit });
+    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
+
+  } else if (req.session.data['whichBenefitDiscussed'] == 'A different benefit') {
+    outcomePageData.push({"benefit":"A different benefit",
+        "question":"Does not apply",
+        "result":"Does not apply"
+      });
+    req.session.data.outcomePage =outcomePageData;
+    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/add-Note")
+  } else {
+  res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectQuestion")
+  } 
+})
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/wasQuestionResolved', function(req, res) {
+
+    var isNpd = 'govuk-!-display-none';
+    var isNpa = 'govuk-!-display-none';
+    var isMp = 'govuk-!-display-none';
+    var isRfch = 'govuk-!-display-none';
+
+    if (req.session.data['questionAsk'].includes('Something else')) {
+      res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/noQuestion/askedClQ")
+    } else {
+      if(req.session.data['questionAsk'].includes('Next payment date')) {
+        isNpd = 'govuk-!-display-block';
+      }
+      if(req.session.data['questionAsk'].includes('Next payment amount')) {
+        isNpa = 'govuk-!-display-block';
+      }
+      if(req.session.data['questionAsk'].includes('Missing payment')) {
+        isMp = 'govuk-!-display-block';
+      }
+      if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+        isRfch = 'govuk-!-display-block';
+      }
+    
+    //All variable render here
+    res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/questionAnswered', {
+    "isNpd": isNpd,
+    "isNpa": isNpa,
+    "isMp": isMp,
+    "isRfch": isRfch,
+    })
+  }
+})
+
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswer', function(req, res) {
+
+  var isNpd = 'govuk-!-display-none';
+  var isNpa = 'govuk-!-display-none';
+  var isMp = 'govuk-!-display-none';
+  var isRfch = 'govuk-!-display-none';
+
+  if (req.session.data['questionAsk'].includes('Something else')) {
+    // res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/noQuestion/askedClQ")
+    // res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-Note")
+    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswer")
+  } else {
+    if(req.session.data['questionAsk'].includes('Next payment date')) {
+      isNpd = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk'].includes('Next payment amount')) {
+      isNpa = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk'].includes('Missing payment')) {
+      isMp = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+      isRfch = 'govuk-!-display-block';
+    }
+  
+  //All variable render here
+  res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswer', {
+  "isNpd": isNpd,
+  "isNpa": isNpa,
+  "isMp": isMp,
+  "isRfch": isRfch,
+  })
+}
+})
+
+
+// router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswer', function(req, res) {
+
+//     var isNpd = 'govuk-!-display-none';
+//     var isNpa = 'govuk-!-display-none';
+//     var isMp = 'govuk-!-display-none';
+//     var isRfch = 'govuk-!-display-none';
+//     var isSE = 'govuk-!-display-none';
+//     var isNpdResolved = '';
+//     var isNpaResolved = '';
+//     var isMaRresolved = '';
+//     var isRfchRresolved = '';
+
+//     if(req.session.data['questionAsk'].includes('Next payment date')) {
+//       isNpd = '';
+//     }
+//     if(req.session.data['questionAsk'].includes('Next payment amount')) {
+//       isNpa = '';
+//     }
+//     if(req.session.data['questionAsk'].includes('Missing payment')) {
+//       isMp = '';
+//     }
+//     if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+//       isRfch = '';
+//     }
+//     if(req.session.data['questionAsk'].includes('Something else')) {
+//       isSE = '';
+//     }
+//     if(req.session.data['npd_wasQuestionResolved'].includes('Not resolved')) {
+//       isNpdResolved = 'govuk-tag--grey';
+//     } 
+//     if(req.session.data['npa_wasQuestionResolved'].includes('Not resolved')) {
+//       isNpaResolved = 'govuk-tag--grey';
+//     }
+//     if(req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+//       isMaRresolved = 'govuk-tag--grey';
+//     }
+//     if(req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')) {
+//       isRfchRresolved = 'govuk-tag--grey';
+//     }
+
+//     // if (req.session.data['npd_wasQuestionResolved'] == '' || req.session.data['npa_wasQuestionResolved'] =='' || req.session.data['ma_wasQuestionResolved'] =='' || req.session.data['chpa_wasQuestionResolved'] =='') {
+//     if ((req.session.data['npd_wasQuestionResolved'].includes('Not resolved') || req.session.data['npd_wasQuestionResolved'].includes('Resolved')) || (req.session.data['npa_wasQuestionResolved'].includes('Not resolved') || req.session.data['npa_wasQuestionResolved'].includes('Resolved')) || (req.session.data['ma_wasQuestionResolved'].includes('Not resolved') || req.session.data['ma_wasQuestionResolved'].includes('Resolved')) || (req.session.data['chpa_wasQuestionResolved'].includes('Not resolved') || req.session.data['chpa_wasQuestionResolved'].includes('Resolved'))) {
+//       //All variable render here
+//         res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswer', {
+//           "isNpd": isNpd,
+//           "isNpa": isNpa,
+//           "isMp": isMp,
+//           "isRfch": isRfch,
+//           "isSE": isSE,
+//           "isNpdResolved": isNpdResolved,
+//           "isNpaResolved": isNpaResolved,
+//           "isMaRresolved": isMaRresolved,
+//           "isRfchRresolved": isRfchRresolved,
+//           })
+
+//     } else {
+//       //All variable render here
+//       res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/questionAnswered-Error', {
+//         "isNpd": isNpd,
+//         "isNpa": isNpa,
+//         "isMp": isMp,
+//         "isRfch": isRfch,
+//         "isSE": isSE,
+//         "isNpdResolved": isNpdResolved,
+//         "isNpaResolved": isNpaResolved,
+//         "isMaRresolved": isMaRresolved,
+//         "isRfchRresolved": isRfchRresolved,
+//         });
+//     }
+
+// })
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswer2', function(req, res) {
+  var isNpd = 'govuk-!-display-none';
+    var isNpa = 'govuk-!-display-none';
+    var isMp = 'govuk-!-display-none';
+    var isRfch = 'govuk-!-display-none';
+    var isSE = 'govuk-!-display-none';
+    var isNpdResolved = '';
+    var isNpaResolved = '';
+    var isMaRresolved = '';
+    var isRfchRresolved = '';
+
+    if(req.session.data['questionAsk'].includes('Next payment date')) {
+      isNpd = '';
+    }
+    if(req.session.data['questionAsk'].includes('Next payment amount')) {
+      isNpa = '';
+    }
+    if(req.session.data['questionAsk'].includes('Missing payment')) {
+      isMp = '';
+    }
+    if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+      isRfch = '';
+    }
+    if(req.session.data['questionAsk'].includes('Something else')) {
+      isSE = '';
+    }
+    if(req.session.data['npd_wasQuestionResolved'].includes('Not resolved')) {
+      isNpdResolved = 'govuk-tag--grey';
+    } 
+    if(req.session.data['npa_wasQuestionResolved'].includes('Not resolved')) {
+      isNpaResolved = 'govuk-tag--grey';
+    }
+    if(req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+      isMaRresolved = 'govuk-tag--grey';
+    }
+    if(req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')) {
+      isRfchRresolved = 'govuk-tag--grey';
+    }
+
+    
+    //All variable render here
+    res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswer', {
+    "isNpd": isNpd,
+    "isNpa": isNpa,
+    "isMp": isMp,
+    "isRfch": isRfch,
+    "isSE": isSE,
+    "isNpdResolved": isNpdResolved,
+    "isNpaResolved": isNpaResolved,
+    "isMaRresolved": isMaRresolved,
+    "isRfchRresolved": isRfchRresolved,
+    })
+})
+  
+// check answer for something else question type
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswerForsomethingElse', function(req, res) {
+
+  var isNpd = 'govuk-!-display-none';
+  var isNpa = 'govuk-!-display-none';
+  var isMp = 'govuk-!-display-none';
+  var isRfch = 'govuk-!-display-none';
+  var isSE = 'govuk-!-display-none';
+  var isSERresolved = '';
+
+  if(req.session.data['questionAsk'].includes('Something else')) {
+    isSE = '';
+  }
+  if(req.session.data['smelse_wasQuestionResolved'].includes('Not resolved')) {
+    isSERresolved = 'govuk-tag--grey';
+  }
+  
+  if (req.session.data['smelse_wasQuestionResolved'].includes('Resolved') || req.session.data['smelse_wasQuestionResolved'].includes('Not resolved')) {
+    // console.log('Rahul')
+    //All variable render here
+    res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/checkAnswer', {
+      "isNpd": isNpd,
+      "isNpa": isNpa,
+      "isMp": isMp,
+      "isRfch": isRfch,
+      "isSE": isSE,
+      "isSERresolved": isSERresolved,
+      })
+
+  } else {
+    console.log('Neha')
+    //All variable render here
+    res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/somethingElse-Error', {
+      "isNpd": isNpd,
+      "isNpa": isNpa,
+      "isMp": isMp,
+      "isRfch": isRfch,
+      "isSE": isSE,
+      "isSERresolved": isSERresolved,
+      // "isNpdResolved": isNpdResolved,
+      // "isNpaResolved": isNpaResolved,
+      // "isMaRresolved": isMaRresolved,
+      // "isRfchRresolved": isRfchRresolved,
+      });
+  }
+
+})
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/check-for-add-Note', function(req, res) {
+  //All variable render here
+  let outcomePageData = [];
+  outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
+  req.session.data['questionAsk'].map((item)=>{
+    if(item === "Next payment date"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['npd_wasQuestionResolved']
+      });
+    }if(item === "Next payment amount"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['npa_wasQuestionResolved']
+      });
+    }if(item === "Missing payment"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['ma_wasQuestionResolved']
+      });
+    }if(item === "Change in payment amount"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['chpa_wasQuestionResolved']
+      });
+    }if(item === "Something else"){
+      outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+      "question":item,
+      "result":req.session.data['smelse_wasQuestionResolved']
+      });
+    }
+  });
+  req.session.data.outcomePage =outcomePageData;
+ if (req.session.data['discussAnthingElse'] == 'Yes' ) {
+   res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-Note');
+ } else {
+   res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/summary_CallLogged', {
+     "outcomePage":req.session.data.outcomePage,
+   });
+ }
+})
+
+// /add view already added note
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/addAnother_Calllog', function(req, res) {
+
+ res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/addAnother_Calllog")
+
+})
+
+// check phone call progress and complete confirmation.
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirm_Complete_PhoneCall', function (req, res) {
+  if(req.session.data.outcomePage === ''){
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/no-contactAdded');
+  } else {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirmation-complete-session');
+  }
+
+  res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirmation-complete-session")
+  });
+
+// update note before complete phone call
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/updateNote_beforeCompleteCall', function (req, res) {
+  res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirmation-complete-session")
+  });
+
+// Complete session
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/phoneCall-completed', function (req, res) {
+  var completeSession = req.session.data['Do-you-want-to-complete-the-session-opt2']
+  // Check whether the variable matches a condition
+  if (completeSession == "Yes") {
+    // Send user to next page
+    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
+  } else {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/session-completed');
+  }
+
+});
+
+// Start New Session -Ask before Complete phone call
+
+router.post('/prototype-dev-baseline/mvp-1_0/start-new-session', function (req, res) {
+  var completeSession = req.session.data['add-callDetails'];
+  // Check whether the variable matches a condition
+  if (completeSession == "No") {
+    // Send user to next page
+    res.redirect("/prototype-dev-baseline/mvp-1_0/index");
+  } else {
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit');
+  }
+
+});
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/addAnotherBenefit', function(req, res) {
+  req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['questionAsk'] = '';
+  req.session.data['npd_wasQuestionResolved'] = '';
+  req.session.data['npa_wasQuestionResolved'] = '';
+  req.session.data['ma_wasQuestionResolved'] = '';
+  req.session.data['chpa_wasQuestionResolved'] = '';
+  req.session.data['addNote'] = '';
+  if (req.session.data['addAnotherBenefit'] == 'Yes') {
+        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
+    } else {
+        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page")
+        
+    }
+})
+
+// Unhappy scenario condition - add another reason?
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/goToHome', function(req, res) {
+
+  if (req.session.data['unHappyAddreason'] == 'Yes') {
+        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
+    } else {
+        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page")
+        
+    }
 })
 
 // End of baseline MVP 1.0 here
