@@ -56,7 +56,7 @@
           </a>
         </li>
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#payment-history">
+          <a class="govuk-tabs__tab" href="#payment-history" onclick="clearFilter()">
             Payment history
           </a>
         </li>
@@ -203,7 +203,7 @@
           Hide filter
         </button>
         <!-- Filter section display benefit options -->
-        <form action="/prototype-dev-baseline/mvp-1_0/payment-and-awards#payment-history" method="post">
+        <form action="/prototype-dev-baseline/mvp-1_0/different-type-contact-user/payment-and-awards#payment-history" method="post">
           <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
               <fieldset class="govuk-fieldset">
@@ -887,12 +887,14 @@
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
       var hdFilter = document.getElementById('hide-filter-btn');
+      var filterSelected = document.getElementById ('filter-selected');
       link.classList.add("govuk-visually-hidden");
       hdFilter.classList.add("govuk-visually-hidden");
       link2.classList.remove("govuk-visually-hidden");
       document.getElementById("filter-1").checked = false;
       document.getElementById("filter-2").checked = false;
       document.getElementById("filter-3").checked = false;
+      filterSelected.classList.add("govuk-visually-hidden");
     }
     function applyFilter() {
       var link3 = document.getElementById('filter-selected');

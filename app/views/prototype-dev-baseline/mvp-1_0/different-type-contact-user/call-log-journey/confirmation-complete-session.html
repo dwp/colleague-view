@@ -56,7 +56,7 @@
     </div>
     <!-- summary of call details added -->
     <h3 class="govuk-heading-s">
-      You have added this information to the contact history during this call.
+      You have added this information to the contact history.
     </h3>
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -105,12 +105,15 @@
       </tbody>
     </table>
     <div class="govuk-!-margin-top-6">
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">More information about this call</h2>
-      <p class="govuk-body govuk-!-margin-bottom-2">{{ data['notes'] or "Not provided"  }} </p> 
-      <p class="govuk-body">
-        <a href="/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note-2.html" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-      </p> 
+      <div class="govuk-inset-text">
+        <h2 class="govuk-heading-s">Notes</h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">{{ data['notes'] or "Not provided"  }} </p> 
+        <p class="govuk-body">
+          <a href="/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-Note-2.html" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+        </p> 
+      </div>
     </div>
   </div>
 </div>
 {% endblock %}
+
