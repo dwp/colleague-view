@@ -7,9 +7,9 @@ const controller = require("./controller");
 const moment = require('moment'); 
 const data = require('./views/prototype-sprint-wise/sprint23/opt2/data.json');
 const paymentData = require('./views/prototype-sprint-wise/sprint23/opt2/payment-data.json');
-
 const dataMVP1_0 = require('./views/prototype-dev-baseline/mvp-1_0/data.json');
 const paymentDataMVP1_0 = require('./views/prototype-dev-baseline/mvp-1_0/payment-data.json');
+const paymentDataDiffentUserMVP1_0 = require('./views/prototype-dev-baseline/mvp-1_0/different-type-contact-user/payment-data.json');
 
 
 // Add your routes here - above the module.exports line
@@ -86,6 +86,122 @@ router.get('/prototype-sprint-wise/sprint23/opt2/call-log-journey/confirmation-c
   next();
 });
 
+// for MVP 1.0 (both type of users)
+router.get('/prototype-dev-baseline/mvp-1_0/call-log-journey/unHappy_journey/noBenefit/unHappy_summary_CallLogged',function(req,res,next){
+  let notes ='';
+  if(req.session.data.notes){
+    if(req.session.data.notes.length>0){
+      notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+    }else{
+      notes =req.session.data['addNote'];
+    }
+  }else{
+    notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  next();
+});
+
+router.get('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/unHappy_summary_CallLogged',function(req,res,next){
+  let notes ='';
+  if(req.session.data.notes){
+    if(req.session.data.notes.length>0){
+      notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+    }else{
+      notes =req.session.data['addNote'];
+    }
+  }else{
+    notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  next();
+});
+
+router.get('/prototype-dev-baseline/mvp-1_0/contact-history-detail',function(req,res){
+  console.log('Details GET route is getting invoked',req.session.data.contextID);
+  const detailRec = data.contacts.filter((context) => {
+    context = req.session.data.contextID.includes(context.contextID);
+    return context;
+  });
+  req.session.data.detailRec = detailRec;
+  res.redirect('/prototype-sprint-wise/sprint23/opt2/contact-history-viewDetails/viewDetail');
+  // next();
+});
+
+router.get('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-history-detail',function(req,res){
+  console.log('Details GET route is getting invoked',req.session.data.contextID);
+  const detailRec = data.contacts.filter((context) => {
+    context = req.session.data.contextID.includes(context.contextID);
+    return context;
+  });
+  req.session.data.detailRec = detailRec;
+  res.redirect('/prototype-sprint-wise/sprint23/opt2/contact-history-viewDetails/viewDetail');
+  // next();
+});
+
+router.get('/prototype-dev-baseline/mvp-1_0/call-log-journey/summary_CallLogged',function(req,res){
+  let notes ='';
+  if(req.session.data.notes){
+    if(req.session.data.notes.length>0){
+      notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+    }else{
+      notes =req.session.data['addNote'];
+    }
+  }else{
+    notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged', {
+    notes:req.session.data.notes
+  });
+});
+
+router.get('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/summary_CallLogged',function(req,res){
+  let notes ='';
+  if(req.session.data.notes){
+    if(req.session.data.notes.length>0){
+      notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+    }else{
+      notes =req.session.data['addNote'];
+    }
+  }else{
+    notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/summary_CallLogged', {
+    notes:req.session.data.notes
+  });
+});
+
+router.get('/prototype-dev-baseline/mvp-1_0/call-log-journey/confirmation-complete-session',function(req,res,next){
+  let notes ='';
+  if(req.session.data.notes){
+    if(req.session.data.notes.length>0){
+      notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+    }else{
+      notes =req.session.data['addNote'];
+    }
+  }else{
+    notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  next();
+});
+
+router.get('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirmation-complete-session',function(req,res,next){
+  let notes ='';
+  if(req.session.data.notes){
+    if(req.session.data.notes.length>0){
+      notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+    }else{
+      notes =req.session.data['addNote'];
+    }
+  }else{
+    notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  next();
+});
 
 
 
@@ -9908,10 +10024,10 @@ router.post('/prototype-dev-baseline/mvp-1_0/contact-history',function(req,res){
 })
 
 // Payment history 
-router.post('/prototype-dev-baseline/mvp-1_0/payment-and-awards',function(req,res){
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/payment-and-awards',function(req,res){
   let paymentTableData;
   if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
-    paymentTableData = paymentDataMVP1_0.data.filter((context) => {
+    paymentTableData = paymentDataDiffentUserMVP1_0.data.filter((context) => {
       context = req.body.benefit.includes(context.benefit);
       return context;
     });
@@ -9923,7 +10039,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/payment-and-awards',function(req,re
     req.session.data.paymentTableFilterEsa = false;
     req.session.data.paymentTableFilterCa = false;
     req.session.data.paymentTableFilterPip = false;
-    req.session.data.paymentTableData = paymentDataMVP1_0.data;
+    req.session.data.paymentTableData = paymentDataDiffentUserMVP1_0.data;
   }
   res.redirect('payment-and-awards#payment-history');
 });
