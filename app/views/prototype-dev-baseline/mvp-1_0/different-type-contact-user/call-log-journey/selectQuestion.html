@@ -14,7 +14,7 @@ What questions did the caller ask about Employment and Support Allowance?
 {% endblock %}
 
 {% block beforeContent %}
-{% include "prototype-dev-baseline/common/phase-banner--user-research.html" %}
+{% include "prototype-dev-baseline/common/phase-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -31,7 +31,7 @@ What questions did the caller ask about Employment and Support Allowance?
                   What was the contact about?
                 </h1>
               </legend>
-              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes govuk-!-margin-top-3" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="nextPaymentDate" name="questionAsk" type="checkbox" value="Next payment date" {{ checked ('questionAsk', 'Next payment date') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
