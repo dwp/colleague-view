@@ -21,7 +21,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <!-- Ask to complete session -->
-    <div class="govuk-!-margin-bottom-8">
+    <div class="govuk-!-margin-bottom-9">
       <form class="form" action="phoneCall-completed" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -30,10 +30,7 @@
               Do you want to add more reasons for this call?
             </h1>
             </legend>
-            <div id="changed-name-hint" class="govuk-hint">
-              Select one option.
-            </div>
-            <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
+            <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="Do-you-want-to-complete-the-session-1" name="Do-you-want-to-complete-the-session-opt2" type="radio" value="Yes">
                 <label class="govuk-label govuk-radios__label" for="Do-you-want-to-complete-the-session-1">
@@ -55,8 +52,8 @@
       </form>
     </div>
     <!-- summary of call details added -->
-    <h3 class="govuk-heading-s">
-      You have added this information to the contact history during this call.
+    <h3 class="govuk-heading-m">
+      You have added information about this call
     </h3>
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -105,11 +102,13 @@
       </tbody>
     </table>
     <div class="govuk-!-margin-top-6">
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">More information about this call</h2>
-      <p class="govuk-body govuk-!-margin-bottom-2">{{ data['notes'] or "Not provided"  }}</p> 
-      <p class="govuk-body">
-        <a href="/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note-2.html" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-      </p> 
+      <div class="govuk-inset-text">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">More information about this call</h2>
+        <p class="govuk-body govuk-!-margin-bottom-2">{{ data['notes'] or "Not provided"  }}</p> 
+        <p class="govuk-body">
+          <a href="/prototype-sprint-wise/sprint23/opt2/call-log-journey/add-Note-2.html" class="govuk-link govuk-link--no-visited-state">Add or change</a>
+        </p> 
+        </div>
     </div>
   </div>
 </div>
