@@ -151,7 +151,7 @@ router.get('/prototype-dev-baseline/mvp-1_0/call-log-journey/summary_CallLogged'
     notes =req.session.data['addNote'];
   }
   req.session.data.notes = notes;
-  res.render('prototype-sprint-wise/sprint23/opt2/call-log-journey/summary_CallLogged', {
+  res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/summary_CallLogged', {
     notes:req.session.data.notes
   });
 });
@@ -10542,7 +10542,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
     // Send user to next page
     res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
   } else {
-    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/session-completed');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/index');
   }
 
 });
