@@ -38,6 +38,18 @@
         <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
       </div>
     </div>
+    <div class="govuk-notification-banner govuk-cv-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header govuk-visually-hidden">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading govuk-body">
+          This service is still being built, so payment dates and amounts can only be shown for <span class="govuk-!-font-weight-bold">Carer's Allowance, Employment and Support Allowance</span> and <span class="govuk-!-font-weight-bold">Personal Independence Payment</span>.
+        </p>
+      </div>
+    </div>
   </div>
   <div class="govuk-grid-column-full">
     <div class="govuk-tabs" data-module="govuk-tabs">
@@ -51,7 +63,7 @@
           </a>
         </li>
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#payment-history">
+          <a class="govuk-tabs__tab" href="#payment-history" onclick="clearFilter()">
             Payment history
           </a>
         </li>
@@ -198,7 +210,7 @@
           Hide filter
         </button>
         <!-- Filter section display benefit options -->
-        <form action="/prototype-dev-baseline/mvp-1_0/payment-and-awards#payment-history" method="post">
+        <form action="/prototype-dev-baseline/mvp-1_0/view-only-user/payment-and-awards#payment-history" method="post">
           <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
               <fieldset class="govuk-fieldset">

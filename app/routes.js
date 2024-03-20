@@ -9447,41 +9447,22 @@ router.post('/prototype-dev-baseline/mvp-1_0/index', function (req, res) {
 
 
 
-// router.post('/prototype-dev-baseline/mvp-1_0/call-with', function (req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/who-is-calling-or-contacting', function (req, res) {
+  req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
+  req.session.data['Who-is-contact-with'] = '';
 
-//   var hideCompleteCall = 'govuk-!-display-block';
-//   var hideKeyDatailInfo = 'govuk-!-display-block';
-//   var hideAddNote = 'govuk-!-display-block';
-
-//   if (req.session.data['What-type-of-contact'] == 'Telephone') {
-      
-//     res.render('prototype-dev-baseline/mvp-1_0/call-with');
-//   } else {
-//     if (req.session.data['What-type-of-contact'] == 'A different type of contact') {
-
-//       hideCompleteCall = 'govuk-!-display-none';
-//       hideKeyDatailInfo = 'govuk-!-display-none';
-//       res.render('prototype-dev-baseline/mvp-1_0/home-page', { 
-//         "hideCompleteCall": hideCompleteCall,
-//         "hideKeyDatailInfo": hideKeyDatailInfo,
-//       });
-//     } else {
-//       hideCompleteCall = 'govuk-!-display-none';
-//       hideAddNote = 'govuk-!-display-none';
-//       hideKeyDatailInfo = 'govuk-!-display-none';
-//       res.render('prototype-dev-baseline/mvp-1_0/home-page', { 
-//         "hideCompleteCall": hideCompleteCall,
-//         "hideKeyDatailInfo": hideKeyDatailInfo,
-//         "hideAddNote": hideAddNote,
-//       });
-//     }
-//   }
-// });
+  if (req.session.data['What-type-of-contact'] == 'Telephone call with') {
+    res.render('prototype-dev-baseline/mvp-1_0/call-with');
+  } else {
+    res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-with');
+    }
+});
 
 
 router.post('/prototype-dev-baseline/mvp-1_0/why-you-checking-benefit-Info', function (req, res) {
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
+  req.session.data['Who-is-contact-with'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
   req.session.data['What-services-have-they-called-about'] = '';
@@ -9534,25 +9515,31 @@ router.post('/prototype-dev-baseline/mvp-1_0/view-only-user/home-page', function
 });
 
 
-router.post('/prototype-dev-baseline/mvp-1_0/account-Home', function (req, res) {
-
+router.post('/prototype-dev-baseline/mvp-1_0/home-page', function (req, res) {
   var contactType = req.session.data['Who-is-the-engagement-with-sprint23-opt2'];
-  
-  if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == '') {
-    // Send user to error page
-    // res.redirect('/prototype-dev-baseline/mvp-1_0/showValidationMsg/error-Call-With');
-    res.redirect('back');
-} else{
-  if (req.session.data['What-type-of-contact'] == 'Telephone call'){
-    var b = "with";
-    req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = b + " " + contactType;
-    res.redirect('/prototype-dev-baseline/mvp-1_0/home-page');
+    
+  if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == '' ) {
+      // Send user to error page
+      res.redirect('/prototype-dev-baseline/mvp-1_0/call-with');
   } else{
-  var b = "with";
-  req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = b + " " + contactType;
-  res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page');
-}
-}
+      // var b = "with";
+      // req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = b + " " + contactType;
+      res.redirect('/prototype-dev-baseline/mvp-1_0/home-page');  
+    }
+})
+
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page', function (req, res) {
+
+  var contactType = req.session.data['Who-is-contact-with'];
+    
+  if (req.session.data['Who-is-contact-with'] == '') {
+      // Send user to error page
+      res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-with');
+  } else{
+      // var b = "with";
+      // req.session.data['Who-is-contact-with'] = b + " " + contactType;
+      res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page');
+    }
 })
 
 // check on pressing complete session button

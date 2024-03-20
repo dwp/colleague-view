@@ -55,170 +55,184 @@ Contact history
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view">
         <div id="showContactHistory-bydefault">
           <h2 class="govuk-heading-l">View contact history</h2>
-                    <!-- Filter section start here -->
-                    <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
-                      Show filter
-                    </button>
-                    <button class="govuk-!-display-none govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn" onclick="hideFilter()">
-                      Hide filter
-                    </button>
-                    <!-- Filter section -->
-                    <form action="contact-history" method="post">
-                      <!-- both benefit and ate filter-->
-                      <div class="govuk-!-display-none govuk-!-margin-bottom-8" id="old-filter-design">
-                        <h3 class="govuk-heading-m">Filters</h3>
-                            <!-- filter by date range -->
-                          <div class="govuk-grid-row">
-                            <div class="govuk-grid-column-full">
-                              <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Date range</h3>
-                              <div id="passport-issued-hint" class="govuk-hint">
-                                Please select date range that is within last 12 months.
-                              </div>
-                              <div class="govuk-grid-row">
-                                <div class="govuk-grid-column-one-third">
-                                  <div class="govuk-form-group">
-                                    <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
-                                      <legend class="govuk-fieldset__legend">
-                                        From date
-                                      </legend>
-                                      <div id="date-range-from-hint" class="govuk-hint">
-                                        For example, 13 03 2023
-                                      </div>
-                                      <div class="govuk-date-input" id="from-date">
-                                        <div class="govuk-date-input__item">
-                                          <div class="govuk-form-group">
-                                            <label class="govuk-label govuk-date-input__label" for="from-date-day">
-                                                  Day
-                                            </label>
-                                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
-                                          </div>
-                                        </div>
-                                        <div class="govuk-date-input__item">
-                                          <div class="govuk-form-group">
-                                            <label class="govuk-label govuk-date-input__label" for="from-date-month">
-                                                  Month
-                                            </label>
-                                            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
-                                          </div>
-                                        </div>
-                                        <div class="govuk-date-input__item">
-                                          <div class="govuk-form-group">
-                                            <label class="govuk-label govuk-date-input__label" for="from-date-year">
-                                                  Year
-                                            </label>
-                                            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </fieldset>
-                                  </div>
+          <!-- Filter section start here -->
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
+            Show filter
+          </button>
+          <button class="govuk-!-display-none govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn" onclick="hideFilter()">
+            Hide filter
+          </button>
+          <!-- Filter section -->
+          <form action="contact-history" method="post">
+            <!-- both benefit and ate filter-->
+            <div class="govuk-!-display-none govuk-!-margin-bottom-8" id="old-filter-design">
+              <h3 class="govuk-heading-m">Filters</h3>
+                  <!-- filter by date range -->
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full">
+                    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Date range</h3>
+                    <div id="passport-issued-hint" class="govuk-hint">
+                      Please select date range that is within last 12 months.
+                    </div>
+                    <div class="govuk-grid-row">
+                      <div class="govuk-grid-column-one-third">
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                            <legend class="govuk-fieldset__legend">
+                              From date
+                            </legend>
+                            <div id="date-range-from-hint" class="govuk-hint">
+                              For example, 13 03 2023
+                            </div>
+                            <div class="govuk-date-input" id="from-date">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-day">
+                                        Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
                                 </div>
-                                <div class="govuk-grid-column-one-third">
-                                      <div class="govuk-form-group">
-                                        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-to-hint">
-                                          <legend class="govuk-fieldset__legend">
-                                            To date
-                                          </legend>
-                                          <div id="date-range-to-hint" class="govuk-hint">
-                                            For example, 22 04 2023
-                                          </div>
-                                          <div class="govuk-date-input" id="to-date">
-                                            <div class="govuk-date-input__item">
-                                              <div class="govuk-form-group">
-                                                <label class="govuk-label govuk-date-input__label" for="to-date-day">
-                                                  Day
-                                                </label>
-                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-day" name="to-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.toDay}}">
-                                              </div>
-                                            </div>
-                                            <div class="govuk-date-input__item">
-                                              <div class="govuk-form-group">
-                                                <label class="govuk-label govuk-date-input__label" for="to-date-month">
-                                                  Month
-                                                </label>
-                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-month" name="to-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.toMonth}}">
-                                              </div>
-                                            </div>
-                                            <div class="govuk-date-input__item">
-                                              <div class="govuk-form-group">
-                                                <label class="govuk-label govuk-date-input__label" for="to-date-year">
-                                                  Year
-                                                </label>
-                                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="to-date-year" name="to-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.toYear}}">
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </fieldset>
-                                      </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-month">
+                                        Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="from-date-year">
+                                        Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-                          <!-- filter by Benefits -->
-                          <div class="govuk-grid-row">
-                            <div class="govuk-grid-column-two-thirds">
-                              <div class="govuk-form-group">
-                                <fieldset class="govuk-fieldset">
-                                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                                      Benefit
-                                  </legend>
-                                  <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-                                    <div class="govuk-checkboxes__item">
-                                      {% if data.tableFilterEsa == true%}
-                                        <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" checked="checked">
-                                        <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
-                                          Employment and Support Allowance
-                                        </label>
-                                      {% else %}
-                                        <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
-                                        <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
-                                          Employment and Support Allowance
-                                        </label>
-                                      {% endif%}
-                                    </div>
-                                    <div class="govuk-checkboxes__item">
-                                      {% if data.tableFilterJa == true%}
-                                      <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked="checked">
-                                      <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
-                                        Carer's Allowance
-                                      </label>
-                                      {% else %}
-                                      <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
-                                      <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
-                                        Carer's Allowance
-                                      </label>
-                                      {% endif%}
-                                    </div>
-                                    <div class="govuk-checkboxes__item">
-                                      {% if data.tableFilterPip == true%}
-                                      <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment" checked="checked">
-                                      <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
-                                        Personal Independence Payment
-                                      </label>
-                                      {% else %}
-                                      <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
-                                      <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
-                                        Personal Independence Payment
-                                      </label>
-                                      {% endif%}
-                                    </div>
-                                  </div>
-                                </fieldset>
-                              </div>
-                            </div>
-                          </div>
-                            <!-- Apply filter button -->
-                          <div class="govuk-button-group">
-                            <button class="govuk-button" data-module="govuk-button" id="apply-filter-btn" onclick="applyFilter()">
-                              Apply filter
-                            </button>
-                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="cancel-filter-link" onclick="cancelFilter()">
-                              Clear filter
-                            </button>
-                          </div>
+                          </fieldset>
+                        </div>
                       </div>
-                    </form>
+                      <div class="govuk-grid-column-one-third">
+                            <div class="govuk-form-group">
+                              <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-to-hint">
+                                <legend class="govuk-fieldset__legend">
+                                  To date
+                                </legend>
+                                <div id="date-range-to-hint" class="govuk-hint">
+                                  For example, 22 04 2023
+                                </div>
+                                <div class="govuk-date-input" id="to-date">
+                                  <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                      <label class="govuk-label govuk-date-input__label" for="to-date-day">
+                                        Day
+                                      </label>
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-day" name="to-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.toDay}}">
+                                    </div>
+                                  </div>
+                                  <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                      <label class="govuk-label govuk-date-input__label" for="to-date-month">
+                                        Month
+                                      </label>
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="to-date-month" name="to-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.toMonth}}">
+                                    </div>
+                                  </div>
+                                  <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                      <label class="govuk-label govuk-date-input__label" for="to-date-year">
+                                        Year
+                                      </label>
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="to-date-year" name="to-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.toYear}}">
+                                    </div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <!-- filter by Benefits -->
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            Benefit
+                        </legend>
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            {% if data.tableFilterEsa == true%}
+                              <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" checked="checked">
+                              <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                                Employment and Support Allowance
+                              </label>
+                            {% else %}
+                              <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
+                              <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                                Employment and Support Allowance
+                              </label>
+                            {% endif%}
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            {% if data.tableFilterJa == true%}
+                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked="checked">
+                            <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                              Carer's Allowance
+                            </label>
+                            {% else %}
+                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
+                            <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                              Carer's Allowance
+                            </label>
+                            {% endif%}
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            {% if data.tableFilterPip == true%}
+                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment" checked="checked">
+                            <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
+                              Personal Independence Payment
+                            </label>
+                            {% else %}
+                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
+                            <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
+                              Personal Independence Payment
+                            </label>
+                            {% endif%}
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+                  <!-- Apply filter button -->
+                <div class="govuk-button-group">
+                  <button class="govuk-button" data-module="govuk-button" id="apply-filter-btn" onclick="applyFilter()">
+                    Apply filter
+                  </button>
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="cancel-filter-link" onclick="cancelFilter()">
+                    Clear filter
+                  </button>
+                </div>
+            </div>
+          </form>
+          <!-- Display Applied / selected filter here -->
+          <div class="govuk-!-padding-top-0 moj-filter__selected govuk-visually-hidden" id="filter-selected">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
+            {% if data['benefit'].length > 0%}
+              <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+                {% for filterBenefit in data['benefit'] %}
+                <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
+                {% endfor %}
+              </ul>
+              <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
+            {% else %}
+            <span class="govuk-body">There is no filter selected</span>
+          {%endif%}
+          </div>
           <!-- data table -->
           <table class="govuk-table">
             <thead class="govuk-table__head">
