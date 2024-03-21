@@ -9900,14 +9900,17 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/updateNote_beforeC
   });
 
 // Complete session
-router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/phoneCall-completed', function (req, res) {
-  var completeSession = req.session.data['Do-you-want-to-complete-the-session-opt2']
+router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/check-phoneCall-completed', function (req, res) {
   // Check whether the variable matches a condition
-  if (completeSession == "Yes") {
-    // Send user to next page
-    res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/selectBenefit")
-  } else {
-    res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/session-completed');
+  var checkPhoneCallCompleted = req.session.data['Do-you-want-to-complete-the-telephony-session'];
+  if (checkPhoneCallCompleted == 'Yes') {
+    res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/selectBenefit");
+  } 
+  if (checkPhoneCallCompleted == 'No') {
+    res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/session-completed");
+  } 
+  else {
+    res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/unHappy_journey/showValidation/confirmation-complete-session-Error");
   }
 
 });
