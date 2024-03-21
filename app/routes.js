@@ -9452,14 +9452,14 @@ router.post('/prototype-dev-baseline/mvp-1_0/who-is-calling-or-contacting', func
   req.session.data['Who-is-contact-with'] = '';
 
   if (req.session.data['What-type-of-contact'] == 'Telephone call with') {
-    res.render('prototype-dev-baseline/mvp-1_0/call-with');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/call-with');
   } else {
-    res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-with');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-with');
     }
 });
 
 
-router.post('/prototype-dev-baseline/mvp-1_0/why-you-checking-benefit-Info', function (req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/why-checking-info', function (req, res) {
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
   req.session.data['Who-is-contact-with'] = '';
@@ -9501,21 +9501,22 @@ if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' |
 })
 
 
-router.post('/prototype-dev-baseline/mvp-1_0/view-only-user/home-page', function (req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/view-only-user/home', function (req, res) {
 
   if (req.session.data['why-to-check-customer-inforomaton'] == '') { 
     res.redirect('back');
   } else {
     if (req.session.data['why-to-check-customer-inforomaton'] == 'To view information only') { 
-      res.render('prototype-dev-baseline/mvp-1_0/view-only-user/home-page');   
+      res.render('prototype-dev-baseline/mvp-1_0/view-only-user/home');   
     } else {
-        res.render('prototype-dev-baseline/mvp-1_0/what-type-of-contact');
+      res.redirect('/prototype-dev-baseline/mvp-1_0/contact-type')
+        // res.render('prototype-dev-baseline/mvp-1_0/what-type-of-contact');
       } 
     }
 });
 
 
-router.post('/prototype-dev-baseline/mvp-1_0/home-page', function (req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/home', function (req, res) {
   var contactType = req.session.data['Who-is-the-engagement-with-sprint23-opt2'];
     
   if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == '' ) {
@@ -9524,11 +9525,11 @@ router.post('/prototype-dev-baseline/mvp-1_0/home-page', function (req, res) {
   } else{
       // var b = "with";
       // req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = b + " " + contactType;
-      res.redirect('/prototype-dev-baseline/mvp-1_0/home-page');  
+      res.redirect('/prototype-dev-baseline/mvp-1_0/home');  
     }
 })
 
-router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page', function (req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home', function (req, res) {
 
   var contactType = req.session.data['Who-is-contact-with'];
     
@@ -9538,7 +9539,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-pa
   } else{
       // var b = "with";
       // req.session.data['Who-is-contact-with'] = b + " " + contactType;
-      res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page');
+      res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home');
     }
 })
 
@@ -9926,7 +9927,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/addAnotherBenefit', function(req, r
   if (req.session.data['addAnotherBenefit'] == 'Yes') {
         res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/selectBenefit")
     } else {
-        res.redirect("/prototype-dev-baseline/mvp-1_0/home-page")
+        res.redirect("/prototype-dev-baseline/mvp-1_0/home")
         
     }
 })
@@ -9937,7 +9938,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/goToHome', function(req, res) {
   if (req.session.data['unHappyAddreason'] == 'Yes') {
         res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/selectBenefit")
     } else {
-        res.redirect("/prototype-dev-baseline/mvp-1_0/home-page")
+        res.redirect("/prototype-dev-baseline/mvp-1_0/home")
         
     }
 })
@@ -10014,7 +10015,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/contact-history',function(req,res){
 })
 
 // Payment history 
-router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/payment-and-awards',function(req,res){
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/payment',function(req,res){
   let paymentTableData;
   if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
     paymentTableData = paymentDataDiffentUserMVP1_0.data.filter((context) => {
@@ -10562,7 +10563,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/addAnot
   if (req.session.data['addAnotherBenefit'] == 'Yes') {
         res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
     } else {
-        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page")
+        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home")
         
     }
 })
@@ -10573,7 +10574,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/goToHom
   if (req.session.data['unHappyAddreason'] == 'Yes') {
         res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
     } else {
-        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home-page")
+        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home")
         
     }
 })
