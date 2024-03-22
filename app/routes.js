@@ -10187,7 +10187,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
   req.session.data['addNote'] = '';
 
   if(req.session.data.outcomePage === ''){
-    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/benefit-adding-details-for');
   } else {
     res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/addAnother_Calllog');
   }
@@ -10531,7 +10531,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
   // Check whether the variable matches a condition
   if (completeSession == "Yes") {
     // Send user to next page
-    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
+    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/benefit-adding-details-for")
   } else {
     res.redirect('/prototype-dev-baseline/mvp-1_0/index');
   }
@@ -10547,7 +10547,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/start-new-session', function (req, 
     // Send user to next page
     res.redirect("/prototype-dev-baseline/mvp-1_0/index");
   } else {
-    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/benefit-adding-details-for');
   }
 
 });
@@ -10561,7 +10561,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/addAnot
   req.session.data['chpa_wasQuestionResolved'] = '';
   req.session.data['addNote'] = '';
   if (req.session.data['addAnotherBenefit'] == 'Yes') {
-        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
+        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/benefit-adding-details-for")
     } else {
         res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home")
         
@@ -10572,7 +10572,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/addAnot
 router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/goToHome', function(req, res) {
 
   if (req.session.data['unHappyAddreason'] == 'Yes') {
-        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectBenefit")
+        res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/benefit-adding-details-for")
     } else {
         res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home")
         

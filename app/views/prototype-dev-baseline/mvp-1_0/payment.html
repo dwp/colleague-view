@@ -16,7 +16,7 @@
 
 
 {% block beforeContent %}
-  {% include "prototype-dev-baseline/common/phase-banner--user-research.html" %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
   <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
@@ -24,7 +24,7 @@
         <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Payments and awards</a>
+        <a class="govuk-breadcrumbs__link" href="#">Upcoming and historic benefit payments</a>
       </li>
     </ol>
   </div>
@@ -79,7 +79,7 @@
           </a>
         </li>
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#payment-history">
+          <a class="govuk-tabs__tab" href="#payment-history" onclick="clearFilter()">
             Payment history
           </a>
         </li>
