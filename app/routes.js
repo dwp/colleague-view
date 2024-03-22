@@ -102,7 +102,7 @@ router.get('/prototype-dev-baseline/mvp-1_0/call-log-journey/unHappy_journey/noB
   next();
 });
 
-router.get('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/unHappy_summary_CallLogged',function(req,res,next){
+router.get('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/added-details',function(req,res,next){
   let notes ='';
   if(req.session.data.notes){
     if(req.session.data.notes.length>0){
@@ -10210,7 +10210,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
         "result":"Does not apply"
       });
     req.session.data.outcomePage =outcomePageData;
-    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/add-Note")
+    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/what-was-contact-about-notes")
   } else {
   res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/selectQuestion")
   } 
