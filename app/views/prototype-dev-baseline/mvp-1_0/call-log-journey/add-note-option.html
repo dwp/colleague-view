@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Did you discuss anything else with the caller?
+  Do you want to add a note?
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-dev-baseline/common/header.html" %}
-  {% include "prototype-dev-baseline/common/opt2/different-type-contact-user/keydetail-bar-start-new-session.html" %}
+  {% include "prototype-dev-baseline/common/opt2/header_keydetail_bar.html" %}
 {% endblock %}
 
 
@@ -15,19 +14,19 @@
 {% endblock %}
 
 {% block beforeContent %}
-{% include "prototype-dev-baseline/common/phase-banner.html" %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/check-for-add-Note" method="post" novalidate>
+        <form action="/prototype-dev-baseline/mvp-1_0/call-log-journey/check-for-add-Note" method="post" novalidate>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  <!-- <span class="govuk-caption-l">{{ data['whichBenefitDiscussed'] }}</span> -->
+                  <!-- Did you discuss anything else about {{ data['whichBenefitDiscussed'] }}? -->
                   Do you want to add a note?
                 </h1>
               </legend>
