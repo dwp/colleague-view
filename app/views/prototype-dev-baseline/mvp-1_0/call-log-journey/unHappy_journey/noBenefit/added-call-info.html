@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  You have added details about this contact
+  You have added information about this call
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-dev-baseline/common/header.html" %}
-  {% include "prototype-dev-baseline/common/opt2/different-type-contact-user/keydetail-bar-start-new-session.html" %}
+  {% include "prototype-dev-baseline/common/opt2/header_keydetail_bar.html" %}
 {% endblock %}
 
 
@@ -22,14 +21,14 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">You have added details about this contact</h1>
+    <h1 class="govuk-heading-l">You have added information about this call</h1>
     <dl class="govuk-summary-list govuk-!-margin-bottom-8">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          What was the contact about?
+          What did you discuss with the caller?
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['addNote']}}
+          {{ data['addNote'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="add-Note.html">
@@ -38,11 +37,11 @@
         </dd>
       </div>
     </dl> 
-    <form action="/prototype-dev-baseline/mvp-1_0/different-type-contact-user/goToHome" method="post" novalidate>
+    <form action="/prototype-dev-baseline/mvp-1_0/goToHome" method="post" novalidate>
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            Do you want to add more details about this contact?
+            Do you want to add another benefit or reason for this call?
           </legend>
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
