@@ -24,182 +24,32 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Error handling scenarios</span>
-    <h1 class="govuk-heading-l">User errors</h1>
-
-    <!-- <h2 class="govuk-heading-m">Different scenarios are:</h2> -->
-    <!-- <ol class="govuk-list govuk-list--number">
-      <li>    
-        <h3 class="govuk-heading-s">Enter National insurance number</h3>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            <a class="govuk-link" href="Failed-API-call.html">NINO field is empty and user selects 'Start now'</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="Data-not-available.html">User enters NINO in incorrect format - accept spaces, upper case and lower case</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="Service-is-unavailable.html">User enters NINO in correct format but it doesn't exist</a>
-          </li>
-        </ul>
-      </li>
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      <li>
-        <h3 class="govuk-heading-s"> Is this an incoming or outgoing telephone call?</h3>
-        <p class="govuk-body"><a class="govuk-link" href="Service-timeout.html">User selects 'Save and continue' without an option selected</a></p>
-      </li>
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      <li>
-        <h3 class="govuk-heading-s"> Who is calling?</h3>
-        <p class="govuk-body"><a class="govuk-link" href="Service-timeout.html">User selects 'Save and continue' without an option selected</a></p>
-      </li>
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      <li>
-        <h3 class="govuk-heading-s"> Which benefit did you discuss with the caller?</h3>
-        <p class="govuk-body"><a class="govuk-link" href="Service-timeout.html">User selects 'Save and continue' without an option selected</a></p>
-      </li>
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      <li>
-        <h3 class="govuk-heading-s"> What questions did the caller ask about {benefit name}?</h3>
-        <p class="govuk-body"><a class="govuk-link" href="user-errors.html">User selects 'Save and continue' without an option selected</a></p>
-      </li>
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-      <li>
-        <h3 class="govuk-heading-s"> Outcomes of questions</h3>
-        <p class="govuk-body"><a class="govuk-link" href="user-errors.html">User selects 'Save and continue' without an option selected</a></p>
-      </li>
-    </ol> -->
-
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Screen</th>
-          <th scope="col" class="govuk-table__header">Validation rule</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Enter NINO</td>
-          <td class="govuk-table__cell">NINO field is empty and user selects 'Start now'</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="nino/empty-nino.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Enter NINO</td>
-          <td class="govuk-table__cell">User enters NINO in incorrect format - accept spaces, upper case and lower case</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="nino/incorrect-format-nino.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Enter NINO</td>
-          <td class="govuk-table__cell">User enters NINO in correct format but it doesn't exist</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="nino/nino-not-exist.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Type of call</td>
-          <td class="govuk-table__cell">User selects 'Save and continue' without an option selected</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="call-Type.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Who is calling</td>
-          <td class="govuk-table__cell">User selects 'Save and continue' without an option selected</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="call-with.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Which benefits discussed</td>
-          <td class="govuk-table__cell">User selects 'Save and continue' without an option selected</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="benefit-discussed.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Questions asked</td>
-          <td class="govuk-table__cell">User selects 'Save and continue' without an option selected</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="question-asked.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Outcome of queries</td>
-          <td class="govuk-table__cell">User selects 'Save and continue' without an option selected</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="query-outcome.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Add anything else</td>
-          <td class="govuk-table__cell">User selects 'Save and continue' without an option selected</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="discussAnythingElse.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Add another benefit or reason for this call</td>
-          <td class="govuk-table__cell">User selects 'Save and continue' without an option selected</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="summary_CallLogged.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Add another reason before completing call</td>
-          <td class="govuk-table__cell">User selects 'Save and continue' without an option selected</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="add-another-reason-BeforeCompleteCall.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">What did you discuss for a different benefit</td>
-          <td class="govuk-table__cell">User note input is over 500 characters</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="noBenefit-add-Note.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Note</td>
-          <td class="govuk-table__cell">User note input is over 500 characters</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">
-            <a href="add-Note.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <h1 class="govuk-heading-l">Input errors</h1>
+    <div class="govuk-!-padding-6 govuk-!-margin-top-6" style="background-color:#f3f2f1; border-radius:10px;">
+      <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--red">in progress</strong></div>
+      <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
+        <span class="govuk-caption-m">May - Business release</span>
+        <h1 class="govuk-heading-m">MVP 1.0</h1>
+      </div>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <p class="govuk-body">This prototype builds on the UR 7 option 2 journey to include changes required based on feedback from Service Modernisation.</p>
+      <div class="govuk-!-margin-top-4">
+        <a href="mvp-1_0/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
+      </div>
+    </div>
+    <div class="govuk-!-padding-6 govuk-!-margin-top-6" style="background-color:#f3f2f1; border-radius:10px;">
+      <div class="govuk-!-text-align-right"><strong class="govuk-tag">Completed</strong></div>
+      <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
+        <span class="govuk-caption-m">March - Technical release</span>
+        <h1 class="govuk-heading-m">MVP 0.8</h1>
+      </div>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <p class="govuk-body">This prototype aligns with what the development team have built, as of January 2024.</p>
+      <div class="govuk-!-margin-top-4">
+        <a href="mvp-0_8/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
+      </div>
+    </div>
   </div>
-
-  <!-- <div class="govuk-grid-column-one-third govuk-visually-hidden">
-
-    <aside class="app-related-items" role="complementary">
-      <h2 class="govuk-heading-m" id="subsection-title">
-        Subsection
-      </h2>
-      <nav role="navigation" aria-labelledby="subsection-title">
-        <ul class="govuk-list govuk-!-font-size-16">
-          <li>
-            <a class="govuk-link" href="#">
-              Related link
-            </a>
-          </li>
-          <li>
-            <a class="govuk-link" href="#">
-              Related link
-            </a>
-          </li>
-          <li>
-            <a href="#" class="govuk-link govuk-!-font-weight-bold">
-              More <span class="govuk-visually-hidden">in Subsection</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-  </div> -->
 </div>
 
 {% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: Select why you are checking this customer's benefit information
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="view-only-user/home" method="post">
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  <a href="#To-answer-questions-from-a-customer">Select why you are checking this customer's benefit information</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Why are you checking this customer's benefit information?
+              </h1>
+            </legend>
+            <p id="nationality-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>Select why you are checking this customer's benefit information
+            </p>
+            <div class="govuk-checkboxes govuk-!-margin-top-3" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="To-answer-questions-from-a-customer" name="why-to-check-customer-inforomaton" type="checkbox" value="To answer questions from a customer">
+                <label class="govuk-label govuk-checkboxes__label" for="To-answer-questions-from-a-customer">
+                  To answer questions from a customer or their appointee or representative
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="To-add-details-of-contact" name="why-to-check-customer-inforomaton" type="checkbox" value="To add details of contact">
+                <label class="govuk-label govuk-checkboxes__label" for="To-add-details-of-contact">
+                  To add details of contact I have had with a customer or their appointee or representative
+                </label>
+              </div>
+              <div class="govuk-checkboxes__divider">or</div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="To-view-information-only" name="why-to-check-customer-inforomaton" type="checkbox" value="To view information only" data-behaviour="exclusive">
+                <label class="govuk-label govuk-checkboxes__label" for="To-view-information-only">
+                  To view information only
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
