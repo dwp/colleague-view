@@ -9397,7 +9397,31 @@ router.get('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/contact-history', f
 router.post('/prototype-dev-baseline/mvp-1_0/index', function (req, res) {
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
+  req.session.data['govuk-hint govuk-radios__hint'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
+  req.session.data['why-to-check-customer-inforomaton'] = '';
+  req.session.data['Who-is-contact-with'] = '';
+  req.session.data['Do-you-want-to-complete-the-session'] = '';
+  req.session.data['What-services-have-they-called-about'] = '';
+  req.session.data['esaPayment'] = '';
+  req.session.data['pipPayment'] = '';
+  req.session.data['caPayment'] = '';
+  req.session.data['ca-payment'] = '';
+  req.session.data['esa-payment'] = '';
+  req.session.data['pip-payment'] = '';
+  req.session.data['esa-process-chasing'] = '';
+  req.session.data['pip-process-chasing'] = '';
+  req.session.data['ca-process-chasing'] = '';
+  req.session.data['esa-coc'] = '';
+  req.session.data['pip-coc'] = '';
+  req.session.data['ca-coc'] = '';
+  req.session.data['esa-general'] = '';
+  req.session.data['pip-general'] = '';
+  req.session.data['ca-general'] = '';
+  req.session.data.outcomePage ='';
+  req.session.data.notes = '';
+  req.session.data.tableValue = '';
+
   res.redirect('/prototype-dev-baseline/mvp-1_0/index');
 })
 
@@ -9450,10 +9474,13 @@ router.post('/prototype-dev-baseline/mvp-1_0/index', function (req, res) {
 router.post('/prototype-dev-baseline/mvp-1_0/who-is-calling-or-contacting', function (req, res) {
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
   req.session.data['Who-is-contact-with'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
 
   if (req.session.data['What-type-of-contact'] == 'Telephone call with') {
     res.redirect('/prototype-dev-baseline/mvp-1_0/call-with');
   } else {
+    req.session.data['Who-is-contact-with'] = '';
+    req.session.data['Who-is-the-engagement-with'] = '';
     res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-with');
     }
 });
@@ -9523,6 +9550,9 @@ router.post('/prototype-dev-baseline/mvp-1_0/home', function (req, res) {
       // Send user to error page
       res.redirect('/prototype-dev-baseline/mvp-1_0/call-with');
   } else{
+    if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == 'someone else') {
+      req.session.data['Who-is-the-engagement-with'] = '';
+    }
       // var b = "with";
       // req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = b + " " + contactType;
       res.redirect('/prototype-dev-baseline/mvp-1_0/home');  
@@ -9537,6 +9567,9 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home', 
       // Send user to error page
       res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-with');
   } else{
+    if (req.session.data['Who-is-contact-with'] == 'someone else') {
+      req.session.data['Who-is-the-engagement-with'] = '';
+    }
       // var b = "with";
       // req.session.data['Who-is-contact-with'] = b + " " + contactType;
       res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home');
