@@ -9387,6 +9387,19 @@ router.get('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/contact-history', f
   
 });
 
+// Complete session
+router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/phoneCall-completed', function (req, res) {
+  var addAnythingElse = req.session.data['Do-you-want-to-complete-the-session']
+  // Check whether the variable matches a condition
+  if (addAnythingElse == "Yes") {
+    // Send user to next page
+    res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/contact-history/benefits-discussed');
+  } else {
+    res.redirect('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/complete-session/session-completed');
+  }
+
+});
+
 // End of baseline mvp 0.8 here
 
 
@@ -9586,7 +9599,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/confirmation-compl
   }if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
     res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/confirmation-complete-session');
   }else {
-    res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/no-contactAdded');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/no-contact-added');
   }
   });
 
@@ -9634,7 +9647,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/selectBenefit', fu
   if(req.session.data.outcomePage === ''){
     res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/benefits-discussed');
   } else {
-    res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/addAnother_Calllog');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-another-benefit-for-call');
   }
 
 })
@@ -9669,7 +9682,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/questions-outcomes
     var isRfch = 'govuk-!-display-none';
 
     if (req.session.data['questionAsk'].includes('Something else')) {
-      res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/unHappy_journey/noQuestion/askedClQ")
+      res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/questions-outcomes-for-something-else")
     } else {
       if(req.session.data['questionAsk'].includes('Next payment date')) {
         isNpd = 'govuk-!-display-block';
@@ -9821,7 +9834,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/checkAnswer2', fun
 })
   
 // check answer for something else question type
-router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/checkAnswerForsomethingElse', function(req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details-for-something-else', function(req, res) {
 
   var isNpd = 'govuk-!-display-none';
   var isNpa = 'govuk-!-display-none';
@@ -9902,7 +9915,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/check-for-add-Note
   });
   req.session.data.outcomePage =outcomePageData;
  if (req.session.data['discussAnthingElse'] == 'Yes' ) {
-   res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-Note');
+   res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note');
  } else {
    res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/added-details', {
      "outcomePage":req.session.data.outcomePage,
@@ -9911,16 +9924,16 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/check-for-add-Note
 })
 
 // /add view already added note
-router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/addAnother_Calllog', function(req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note-option', function(req, res) {
 
- res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/addAnother_Calllog")
+ res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note-option")
 
 })
 
 // check phone call progress and complete confirmation.
 router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/confirm_Complete_PhoneCall', function (req, res) {
   if(req.session.data.outcomePage === ''){
-    res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/no-contactAdded');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/no-contact-added');
   } else {
     res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-more-reasons-for-call');
   }
@@ -10222,7 +10235,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
   if(req.session.data.outcomePage === ''){
     res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/benefit-adding-details-for');
   } else {
-    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/addAnother_Calllog');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-another-benefit-for-call');
   }
 
 })
@@ -10527,7 +10540,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
   });
   req.session.data.outcomePage =outcomePageData;
   if (req.session.data['discussAnthingElse'] == 'Yes' ) {
-    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-Note');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-note');
   } else {
     res.redirect('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/added-details', {
       "outcomePage":req.session.data.outcomePage,
@@ -10536,16 +10549,16 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
 })
 
 // /add view already added note
-router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/addAnother_Calllog', function(req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-another-benefit-for-call', function(req, res) {
 
- res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/addAnother_Calllog")
+ res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-another-benefit-for-call")
 
 })
 
 // check phone call progress and complete confirmation.
 router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/confirm_Complete_PhoneCall', function (req, res) {
   if(req.session.data.outcomePage === ''){
-    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/no-contactAdded');
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/no-contact-added');
   } else {
     res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-details-option');
   }
