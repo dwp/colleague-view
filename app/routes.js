@@ -9833,7 +9833,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/checkAnswer2', fun
     })
 })
   
-// check answer for something else question type
+// check answer for something else question type.
 router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details-for-something-else', function(req, res) {
 
   var isNpd = 'govuk-!-display-none';
