@@ -9915,7 +9915,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/check-for-add-Note
   });
   req.session.data.outcomePage =outcomePageData;
  if (req.session.data['discussAnthingElse'] == 'Yes' ) {
-   res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note');
+   res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note");
  } else {
    res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/added-details', {
      "outcomePage":req.session.data.outcomePage,
@@ -10540,7 +10540,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
   });
   req.session.data.outcomePage =outcomePageData;
   if (req.session.data['discussAnthingElse'] == 'Yes' ) {
-    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-note');
+    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-note");
   } else {
     res.redirect('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/added-details', {
       "outcomePage":req.session.data.outcomePage,
