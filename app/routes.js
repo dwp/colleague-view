@@ -1,31 +1,30 @@
-const { TokContext } = require("acorn");
-const express = require("express");
-const { set } = require("lodash");
-const { render } = require("nunjucks");
-const router = express.Router();
-const controller = require("./controller");
+//
+// For guidance on how to create routes see:
+// https://prototype-kit.service.gov.uk/docs/create-routes
+//
+
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
+
 const moment = require('moment'); 
 const data = require('./views/prototype-sprint-wise/sprint23/opt2/data.json');
 const paymentData = require('./views/prototype-sprint-wise/sprint23/opt2/payment-data.json');
 const dataMVP1_0 = require('./views/prototype-dev-baseline/mvp-1_0/data.json');
 const paymentDataMVP1_0 = require('./views/prototype-dev-baseline/mvp-1_0/payment-data.json');
 const paymentDataDiffentUserMVP1_0 = require('./views/prototype-dev-baseline/mvp-1_0/different-type-contact-user/payment-data.json');
-
-
-// Add your routes here - above the module.exports line
-router.get("/payments", controller.paymentController);
-router.get("/customerdetails", controller.customerDetailsController);
-router.get("/engagementhistory", controller.engagementHistoryController);
-router.get("/overview", controller.overviewController);
-router.get("/nino", controller.ninoController);
-router.get("/identifier", controller.identifierController);
-router.get("/benefit", controller.benefitController);
-router.get("/query/:benefitNumber", controller.queryController);
-router.get("/confirmquery/:benefitNumber", controller.confirmQueryController);
-router.get("/outcome", controller.outcomeController);
-router.get("/confirmation", controller.confirmationController);
-router.get("", )
-
+// Add your routes here
+//router.get("/payments", controller.paymentController);
+//router.get("/customerdetails", controller.customerDetailsController);
+//router.get("/engagementhistory", controller.engagementHistoryController);
+//router.get("/overview", controller.overviewController);
+//router.get("/nino", controller.ninoController);
+//router.get("/identifier", controller.identifierController);
+//router.get("/benefit", controller.benefitController);
+//router.get("/query/:benefitNumber", controller.queryController);
+//router.get("/confirmquery/:benefitNumber", controller.confirmQueryController);
+//router.get("/outcome", controller.outcomeController);
+//router.get("/confirmation", controller.confirmationController);
+//router.get("", )
 
 // new code for test today-04-dec-2023
 router.get('/prototype-sprint-wise/sprint23/opt2/call-log-journey/unHappy_journey/noBenefit/unHappy_summary_CallLogged',function(req,res,next){
@@ -9410,31 +9409,7 @@ router.post('/prototype-dev-baseline/prototype-dev-QA/mvp-0_8/phoneCall-complete
 router.post('/prototype-dev-baseline/mvp-1_0/index', function (req, res) {
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
-  req.session.data['govuk-hint govuk-radios__hint'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
-  req.session.data['why-to-check-customer-inforomaton'] = '';
-  req.session.data['Who-is-contact-with'] = '';
-  req.session.data['Do-you-want-to-complete-the-session'] = '';
-  req.session.data['What-services-have-they-called-about'] = '';
-  req.session.data['esaPayment'] = '';
-  req.session.data['pipPayment'] = '';
-  req.session.data['caPayment'] = '';
-  req.session.data['ca-payment'] = '';
-  req.session.data['esa-payment'] = '';
-  req.session.data['pip-payment'] = '';
-  req.session.data['esa-process-chasing'] = '';
-  req.session.data['pip-process-chasing'] = '';
-  req.session.data['ca-process-chasing'] = '';
-  req.session.data['esa-coc'] = '';
-  req.session.data['pip-coc'] = '';
-  req.session.data['ca-coc'] = '';
-  req.session.data['esa-general'] = '';
-  req.session.data['pip-general'] = '';
-  req.session.data['ca-general'] = '';
-  req.session.data.outcomePage ='';
-  req.session.data.notes = '';
-  req.session.data.tableValue = '';
-
   res.redirect('/prototype-dev-baseline/mvp-1_0/index');
 })
 
@@ -9487,13 +9462,10 @@ router.post('/prototype-dev-baseline/mvp-1_0/index', function (req, res) {
 router.post('/prototype-dev-baseline/mvp-1_0/who-is-calling-or-contacting', function (req, res) {
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
   req.session.data['Who-is-contact-with'] = '';
-  req.session.data['Who-is-the-engagement-with'] = '';
 
   if (req.session.data['What-type-of-contact'] == 'Telephone call with') {
     res.redirect('/prototype-dev-baseline/mvp-1_0/call-with');
   } else {
-    req.session.data['Who-is-contact-with'] = '';
-    req.session.data['Who-is-the-engagement-with'] = '';
     res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-with');
     }
 });
@@ -9833,7 +9805,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/checkAnswer2', fun
     })
 })
   
-// check answer for something else question type.
+// check answer for something else question type
 router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details-for-something-else', function(req, res) {
 
   var isNpd = 'govuk-!-display-none';
@@ -9851,6 +9823,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details
   }
   
   if (req.session.data['smelse_wasQuestionResolved'].includes('Resolved') || req.session.data['smelse_wasQuestionResolved'].includes('Not resolved')) {
+    // console.log('Rahul')
     //All variable render here
     res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details', {
       "isNpd": isNpd,
@@ -9862,6 +9835,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details
       })
 
   } else {
+    console.log('Neha')
     //All variable render here
     res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/unHappy_journey/showValidation/somethingElse-Error', {
       "isNpd": isNpd,
@@ -9879,7 +9853,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details
 
 })
 
-router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-details', function(req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/check-for-add-note', function(req, res) {
   //All variable render here
   let outcomePageData = [];
   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
@@ -9913,18 +9887,24 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-details', fu
   });
   req.session.data.outcomePage =outcomePageData;
  if (req.session.data['discussAnthingElse'] == 'Yes' ) {
-   res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note");
+   res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note');
  } else {
-   res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/added-details', {
-     "outcomePage":req.session.data.outcomePage,
-   });
+   res.redirect('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-details');
  }
 })
 
-// /add view already added note
-router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note-option', function(req, res) {
 
- res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/add-note-option")
+router.get('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-details', function(req, res) {
+
+   res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/added-details', {
+     "outcomePage":req.session.data.outcomePage,
+   });
+})
+
+// /add view already added note
+router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/add-another-benefit-for-call', function(req, res) {
+
+ res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/add-another-benefit-for-call")
 
 })
 
@@ -10538,9 +10518,9 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
   });
   req.session.data.outcomePage =outcomePageData;
   if (req.session.data['discussAnthingElse'] == 'Yes' ) {
-    res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-note");
+    res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-note');
   } else {
-    res.redirect('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/added-details', {
+    res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/added-details', {
       "outcomePage":req.session.data.outcomePage,
     });
   }
@@ -10627,3 +10607,4 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/goToHom
 
 
 module.exports = router
+
