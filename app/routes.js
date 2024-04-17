@@ -9851,7 +9851,6 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details
   }
   
   if (req.session.data['smelse_wasQuestionResolved'].includes('Resolved') || req.session.data['smelse_wasQuestionResolved'].includes('Not resolved')) {
-    // console.log('Rahul')
     //All variable render here
     res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details', {
       "isNpd": isNpd,
@@ -9863,7 +9862,6 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details
       })
 
   } else {
-    console.log('Neha')
     //All variable render here
     res.render('prototype-dev-baseline/mvp-1_0/call-log-journey/unHappy_journey/showValidation/somethingElse-Error', {
       "isNpd": isNpd,
@@ -9881,7 +9879,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-call-details
 
 })
 
-router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/check-for-add-Note', function(req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/added-details', function(req, res) {
   //All variable render here
   let outcomePageData = [];
   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
@@ -10506,7 +10504,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
 
 })
 
-router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/check-for-add-Note', function(req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/added-details', function(req, res) {
   //All variable render here
   let outcomePageData = [];
   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
