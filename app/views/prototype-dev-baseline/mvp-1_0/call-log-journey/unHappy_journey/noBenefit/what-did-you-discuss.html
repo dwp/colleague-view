@@ -22,7 +22,7 @@
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <form action="added-call-info" method="post" novalidate>
-          <div class="govuk-form-group">
+          <!-- <div class="govuk-form-group">
             <h1 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--l" for="addNote">
                 What did you discuss with the caller?
@@ -34,6 +34,21 @@
             <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="addNote" name="addNote" value="{{addNote}}" rows="5" aria-describedby="more-detail-hint"> {{ data['addNote'] }}</textarea>
             <div class="govuk-hint">
               You have 500 characters remaining
+            </div>
+          </div> -->
+
+          <div class="govuk-form-group govuk-character-count"  data-module="govuk-character-count" data-maxlength="5000">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="addNote">
+                What did you discuss with the caller?
+              </label>
+            </h1>
+            <div id="more-detail-hint" class="govuk-hint">
+              You will be able to change this information later.
+            </div>
+            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="addNote" name="addNote" value="{{addNote}}" rows="5" aria-describedby="with-hint-info more-detail-hint"> {{ data['addNote'] }}</textarea>
+            <div id="with-hint-info" class="govuk-hint govuk-character-count__message"">
+              You have 5000 characters remaining
             </div>
           </div>
           <button class="govuk-button" data-module="govuk-button">
