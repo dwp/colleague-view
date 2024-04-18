@@ -9499,8 +9499,6 @@ router.post('/prototype-dev-baseline/mvp-1_0/why-checking-info', function (req, 
   req.session.data.tableValue = '';
   req.session.data.outcomePage = '';
 
-  console.log('session data is nullified: ---------------------------------------->', req.session.data);
-  console.log('session data is req.session.data.outcomePage: ---------------------------------------->', req.session.data.outcomePage);
 if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ 12 34 56 Q') {
   // Send user to next page
   res.render('prototype-dev-baseline/mvp-1_0/why-you-checking-benefit-Info');
