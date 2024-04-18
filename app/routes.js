@@ -172,6 +172,7 @@ router.get('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log
   });
 });
 
+
 router.get('/prototype-dev-baseline/mvp-1_0/call-log-journey/confirmation-complete-session',function(req,res,next){
   let notes ='';
   if(req.session.data.notes){
@@ -9496,7 +9497,10 @@ router.post('/prototype-dev-baseline/mvp-1_0/why-checking-info', function (req, 
   req.session.data.outcomePage ='';
   req.session.data.notes = '';
   req.session.data.tableValue = '';
+  req.session.data.outcomePage = '';
 
+  console.log('session data is nullified: ---------------------------------------->', req.session.data);
+  console.log('session data is req.session.data.outcomePage: ---------------------------------------->', req.session.data.outcomePage);
 if (req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ123456Q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'qq123456q' || req.session.data['national-insurance-number-sprint23-opt2'] == 'QQ 12 34 56 Q') {
   // Send user to next page
   res.render('prototype-dev-baseline/mvp-1_0/why-you-checking-benefit-Info');
@@ -10484,7 +10488,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
 
 })
 
-router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/added-details', function(req, res) {
+router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/check-for-add-note', function(req, res) {
   //All variable render here
   let outcomePageData = [];
   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
@@ -10520,7 +10524,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
   if (req.session.data['discussAnthingElse'] == 'Yes' ) {
     res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/add-note');
   } else {
-    res.render('prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/added-details', {
+    res.render('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/added-details', {
       "outcomePage":req.session.data.outcomePage,
     });
   }
