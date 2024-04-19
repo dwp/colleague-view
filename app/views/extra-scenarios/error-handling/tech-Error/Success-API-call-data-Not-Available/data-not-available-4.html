@@ -5,19 +5,17 @@ Contact history
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/header-navigation_contactHistory-active.html" %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/common/header.html" %}
+  {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
 {% endblock %}
-
-
-{% block footer %}
-  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
-{% endblock %}
-
 
 {% block beforeContent %}
-{% include "extra-scenarios/error-handling/common/phase-banner.html" %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a> 
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a href="internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
 {% endblock %}
 
 {% block content %}
