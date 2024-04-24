@@ -5,8 +5,13 @@
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/header-navigation_PaymentandAwards-active.html" %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/common/header.html" %}
+  {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a href="../internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
 {% endblock %}
 
 
@@ -15,15 +20,21 @@
 {% endblock %}
 
 
-{% block beforeContent %}
-{% include "extra-scenarios/error-handling/common/phase-banner.html" %}
-<a class="govuk-back-link" href="../internal-pages">Back</a>
-{% endblock %}
-
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl govuk-!-width-two-thirds">Upcoming and historic benefit payments</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="call-log-journey/selectBenefit" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+      </div>
+    </div>
     <div class="govuk-grid-column-full">
       <div class="govuk-tabs" data-module="govuk-tabs">
         <h2 class="govuk-tabs__title">
@@ -32,7 +43,7 @@
         <ul class="govuk-tabs__list">
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
             <a class="govuk-tabs__tab" href="#upcoming-payments">
-              Upcoming Payments
+              Next payments
             </a>
           </li>
           <li class="govuk-tabs__list-item">
@@ -48,22 +59,29 @@
         </ul>
       <!-- TAB-1 start here -->
       <div class="govuk-tabs__panel" id="upcoming-payments">
-        <h2 class="govuk-heading-l">Upcoming payments</h2>
+        <h2 class="govuk-heading-l">Next payments</h2>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
+              <!-- <div class="govuk-warning-text govuk-!-width-three-quarters">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                    Next payment dates and amounts are not available for Universal Credit.
+                </strong>
+              </div> -->
               <p class="govuk-body">
-                Information about upcoming payments is not available. Try again later.
+                There was a problem getting this information from another system. Try again later.
               </p>
             </div>
           </div>
-          <div class="govuk-grid-row govuk-!-margin-top-5">
+          <!-- <div class="govuk-grid-row govuk-!-margin-top-5">
             <div class="govuk-grid-column-full">
               <h2 class="govuk-heading-m">Estimated payments</h2>
               <p class="govuk-body">
                 Information about estimated payments is not available. Try again later.
               </p>
             </div>
-          </div>
+          </div> -->
       </div>
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="payment-history">
         <h2 class="govuk-heading-l">Payment history</h2>
