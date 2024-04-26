@@ -5,8 +5,13 @@
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/header-navigation_PersonalDetails-active.html" %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/common/header.html" %}
+  {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a href="../internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
 {% endblock %}
 
 
@@ -14,11 +19,6 @@
   {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
-
-{% block beforeContent %}
-{% include "extra-scenarios/error-handling/common/phase-banner.html" %}
-<a class="govuk-back-link" href="../internal-pages">Back</a>
-{% endblock %}
 
 {% block content %}
 
@@ -232,7 +232,6 @@
             </dd>
           </div>
         </dl>
-        <a class="govuk-link" href="Failed-API-call-2_3.html">Next</a>
     </div>
   </div>
 

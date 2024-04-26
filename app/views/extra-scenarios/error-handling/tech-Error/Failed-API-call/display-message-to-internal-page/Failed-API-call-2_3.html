@@ -5,20 +5,19 @@
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/header-navigation_PaymentandAwards-active.html" %}
-  {% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/common/header.html" %}
+  {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a href="../internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
+{% endblock %}
 
 {% block footer %}
   {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
 {% endblock %}
 
-
-{% block beforeContent %}
-{% include "extra-scenarios/error-handling/common/phase-banner.html" %}
-<a class="govuk-back-link" href="../internal-pages">Back</a>
-{% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
@@ -32,7 +31,7 @@
         <ul class="govuk-tabs__list">
           <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
             <a class="govuk-tabs__tab" href="#upcoming-payments">
-              Upcoming Payments
+              Next payments
             </a>
           </li>
           <li class="govuk-tabs__list-item">
@@ -48,7 +47,7 @@
         </ul>
       <!-- TAB-1 start here -->
       <div class="govuk-tabs__panel" id="upcoming-payments">
-        <h2 class="govuk-heading-l">Upcoming payments</h2>
+        <h2 class="govuk-heading-l">Next payments</h2>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
               <!-- <div class="govuk-warning-text govuk-!-margin-bottom-2">
