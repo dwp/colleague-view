@@ -22,20 +22,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-grid-row">
-      <div class="govuk-error-summary" data-module="govuk-error-summary">
-        <div role="alert">
-          <h2 class="govuk-error-summary__title">
-            There is a problem
-          </h2>
-          <div class="govuk-error-summary__body">
-            <ul class="govuk-list govuk-error-summary__list">
-              <li>
-                <a href="#esa-benefit">Select benefits to filter your results</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
       </div>
@@ -206,65 +192,41 @@
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="history">
         <h2 class="govuk-heading-l">Payment history</h2>
         <!-- Filter section start here -->
-        <button class="govuk-button govuk-button--secondary govuk-visually-hidden" data-module="govuk-button" id="show-filter-btn">
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn">
           Show filter
         </button>
             <!-- Filter section start here -->
-        <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="hide-filter-btn">
+        <button class="govuk-button govuk-button--secondary govuk-visually-hidden" data-module="govuk-button" id="hide-filter-btn">
           Hide filter
         </button>
         <!-- Filter section display benefit options -->
-        <form action="payment-history#history" method="post">
+        <form action="payment-history#history" method="post" class="govuk-visually-hidden">
           <div class="" id="filter-section">
-            <div class="govuk-form-group govuk-!-margin-bottom-5 govuk-form-group--error">
+            <div class="govuk-form-group govuk-!-margin-bottom-5">
               <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                   <h3 class="govuk-fieldset__heading">
                     Filter by benefit
                   </h3>
                 </legend>
-                <p id="passport-issued-error" class="govuk-error-message">
-                  <span class="govuk-visually-hidden">Error:</span>Select benefits to filter your results
-                </p>
                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                   <div class="govuk-checkboxes__item">
-                    {% if data.paymentTableFilterEsa == true%}
-                      <input class="govuk-checkboxes__input" id="esa-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" checked="checked">
-                      <label class="govuk-label govuk-checkboxes__label" for="esa-benefit">
-                        Employment and Support Allowance
-                      </label>
-                    {% else %}
-                      <input class="govuk-checkboxes__input" id="esa-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" >
-                      <label class="govuk-label govuk-checkboxes__label" for="esa-benefit">
-                        Employment and Support Allowance
-                      </label>
-                    {% endif %}
+                    <input class="govuk-checkboxes__input" id="esa-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" >
+                    <label class="govuk-label govuk-checkboxes__label" for="esa-benefit">
+                      Employment and Support Allowance
+                    </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    {% if data.paymentTableFilterCa == true%}
-                      <input class="govuk-checkboxes__input" id="ca-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked="checked">
-                      <label class="govuk-label govuk-checkboxes__label" for="ca-benefit">
-                        Carer's Allowance
-                      </label>
-                    {%else%}
-                      <input class="govuk-checkboxes__input" id="ca-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
-                      <label class="govuk-label govuk-checkboxes__label" for="ca-benefit">
-                        Carer's Allowance
-                      </label>
-                    {%endif%}
+                    <input class="govuk-checkboxes__input" id="ca-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked>
+                    <label class="govuk-label govuk-checkboxes__label" for="ca-benefit">
+                      Carer's Allowance
+                    </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    {% if data.paymentTableFilterPip == true%}
-                      <input class="govuk-checkboxes__input" id="pip-benefit" name="benefit" type="checkbox" value="Personal Independence Payment" checked="checked">
-                      <label class="govuk-label govuk-checkboxes__label" for="pip-benefit">
-                        Personal Independence Payment
-                      </label>
-                    {%else%}
-                      <input class="govuk-checkboxes__input" id="pip-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
-                      <label class="govuk-label govuk-checkboxes__label" for="pip-benefit">
-                        Personal Independence Payment
-                      </label>
-                    {%endif%}
+                    <input class="govuk-checkboxes__input" id="pip-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
+                    <label class="govuk-label govuk-checkboxes__label" for="pip-benefit">
+                      Personal Independence Payment
+                    </label>
                   </div>
                 </div>
               </fieldset>
@@ -282,21 +244,15 @@
         <!-- Filters end here -->
         
         <!-- Display Applied / selected filter here -->
-        <div class="govuk-!-padding-top-0 moj-filter__selected govuk-visually-hidden" id="filter-selected">
+        <div class="govuk-!-padding-top-0 moj-filter__selected" id="filter-selected">
           <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Filters applied</h3>
-          {% if data['benefit'].length > 0%}
             <ul class="moj-filter-tags govuk-!-margin-bottom-2">
-              {% for filterBenefit in data['benefit'] %}
-              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>{{ filterBenefit }}</a></li>
-              {% endfor %}
+              <li><a class="moj-filter__tag" href="#"><span class="govuk-visually-hidden">Remove this filter</span>Carer's Allowance</a></li>
             </ul>
             <a class="govuk-link" href="#" onclick="clearFilter()">Clear filter</a>
-          {% else %}
-          <span class="govuk-body">There is no filter selected</span>
-        {%endif%}
         </div>
-
-        {% if data['paymentTableData'].length > 0%}
+        <p>There is no payment history for the filters you have applied. Select different filters and try again.</p>
+        <!-- {% if data['paymentTableData'].length > 0%}
           <div id="default-table">          
             <table class="govuk-table">
             <thead class="govuk-table__head">
@@ -423,9 +379,6 @@
         {%endif%}
         <nav class="moj-pagination" aria-label="Pagination navigation" role="navigation">
           <ul class="moj-pagination__list">
-            <!-- <li class="moj-pagination__item  moj-pagination__item--prev">
-              <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
-            </li> -->
             <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1" aria-current="page">1</a></li>
 
             <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 2">2</a></li>
@@ -441,7 +394,7 @@
             </li>
           </ul>
           <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>60</b> results</p>
-        </nav>
+        </nav> -->
       </div>
       <!-- TAB-3 start here -->
       <div class="govuk-tabs__panel" id="details">

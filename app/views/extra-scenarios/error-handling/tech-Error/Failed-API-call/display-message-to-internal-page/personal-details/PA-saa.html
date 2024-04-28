@@ -11,7 +11,7 @@
 
 {% block beforeContent %}
   {% include "prototype-dev-baseline/common/phase-banner.html" %}
-  <a href="../internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
+  <a href="../personal-details-api" class="govuk-back-link govuk-!-display-none-print">Back</a>
 {% endblock %}
 
 
@@ -22,217 +22,159 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-xl">Personal details</h1>
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Current name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Christopher Fox
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Date of birth
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Show Date of birth
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                15 October 1977
-              </div>
-            </details>
-          </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              National insurance number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['national-insurance-number'] }}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Nationality
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <details class="govuk-details" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Show Nationality
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  British citizen
-                </div>
-              </details>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Awarded
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Employment and Support Allowance (ESA)
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <table class="govuk-table">
-                    <thead class="govuk-table__head">
-                      <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Award Start Date</th>
-                        <th scope="col" class="govuk-table__header">Award End Date</th>
-                      </tr>
-                    </thead>
-                    <tbody class="govuk-table__body">
-                      <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">20 January 2023</td>
-                        <td class="govuk-table__cell">20 January 2024</td>
-                      </tr>
-                    </tbody>
-                </table>
-                </div>
-              </details>
-              <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Carer's Allowance (CA)
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <table class="govuk-table">
-                    <thead class="govuk-table__head">
-                      <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Award Start Date</th>
-                        <th scope="col" class="govuk-table__header">Award End Date</th>
-                      </tr>
-                    </thead>
-                    <tbody class="govuk-table__body">
-                      <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">15 February 2023</td>
-                        <td class="govuk-table__cell">16 August 2023</td>
-                      </tr>
-                    </tbody>
-                </table>
-                </div>
-              </details>
-              <details class="govuk-details govuk-!-margin-bottom-3" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Personal Independence Payment (PIP)
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <table class="govuk-table">
-                    <thead class="govuk-table__head">
-                      <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Award Start Date</th>
-                        <th scope="col" class="govuk-table__header">Award End Date</th>
-                      </tr>
-                    </thead>
-                    <tbody class="govuk-table__body">
-                      <tr class="govuk-table__row">
-                        <td class="govuk-table__cell">01 December 2022</td>
-                        <td class="govuk-table__cell">01 December 2023</td>
-                      </tr>
-                    </tbody>
-                </table>
-                </div>
-              </details>
-            </dd>
-          </div>
-        </dl>
-      <h2 class="govuk-heading-m">Contact number</h2>
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Mobile number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Show Mobile number
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                07700 900000
-              </div>
-            </details>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landline number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <details class="govuk-details" data-module="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Show Landline number
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                020 7946 0000
-              </div>
-            </details>
-          </dd>
-        </div>
-        </dl>
-        <h2 class="govuk-heading-m" id="failedAPI">Address</h2>
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Correspondence address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <details class="govuk-details" data-module="govuk-details" open>
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Show Correspondence address
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  <p class="govuk-body">
-                    This information is not available. Try again later.
-                  </p>
-                  <!-- <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
-                    Try again
-                  </a> -->
-                </div>
-              </details>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Residential address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <details class="govuk-details" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                  <span class="govuk-details__summary-text">
-                    Show Residential address
-                  </span>
-                </summary>
-                <div class="govuk-details__text">
-                  1 London Road <br>London <br>LN 101
-                </div>
-              </details>
-            </dd>
-          </div>
-        </dl>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Personal details</h1>
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="call-log-journey/selectBenefit" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+      </div>
     </div>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Christopher Fox
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Show date of birth
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              15 October 1977
+            </div>
+          </details>
+        </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            National Insurance number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            QQ 12 34 56 Q
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Nationality
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show nationality
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                British citizen
+              </div>
+            </details>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Home address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Show home address
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
+              </div>
+            </details>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Benefits Christopher Fox gets
+          </dt>
+          <dd class="govuk-summary-list__value">
+            There was a problem getting this information from another system. Try again later.
+          </dd>
+        </div>
+      </dl>
+    <h2 class="govuk-heading-m">Contact details</h2>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Mobile numbers
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Show mobile numbers
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">07700 900 000</p>
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">07700 900 457</p>
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">+1 123 1231234</p>
+            </div>
+          </details>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Landline numbers
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Show landline numbers
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">020 1234 1234</p>
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">0117 123 1234</p>
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">01234 123 123</p>
+            </div>
+          </details>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address we can send letters to
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Show address we can send letters to 
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
+            </div>
+          </details>
+        </dd>
+      </div>
+      </dl>
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Back to home</a>
+      </p>
   </div>
+</div>
 
 {% endblock %}
