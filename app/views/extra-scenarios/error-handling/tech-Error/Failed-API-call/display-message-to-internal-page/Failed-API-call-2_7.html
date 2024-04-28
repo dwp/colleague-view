@@ -22,7 +22,18 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl govuk-!-width-two-thirds">Upcoming and historic benefit payments</h1>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="call-log-journey/selectBenefit" method="post">
+          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+      </div>
+    </div>
     <div class="govuk-grid-column-full">
       <div class="govuk-tabs" data-module="govuk-tabs">
         <h2 class="govuk-tabs__title">
@@ -50,6 +61,13 @@
         <h2 class="govuk-heading-l">Next payments</h2>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
+              <!-- <div class="govuk-warning-text govuk-!-width-three-quarters">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                    Next payment dates and amounts are not available for Universal Credit.
+                </strong>
+              </div> -->
               <p class="govuk-body">
                 There was a problem getting this information from another system. Try again later.
               </p>
@@ -58,28 +76,9 @@
           <!-- <div class="govuk-grid-row govuk-!-margin-top-5">
             <div class="govuk-grid-column-full">
               <h2 class="govuk-heading-m">Estimated payments</h2>
-              <div class="govuk-warning-text govuk-!-margin-bottom-2">
-                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                <strong class="govuk-warning-text__text">
-                  <span class="govuk-warning-text__assistive">Warning</span>
-                  These payments and amounts are not confirmed.
-                </strong>
-              </div>
-              <div class="govuk-grid-row">
-                <div class="govuk-grid-column-one-half">
-                  <div class="colleague-view-upcomming-payment-benefit">
-                    <div class="gem-c-big-number govuk-!-margin-bottom-3">
-                      <p class="gem-c-big-number__label">
-                        The next Carer's Allowance payment is for
-                      </p>
-                      <span class="gem-c-big-number__value govuk-!-font-size-48">
-                        £278.80
-                      </span>
-                      <span class="govuk-visually-hidden">&nbsp;</span>
-                    </div>
-                  </div>
-              </div>
-              </div>
+              <p class="govuk-body">
+                Information about estimated payments is not available. Try again later.
+              </p>
             </div>
           </div> -->
       </div>
@@ -579,6 +578,9 @@
         <h2 class="govuk-heading-l">Details and breakdowns of benefits</h2>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
+            There was a problem getting this information from another system. Try again later.
+          </div>
+          <!-- <div class="govuk-grid-column-full">
             <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
               <div class="govuk-accordion__section">
                 <div class="govuk-accordion__section-header">
@@ -703,30 +705,6 @@
                         </table>
                       </dd>
                     </div>
-                    <!-- <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Estimated next payment amount
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £479.00
-                      </dd>
-                    </div> -->
-                    <!-- <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last payment date
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        17 July 2023
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last payment amount
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £519.00
-                      </dd>
-                    </div> -->
                   </dl>
                 </div>
               </div>
@@ -850,30 +828,7 @@
                         </table>
                       </dd>
                     </div>
-                    <!-- <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Estimated next payment amount
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £184.13
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last payment date
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        01 August 2023
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last payment amount
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £184.13
-                      </dd>
-                    </div> -->
+                    
                   </dl>
                 </div>
               </div>
@@ -968,35 +923,12 @@
                         £0.00
                       </dd>
                     </div>
-                    <!-- <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Estimated next payment amount
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £278.80
-                      </dd>
-                    </div> -->
-                    <!-- <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last payment date
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        21 July 2023
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last payment amount
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        £278.80
-                      </dd>
-                    </div> -->
+                   
                   </dl>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       </div>
