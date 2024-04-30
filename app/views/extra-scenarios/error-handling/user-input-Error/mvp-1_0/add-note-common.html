@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Error: Add a note
+{% endblock %}
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/mvp1/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="added-details" method="post" novalidate>
+          <!-- validation summary  -->
+          <div class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+              <h2 class="govuk-error-summary__title">
+                There is a problem
+              </h2>
+              <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                  <li>
+                    <a href="#with-hint">Enter a note to give more detail</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Validation message -->
+          <div class="govuk-form-group govuk-character-count govuk-form-group--error" data-module="govuk-character-count" data-maxlength="5000">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="with-hint">
+                Add a note
+              </label>
+            </h1>
+            <div id="with-hint-hint" class="govuk-hint">
+              You will be able to change this information later.
+            </div>
+            <p id="more-detail-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>Enter a note to give more detail
+            </p>
+            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="8" aria-describedby="with-hint-info with-hint-hint">
+            </textarea>
+            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+              You have 5000 characters remaining
+            </div>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+{% endblock %}
