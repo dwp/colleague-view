@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Display error message - prototype
+{% endblock %}
+
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "prototype-dev-baseline/common/phase-banner.html" %}
+<a href="../internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Personal details</span>
+    <h1 class="govuk-heading-l">No data available</h1>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">API failed</th>
+          <th scope="col" class="govuk-table__header">Information unable to get</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Nationality API fails</td>
+          <td class="govuk-table__cell">Nationality information</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="personal-details/PA-nationality-api.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Residency API fails</td>
+          <td class="govuk-table__cell">Home address</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="personal-details/PA-residency-api.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">SAA fails</td>
+          <td class="govuk-table__cell">Active benefits informations</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="personal-details/PA-saa.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Citizen Preferences API fails</td>
+          <td class="govuk-table__cell">Mobile numbers and landline numbers</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="personal-details/PA-citizen-preferences.html#contact-details" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Correspondence API fails</td>
+          <td class="govuk-table__cell">Address we can send letters to</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="personal-details/PA-correspondence-api.html#contact-details" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

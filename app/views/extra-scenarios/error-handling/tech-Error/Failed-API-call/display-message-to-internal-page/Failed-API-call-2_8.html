@@ -1,0 +1,726 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Payments and Awards
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/common/header.html" %}
+  {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a href="../internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#next-payments">
+            Next payments
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#history" onclick="clearFilter()">
+            Payment history
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#details">
+            Details and breakdowns of benefits
+          </a>
+        </li>
+      </ul>
+      <!-- TAB-1 start here -->
+      <div class="govuk-tabs__panel" id="next-payments">
+        <h2 class="govuk-heading-l">Next payments</h2>
+        <div class="govuk-warning-text govuk-!-width-three-quarters">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+              Next payment dates and amounts are not available for Universal Credit.
+          </strong>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                <div class="nhsuk-card">
+                  <div class="nhsuk-card__content">
+                    <div class="gem-c-big-number">
+                      <span class="gem-c-big-number__label">
+                        Personal Independence Payment
+                      </span>
+                      <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
+                        £479.00
+                      </div>
+                      <span class="govuk-body">is on 14 August 2023</span> <br/>
+                      <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-top-2 govuk-!-margin-bottom-2">Issued</strong>
+                    </div>
+                    <details class="govuk-details" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          View payment breakdown
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <table class="govuk-table">
+                          <caption class="govuk-table__caption govuk-table__caption--m">Payment breakdown</caption>
+                          <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                              <th scope="col" class="govuk-table__header">Payment type</th>
+                              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                            </tr>
+                          </thead>
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Award</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Total deductions</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <th scope="row" class="govuk-table__header">Total</th>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£479.00</td>
+                            </tr>
+                          </tbody>
+                      </table>
+                              </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+              <div class="govuk-grid-column-one-half">
+                <div class="nhsuk-card">
+                  <div class="nhsuk-card__content">
+                    <div class="gem-c-big-number">
+                      <span class="gem-c-big-number__label">
+                        Employment and Support Allowance
+                      </span>
+                      <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
+                        £184.13
+                      </div>
+                      <span class="govuk-body">is on 15 August 2023</span> <br/>
+                      <strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2 govuk-!-margin-bottom-2">Pending</strong>
+                    </div>
+                    <details class="govuk-details" data-module="govuk-details">
+                      <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                          View payment breakdown
+                        </span>
+                      </summary>
+                      <div class="govuk-details__text">
+                        <table class="govuk-table">
+                          <caption class="govuk-table__caption govuk-table__caption--m">Payment breakdown</caption>
+                          <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                              <th scope="col" class="govuk-table__header">Payment type</th>
+                              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                            </tr>
+                          </thead>
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Award</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Total deductions</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <th scope="row" class="govuk-table__header">Total</th>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+                            </tr>
+                          </tbody>
+                      </table>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                <div class="nhsuk-card">
+                  <div class="nhsuk-card__content">
+                    <div class="govuk-warning-text govuk-!-padding-0">
+                      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                      <strong class="govuk-warning-text__text">
+                        <span class="govuk-visually-hidden">Warning</span>
+                        The next payment amount and date for Carer's Allowance is not confirmed. Check again later.
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- TAB-2 start here -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="history">
+        <h2 class="govuk-heading-l">Payment history</h2>
+        <div id="default-table">          
+          There was a problem getting this information from another system. Try again later.
+        </div>
+      </div>
+      <!-- TAB-3 start here -->
+      <div class="govuk-tabs__panel" id="details">
+        <h2 class="govuk-heading-l">Details and breakdowns of benefits</h2>
+        <div class="govuk-warning-text govuk-!-width-three-quarters">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Award details and breakdowns are only available for Attendance Allowance, Disability Living Allowance, Employment and Support Allowance and Personal Independence Payment.
+          </strong>
+        </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+              <div class="govuk-accordion__section">
+                <div class="govuk-accordion__section-header">
+                  <h3 class="govuk-accordion__section-heading">
+                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                      Personal Independence Payment
+                    </span>
+                  </h3>
+                </div>
+                <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Benefit
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Personal Independence Payment
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Start date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        08 November 2020
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        End date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        02 December 2023
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Benefit type
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Others
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Frequency of payments
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                      4 Weekly in Arrears by Direct Payment on Monday
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Amount before deductions
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £559.00
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Components</dt>
+                      <dd class="govuk-summary-list__value">
+                        <table class="govuk-table">
+                          <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                              <th scope="col" class="govuk-table__header">Component</th>
+                              <th scope="col" class="govuk-table__header">Amount</th>
+                              <th scope="col" class="govuk-table__header">Rate</th><th scope="col" class="govuk-table__header">Start date</th>
+                              <th scope="col" class="govuk-table__header">End date</th>
+                            </tr>
+                          </thead>
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Daily living</td>
+                              <td class="govuk-table__cell">£329.20</td>
+                              <td class="govuk-table__cell">Standard</td><td class="govuk-table__cell">08 November 2020</td>
+                              <td class="govuk-table__cell">02 December 2023</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Mobility</td>
+                              <td class="govuk-table__cell">£229.80</td>
+                              <td class="govuk-table__cell">Enhanced</td><td class="govuk-table__cell">08 November 2020</td>
+                              <td class="govuk-table__cell">02 December 2023</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Deductions
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <table class="govuk-table">
+                          <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                              <th scope="col" class="govuk-table__header">Type of deduction</th>
+                              <th scope="col" class="govuk-table__header">Amount</th>
+                              <th scope="col" class="govuk-table__header">Start date</th>
+                              <th scope="col" class="govuk-table__header">End date</th>
+                            </tr>
+                          </thead>
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">ESA (Income Related)</td>
+                              <td class="govuk-table__cell">£40.00</td>
+                              <td class="govuk-table__cell">11 May 2023</td>
+                              <td class="govuk-table__cell">10 May 2024</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Child Benefit</td>
+                              <td class="govuk-table__cell">£40.00</td>
+                              <td class="govuk-table__cell">15 July 2023</td>
+                              <td class="govuk-table__cell">08 December 2024</td>
+                            </tr>
+                              <tr class="govuk-table__row">
+                              <th scope="row" class="govuk-table__header" total="" deduction<="" th="">Total deductions                                     </th><td class="govuk-table__cell">£80.00</td>
+                              <td class="govuk-table__cell"></td>
+                              <td class="govuk-table__cell"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </dd>
+                    </div>
+                    <!-- <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Estimated next payment amount
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £479.00
+                      </dd>
+                    </div> -->
+                    <!-- <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last payment date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        17 July 2023
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last payment amount
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £519.00
+                      </dd>
+                    </div> -->
+                  </dl>
+                </div>
+              </div>
+              <div class="govuk-accordion__section">
+                <div class="govuk-accordion__section-header">
+                  <h3 class="govuk-accordion__section-heading">
+                    <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                      Employment and Support Allowance
+                    </span>
+                  </h3>
+                </div>
+                <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Benefit
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Employment and Support Allowance
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Start date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        11 May 2023
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        End date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        10 May 2024
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Benefit type
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        ESA IR
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Frequency of payments
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Every 2 week
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Amount before deductions
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £193.10
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Components
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <table class="govuk-table">
+                          <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                              <th scope="col" class="govuk-table__header">Components</th>
+                              <th scope="col" class="govuk-table__header">Amount</th>
+                              <th scope="col" class="govuk-table__header">Start date</th>
+                              <th scope="col" class="govuk-table__header">End date</th>
+                            </tr>
+                          </thead>
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Personal allowance</td>
+                              <td class="govuk-table__cell">£154.00</td>
+                              <td class="govuk-table__cell">11 May 2023</td>
+                              <td class="govuk-table__cell">10 May 2024</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Client group premium</td>
+                              <td class="govuk-table__cell">£39.10</td>
+                              <td class="govuk-table__cell">11 May 2023</td>
+                              <td class="govuk-table__cell">10 May 2024</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Deductions
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <table class="govuk-table">
+                          <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                              <th scope="col" class="govuk-table__header">Type of deduction</th>
+                              <th scope="col" class="govuk-table__header">Amount</th>
+                              <th scope="col" class="govuk-table__header">Start date</th>
+                              <th scope="col" class="govuk-table__header">End date</th>
+                            </tr>
+                          </thead>
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                              <td class="govuk-table__cell">Water/General Rates</td>
+                              <td class="govuk-table__cell">£8.97</td>
+                              <td class="govuk-table__cell">09 June 2023</td>
+                              <td class="govuk-table__cell">No end date</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                              <th scope="row" class="govuk-table__header" total="" deduction<="" th="">Total deductions</th>
+                              <td class="govuk-table__cell">£8.97</td>
+                              <td class="govuk-table__cell"></td>
+                              <td class="govuk-table__cell"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </dd>
+                    </div>
+                    <!-- <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Estimated next payment amount
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £184.13
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last payment date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        01 August 2023
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last payment amount
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £184.13
+                      </dd>
+                    </div> -->
+                  </dl>
+                </div>
+              </div>
+              <div class="govuk-accordion__section">
+                <div class="govuk-accordion__section-header">
+                  <h3 class="govuk-accordion__section-heading">
+                    <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                      Carer's Allowance
+                    </span>
+                  </h3>
+                </div>
+                <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                  <div class="govuk-warning-text govuk-!-padding-0 govuk-!-width-two-thirds">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      The next payment amount and date for Carer's Allowance is not confirmed. Check again later.
+                    </strong>
+                  </div>
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Benefit
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Carer's Allowance
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Start date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        23 June 2023
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        End date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        No end date
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Benefit type
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Benefit type does not apply for Carer's Allowance 
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Frequency of payments
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Every 4 week
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Amount before deductions
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £278.80
+                        
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Components</dt>
+                      <dd class="govuk-summary-list__value">
+                        <table class="govuk-table">
+                              
+                              <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                  <th scope="col" class="govuk-table__header">Components</th>
+                                  <th scope="col" class="govuk-table__header">Amount</th>
+                                  <th scope="col" class="govuk-table__header">Start date</th>
+                                  <th scope="col" class="govuk-table__header">End date</th>
+                                </tr>
+                              </thead>
+                              <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                  <td class="govuk-table__cell">Carer allowance</td>
+                                  <td class="govuk-table__cell">£278.80</td>
+                                  <td class="govuk-table__cell">23 June 2023</td>
+                                  <td class="govuk-table__cell">No end date</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                        
+                      </dd>
+                    </div><div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Deduction
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £0.00
+                      </dd>
+                    </div>
+                    <!-- <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Estimated next payment amount
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £278.80
+                      </dd>
+                    </div> -->
+                    <!-- <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last payment date
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        21 July 2023
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last payment amount
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £278.80
+                      </dd>
+                    </div> -->
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- logic for filter function -->
+
+  <script type="text/javascript">
+    function showFilter() {
+      // document.getElementById("demo").innerHTML = "Hello World";
+      // alert("Hello world");
+      var link = document.getElementById('filter-section');
+      var link2 = document.getElementById('show-filter-btn');
+      var hdFilter = document.getElementById('hide-filter-btn');
+      var esaTable = document.getElementById('table-ESA');
+      var caTable = document.getElementById('table-CA');
+      var pipTable = document.getElementById('table-PIP');
+      link.classList.remove("govuk-visually-hidden");
+      link2.classList.add("govuk-visually-hidden");
+      hdFilter.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+      document.getElementById("filter-1").checked = false;
+      document.getElementById("filter-2").checked = false;
+      document.getElementById("filter-3").checked = false;
+    }
+
+    function cancelFilter() {
+      var link = document.getElementById('filter-section');
+      var link2 = document.getElementById('show-filter-btn');
+      var hdFilter = document.getElementById('hide-filter-btn');
+      // var link4 = document.getElementById('apply-filter-btn');
+      link.classList.add("govuk-visually-hidden");
+      hdFilter.classList.add("govuk-visually-hidden");
+      link2.classList.remove("govuk-visually-hidden");
+      document.getElementById("filter-1").checked = false;
+      document.getElementById("filter-2").checked = false;
+      document.getElementById("filter-3").checked = false;
+    }
+
+    function applyFilter() {
+
+      // var link3 = document.getElementById('filter-selected');
+      var link2 = document.getElementById('show-filter-btn');
+      var link5 = document.getElementById('filter-section'); 
+      var tableDefault = document.getElementById('default-table')
+      var esaTable = document.getElementById('table-ESA');
+      var caTable = document.getElementById('table-CA');
+      var pipTable = document.getElementById('table-PIP');
+      // link3.classList.remove("govuk-visually-hidden");
+      if (document.getElementById("filter-1").checked == true) {
+        // link3.classList.remove("govuk-visually-hidden");
+        link2.classList.remove("govuk-visually-hidden");
+        link5.classList.add("govuk-visually-hidden");
+        tableDefault.classList.add("govuk-visually-hidden");
+        esaTable.classList.remove("govuk-visually-hidden");
+        caTable.classList.add("govuk-visually-hidden");
+        pipTable.classList.add("govuk-visually-hidden");
+      }
+      else if (document.getElementById("filter-2").checked == true) {
+        // link3.classList.remove("govuk-visually-hidden");
+        link2.classList.remove("govuk-visually-hidden");
+        // link4.classList.add("govuk-visually-hidden");
+        link5.classList.add("govuk-visually-hidden");
+        tableDefault.classList.add("govuk-visually-hidden");
+        caTable.classList.remove("govuk-visually-hidden");
+        esaTable.classList.add("govuk-visually-hidden");
+        pipTable.classList.add("govuk-visually-hidden");
+    } else if (document.getElementById("filter-3").checked == true) {
+        // link3.classList.remove("govuk-visually-hidden");
+        link2.classList.remove("govuk-visually-hidden");
+        // link4.classList.add("govuk-visually-hidden");
+        link5.classList.add("govuk-visually-hidden");
+        tableDefault.classList.add("govuk-visually-hidden");
+        pipTable.classList.remove("govuk-visually-hidden");
+        esaTable.classList.add("govuk-visually-hidden");
+        caTable.classList.add("govuk-visually-hidden");
+    }
+  }
+
+    function clearFilter() {
+      var link3 = document.getElementById('filter-selected');
+      var esaTable = document.getElementById('table-ESA');
+      var caTable = document.getElementById('table-CA');
+      var pipTable = document.getElementById('table-PIP');
+      var tableDefault = document.getElementById('default-table');
+      var hdFilter = document.getElementById('hide-filter-btn');
+      // var link4 = document.getElementById('apply-filter-btn');
+      link3.classList.add("govuk-visually-hidden");
+      tableDefault.classList.remove("govuk-visually-hidden");
+      esaTable.classList.add("govuk-visually-hidden");
+      caTable.classList.add("govuk-visually-hidden");
+      pipTable.classList.add("govuk-visually-hidden");
+      link.classList.remove("govuk-visually-hidden");
+      hdFilter.classList.add("govuk-visually-hidden");
+      document.getElementById("filter-1").checked = false;
+      document.getElementById("filter-2").checked = false;
+      document.getElementById("filter-3").checked = false;
+      
+    }
+    
+    </script>
+
+{% endblock %}
