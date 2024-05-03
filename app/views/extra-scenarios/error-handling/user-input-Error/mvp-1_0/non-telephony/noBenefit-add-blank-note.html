@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Error: What did you discussed with the caller?
+  Error: Enter what you discussed with the contact?
 {% endblock %}
 
 {% block header %}
@@ -29,7 +29,7 @@
               <div class="govuk-error-summary__body">
                 <ul class="govuk-list govuk-error-summary__list">
                   <li>
-                    <a href="#addNote-noBenefit">Enter what you discussed with the caller</a>
+                    <a href="#addNote-noBenefit">Enter what you discussed with the contact</a>
                   </li>
                 </ul>
               </div>
@@ -38,13 +38,13 @@
           <div class="govuk-form-group govuk-form-group--error">
             <h1 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--l" for="addNote-noBenefit">
-                What did you discuss with the caller?
+                Enter what you discussed with the contact?
               </label>
               <div id="more-detail-hint" class="govuk-hint">
                 You will be able to change this information later
               </div>
               <p id="more-detail-error" class="govuk-error-message">
-                <span class="govuk-visually-hidden">Error:</span> Enter what you discussed with the caller
+                <span class="govuk-visually-hidden">Error:</span> Enter what you discussed with the contact
               </p>
             </h1>
             <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="addNote-noBenefit" name="addNote" value="{{addNote}}" rows="5" aria-describedby="more-detail-hint"></textarea>
