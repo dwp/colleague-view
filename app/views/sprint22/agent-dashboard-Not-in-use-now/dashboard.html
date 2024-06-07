@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Homepage
+{% endblock %}
+
+
+{% block header %}
+  {% include "sprint22/common/agent-dashboard-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "sprint22/common/phase-banner--user-research.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint22/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">My tools</h1>
+      <ul class="govuk-grid-row customer-view-card-group">
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="colleague-view/index.html">Colleague view</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">Check a customer’s benefit information. Record of past interaction or engagements.</p>
+                </div>
+              </div>
+            </li>
+            <li class="govuk-grid-column-one-third customer-view-card-group__item">
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="searchlight/technical-issue.html">Searchlight</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">Agents use to access information about claimantsfrom the range of sources.</p>
+                </div>
+              </div>
+            </li>
+            <!-- <li class="govuk-grid-column-one-third customer-view-card-group__item"> 
+              <div class="customer-view-card customer-view-card--clickable">
+                <div class="customer-view-card__content">
+                  <h2 class="customer-view-card__heading govuk-heading-m">
+                    <a class="govuk-link govuk-link--no-visited-state customer-view-card__link" href="payment-and-awards.html">Payments and Awards</a>
+                  </h2>
+                  <p class="govuk-body customer-view-card__description">Check customer's next payments and their payment history.</p>
+                </div>
+              </div>
+            </li>-->
+          </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
