@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check call details you have added
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-8/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}  
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Check call details you have added</h1>
+        <!-- custome (summarylist) component  -->
+        <table class="govuk-summary-list">
+          <tbody class="govuk-summary-list-body">
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">Benefit discussed</th>
+              <td class="govuk-summary-list__value">
+                {{ data['whichBenefitDiscussed'] }}
+              </td>
+              <td class="govuk-summary-list__actions">
+                <a href="benefits-discussed.html">
+                Change<span class="govuk-visually-hidden">the benefit that was discussed</span>
+                </a>
+              </td>
+            </tr>
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Questions asked
+              </th>
+              <td class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for benefit in data['questionAsk'] %}
+                  <li>{{ benefit }}</li>
+                  {% endfor %}
+                </ul>
+              </td>
+              <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                <a href="questions-asked.html">
+                  Change
+                <span class="govuk-visually-hidden">questions that the caller asked</span>
+                </a>
+              </td>
+            </tr>
+            <tr class="govuk-summary-list__row {{isNpd}}">
+              <th scope="row" class="govuk-summary-list__key"> Was the next payment date question resolved?</th>
+              <td class="govuk-summary-list__value">
+                <strong class="govuk-tag {{isNpdResolved}}">
+                  {{ data['npd_wasQuestionResolved'] }}
+                </strong>
+              </td>
+              <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                <a href="questionAnswered.html">
+                Change
+                <span class="govuk-visually-hidden">the outcome of the next payment date question</span>
+                </a>
+              </td>
+            </tr>
+            <tr class="govuk-summary-list__row {{isNpa}}">
+              <th scope="row" class="govuk-summary-list__key">
+                Was the next payment amount question resolved?
+              </th>
+              <td class="govuk-summary-list__value">
+                <strong class="govuk-tag {{isNpaResolved}}">
+                  {{ data['npa_wasQuestionResolved'] }}
+                </strong>
+              </td>
+              <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                <a href="questionAnswered.html">
+                  Change
+                <span class="govuk-visually-hidden">the outcome of the next payment amount question</span>
+                </a>
+              </td>
+            </tr>
+            <tr class="govuk-summary-list__row {{isMp}}">
+              <th scope="row" class="govuk-summary-list__key">
+                Was the missing payment question resolved?
+              </th>
+              <td class="govuk-summary-list__value">
+                <strong class="govuk-tag {{isMaRresolved}}">
+                  {{ data['ma_wasQuestionResolved'] }}
+                </strong>
+              </td>
+              <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                <a href="questionAnswered.html">
+                  Change
+                <span class="govuk-visually-hidden">the outcome of the missing payment question</span>
+                </a>
+              </td>
+            </tr>
+            <tr class="govuk-summary-list__row {{isRfch}}">
+              <th scope="row" class="govuk-summary-list__key">
+                Was the change in payment amount question resolved?
+              </th>
+              <td class="govuk-summary-list__value">
+                <strong class="govuk-tag {{isRfchRresolved}}">
+                  {{ data['chpa_wasQuestionResolved'] }}
+                </strong>
+              </td>
+              <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                <a href="questionAnswered.html">
+                  Change<span class="govuk-visually-hidden"> the outcome of the change in payment amount question</span>
+                </a>
+              </td>
+            </tr>
+            <tr class="govuk-summary-list__row {{isSE}}">
+              <th scope="row" class="govuk-summary-list__key">
+                Was something else question resolved?
+              </th>
+              <td class="govuk-summary-list__value">
+                <strong class="govuk-tag {{isSERresolved}}">
+                  {{ data['smelse_wasQuestionResolved'] }}
+                </strong>
+              </td>
+              <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                <a href="questionAnswered.html">
+                  Change
+                <span class="govuk-visually-hidden"> table data</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>    
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            When you select confirm, you will not be able to change the details you have added.
+          </strong>
+        </div>
+        <form action="add-note-option" method="post" novalidate>
+          <input type="hidden" name="answers-checked" value="true">
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

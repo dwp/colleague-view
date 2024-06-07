@@ -10607,6 +10607,11 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/goToHom
 
 // End of baseline MVP 1.0 here
 
+// Start folder specific routes
+
+// sprint ur-8, remember to add older sprint when adding a new folder!
+router.use('/prototype-sprint-wise/ur-8', require('./views/prototype-sprint-wise/ur-8/_routes'));
+
 
 module.exports = router
 
