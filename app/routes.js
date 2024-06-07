@@ -6495,6 +6495,11 @@ router.use('/prototype-sprint-wise/sprint19', require('./views/prototype-sprint-
 router.use('/prototype-sprint-wise/sprint13', require('./views/prototype-sprint-wise/sprint13/_routes'));
 
 
+// Start folder specific routes
+
+// sprint ur-8, remember to add older sprint when adding a new folder!
+router.use('/prototype-sprint-wise/ur-8', require('./views/prototype-sprint-wise/ur-8/_routes'));
+
 
 module.exports = router
 
