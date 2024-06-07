@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Check a customer’s benefit information
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Cookies on Colleague view</h1>
+    <p class="govuk-body">This accessibility statement applies to the www.gov.uk website. It does not cover other GOV.UK subdomains such as service subdomains (for example design-system.service.gov.uk) or the blog subdomain (www.blog.gov.uk), which have their own accessibility statements.</p>
+    <p>We cannot use cookies to identify you.</p>
+    <h2 class="govuk-heading-l">Essential cookies</h2>
+    <div class="govuk-body" id="essential_cookies_desc">
+    <p>Essential cookies are needed to make the service work. If you do not want us to use them you can turn off cookies in your web browser, but the service may not work properly.</p>
+    <p>We will not set any essential cookies until you start using the service.</p>
+    <details class="govuk-details" data-module="essential-cookies-details" open>
+      <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+              Essential cookies used by this service
+          </span>
+      </summary>
+      <div class="govuk-details__text">
+          <h3 class="govuk-heading-m" id="security_cookies_desc">Security cookies</h3>
+          <table class="govuk-table" aria-describedby="security_cookies_desc">
+              <thead class="govuk-table__header">
+                  <tr>
+                      <th scope="col" class="govuk-table__header">Name</th>
+                      <th scope="col" class="govuk-table__header">Purpose</th>
+                      <th scope="col" class="govuk-table__header">Expires</th>
+                  </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                  <tr scope="row" class="govuk-table__row">
+                      <td class="govuk-table__cell">Cookie 1</td>
+                      <td class="govuk-table__cell">Plain language description of cookie purpose</td>
+                      <td class="govuk-table__cell">Cookie duration</td>
+                  </tr>
+                  <tr scope="row" class="govuk-table__row">
+                      <td class="govuk-table__cell">Cookie 2</td>
+                      <td class="govuk-table__cell">Plain language description of cookie purpose</td>
+                      <td class="govuk-table__cell">Cookie duration</td>
+                  </tr>
+              </tbody>
+          </table>
+          <h3 class="govuk-heading-m" id="functional_cookies_desc">Functional cookies</h3>
+          <table class="govuk-table" aria-describedby="functional_cookies_desc">
+              <thead class="govuk-table__header">
+                  <tr>
+                      <th scope="col" class="govuk-table__header">Name</th>
+                      <th scope="col" class="govuk-table__header">Purpose</th>
+                      <th scope="col" class="govuk-table__header">Expires</th>
+                  </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                  <tr scope="row" class="govuk-table__row">
+                      <td class="govuk-table__cell">Cookie 1</td>
+                      <td class="govuk-table__cell">Plain language description of cookie purpose</td>
+                      <td class="govuk-table__cell">Cookie duration</td>
+                  </tr>
+                  <tr scope="row" class="govuk-table__row">
+                      <td class="govuk-table__cell">Cookie 2</td>
+                      <td class="govuk-table__cell">Plain language description of cookie purpose</td>
+                      <td class="govuk-table__cell">Cookie duration</td>
+                  </tr>
+              </tbody>
+          </table>
+          <h3 class="govuk-heading-m" id="performance_cookies_desc">Performance cookies</h3>
+          <table class="govuk-table" aria-describedby="performance_cookies_desc">
+              <thead class="govuk-table__header">
+                  <tr>
+                      <th scope="col" class="govuk-table__header">Name</th>
+                      <th scope="col" class="govuk-table__header">Purpose</th>
+                      <th scope="col" class="govuk-table__header">Expires</th>
+                  </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                  <tr scope="row" class="govuk-table__row">
+                      <td class="govuk-table__cell">Cookie 1</td>
+                      <td class="govuk-table__cell">Plain language description of cookie purpose</td>
+                      <td class="govuk-table__cell">Cookie duration</td>
+                  </tr>
+                  <tr scope="row" class="govuk-table__row">
+                      <td class="govuk-table__cell">Cookie 2</td>
+                      <td class="govuk-table__cell">Plain language description of cookie purpose</td>
+                      <td class="govuk-table__cell">Cookie duration</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </details>
+  </div>
+</div>
+</div>
+
+{% endblock %}
