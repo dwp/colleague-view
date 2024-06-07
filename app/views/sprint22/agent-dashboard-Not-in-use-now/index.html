@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Sign in to agent dashboard 
+{% endblock %}
+
+{% block header %}
+  {% include "sprint22/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "sprint22/common/phase-banner--user-research.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint22/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Sign in to agent dashboard</h1>
+    <p class="govuk-body">To access various services to resolve customer queries sign in to agent dashboard.</p>
+      <form class="form button_to" action="dashboard" method="post">
+        <div class="govuk-form-group">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="username-agent">
+              Username
+            </label>
+          </h2>
+          <input class="govuk-input govuk-!-width-two-thirds" id="username-agent" name="username-agent" type="text" spellcheck="false" aria-describedby="User name" value="{{ data['username-agent'] }}">
+        </div>
+        <div class="govuk-form-group govuk-!-margin-bottom-2">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="id-password">
+              Password
+            </label>
+          </h2>
+          <input class="govuk-input govuk-!-width-two-thirds" type="password" id="id-password" name="password" value="{{ data['password'] }}" aria-describedby="id-section-help-password id-section-error-password" spellcheck="false">
+        </div>
+
+          <button draggable="false" data-module="govuk-button" class="govuk-button govuk-!-margin-top-5" type="submit">
+            Sign in
+          </button>
+
+        </form>
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-3">Problems signing in</h3>
+        <p class="govuk-body govuk-!-margin-bottom-2">
+         <a href="#" class="govuk-link">Forgot my password</a>
+        </p>
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Forgot my username</a>
+         </p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-visually-hidden">
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-link govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+
+{% endblock %}
