@@ -57,13 +57,20 @@ What questions did the caller ask about Employment and Support Allowance?
                     Change in payment amount
                   </label>
                 </div>
-                <div class="govuk-checkboxes__divider">or</div>
-                <div class="govuk-checkboxes__item">
+                <!-- <div class="govuk-checkboxes__divider">or</div> -->
+                <!-- <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="somethingElse" name="questionAsk" type="checkbox" value="Something else" data-behaviour="exclusive" {{ checked ('questionAsk_esa', 'Something else') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
                     Something else
                   </label>
+                </div> -->
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="otherQuestions" name="questionAsk" type="checkbox" value="Other questions" {{ checked ('questionAsk_esa', 'Other questions') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="otherQuestions">
+                    Other questions
+                  </label>
                 </div>
+                
               </div>
             </fieldset>
           </div>

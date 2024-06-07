@@ -1,0 +1,375 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Contact history
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/ur-5/common/opt1/header-navigation_EngagementHistory-active.html" %}
+    {% include "prototype-sprint-wise/ur-5/common/opt1/keydetail-bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-sprint-wise/ur-5/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "prototype-sprint-wise/ur-5/common/phase-banner--user-research.html" %}
+<div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">Contact history</a>
+  </li>
+</ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Contact history</h1>
+      <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+        <div class="govuk-accordion__section">
+          <div class="govuk-accordion__section-header">
+            <h2 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                Filter contact
+              </span>
+            </h2>
+          </div>
+          <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                <div class="govuk-form-group">
+                  <h3 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label--s" for="keywords">
+                      Keywords
+                    </label>
+                  </h3>
+                  <input class="govuk-input" id="keywords" name="keywords" type="text" autocomplete="search-keywords">
+                </div>
+              </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <div class="govuk-grid-row">
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Date range</h3>
+              <div id="passport-issued-hint" class="govuk-hint">
+                Please select date range that is within last 12 months.
+              </div>
+              <div class="govuk-grid-column-one-third">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                    <legend class="govuk-fieldset__legend">
+                      From date
+                    </legend>
+                    <div id="passport-issued-hint" class="govuk-hint">
+                      For example, 13 03 2023
+                    </div>
+                    <div class="govuk-date-input" id="passport-issued">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="govuk-grid-column-one-third">
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                        <legend class="govuk-fieldset__legend">
+                          To date
+                        </legend>
+                        <div id="passport-issued-hint" class="govuk-hint">
+                          For example, 22 04 2023
+                        </div>
+                        <div class="govuk-date-input" id="passport-issued">
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                                Day
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                                Month
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                                Year
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-third">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+                          Benefit
+                        </h3>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Employment and support Allowance
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                            Jobseeker Allowance
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                            Personal Independence Payment (PIP)
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+                          Enquiry Type
+                        </h3>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Medical Evidence Enquiry
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                            Jobcentre Appointment or Enquiry
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                            General Enquiry
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                            Next Payment Date
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                            Next Payment Amount
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+                          Status
+                        </h3>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste">
+                            Resolved
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+                          <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                            Escalated
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Apply filter
+        </button>
+        </div>
+      </div>
+      </div>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date</th>
+            <th scope="col" class="govuk-table__header">Interaction Type</th>
+            <th scope="col" class="govuk-table__header ">Benefit</th>
+            <th scope="col" class="govuk-table__header">Enquiry Type</th>
+            <th scope="col" class="govuk-table__header ">Notes</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">Action</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">11 July 2023</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Personal Independence Payment (PIP)</td>
+            <td class="govuk-table__cell">Next payment amount</td>
+            <td class="govuk-table__cell">Next payment amount is £519.00</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+            <td class="govuk-table__cell"><a href="contact-history-detail.html" class="govuk-link">View</a></td>
+          </tr>
+        <!--   <tr class="govuk-table__row">
+            <td class="govuk-table__cell">10 February 2023</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next Payment Date</td>
+            <td class="govuk-table__cell">Citizen is not keeping well and asked about the next payment date...</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Escalated</strong></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">10 February 2023</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next Payment Date</td>
+            <td class="govuk-table__cell">Citizen is not keeping well and asked about the next payment date...</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">10 February 2023</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next Payment Date</td>
+            <td class="govuk-table__cell">Citizen is not keeping well and asked about the next payment date...</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">10 February 2023</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next Payment Date</td>
+            <td class="govuk-table__cell">Citizen is not keeping well and asked about the next payment date...</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">10 February 2023</td>
+            <td class="govuk-table__cell">Incoming telephone call</td>
+            <td class="govuk-table__cell">Employment and Support Allowance</td>
+            <td class="govuk-table__cell">Next Payment Date</td>
+            <td class="govuk-table__cell">Citizen is not keeping well and asked about the next payment date...</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Resolved</strong></td>
+            <td class="govuk-table__cell"><a href="#" class="govuk-link">View</a></td>
+          </tr> -->
+        </tbody>
+      </table>
+
+      <nav class="moj-pagination" aria-label="Pagination navigation">
+        <ul class="moj-pagination__list govuk-visually-hidden">
+         <li class="moj-pagination__item  moj-pagination__item--prev">
+           <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+         </li>
+
+         <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=1" aria-label="Page 1 of 30">1</a></li>
+
+         <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2 of 30" aria-current="page">2</li>
+
+         <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=3" aria-label="Page 3 of 30">3</a></li>
+
+         <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+
+         <li class="moj-pagination__item"><a class="moj-pagination__link" href="/page=5" aria-label="Page 5 of 30">5</a></li>
+
+         <li class="moj-pagination__item  moj-pagination__item--next">
+           <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
+         </li>
+       </ul>
+        <p class="moj-pagination__results">Showing <b>01</b> to <b>01</b> of <b>01</b> page</p>
+      </nav>
+
+        <!-- Default pagination when more than 10 records available -->
+      <!--   <nav class="moj-pagination" aria-label="Pagination navigation">
+        <ul class="moj-pagination__list">
+          <li class="moj-pagination__item  moj-pagination__item--prev">
+            <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+          </li>
+
+          <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 1 of 30">1</a></li>
+
+          <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 2 of 30" aria-current="page">2</li>
+
+          <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 3 of 30">3</a></li>
+
+          <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+
+          <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 5 of 30">5</a></li>
+
+          <li class="moj-pagination__item  moj-pagination__item--next">
+            <a class="moj-pagination__link" href="#">Next<span class="govuk-visually-hidden"> page</span></a>
+          </li>
+        </ul>
+        <p class="moj-pagination__results">Showing <b>10</b> to <b>20</b> of <b>30</b> pages</p>
+      </nav>-->
+
+
+    </div>
+  </div>
+
+{% endblock %}

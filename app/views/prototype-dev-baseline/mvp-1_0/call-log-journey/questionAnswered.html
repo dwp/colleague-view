@@ -118,6 +118,29 @@
               </div>
             </fieldset>
           </div>
+          <div class="govuk-form-group {{isOthques}}">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend">
+                <h2 class="govuk-fieldset__heading">
+                  Were all the <span class="govuk-!-font-weight-bold">other question</span> resolved?
+                </h2>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="Othques_resolved" name="Othques_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('Othques_wasQuestionResolved', 'Resolved') }}>
+                  <label class="govuk-label govuk-radios__label" for="Othques_resolved">
+                    Yes  <span class="govuk-visually-hidden">all the other questions were resolved</span>
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="Othques_Not-resolved" name="Othques_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('Othques_wasQuestionResolved', 'Not resolved') }}>
+                  <label class="govuk-label govuk-radios__label" for="Othques_Not-resolved">
+                    No  <span class="govuk-visually-hidden">change in payment amount question was not resolved</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
           <button class="govuk-button" data-module="govuk-button">
             Save and continue
           </button>
