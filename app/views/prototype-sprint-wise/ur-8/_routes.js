@@ -167,7 +167,7 @@ if (req.session.data['national-insurance-number-ur-8'] == 'QQ123456Q' || req.ses
 console.log('Why checking info')
 // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
 // res.render('prototype-sprint-wise/ur-8/a/why-checking-Info');
-res.redirect('prototype-sprint-wise/ur-8/a/why-checking-Info');
+res.redirect('/prototype-sprint-wise/ur-8/a/why-checking-Info');
 
 } else {
 var errMsg = "";
