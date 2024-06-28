@@ -21,18 +21,17 @@ What questions did the caller ask about Employment and Support Allowance?
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        <!-- <p class="govuk-caption-m">Benefit 1 of 2</p> -->
         <form action="/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes" method="post" novalidate>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading govuk-heading-l">
-                  What questions did the caller ask about {{ data['whichBenefitDiscussed'] }}?
+                  <span class="govuk-caption-l">{{ data['whichBenefitDiscussed'] }}</span>
+                  What questions did the caller ask?
                 </h1>
               </legend>
-              <div id="countries-hint" class="govuk-hint">
-                Select all that apply.
-              </div>
-              <div class="govuk-checkboxes govuk-!-margin-top-3" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="nextPaymentDate" name="questionAsk" type="checkbox" value="Next payment date" {{ checked ('questionAsk', 'Next payment date') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
@@ -58,9 +57,9 @@ What questions did the caller ask about Employment and Support Allowance?
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="somethingElse" name="questionAsk" type="checkbox" value="Something else" {{ checked ('questionAsk_esa', 'Something else') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
-                    Something else
+                  <input class="govuk-checkboxes__input" id="otherQ" name="questionAsk" type="checkbox" value="Other questions" {{ checked ('questionAsk', 'Other questions') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="otherQ">
+                    Other questions
                   </label>
                 </div>
                 <!-- <div class="govuk-checkboxes__divider">or</div> -->

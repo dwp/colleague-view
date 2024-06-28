@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Upcoming and historic benefit payments
+Benefit details and payments
 {% endblock %}
 
 {% block header %}
@@ -24,7 +24,7 @@
         <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Upcoming and historic benefit payments</a>
+        <a class="govuk-breadcrumbs__link" href="#">Benefit payments</a>
       </li>
     </ol>
   </div>
@@ -35,7 +35,7 @@
   <div class="govuk-grid-column-full">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
+        <h1 class="govuk-heading-xl">Benefit payments</h1>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
         </li>
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
           <a class="govuk-tabs__tab" href="#details">
-            Details and breakdowns of benefits
+            Benefit details
           </a>
         </li>
       </ul>
@@ -198,7 +198,7 @@
           Hide filter
         </button>
         <!-- Filter section display benefit options -->
-        <form action="/prototype-sprint-wise/ur-8/a/view-only-user/payment#history" method="post">
+        <form action="/prototype-sprint-wise/ur-8/a/payment#history" method="post">
           <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
               <fieldset class="govuk-fieldset">
@@ -276,6 +276,7 @@
           <span class="govuk-body">There is no filter selected</span>
         {%endif%}
         </div>
+
         {% if data['paymentTableData'].length > 0%}
           <div id="default-table">          
             <table class="govuk-table">
@@ -425,7 +426,7 @@
       </div>
       <!-- TAB-3 start here -->
       <div class="govuk-tabs__panel" id="details">
-        <h2 class="govuk-heading-l">Details and breakdowns of benefits</h2>
+        <h2 class="govuk-heading-l">Benefit details</h2>
         <div class="govuk-warning-text govuk-!-width-three-quarters">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
@@ -475,7 +476,23 @@
                         Benefit type
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Others
+                        Standard benefit
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Award
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £500 every 4 weeks in arrears
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Amount after adjustments
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £400
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -483,15 +500,15 @@
                         Frequency of payments
                       </dt>
                       <dd class="govuk-summary-list__value">
-                      4 Weekly in Arrears by Direct Payment on Monday
+                        £100 weekly in arrears
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Payments method
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        £559.00
+                        Direct debit
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -630,18 +647,34 @@
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Frequency of payments
+                        Award
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Every 2 week
+                        £500 every 4 weeks in arrears
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Amount after adjustments
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        £193.10
+                        £400
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Payment frequency 
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £100 weekly in arrears
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Payment method
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Direct debit
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -742,12 +775,11 @@
                   </h3>
                 </div>
                 <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
-
                   <div class="govuk-warning-text govuk-!-padding-0 govuk-!-width-two-thirds">
                     <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                     <strong class="govuk-warning-text__text">
                       <span class="govuk-visually-hidden">Warning</span>
-                      The next payment amount and date for Carer's Allowance (CA) is not confirmed. Check again later.
+                      The next payment amount and date for Carer's Allowance is not confirmed. Check again later.
                     </strong>
                   </div>
                   <dl class="govuk-summary-list">
@@ -788,12 +820,20 @@
                         Frequency of payments
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Every 4 week
+                        Every 4 weeks
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Payments method
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Direct debit
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Amount before adjustments
                       </dt>
                       <dd class="govuk-summary-list__value">
                         £278.80

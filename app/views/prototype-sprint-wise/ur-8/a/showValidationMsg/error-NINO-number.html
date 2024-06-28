@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Error:Check a customer’s benefit information
+Error: Check benefit information and contact history
 {% endblock %}
 
 {% block header %}
@@ -35,29 +35,35 @@ Error:Check a customer’s benefit information
       </div>
     </div>
 
-    <h1 class="govuk-heading-xl">Check a customer’s benefit information</h1>
+    <h1 class="govuk-heading-xl">Check benefit information and contact history</h1>
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        This service does not provide information about Universal Credit.
+      </strong>
+    </div>
     <p class="govuk-body">Use this service to:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>view a customer's personal details</li>
-      <li>check information about the benefits a customer gets</li>
-      <li>view payment history and breakdowns of benefits</li>
-      <li>add details of the call and view call history</li>
+      <li>view personal details</li>
+      <li>view live and past benefit information</li>
+      <li>check DWP contact notes</li>
+      <li>add details of new contact</li>
     </ul>
-      <form class="form button_to" action="/prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info" method="post">
+      <form class="form button_to" action="/prototype-sprint-wise/ur-8/a/why-checking-Info" method="post">
         <div class="govuk-form-group govuk-!-margin-top-7 govuk-!-margin-bottom-2 govuk-form-group--error">
           <h2 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="full-name-input">
-              Enter the customer's National Insurance number
+              Enter the National Insurance number
             </label>
           </h2>
-
           <div id="national-insurance-number-hint" class="govuk-hint">
-            It is on the customer's National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 Q’.
+            This can be found on the person's National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 Q’.
           </div>
           <p id="national-insurance-number-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> {{errMsg}}
           </p>
-          <input class="govuk-input govuk-input--width-10 govuk-input--error" id="full-name-input" name="national-insurance-number-sprint23-opt2" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint" autocomplete="on" value="{{ data['national-insurance-number-sprint23'] }}">
+          <input class="govuk-input govuk-input--width-10 govuk-input--error" id="full-name-input" name="nnational-insurance-number-ur-8" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint" autocomplete="on" value="{{ data['national-insurance-number-sprint23'] }}">
         </div>
         <button draggable="false" data-module="govuk-button" class="govuk-button govuk-button--start govuk-!-margin-top-5" type="submit">
             Start now<svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" focusable="false" aria-hidden="true">

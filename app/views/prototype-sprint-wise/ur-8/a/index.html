@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Check a customer’s benefit information
+  Check benefit information and contact history
 {% endblock %}
 
 {% block header %}
@@ -20,7 +20,7 @@ Check a customer’s benefit information
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Check a customer’s benefit information</h1>
+    <h1 class="govuk-heading-xl">Check benefit information and contact history</h1>
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
@@ -30,21 +30,21 @@ Check a customer’s benefit information
     </div>
     <p class="govuk-body">Use this service to:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>view a customer's personal details</li>
-      <li>check information about the benefits a customer gets</li>
-      <li>view payment history and breakdowns of benefits</li>
-      <li>add details of contact and view contact history</li>
+      <li>view personal details</li>
+      <li>view live and past benefit information</li>
+      <li>check DWP contact notes</li>
+      <li>add details of new contact</li>
     </ul>
-    <form class="form button_to" action="why-checking-info" method="post">
+    <form class="form button_to" action="check-information" method="post">
       <div class="govuk-form-group">
         <h2 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="full-name-input">
-            Enter the customer's National Insurance number
+            Enter the National Insurance number
           </label>
         </h2>
 
         <div id="national-insurance-number-hint" class="govuk-hint">
-          It is on the customer's National Insurance card, benefit letter, payslip or P60. For example,  ‘QQ 12 34 56 Q’.
+          This can be found on the person's National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 Q’.
         </div>
         <input class="govuk-input govuk-input--width-10" id="full-name-input" name="national-insurance-number-ur-8" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint" autocomplete="on">
       </div>
