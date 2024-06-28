@@ -793,7 +793,7 @@ res.redirect("/prototype-sprint-wise/ur-8/a/home")
 })
 
 
-// Filter for payment history and contact history (Bhavin)
+// Filter  for payment history and contact history (Bhavin)
 
 // Payment history 
 router.post('/a/payment',function(req,res){
