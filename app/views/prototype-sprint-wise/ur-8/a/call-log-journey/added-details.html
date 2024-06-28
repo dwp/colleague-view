@@ -73,13 +73,22 @@
         <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-6">
           <h2 class="govuk-heading-s">Notes</h2>
           <p class="govuk-body govuk-!-margin-bottom-2">{{ data['addNote'] or "Not provided" }}</p> 
-          <p class="govuk-body">
-            <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-          </p> 
+          <hr class="govuk-section-break govuk-section-break--visible">
         </div>
 
+        <form action="do-you-want-to-complete-call" method="post" novalidate>
+          <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+            <a href="add-note" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Add or change note
+            </a>
+          </div>
+      </form>
+
         <!-- add more beneft/reason -->
-        <form action="/prototype-sprint-wise/ur-8/a/addAnotherBenefit" method="post" novalidate>
+        <!-- <form action="/prototype-sprint-wise/ur-8/a/addAnotherBenefit" method="post" novalidate>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -104,7 +113,7 @@
           <button class="govuk-button" data-module="govuk-button">
             Continue
           </button>
-        </form>
+        </form> -->
       </div>
     </div>
 

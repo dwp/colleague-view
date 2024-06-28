@@ -118,6 +118,29 @@
               </div>
             </fieldset>
           </div>
+          <div class="govuk-form-group {{isOthQ}}">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend">
+                <h2 class="govuk-fieldset__heading">
+                  Was the <span class="govuk-!-font-weight-bold">other questions</span> resolved?
+                </h2>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="othQ_resolved" name="othQ_wasQuestionResolved" type="radio" value="Resolved" {{ checked ('othQ_wasQuestionResolved', 'Resolved') }}>
+                  <label class="govuk-label govuk-radios__label" for="othQ_resolved">
+                    Yes  <span class="govuk-visually-hidden">ther questions was resolved</span>
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="othQ_Not-resolved" name="othQ_wasQuestionResolved" type="radio" value="Not resolved" {{ checked ('othQ_wasQuestionResolved', 'Not resolved') }}>
+                  <label class="govuk-label govuk-radios__label" for="othQ_Not-resolved">
+                    No  <span class="govuk-visually-hidden">other question was not resolved</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
           <button class="govuk-button" data-module="govuk-button">
             Save and continue
           </button>

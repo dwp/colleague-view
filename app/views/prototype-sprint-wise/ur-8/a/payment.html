@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Upcoming and historic benefit payments
+Benefit payments
 {% endblock %}
 
 
@@ -24,7 +24,7 @@
         <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Upcoming and historic benefit payments</a>
+        <a class="govuk-breadcrumbs__link" href="#">Benefit payments</a>
       </li>
     </ol>
   </div>
@@ -35,12 +35,12 @@
   <div class="govuk-grid-column-full">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
+        <h1 class="govuk-heading-xl">Benefit payments</h1>
       </div>
       <div class="govuk-grid-column-one-third govuk-!-text-align-right">
         <form action="call-log-journey/selectBenefit" method="post">
           <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
-            Add or view call details
+            Add or change notes
           </button>
         </form>
       </div>
@@ -64,7 +64,7 @@
         </li>
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
           <a class="govuk-tabs__tab" href="#details">
-            Details and breakdowns of benefits
+            Benefit details
           </a>
         </li>
       </ul>
@@ -433,7 +433,7 @@
       </div>
       <!-- TAB-3 start here -->
       <div class="govuk-tabs__panel" id="details">
-        <h2 class="govuk-heading-l">Details and breakdowns of benefits</h2>
+        <h2 class="govuk-heading-l">Benefit details</h2>
         <div class="govuk-warning-text govuk-!-width-three-quarters">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
@@ -483,7 +483,23 @@
                         Benefit type
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Others
+                        Standard benefit
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Award
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £500 every 4 weeks in arrears
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Amount after adjustments
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £400
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -491,15 +507,15 @@
                         Frequency of payments
                       </dt>
                       <dd class="govuk-summary-list__value">
-                      4 Weekly in Arrears by Direct Payment on Monday
+                        £100 weekly in arrears
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Payments method
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        £559.00
+                        Direct debit
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -638,18 +654,34 @@
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Frequency of payments
+                        Award
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Every 2 week
+                        £500 every 4 weeks in arrears
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Amount after adjustments
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        £193.10
+                        £400
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Payment frequency 
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        £100 weekly in arrears
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Payment method
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Direct debit
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -795,12 +827,20 @@
                         Frequency of payments
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Every 4 week
+                        Every 4 weeks
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Payments method
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Direct debit
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Amount before adjustments
                       </dt>
                       <dd class="govuk-summary-list__value">
                         £278.80

@@ -101,10 +101,17 @@
           </table>
           <div class="govuk-!-margin-top-6">
             <h2 class="govuk-heading-s">Notes</h2>
-            <p class="govuk-body govuk-!-margin-bottom-2">{{ data['notes'] or "Not provided"  }} </p> 
-            <p class="govuk-body">
-              <a href="add-note" class="govuk-link govuk-link--no-visited-state">Add or change</a>
-            </p> 
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-body govuk-!-margin-bottom-2 govuk-!-width-two-thirds">{{ data['notes'] or "Not provided"  }} </p> 
+              </div>
+              <div class="govuk-grid-column-one-third">
+                <a href="add-note" role="button" draggable="false" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-2" data-module="govuk-button">
+                  Add or change note
+                </a>
+              </div>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--visible">
           </div>
         </div>
       </div>
