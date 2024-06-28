@@ -164,9 +164,9 @@ req.session.data.outcomePage = '';
 
 if (req.session.data['national-insurance-number-ur-8'] == 'QQ123456Q' || req.session.data['national-insurance-number-ur-8'] == 'qq123456q' || req.session.data['national-insurance-number-ur-8'] == 'QQ 12 34 56 Q') {
 // Send user to next page
-console.log('Why checking info')
+console.log('This is correct')
 // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
-res.render('/prototype-sprint-wise/ur-8/a/why-checking-info');
+res.render('prototype-sprint-wise/ur-8/a/why-checking-Info');
 
 } else {
 var errMsg = "";
@@ -793,7 +793,7 @@ res.redirect("/prototype-sprint-wise/ur-8/a/home")
 })
 
 
-// Filter  for payment history and contact history (Bhavin)
+// Filter for payment history and contact history (Bhavin)
 
 // Payment history 
 router.post('/a/payment',function(req,res){
