@@ -326,13 +326,15 @@ router.post('/prototype-dev-baseline/mvp-1_1/index', function (req, res) {
 
 
 
-router.post('/prototype-dev-baseline/mvp-1_1/who-is-calling-or-contacting', function (req, res) {
+router.post('/who-is-calling-or-contacting', function (req, res) {
   req.session.data['Who-is-the-engagement-with-sprint23-opt2'] = '';
   req.session.data['Who-is-contact-with'] = '';
 
   if (req.session.data['What-type-of-contact'] == 'Telephone call with') {
+    console.log('this is for Telephony user');
     res.redirect('/prototype-dev-baseline/mvp-1_1/call-with');
   } else {
+    console.log('this is for Non-Telephony user');
     res.redirect('/prototype-dev-baseline/mvp-1_1/different-type-contact-user/contact-with');
     }
 });
@@ -474,7 +476,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/contact-history-ui',function(req,re
       res.render("/prototype-dev-baseline/mvp-1_1/contact-history")
   })
 
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/selectBenefit', function(req, res) {
+router.post('/call-log-journey/selectBenefit', function(req, res) {
   req.session.data['whichBenefitDiscussed'] = '';
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
@@ -491,7 +493,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/selectBenefit', fu
 
 })
 
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/selectQuestion', function(req, res) {
+router.post('/call-log-journey/selectQuestion', function(req, res) {
 
   let outcomePageData = [];
   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
@@ -513,7 +515,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/selectQuestion', f
   } 
 })
 
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/questions-outcomes', function(req, res) {
+router.post('/call-log-journey/questions-outcomes', function(req, res) {
 
     var isNpd = 'govuk-!-display-none';
     var isNpa = 'govuk-!-display-none';
@@ -546,7 +548,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/questions-outcomes
   }
 })
 
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/added-call-details', function(req, res) {
+router.post('/call-log-journey/added-call-details', function(req, res) {
 
     var isNpd = 'govuk-!-display-none';
     var isNpa = 'govuk-!-display-none';
@@ -618,7 +620,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/added-call-details
 
 })
 
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/checkAnswer2', function(req, res) {
+router.post('/call-log-journey/checkAnswer2', function(req, res) {
   var isNpd = 'govuk-!-display-none';
     var isNpa = 'govuk-!-display-none';
     var isMp = 'govuk-!-display-none';
@@ -673,7 +675,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/checkAnswer2', fun
 })
   
 // check answer for something else question type
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/added-call-details-for-something-else', function(req, res) {
+router.post('/call-log-journey/added-call-details-for-something-else', function(req, res) {
 
   var isNpd = 'govuk-!-display-none';
   var isNpa = 'govuk-!-display-none';
@@ -720,7 +722,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/added-call-details
 
 })
 
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/check-for-add-note', function(req, res) {
+router.post('/call-log-journey/check-for-add-note', function(req, res) {
   //All variable render here
   let outcomePageData = [];
   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
@@ -761,7 +763,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/check-for-add-note
 })
 
 
-router.get('/prototype-dev-baseline/mvp-1_1/call-log-journey/added-details', function(req, res) {
+router.get('/call-log-journey/added-details', function(req, res) {
 
    res.render('prototype-dev-baseline/mvp-1_1/call-log-journey/added-details', {
      "outcomePage":req.session.data.outcomePage,
@@ -769,14 +771,14 @@ router.get('/prototype-dev-baseline/mvp-1_1/call-log-journey/added-details', fun
 })
 
 // /add view already added note
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/add-another-benefit-for-call', function(req, res) {
+router.post('/call-log-journey/add-another-benefit-for-call', function(req, res) {
 
  res.redirect("/prototype-dev-baseline/mvp-1_1/call-log-journey/add-another-benefit-for-call")
 
 })
 
 // check phone call progress and complete confirmation.
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/confirm_Complete_PhoneCall', function (req, res) {
+router.post('/call-log-journey/confirm_Complete_PhoneCall', function (req, res) {
   if(req.session.data.outcomePage === ''){
     res.redirect('/prototype-dev-baseline/mvp-1_1/call-log-journey/no-contact-added');
   } else {
@@ -787,12 +789,12 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/confirm_Complete_P
   });
 
 // update note before complete phone call
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/updateNote_beforeCompleteCall', function (req, res) {
+router.post('/call-log-journey/updateNote_beforeCompleteCall', function (req, res) {
   res.redirect("/prototype-dev-baseline/mvp-1_1/call-log-journey/add-more-reasons-for-call")
   });
 
 // Complete session
-router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/check-phoneCall-completed', function (req, res) {
+router.post('/call-log-journey/check-phoneCall-completed', function (req, res) {
   // Check whether the variable matches a condition
   var checkPhoneCallCompleted = req.session.data['Do-you-want-to-complete-the-telephony-session'];
   if (checkPhoneCallCompleted == 'Yes') {
@@ -807,7 +809,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/call-log-journey/check-phoneCall-co
 
 });
 
-router.post('/prototype-dev-baseline/mvp-1_1/addAnotherBenefit', function(req, res) {
+router.post('/call-log-journey/addAnotherBenefit', function(req, res) {
   req.session.data['whichBenefitDiscussed'] = '';
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
@@ -1022,7 +1024,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/view-only-user/contact-history',fun
 
 
 
-// Contact log details fro A different contact type
+// Contact log details for A different contact type
 
 router.post('/prototype-dev-baseline/mvp-1_1/different-type-contact-user/call-log-journey/confirmation-complete-session', function (req, res) {
   // console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
@@ -1443,7 +1445,7 @@ router.post('/prototype-dev-baseline/mvp-1_1/start-new-session', function (req, 
 
 });
 
-router.post('/prototype-dev-baseline/mvp-1_1/different-type-contact-user/addAnotherBenefit', function(req, res) {
+router.post('/prototype-dev-baseline/mvp-1_1/different-type-contact-user/call-log-journey/addAnotherBenefit', function(req, res) {
   req.session.data['whichBenefitDiscussed'] = '';
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
