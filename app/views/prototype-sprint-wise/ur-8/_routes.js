@@ -135,50 +135,50 @@ req.session.data['Who-is-the-engagement-with'] = '';
 res.redirect('/prototype-sprint-wise/ur-8/a/index');
 })
 
-router.post('/a/check-information', function (req, res) {
-req.session.data['What-type-of-contact'] = '';
-req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-req.session.data['Who-is-contact-with'] = '';
-req.session.data['Who-is-the-engagement-with'] = '';
-req.session.data['Do-you-want-to-complete-the-session'] = '';
-req.session.data['What-services-have-they-called-about'] = '';
-req.session.data['esaPayment'] = '';
-req.session.data['pipPayment'] = '';
-req.session.data['caPayment'] = '';
-req.session.data['ca-payment'] = '';
-req.session.data['esa-payment'] = '';
-req.session.data['pip-payment'] = '';
-req.session.data['esa-process-chasing'] = '';
-req.session.data['pip-process-chasing'] = '';
-req.session.data['ca-process-chasing'] = '';
-req.session.data['esa-coc'] = '';
-req.session.data['pip-coc'] = '';
-req.session.data['ca-coc'] = '';
-req.session.data['esa-general'] = '';
-req.session.data['pip-general'] = '';
-req.session.data['ca-general'] = '';
-req.session.data.outcomePage ='';
-req.session.data.notes = '';
-req.session.data.tableValue = '';
-req.session.data.outcomePage = '';
+// router.post('/a/check-information', function (req, res) {
+// req.session.data['What-type-of-contact'] = '';
+// req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+// req.session.data['Who-is-contact-with'] = '';
+// req.session.data['Who-is-the-engagement-with'] = '';
+// req.session.data['Do-you-want-to-complete-the-session'] = '';
+// req.session.data['What-services-have-they-called-about'] = '';
+// req.session.data['esaPayment'] = '';
+// req.session.data['pipPayment'] = '';
+// req.session.data['caPayment'] = '';
+// req.session.data['ca-payment'] = '';
+// req.session.data['esa-payment'] = '';
+// req.session.data['pip-payment'] = '';
+// req.session.data['esa-process-chasing'] = '';
+// req.session.data['pip-process-chasing'] = '';
+// req.session.data['ca-process-chasing'] = '';
+// req.session.data['esa-coc'] = '';
+// req.session.data['pip-coc'] = '';
+// req.session.data['ca-coc'] = '';
+// req.session.data['esa-general'] = '';
+// req.session.data['pip-general'] = '';
+// req.session.data['ca-general'] = '';
+// req.session.data.outcomePage ='';
+// req.session.data.notes = '';
+// req.session.data.tableValue = '';
+// req.session.data.outcomePage = '';
 
-if (req.session.data['nino-number-ur-8'] == 'QQ123456Q' || req.session.data['nino-number-ur-8'] == 'qq123456q' || req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q') {
-// Send user to next page
-console.log('This is correct')
-// res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
-res.render('prototype-sprint-wise/ur-8/a/why-checking-Info');
+// if (req.session.data['nino-number-ur-8'] == 'QQ123456Q' || req.session.data['nino-number-ur-8'] == 'qq123456q' || req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q') {
+// // Send user to next page
+// console.log('This is correct')
+// // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
+// res.render('prototype-sprint-wise/ur-8/a/why-checking-Info');
 
-} else {
-var errMsg = "";
-if (req.session.data['nino-number-ur-8'] == '' || req.session.data['nino-number-ur-8'] == undefined) {
-errMsg = "Enter the customer's National Insurance number";
-} else {
-errMsg = "Enter the customer's National Insurance number in the correct format";
-}
-// Send user to error page
-res.render('prototype-sprint-wise/ur-8/a/showValidationMsg/error-nino-number', { "errMsg": errMsg });
-}
-})
+// } else {
+// var errMsg = "";
+// if (req.session.data['nino-number-ur-8'] == '' || req.session.data['nino-number-ur-8'] == undefined) {
+// errMsg = "Enter the customer's National Insurance number";
+// } else {
+// errMsg = "Enter the customer's National Insurance number in the correct format";
+// }
+// // Send user to error page
+// res.render('prototype-sprint-wise/ur-8/a/showValidationMsg/error-nino-number', { "errMsg": errMsg });
+// }
+// })
 
 // router.post('/a/who-is-calling-or-contacting', function (req, res) {
 //     req.session.data['Who-is-the-phone-call-with-ur8'] = '';
@@ -213,6 +213,37 @@ res.render('prototype-sprint-wise/ur-8/a/showValidationMsg/error-nino-number', {
 //   // res.redirect('/prototype-sprint-wise/ur-8/a/view-only-user/home');
   
 //   });
+
+
+router.post('/why-checking-info', function (req, res) {
+req.session.data['What-type-of-contact'] = '';
+req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+req.session.data['Who-is-contact-with'] = '';
+req.session.data['Who-is-the-engagement-with'] = '';
+req.session.data['Do-you-want-to-complete-the-session'] = '';
+req.session.data['What-services-have-they-called-about'] = '';
+req.session.data['esaPayment'] = '';
+req.session.data['pipPayment'] = '';
+req.session.data['caPayment'] = '';
+req.session.data['ca-payment'] = '';
+req.session.data['esa-payment'] = '';
+req.session.data['pip-payment'] = '';
+req.session.data['esa-process-chasing'] = '';
+req.session.data['pip-process-chasing'] = '';
+req.session.data['ca-process-chasing'] = '';
+req.session.data['esa-coc'] = '';
+req.session.data['pip-coc'] = '';
+req.session.data['ca-coc'] = '';
+req.session.data['esa-general'] = '';
+req.session.data['pip-general'] = '';
+req.session.data['ca-general'] = '';
+req.session.data.outcomePage ='';
+req.session.data.notes = '';
+req.session.data.tableValue = '';
+req.session.data.outcomePage = '';
+res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
+})
+
 
   router.post('/a/call-with', function (req, res) {
     req.session.data['Who-is-the-phone-call-with-ur8'] = '';
@@ -359,8 +390,8 @@ outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : 
 if (req.session.data['whichBenefitDiscussed'] == '') {
 res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
 
-} else if (req.session.data['whichBenefitDiscussed'] == 'A different benefit') {
-  outcomePageData.push({"benefit":"A different benefit",
+} else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
+  outcomePageData.push({"benefit":"No benefit",
   "question":"Does not apply",
   "result":"Does not apply"
 });
@@ -380,8 +411,8 @@ res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-asked")
 //   if (req.session.data['whichBenefitDiscussed'] == '') {
 //   res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
   
-//   } else if (req.session.data['whichBenefitDiscussed'] == 'A different benefit') {
-//     outcomePageData.push({"benefit":"A different benefit",
+//   } else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
+//     outcomePageData.push({"benefit":"No benefit",
 //     "question":"Does not apply",
 //     "result":"Does not apply"
 //   });
