@@ -152,10 +152,10 @@
     <!-- custom summary card -->
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Benefit 1</h2>
+        <h2 class="govuk-summary-card__title">{{ data['whichBenefitDiscussed'] }}</h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="#">Delete benefit<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> Benefit</span></a>
           </li>
           <!-- <li class="govuk-summary-card__action">
             <a class="govuk-link" href="benefits-discussed.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -165,21 +165,21 @@
       <div class="govuk-summary-card__content">
         <table class="govuk-summary-list govuk-!-margin-bottom-0">
           <tbody class="govuk-summary-list">
-            <tr class="govuk-summary-list__row">
-            <th scope="row" class="govuk-summary-list__key">
-              Benefit discussed
-            </th>
-            <td class="govuk-summary-list__value">
-              {{ data['whichBenefitDiscussed'] }}
-            </td>
-            <td class="govuk-summary-list__actions govuk-!-display-none-print">
-              <a href="benefits-discussed.html">
-                Change<span class="govuk-visually-hidden">the benefit that was discussed</span>
-                </a>
-            </td>
-            </tr>
-            <tr class="govuk-summary-list__row">
+            <!-- <tr class="govuk-summary-list__row">
               <th scope="row" class="govuk-summary-list__key">
+                Benefit discussed
+              </th>
+              <td class="govuk-summary-list__value">
+                {{ data['whichBenefitDiscussed'] }}
+              </td>
+              <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                <a href="benefits-discussed.html">
+                  Change<span class="govuk-visually-hidden">the benefit that was discussed</span>
+                </a>
+              </td>
+            </tr> -->
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Questions asked
               </th>
               <td class="govuk-summary-list__value">
@@ -197,7 +197,7 @@
               </td>
             </tr>
             <tr class="govuk-summary-list__row {{isNpd}}">
-              <th scope="row" class="govuk-summary-list__key"> Was the next payment date question resolved?</th>
+              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third"> Was the next payment date question resolved?</th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isNpdResolved}}">
                   {{ data['npd_wasQuestionResolved'] }}
@@ -211,7 +211,7 @@
               </td>
             </tr>
             <tr class="govuk-summary-list__row {{isNpa}}">
-              <th scope="row" class="govuk-summary-list__key">
+              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the next payment amount question resolved?
               </th>
               <td class="govuk-summary-list__value">
@@ -227,7 +227,7 @@
               </td>
             </tr>
             <tr class="govuk-summary-list__row {{isMp}}">
-              <th scope="row" class="govuk-summary-list__key">
+              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the missing payment question resolved?
               </th>
               <td class="govuk-summary-list__value">
@@ -243,7 +243,7 @@
               </td>
             </tr>
             <tr class="govuk-summary-list__row {{isRfch}}">
-              <th scope="row" class="govuk-summary-list__key">
+              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the change in payment amount question resolved?
               </th>
               <td class="govuk-summary-list__value">
@@ -258,7 +258,7 @@
               </td>
             </tr>
             <tr class="govuk-summary-list__row {{isOthQ}}">
-              <th scope="row" class="govuk-summary-list__key">
+              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the other question resolved?
               </th>
               <td class="govuk-summary-list__value">
@@ -273,7 +273,7 @@
               </td>
             </tr>
             <tr class="govuk-summary-list__row {{isSE}}">
-              <th scope="row" class="govuk-summary-list__key">
+              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was something else question resolved?
               </th>
               <td class="govuk-summary-list__value">
