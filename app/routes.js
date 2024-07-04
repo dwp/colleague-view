@@ -9636,8 +9636,8 @@ router.post('/prototype-dev-baseline/mvp-1_0/call-log-journey/selectQuestion', f
     // res.render('/prototype-dev-baseline/mvp-1_0/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error', { "errMsg_Benefit": errMsg_Benefit });
     res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
 
-  } else if (req.session.data['whichBenefitDiscussed'] == 'A different benefit') {
-    outcomePageData.push({"benefit":"A different benefit",
+  } else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
+    outcomePageData.push({"benefit":"No benefit",
         "question":"Does not apply",
         "result":"Does not apply"
       });
@@ -10230,8 +10230,8 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-lo
     // res.render('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error', { "errMsg_Benefit": errMsg_Benefit });
     res.redirect("/prototype-dev-baseline/mvp-1_0/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
 
-  } else if (req.session.data['whichBenefitDiscussed'] == 'A different benefit') {
-    outcomePageData.push({"benefit":"A different benefit",
+  } else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
+    outcomePageData.push({"benefit":"No benefit",
         "question":"Does not apply",
         "result":"Does not apply"
       });

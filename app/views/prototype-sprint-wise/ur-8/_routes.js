@@ -166,7 +166,7 @@ if (req.session.data['nino-number-ur-8'] == 'QQ123456Q' || req.session.data['nin
 // Send user to next page
 console.log('This is correct')
 // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
-res.render('prototype-sprint-wise/ur-8/a/why-checking-Info');
+res.render('/prototype-sprint-wise/ur-8/a/why-checking-Info');
 
 } else {
 var errMsg = "";
@@ -176,7 +176,7 @@ errMsg = "Enter the customer's National Insurance number";
 errMsg = "Enter the customer's National Insurance number in the correct format";
 }
 // Send user to error page
-res.render('prototype-sprint-wise/ur-8/a/showValidationMsg/error-nino-number', { "errMsg": errMsg });
+res.render('/prototype-sprint-wise/ur-8/a/showValidationMsg/error-nino-number', { "errMsg": errMsg });
 }
 })
 
@@ -908,8 +908,106 @@ req.session.data.toYear = req.body['to-date-year']?req.body['to-date-year']:'';
 req.session.data.tableFilterEsa = req.body.benefit.includes('Employment and support Allowance')?true:false;
 req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
 req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
+
+req.session.data.tableFilterNpd = req.body.querySubContext.includes('Next payment date')?true:false;
+req.session.data.tableFilterNpa = req.body.querySubContext.includes('Next payment amount')?true:false;
+req.session.data.tableFilterMp = req.body.querySubContext.includes('Missing payment')?true:false;
 res.redirect('contact-history')
 })
+
+// Contact history filter code start here
+router.post('/a/different-type-contact-user/contact-history',function(req,res){
+
+  let fromDate; let toDate;
+  if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
+  fromDate = new Date(`${req.body['from-date-month']}/${req.body['from-date-day']}/${req.body['from-date-year']}`);
+  req.session.data.fromDay = parseInt(req.body['from-date-day']);
+  req.session.data.fromMonth = parseInt(req.body['from-date-month']);
+  req.session.data.fromYear = parseInt(req.body['from-date-year']);
+  }
+  if (req.body['to-date-day'] !== undefined && req.body['to-date-day'] !== '') {
+  toDate = new Date(`${req.body['to-date-month']}/${req.body['to-date-day']}/${req.body['to-date-year']} 23:59:59`);
+  req.session.data.toDay = parseInt(req.body['to-date-day']);
+  req.session.data.toMonth = parseInt(req.body['to-date-month']);
+  req.session.data.toYear = parseInt(req.body['to-date-year']);
+  }
+  let tableValue = data.contacts.filter((context) => {
+  if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
+  context = new Date(context.createdDate) >= fromDate && new Date(context.createdDate) <= toDate;
+  }
+  return context;
+  });
+  if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
+  // console.log('Executing benefit logic: ',req.body.benefit);
+  tableValue = tableValue.filter((context) => {
+  context = req.body.benefit.includes(context.benefit);
+  return context;
+  });
+  }
+  tableValue.map((item)=>{
+  item.createdDate = moment(new Date(item.createdDate)).format('llll');
+  });
+  req.session.data.tableValue =tableValue;
+  req.session.data.fromDay = req.body['from-date-day']?req.body['from-date-day']:'';
+  req.session.data.fromMonth = req.body['from-date-month']?req.body['from-date-month']:'';
+  req.session.data.fromYear = req.body['from-date-year']?req.body['from-date-year']:'';
+  
+  req.session.data.toDay = req.body['to-date-day']?req.body['to-date-day']:'';
+  req.session.data.toMonth = req.body['to-date-month']?req.body['to-date-month']:'';
+  req.session.data.toYear = req.body['to-date-year']?req.body['to-date-year']:'';
+  
+  req.session.data.tableFilterEsa = req.body.benefit.includes('Employment and support Allowance')?true:false;
+  req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
+  req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
+  res.redirect('contact-history')
+  })
+  
+  // View only user --- Contact history filter code start here
+  router.post('/a/view-only-user/contact-history',function(req,res){
+  
+  let fromDate; let toDate;
+  if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
+  fromDate = new Date(`${req.body['from-date-month']}/${req.body['from-date-day']}/${req.body['from-date-year']}`);
+  req.session.data.fromDay = parseInt(req.body['from-date-day']);
+  req.session.data.fromMonth = parseInt(req.body['from-date-month']);
+  req.session.data.fromYear = parseInt(req.body['from-date-year']);
+  }
+  if (req.body['to-date-day'] !== undefined && req.body['to-date-day'] !== '') {
+  toDate = new Date(`${req.body['to-date-month']}/${req.body['to-date-day']}/${req.body['to-date-year']} 23:59:59`);
+  req.session.data.toDay = parseInt(req.body['to-date-day']);
+  req.session.data.toMonth = parseInt(req.body['to-date-month']);
+  req.session.data.toYear = parseInt(req.body['to-date-year']);
+  }
+  let tableValue = data.contacts.filter((context) => {
+  if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
+  context = new Date(context.createdDate) >= fromDate && new Date(context.createdDate) <= toDate;
+  }
+  return context;
+  });
+  if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
+  // console.log('Executing benefit logic: ',req.body.benefit);
+  tableValue = tableValue.filter((context) => {
+  context = req.body.benefit.includes(context.benefit);
+  return context;
+  });
+  }
+  tableValue.map((item)=>{
+  item.createdDate = moment(new Date(item.createdDate)).format('llll');
+  });
+  req.session.data.tableValue =tableValue;
+  req.session.data.fromDay = req.body['from-date-day']?req.body['from-date-day']:'';
+  req.session.data.fromMonth = req.body['from-date-month']?req.body['from-date-month']:'';
+  req.session.data.fromYear = req.body['from-date-year']?req.body['from-date-year']:'';
+  
+  req.session.data.toDay = req.body['to-date-day']?req.body['to-date-day']:'';
+  req.session.data.toMonth = req.body['to-date-month']?req.body['to-date-month']:'';
+  req.session.data.toYear = req.body['to-date-year']?req.body['to-date-year']:'';
+  
+  req.session.data.tableFilterEsa = req.body.benefit.includes('Employment and support Allowance')?true:false;
+  req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
+  req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
+  res.redirect('contact-history')
+  })
 
 // Payment history 
 router.post('/a/different-type-contact-user/payment',function(req,res){
@@ -932,99 +1030,7 @@ req.session.data.paymentTableData = paymentDataDiffentUserMVP1_0.data;
 res.redirect('payment#history');
 });
 
-// Contact history filter code start here
-router.post('/a/different-type-contact-user/contact-history',function(req,res){
 
-let fromDate; let toDate;
-if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
-fromDate = new Date(`${req.body['from-date-month']}/${req.body['from-date-day']}/${req.body['from-date-year']}`);
-req.session.data.fromDay = parseInt(req.body['from-date-day']);
-req.session.data.fromMonth = parseInt(req.body['from-date-month']);
-req.session.data.fromYear = parseInt(req.body['from-date-year']);
-}
-if (req.body['to-date-day'] !== undefined && req.body['to-date-day'] !== '') {
-toDate = new Date(`${req.body['to-date-month']}/${req.body['to-date-day']}/${req.body['to-date-year']} 23:59:59`);
-req.session.data.toDay = parseInt(req.body['to-date-day']);
-req.session.data.toMonth = parseInt(req.body['to-date-month']);
-req.session.data.toYear = parseInt(req.body['to-date-year']);
-}
-let tableValue = data.contacts.filter((context) => {
-if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
-context = new Date(context.createdDate) >= fromDate && new Date(context.createdDate) <= toDate;
-}
-return context;
-});
-if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
-// console.log('Executing benefit logic: ',req.body.benefit);
-tableValue = tableValue.filter((context) => {
-context = req.body.benefit.includes(context.benefit);
-return context;
-});
-}
-tableValue.map((item)=>{
-item.createdDate = moment(new Date(item.createdDate)).format('llll');
-});
-req.session.data.tableValue =tableValue;
-req.session.data.fromDay = req.body['from-date-day']?req.body['from-date-day']:'';
-req.session.data.fromMonth = req.body['from-date-month']?req.body['from-date-month']:'';
-req.session.data.fromYear = req.body['from-date-year']?req.body['from-date-year']:'';
-
-req.session.data.toDay = req.body['to-date-day']?req.body['to-date-day']:'';
-req.session.data.toMonth = req.body['to-date-month']?req.body['to-date-month']:'';
-req.session.data.toYear = req.body['to-date-year']?req.body['to-date-year']:'';
-
-req.session.data.tableFilterEsa = req.body.benefit.includes('Employment and support Allowance')?true:false;
-req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
-req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
-res.redirect('contact-history')
-})
-
-// View only user --- Contact history filter code start here
-router.post('/a/view-only-user/contact-history',function(req,res){
-
-let fromDate; let toDate;
-if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
-fromDate = new Date(`${req.body['from-date-month']}/${req.body['from-date-day']}/${req.body['from-date-year']}`);
-req.session.data.fromDay = parseInt(req.body['from-date-day']);
-req.session.data.fromMonth = parseInt(req.body['from-date-month']);
-req.session.data.fromYear = parseInt(req.body['from-date-year']);
-}
-if (req.body['to-date-day'] !== undefined && req.body['to-date-day'] !== '') {
-toDate = new Date(`${req.body['to-date-month']}/${req.body['to-date-day']}/${req.body['to-date-year']} 23:59:59`);
-req.session.data.toDay = parseInt(req.body['to-date-day']);
-req.session.data.toMonth = parseInt(req.body['to-date-month']);
-req.session.data.toYear = parseInt(req.body['to-date-year']);
-}
-let tableValue = data.contacts.filter((context) => {
-if (req.body['from-date-day'] !== undefined && req.body['from-date-day'] !== '') {
-context = new Date(context.createdDate) >= fromDate && new Date(context.createdDate) <= toDate;
-}
-return context;
-});
-if (req.body.benefit !== undefined && req.body.benefit !== '' && req.body.benefit !== "_unchecked"){
-// console.log('Executing benefit logic: ',req.body.benefit);
-tableValue = tableValue.filter((context) => {
-context = req.body.benefit.includes(context.benefit);
-return context;
-});
-}
-tableValue.map((item)=>{
-item.createdDate = moment(new Date(item.createdDate)).format('llll');
-});
-req.session.data.tableValue =tableValue;
-req.session.data.fromDay = req.body['from-date-day']?req.body['from-date-day']:'';
-req.session.data.fromMonth = req.body['from-date-month']?req.body['from-date-month']:'';
-req.session.data.fromYear = req.body['from-date-year']?req.body['from-date-year']:'';
-
-req.session.data.toDay = req.body['to-date-day']?req.body['to-date-day']:'';
-req.session.data.toMonth = req.body['to-date-month']?req.body['to-date-month']:'';
-req.session.data.toYear = req.body['to-date-year']?req.body['to-date-year']:'';
-
-req.session.data.tableFilterEsa = req.body.benefit.includes('Employment and support Allowance')?true:false;
-req.session.data.tableFilterJa = req.body.benefit.includes('Jobseeker Allowance')?true:false;
-req.session.data.tableFilterPip = req.body.benefit.includes('Personal Independence Payment')?true:false;
-res.redirect('contact-history')
-})
 
 // Contact log details fro A different contact type
 
