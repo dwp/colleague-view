@@ -166,7 +166,7 @@ if (req.session.data['nino-number-ur-8'] == 'QQ123456Q' || req.session.data['nin
 // Send user to next page
 console.log('This is correct')
 // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
-res.redirect('/prototype-sprint-wise/ur-8/a/why-checking-Info');
+res.redirect('/prototype-sprint-wise/ur-8/a/why-checking-info');
 
 } else {
 var errMsg = "";
