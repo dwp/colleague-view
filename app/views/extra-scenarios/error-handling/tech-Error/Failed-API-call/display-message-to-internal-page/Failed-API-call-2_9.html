@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Which benefits did you discuss with the caller?
+  Which benefits did you discuss?
 {% endblock %}
 
 {% block header %}
@@ -26,17 +26,16 @@
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Which benefits did you discuss with the caller?
+                  Which benefit did you discuss?
                 </h1>
               </legend>
-              <!-- <div id="changedName-hint" class="govuk-hint">
+              <div id="changedName-hint" class="govuk-hint">
                 If you discussed more than one, you can add more later.
-              </div> -->
-              <p class="govuk-!-margin-top-4 govuk-body">There was a problem getting this information from another system. Try again later.</p>
-              <!-- <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
+              </div>
+              <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="benefit_esa" name="whichBenefitDiscussed" type="radio" value="Employment and Support Allowance" {{ checked ('whichBenefitDiscussed', 'Employment and Support Allowance') }} >
-                  <label class="govuk-label govuk-radios__label" for="benefit_esa">
+                  <input class="govuk-radios__input" id="benefit_esa" name="whichBenefitDiscussed" type="radio" aria-labelledby="active benefits" value="Employment and Support Allowance" {{ checked ('whichBenefitDiscussed', 'Employment and Support Allowance') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_esa" id="active benefits">
                     Employment and Support Allowance
                   </label>
                 </div>
@@ -52,19 +51,91 @@
                     Carer's Allowance
                   </label>
                 </div>
-                <div class="govuk-radios__divider">or</div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="benefit_notDiscussed" name="whichBenefitDiscussed" type="radio" value="A different benefit" {{ checked ('whichBenefitDiscussed', 'A different benefit') }} >
-                  <label class="govuk-label govuk-radios__label" for="benefit_notDiscussed">
-                    A different benefit, or we did not discuss a benefit
+                  <input class="govuk-radios__input" id="benefit_aa" name="whichBenefitDiscussed" type="radio" value="Attendance Allowance" {{ checked ('whichBenefitDiscussed', 'Attendance Allowance') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_aa">
+                    Attendance Allowance
                   </label>
                 </div>
-              </div> -->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_atw" name="whichBenefitDiscussed" type="radio" value="Access to Work" {{ checked ('whichBenefitDiscussed', 'Access to Work') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_atw">
+                    Access to Work
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_bsp" name="whichBenefitDiscussed" type="radio" value="Bereavement Support Payment" {{ checked ('whichBenefitDiscussed', "Bereavement Support Payment") }}>
+                  <label class="govuk-label govuk-radios__label" for="benefit_bsp">
+                    Bereavement Support Payment
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_bbp" name="whichBenefitDiscussed" type="radio" value="Bereavement Benefit Payments" {{ checked ('whichBenefitDiscussed', 'Bereavement Benefit Payments') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_bbp">
+                    Bereavement Benefit Payments
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_bl" name="whichBenefitDiscussed" type="radio" value="Budgeting Loans" {{ checked ('whichBenefitDiscussed', 'Budgeting Loans') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_bl">
+                    Budgeting Loans
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_cwp" name="whichBenefitDiscussed" type="radio" value="Cold Weather Payment" {{ checked ('whichBenefitDiscussed', "Cold Weather Payment") }}>
+                  <label class="govuk-label govuk-radios__label" for="benefit_cwp">
+                    Cold Weather Payment
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_dla" name="whichBenefitDiscussed" type="radio" value="Disability Living Allowance" {{ checked ('whichBenefitDiscussed', 'Disability Living Allowance') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_dla">
+                    Disability Living Allowance
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_fep" name="whichBenefitDiscussed" type="radio" value="Funeral Expenses Payment" {{ checked ('whichBenefitDiscussed', "Funeral Expenses Payment") }}>
+                  <label class="govuk-label govuk-radios__label" for="benefit_fep">
+                    Funeral Expenses Payment
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_ib" name="whichBenefitDiscussed" type="radio" value="Incapacity Benefit" {{ checked ('whichBenefitDiscussed', 'Incapacity Benefit') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_ib">
+                    Incapacity Benefit
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_iidb" name="whichBenefitDiscussed" type="radio" value="Industrial Injuries Disablement Benefit" {{ checked ('whichBenefitDiscussed', "Industrial Injuries Disablement Benefit") }}>
+                  <label class="govuk-label govuk-radios__label" for="benefit_iidb">
+                    Industrial Injuries Disablement Benefit
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_idb" name="whichBenefitDiscussed" type="radio" value="Industrial Death Benefit" {{ checked ('whichBenefitDiscussed', 'Industrial Death Benefit') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_idb">
+                    Industrial Death Benefit
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_is" name="whichBenefitDiscussed" type="radio" value="Income Support" {{ checked ('whichBenefitDiscussed', "Income Support") }}>
+                  <label class="govuk-label govuk-radios__label" for="benefit_is">
+                    Income Support
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="benefit_notDiscussed" name="whichBenefitDiscussed" type="radio" value="No benefit" {{ checked ('whichBenefitDiscussed', 'No benefit') }} >
+                  <label class="govuk-label govuk-radios__label" for="benefit_notDiscussed">
+                    No benefit
+                  </label>
+                </div>
+              </div>
             </fieldset>
           </div>
-          <!-- <button class="govuk-button" data-module="govuk-button">
+          <button class="govuk-button" data-module="govuk-button">
             Save and continue
-          </button> -->
+          </button>
         </form>
       </div>
     </div>
