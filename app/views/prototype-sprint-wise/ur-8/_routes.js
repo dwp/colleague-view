@@ -9,175 +9,175 @@ const paymentDataDiffentUserMVP1_0 = require('./a/different-type-contact-user/pa
 
 // for MVP 1.0 (both type of users)
 router.get('/a/call-log-journey/unHappy_journey/noBenefit/added-call-info',function(req,res,next){
-let notes ='';
-if(req.session.data.notes){
-if(req.session.data.notes.length>0){
-notes =req.session.data.notes + ". "+ req.session.data['addNote'];
-}else{
-notes =req.session.data['addNote'];
-}
-}else{
-notes =req.session.data['addNote'];
-}
-req.session.data.notes = notes;
-next();
+  let notes ='';
+  if(req.session.data.notes){
+  if(req.session.data.notes.length>0){
+  notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  next();
 });
 
 router.get('/a/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/added-details',function(req,res,next){
-let notes ='';
-if(req.session.data.notes){
-if(req.session.data.notes.length>0){
-notes =req.session.data.notes + ". "+ req.session.data['addNote'];
-}else{
-notes =req.session.data['addNote'];
-}
-}else{
-notes =req.session.data['addNote'];
-}
-req.session.data.notes = notes;
-next();
+  let notes ='';
+  if(req.session.data.notes){
+  if(req.session.data.notes.length>0){
+  notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  next();
 });
 
 router.get('/a/contact-history-detail',function(req,res){
-console.log('Details GET route is getting invoked',req.session.data.contextID);
-const detailRec = data.contacts.filter((context) => {
-context = req.session.data.contextID.includes(context.contextID);
-return context;
-});
-req.session.data.detailRec = detailRec;
-res.redirect('/prototype-sprint-wise/sprint23/opt2/contact-history-viewDetails/viewDetail');
-// next();
+  console.log('Details GET route is getting invoked',req.session.data.contextID);
+  const detailRec = data.contacts.filter((context) => {
+  context = req.session.data.contextID.includes(context.contextID);
+  return context;
+  });
+  req.session.data.detailRec = detailRec;
+  res.redirect('/prototype-sprint-wise/sprint23/opt2/contact-history-viewDetails/viewDetail');
+  // next();
 });
 
 router.get('/a/different-type-contact-user/contact-history-detail',function(req,res){
-console.log('Details GET route is getting invoked',req.session.data.contextID);
-const detailRec = data.contacts.filter((context) => {
-context = req.session.data.contextID.includes(context.contextID);
-return context;
-});
-req.session.data.detailRec = detailRec;
-res.redirect('/prototype-sprint-wise/sprint23/opt2/contact-history-viewDetails/viewDetail');
-// next();
+  console.log('Details GET route is getting invoked',req.session.data.contextID);
+  const detailRec = data.contacts.filter((context) => {
+  context = req.session.data.contextID.includes(context.contextID);
+  return context;
+  });
+  req.session.data.detailRec = detailRec;
+  res.redirect('/prototype-sprint-wise/sprint23/opt2/contact-history-viewDetails/viewDetail');
+  // next();
 });
 
 router.get('/a/call-log-journey/added-details',function(req,res){
-let notes ='';
-if(req.session.data.notes){
-if(req.session.data.notes.length>0){
-notes =req.session.data.notes + ". "+ req.session.data['addNote'];
-}else{
-notes =req.session.data['addNote'];
-}
-}else{
-notes =req.session.data['addNote'];
-}
-req.session.data.notes = notes;
-res.render('prototype-sprint-wise/ur-8/a/call-log-journey/added-details', {
-notes:req.session.data.notes
-});
+  let notes ='';
+  if(req.session.data.notes){
+  if(req.session.data.notes.length>0){
+  notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  res.render('prototype-sprint-wise/ur-8/a/call-log-journey/added-details', {
+  notes:req.session.data.notes
+  });
 });
 
 router.get('/a/different-type-contact-user/call-log-journey/added-details',function(req,res){
-let notes ='';
-if(req.session.data.notes){
-if(req.session.data.notes.length>0){
-notes =req.session.data.notes + ". "+ req.session.data['addNote'];
-}else{
-notes =req.session.data['addNote'];
-}
-}else{
-notes =req.session.data['addNote'];
-}
-req.session.data.notes = notes;
-res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/added-details', {
-notes:req.session.data.notes
-});
+  let notes ='';
+  if(req.session.data.notes){
+  if(req.session.data.notes.length>0){
+  notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/added-details', {
+  notes:req.session.data.notes
+  });
 });
 
 
 router.get('/a/call-log-journey/confirmation-complete-session',function(req,res,next){
-let notes ='';
-if(req.session.data.notes){
-if(req.session.data.notes.length>0){
-notes =req.session.data.notes + ". "+ req.session.data['addNote'];
-}else{
-notes =req.session.data['addNote'];
-}
-}else{
-notes =req.session.data['addNote'];
-}
-req.session.data.notes = notes;
-next();
+  let notes ='';
+  if(req.session.data.notes){
+  if(req.session.data.notes.length>0){
+  notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  next();
 });
 
 router.get('/a/different-type-contact-user/call-log-journey/confirmation-complete-session',function(req,res,next){
-let notes ='';
-if(req.session.data.notes){
-if(req.session.data.notes.length>0){
-notes =req.session.data.notes + ". "+ req.session.data['addNote'];
-}else{
-notes =req.session.data['addNote'];
-}
-}else{
-notes =req.session.data['addNote'];
-}
-req.session.data.notes = notes;
-next();
+  let notes ='';
+  if(req.session.data.notes){
+  if(req.session.data.notes.length>0){
+  notes =req.session.data.notes + ". "+ req.session.data['addNote'];
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  }else{
+  notes =req.session.data['addNote'];
+  }
+  req.session.data.notes = notes;
+  next();
 });
 
 // this is all about baseline MVP 1.0 - (Design iteration1)
 
 // this is for NINO number
 router.post('/a/index', function (req, res) {
-req.session.data['What-type-of-contact'] = '';
-req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-req.session.data['Who-is-the-engagement-with'] = '';
-res.redirect('/prototype-sprint-wise/ur-8/a/index');
+  req.session.data['What-type-of-contact'] = '';
+  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
+  res.redirect('/prototype-sprint-wise/ur-8/a/index');
 })
 
 router.post('/a/why-checking-info', function (req, res) {
-req.session.data['What-type-of-contact'] = '';
-req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-req.session.data['Who-is-contact-with'] = '';
-req.session.data['Who-is-the-engagement-with'] = '';
-req.session.data['Do-you-want-to-complete-the-session'] = '';
-req.session.data['What-services-have-they-called-about'] = '';
-req.session.data['esaPayment'] = '';
-req.session.data['pipPayment'] = '';
-req.session.data['caPayment'] = '';
-req.session.data['ca-payment'] = '';
-req.session.data['esa-payment'] = '';
-req.session.data['pip-payment'] = '';
-req.session.data['esa-process-chasing'] = '';
-req.session.data['pip-process-chasing'] = '';
-req.session.data['ca-process-chasing'] = '';
-req.session.data['esa-coc'] = '';
-req.session.data['pip-coc'] = '';
-req.session.data['ca-coc'] = '';
-req.session.data['esa-general'] = '';
-req.session.data['pip-general'] = '';
-req.session.data['ca-general'] = '';
-req.session.data.outcomePage ='';
-req.session.data.notes = '';
-req.session.data.tableValue = '';
-req.session.data.outcomePage = '';
+  req.session.data['What-type-of-contact'] = '';
+  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  req.session.data['Who-is-contact-with'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
+  req.session.data['Do-you-want-to-complete-the-session'] = '';
+  req.session.data['What-services-have-they-called-about'] = '';
+  req.session.data['esaPayment'] = '';
+  req.session.data['pipPayment'] = '';
+  req.session.data['caPayment'] = '';
+  req.session.data['ca-payment'] = '';
+  req.session.data['esa-payment'] = '';
+  req.session.data['pip-payment'] = '';
+  req.session.data['esa-process-chasing'] = '';
+  req.session.data['pip-process-chasing'] = '';
+  req.session.data['ca-process-chasing'] = '';
+  req.session.data['esa-coc'] = '';
+  req.session.data['pip-coc'] = '';
+  req.session.data['ca-coc'] = '';
+  req.session.data['esa-general'] = '';
+  req.session.data['pip-general'] = '';
+  req.session.data['ca-general'] = '';
+  req.session.data.outcomePage ='';
+  req.session.data.notes = '';
+  req.session.data.tableValue = '';
+  req.session.data.outcomePage = '';
 
-if (req.session.data['nino-number-ur-8'] == 'QQ123456Q' || req.session.data['nino-number-ur-8'] == 'qq123456q' || req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q') {
-// Send user to next page
-console.log('This is correct')
-// res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
-res.redirect('/prototype-sprint-wise/ur-8/a/why-checking-info');
+  if (req.session.data['nino-number-ur-8'] == 'QQ123456Q' || req.session.data['nino-number-ur-8'] == 'qq123456q' || req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q') {
+  // Send user to next page
+  console.log('This is correct')
+  // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
+  res.redirect('/prototype-sprint-wise/ur-8/a/why-checking-info');
 
-} else {
-var errMsg = "";
-if (req.session.data['nino-number-ur-8'] == '' || req.session.data['nino-number-ur-8'] == undefined) {
-errMsg = "Enter the customer's National Insurance number";
-} else {
-errMsg = "Enter the customer's National Insurance number in the correct format";
-}
-// Send user to error page
-res.render('/prototype-sprint-wise/ur-8/a/showValidationMsg/error-nino-number', { "errMsg": errMsg });
-}
+  } else {
+  var errMsg = "";
+  if (req.session.data['nino-number-ur-8'] == '' || req.session.data['nino-number-ur-8'] == undefined) {
+  errMsg = "Enter the customer's National Insurance number";
+  } else {
+  errMsg = "Enter the customer's National Insurance number in the correct format";
+  }
+  // Send user to error page
+  res.render('/prototype-sprint-wise/ur-8/a/showValidationMsg/error-nino-number', { "errMsg": errMsg });
+  }
 })
 
 // router.post('/a/who-is-calling-or-contacting', function (req, res) {
@@ -294,7 +294,7 @@ if (req.session.data['Who-is-the-phone-call-with-ur8'] == '' ) {
 // res.redirect('/prototype-sprint-wise/ur-8/a/call-with');
 res.redirect('back');
 } else{
-if (req.session.data['Who-is-the-phone-call-with-ur8'] == 'someone else') {
+if (req.session.data['Who-is-the-phone-call-with-ur8'] == 'someone else' || req.session.data['Who-is-the-phone-call-with-ur8'] == 'Christopher Fox') {
 req.session.data['Who-is-the-engagement-with'] = '';
 }
 // var b = "with";
@@ -311,7 +311,7 @@ if (req.session.data['Who-is-contact-with'] == '') {
 // Send user to error page
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/contact-with');
 } else{
-if (req.session.data['Who-is-contact-with'] == 'someone else') {
+if (req.session.data['Who-is-contact-with'] == 'someone else' || req.session.data['Who-is-contact-with'] == 'Christopher Fox') {
 req.session.data['Who-is-the-engagement-with'] = '';
 }
 // var b = "with";
@@ -322,7 +322,7 @@ res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/home');
 
 // check on pressing complete session button
 router.post('/a/call-log-journey/confirmation-complete-session', function (req, res) {
-// console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
+console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
 if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session');
 }else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
