@@ -9391,7 +9391,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/home', function (req, res) {
       // Send user to error page
       res.redirect('/prototype-dev-baseline/mvp-1_0/call-with');
   } else{
-    if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == 'someone else') {
+    if (req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == 'someone else' || req.session.data['Who-is-the-engagement-with-sprint23-opt2'] == 'Christopher Fox') {
       req.session.data['Who-is-the-engagement-with'] = '';
     }
       // var b = "with";
@@ -9408,7 +9408,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/home', 
       // Send user to error page
       res.redirect('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/contact-with');
   } else{
-    if (req.session.data['Who-is-contact-with'] == 'someone else') {
+    if (req.session.data['Who-is-contact-with'] == 'someone else' || req.session.data['Who-is-contact-with'] == 'Christopher Fox') {
       req.session.data['Who-is-the-engagement-with'] = '';
     }
       // var b = "with";
