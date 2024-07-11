@@ -9807,8 +9807,7 @@ router.post('/prototype-dev-baseline/mvp-1_0/addAnotherBenefit', function(req, r
   if (req.session.data['addAnotherBenefit'] == 'Yes') {
         res.redirect("/prototype-dev-baseline/mvp-1_0/call-log-journey/benefits-discussed")
     } else {
-        res.redirect("/prototype-dev-baseline/mvp-1_0/home")
-        
+        res.redirect("/prototype-dev-baseline/mvp-1_0/home")   
     }
 })
 

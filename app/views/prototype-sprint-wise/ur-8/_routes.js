@@ -141,7 +141,8 @@ router.post('/a/why-checking-info', function (req, res) {
   req.session.data['Who-is-contact-with'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
-  req.session.data['What-services-have-they-called-about'] = '';
+  req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['whichBenefitDiscussed'] = '';
   req.session.data['esaPayment'] = '';
   req.session.data['pipPayment'] = '';
   req.session.data['caPayment'] = '';
@@ -164,7 +165,7 @@ router.post('/a/why-checking-info', function (req, res) {
 
   if (req.session.data['nino-number-ur-8'] == 'QQ123456Q' || req.session.data['nino-number-ur-8'] == 'qq123456q' || req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q') {
   // Send user to next page
-  console.log('This is correct')
+  // console.log('This is correct')
   // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
   res.redirect('/prototype-sprint-wise/ur-8/a/why-checking-info');
 
@@ -179,71 +180,6 @@ router.post('/a/why-checking-info', function (req, res) {
   res.render('/prototype-sprint-wise/ur-8/a/showValidationMsg/error-nino-number', { "errMsg": errMsg });
   }
 })
-
-// router.post('/a/who-is-calling-or-contacting', function (req, res) {
-//     req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-//     req.session.data['Who-is-contact-with'] = '';
-    
-//     if (checkInfo == "Telephone call with") {
-//       res.redirect('/prototype-sprint-wise/ur-8/a/call-with');
-//     }     
-//     if (req.session.data['What-type-of-contact'] == 'Contact with') {
-//       res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/contact-with');
-//     }
-//     if (req.session.data['What-type-of-contact'] == 'View info only') {
-//       res.redirect('/prototype-sprint-wise/ur-8/a/view-only-user/home');
-//     } //else {
-//     //   res.redirect('/prototype-sprint-wise/ur-8/a/view-only-user/home');
-//     // }
-//     });
-// router.post('/a/who-is-calling-or-contacting', function (req, res) {
-//   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-//   req.session.data['Who-is-contact-with'] = '';
-
-//   // var checkInformation = request.session.data['What-type-of-contact']
-//   if (req.session.data['What-type-of-contact'] == "View only"){
-//     res.redirect('/prototype-sprint-wise/ur-8/a/view-only-user/home');
-//   } else {
-//     if (req.session.data['What-type-of-contact'] == "Telephone call with"){
-//       res.redirect("/prototype-sprint-wise/ur-8/a/call-with");
-//     } else {
-//       res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/contact-with');
-//     }
-//   }
-//   // res.redirect('/prototype-sprint-wise/ur-8/a/view-only-user/home');
-  
-//   });
-
-
-// router.post('/why-checking-info', function (req, res) {
-// req.session.data['What-type-of-contact'] = '';
-// req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-// req.session.data['Who-is-contact-with'] = '';
-// req.session.data['Who-is-the-engagement-with'] = '';
-// req.session.data['Do-you-want-to-complete-the-session'] = '';
-// req.session.data['What-services-have-they-called-about'] = '';
-// req.session.data['esaPayment'] = '';
-// req.session.data['pipPayment'] = '';
-// req.session.data['caPayment'] = '';
-// req.session.data['ca-payment'] = '';
-// req.session.data['esa-payment'] = '';
-// req.session.data['pip-payment'] = '';
-// req.session.data['esa-process-chasing'] = '';
-// req.session.data['pip-process-chasing'] = '';
-// req.session.data['ca-process-chasing'] = '';
-// req.session.data['esa-coc'] = '';
-// req.session.data['pip-coc'] = '';
-// req.session.data['ca-coc'] = '';
-// req.session.data['esa-general'] = '';
-// req.session.data['pip-general'] = '';
-// req.session.data['ca-general'] = '';
-// req.session.data.outcomePage ='';
-// req.session.data.notes = '';
-// req.session.data.tableValue = '';
-// req.session.data.outcomePage = '';
-// res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
-// })
-
 
   router.post('/a/call-with', function (req, res) {
     req.session.data['Who-is-the-phone-call-with-ur8'] = '';
@@ -322,17 +258,18 @@ res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/home');
 
 // check on pressing complete session button
 router.post('/a/call-log-journey/confirmation-complete-session', function (req, res) {
-console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
-if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
+// console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
+if (req.session.data['whichBenefitDiscussed'].includes('esa')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session');
-}else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
+}else if (req.session.data['whichBenefitDiscussed'].includes('pip')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session');
-}if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
+}if (req.session.data['whichBenefitDiscussed'].includes('ca')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session');
 }else {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/no-contact-added');
 }
 });
+
 
 // this is for radio selection for Session complete
 router.post('/a/engagement-log-journey/add-note', function (req, res) {
@@ -775,7 +712,7 @@ res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/add-another-benefit
       res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/add-more-reasons-for-call');
     }
   
-    res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session")
+    res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/add-more-reasons-for-call")
     });
   
   // update note before complete phone call
@@ -784,30 +721,28 @@ res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/add-another-benefit
     });
 
     // Complete session
-router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res) {
-    // Check whether the variable matches a condition
-    var checkPhoneCallCompleted = req.session.data['Do-you-want-to-complete-the-telephony-session'];
-    if (checkPhoneCallCompleted == 'Yes') {
-    res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed");
-    } 
-    if (checkPhoneCallCompleted == 'No') {
-    res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/call-completed");
-    } 
-    else {
-    res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/confirmation-complete-session-Error");
-    }
-    
-    });
+// router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res) {
+//     var checkPhoneCallCompleted = req.session.data['Do-you-want-to-complete-the-telephony-session'];
+//     if (checkPhoneCallCompleted == 'Yes') {
+//     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed");
+//     } 
+//     if (checkPhoneCallCompleted == 'No') {
+//     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/call-completed");
+//     } 
+//     else {
+//     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/confirmation-complete-session-Error");
+//     }
+//     });
   
   // Complete session
-  router.post('/a/call-log-journey/phoneCall-completed', function (req, res) {
-    var completeSession = req.session.data['Do-you-want-to-complete-the-session-opt2']
+  router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res) {
+    var completeSession = req.session.data['Do-you-want-to-complete-the-telephony-session']
     // Check whether the variable matches a condition
     if (completeSession == "Yes") {
       // Send user to next page
-      res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/selectBenefit")
+      res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed")
     } else {
-      res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/session-completed');
+      res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/call-completed');
     }
   
   });
@@ -1036,11 +971,11 @@ res.redirect('payment#history');
 
 router.post('/a/different-type-contact-user/call-log-journey/confirmation-complete-session', function (req, res) {
 // console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
-if (req.session.data['What-services-have-they-called-about'].includes('esa')) {
+if (req.session.data['whichBenefitDiscussed'].includes('esa')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/confirmation-complete-session');
-}else if (req.session.data['What-services-have-they-called-about'].includes('pip')) {
+}else if (req.session.data['whichBenefitDiscussed'].includes('pip')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/confirmation-complete-session');
-}if (req.session.data['What-services-have-they-called-about'].includes('ca')) {
+}if (req.session.data['whichBenefitDiscussed'].includes('ca')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/confirmation-complete-session');
 }else {
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/no-contact-added');
