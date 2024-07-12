@@ -689,7 +689,6 @@ res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/added-details');
 }
 })
 
-
 router.get('/a/call-log-journey/added-details', function(req, res) {
 
 res.render('prototype-sprint-wise/ur-8/a/call-log-journey/added-details', {
@@ -739,6 +738,14 @@ res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/add-another-benefit
     var completeSession = req.session.data['Do-you-want-to-complete-the-telephony-session']
     // Check whether the variable matches a condition
     if (completeSession == "Yes") {
+      req.session.data['whichBenefitDiscussed'] = '';
+      req.session.data['questionAsk'] = '';
+      req.session.data['npd_wasQuestionResolved'] = '';
+      req.session.data['npa_wasQuestionResolved'] = '';
+      req.session.data['ma_wasQuestionResolved'] = '';
+      req.session.data['chpa_wasQuestionResolved'] = '';
+      req.session.data['othQ_wasQuestionResolved'] = '';
+      req.session.data['addNote'] = '';
       // Send user to next page
       res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed")
     } else {
@@ -768,6 +775,14 @@ res.redirect("/prototype-sprint-wise/ur-8/a/home")
 router.post('/a/goToHome', function(req, res) {
 
 if (req.session.data['unHappyAddreason'] == 'Yes') {
+  req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['questionAsk'] = '';
+  req.session.data['npd_wasQuestionResolved'] = '';
+  req.session.data['npa_wasQuestionResolved'] = '';
+  req.session.data['ma_wasQuestionResolved'] = '';
+  req.session.data['chpa_wasQuestionResolved'] = '';
+  req.session.data['othQ_wasQuestionResolved'] = '';
+  req.session.data['addNote'] = '';
 res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed")
 } else {
 res.redirect("/prototype-sprint-wise/ur-8/a/home")
@@ -1020,6 +1035,7 @@ req.session.data['npd_wasQuestionResolved'] = '';
 req.session.data['npa_wasQuestionResolved'] = '';
 req.session.data['ma_wasQuestionResolved'] = '';
 req.session.data['chpa_wasQuestionResolved'] = '';
+req.session.data['othQ_wasQuestionResolved'] = '';
 req.session.data['addNote'] = '';
 
 if(req.session.data.outcomePage === ''){
@@ -1051,6 +1067,44 @@ res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log
 res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/what-was-contact-about")
 } 
 })
+
+router.post('/a/different-type-contact-user/call-log-journey/questions-outcomes', function(req, res) {
+
+  var isNpd = 'govuk-!-display-none';
+  var isNpa = 'govuk-!-display-none';
+  var isMp = 'govuk-!-display-none';
+  var isRfch = 'govuk-!-display-none';
+  var isOthQ = 'govuk-!-display-none';
+  
+  if (req.session.data['questionAsk'].includes('Something else')) {
+  res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
+  } else {
+  if(req.session.data['questionAsk'].includes('Next payment date')) {
+  isNpd = 'govuk-!-display-block';
+  }
+  if(req.session.data['questionAsk'].includes('Next payment amount')) {
+  isNpa = 'govuk-!-display-block';
+  }
+  if(req.session.data['questionAsk'].includes('Missing payment')) {
+  isMp = 'govuk-!-display-block';
+  }
+  if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+  isRfch = 'govuk-!-display-block';
+  }
+  if(req.session.data['questionAsk'].includes('Other questions')) {
+    isOthQ = 'govuk-!-display-block';
+    }
+  //All variable render here
+  res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questionAnswered', {
+  "isNpd": isNpd,
+  "isNpa": isNpa,
+  "isMp": isMp,
+  "isRfch": isRfch,
+  "isOthQ": isOthQ,
+  })
+  }
+  })
+  
 
 router.post('/a/different-type-contact-user/call-log-journey/wasQuestionResolved', function(req, res) {
 
@@ -1085,40 +1139,87 @@ res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-jo
 }
 })
 
+router.post('/a/different-type-contact-user/call-log-journey/check-answers', function(req, res) {
 
-router.post('/a/different-type-contact-user/call-log-journey/check-details', function(req, res) {
+  var isNpd = 'govuk-!-display-none';
+  var isNpa = 'govuk-!-display-none';
+  var isMp = 'govuk-!-display-none';
+  var isRfch = 'govuk-!-display-none';
+  var isOthQ = 'govuk-!-display-none';
+  var isSE = 'govuk-!-display-none';
+  var isNpdResolved = '';
+  var isNpaResolved = '';
+  var isMaRresolved = '';
+  var isRfchRresolved = '';
+  var isOthQresolved = '';
 
-var isNpd = 'govuk-!-display-none';
-var isNpa = 'govuk-!-display-none';
-var isMp = 'govuk-!-display-none';
-var isRfch = 'govuk-!-display-none';
+  if(req.session.data['questionAsk'].includes('Next payment date')) {
+  isNpd = '';
+  }
+  if(req.session.data['questionAsk'].includes('Next payment amount')) {
+  isNpa = '';
+  }
+  if(req.session.data['questionAsk'].includes('Missing payment')) {
+  isMp = '';
+  }
+  if(req.session.data['questionAsk'].includes('Change in payment amount')) {
+  isRfch = '';
+  }
+  if(req.session.data['questionAsk'].includes('Other questions')) {
+    isOthQ = '';
+  }
+  if(req.session.data['questionAsk'].includes('Something else')) {
+  isSE = '';
+  }
+  if(req.session.data['npd_wasQuestionResolved'].includes('Not resolved')) {
+  isNpdResolved = 'govuk-tag--grey';
+  } 
+  if(req.session.data['npa_wasQuestionResolved'].includes('Not resolved')) {
+  isNpaResolved = 'govuk-tag--grey';
+  }
+  if(req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+  isMaRresolved = 'govuk-tag--grey';
+  }
+  if(req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')) {
+  isRfchRresolved = 'govuk-tag--grey';
+  }
+  if(req.session.data['othQ_wasQuestionResolved'].includes('Not resolved')) {
+  isOthQresolved = 'govuk-tag--grey';
+  }
 
-if (req.session.data['questionAsk'].includes('Something else')) {
-// res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/noQuestion/askedClQ")
-// res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/add-Note")
-res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/check-details")
-} else {
-if(req.session.data['questionAsk'].includes('Next payment date')) {
-isNpd = 'govuk-!-display-block';
-}
-if(req.session.data['questionAsk'].includes('Next payment amount')) {
-isNpa = 'govuk-!-display-block';
-}
-if(req.session.data['questionAsk'].includes('Missing payment')) {
-isMp = 'govuk-!-display-block';
-}
-if(req.session.data['questionAsk'].includes('Change in payment amount')) {
-isRfch = 'govuk-!-display-block';
-}
+// if (req.session.data['npd_wasQuestionResolved'] == '' || req.session.data['npa_wasQuestionResolved'] =='' || req.session.data['ma_wasQuestionResolved'] =='' || req.session.data['chpa_wasQuestionResolved'] =='') {
+if ((req.session.data['npd_wasQuestionResolved'].includes('Not resolved') || req.session.data['npd_wasQuestionResolved'].includes('Resolved')) || (req.session.data['npa_wasQuestionResolved'].includes('Not resolved') || req.session.data['npa_wasQuestionResolved'].includes('Resolved')) || (req.session.data['ma_wasQuestionResolved'].includes('Not resolved') || req.session.data['ma_wasQuestionResolved'].includes('Resolved')) || (req.session.data['chpa_wasQuestionResolved'].includes('Not resolved') || req.session.data['chpa_wasQuestionResolved'].includes('Resolved')) || (req.session.data['othQ_wasQuestionResolved'].includes('Not resolved') || req.session.data['othQ_wasQuestionResolved'].includes('Resolved'))) {
+  //All variable render here
+  res.render('prototype-sprint-wise/ur-8/a/call-log-journey/added-call-details', {
+  "isNpd": isNpd,
+  "isNpa": isNpa,
+  "isMp": isMp,
+  "isRfch": isRfch,
+  "isOthQ": isOthQ,
+  "isSE": isSE,
+  "isNpdResolved": isNpdResolved,
+  "isNpaResolved": isNpaResolved,
+  "isMaRresolved": isMaRresolved,
+  "isRfchRresolved": isRfchRresolved,
+  "isOthQresolved": isOthQresolved,
+  })
 
-//All variable render here
-res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/check-details', {
-"isNpd": isNpd,
-"isNpa": isNpa,
-"isMp": isMp,
-"isRfch": isRfch,
-})
-}
+  } else {
+  //All variable render here
+  res.render('prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/questionAnswered-Error', {
+  "isNpd": isNpd,
+  "isNpa": isNpa,
+  "isMp": isMp,
+  "isRfch": isRfch,
+  "isOthQ": isOthQ,
+  "isSE": isSE,
+  "isNpdResolved": isNpdResolved,
+  "isNpaResolved": isNpaResolved,
+  "isMaRresolved": isMaRresolved,
+  "isRfchRresolved": isRfchRresolved,
+  "isOthQresolved": isOthQresolved,
+  });
+  }
 })
 
 
@@ -1235,7 +1336,7 @@ isRfchRresolved = 'govuk-tag--grey';
 
 
 //All variable render here
-res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/checkAnswer', {
+res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/check-details', {
 "isNpd": isNpd,
 "isNpa": isNpa,
 "isMp": isMp,
@@ -1268,7 +1369,7 @@ isSERresolved = 'govuk-tag--grey';
 if (req.session.data['smelse_wasQuestionResolved'].includes('Resolved') || req.session.data['smelse_wasQuestionResolved'].includes('Not resolved')) {
 // console.log('Rahul')
 //All variable render here
-res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/checkAnswer', {
+res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/check-details', {
 "isNpd": isNpd,
 "isNpa": isNpa,
 "isMp": isMp,
@@ -1366,6 +1467,13 @@ router.post('/a/different-type-contact-user/call-log-journey/phoneCall-completed
 var completeSession = req.session.data['Do-you-want-to-complete-the-session-opt2']
 // Check whether the variable matches a condition
 if (completeSession == "Yes") {
+  req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['questionAsk'] = '';
+  req.session.data['npd_wasQuestionResolved'] = '';
+  req.session.data['npa_wasQuestionResolved'] = '';
+  req.session.data['ma_wasQuestionResolved'] = '';
+  req.session.data['chpa_wasQuestionResolved'] = '';
+  req.session.data['othQ_wasQuestionResolved'] = '';
 // Send user to next page
 res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-adding-details-for")
 } else {
@@ -1383,6 +1491,13 @@ if (completeSession == "No") {
 // Send user to next page
 res.redirect("/prototype-sprint-wise/ur-8/a/index");
 } else {
+  req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['questionAsk'] = '';
+  req.session.data['npd_wasQuestionResolved'] = '';
+  req.session.data['npa_wasQuestionResolved'] = '';
+  req.session.data['ma_wasQuestionResolved'] = '';
+  req.session.data['chpa_wasQuestionResolved'] = '';
+  req.session.data['othQ_wasQuestionResolved'] = '';
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-adding-details-for');
 }
 
@@ -1408,6 +1523,13 @@ res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/home")
 router.post('/a/different-type-contact-user/goToHome', function(req, res) {
 
 if (req.session.data['unHappyAddreason'] == 'Yes') {
+  req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['questionAsk'] = '';
+  req.session.data['npd_wasQuestionResolved'] = '';
+  req.session.data['npa_wasQuestionResolved'] = '';
+  req.session.data['ma_wasQuestionResolved'] = '';
+  req.session.data['chpa_wasQuestionResolved'] = '';
+  req.session.data['othQ_wasQuestionResolved'] = '';
 res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-adding-details-for")
 } else {
 res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/home")
@@ -1417,9 +1539,12 @@ res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/home")
 
 
 router.post('/a/call-log-journey/do-you-want-to-complete-call', function(req, res) {
-
   res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/check-call-completion")
-  
+  })
+
+
+router.post('/a/different-type-contact-user/call-log-journey/do-you-want-to-complete-call', function(req, res) {
+  res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/check-call-completion")
   })
 
 // Do you want to complete the call?
@@ -1430,6 +1555,17 @@ router.post('/a/call-log-journey/call-completed', function (req, res) {
   res.redirect("/prototype-sprint-wise/ur-8/a/home");
   } else {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/call-completed");
+  }
+});
+
+// Do you want to complete the call?
+router.post('/a/different-type-contact-user/call-log-journey/call-completed', function (req, res) {
+  // Check whether the variable matches a condition
+  var checkPhoneCallCompleted = req.session.data['Do you want to complete the call'];
+  if (checkPhoneCallCompleted == 'back to home page') {
+  res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/home");
+  } else {
+    res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/call-completed");
   }
   });
 
