@@ -273,33 +273,6 @@ Contact history
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                           From date
                         </legend>
-                        <div class="govuk-form-group">
-                          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
-                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-visually-hidden">
-                              search by month
-                            </legend>
-                            <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
-                                <label class="govuk-label govuk-radios__label" for="changedName">
-                                  Last one month
-                                </label>
-                              </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
-                                <label class="govuk-label govuk-radios__label" for="changedName-2">
-                                  Last 3 months
-                                </label>
-                              </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
-                                <label class="govuk-label govuk-radios__label" for="changedName-2">
-                                  Last 6 months
-                                </label>
-                              </div>
-                            </div>
-                          </fieldset>
-                        </div>
                         <div class="govuk-date-input" id="from-date">
                           <div class="govuk-date-input__item">
                             <div class="govuk-form-group">
@@ -325,6 +298,33 @@ Contact history
                               <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
                             </div>
                           </div>
+                        </div>
+                        <div class="govuk-form-group govuk-!-margin-top-2">
+                          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-visually-hidden">
+                              search by month
+                            </legend>
+                            <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
+                                <label class="govuk-label govuk-radios__label" for="changedName">
+                                  Last one month
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                  Last 3 months
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                  Last 6 months
+                                </label>
+                              </div>
+                            </div>
+                          </fieldset>
                         </div>
                       </fieldset>
                     </div>
