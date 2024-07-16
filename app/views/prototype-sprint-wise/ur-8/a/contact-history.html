@@ -67,7 +67,7 @@ Contact history
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-third">
             <!-- MOJ filter -->
-            <div class="moj-filter">
+            <div class="moj-filter cv-filter">
               <div class="moj-filter__header">
                 <div class="moj-filter__header-title">
                   <h2 class="govuk-heading-m">Filter</h2>
@@ -80,7 +80,7 @@ Contact history
                 <div class="moj-filter__selected govuk-visually-hidden">
                   <div class="moj-filter__selected-heading">
                     <div class="moj-filter__heading-title">
-                      <h2 class="govuk-heading-m">Selected filters</h2>
+                      <h3 class="govuk-heading-m">Selected filters</h3>
                     </div>
                     <div class="moj-filter__heading-action">
                       <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
@@ -103,12 +103,12 @@ Contact history
                       Apply filters
                     </button>
                     <!-- filter by date -->
-                    <div class="govuk-form-group">
+                    <!-- <div class="govuk-form-group">
                       <label class="govuk-label govuk-label--s" for="keywords">
                         Search keywords
                       </label>
                       <input class="govuk-input" id="keywords" name="keywords" type="text">
-                    </div>
+                    </div> -->
                     <!-- filter by benefits -->
                     <!-- <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
@@ -267,13 +267,73 @@ Contact history
                         </div>
                       </fieldset>
                     </div>
+                    <!-- filter by date  -->
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          From date
+                        </legend>
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-visually-hidden">
+                              search by month
+                            </legend>
+                            <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
+                                <label class="govuk-label govuk-radios__label" for="changedName">
+                                  Last one month
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                  Last 3 months
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                  Last 6 months
+                                </label>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                        <div class="govuk-date-input" id="from-date">
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="from-date-day">
+                                    Day
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="from-date-month">
+                                    Month
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
+                            </div>
+                          </div>
+                          <div class="govuk-date-input__item">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label govuk-date-input__label" for="from-date-year">
+                                    Year
+                              </label>
+                              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+
                     <!-- filter by contact type -->
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                          <h1 class="govuk-fieldset__heading">
-                            Contact type
-                          </h1>
+                         Contact type
                         </legend>
                         <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
                           <div class="govuk-radios__item">

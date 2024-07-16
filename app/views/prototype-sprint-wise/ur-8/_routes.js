@@ -318,9 +318,10 @@ res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed'
 } else {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/add-another-benefit-for-call');
 }
-
 })
 
+
+// Try for multiple benefite selection
 router.post('/a/call-log-journey/selectQuestion', function(req, res) {
 let outcomePageData = [];
 outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
@@ -335,79 +336,65 @@ res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/sho
 req.session.data.outcomePage =outcomePageData;
 res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/noBenefit/what-did-you-discuss")
 } else {
-res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-asked")
+  // check multiple benefits are selected
+  var benefitLenght ='';
+  benefitLenght = req.session.data ['whichBenefitDiscussed'].length;
+  // console.log('Total selected benefit is:',req.session.data ['whichBenefitDiscussed'].length);
+  if (benefitLenght>1)
+  {
+    console.log('Multiple benefits selected');
+    var pageLength = '';
+    var isAa = req.session.data['whichBenefitDiscussed'].includes('Attendance Allowance');
+    var isEsa = req.session.data['whichBenefitDiscussed'].includes('Employment and Support Allowance');
+    var isPip = req.session.data['whichBenefitDiscussed'].includes('pip');
+    if (benefitLenght == 2) {
+      pageLength = 'Services 1 of 2';
+      } else if (benefitLenght == 3) {
+      pageLength = 'Services 1 of 3';
+      }
+
+      if (isAa && isEsa) {
+      res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/aa-questions-asked', {
+        "nextUrl": '/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked',
+        "pageLength": pageLength,
+      });
+      } else {
+        res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-asked");
+      }
+    }
+  // single benefit
+  else {
+    console.log('Single benefit selected');
+    res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-asked");
+  }
 } 
 })
+// this routes not working
+router.post('/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked', function (req, res) {
+  var isEsa = req.session.data['whichBenefitDiscussed'].includes('Employment and Support Allowance');
+  var isPip = req.session.data['whichBenefitDiscussed'].includes('pip');
+  var pageLength = '';
+  if (req.session.data ['whichBenefitDiscussed'].length == 2) {
+    pageLength = 'Services 2 of 2';
+  } else {
+    pageLength = 'Services 2 of 3';
+  }
+  if (isEsa && isPip) {
+    console.log('going to ESA');
+    res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked', {
+      "nextUrl": '/sprint13/opt1/engagement-log-journey/what-queries-dealt-with-CA',
+      "pageLength": pageLength
+    });
+  }
+  if (isEsa && !isPip) {
+    // console.log('considition executed !isEsa && isPip && !isCa');
+    res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked', {
+      "nextUrl": '/sprint13/opt1/engagement-log-journey/outcome-queries',
+      "pageLength": pageLength
+    });
+  }
+});
 
-// Try for multiple benefit 21 june
-// router.post('/a/call-log-journey/selectQuestion', function(req, res) {
-
-//   let outcomePageData = [];
-//   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
-
-//   if (req.session.data['whichBenefitDiscussed'] == '') {
-//   res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
-  
-//   } else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
-//     outcomePageData.push({"benefit":"No benefit",
-//     "question":"Does not apply",
-//     "result":"Does not apply"
-//   });
-//   req.session.data.outcomePage =outcomePageData;
-//   res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/noBenefit/what-did-you-discuss")
-//   } else {
-//     var pageLength = '';
-//     var isAa = req.session.data['whichBenefitDiscussed'].includes('aa');
-//     var isEsa = req.session.data['whichBenefitDiscussed'].includes('esa');
-//     var isPip = req.session.data['whichBenefitDiscussed'].includes('pip');
-//     if (req.session.data['whichBenefitDiscussed'].length == 1) {
-//       pageLength = 'Services 1 of 1';
-//     } else if (req.session.data['whichBenefitDiscussed'].length == 2) {
-//       pageLength = 'Services 1 of 2';
-//     } else {
-//       pageLength = 'Services 1 of 3';
-//     }
-
-//     if (isAa && isEsa) {
-//       res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/aa-questions-asked', {
-//         "nextUrl": '/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked',
-//         "pageLength": pageLength,
-//       });
-//     }
-//     if (isAa && isPip) {
-//       res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/aa-questions-asked', {
-//         "nextUrl": '/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/pip-questions-asked',
-//         "pageLength": pageLength,
-//       });
-//     }
-//     if (isEsa && isPip) {
-//       res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked', {
-//         "nextUrl": '/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/pip-questions-asked',
-//         "pageLength": pageLength,
-//       });
-//     }
-//     if (isAa && !isEsa && !isPip) {
-//       res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/aa-questions-asked', {
-//         "nextUrl": '/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes',
-//         "pageLength": pageLength,
-//       });
-//     }
-//     if (!isAa && isEsa && !isPip) {
-//       res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked', {
-//         "nextUrl": '/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes',
-//         "pageLength": pageLength,
-//       });
-//     }
-
-//     if (!isAa && !isEsa && isPip) {
-//       res.render('prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/pip-questions-asked', {
-//         "nextUrl": '/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes',
-//         "pageLength": pageLength,
-//       });
-//     }
-
-//   } 
-//   })
 
 router.post('/a/call-log-journey/questions-outcomes', function(req, res) {
 
@@ -734,25 +721,25 @@ res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/add-another-benefit
 //     });
   
   // Complete session
-  router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res) {
-    var completeSession = req.session.data['Do-you-want-to-complete-the-telephony-session']
-    // Check whether the variable matches a condition
-    if (completeSession == "Yes") {
-      req.session.data['whichBenefitDiscussed'] = '';
-      req.session.data['questionAsk'] = '';
-      req.session.data['npd_wasQuestionResolved'] = '';
-      req.session.data['npa_wasQuestionResolved'] = '';
-      req.session.data['ma_wasQuestionResolved'] = '';
-      req.session.data['chpa_wasQuestionResolved'] = '';
-      req.session.data['othQ_wasQuestionResolved'] = '';
-      req.session.data['addNote'] = '';
-      // Send user to next page
-      res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed")
-    } else {
-      res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/call-completed');
-    }
-  
-  });
+router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res) {
+  var completeSession = req.session.data['Do-you-want-to-complete-the-telephony-session']
+  // Check whether the variable matches a condition
+  if (completeSession == "Yes") {
+    req.session.data['whichBenefitDiscussed'] = '';
+    req.session.data['questionAsk'] = '';
+    req.session.data['npd_wasQuestionResolved'] = '';
+    req.session.data['npa_wasQuestionResolved'] = '';
+    req.session.data['ma_wasQuestionResolved'] = '';
+    req.session.data['chpa_wasQuestionResolved'] = '';
+    req.session.data['othQ_wasQuestionResolved'] = '';
+    req.session.data['addNote'] = '';
+    // Send user to next page
+    res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed")
+  } else {
+    res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/call-completed');
+  }
+
+});
 
 router.post('/a/addAnotherBenefit', function(req, res) {
 req.session.data['whichBenefitDiscussed'] = '';
