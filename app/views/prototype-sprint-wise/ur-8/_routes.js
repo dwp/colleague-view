@@ -326,7 +326,7 @@ router.post('/a/call-log-journey/selectQuestion', function(req, res) {
 let outcomePageData = [];
 outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
 if (req.session.data['whichBenefitDiscussed'] == '') {
-res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
+  res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
 
 } else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
   outcomePageData.push({"benefit":"No benefit",
@@ -334,7 +334,7 @@ res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/sho
   "result":"Does not apply"
 });
 req.session.data.outcomePage =outcomePageData;
-res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/noBenefit/what-did-you-discuss")
+  res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/noBenefit/what-did-you-discuss")
 } else {
   // check multiple benefits are selected
   var benefitLenght ='';
@@ -1099,6 +1099,7 @@ var isNpd = 'govuk-!-display-none';
 var isNpa = 'govuk-!-display-none';
 var isMp = 'govuk-!-display-none';
 var isRfch = 'govuk-!-display-none';
+var isOthQ = 'govuk-!-display-none';
 
 if (req.session.data['questionAsk'].includes('Something else')) {
 res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/noQuestion/askedClQ")
@@ -1115,6 +1116,9 @@ isMp = 'govuk-!-display-block';
 if(req.session.data['questionAsk'].includes('Change in payment amount')) {
 isRfch = 'govuk-!-display-block';
 }
+if(req.session.data['questionAsk'].includes('Other questions')) {
+  isOthQ = 'govuk-!-display-block';
+  }
 
 //All variable render here
 res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questionAnswered', {
@@ -1122,6 +1126,7 @@ res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-jo
 "isNpa": isNpa,
 "isMp": isMp,
 "isRfch": isRfch,
+"isOthQ": isOthQ,
 })
 }
 })
