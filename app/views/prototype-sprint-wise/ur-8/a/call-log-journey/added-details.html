@@ -23,6 +23,207 @@
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">You have added details about this call</h1>
         <!-- <h2 class="govuk-heading-m">Reasons for this call</h2> -->
+        {% set benefits =  data['whichBenefitDiscussed'] %}
+        {% set questionCA = data['questionAsk-ca'] %}
+        {% set questionESA = data['questionAsk-esa'] %}
+        {% set questionPIP = data['questionAsk-pip'] %}
+        {% set questionLenghtCA = data['questionAsk-ca'] | length %}
+        {% set benefitLength =  data['whichBenefitDiscussed'] | length %}
+        {% if benefitLength >1 %}
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header ">Benefits</th>
+              <th scope="col" class="govuk-table__header">Question asked</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Outcome</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            {%for benefit in benefits %}
+            {%if benefit == "Carer's Allowance" %}
+            {%for question in questionCA %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">{{benefit}}</th>
+              <td class="govuk-table__cell">{{question}}</td>
+              <td class="govuk-table__cell">
+               {%if question == "Next payment date" %}
+                {% if data['npd_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {% elif data['npd_wasQuestionResolved'] == 'Not resolved' %}
+                <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
+                {%elif data['npd_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Next payment amount" %}
+                {% if data['npa_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['npa_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['npa_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Missing payment" %}
+                {% if data['ma_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['ma_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['ma_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Change in payment amount" %}
+                {% if data['chpa_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['chpa_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['chpa_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Other questions" %}
+                {%if data['othQ_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['othQ_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {%elif data['othQ_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+              </td>
+            </tr>
+            {%endfor%}
+            {%endif%}
+
+            {%if benefit == "Employment and Support Allowance" %}
+            {%for question in questionESA %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">{{benefit}}</th>
+              <td class="govuk-table__cell">{{question}}</td>
+              <td class="govuk-table__cell">
+               {%if question == "Next payment date" %}
+                {% if data['npd_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {% elif data['npd_wasQuestionResolved'] == 'Not resolved' %}
+                <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
+                {%elif data['npd_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Next payment amount" %}
+                {% if data['npa_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['npa_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['npa_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Missing payment" %}
+                {% if data['ma_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['ma_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['ma_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Change in payment amount" %}
+                {% if data['chpa_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['chpa_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['chpa_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Other questions" %}
+                {%if data['othQ_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['othQ_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {%elif data['othQ_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+              </td>
+            </tr>
+            {%endfor%}
+            {%endif%}
+
+            {%if benefit == "Personal Independence Payment" %}
+            {%for question in questionPIP %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">{{benefit}}</th>
+              <td class="govuk-table__cell">{{question}}</td>
+              <td class="govuk-table__cell">
+               {%if question == "Next payment date" %}
+                {% if data['npd_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {% elif data['npd_wasQuestionResolved'] == 'Not resolved' %}
+                <stong class="govuk-tag govuk-tag--grey">Not resolved</strong>
+                {%elif data['npd_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Next payment amount" %}
+                {% if data['npa_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['npa_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['npa_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Missing payment" %}
+                {% if data['ma_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['ma_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['ma_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Change in payment amount" %}
+                {% if data['chpa_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['chpa_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {% elif data['chpa_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+
+                {%if question == "Other questions" %}
+                {%if data['othQ_wasQuestionResolved'] == 'Resolved' %}
+                <stong class="govuk-tag">Resolved</strong>
+                {%elif data['othQ_wasQuestionResolved'] == 'Does not apply'%}
+                <span class="govuk-body">Does not apply</span>
+                {%elif data['othQ_wasQuestionResolved'] == 'Not resolved' %}
+                    <stong class="govuk-tag govuk-tag--grey">  Not resolved</strong>
+                {% endif %}
+                {%endif%}
+              </td>
+            </tr>
+            {%endfor%}
+            {%endif%}
+            {%endfor%}
+          </tbody>
+        </table>
+        
+        {%else%}  
         <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -70,6 +271,7 @@
           </tbody>
         </table>
 
+        {%endif%}
         <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-6">
           <h2 class="govuk-heading-s">Notes</h2>
           <p class="govuk-body govuk-!-margin-bottom-2">{{ data['addNote'] or "Not provided" }}</p> 
