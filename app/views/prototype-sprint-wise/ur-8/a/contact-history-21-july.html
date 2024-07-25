@@ -6,7 +6,7 @@ Contact history
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-8/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-8/common/opt2/view-only-user/keydetail-bar.html" %} 
+  {% include "/prototype-sprint-wise/ur-8/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -98,7 +98,7 @@ Contact history
                 </div>
                 <!-- filter options -->
                 <div class="moj-filter__options">
-                  <form action="contact-history" method="post">
+                  <form action="contact-history-filter-result" method="post">
                     <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn" onclick="">
                       Apply filters
                     </button>
@@ -874,102 +874,102 @@ Contact history
                   </table>
                 </div>
               </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Telephone call: 19 April 2023, 11:15</h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          No benefit
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Check notes
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+            </div>
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Telephone call: 19 April 2023, 11:15</h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
+                  </li>
+                </ul>
               </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Something else
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          No benefit
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Check notes
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+              <div class="govuk-summary-card__content">
+                <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                  <tbody class="govuk-summary-list">
+                    <tr class="govuk-summary-list__row">
+                      <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        Personal Independence Payment
+                      </th>
+                      <td class="govuk-summary-list__value">
+                        Next payment date
+                      </td>
+                      <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                        <strong class="govuk-tag">
+                          Resolved
+                        </strong>
+                      </td>
+                    </tr>
+                    <tr class="govuk-summary-list__row">
+                      <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        Personal Independence Payment
+                      </th>
+                      <td class="govuk-summary-list__value">
+                        Next payment amount
+                      </td>
+                      <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                        <strong class="govuk-tag">
+                          Resolved
+                        </strong>
+                      </td>
+                    </tr>
+                    <tr class="govuk-summary-list__row">
+                      <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        No benefit
+                      </th>
+                      <td class="govuk-summary-list__value">
+                        Check notes
+                      </td>
+                      <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                        <strong class="govuk-tag">
+                          Resolved
+                        </strong>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="govuk-summary-card__content">
+                <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                  <tbody class="govuk-summary-list">
+                    <tr class="govuk-summary-list__row">
+                      <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        Personal Independence Payment
+                      </th>
+                      <td class="govuk-summary-list__value">
+                        Something else
+                      </td>
+                      <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                        <strong class="govuk-tag">
+                          Resolved
+                        </strong>
+                      </td>
+                    </tr>
+                    <tr class="govuk-summary-list__row">
+                      <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        No benefit
+                      </th>
+                      <td class="govuk-summary-list__value">
+                        Check notes
+                      </td>
+                      <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                        <strong class="govuk-tag">
+                          Resolved
+                        </strong>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
 

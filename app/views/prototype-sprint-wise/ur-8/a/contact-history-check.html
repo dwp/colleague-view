@@ -6,7 +6,7 @@ Contact history
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-8/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-8/common/opt2/view-only-user/keydetail-bar.html" %} 
+  {% include "/prototype-sprint-wise/ur-8/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -98,45 +98,11 @@ Contact history
                 </div>
                 <!-- filter options -->
                 <div class="moj-filter__options">
-                  <form action="contact-history" method="post">
-                    <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn" onclick="">
+                  <form>
+                    <button type="submit" class="govuk-button" data-module="govuk-button" id="filter-apply" onclick="filterApply()" value = "submit">
                       Apply filters
                     </button>
-                    <!-- filter by date -->
-                    <!-- <div class="govuk-form-group">
-                      <label class="govuk-label govuk-label--s" for="keywords">
-                        Search keywords
-                      </label>
-                      <input class="govuk-input" id="keywords" name="keywords" type="text">
-                    </div> -->
                     <!-- filter by benefits -->
-                    <!-- <div class="govuk-form-group">
-                      <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                          Benefits
-                        </legend>
-                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="type">
-                              Employment and Support Allowance
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                              Personal Independence Payment
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3">
-                            <label class="govuk-label govuk-checkboxes__label" for="type-3">
-                              Carer's Allowance
-                            </label>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div> -->
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -158,13 +124,13 @@ Contact history
                           </div>
                           <div class="govuk-checkboxes__item">
                             {% if data.tableFilterJa == true%}
-                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked="checked">
-                            <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                            <input class="govuk-checkboxes__input" id="CA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" checked="checked">
+                            <label class="govuk-label govuk-checkboxes__label" for="CA-benefit">
                               Carer's Allowance
                             </label>
                             {% else %}
-                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
-                            <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                            <input class="govuk-checkboxes__input" id="CA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
+                            <label class="govuk-label govuk-checkboxes__label" for="CA-benefit">
                               Carer's Allowance
                             </label>
                             {% endif%}
@@ -354,7 +320,6 @@ Contact history
                         </div>
                       </fieldset>
                     </div>
-
                     <!-- filter by contact type -->
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
@@ -377,86 +342,14 @@ Contact history
                         </div>
                       </fieldset>
                     </div>
-                    <!-- filter by status -->
-                    <!-- <div class="govuk-form-group">
-                      <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                          Status
-                        </legend>
-                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="status">
-                              Completed (2)
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="incomplete">
-                            <label class="govuk-label govuk-checkboxes__label" for="status-2">
-                              Incomplete (5)
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="inprogress">
-                            <label class="govuk-label govuk-checkboxes__label" for="status-3">
-                              In progress (3)
-                            </label>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div> -->
                 </div>
                 </form>
               </div>
             </div>
           </div>
           <div class="govuk-grid-column-two-thirds">
-            {% for item in data['tableValue'] %}
-            <div class="govuk-summary-card">
-              <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">{{item.directionality}}: {{item.createdDate}}</h2>
-                <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="contact-history-viewDetails/viewDetail.html">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
-                  </li>
-                </ul>
-              </div>
-              <div class="govuk-summary-card__content">
-                <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                  <tbody class="govuk-summary-list">
-                    <tr class="govuk-summary-list__row">
-                      <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                        {{item.benefit}}
-                      </th>
-                      <td class="govuk-summary-list__value">
-                        {{item.querySubContext}}
-                      </td>
-                      <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                        <strong class="govuk-tag">
-                          {{item.outcome}}
-                        </strong>
-                      </td>
-                    </tr>
-                    <tr class="govuk-summary-list__row">
-                      <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                        {{item.benefit}}
-                      </th>
-                      <td class="govuk-summary-list__value">
-                        {{item.querySubContext}}
-                      </td>
-                      <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                        <strong class="govuk-tag">
-                          {{item.outcome}}
-                        </strong>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            {%endfor%}
             <!-- default ch table -->
-            <div class="summry-card">
+            <div class="summry-card" id="default-history">
               <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
                   <h2 class="govuk-summary-card__title">Telephone call: 10 Aug 2023, 13:03</h2>
@@ -693,12 +586,15 @@ Contact history
                   </table>
                 </div>
               </div>
+            </div>
+            <!-- ca only ch table -->
+            <div class="summry-card govuk-visually-hidden" id="ca-history">
               <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Telephone call: 28 Jun 2023, 12:15</h2>
+                  <h2 class="govuk-summary-card__title">Telephone call: 08 Aug 2023, 09:20</h2>
                   <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
+                    <li class="govuk-summary-card__action">No notes added
+                      <!-- <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a> -->
                     </li>
                   </ul>
                 </div>
@@ -735,9 +631,12 @@ Contact history
                   </table>
                 </div>
               </div>
+            </div>
+            <!-- esa only ch table -->
+            <div class="summry-card govuk-visually-hidden" id="esa-history">
               <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Telephone call: 13 Jun 2023, 10:00</h2>
+                  <h2 class="govuk-summary-card__title">Telephone call: 10 Aug 2023, 13:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -751,7 +650,7 @@ Contact history
                         <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                           Employment and Support Allowance
                         </th>
-                        <td class="govuk-summary-list__value">
+                        <td class="govuk-summary-list__value govuk-!-width-one-third">
                           Next payment date
                         </td>
                         <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -764,49 +663,7 @@ Contact history
                         <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                           Employment and Support Allowance
                         </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
+                        <td class="govuk-summary-list__value govuk-!-width-one-third">
                           Next payment amount
                         </td>
                         <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -834,49 +691,7 @@ Contact history
               </div>
               <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">No notes added
-                      <!-- <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a> -->
-                    </li>
-                  </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Telephone call: 19 April 2023, 11:15</h2>
+                  <h2 class="govuk-summary-card__title">Telephone call: 05 Aug 2023, 09:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -888,7 +703,7 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
+                          Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment date
@@ -901,7 +716,7 @@ Contact history
                       </tr>
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
+                          Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment amount
@@ -931,7 +746,7 @@ Contact history
               </div>
               <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                  <h2 class="govuk-summary-card__title">Telephone call: 15 July 2023, 13:00</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -943,10 +758,10 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
+                          Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
-                          Something else
+                          Next payment date
                         </td>
                         <td class="govuk-summary-list__actions govuk-!-display-none-print">
                           <strong class="govuk-tag">
@@ -956,10 +771,10 @@ Contact history
                       </tr>
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          No benefit
+                          Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
-                          Check notes
+                          Next payment amount
                         </td>
                         <td class="govuk-summary-list__actions govuk-!-display-none-print">
                           <strong class="govuk-tag">
@@ -972,7 +787,51 @@ Contact history
                 </div>
               </div>
             </div>
-
+            <!-- pip only ch table -->
+            <div class="summry-card govuk-visually-hidden" id="pip-history">
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="#">Check notes<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                          Personal Independence Payment
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment date
+                        </td>
+                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment amount
+                        </td>
+                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
+                          <strong class="govuk-tag">
+                            Resolved
+                          </strong>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
             <!-- pagination start here -->
             <nav class="govuk-pagination" aria-label="Pagination">
               <ul class="govuk-pagination__list">
@@ -1162,7 +1021,48 @@ Contact history
 </div>
   
 <!-- logic for filter function -->
-  <script type="text/javascript">
+<script type="text/javascript">
+  function filterApply() {
+    var caHistory = document.getElementById('ca-history');
+    var esaHistory = document.getElementById('esa-history');
+    var pipHistory = document.getElementById('pip-history');
+    var activeBenefit= document.getElementsByName('benefit');
+    var defaultCH = docment.getElementById('default-history');
+    var ca = docment.getElementById('CA-benefit').checked;
+    var esa = docment.getElementById('ESA-benefit').checked;
+    var pip = docment.getElementById('PIP-benefit').checked;
+    
+    // check which benefit checked
+    if (ca)
+      {
+        defaultCH.classList.add("govuk-!-display-none");
+        esa.classList.add("govuk-!-display-none");
+        pip.classList.add("govuk-!-display-none");
+        ca.classList.remove("govuk-!-display-none");
+        docment.getElementById('CA-benefit').checked = true;
+      }
+    // if (!ca.checked && eas.checked && !pip.checked)
+    //   {
+    //     go to ESA cards;
+    //   }
+    // if (!ca.checked && !eas.checked && !pip.checked)
+    //   {
+    //     go to PIP cards;
+    //   }
+    //   if (ca.checked && eas.checked && !pip.checked)
+    //   {
+    //     go to CA and ESA cards;
+    //   }
+    //   if (ca.checked && !eas.checked && !pip.checked)
+    //   {
+    //     go to CA and PIP cards;
+    //   }
+    //   else
+    //   {
+    //     go to ESA and PIP cards;
+    //   }
+  }
+
     function showFilter() {
       // document.getElementById("demo").innerHTML = "Hello World";
       // alert("Hello world");
@@ -1202,21 +1102,21 @@ Contact history
       showOldFilter.classList.add("govuk-visually-hidden");
     }
 
-    function applyFilter() {
+    // function applyFilter() {
 
-      var link3 = document.getElementById('filter-selected');
-      // var link4 = document.getElementById('apply-filter-btn');
-      var link2 = document.getElementById('show-filter-btn');
-      var link5 = document.getElementById('filter-section'); 
-      var tableDefault = document.getElementById('default-table')
-      var esaTable = document.getElementById('table-ESA');
-      link3.classList.remove("govuk-visually-hidden");
-      link2.classList.remove("govuk-visually-hidden");
-      // link4.classList.add("govuk-visually-hidden");
-      link5.classList.add("govuk-visually-hidden");
-      tableDefault.classList.add("govuk-visually-hidden");
-      esaTable.classList.remove("govuk-visually-hidden");
-    }
+    //   var link3 = document.getElementById('filter-selected');
+    //   // var link4 = document.getElementById('apply-filter-btn');
+    //   var link2 = document.getElementById('show-filter-btn');
+    //   var link5 = document.getElementById('filter-section'); 
+    //   var tableDefault = document.getElementById('default-table')
+    //   var esaTable = document.getElementById('table-ESA');
+    //   link3.classList.remove("govuk-visually-hidden");
+    //   link2.classList.remove("govuk-visually-hidden");
+    //   // link4.classList.add("govuk-visually-hidden");
+    //   link5.classList.add("govuk-visually-hidden");
+    //   tableDefault.classList.add("govuk-visually-hidden");
+    //   esaTable.classList.remove("govuk-visually-hidden");
+    // }
 
     function clearFilter() {
       var link3 = document.getElementById('filter-selected');
