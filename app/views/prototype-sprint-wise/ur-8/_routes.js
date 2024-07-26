@@ -383,31 +383,13 @@ req.session.data.outcomePage =outcomePageData;
     req.session.data['othQ_wasQuestionResolved'] ='';
      res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/eas-pip/esa-questions-asked");
   }
-    if( isCA && isPIP && !isESA) { console.log('CA and PIP selected')}
-   
-    if( isCA && isESA && isPIP) { console.log('CA, EAS and PIP selected')}
-
-    // if(req.session.data['whichBenefitDiscussed'].includes("Carer's Allowance")) {
-    //   res.redirect("benefit-question-asked/ca-questions-asked")
-      // res.render(
-      //   'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-questions-asked',
-      //   {}
-      //   );
-      // }
-    // else if(req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance")) {
-    //   res.redirect("benefit-question-asked/esa-questions-asked")
-      // res.render(
-      //   'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked',
-      //   {}
-      //   );
-      // }
-  //  else if(req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment")) {
-  //   res.redirect("benefit-question-asked/pip-questions-asked")
-      // res.render(
-      //   'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/pip-questions-asked',
-      //   {}
-      //   );
-      // }
+  if( !isCA || !isPIP || !isESA) { 
+    console.log('This prototype is for testing only CA, ESA and PIP')
+    res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed");
+}
+  if( isCA && isPIP && !isESA) { console.log('CA and PIP selected')}
+  
+  if( isCA && isESA && isPIP) { console.log('CA, EAS and PIP selected')}
 
   } else{
     console.log('Single benefits');
@@ -415,8 +397,6 @@ req.session.data.outcomePage =outcomePageData;
   }
 } 
 })
-
-
 
 router.post('/a/call-log-journey/questions-outcomes', function(req, res) {
   var isNpd = 'govuk-!-display-none';
@@ -454,7 +434,7 @@ router.post('/a/call-log-journey/questions-outcomes', function(req, res) {
   }
   })
 
-// Question answer for multipme benefit
+// Telephony user Question answer for multipme benefit
 
 // ----for CA with ESA----
 router.post('/a/call-log-journey/benefit-question-asked/ca-eas/questions-outcomes-ca', function(req, res) {
@@ -1265,20 +1245,6 @@ res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/add-another-benefit
   router.post('/a/call-log-journey/updateNote_beforeCompleteCall', function (req, res) {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session")
     });
-
-    // Complete session
-// router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res) {
-//     var checkPhoneCallCompleted = req.session.data['Do-you-want-to-complete-the-telephony-session'];
-//     if (checkPhoneCallCompleted == 'Yes') {
-//     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/benefits-discussed");
-//     } 
-//     if (checkPhoneCallCompleted == 'No') {
-//     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/call-completed");
-//     } 
-//     else {
-//     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/confirmation-complete-session-Error");
-//     }
-//     });
   
   // Complete session
 router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res) {
@@ -1581,8 +1547,10 @@ router.post('/a/different-type-contact-user/contact-history-ui',function(req,res
 res.render("/prototype-sprint-wise/ur-8/a/different-type-contact-user/contact-history")
 })
 
+
+
 router.post('/a/different-type-contact-user/call-log-journey/selectBenefit', function(req, res) {
-  req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['whichBenefitDiscussed'] = ''; Bhavin
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-ca'] = '';
   req.session.data['questionAsk-esa'] = '';
@@ -1593,36 +1561,89 @@ router.post('/a/different-type-contact-user/call-log-journey/selectBenefit', fun
   req.session.data['chpa_wasQuestionResolved'] = '';
   req.session.data['othQ_wasQuestionResolved'] = '';
   req.session.data['addNote'] = '';
+  
+  
+  // console.log('value of the req.session.data.outcomePage: ------------>',req.session.data.outcomePage);
+  
+  if(req.session.data.outcomePage === '' || req.session.data.outcomePage === undefined){
+    res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-adding-details-for');
+    } else {
+    res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/add-another-benefit-for-call');
+    }
+  })
 
-if(req.session.data.outcomePage === ''){
-res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-adding-details-for');
-} else {
-res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/add-another-benefit-for-call');
-}
-
-})
 
 router.post('/a/different-type-contact-user/call-log-journey/selectQuestion', function(req, res) {
+  let outcomePageData = [];
+  outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
+  if (req.session.data['whichBenefitDiscussed'] == '') {
+    res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
+  
+  } else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
+    outcomePageData.push({"benefit":"No benefit",
+    "question":"Does not apply",
+    "result":"Does not apply"
+  });
+  req.session.data.outcomePage =outcomePageData;
+  res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/what-was-contact-about-notes")
+  } else {
+    if (req.session.data['whichBenefitDiscussed'].length >1) {
+      console.log('Multiple benefits: ------------>',req.session.data['whichBenefitDiscussed']);
+  
+      var isCA = req.session.data['whichBenefitDiscussed'].includes("Carer Allowance");
+      var isESA = req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance");
+      var isPIP = req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment");
+  
+      if( isCA && isESA && !isPIP) { 
+        console.log('CA and ESA selected')
+       req.session.data['questionAsk-ca'] = '';
+       req.session.data['npd_wasQuestionResolved'] ='';
+       req.session.data['npa_wasQuestionResolved'] ='';
+       req.session.data['ma_wasQuestionResolved'] ='';
+       req.session.data['chpa_wasQuestionResolved'] ='';
+       req.session.data['othQ_wasQuestionResolved'] ='';
+       req.session.data['questionAsk-esa'] = '';
+       req.session.data['npd_wasQuestionResolved'] ='';
+       req.session.data['npa_wasQuestionResolved'] ='';
+       req.session.data['ma_wasQuestionResolved'] ='';
+       req.session.data['chpa_wasQuestionResolved'] ='';
+       req.session.data['othQ_wasQuestionResolved'] ='';
+        res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-question-asked/ca-eas/ca-questions-asked");
+    }
+  
+    if( isESA && isPIP && !isCA) { 
+      console.log('EAS and PIP selected')
+      req.session.data['questionAsk-esa'] = '';
+      req.session.data['npd_wasQuestionResolved'] ='';
+      req.session.data['npa_wasQuestionResolved'] ='';
+      req.session.data['ma_wasQuestionResolved'] ='';
+      req.session.data['chpa_wasQuestionResolved'] ='';
+      req.session.data['othQ_wasQuestionResolved'] ='';
+      req.session.data['questionAsk-pip'] = '';
+      req.session.data['npd_wasQuestionResolved'] ='';
+      req.session.data['npa_wasQuestionResolved'] ='';
+      req.session.data['ma_wasQuestionResolved'] ='';
+      req.session.data['chpa_wasQuestionResolved'] ='';
+      req.session.data['othQ_wasQuestionResolved'] ='';
+       res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-question-asked/eas-pip/esa-questions-asked");
+    }
+    if( !isCA || !isPIP || !isESA) { 
+      console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
+      console.log('This prototype is for testing only CA, ESA and PIP')
+      res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-adding-details-for");
+  }
+    if( isCA && isPIP && !isESA) { console.log('CA and PIP selected')}
+    
+    if( isCA && isESA && isPIP) { console.log('CA, EAS and PIP selected')}
+  
+    } else{
+      console.log('Single benefits');
+      res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/what-was-contact-about")
+    }
+  } 
+  })
 
-let outcomePageData = [];
-outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
-// Send user to error page
-if (req.session.data['whichBenefitDiscussed'] == '') {
-// errMsg_Benefit = "Select which benefit did you discuss with the caller";
-// res.render('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error', { "errMsg_Benefit": errMsg_Benefit });
-res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
 
-} else if (req.session.data['whichBenefitDiscussed'] == 'A different benefit') {
-outcomePageData.push({"benefit":"A different benefit",
-"question":"Does not apply",
-"result":"Does not apply"
-});
-req.session.data.outcomePage =outcomePageData;
-res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/what-was-contact-about-notes")
-} else {
-res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/what-was-contact-about")
-} 
-})
 
 router.post('/a/different-type-contact-user/call-log-journey/questions-outcomes', function(req, res) {
 
@@ -1660,7 +1681,178 @@ router.post('/a/different-type-contact-user/call-log-journey/questions-outcomes'
   })
   }
   })
-  
+
+
+// Telephony user Question answer for multipme benefit
+
+// ----for CA with ESA----
+router.post('/a/different-type-contact-user/call-log-journey/benefit-question-asked/ca-eas/questions-outcomes-ca', function(req, res) {
+  var isNpdCA = 'govuk-!-display-none';
+  var isNpaCA = 'govuk-!-display-none';
+  var isMpCA = 'govuk-!-display-none';
+  var isRfchCA = 'govuk-!-display-none';
+  var isOthQCA = 'govuk-!-display-none';
+
+  // var benefitName = req.session.data['whichBenefitDiscussed'];
+console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
+if (req.session.data['whichBenefitDiscussed'].includes("Carer Allowance")){
+  if (req.session.data['questionAsk-ca'].includes('Something else')) {
+    res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
+    } else {
+    if(req.session.data['questionAsk-ca'].includes('Next payment date')) {
+    isNpdCA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-ca'].includes('Next payment amount')) {
+    isNpaCA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-ca'].includes('Missing payment')) {
+    isMpCA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-ca'].includes('Change in payment amount')) {
+    isRfchCA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-ca'].includes('Other questions')) {
+      isOthQCA = 'govuk-!-display-block';
+      }
+    
+    //All variable render here
+    res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-question-asked/ca-eas/questionAnswered-ca', {
+      "isNpdCA": isNpdCA,
+      "isNpaCA": isNpaCA,
+      "isMpCA": isMpCA,
+      "isRfchCA": isRfchCA,
+      "isOthQCA": isOthQCA,
+      })
+    }
+}
+})
+
+// ----for ESA with CA----
+router.post('/a/different-type-contact-user/call-log-journey/benefit-question-asked/ca-eas/questions-outcomes-esa', function(req, res) {
+  var isNpdESA = 'govuk-!-display-none';
+  var isNpaESA = 'govuk-!-display-none';
+  var isMpESA = 'govuk-!-display-none';
+  var isRfchESA = 'govuk-!-display-none';
+  var isOthQESA = 'govuk-!-display-none';
+
+
+if (req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance")){
+  if (req.session.data['questionAsk-esa'].includes('Something else')) {
+    res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
+    } else {
+    if(req.session.data['questionAsk-esa'].includes('Next payment date')) {
+    isNpdESA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-esa'].includes('Next payment amount')) {
+    isNpaESA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-esa'].includes('Missing payment')) {
+    isMpESA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-esa'].includes('Change in payment amount')) {
+    isRfchESA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-esa'].includes('Other questions')) {
+      isOthQESA = 'govuk-!-display-block';
+      }
+    
+    //All variable render here
+    res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-question-asked/ca-eas/questionAnswered-esa', {
+      "isNpdESA": isNpdESA,
+      "isNpaESA": isNpaESA,
+      "isMpESA": isMpESA,
+      "isRfchESA": isRfchESA,
+      "isOthQESA": isOthQESA,
+      })
+
+    }
+}
+})
+
+// ----for ESA with CA----
+router.post('/a/different-type-contact-user/call-log-journey/benefit-question-asked/eas-pip/questions-outcomes-esa', function(req, res) {
+  var isNpdESA = 'govuk-!-display-none';
+  var isNpaESA = 'govuk-!-display-none';
+  var isMpESA = 'govuk-!-display-none';
+  var isRfchESA = 'govuk-!-display-none';
+  var isOthQESA = 'govuk-!-display-none';
+
+
+if (req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance")){
+  if (req.session.data['questionAsk-esa'].includes('Something else')) {
+    res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
+    } else {
+    if(req.session.data['questionAsk-esa'].includes('Next payment date')) {
+    isNpdESA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-esa'].includes('Next payment amount')) {
+    isNpaESA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-esa'].includes('Missing payment')) {
+    isMpESA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-esa'].includes('Change in payment amount')) {
+    isRfchESA = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-esa'].includes('Other questions')) {
+      isOthQESA = 'govuk-!-display-block';
+      }
+    
+    //All variable render here
+    res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-question-asked/eas-pip/questionAnswered-esa', {
+      "isNpdESA": isNpdESA,
+      "isNpaESA": isNpaESA,
+      "isMpESA": isMpESA,
+      "isRfchESA": isRfchESA,
+      "isOthQESA": isOthQESA,
+      })
+
+    }
+}
+})
+
+// ----for PIP with ESA----
+router.post('/a/different-type-contact-user/call-log-journey/benefit-question-asked/eas-pip/questions-outcomes-pip', function(req, res) {
+  var isNpdPIP = 'govuk-!-display-none';
+  var isNpaPIP = 'govuk-!-display-none';
+  var isMpPIP = 'govuk-!-display-none';
+  var isRfchPIP = 'govuk-!-display-none';
+  var isOthQPIP = 'govuk-!-display-none';
+
+if (req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment")){
+  if (req.session.data['questionAsk-pip'].includes('Something else')) {
+    res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
+    } else {
+    if(req.session.data['questionAsk-pip'].includes('Next payment date')) {
+    isNpdPIP = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-pip'].includes('Next payment amount')) {
+    isNpaPIP = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-pip'].includes('Missing payment')) {
+    isMpPIP = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-pip'].includes('Change in payment amount')) {
+    isRfchPIP = 'govuk-!-display-block';
+    }
+    if(req.session.data['questionAsk-pip'].includes('Other questions')) {
+      isOthQPIP = 'govuk-!-display-block';
+      }
+    
+    //All variable render here
+    res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-question-asked/eas-pip/questionAnswered-pip', {
+      "isNpdPIP": isNpdPIP,
+      "isNpaPIP": isNpaPIP,
+      "isMpPIP": isMpPIP,
+      "isRfchPIP": isRfchPIP,
+      "isOthQPIP": isOthQPIP,
+      })
+    }
+}
+
+})
+
+// ----end here-----
 
 router.post('/a/different-type-contact-user/call-log-journey/wasQuestionResolved', function(req, res) {
 
@@ -1782,6 +1974,9 @@ if ((req.session.data['npd_wasQuestionResolved'].includes('Not resolved') || req
   });
   }
 })
+
+
+
 
 
 // router.post('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/checkAnswer', function(req, res) {

@@ -32,25 +32,51 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Note about telephone call</h1>
+    <h1 class="govuk-heading-l">Details about incoming telephone call on 01 May 2023</h1>
   </div>
   <div class="govuk-grid-column-full govuk-!-margin-top-4">
     <!-- call started at -->
     <!-- <span class="govuk-caption-m">Started at</span>
     <h2 class="govuk-heading-m">Monday 01 May 2023, 10:00</h2> -->
-    <h2 class="govuk-heading-m">Thursday, 10 August 2023, 1:03pm</h2>
+    <h2 class="govuk-heading-m">Benefits discussed</h2>
   </div>
     <!-- Benefits discussed -->
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-4">
       <div class="colleague-view-upcomming-payment-benefit">
-        
-        
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Employment and Support Allowance</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Type of enquiry</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Next payment amount</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="govuk-table govuk-!-margin-top-8">
+          <caption class="govuk-table__caption govuk-table__caption--m">A different benefit</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Type of enquiry</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Does not apply</td>
+              <td class="govuk-table__cell">Does not apply</td>
+            </tr>
+          </tbody>
+        </table>
         <!-- more information about call -->
-        <div class="">
-<div class="govuk-inset-text">
-  No reports of any hospital stays of over 28 days that would impact the payability.
-</div>
-          
+        <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-6">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Notes</h2>
+          <p class="govuk-body govuk-!-margin-bottom-2">No reports of any hospital stays of over 28 days that would impact the payability.</p> 
         </div>
       </div>
     </div>
@@ -78,6 +104,10 @@
         </div>
       </div>
     <!-- call ended at -->
+    <!-- <div class="govuk-grid-column-full">
+      <span class="govuk-caption-m">Ended at</span>
+      <h2 class="govuk-heading-m">Mon 01 May 2023, 10:15</h2>
+    </div> -->
 </div>
 
 {% endblock %}

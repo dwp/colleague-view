@@ -6,7 +6,7 @@
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-8/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-8/common/opt2/view-only-user/keydetail-bar.html" %} 
+  {% include "/prototype-sprint-wise/ur-8/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -15,7 +15,7 @@
 
 
 {% block beforeContent %}
- {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+{% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
 <!-- <div class="govuk-breadcrumbs">
 <ol class="govuk-breadcrumbs__list">
   <li class="govuk-breadcrumbs__list-item">
@@ -30,84 +30,84 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Details about incoming telephone call on 01 May 2023</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Details about incoming telephone call on 01 May 2023</h1>
+  </div>
+  <div class="govuk-grid-column-full govuk-!-margin-top-4">
+    <!-- call started at -->
+    <!-- <span class="govuk-caption-m">Started at</span>
+    <h2 class="govuk-heading-m">Monday 01 May 2023, 10:00</h2> -->
+    <h2 class="govuk-heading-m">Benefits discussed</h2>
+  </div>
+    <!-- Benefits discussed -->
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-4">
+      <div class="colleague-view-upcomming-payment-benefit">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Employment and Support Allowance</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Type of enquiry</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Next payment amount</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="govuk-table govuk-!-margin-top-8">
+          <caption class="govuk-table__caption govuk-table__caption--m">Personal Independence Payment</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Type of enquiry</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Next payment amount</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- more information about call -->
+        <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-6">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Notes</h2>
+          <p class="govuk-body govuk-!-margin-bottom-2">No reports of any hospital stays of over 28 days that would impact the payability.</p> 
+        </div>
+      </div>
     </div>
-    <div class="govuk-grid-column-full govuk-!-margin-top-4">
-      <!-- call started at -->
-      <!-- <span class="govuk-caption-m">Started at</span>
-      <h2 class="govuk-heading-m">Monday 01 May 2023, 10:00</h2> -->
-      <h2 class="govuk-heading-m">Benefits discussed</h2>
-    </div>
-      <!-- Benefits discussed -->
-      <div class="govuk-grid-column-full govuk-!-margin-bottom-4">
-        <div class="colleague-view-upcomming-payment-benefit">
-          <table class="govuk-table">
-            <caption class="govuk-table__caption govuk-table__caption--m">Employment and Support Allowance</caption>
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Type of enquiry</th>
-                <th scope="col" class="govuk-table__header">Status</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Next payment amount</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
-              </tr>
-            </tbody>
-          </table>
-          <table class="govuk-table govuk-!-margin-top-8">
-            <caption class="govuk-table__caption govuk-table__caption--m">Personal Independence Payment</caption>
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Type of enquiry</th>
-                <th scope="col" class="govuk-table__header">Status</th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">Next payment amount</td>
-                <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- more information about call -->
-          <div class="govuk-!-margin-bottom-6 govuk-!-margin-top-6">
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Notes</h2>
-            <p class="govuk-body govuk-!-margin-bottom-2">No reports of any hospital stays of over 28 days that would impact the payability.</p> 
+      <!-- Call and Agent information -->
+      <div class="govuk-grid-column-full colleague-view-container-light-grey govuk-!-margin-bottom-4">
+        <div class="govuk-grid-row"> 
+          <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Caller</span>
+            <div>
+              <span class="govuk-body govuk-!-font-weight-bold">Christopher Fox (Customer)</span>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third">
+              <span class="govuk-caption-m">Call taken by</span>
+            <div>
+              <span class="govuk-body govuk-!-font-weight-bold">Agent (1003)</span>
+            </div>
+            </div>
+          <div class="govuk-grid-column-one-third">
+              <span class="govuk-caption-m">Length of call</span>
+                <div>
+                <span class="govuk-body govuk-!-font-weight-bold">15 Minutes</span>
+              </div>
           </div>
         </div>
       </div>
-        <!-- Call and Agent information -->
-        <div class="govuk-grid-column-full colleague-view-container-light-grey govuk-!-margin-bottom-4">
-          <div class="govuk-grid-row"> 
-            <div class="govuk-grid-column-one-third">
-              <span class="govuk-caption-m">Caller</span>
-              <div>
-                <span class="govuk-body govuk-!-font-weight-bold">Christopher Fox (Customer)</span>
-              </div>
-            </div>
-            <div class="govuk-grid-column-one-third">
-                <span class="govuk-caption-m">Call taken by</span>
-              <div>
-                <span class="govuk-body govuk-!-font-weight-bold">Agent (1003)</span>
-              </div>
-              </div>
-            <div class="govuk-grid-column-one-third">
-                <span class="govuk-caption-m">Length of call</span>
-                  <div>
-                  <span class="govuk-body govuk-!-font-weight-bold">15 Minutes</span>
-                </div>
-            </div>
-          </div>
-        </div>
-      <!-- call ended at -->
-      <!-- <div class="govuk-grid-column-full">
-        <span class="govuk-caption-m">Ended at</span>
-        <h2 class="govuk-heading-m">Mon 01 May 2023, 10:15</h2>
-      </div> -->
-  </div>
+    <!-- call ended at -->
+    <!-- <div class="govuk-grid-column-full">
+      <span class="govuk-caption-m">Ended at</span>
+      <h2 class="govuk-heading-m">Mon 01 May 2023, 10:15</h2>
+    </div> -->
+</div>
 
 {% endblock %}
