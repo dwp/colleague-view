@@ -142,8 +142,8 @@ router.post('/a/why-checking-info', function (req, res) {
   req.session.data['Who-is-contact-with'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
-  // req.session.data['whichBenefitDiscussed'] = ''; rahul
-  // req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['benefitList'] = ''; rahul
+  // req.session.data['benefitList'] = '';
   req.session.data['esaPayment'] = '';
   req.session.data['pipPayment'] = '';
   req.session.data['caPayment'] = '';
@@ -260,11 +260,11 @@ res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/home');
 // check on pressing complete session button
 router.post('/a/call-log-journey/confirmation-complete-session', function (req, res) {
 // console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
-if (req.session.data['whichBenefitDiscussed'].includes('esa')) {
+if (req.session.data['benefitList'].includes('esa')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session');
-}else if (req.session.data['whichBenefitDiscussed'].includes('pip')) {
+}else if (req.session.data['benefitList'].includes('pip')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session');
-}if (req.session.data['whichBenefitDiscussed'].includes('ca')) {
+}if (req.session.data['benefitList'].includes('ca')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/confirmation-complete-session');
 }else {
 res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/no-contact-added');
@@ -305,7 +305,7 @@ res.render("/prototype-sprint-wise/ur-8/a/contact-history")
 })
 
 router.post('/a/call-log-journey/selectBenefit', function(req, res) {
-// req.session.data['whichBenefitDiscussed'] = ''; rahul
+// req.session.data['benefitList'] = ''; rahul
 req.session.data['questionAsk'] = '';
 req.session.data['questionAsk-ca'] = '';
 req.session.data['questionAsk-esa'] = '';
@@ -332,10 +332,10 @@ res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/add-another-benefit
 router.post('/a/call-log-journey/selectQuestion', function(req, res) {
 let outcomePageData = [];
 outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
-if (req.session.data['whichBenefitDiscussed'] == '') {
+if (req.session.data['benefitList'] == '') {
   res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
 
-} else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
+} else if (req.session.data['benefitList'] == 'No benefit') {
   outcomePageData.push({"benefit":"No benefit",
   "question":"Does not apply",
   "result":"Does not apply"
@@ -343,12 +343,12 @@ if (req.session.data['whichBenefitDiscussed'] == '') {
 req.session.data.outcomePage =outcomePageData;
   res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/noBenefit/what-did-you-discuss")
 } else {
-  if (req.session.data['whichBenefitDiscussed'].length >1) {
-    console.log('Multiple benefits: ------------>',req.session.data['whichBenefitDiscussed']);
+  if (req.session.data['benefitList'].length >1) {
+    console.log('Multiple benefits: ------------>',req.session.data['benefitList']);
 
-    var isCA = req.session.data['whichBenefitDiscussed'].includes("Carer Allowance");
-    var isESA = req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance");
-    var isPIP = req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment");
+    var isCA = req.session.data['benefitList'].includes("Carer Allowance");
+    var isESA = req.session.data['benefitList'].includes("Employment and Support Allowance");
+    var isPIP = req.session.data['benefitList'].includes("Personal Independence Payment");
 
     // if( isCA && isPIP && !isESA) {console.log('CA and PIP selected')} 
     // if( isCA && isESA && isPIP) { console.log('CA, EAS and PIP selected')} 
@@ -448,10 +448,10 @@ router.post('/a/call-log-journey/benefit-question-asked/ca-eas/questions-outcome
   var isRfchCA = 'govuk-!-display-none';
   var isOthQCA = 'govuk-!-display-none';
 
-  // var benefitName = req.session.data['whichBenefitDiscussed'];
-  console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
+  // var benefitName = req.session.data['benefitList'];
+  console.log('Benefit name:', req.session.data['benefitList']);
   try{
-  if (req.session.data['whichBenefitDiscussed'].includes("Carer Allowance")){
+  if (req.session.data['benefitList'].includes("Carer Allowance")){
   
     if (req.session.data['questionAsk-ca'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else")
@@ -497,7 +497,7 @@ router.post('/a/call-log-journey/benefit-question-asked/ca-eas/questions-outcome
   var isOthQESA = 'govuk-!-display-none';
 
 
-if (req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance")){
+if (req.session.data['benefitList'].includes("Employment and Support Allowance")){
   if (req.session.data['questionAsk-esa'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else")
     } else {
@@ -539,7 +539,7 @@ router.post('/a/call-log-journey/benefit-question-asked/eas-pip/questions-outcom
   var isOthQESA = 'govuk-!-display-none';
 
 
-if (req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance")){
+if (req.session.data['benefitList'].includes("Employment and Support Allowance")){
   if (req.session.data['questionAsk-esa'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else")
     } else {
@@ -580,7 +580,7 @@ router.post('/a/call-log-journey/benefit-question-asked/eas-pip/questions-outcom
   var isRfchPIP = 'govuk-!-display-none';
   var isOthQPIP = 'govuk-!-display-none';
 
-if (req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment")){
+if (req.session.data['benefitList'].includes("Personal Independence Payment")){
   if (req.session.data['questionAsk-pip'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else")
     } else {
@@ -624,11 +624,11 @@ router.post('/questions-outcomes-pip', function(req, res) {
   var isMpPIP = 'govuk-!-display-none';
   var isRfchPIP = 'govuk-!-display-none';
   var isOthQPIP = 'govuk-!-display-none';
-  var isCA = req.session.data['whichBenefitDiscussed'].includes("Carer Allowance");
-  var isESA = req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance");
-  var isPIP = req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment");
+  var isCA = req.session.data['benefitList'].includes("Carer Allowance");
+  var isESA = req.session.data['benefitList'].includes("Employment and Support Allowance");
+  var isPIP = req.session.data['benefitList'].includes("Personal Independence Payment");
 
-if (req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment")){
+if (req.session.data['benefitList'].includes("Personal Independence Payment")){
   if (req.session.data['questionAsk-pip'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else")
     } else {
@@ -680,15 +680,15 @@ if (req.session.data['whichBenefitDiscussed'].includes("Personal Independence Pa
 // check your answer page
 router.post('/a/call-log-journey/added-call-details', function(req, res) {
 
-  var benefitLenght = req.session.data['whichBenefitDiscussed'].length;
+  var benefitLenght = req.session.data['benefitList'].length;
   // console.log('length is', benefitLenght);
 
 
   if (benefitLenght > 1) {
 
-    var isCA = req.session.data['whichBenefitDiscussed'].includes("Carer Allowance");
-    var isESA = req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance");
-    var isPIP = req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment");
+    var isCA = req.session.data['benefitList'].includes("Carer Allowance");
+    var isESA = req.session.data['benefitList'].includes("Employment and Support Allowance");
+    var isPIP = req.session.data['benefitList'].includes("Personal Independence Payment");
 
     var isCACard = 'govuk-!-display-none';
     var isESACard = 'govuk-!-display-none';
@@ -1173,7 +1173,7 @@ res.render('prototype-sprint-wise/ur-8/a/call-log-journey/unHappy_journey/showVa
 
 router.post('/a/call-log-journey/check-for-add-note', function(req, res) {
 
-if (req.session.data['whichBenefitDiscussed'].length>1) {
+if (req.session.data['benefitList'].length>1) {
   if (req.session.data['discussAnthingElse'] == 'Yes' ) {
     res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/add-note');
     } else {
@@ -1186,32 +1186,32 @@ let outcomePageData = [];
 outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
 req.session.data['questionAsk'].map((item)=>{
 if(item === "Next payment date"){
-outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+outcomePageData.push({"benefit":req.session.data['benefitList'],
 "question":item,
 "result":req.session.data['npd_wasQuestionResolved']
 });
 }if(item === "Next payment amount"){
-outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+outcomePageData.push({"benefit":req.session.data['benefitList'],
 "question":item,
 "result":req.session.data['npa_wasQuestionResolved']
 });
 }if(item === "Missing payment"){
-outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+outcomePageData.push({"benefit":req.session.data['benefitList'],
 "question":item,
 "result":req.session.data['ma_wasQuestionResolved']
 });
 }if(item === "Change in payment amount"){
-outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+outcomePageData.push({"benefit":req.session.data['benefitList'],
 "question":item,
 "result":req.session.data['chpa_wasQuestionResolved']
 });
 }if(item === "Other questions"){
-  outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+  outcomePageData.push({"benefit":req.session.data['benefitList'],
   "question":item,
   "result":req.session.data['othQ_wasQuestionResolved']
   });
 }if(item === "Something else"){
-outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+outcomePageData.push({"benefit":req.session.data['benefitList'],
 "question":item,
 "result":req.session.data['smelse_wasQuestionResolved']
 });
@@ -1261,7 +1261,7 @@ router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res)
   var completeSession = req.session.data['Do-you-want-to-complete-the-telephony-session']
   // Check whether the variable matches a condition
   if (completeSession == "Yes") {
-    // req.session.data['whichBenefitDiscussed'] = ''; rahul
+    // req.session.data['benefitList'] = ''; rahul
     req.session.data['questionAsk'] = '';
     req.session.data['npd_wasQuestionResolved'] = '';
     req.session.data['npa_wasQuestionResolved'] = '';
@@ -1278,7 +1278,7 @@ router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res)
 });
 
 router.post('/a/addAnotherBenefit', function(req, res) {
-// req.session.data['whichBenefitDiscussed'] = ''; rahul
+// req.session.data['benefitList'] = ''; rahul
 req.session.data['questionAsk'] = '';
 req.session.data['npd_wasQuestionResolved'] = '';
 req.session.data['npa_wasQuestionResolved'] = '';
@@ -1298,7 +1298,7 @@ res.redirect("/prototype-sprint-wise/ur-8/a/home")
 router.post('/a/goToHome', function(req, res) {
 
 if (req.session.data['unHappyAddreason'] == 'Yes') {
-  // req.session.data['whichBenefitDiscussed'] = ''; rahul
+  // req.session.data['benefitList'] = ''; rahul
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
   req.session.data['npa_wasQuestionResolved'] = '';
@@ -1515,11 +1515,11 @@ res.redirect('payment#history');
 
 router.post('/a/different-type-contact-user/call-log-journey/confirmation-complete-session', function (req, res) {
 // console.log('Value of the session varaible: --------------------------------->',req.session.data['What-services-have-they-called-about']);
-if (req.session.data['whichBenefitDiscussed'].includes('esa')) {
+if (req.session.data['benefitList'].includes('esa')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/confirmation-complete-session');
-}else if (req.session.data['whichBenefitDiscussed'].includes('pip')) {
+}else if (req.session.data['benefitList'].includes('pip')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/confirmation-complete-session');
-}if (req.session.data['whichBenefitDiscussed'].includes('ca')) {
+}if (req.session.data['benefitList'].includes('ca')) {
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/confirmation-complete-session');
 }else {
 res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/no-contact-added');
@@ -1560,7 +1560,7 @@ res.render("/prototype-sprint-wise/ur-8/a/different-type-contact-user/contact-hi
 
 
 router.post('/a/different-type-contact-user/call-log-journey/selectBenefit', function(req, res) {
-  // req.session.data['whichBenefitDiscussed'] = ''; rahul
+  // req.session.data['benefitList'] = ''; rahul
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-ca'] = '';
   req.session.data['questionAsk-esa'] = '';
@@ -1586,10 +1586,10 @@ router.post('/a/different-type-contact-user/call-log-journey/selectBenefit', fun
 router.post('/a/different-type-contact-user/call-log-journey/selectQuestion', function(req, res) {
   let outcomePageData = [];
   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
-  if (req.session.data['whichBenefitDiscussed'] == '') {
+  if (req.session.data['benefitList'] == '') {
     res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/showValidation/selectBenefit-Error")
   
-  } else if (req.session.data['whichBenefitDiscussed'] == 'No benefit') {
+  } else if (req.session.data['benefitList'] == 'No benefit') {
     outcomePageData.push({"benefit":"No benefit",
     "question":"Does not apply",
     "result":"Does not apply"
@@ -1597,12 +1597,12 @@ router.post('/a/different-type-contact-user/call-log-journey/selectQuestion', fu
   req.session.data.outcomePage =outcomePageData;
   res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/unHappy_journey/noBenefit/what-was-contact-about-notes")
   } else {
-    if (req.session.data['whichBenefitDiscussed'].length >1) {
-      console.log('Multiple benefits: ------------>',req.session.data['whichBenefitDiscussed']);
+    if (req.session.data['benefitList'].length >1) {
+      console.log('Multiple benefits: ------------>',req.session.data['benefitList']);
   
-      var isCA = req.session.data['whichBenefitDiscussed'].includes("Carer Allowance");
-      var isESA = req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance");
-      var isPIP = req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment");
+      var isCA = req.session.data['benefitList'].includes("Carer Allowance");
+      var isESA = req.session.data['benefitList'].includes("Employment and Support Allowance");
+      var isPIP = req.session.data['benefitList'].includes("Personal Independence Payment");
   
       if( isCA && isESA) { 
         console.log('CA and ESA selected')
@@ -1641,7 +1641,7 @@ router.post('/a/different-type-contact-user/call-log-journey/selectQuestion', fu
         res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-adding-details-for");
       }
   //   if( !isCA || !isPIP || !isESA) { 
-  //     console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
+  //     console.log('Benefit name:', req.session.data['benefitList']);
   //     console.log('This prototype is for testing only CA, ESA and PIP')
   //     res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/benefit-adding-details-for");
   // }
@@ -1706,9 +1706,9 @@ router.post('/a/different-type-contact-user/call-log-journey/benefit-question-as
   var isRfchCA = 'govuk-!-display-none';
   var isOthQCA = 'govuk-!-display-none';
 
-  // var benefitName = req.session.data['whichBenefitDiscussed'];
-console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
-if (req.session.data['whichBenefitDiscussed'].includes("Carer Allowance")){
+  // var benefitName = req.session.data['benefitList'];
+console.log('Benefit name:', req.session.data['benefitList']);
+if (req.session.data['benefitList'].includes("Carer Allowance")){
   if (req.session.data['questionAsk-ca'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
     } else {
@@ -1749,7 +1749,7 @@ router.post('/a/different-type-contact-user/call-log-journey/benefit-question-as
   var isOthQESA = 'govuk-!-display-none';
 
 
-if (req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance")){
+if (req.session.data['benefitList'].includes("Employment and Support Allowance")){
   if (req.session.data['questionAsk-esa'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
     } else {
@@ -1791,7 +1791,7 @@ router.post('/a/different-type-contact-user/call-log-journey/benefit-question-as
   var isOthQESA = 'govuk-!-display-none';
 
 
-if (req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance")){
+if (req.session.data['benefitList'].includes("Employment and Support Allowance")){
   if (req.session.data['questionAsk-esa'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
     } else {
@@ -1832,7 +1832,7 @@ router.post('/a/different-type-contact-user/call-log-journey/benefit-question-as
   var isRfchPIP = 'govuk-!-display-none';
   var isOthQPIP = 'govuk-!-display-none';
 
-if (req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment")){
+if (req.session.data['benefitList'].includes("Personal Independence Payment")){
   if (req.session.data['questionAsk-pip'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/questions-outcomes-for-something-else")
     } else {
@@ -1990,15 +1990,15 @@ res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-jo
 
 router.post('/a/different-type-contact-user/call-log-journey/check-details', function(req, res) {
 
-  var benefitLenght = req.session.data['whichBenefitDiscussed'].length;
+  var benefitLenght = req.session.data['benefitList'].length;
   // console.log('length is', benefitLenght);
 
 
   if (benefitLenght > 1) {
 
-    var isCA = req.session.data['whichBenefitDiscussed'].includes("Carer Allowance");
-    var isESA = req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance");
-    var isPIP = req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment");
+    var isCA = req.session.data['benefitList'].includes("Carer Allowance");
+    var isESA = req.session.data['benefitList'].includes("Employment and Support Allowance");
+    var isPIP = req.session.data['benefitList'].includes("Personal Independence Payment");
 
     var isCACard = 'govuk-!-display-none';
     var isESACard = 'govuk-!-display-none';
@@ -2470,7 +2470,7 @@ res.render('prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-jo
 })
 
 router.post('/a/different-type-contact-user/call-log-journey/check-for-add-note', function(req, res) {
-  if (req.session.data['whichBenefitDiscussed'].length>1) {
+  if (req.session.data['benefitList'].length>1) {
     if (req.session.data['discussAnthingElse'] == 'Yes' ) {
       res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/add-note');
       } else {
@@ -2482,27 +2482,27 @@ router.post('/a/different-type-contact-user/call-log-journey/check-for-add-note'
   outcomePageData = req.session.data.outcomePage ? req.session.data.outcomePage : [];
   req.session.data['questionAsk'].map((item)=>{
   if(item === "Next payment date"){
-  outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+  outcomePageData.push({"benefit":req.session.data['benefitList'],
   "question":item,
   "result":req.session.data['npd_wasQuestionResolved']
   });
   }if(item === "Next payment amount"){
-  outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+  outcomePageData.push({"benefit":req.session.data['benefitList'],
   "question":item,
   "result":req.session.data['npa_wasQuestionResolved']
   });
   }if(item === "Missing payment"){
-  outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+  outcomePageData.push({"benefit":req.session.data['benefitList'],
   "question":item,
   "result":req.session.data['ma_wasQuestionResolved']
   });
   }if(item === "Change in payment amount"){
-  outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+  outcomePageData.push({"benefit":req.session.data['benefitList'],
   "question":item,
   "result":req.session.data['chpa_wasQuestionResolved']
   });
   }if(item === "Something else"){
-  outcomePageData.push({"benefit":req.session.data['whichBenefitDiscussed'],
+  outcomePageData.push({"benefit":req.session.data['benefitList'],
   "question":item,
   "result":req.session.data['smelse_wasQuestionResolved']
   });
@@ -2547,7 +2547,7 @@ router.post('/a/different-type-contact-user/call-log-journey/phoneCall-completed
 var completeSession = req.session.data['Do-you-want-to-complete-the-session-opt2']
 // Check whether the variable matches a condition
 if (completeSession == "Yes") {
-  // req.session.data['whichBenefitDiscussed'] = '';rahul
+  // req.session.data['benefitList'] = '';rahul
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
   req.session.data['npa_wasQuestionResolved'] = '';
@@ -2571,7 +2571,7 @@ if (completeSession == "No") {
 // Send user to next page
 res.redirect("/prototype-sprint-wise/ur-8/a/index");
 } else {
-  // req.session.data['whichBenefitDiscussed'] = ''; rahul
+  // req.session.data['benefitList'] = ''; rahul
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
   req.session.data['npa_wasQuestionResolved'] = '';
@@ -2584,7 +2584,7 @@ res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log
 });
 
 router.post('/a/different-type-contact-user/addAnotherBenefit', function(req, res) {
-// req.session.data['whichBenefitDiscussed'] = ''; rahul
+// req.session.data['benefitList'] = ''; rahul
 req.session.data['questionAsk'] = '';
 req.session.data['npd_wasQuestionResolved'] = '';
 req.session.data['npa_wasQuestionResolved'] = '';
@@ -2603,7 +2603,7 @@ res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/home")
 router.post('/a/different-type-contact-user/goToHome', function(req, res) {
 
 if (req.session.data['unHappyAddreason'] == 'Yes') {
-  // req.session.data['whichBenefitDiscussed'] = ''; rahul
+  // req.session.data['benefitList'] = ''; rahul
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
   req.session.data['npa_wasQuestionResolved'] = '';
@@ -2652,12 +2652,12 @@ router.post('/a/different-type-contact-user/call-log-journey/call-completed', fu
 
   router.post('/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/benefitPages', function (req, res) {
     var pageLength = '';
-    var isAa = req.session.data['whichBenefitDiscussed'].includes('Attendance Allowance');
-    var isEsa = req.session.data['whichBenefitDiscussed'].includes('Employment and Support Allowance');
-    var isPip = req.session.data['whichBenefitDiscussed'].includes('Personal Independence Payment');
-    if (req.session.data['whichBenefitDiscussed'].length == 1) {
+    var isAa = req.session.data['benefitList'].includes('Attendance Allowance');
+    var isEsa = req.session.data['benefitList'].includes('Employment and Support Allowance');
+    var isPip = req.session.data['benefitList'].includes('Personal Independence Payment');
+    if (req.session.data['benefitList'].length == 1) {
       pageLength = 'Services 1 of 1';
-    } else if (req.session.data['whichBenefitDiscussed'].length == 2) {
+    } else if (req.session.data['benefitList'].length == 2) {
       pageLength = 'Services 1 of 2';
     } else {
       pageLength = 'Services 1 of 3';
@@ -2673,55 +2673,55 @@ router.post('/a/different-type-contact-user/call-log-journey/call-completed', fu
 
 
 // router.post('/a/call-log-journey/benefit-question-asked/bhavin', function (req, res) {
-//     console.log('lenght:', req.session.data['whichBenefitDiscussed'].length);
-//     let benefit = req.session.data['whichBenefitDiscussed'];
+//     console.log('lenght:', req.session.data['benefitList'].length);
+//     let benefit = req.session.data['benefitList'];
 //     console.log('Here is a new route defined by bhavin', benefit);
 
 //     if (
-//       req.session.data['whichBenefitDiscussed'].includes("Carer's Allowance") &&
-//       req.session.data['whichBenefitDiscussed'].indexOf("Carer's Allowance") !=
+//       req.session.data['benefitList'].includes("Carer's Allowance") &&
+//       req.session.data['benefitList'].indexOf("Carer's Allowance") !=
 //         0
 //     ) {
 //       const index =
-//         req.session.data['whichBenefitDiscussed'].indexOf("Carer's Allowance");
-//       req.session.data['whichBenefitDiscussed'].splice(index, 1);
+//         req.session.data['benefitList'].indexOf("Carer's Allowance");
+//       req.session.data['benefitList'].splice(index, 1);
 //       console.log(
 //         'Here is a new route defined by bhavin',
-//         req.session.data['whichBenefitDiscussed']
+//         req.session.data['benefitList']
 //       );
 //       res.render(
 //         'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-questions-asked',
 //         {}
 //       );
 //     } else if (
-//       req.session.data['whichBenefitDiscussed'].includes('Employment and Support Allowance') &&
-//       req.session.data['whichBenefitDiscussed'].indexOf('Employment and Support Allowance') != 0
+//       req.session.data['benefitList'].includes('Employment and Support Allowance') &&
+//       req.session.data['benefitList'].indexOf('Employment and Support Allowance') != 0
 //     ) {
-//       const index = req.session.data['whichBenefitDiscussed'].indexOf('Employment and Support Allowance');
-//       req.session.data['whichBenefitDiscussed'].splice(index, 1);
+//       const index = req.session.data['benefitList'].indexOf('Employment and Support Allowance');
+//       req.session.data['benefitList'].splice(index, 1);
 //       console.log(
 //         'Here is a new route defined by bhavin',
-//         req.session.data['whichBenefitDiscussed']
+//         req.session.data['benefitList']
 //       );
 //       res.render(
 //         'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked',
 //         {}
 //       );
 //     } else if (
-//       req.session.data['whichBenefitDiscussed'].includes(
+//       req.session.data['benefitList'].includes(
 //         'Personal Independence Payment'
 //       ) &&
-//       req.session.data['whichBenefitDiscussed'].indexOf(
+//       req.session.data['benefitList'].indexOf(
 //         'Personal Independence Payment'
 //       ) != 0
 //     ) {
-//       const index = req.session.data['whichBenefitDiscussed'].indexOf(
+//       const index = req.session.data['benefitList'].indexOf(
 //         'Personal Independence Payment'
 //       );
-//       req.session.data['whichBenefitDiscussed'].splice(index, 1);
+//       req.session.data['benefitList'].splice(index, 1);
 //       console.log(
 //         'Here is a new route defined by bhavin',
-//         req.session.data['whichBenefitDiscussed']
+//         req.session.data['benefitList']
 //       );
 //       res.render(
 //         'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/pip-questions-asked',
@@ -2729,7 +2729,7 @@ router.post('/a/different-type-contact-user/call-log-journey/call-completed', fu
 //       );
 //     } else {
 //       // send to check answer page
-//       console.log('check answer page number of benefits', req.session.data['whichBenefitDiscussed'].length);
+//       console.log('check answer page number of benefits', req.session.data['benefitList'].length);
 //       res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/added-call-details');
 
 //     }
