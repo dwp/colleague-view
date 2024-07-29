@@ -574,7 +574,7 @@ router.post(
 
     // var benefitName = req.session.data['whichBenefitDiscussed'];
     console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
-    if (req.session.benefitList.includes('Carer Allowance')) {
+    if (req.session.data['whichBenefitDiscussed'].includes('Carer Allowance')) {
       if (req.session.data['questionAsk-ca'].includes('Something else')) {
         res.redirect(
           '/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else'
