@@ -448,8 +448,11 @@ router.post('/a/call-log-journey/selectQuestion', function (req, res) {
         req.session.data['ma_wasQuestionResolved'] = '';
         req.session.data['chpa_wasQuestionResolved'] = '';
         req.session.data['othQ_wasQuestionResolved'] = '';
-        res.redirect(
-          '/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-eas/ca-questions-asked'
+        // res.redirect(
+        //   '/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-eas/ca-questions-asked'
+        // );
+        res.render(
+          'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-eas/ca-questions-asked', {}
         );
       }
 
@@ -467,8 +470,8 @@ router.post('/a/call-log-journey/selectQuestion', function (req, res) {
         req.session.data['ma_wasQuestionResolved'] = '';
         req.session.data['chpa_wasQuestionResolved'] = '';
         req.session.data['othQ_wasQuestionResolved'] = '';
-        res.redirect(
-          '/prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/eas-pip/esa-questions-asked'
+        res.render(
+          'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/eas-pip/esa-questions-asked', {}
         );
       }
       if (isCA && isPIP && !isESA) {
