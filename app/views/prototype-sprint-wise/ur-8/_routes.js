@@ -449,9 +449,11 @@ router.post('/a/call-log-journey/benefit-question-asked/ca-eas/questions-outcome
   var isOthQCA = 'govuk-!-display-none';
 
   // var benefitName = req.session.data['whichBenefitDiscussed'];
-console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
-if (req.session.data['whichBenefitDiscussed'].includes("Carer Allowance")){
-  if (req.session.data['questionAsk-ca'].includes('Something else')) {
+  console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
+  try{
+  if (req.session.data['whichBenefitDiscussed'].includes("Carer Allowance")){
+  
+    if (req.session.data['questionAsk-ca'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else")
     } else {
     if(req.session.data['questionAsk-ca'].includes('Next payment date')) {
@@ -480,6 +482,10 @@ if (req.session.data['whichBenefitDiscussed'].includes("Carer Allowance")){
       })
     }
 }
+}
+  catch(e){
+    throw(e);
+  }
 })
 
 // ----for ESA with CA----
