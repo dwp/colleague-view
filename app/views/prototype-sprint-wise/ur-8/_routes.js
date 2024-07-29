@@ -420,6 +420,10 @@ router.post('/a/call-log-journey/selectQuestion', function (req, res) {
     );
   } else {
     if (req.session.data['whichBenefitDiscussed'].length > 1) {
+      req.session.benefitList = req.session.data['whichBenefitDiscussed'];
+      req.session.benefitLength = req.session.data['whichBenefitDiscussed'].length;
+      req.session.save();
+ 
       console.log(
         'Multiple benefits: ------------>',
         req.session.data['whichBenefitDiscussed']
@@ -566,10 +570,11 @@ router.post(
     var isMpCA = 'govuk-!-display-none';
     var isRfchCA = 'govuk-!-display-none';
     var isOthQCA = 'govuk-!-display-none';
+    req.session.data['whichBenefitDiscussed'] = ['Carer Allowance', 'Employment and Support Allowance'];
 
     // var benefitName = req.session.data['whichBenefitDiscussed'];
     console.log('Benefit name:', req.session.data['whichBenefitDiscussed']);
-    if (req.session.data['whichBenefitDiscussed'].includes('Carer Allowance')) {
+    if (req.session.benefitList.includes('Carer Allowance')) {
       if (req.session.data['questionAsk-ca'].includes('Something else')) {
         res.redirect(
           '/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else'
@@ -622,6 +627,7 @@ router.post(
     var isMpESA = 'govuk-!-display-none';
     var isRfchESA = 'govuk-!-display-none';
     var isOthQESA = 'govuk-!-display-none';
+    req.session.data['whichBenefitDiscussed'] = ['Carer Allowance', 'Employment and Support Allowance'];
 
     if (
       req.session.data['whichBenefitDiscussed'].includes(
