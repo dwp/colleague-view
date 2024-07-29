@@ -22,10 +22,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Check call details you have added</h1>
-    <!-- {% set benefits =  data['whichBenefitDiscussed'] %} -->
-    <!-- {% set benefitLength =  data['whichBenefitDiscussed'] | length %} -->
+    {% set benefits =  data['whichBenefitDiscussed'] %}
+    {% set benefitLength =  data['whichBenefitDiscussed'] | length %}
     
-    <!-- {% if benefitLength >1 %} -->
+    {% if benefitLength >1 %}
     <!-- CA Summary card -->
     <div class="govuk-summary-card govuk-visually-hidden {{isCACard}}">
       <div class="govuk-summary-card__title-wrapper">
@@ -432,9 +432,9 @@
       </div>
     </div>
 
-    <!-- {%else%} -->
+    {%else%}
     <!-- custom summary card -->
-    <div class="govuk-summary-card govuk-visually-hidden isGENERALCard">
+    <div class="govuk-summary-card isGENERALCard">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ data['whichBenefitDiscussed'] }}</h2>
         <ul class="govuk-summary-card__actions">
@@ -560,7 +560,7 @@
         </table>
       </div>
     </div>
-    <!-- {% endif %}  -->
+    {% endif %} 
     
       
     <!-- end here -->
