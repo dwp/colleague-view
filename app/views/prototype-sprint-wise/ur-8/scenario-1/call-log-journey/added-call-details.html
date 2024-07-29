@@ -23,11 +23,11 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Check call details you have added</h1>
     <!-- {% set benefits =  data['whichBenefitDiscussed'] %} -->
-    {% set benefitLength =  data['whichBenefitDiscussed'] | length %}
+    <!-- {% set benefitLength =  data['whichBenefitDiscussed'] | length %} -->
     
-    {% if benefitLength >1 %}
+    <!-- {% if benefitLength >1 %} -->
     <!-- CA Summary card -->
-    <div class="govuk-summary-card {{isCACard}}">
+    <div class="govuk-summary-card govuk-visually-hidden {{isCACard}}">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">Carer's Allowance</h2>
         <ul class="govuk-summary-card__actions">
@@ -187,9 +187,15 @@
             <tr class="govuk-summary-list__row {{isNpdESA}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third"> Was the next payment date question resolved?</th>
               <td class="govuk-summary-list__value">
+                {%if data['npd_wasQuestionResolved-esa'] == "Resolved" %}
                 <strong class="govuk-tag {{isNpdResolvedESA}}">
-                  {{ data['npd_wasQuestionResolved'] }}
+                  {{ data['npd_wasQuestionResolved-esa'] }}
                 </strong>
+                {%else%}
+                <strong class="govuk-tag govuk-tag--grey {{isNpdResolvedESA}}">
+                  {{ data['npd_wasQuestionResolved-esa'] }}
+                </strong>
+                {%endif%}
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
                 <a href="esa-questionAnswered.html">
@@ -203,9 +209,15 @@
                 Was the next payment amount question resolved?
               </th>
               <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isNpaResolvedESA}}">
-                  {{ data['npa_wasQuestionResolved'] }}
+                {%if data['npa_wasQuestionResolved-esa'] == "Resolved" %}
+                <strong class="govuk-tag {{isNpdResolvedESA}}">
+                  {{ data['npa_wasQuestionResolved-esa'] }}
                 </strong>
+                {%else%}
+                <strong class="govuk-tag govuk-tag--grey {{isNpdResolvedESA}}">
+                  {{ data['npa_wasQuestionResolved-esa'] }}
+                </strong>
+                {%endif%}
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
                 <a href="esa-questionAnswered.html">
@@ -214,13 +226,13 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isMpESA}}">
+            <tr class="govuk-summary-list__row govuk-visually-hidden {{isMpESA}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the missing payment question resolved?
               </th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isMaRresolved}}">
-                  {{ data['ma_wasQuestionResolved'] }}
+                  {{ data['ma_wasQuestionResolved-esa'] }}
                 </strong>
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -230,13 +242,13 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isRfchESA}}">
+            <tr class="govuk-summary-list__row govuk-visually-hidden {{isRfchESA}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the change in payment amount question resolved?
               </th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isRfchRresolved}}">
-                  {{ data['chpa_wasQuestionResolved'] }}
+                  {{ data['chpa_wasQuestionResolved-esa'] }}
                 </strong>
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -245,13 +257,13 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isOthQESA}}">
+            <tr class="govuk-summary-list__row govuk-visually-hidden {{isOthQESA}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the other question resolved?
               </th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isOthQresolved}}">
-                  {{ data['othQ_wasQuestionResolved'] }}
+                  {{ data['othQ_wasQuestionResolved-esa'] }}
                 </strong>
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -260,13 +272,13 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isSEESA}}">
+            <tr class="govuk-summary-list__row govuk-visually-hidden {{isSEESA}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was something else question resolved?
               </th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isSERresolved}}">
-                  {{ data['smelse_wasQuestionResolved'] }}
+                  {{ data['smelse_wasQuestionResolved-esa'] }}
                 </strong>
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -314,9 +326,15 @@
             <tr class="govuk-summary-list__row {{isNpdPIP}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third"> Was the next payment date question resolved?</th>
               <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isNpdResolved}}">
-                  {{ data['npd_wasQuestionResolved'] }}
+                {%if data['npd_wasQuestionResolved-pip'] == "Resolved" %}
+                <strong class="govuk-tag {{isNpdResolvedESA}}">
+                  {{ data['npd_wasQuestionResolved-pip'] }}
                 </strong>
+                {%else%}
+                <strong class="govuk-tag govuk-tag--grey {{isNpdResolvedESA}}">
+                  {{ data['npd_wasQuestionResolved-pip'] }}
+                </strong>
+                {%endif%}
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
                 <a href="questionAnswered.html">
@@ -330,9 +348,15 @@
                 Was the next payment amount question resolved?
               </th>
               <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isNpaResolved}}">
-                  {{ data['npa_wasQuestionResolved'] }}
+                {%if data['npa_wasQuestionResolved-pip'] == "Resolved" %}
+                <strong class="govuk-tag {{isNpdResolvedESA}}">
+                  {{ data['npa_wasQuestionResolved-pip'] }}
                 </strong>
+                {%else%}
+                <strong class="govuk-tag govuk-tag--grey {{isNpdResolvedESA}}">
+                  {{ data['npa_wasQuestionResolved-pip'] }}
+                </strong>
+                {%endif%}
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
                 <a href="questionAnswered.html">
@@ -341,13 +365,13 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isMpPIP}}">
+            <tr class="govuk-summary-list__row govuk-visually-hidden {{isMpPIP}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the missing payment question resolved?
               </th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isMaRresolved}}">
-                  {{ data['ma_wasQuestionResolved'] }}
+                  {{ data['ma_wasQuestionResolved-pip'] }}
                 </strong>
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -357,13 +381,13 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isRfchPIP}}">
+            <tr class="govuk-summary-list__row govuk-visually-hidden {{isRfchPIP}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the change in payment amount question resolved?
               </th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isRfchRresolved}}">
-                  {{ data['chpa_wasQuestionResolved'] }}
+                  {{ data['chpa_wasQuestionResolved-pip'] }}
                 </strong>
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -372,13 +396,13 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isOthQPIP}}">
+            <tr class="govuk-summary-list__row govuk-visually-hidden {{isOthQPIP}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the other question resolved?
               </th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isOthQresolved}}">
-                  {{ data['othQ_wasQuestionResolved'] }}
+                  {{ data['othQ_wasQuestionResolved-pip'] }}
                 </strong>
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -387,13 +411,13 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isSEPIP}}">
+            <tr class="govuk-summary-list__row govuk-visually-hidden {{isSEPIP}}">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was something else question resolved?
               </th>
               <td class="govuk-summary-list__value">
                 <strong class="govuk-tag {{isSERresolved}}">
-                  {{ data['smelse_wasQuestionResolved'] }}
+                  {{ data['smelse_wasQuestionResolved-pip'] }}
                 </strong>
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
@@ -408,9 +432,9 @@
       </div>
     </div>
 
-    {%else%}
+    <!-- {%else%} -->
     <!-- custom summary card -->
-    <div class="govuk-summary-card isGENERALCard">
+    <div class="govuk-summary-card govuk-visually-hidden isGENERALCard">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ data['whichBenefitDiscussed'] }}</h2>
         <ul class="govuk-summary-card__actions">
@@ -536,7 +560,7 @@
         </table>
       </div>
     </div>
-    {% endif %} 
+    <!-- {% endif %}  -->
     
       
     <!-- end here -->
