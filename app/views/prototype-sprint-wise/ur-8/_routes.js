@@ -142,7 +142,7 @@ router.post('/a/why-checking-info', function (req, res) {
   req.session.data['Who-is-contact-with'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
-  req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['whichBenefitDiscussed'] = ''; rahul
   // req.session.data['whichBenefitDiscussed'] = '';
   req.session.data['esaPayment'] = '';
   req.session.data['pipPayment'] = '';
@@ -305,7 +305,7 @@ res.render("/prototype-sprint-wise/ur-8/a/contact-history")
 })
 
 router.post('/a/call-log-journey/selectBenefit', function(req, res) {
-req.session.data['whichBenefitDiscussed'] = '';
+// req.session.data['whichBenefitDiscussed'] = ''; rahul
 req.session.data['questionAsk'] = '';
 req.session.data['questionAsk-ca'] = '';
 req.session.data['questionAsk-esa'] = '';
@@ -1261,7 +1261,7 @@ router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res)
   var completeSession = req.session.data['Do-you-want-to-complete-the-telephony-session']
   // Check whether the variable matches a condition
   if (completeSession == "Yes") {
-    req.session.data['whichBenefitDiscussed'] = '';
+    // req.session.data['whichBenefitDiscussed'] = ''; rahul
     req.session.data['questionAsk'] = '';
     req.session.data['npd_wasQuestionResolved'] = '';
     req.session.data['npa_wasQuestionResolved'] = '';
@@ -1278,7 +1278,7 @@ router.post('/a/call-log-journey/check-phoneCall-completed', function (req, res)
 });
 
 router.post('/a/addAnotherBenefit', function(req, res) {
-req.session.data['whichBenefitDiscussed'] = '';
+// req.session.data['whichBenefitDiscussed'] = ''; rahul
 req.session.data['questionAsk'] = '';
 req.session.data['npd_wasQuestionResolved'] = '';
 req.session.data['npa_wasQuestionResolved'] = '';
@@ -1298,7 +1298,7 @@ res.redirect("/prototype-sprint-wise/ur-8/a/home")
 router.post('/a/goToHome', function(req, res) {
 
 if (req.session.data['unHappyAddreason'] == 'Yes') {
-  req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['whichBenefitDiscussed'] = ''; rahul
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
   req.session.data['npa_wasQuestionResolved'] = '';
@@ -1560,7 +1560,7 @@ res.render("/prototype-sprint-wise/ur-8/a/different-type-contact-user/contact-hi
 
 
 router.post('/a/different-type-contact-user/call-log-journey/selectBenefit', function(req, res) {
-  req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['whichBenefitDiscussed'] = ''; rahul
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-ca'] = '';
   req.session.data['questionAsk-esa'] = '';
@@ -2547,7 +2547,7 @@ router.post('/a/different-type-contact-user/call-log-journey/phoneCall-completed
 var completeSession = req.session.data['Do-you-want-to-complete-the-session-opt2']
 // Check whether the variable matches a condition
 if (completeSession == "Yes") {
-  req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['whichBenefitDiscussed'] = '';rahul
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
   req.session.data['npa_wasQuestionResolved'] = '';
@@ -2571,7 +2571,7 @@ if (completeSession == "No") {
 // Send user to next page
 res.redirect("/prototype-sprint-wise/ur-8/a/index");
 } else {
-  req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['whichBenefitDiscussed'] = ''; rahul
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
   req.session.data['npa_wasQuestionResolved'] = '';
@@ -2584,7 +2584,7 @@ res.redirect('/prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log
 });
 
 router.post('/a/different-type-contact-user/addAnotherBenefit', function(req, res) {
-req.session.data['whichBenefitDiscussed'] = '';
+// req.session.data['whichBenefitDiscussed'] = ''; rahul
 req.session.data['questionAsk'] = '';
 req.session.data['npd_wasQuestionResolved'] = '';
 req.session.data['npa_wasQuestionResolved'] = '';
@@ -2603,7 +2603,7 @@ res.redirect("/prototype-sprint-wise/ur-8/a/different-type-contact-user/home")
 router.post('/a/different-type-contact-user/goToHome', function(req, res) {
 
 if (req.session.data['unHappyAddreason'] == 'Yes') {
-  req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['whichBenefitDiscussed'] = ''; rahul
   req.session.data['questionAsk'] = '';
   req.session.data['npd_wasQuestionResolved'] = '';
   req.session.data['npa_wasQuestionResolved'] = '';
