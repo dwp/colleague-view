@@ -305,7 +305,7 @@ res.render("/prototype-sprint-wise/ur-8/a/contact-history")
 })
 
 router.post('/a/call-log-journey/selectBenefit', function(req, res) {
-// req.session.data['whichBenefitDiscussed'] = ''; Bhavin
+req.session.data['whichBenefitDiscussed'] = '';
 req.session.data['questionAsk'] = '';
 req.session.data['questionAsk-ca'] = '';
 req.session.data['questionAsk-esa'] = '';
@@ -1554,7 +1554,7 @@ res.render("/prototype-sprint-wise/ur-8/a/different-type-contact-user/contact-hi
 
 
 router.post('/a/different-type-contact-user/call-log-journey/selectBenefit', function(req, res) {
-  // req.session.data['whichBenefitDiscussed'] = ''; Bhavin
+  req.session.data['whichBenefitDiscussed'] = '';
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-ca'] = '';
   req.session.data['questionAsk-esa'] = '';
