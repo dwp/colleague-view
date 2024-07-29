@@ -448,6 +448,7 @@ router.post('/a/call-log-journey/benefit-question-asked/ca-eas/questions-outcome
   var isRfchCA = 'govuk-!-display-none';
   var isOthQCA = 'govuk-!-display-none';
 
+
   // var benefitName = req.session.data['benefitList'];
   console.log('Benefit name:', req.session.data['benefitList']);
   try{
@@ -495,6 +496,8 @@ router.post('/a/call-log-journey/benefit-question-asked/ca-eas/questions-outcome
   var isMpESA = 'govuk-!-display-none';
   var isRfchESA = 'govuk-!-display-none';
   var isOthQESA = 'govuk-!-display-none';
+  var benefitArr =["Carer Allowance", "Employment and Support Allowance"];
+  req.session.data['benefitList'] = benefitArr;
 
 
 if (req.session.data['benefitList'].includes("Employment and Support Allowance")){
