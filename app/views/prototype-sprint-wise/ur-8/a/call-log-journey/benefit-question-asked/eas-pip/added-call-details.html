@@ -22,10 +22,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Check call details you have added</h1>
-    <!-- {% set benefits =  data['whichBenefitDiscussed'] %} -->
-    {% set benefitLength =  data['whichBenefitDiscussed'] | length %}
     
-    {% if benefitLength >1 %}
     <!-- CA Summary card -->
     <div class="govuk-summary-card {{isCACard}}">
       <div class="govuk-summary-card__title-wrapper">
@@ -406,139 +403,8 @@
           </tbody>
         </table>
       </div>
-    </div>
-
-    {%else%}
-    <!-- custom summary card -->
-    <div class="govuk-summary-card isGENERALCard">
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">{{ data['whichBenefitDiscussed'] }}</h2>
-        <ul class="govuk-summary-card__actions">
-          <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="benefits-discussed.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
-          </li>
-        </ul>
-      </div>
-      <div class="govuk-summary-card__content">
-        <table class="govuk-summary-list govuk-!-margin-bottom-0">
-          <tbody class="govuk-summary-list">
-            <tr class="govuk-summary-list__row">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                Questions asked
-              </th>
-              <td class="govuk-summary-list__value">
-                <ul class="govuk-list govuk-list--bullet">
-                  {% for benefit in data['questionAsk'] %}
-                  <li>{{ benefit }}</li>
-                  {% endfor %}
-                </ul>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questions-asked.html">
-                  Change
-                <span class="govuk-visually-hidden">questions that the caller asked</span>
-                </a>
-              </td>
-            </tr>
-            <tr class="govuk-summary-list__row {{isNpd}}">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third"> Was the next payment date question resolved?</th>
-              <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isNpdResolved}}">
-                  {{ data['npd_wasQuestionResolved'] }}
-                </strong>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questionAnswered.html">
-                Change
-                <span class="govuk-visually-hidden">the outcome of the next payment date question</span>
-                </a>
-              </td>
-            </tr>
-            <tr class="govuk-summary-list__row {{isNpa}}">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                Was the next payment amount question resolved?
-              </th>
-              <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isNpaResolved}}">
-                  {{ data['npa_wasQuestionResolved'] }}
-                </strong>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questionAnswered.html">
-                  Change
-                <span class="govuk-visually-hidden">the outcome of the next payment amount question</span>
-                </a>
-              </td>
-            </tr>
-            <tr class="govuk-summary-list__row {{isMp}}">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                Was the missing payment question resolved?
-              </th>
-              <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isMaRresolved}}">
-                  {{ data['ma_wasQuestionResolved'] }}
-                </strong>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questionAnswered.html">
-                  Change
-                <span class="govuk-visually-hidden">the outcome of the missing payment question</span>
-                </a>
-              </td>
-            </tr>
-            <tr class="govuk-summary-list__row {{isRfch}}">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                Was the change in payment amount question resolved?
-              </th>
-              <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isRfchRresolved}}">
-                  {{ data['chpa_wasQuestionResolved'] }}
-                </strong>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questionAnswered.html">
-                  Change<span class="govuk-visually-hidden"> the outcome of the change in payment amount question</span>
-                </a>
-              </td>
-            </tr>
-            <tr class="govuk-summary-list__row {{isOthQ}}">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                Was the other question resolved?
-              </th>
-              <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isOthQresolved}}">
-                  {{ data['othQ_wasQuestionResolved'] }}
-                </strong>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questionAnswered.html">
-                  Change<span class="govuk-visually-hidden"> the other question</span>
-                </a>
-              </td>
-            </tr>
-            <tr class="govuk-summary-list__row {{isSE}}">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                Was something else question resolved?
-              </th>
-              <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isSERresolved}}">
-                  {{ data['smelse_wasQuestionResolved'] }}
-                </strong>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questionAnswered.html">
-                  Change
-                <span class="govuk-visually-hidden"> table data</span>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    {% endif %} 
+    </div>      
     
-      
     <!-- end here -->
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>

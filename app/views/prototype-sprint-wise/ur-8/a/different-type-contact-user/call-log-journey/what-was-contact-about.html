@@ -25,12 +25,13 @@
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <!-- <span class="govuk-caption-l">{{ data['whichBenefitDiscussed'] }}</span> -->
                 <h1 class="govuk-fieldset__heading govuk-heading-l">
                   <span class="govuk-caption-l">{{ data['whichBenefitDiscussed'] }}</span>
                   What was the contact about?
                 </h1>
               </legend>
-              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes govuk-!-margin-top-3" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="nextPaymentDate" name="questionAsk" type="checkbox" value="Next payment date" {{ checked ('questionAsk', 'Next payment date') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
@@ -61,8 +62,8 @@
                     Other questions
                   </label>
                 </div>
-                <!-- <div class="govuk-checkboxes__divider">or</div> -->
-                <!-- <div class="govuk-checkboxes__item">
+                <!-- <div class="govuk-checkboxes__divider">or</div>
+                <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="somethingElse" name="questionAsk" type="checkbox" value="Something else" data-behaviour="exclusive" {{ checked ('questionAsk_esa', 'Something else') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
                     Something else

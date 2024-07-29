@@ -23,12 +23,12 @@
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">You have added details about this call</h1>
         <!-- <h2 class="govuk-heading-m">Reasons for this call</h2> -->
-        {% set benefits =  data['benefitList'] %}
+        {% set benefits =  data['whichBenefitDiscussed'] %}
         {% set questionCA = data['questionAsk-ca'] %}
         {% set questionESA = data['questionAsk-esa'] %}
         {% set questionPIP = data['questionAsk-pip'] %}
         {% set questionLenghtCA = data['questionAsk-ca'] | length %}
-        {% set benefitLength =  data['benefitList'] | length %}
+        {% set benefitLength =  data['whichBenefitDiscussed'] | length %}
         {% if benefitLength >1 %}
         <table class="govuk-table">
           <thead class="govuk-table__head">
@@ -288,6 +288,34 @@
             </a>
           </div>
       </form>
+
+        <!-- add more beneft/reason -->
+        <!-- <form action="/prototype-sprint-wise/ur-8/a/addAnotherBenefit" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                Do you want to add another benefit or reason for this call?
+              </legend>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interviewNeeds" name="addAnotherBenefit" type="radio" value="Yes">
+                  <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="interviewNeeds-2" name="addAnotherBenefit" type="radio" value="No">
+                  <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form> -->
       </div>
     </div>
 
