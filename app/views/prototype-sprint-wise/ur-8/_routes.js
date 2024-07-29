@@ -159,7 +159,7 @@ router.post('/a/index', function (req, res) {
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
-  req.session.data.outcomePage = '';
+  // req.session.data.outcomePage = '';
   res.redirect('/prototype-sprint-wise/ur-8/a/index');
 });
 
@@ -3123,6 +3123,139 @@ router.get(
 );
 
 
+
+// ---------------------> startic screens for UR8 scenarios <-----------------------------
+
+
+
+// --------------------> scenarios-1 start here <----------------------
+
+// this is for NINO number
+router.post('/scenario-1/index', function (req, res) {
+  req.session.data['What-type-of-contact'] = '';
+  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
+  // req.session.data.outcomePage = '';
+  res.redirect('/prototype-sprint-wise/ur-8/scenario-1/index');
+});
+
+router.post('/scenario-1/why-checking-info', function (req, res) {
+  req.session.data['What-type-of-contact'] = '';
+  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  req.session.data['Who-is-contact-with'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
+  req.session.data['Do-you-want-to-complete-the-session'] = '';
+  req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['esaPayment'] = '';
+  req.session.data['pipPayment'] = '';
+  req.session.data['caPayment'] = '';
+  req.session.data['ca-payment'] = '';
+  req.session.data['esa-payment'] = '';
+  req.session.data['pip-payment'] = '';
+  req.session.data['esa-process-chasing'] = '';
+  req.session.data['pip-process-chasing'] = '';
+  req.session.data['ca-process-chasing'] = '';
+  req.session.data['esa-coc'] = '';
+  req.session.data['pip-coc'] = '';
+  req.session.data['ca-coc'] = '';
+  req.session.data['esa-general'] = '';
+  req.session.data['pip-general'] = '';
+  req.session.data['ca-general'] = '';
+  req.session.data.outcomePage = '';
+  req.session.data.notes = '';
+  req.session.data.tableValue = '';
+  req.session.data.outcomePage = '';
+
+  if (
+    req.session.data['nino-number-ur-8'] == 'QQ123456Q' ||
+    req.session.data['nino-number-ur-8'] == 'qq123456q' ||
+    req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q'
+  ) {
+    // Send user to next page
+    // console.log('This is correct')
+    // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/why-checking-info');
+  } else {
+    var errMsg = '';
+    if (
+      req.session.data['nino-number-ur-8'] == '' ||
+      req.session.data['nino-number-ur-8'] == undefined
+    ) {
+      errMsg = "Enter the customer's National Insurance number";
+    } else {
+      errMsg =
+        "Enter the customer's National Insurance number in the correct format";
+    }
+    // Send user to error page
+    res.render(
+      '/prototype-sprint-wise/ur-8/scenario-1/showValidationMsg/error-nino-number',
+      { errMsg: errMsg }
+    );
+  }
+});
+
+router.post('/scenario-1/call-with', function (req, res) {
+  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  req.session.data['Who-is-contact-with'] = '';
+
+  if (req.session.data['What-type-of-contact'] == 'Telephone call with') {
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-with');
+  } else {
+    if (req.session.data['What-type-of-contact'] == 'Contact with') {
+      res.redirect(
+        '/prototype-sprint-wise/ur-8/scenario-1/different-type-contact-user/contact-with'
+      );
+    } else {
+      res.redirect('/prototype-sprint-wise/ur-8/scenario-1/view-only-user/home');
+    }
+  }
+  // res.redirect('/prototype-sprint-wise/ur-8/a/view-only-user/home');
+});
+
+// router.post('/a/view-only-user/home', function (req, res) {
+//     if (req.session.data['why-to-check-customer-inforomaton'] == '') {
+//     res.redirect('back');
+//     } else {
+//     if (req.session.data['why-to-check-customer-inforomaton'] == 'To view information only') {
+//     res.render('prototype-sprint-wise/ur-8/a/view-only-user/home');
+//     } else {
+//     res.redirect('/prototype-sprint-wise/ur-8/a/contact-type')
+//     }
+//     }
+// });
+
+// router.post('/a/view-only-user/home', function (req, res) {
+//   if (req.session.data['why-to-check-customer-inforomaton'] == 'To view information only') {
+//   res.render('prototype-sprint-wise/ur-8/a/view-only-user/home');
+//   } else {
+//     if (req.session.data['why-to-check-customer-inforomaton'] == '') {
+//       res.redirect('back');
+//       } else {
+//         res.redirect('/prototype-sprint-wise/ur-8/a/contact-type')
+//       }
+//     }
+// });
+
+router.post('/scenario-1/home', function (req, res) {
+  var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
+
+  if (req.session.data['Who-is-the-phone-call-with-ur8'] == '') {
+    // Send user to error page
+    // res.redirect('/prototype-sprint-wise/ur-8/a/call-with');
+    res.redirect('back');
+  } else {
+    if (
+      req.session.data['Who-is-the-phone-call-with-ur8'] == 'someone else' ||
+      req.session.data['Who-is-the-phone-call-with-ur8'] == 'Christopher Fox'
+    ) {
+      req.session.data['Who-is-the-engagement-with'] = '';
+    }
+    // var b = "with";
+    // req.session.data['Who-is-the-phone-call-with-ur8'] = b + " " + contactType;
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/home');
+  }
+});
 
 
 // End of baseline MVP 1.0 here
