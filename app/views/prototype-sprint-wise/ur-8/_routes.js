@@ -870,7 +870,7 @@ router.post('/questions-outcomes-pip', function (req, res) {
 
 // ----end here----
 
-// check your answer page
+// check your answer page for single benefits
 router.post('/a/call-log-journey/added-call-details', function (req, res) {
   var benefitLenght = req.session.data['whichBenefitDiscussed'].length;
   // console.log('length is', benefitLenght);
@@ -1298,6 +1298,338 @@ router.post('/a/call-log-journey/added-call-details', function (req, res) {
       );
     }
   }
+});
+
+
+// check your answer page for CA and ESA
+router.post('/a/call-log-journey/benefit-question-asked/ca-eas/added-call-details', function (req, res) {
+  req.session.data['whichBenefitDiscussed'] = ['Carer Allowance', 'Employment and Support Allowance']
+  // var benefitLenght = req.session.data['whichBenefitDiscussed'].length;
+  // console.log('length is', benefitLenght);
+
+    var isCA =
+      req.session.data['whichBenefitDiscussed'].includes('Carer Allowance');
+    var isESA = req.session.data['whichBenefitDiscussed'].includes(
+      'Employment and Support Allowance'
+    );
+    // var isPIP = req.session.data['whichBenefitDiscussed'].includes(
+    //   'Personal Independence Payment'
+    // );
+
+    var isCACard = 'govuk-!-display-none';
+    var isESACard = 'govuk-!-display-none';
+    var isPIPCard = 'govuk-!-display-none';
+    var isGENERALCard = 'govuk-!-display-none';
+
+      console.log('Display check answer for CA and ESA');
+      isCACard = '';
+      isESACard = '';
+      isPIPCard = 'govuk-!-display-none';
+      isGENERALCard = 'govuk-!-display-none';
+      // for ca
+      var isNpdCA = 'govuk-!-display-none';
+      var isNpaCA = 'govuk-!-display-none';
+      var isMpCA = 'govuk-!-display-none';
+      var isRfchCA = 'govuk-!-display-none';
+      var isOthQCA = 'govuk-!-display-none';
+      var isSECA = 'govuk-!-display-none';
+      var isNpdResolvedCA = '';
+      var isNpaResolvedCA = '';
+      var isMaRresolvedCA = '';
+      var isRfchRresolvedCA = '';
+      var isOthQresolvedCA = '';
+
+      if (req.session.data['questionAsk-ca'].includes('Next payment date')) {
+        isNpdCA = '';
+      }
+      if (req.session.data['questionAsk-ca'].includes('Next payment amount')) {
+        isNpaCA = '';
+      }
+      if (req.session.data['questionAsk-ca'].includes('Missing payment')) {
+        isMpCA = '';
+      }
+      if (
+        req.session.data['questionAsk-ca'].includes('Change in payment amount')
+      ) {
+        isRfchCA = '';
+      }
+      if (req.session.data['questionAsk-ca'].includes('Other questions')) {
+        isOthQCA = '';
+      }
+      if (req.session.data['questionAsk-ca'].includes('Something else')) {
+        isSECA = '';
+      }
+      if (
+        req.session.data['npd_wasQuestionResolved'].includes('Not resolved')
+      ) {
+        isNpdResolvedCA = 'govuk-tag--grey';
+      }
+      if (
+        req.session.data['npa_wasQuestionResolved'].includes('Not resolved')
+      ) {
+        isNpaResolvedCA = 'govuk-tag--grey';
+      }
+      if (req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+        isMaRresolvedCA = 'govuk-tag--grey';
+      }
+      if (
+        req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')
+      ) {
+        isRfchRresolvedCA = 'govuk-tag--grey';
+      }
+      if (
+        req.session.data['othQ_wasQuestionResolved'].includes('Not resolved')
+      ) {
+        isOthQresolvedCA = 'govuk-tag--grey';
+      }
+
+      // for esa
+      var isNpdESA = 'govuk-!-display-none';
+      var isNpaESA = 'govuk-!-display-none';
+      var isMpESA = 'govuk-!-display-none';
+      var isRfchESA = 'govuk-!-display-none';
+      var isOthQESA = 'govuk-!-display-none';
+      var isSEESA = 'govuk-!-display-none';
+      var isNpdResolvedESA = '';
+      var isNpaResolvedESA = '';
+      var isMaRresolvedESA = '';
+      var isRfchRresolvedESA = '';
+      var isOthQresolvedESA = '';
+
+      if (req.session.data['questionAsk-esa'].includes('Next payment date')) {
+        isNpdESA = '';
+      }
+      if (req.session.data['questionAsk-esa'].includes('Next payment amount')) {
+        isNpaESA = '';
+      }
+      if (req.session.data['questionAsk-esa'].includes('Missing payment')) {
+        isMpESA = '';
+      }
+      if (
+        req.session.data['questionAsk-esa'].includes('Change in payment amount')
+      ) {
+        isRfchESA = '';
+      }
+      if (req.session.data['questionAsk-esa'].includes('Other questions')) {
+        isOthQESA = '';
+      }
+      if (req.session.data['questionAsk-esa'].includes('Something else')) {
+        isSEESA = '';
+      }
+      if (
+        req.session.data['npd_wasQuestionResolved'].includes('Not resolved')
+      ) {
+        isNpdResolvedESA = 'govuk-tag--grey';
+      }
+      if (
+        req.session.data['npa_wasQuestionResolved'].includes('Not resolved')
+      ) {
+        isNpaResolvedESA = 'govuk-tag--grey';
+      }
+      if (req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+        isMaRresolvedESA = 'govuk-tag--grey';
+      }
+      if (
+        req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')
+      ) {
+        isRfchRresolvedESA = 'govuk-tag--grey';
+      }
+      if (
+        req.session.data['othQ_wasQuestionResolved'].includes('Not resolved')
+      ) {
+        isOthQresolvedESA = 'govuk-tag--grey';
+      }
+
+      //All variable render here
+      res.render(
+        'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-eas/added-call-details',
+        {
+          isCACard: isCACard,
+          isESACard: isESACard,
+          isPIPCard: isPIPCard,
+          isGENERALCard: isGENERALCard,
+
+          isNpdCA: isNpdCA,
+          isNpaCA: isNpaCA,
+          isMpCA: isMpCA,
+          isRfchCA: isRfchCA,
+          isOthQCA: isOthQCA,
+          isSECA: isSECA,
+          isNpdResolvedCA: isNpdResolvedCA,
+          isNpaResolvedCA: isNpaResolvedCA,
+          isMaRresolvedCA: isMaRresolvedCA,
+          isRfchRresolvedCA: isRfchRresolvedCA,
+          isOthQresolvedCA: isOthQresolvedCA,
+
+          isNpdESA: isNpdESA,
+          isNpaESA: isNpaESA,
+          isMpESA: isMpESA,
+          isRfchESA: isRfchESA,
+          isOthQESA: isOthQESA,
+          isSEESA: isSEESA,
+          isNpdResolvedESA: isNpdResolvedESA,
+          isNpaResolvedESA: isNpaResolvedESA,
+          isMaRresolvedESA: isMaRresolvedESA,
+          isRfchRresolvedESA: isRfchRresolvedESA,
+          isOthQresolvedESA: isOthQresolvedESA,
+        }
+      );
+    // if (isESA && isPIP && !isCA) {
+    //   console.log('Display check answer for CA and ESA');
+    //   isCACard = 'govuk-!-display-none';
+    //   isGENERALCard = 'govuk-!-display-none';
+    //   isESACard = '';
+    //   isPIPCard = '';
+
+    //   // for esa
+    //   var isNpdESA = 'govuk-!-display-none';
+    //   var isNpaESA = 'govuk-!-display-none';
+    //   var isMpESA = 'govuk-!-display-none';
+    //   var isRfchESA = 'govuk-!-display-none';
+    //   var isOthQESA = 'govuk-!-display-none';
+    //   var isSEESA = 'govuk-!-display-none';
+    //   var isNpdResolvedESA = '';
+    //   var isNpaResolvedESA = '';
+    //   var isMaRresolvedESA = '';
+    //   var isRfchRresolvedESA = '';
+    //   var isOthQresolvedESA = '';
+
+    //   if (req.session.data['questionAsk-esa'].includes('Next payment date')) {
+    //     isNpdESA = '';
+    //   }
+    //   if (req.session.data['questionAsk-esa'].includes('Next payment amount')) {
+    //     isNpaESA = '';
+    //   }
+    //   if (req.session.data['questionAsk-esa'].includes('Missing payment')) {
+    //     isMpESA = '';
+    //   }
+    //   if (
+    //     req.session.data['questionAsk-esa'].includes('Change in payment amount')
+    //   ) {
+    //     isRfchESA = '';
+    //   }
+    //   if (req.session.data['questionAsk-esa'].includes('Other questions')) {
+    //     isOthQESA = '';
+    //   }
+    //   if (req.session.data['questionAsk-esa'].includes('Something else')) {
+    //     isSEESA = '';
+    //   }
+    //   if (
+    //     req.session.data['npd_wasQuestionResolved'].includes('Not resolved')
+    //   ) {
+    //     isNpdResolvedESA = 'govuk-tag--grey';
+    //   }
+    //   if (
+    //     req.session.data['npa_wasQuestionResolved'].includes('Not resolved')
+    //   ) {
+    //     isNpaResolvedESA = 'govuk-tag--grey';
+    //   }
+    //   if (req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+    //     isMaRresolvedESA = 'govuk-tag--grey';
+    //   }
+    //   if (
+    //     req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')
+    //   ) {
+    //     isRfchRresolvedESA = 'govuk-tag--grey';
+    //   }
+    //   if (
+    //     req.session.data['othQ_wasQuestionResolved'].includes('Not resolved')
+    //   ) {
+    //     isOthQresolvedESA = 'govuk-tag--grey';
+    //   }
+
+    //   // for pip
+    //   var isNpdPIP = 'govuk-!-display-none';
+    //   var isNpaPIP = 'govuk-!-display-none';
+    //   var isMpPIP = 'govuk-!-display-none';
+    //   var isRfchPIP = 'govuk-!-display-none';
+    //   var isOthQPIP = 'govuk-!-display-none';
+    //   var isSEPIP = 'govuk-!-display-none';
+    //   var isNpdResolvedPIP = '';
+    //   var isNpaResolvedPIP = '';
+    //   var isMaRresolvedPIP = '';
+    //   var isRfchRresolvedPIP = '';
+    //   var isOthQresolvedPIP = '';
+
+    //   if (req.session.data['questionAsk-pip'].includes('Next payment date')) {
+    //     isNpdPIP = '';
+    //   }
+    //   if (req.session.data['questionAsk-pip'].includes('Next payment amount')) {
+    //     isNpaPIP = '';
+    //   }
+    //   if (req.session.data['questionAsk-pip'].includes('Missing payment')) {
+    //     isMpPIP = '';
+    //   }
+    //   if (
+    //     req.session.data['questionAsk-pip'].includes('Change in payment amount')
+    //   ) {
+    //     isRfchPIP = '';
+    //   }
+    //   if (req.session.data['questionAsk-pip'].includes('Other questions')) {
+    //     isOthQPIP = '';
+    //   }
+    //   if (req.session.data['questionAsk-pip'].includes('Something else')) {
+    //     isSEPIP = '';
+    //   }
+    //   if (
+    //     req.session.data['npd_wasQuestionResolved'].includes('Not resolved')
+    //   ) {
+    //     isNpdResolvedPIP = 'govuk-tag--grey';
+    //   }
+    //   if (
+    //     req.session.data['npa_wasQuestionResolved'].includes('Not resolved')
+    //   ) {
+    //     isNpaResolvedPIP = 'govuk-tag--grey';
+    //   }
+    //   if (req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+    //     isMaRresolvedPIP = 'govuk-tag--grey';
+    //   }
+    //   if (
+    //     req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')
+    //   ) {
+    //     isRfchRresolvedPIP = 'govuk-tag--grey';
+    //   }
+    //   if (
+    //     req.session.data['othQ_wasQuestionResolved'].includes('Not resolved')
+    //   ) {
+    //     isOthQresolvedPIP = 'govuk-tag--grey';
+    //   }
+
+    //   //All variable render here
+    //   res.render(
+    //     'prototype-sprint-wise/ur-8/a/call-log-journey/added-call-details',
+    //     {
+    //       isCACard: isCACard,
+    //       isESACard: isESACard,
+    //       isPIPCard: isPIPCard,
+    //       isGENERALCard: isGENERALCard,
+
+    //       isNpdPIP: isNpdPIP,
+    //       isNpaPIP: isNpaPIP,
+    //       isMpPIP: isMpPIP,
+    //       isRfchPIP: isRfchPIP,
+    //       isOthQPIP: isOthQPIP,
+    //       isSEPIP: isSEPIP,
+    //       isNpdResolvedPIP: isNpdResolvedPIP,
+    //       isNpaResolvedPIP: isNpaResolvedPIP,
+    //       isMaRresolvedPIP: isMaRresolvedPIP,
+    //       isRfchRresolvedPIP: isRfchRresolvedPIP,
+    //       isOthQresolvedPIP: isOthQresolvedPIP,
+
+    //       isNpdESA: isNpdESA,
+    //       isNpaESA: isNpaESA,
+    //       isMpESA: isMpESA,
+    //       isRfchESA: isRfchESA,
+    //       isOthQESA: isOthQESA,
+    //       isSEESA: isSEESA,
+    //       isNpdResolvedESA: isNpdResolvedESA,
+    //       isNpaResolvedESA: isNpaResolvedESA,
+    //       isMaRresolvedESA: isMaRresolvedESA,
+    //       isRfchRresolvedESA: isRfchRresolvedESA,
+    //       isOthQresolvedESA: isOthQresolvedESA,
+    //     }
+    //   );
+    // } 
 });
 
 router.post('/a/call-log-journey/checkAnswer2', function (req, res) {
