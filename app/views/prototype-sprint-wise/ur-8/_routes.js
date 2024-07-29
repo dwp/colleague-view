@@ -2782,9 +2782,11 @@ router.post(
   }
 );
 
-router.post(
+
+router.get(
   '/a/call-log-journey/benefit-question-asked/ca-eas/ca-questions-asked',
   function (req, res) {
+    console.log('Inside my route  a------------------------->');
     res.render(
       'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-eas/ca-questions-asked',
       {}
@@ -2792,9 +2794,10 @@ router.post(
   }
 );
 
-router.post(
+router.get(
   '/a/call-log-journey/benefit-question-asked/ca-eas/esa-questions-asked',
   function (req, res) {
+    console.log('Inside my route a------------------------->');
     res.render(
       'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-eas/esa-questions-asked',
       {}
@@ -2802,69 +2805,8 @@ router.post(
   }
 );
 
-// router.post('/a/call-log-journey/benefit-question-asked/bhavin', function (req, res) {
-//     console.log('lenght:', req.session.data['whichBenefitDiscussed'].length);
-//     let benefit = req.session.data['whichBenefitDiscussed'];
-//     console.log('Here is a new route defined by bhavin', benefit);
 
-//     if (
-//       req.session.data['whichBenefitDiscussed'].includes("Carer's Allowance") &&
-//       req.session.data['whichBenefitDiscussed'].indexOf("Carer's Allowance") !=
-//         0
-//     ) {
-//       const index =
-//         req.session.data['whichBenefitDiscussed'].indexOf("Carer's Allowance");
-//       req.session.data['whichBenefitDiscussed'].splice(index, 1);
-//       console.log(
-//         'Here is a new route defined by bhavin',
-//         req.session.data['whichBenefitDiscussed']
-//       );
-//       res.render(
-//         'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/ca-questions-asked',
-//         {}
-//       );
-//     } else if (
-//       req.session.data['whichBenefitDiscussed'].includes('Employment and Support Allowance') &&
-//       req.session.data['whichBenefitDiscussed'].indexOf('Employment and Support Allowance') != 0
-//     ) {
-//       const index = req.session.data['whichBenefitDiscussed'].indexOf('Employment and Support Allowance');
-//       req.session.data['whichBenefitDiscussed'].splice(index, 1);
-//       console.log(
-//         'Here is a new route defined by bhavin',
-//         req.session.data['whichBenefitDiscussed']
-//       );
-//       res.render(
-//         'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/esa-questions-asked',
-//         {}
-//       );
-//     } else if (
-//       req.session.data['whichBenefitDiscussed'].includes(
-//         'Personal Independence Payment'
-//       ) &&
-//       req.session.data['whichBenefitDiscussed'].indexOf(
-//         'Personal Independence Payment'
-//       ) != 0
-//     ) {
-//       const index = req.session.data['whichBenefitDiscussed'].indexOf(
-//         'Personal Independence Payment'
-//       );
-//       req.session.data['whichBenefitDiscussed'].splice(index, 1);
-//       console.log(
-//         'Here is a new route defined by bhavin',
-//         req.session.data['whichBenefitDiscussed']
-//       );
-//       res.render(
-//         'prototype-sprint-wise/ur-8/a/call-log-journey/benefit-question-asked/pip-questions-asked',
-//         {}
-//       );
-//     } else {
-//       // send to check answer page
-//       console.log('check answer page number of benefits', req.session.data['whichBenefitDiscussed'].length);
-//       res.redirect('/prototype-sprint-wise/ur-8/a/call-log-journey/added-call-details');
 
-//     }
-//   }
-// );
 
 // End of baseline MVP 1.0 here
 
