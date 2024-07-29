@@ -3213,30 +3213,6 @@ router.post('/scenario-1/call-with', function (req, res) {
   // res.redirect('/prototype-sprint-wise/ur-8/a/view-only-user/home');
 });
 
-// router.post('/a/view-only-user/home', function (req, res) {
-//     if (req.session.data['why-to-check-customer-inforomaton'] == '') {
-//     res.redirect('back');
-//     } else {
-//     if (req.session.data['why-to-check-customer-inforomaton'] == 'To view information only') {
-//     res.render('prototype-sprint-wise/ur-8/a/view-only-user/home');
-//     } else {
-//     res.redirect('/prototype-sprint-wise/ur-8/a/contact-type')
-//     }
-//     }
-// });
-
-// router.post('/a/view-only-user/home', function (req, res) {
-//   if (req.session.data['why-to-check-customer-inforomaton'] == 'To view information only') {
-//   res.render('prototype-sprint-wise/ur-8/a/view-only-user/home');
-//   } else {
-//     if (req.session.data['why-to-check-customer-inforomaton'] == '') {
-//       res.redirect('back');
-//       } else {
-//         res.redirect('/prototype-sprint-wise/ur-8/a/contact-type')
-//       }
-//     }
-// });
-
 router.post('/scenario-1/home', function (req, res) {
   var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
 
@@ -3256,6 +3232,46 @@ router.post('/scenario-1/home', function (req, res) {
     res.redirect('/prototype-sprint-wise/ur-8/scenario-1/home');
   }
 });
+
+router.post('/scenario-1/call-log-journey/benefits-discussed', function (req, res) {
+  req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['questionAsk'] = '';
+  req.session.data['questionAsk-ca'] = '';
+  req.session.data['questionAsk-esa'] = '';
+  req.session.data['questionAsk-pip'] = '';
+  req.session.data['npd_wasQuestionResolved-esa'] = '';
+  req.session.data['npa_wasQuestionResolved-esa'] = '';
+  req.session.data['ma_wasQuestionResolved-esa'] = '';
+  req.session.data['chpa_wasQuestionResolved-esa'] = '';
+  req.session.data['othQ_wasQuestionResolved-esa'] = '';
+  
+  req.session.data['npd_wasQuestionResolved-pip'] = '';
+  req.session.data['npa_wasQuestionResolved-pip'] = '';
+  req.session.data['ma_wasQuestionResolved-pip'] = '';
+  req.session.data['chpa_wasQuestionResolved-pip'] = '';
+  req.session.data['othQ_wasQuestionResolved-pip'] = '';
+  req.session.data['addNote'] = '';
+
+  res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/benefits-discussed');
+});
+
+router.post('/scenario-1/call-log-journey/check-for-add-note', function (req, res) {
+
+  if (req.session.data['discussAnthingElse']== 'Yes'){
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/add-note');
+  } else{
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/added-details');
+  }
+})
+
+router.post('/scenario-1/call-log-journey/do-you-want-complete-call', function (req, res) {
+
+  if (req.session.data['Do-you-want-to-complete-the-call'] == "Complete phone call"){
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/check-call-completion');
+  } else{
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/home');
+  }
+})
 
 
 // End of baseline MVP 1.0 here
