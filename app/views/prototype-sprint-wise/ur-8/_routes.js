@@ -638,6 +638,7 @@ router.post('/questions-outcomes-pip', function(req, res) {
   var isESA = req.session.data['whichBenefitDiscussed'].includes("Employment and Support Allowance");
   var isPIP = req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment");
 
+  
 if (req.session.data['whichBenefitDiscussed'].includes("Personal Independence Payment")){
   if (req.session.data['questionAsk-pip'].includes('Something else')) {
     res.redirect("/prototype-sprint-wise/ur-8/a/call-log-journey/questions-outcomes-for-something-else")
