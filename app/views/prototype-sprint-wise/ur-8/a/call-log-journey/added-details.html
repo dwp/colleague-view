@@ -23,12 +23,12 @@
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">You have added details about this call</h1>
         <!-- <h2 class="govuk-heading-m">Reasons for this call</h2> -->
-        {% set benefits =  data['whichBenefitDiscussed'] %}
+        {% set benefits =  data['benefitList'] %}
         {% set questionCA = data['questionAsk-ca'] %}
         {% set questionESA = data['questionAsk-esa'] %}
         {% set questionPIP = data['questionAsk-pip'] %}
         {% set questionLenghtCA = data['questionAsk-ca'] | length %}
-        {% set benefitLength =  data['whichBenefitDiscussed'] | length %}
+        {% set benefitLength =  data['benefitList'] | length %}
         {% if benefitLength >1 %}
         <table class="govuk-table">
           <thead class="govuk-table__head">
