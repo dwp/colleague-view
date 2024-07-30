@@ -3270,11 +3270,10 @@ router.post('/scenario-1/call-log-journey/check-for-add-note', function (req, re
   }
 })
 
-
 router.post('/scenario-1/call-log-journey/do-you-want-complete-call', function (req, res) {
 
   if (req.session.data['Do-you-want-to-complete-the-call'] == "Complete phone call"){
-    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/check-call-completion');
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/call-completed');
   } else{
     res.redirect('/prototype-sprint-wise/ur-8/scenario-1/home');
   }
@@ -3295,6 +3294,34 @@ router.post('/scenario-1/call-log-journey/confirm_Complete_PhoneCall', function 
 }
 );
 
+
+// Complete session
+router.post(
+  '/scenario-1/call-log-journey/check-phoneCall-completed',
+  function (req, res) {
+    var completeSession =
+      req.session.data['Do-you-want-to-complete-the-telephony-session'];
+    // Check whether the variable matches a condition
+    if (completeSession == 'Yes') {
+      req.session.data['whichBenefitDiscussed'] = '';
+      req.session.data['questionAsk'] = '';
+      req.session.data['npd_wasQuestionResolved'] = '';
+      req.session.data['npa_wasQuestionResolved'] = '';
+      req.session.data['ma_wasQuestionResolved'] = '';
+      req.session.data['chpa_wasQuestionResolved'] = '';
+      req.session.data['othQ_wasQuestionResolved'] = '';
+      req.session.data['addNote'] = '';
+      // Send user to next page
+      res.redirect(
+        '/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/benefits-discussed'
+      );
+    } else {
+      res.redirect(
+        '/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/call-completed'
+      );
+    }
+  }
+);
 
 // End of baseline MVP 1.0 here
 
