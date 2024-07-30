@@ -2418,7 +2418,7 @@ router.post(
     ) {
       //All variable render here
       res.render(
-        'prototype-sprint-wise/ur-8/a/call-log-journey/added-call-details',
+        'prototype-sprint-wise/ur-8/a/different-type-contact-user/call-log-journey/check-details',
         {
           isNpd: isNpd,
           isNpa: isNpa,
