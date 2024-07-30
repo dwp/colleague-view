@@ -6,7 +6,7 @@
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-8/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-8/common/opt2/different-type-contact-user/keydetail-bar-start-new-session.html" %}
+  {% include "/prototype-sprint-wise/ur-8/common/opt2/different-type-contact-user/keydetail-bar.html" %}
 {% endblock %}
 
 
@@ -27,9 +27,12 @@
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Which benefits did you discuss?
+                  Which benefits are you adding details for?
                 </h1>
               </legend>
+              <div id="addNote-hint" class="govuk-hint">
+                You will be able to add a note after adding the initial details.
+              </div>
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="benefit_aa" name="whichBenefitDiscussed" type="checkbox" value="Attendance Allowance" {{ checked ('whichBenefitDiscussed', 'Attendance Allowance') }}>
