@@ -3536,6 +3536,21 @@ router.post('/scenario-1/call-log-journey/do-you-want-complete-call', function (
   }
 })
 
+// check phone call progress and complete confirmation.
+router.post('/scenario-1/call-log-journey/confirm_Complete_PhoneCall', function (req, res) {
+  // if (req.session.data.outcomePage === '') {
+  if (req.session.data['whichBenefitDiscussed'] =='') {
+    res.redirect(
+      '/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/no-contact-added'
+    );
+  } else {
+    res.redirect(
+      '/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/add-more-reasons-for-call'
+    );
+  }
+}
+);
+
 
 // End of baseline MVP 1.0 here
 
