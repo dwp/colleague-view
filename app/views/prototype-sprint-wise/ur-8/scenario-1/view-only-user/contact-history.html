@@ -1,17 +1,18 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Contact history
+Contact history
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-8/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-8/common/opt2/different-type-contact-user/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/opt2/view-only-user/keydetail-bar.html" %} 
 {% endblock %}
 
 {% block footer %}
   {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
 {% endblock %}
+
 
 {% block beforeContent %}
   {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
@@ -31,18 +32,7 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Contact history</h1>
-      </div>
-      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-        <form action="call-log-journey/selectBenefit" method="post">
-          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
-            Add or change notes
-          </button>
-        </form>
-      </div>
-    </div>
+    <h1 class="govuk-heading-xl">Contact history</h1>
     <div class="govuk-tabs" data-module="govuk-tabs">
       <h2 class="govuk-tabs__title">
         Contents
@@ -1049,91 +1039,5 @@
     </div>
   </div>
 </div>
-  
-<!-- logic for filter function -->
-  <script type="text/javascript">
-    function showFilter() {
-      // document.getElementById("demo").innerHTML = "Hello World";
-      // alert("Hello world");
-      var link = document.getElementById('filter-section');
-      var link2 = document.getElementById('show-filter-btn');
-      var esaTable = document.getElementById('table-ESA');
-      var hideFilterBtn = document.getElementById('hide-filter-btn');
-      var showOldFilter = document.getElementById('old-filter-design');
-      // alert("Hello world",link.className);
-      // link.style.display = 'block'; 
-      hideFilterBtn.classList.remove("govuk-!-display-none");
-      // link.classList.remove("govuk-!-display-none");
-      showOldFilter.classList.remove("govuk-!-display-none");
-      link2.classList.add("govuk-!-display-none");
-      esaTable.classList.add("govuk-!-display-none");
-    }
-    function hideFilter() {
-      var link2 = document.getElementById('show-filter-btn');
-      var esaTable = document.getElementById('table-ESA');
-      var hideFilterBtn = document.getElementById('hide-filter-btn');
-      var showOldFilter = document.getElementById('old-filter-design');
-      hideFilterBtn.classList.add("govuk-!-display-none");
-      showOldFilter.classList.add("govuk-!-display-none");
-      link2.classList.remove("govuk-!-display-none");
-      esaTable.classList.add("govuk-!-display-none");
-    }
-
-    function cancelFilter() {
-      var link = document.getElementById('filter-section');
-      var link2 = document.getElementById('show-filter-btn');
-      var hideFilterBtn = document.getElementById('hide-filter-btn');
-      var showOldFilter = document.getElementById('old-filter-design');
-      // var link4 = document.getElementById('apply-filter-btn');
-      link.classList.add("govuk-visually-hidden");
-      link2.classList.remove("govuk-visually-hidden");
-      hideFilterBtn.classList.add("govuk-visually-hidden");
-      showOldFilter.classList.add("govuk-visually-hidden");
-    }
-
-    function applyFilter() {
-
-      var link3 = document.getElementById('filter-selected');
-      // var link4 = document.getElementById('apply-filter-btn');
-      var link2 = document.getElementById('show-filter-btn');
-      var link5 = document.getElementById('filter-section'); 
-      var tableDefault = document.getElementById('default-table')
-      var esaTable = document.getElementById('table-ESA');
-      link3.classList.remove("govuk-visually-hidden");
-      link2.classList.remove("govuk-visually-hidden");
-      // link4.classList.add("govuk-visually-hidden");
-      link5.classList.add("govuk-visually-hidden");
-      tableDefault.classList.add("govuk-visually-hidden");
-      esaTable.classList.remove("govuk-visually-hidden");
-    }
-
-    function clearFilter() {
-      var link3 = document.getElementById('filter-selected');
-      var esaTable = document.getElementById('table-ESA');
-      var tableDefault = document.getElementById('default-table')
-      // var link4 = document.getElementById('apply-filter-btn');
-      link3.classList.add("govuk-visually-hidden");
-      tableDefault.classList.remove("govuk-visually-hidden");
-      esaTable.classList.add("govuk-visually-hidden");
-      link.classList.remove("govuk-visually-hidden");
-      
-    }
-    
-    // show contact details section
-    function showContactDetails() {
-    var showContactDetails = document.getElementById('showCtDetails');
-    var defaultContactHistory = document.getElementById('showContactHistory-bydefault');
-    defaultContactHistory.classList.add("govuk-visually-hidden");
-    showContactDetails.classList.remove("govuk-visually-hidden");
-
-    }
-    function showContactHistory() {
-        var showContactDetails = document.getElementById('showCtDetails');
-        var defaultContactHistory = document.getElementById('showContactHistory-bydefault');
-        defaultContactHistory.classList.remove("govuk-visually-hidden");
-        showContactDetails.classList.add("govuk-visually-hidden");
-
-    }
-    </script>
 
 {% endblock %}

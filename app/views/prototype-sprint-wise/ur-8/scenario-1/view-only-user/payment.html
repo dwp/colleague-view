@@ -5,13 +5,15 @@ Benefit details and payments
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-8/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-8/common/opt2/different-type-contact-user/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/opt2/view-only-user/keydetail-bar.html" %} 
 {% endblock %}
+
 
 {% block footer %}
   {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
 {% endblock %}
+
 
 {% block beforeContent %}
   {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
@@ -34,13 +36,6 @@ Benefit details and payments
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">Benefit payments</h1>
-      </div>
-      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-        <form action="call-log-journey/selectBenefit" method="post">
-          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
-            Add details about contact
-          </button>
-        </form>
       </div>
     </div>
   </div>
@@ -895,14 +890,12 @@ Benefit details and payments
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
       var hdFilter = document.getElementById('hide-filter-btn');
-      var filterSelected = document.getElementById ('filter-selected');
       link.classList.add("govuk-visually-hidden");
       hdFilter.classList.add("govuk-visually-hidden");
       link2.classList.remove("govuk-visually-hidden");
       document.getElementById("filter-1").checked = false;
       document.getElementById("filter-2").checked = false;
       document.getElementById("filter-3").checked = false;
-      filterSelected.classList.add("govuk-visually-hidden");
     }
     function applyFilter() {
       var link3 = document.getElementById('filter-selected');
