@@ -1,28 +1,30 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Benefit details and payments
+  Payments and Awards
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-8/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-8/common/opt2/different-type-contact-user/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/common/header.html" %}
+  {% include "prototype-dev-baseline/common/mvp1-1/view-only-user/keydetail-bar.html" %} 
 {% endblock %}
+
 
 {% block footer %}
-  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
 {% endblock %}
 
+
 {% block beforeContent %}
-  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
   <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+        <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Benefit payments</a>
+        <a class="govuk-breadcrumbs__link" href="#">Payments and awards</a>
       </li>
     </ol>
   </div>
@@ -33,14 +35,7 @@ Benefit details and payments
   <div class="govuk-grid-column-full">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Benefit payments</h1>
-      </div>
-      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-        <form action="call-log-journey/selectBenefit" method="post">
-          <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
-            Add details about contact
-          </button>
-        </form>
+        <h1 class="govuk-heading-xl">Upcoming and historic benefit payments</h1>
       </div>
     </div>
   </div>
@@ -51,148 +46,151 @@ Benefit details and payments
       </h2>
       <ul class="govuk-tabs__list">
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#next-payments">
-            Next payments
+          <a class="govuk-tabs__tab" href="#upcoming-payments">
+            Upcoming payments
           </a>
         </li>
         <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#history" onclick="clearFilter()">
+          <a class="govuk-tabs__tab" href="#payment-history">
             Payment history
           </a>
         </li>
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-          <a class="govuk-tabs__tab" href="#details">
-            Benefit details
+          <a class="govuk-tabs__tab" href="#award-breakdown">
+            Details and breakdowns of benefits
           </a>
         </li>
       </ul>
       <!-- TAB-1 start here -->
-      <div class="govuk-tabs__panel" id="next-payments">
-        <h2 class="govuk-heading-l">Next payments</h2>
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-full">
-            <div class="govuk-grid-row">
-              <div class="govuk-grid-column-one-half">
-                <div class="nhsuk-card">
-                  <div class="nhsuk-card__content">
-                    <div class="gem-c-big-number">
-                      <span class="gem-c-big-number__label">
-                        Personal Independence Payment
-                      </span>
-                      <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
-                        £479.00
-                      </div>
-                      <span class="govuk-body">is due on 14 August 2023</span> <br/>
-                      <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-top-2 govuk-!-margin-bottom-2">Issued</strong>
-                    </div>
-                    <details class="govuk-details" data-module="govuk-details">
-                      <summary class="govuk-details__summary">
-                        <span class="govuk-details__summary-text">
-                          View payment breakdown
+      <div class="govuk-tabs__panel" id="upcoming-payments">
+        <h2 class="govuk-heading-l">Confirmed payments</h2>
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                      <div class="gem-c-big-number">
+                        <span class="gem-c-big-number__label">
+                          Personal Independence Payment
                         </span>
-                      </summary>
-                      <div class="govuk-details__text">
-                        <table class="govuk-table">
-                          <caption class="govuk-table__caption govuk-table__caption--m">Payment breakdown</caption>
-                          <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                              <th scope="col" class="govuk-table__header">Payment type</th>
-                              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
-                            </tr>
-                          </thead>
-                          <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                              <td class="govuk-table__cell">Award</td>
-                              <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                              <td class="govuk-table__cell">Total deductions</td>
-                              <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                              <th scope="row" class="govuk-table__header">Total</th>
-                              <td class="govuk-table__cell govuk-table__cell--numeric">£479.00</td>
-                            </tr>
-                          </tbody>
-                      </table>
-                              </div>
-                    </details>
+                        <div class="gem-c-big-number__value govuk-!-font-size-48 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
+                          £479.00
+                        </div>
+                        <span class="govuk-body">is on 14 August 2023</span> <br/>
+                        <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-top-2 govuk-!-margin-bottom-2">Issued</strong>
+                      </div>
+                      <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            View payment breakdown
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                          <table class="govuk-table">
+                            <caption class="govuk-table__caption govuk-table__caption--m">Payment breakdown</caption>
+                            <thead class="govuk-table__head">
+                              <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Payment type</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                              </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Award</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
+                              </tr>
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Total deductions</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
+                              </tr>
+                              <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Total</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£479.00</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                                </div>
+                      </details>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="govuk-grid-column-one-half">
-                <div class="nhsuk-card">
-                  <div class="nhsuk-card__content">
-                    <div class="gem-c-big-number">
-                      <span class="gem-c-big-number__label">
-                        Employment and Support Allowance
-                      </span>
-                      <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
-                        £184.13
-                      </div>
-                      <span class="govuk-body">is due on 15 August 2023</span> <br/>
-                      <strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2 govuk-!-margin-bottom-2">Not issued yet</strong>
-                    </div>
-                    <details class="govuk-details" data-module="govuk-details">
-                      <summary class="govuk-details__summary">
-                        <span class="govuk-details__summary-text">
-                          View payment breakdown
+                <div class="govuk-grid-column-one-half">
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                      <div class="gem-c-big-number">
+                        <span class="gem-c-big-number__label">
+                          Employment and Support Allowance
                         </span>
-                      </summary>
-                      <div class="govuk-details__text">
-                        <table class="govuk-table">
-                          <caption class="govuk-table__caption govuk-table__caption--m">Payment breakdown</caption>
-                          <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                              <th scope="col" class="govuk-table__header">Payment type</th>
-                              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
-                            </tr>
-                          </thead>
-                          <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                              <td class="govuk-table__cell">Award</td>
-                              <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                              <td class="govuk-table__cell">Total deductions</td>
-                              <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                              <th scope="row" class="govuk-table__header">Total</th>
-                              <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
-                            </tr>
-                          </tbody>
-                      </table>
+                        <div class="gem-c-big-number__value govuk-!-font-size-48 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
+                          £184.13
+                        </div>
+                        <span class="govuk-body">is on 15 August 2023</span> <br/>
+                        <strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2 govuk-!-margin-bottom-2">Pending</strong>
                       </div>
-                    </details>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-full">
-            <div class="govuk-grid-row">
-              <div class="govuk-grid-column-one-half">
-                <div class="nhsuk-card">
-                  <div class="nhsuk-card__content">
-                    <div class="govuk-warning-text govuk-!-padding-0">
-                      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                      <strong class="govuk-warning-text__text">
-                        <span class="govuk-visually-hidden">Warning</span>
-                        The next payment amount and date for Carer's Allowance is not confirmed. Check again later.
-                      </strong>
+                      <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            View payment breakdown
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                          <table class="govuk-table">
+                            <caption class="govuk-table__caption govuk-table__caption--m">Payment breakdown</caption>
+                            <thead class="govuk-table__head">
+                              <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Payment type</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+                              </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Award</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+                              </tr>
+                              <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Total deductions</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+                              </tr>
+                              <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Total</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                      </details>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+          <div class="govuk-grid-row govuk-!-margin-top-5">
+            <div class="govuk-grid-column-full">
+              <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Estimated payments</h2>
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                      <div class="gem-c-big-number">
+                          <span class="gem-c-big-number__label">
+                            Carer's Allowance
+                          </span>
+                          <div class="gem-c-big-number__value govuk-!-font-size-36 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
+                            £278.80 <span class="govuk-body"> (estimated)</span>
+                          </div>
+                          <span class="govuk-body">Date to be confirmed</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
       <!-- TAB-2 start here -->
-      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="history">
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="payment-history">
         <h2 class="govuk-heading-l">Payment history</h2>
         <!-- Filter section start here -->
         <button class="govuk-button govuk-button--secondary" data-module="govuk-button" id="show-filter-btn" onclick="showFilter()">
@@ -203,7 +201,7 @@ Benefit details and payments
           Hide filter
         </button>
         <!-- Filter section display benefit options -->
-        <form action="/prototype-sprint-wise/ur-8/a/payment#history" method="post">
+        <form action="/prototype-sprint-wise/ur-8/a/payment-and-awards#payment-history" method="post">
           <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
               <fieldset class="govuk-fieldset">
@@ -288,7 +286,7 @@ Benefit details and payments
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Benefit</th>
-                <th scope="col" class="govuk-table__header">Due date</th>
+                <th scope="col" class="govuk-table__header">Due Date</th>
                 <th scope="col" class="govuk-table__header ">Status</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
@@ -315,7 +313,7 @@ Benefit details and payments
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header">Benefit</th>
-                <th scope="col" class="govuk-table__header">Due date</th>
+                <th scope="col" class="govuk-table__header">Due Date</th>
                 <th scope="col" class="govuk-table__header ">Status</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
@@ -334,7 +332,7 @@ Benefit details and payments
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
                 <td class="govuk-table__cell">18 July 2023</td>
-                <td class="govuk-table__cell">Not issued yet</td>
+                <td class="govuk-table__cell">Issued</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
@@ -430,15 +428,8 @@ Benefit details and payments
         </nav>
       </div>
       <!-- TAB-3 start here -->
-      <div class="govuk-tabs__panel" id="details">
-        <h2 class="govuk-heading-l">Benefit details</h2>
-        <div class="govuk-warning-text govuk-!-width-three-quarters">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-visually-hidden">Warning</span>
-            Award details and breakdowns are only available for Attendance Allowance, Disability Living Allowance, Employment and Support Allowance and Personal Independence Payment.
-          </strong>
-        </div>
+      <div class="govuk-tabs__panel" id="award-breakdown">
+        <h2 class="govuk-heading-l">Details and breakdowns of benefits</h2>
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
             <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
@@ -489,12 +480,12 @@ Benefit details and payments
                         Frequency of payments
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Every 4 week
+                      4 Weekly in Arrears by Direct Payment on Monday
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Amount
                       </dt>
                       <dd class="govuk-summary-list__value">
                         £559.00
@@ -557,10 +548,9 @@ Benefit details and payments
                               <td class="govuk-table__cell">08 December 2024</td>
                             </tr>
                               <tr class="govuk-table__row">
-                              <th scope="row" class="govuk-table__header">Total deductions</th>
-                              <td class="govuk-table__cell" colspan="3">£80.00</td>
-                              <!-- <td class="govuk-table__cell"></td>
-                              <td class="govuk-table__cell"></td> -->
+                              <th scope="row" class="govuk-table__header" total="" deduction<="" th="">Total deductions                                     </th><td class="govuk-table__cell">£80.00</td>
+                              <td class="govuk-table__cell"></td>
+                              <td class="govuk-table__cell"></td>
                             </tr>
                           </tbody>
                         </table>
@@ -645,7 +635,7 @@ Benefit details and payments
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Amount
                       </dt>
                       <dd class="govuk-summary-list__value">
                         £193.10
@@ -704,10 +694,10 @@ Benefit details and payments
                               <td class="govuk-table__cell">No end date</td>
                             </tr>
                             <tr class="govuk-table__row">
-                              <th scope="row" class="govuk-table__header">Total deductions</th>
-                              <td class="govuk-table__cell" colspan="3">£8.97</td>
-                              <!-- <td class="govuk-table__cell"></td>
-                              <td class="govuk-table__cell"></td> -->
+                              <th scope="row" class="govuk-table__header" total="" deduction<="" th="">Total deductions</th>
+                              <td class="govuk-table__cell">£8.97</td>
+                              <td class="govuk-table__cell"></td>
+                              <td class="govuk-table__cell"></td>
                             </tr>
                           </tbody>
                         </table>
@@ -749,13 +739,6 @@ Benefit details and payments
                   </h3>
                 </div>
                 <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
-                  <div class="govuk-warning-text govuk-!-padding-0 govuk-!-width-two-thirds">
-                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                    <strong class="govuk-warning-text__text">
-                      <span class="govuk-visually-hidden">Warning</span>
-                      The next payment amount and date for Carer's Allowance is not confirmed. Check again later.
-                    </strong>
-                  </div>
                   <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
@@ -799,7 +782,7 @@ Benefit details and payments
                     </div>
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Amount before deductions
+                        Amount
                       </dt>
                       <dd class="govuk-summary-list__value">
                         £278.80
@@ -895,14 +878,12 @@ Benefit details and payments
       var link = document.getElementById('filter-section');
       var link2 = document.getElementById('show-filter-btn');
       var hdFilter = document.getElementById('hide-filter-btn');
-      var filterSelected = document.getElementById ('filter-selected');
       link.classList.add("govuk-visually-hidden");
       hdFilter.classList.add("govuk-visually-hidden");
       link2.classList.remove("govuk-visually-hidden");
       document.getElementById("filter-1").checked = false;
       document.getElementById("filter-2").checked = false;
       document.getElementById("filter-3").checked = false;
-      filterSelected.classList.add("govuk-visually-hidden");
     }
     function applyFilter() {
       var link3 = document.getElementById('filter-selected');
