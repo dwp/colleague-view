@@ -3189,7 +3189,7 @@ router.post('/scenario-1/why-checking-info', function (req, res) {
     }
     // Send user to error page
     res.render(
-      '/prototype-sprint-wise/ur-8/scenario-1/showValidationMsg/error-nino-number',
+      '/prototype-sprint-wise/ur-8/scenario-1/error-nino-number',
       { errMsg: errMsg }
     );
   }
@@ -3253,6 +3253,61 @@ router.post('/scenario-1/call-log-journey/benefits-discussed', function (req, re
   req.session.data['addNote'] = '';
 
   res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/benefits-discussed');
+});
+
+router.post('/scenario-1/call-log-journey/questions-asked', function (req, res) {
+  if (req.session.data['whichBenefitDiscussed']>1){
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questions-asked-esa');
+  } else{
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questions-asked');
+  }
+});
+
+
+router.post('/scenario-1/call-log-journey/questions-outcomes', function (req, res) {
+  if (req.session.data['whichBenefitDiscussed']>1){
+    res.redirect('prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questions-asked-esa');
+  } else {
+  var isNpd = 'govuk-!-display-none';
+  var isNpa = 'govuk-!-display-none';
+  var isMp = 'govuk-!-display-none';
+  var isRfch = 'govuk-!-display-none';
+  var isOthQ = 'govuk-!-display-none';
+
+  if (req.session.data['questionAsk'].includes('Something else')) {
+    res.redirect(
+      '/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questions-outcomes-for-something-else'
+    );
+  } else {
+    if (req.session.data['questionAsk'].includes('Next payment date')) {
+      isNpd = 'govuk-!-display-block';
+    }
+    if (req.session.data['questionAsk'].includes('Next payment amount')) {
+      isNpa = 'govuk-!-display-block';
+    }
+    if (req.session.data['questionAsk'].includes('Missing payment')) {
+      isMp = 'govuk-!-display-block';
+    }
+    if (req.session.data['questionAsk'].includes('Change in payment amount')) {
+      isRfch = 'govuk-!-display-block';
+    }
+    if (req.session.data['questionAsk'].includes('Other questions')) {
+      isOthQ = 'govuk-!-display-block';
+    }
+    //All variable render here
+    res.render(
+      'prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questionAnswered',
+      {
+        isNpd: isNpd,
+        isNpa: isNpa,
+        isMp: isMp,
+        isRfch: isRfch,
+        isOthQ: isOthQ,
+      }
+    );
+
+  }
+  }
 });
 
 router.post('/scenario-1/call-log-journey/check-for-add-note', function (req, res) {
