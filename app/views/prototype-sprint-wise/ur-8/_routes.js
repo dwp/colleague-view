@@ -3239,6 +3239,7 @@ router.post('/scenario-1/call-log-journey/benefits-discussed', function (req, re
   req.session.data['questionAsk-ca'] = '';
   req.session.data['questionAsk-esa'] = '';
   req.session.data['questionAsk-pip'] = '';
+  
   req.session.data['npd_wasQuestionResolved-esa'] = '';
   req.session.data['npa_wasQuestionResolved-esa'] = '';
   req.session.data['ma_wasQuestionResolved-esa'] = '';
@@ -3256,6 +3257,9 @@ router.post('/scenario-1/call-log-journey/benefits-discussed', function (req, re
 });
 
 router.post('/scenario-1/call-log-journey/questions-asked', function (req, res) {
+  req.session.data['questionAsk'] = '';
+  req.session.data['npd_wasQuestionResolved']= '';
+  req.session.data['npa_wasQuestionResolved']= '';
   if (req.session.data['whichBenefitDiscussed'].length>1){
     res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questions-asked-esa');
   } else{
@@ -3273,37 +3277,57 @@ router.post('/scenario-1/call-log-journey/questions-outcomes', function (req, re
   var isRfch = 'govuk-!-display-none';
   var isOthQ = 'govuk-!-display-none';
 
-  if (req.session.data['questionAsk'].includes('Something else')) {
+  if (req.session.data['questionAsk'] == 'Something else') {
     res.redirect(
       '/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questions-outcomes-for-something-else'
     );
   } else {
-    if (req.session.data['questionAsk'].includes('Next payment date')) {
-      isNpd = 'govuk-!-display-block';
-    }
-    if (req.session.data['questionAsk'].includes('Next payment amount')) {
-      isNpa = 'govuk-!-display-block';
-    }
-    if (req.session.data['questionAsk'].includes('Missing payment')) {
-      isMp = 'govuk-!-display-block';
-    }
-    if (req.session.data['questionAsk'].includes('Change in payment amount')) {
-      isRfch = 'govuk-!-display-block';
-    }
-    if (req.session.data['questionAsk'].includes('Other questions')) {
-      isOthQ = 'govuk-!-display-block';
-    }
-    //All variable render here
-    res.render(
-      'prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questionAnswered',
-      {
-        isNpd: isNpd,
-        isNpa: isNpa,
-        isMp: isMp,
-        isRfch: isRfch,
-        isOthQ: isOthQ,
-      }
-    );
+
+    res.redirect('/prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questionAnswered');
+    // if (req.session.data['questionAsk'].includes('Next payment date')) {
+    //   isNpd = 'govuk-!-display-block';
+    // }
+    // if (req.session.data['questionAsk'].includes('Next payment amount')) {
+    //   isNpa = 'govuk-!-display-block';
+    // }
+    // if (req.session.data['questionAsk'].includes('Missing payment')) {
+    //   isMp = 'govuk-!-display-block';
+    // }
+    // if (req.session.data['questionAsk'].includes('Change in payment amount')) {
+    //   isRfch = 'govuk-!-display-block';
+    // }
+    // if (req.session.data['questionAsk'].includes('Other questions')) {
+    //   isOthQ = 'govuk-!-display-block';
+    // }
+
+    // if (req.session.data['questionAsk'] == 'Next payment date') {
+    //   isNpd = 'govuk-!-display-block';
+    // }
+    // if (req.session.data['questionAsk']== 'Next payment amount') {
+    //   isNpa = 'govuk-!-display-block';
+    // }
+    // if (req.session.data['questionAsk'] == 'Missing payment') {
+    //   isMp = 'govuk-!-display-block';
+    // }
+    // if (req.session.data['questionAsk'] == 'Change in payment amount') {
+    //   isRfch = 'govuk-!-display-block';
+    // }
+    // if (req.session.data['questionAsk'] == 'Other questions') {
+    //   isOthQ = 'govuk-!-display-block';
+    // }
+
+
+    // //All variable render here
+    // res.render(
+    //   'prototype-sprint-wise/ur-8/scenario-1/call-log-journey/questionAnswered',
+    //   {
+    //     isNpd: isNpd,
+    //     isNpa: isNpa,
+    //     isMp: isMp,
+    //     isRfch: isRfch,
+    //     isOthQ: isOthQ,
+    //   }
+    // );
 
   }
   }
@@ -3330,37 +3354,37 @@ router.post('/scenario-1/call-log-journey/added-call-details', function (req, re
     var isRfchRresolved = '';
     var isOthQresolved = '';
 
-    if (req.session.data['questionAsk'].includes('Next payment date')) {
+    if (req.session.data['questionAsk'] =='Next payment date') {
       isNpd = '';
     }
-    if (req.session.data['questionAsk'].includes('Next payment amount')) {
+    if (req.session.data['questionAsk'] == 'Next payment amount') {
       isNpa = '';
     }
-    if (req.session.data['questionAsk'].includes('Missing payment')) {
+    if (req.session.data['questionAsk'] =='Missing payment' ) {
       isMp = '';
     }
-    if (req.session.data['questionAsk'].includes('Change in payment amount')) {
+    if (req.session.data['questionAsk'] == 'Change in payment amount') {
       isRfch = '';
     }
-    if (req.session.data['questionAsk'].includes('Other questions')) {
+    if (req.session.data['questionAsk'] == 'Other questions') {
       isOthQ = '';
     }
-    if (req.session.data['questionAsk'].includes('Something else')) {
+    if (req.session.data['questionAsk'] == 'Something else') {
       isSE = '';
     }
-    if (req.session.data['npd_wasQuestionResolved'].includes('Not resolved')) {
+    if (req.session.data['npd_wasQuestionResolved'] == 'Not resolved') {
       isNpdResolved = 'govuk-tag--grey';
     }
-    if (req.session.data['npa_wasQuestionResolved'].includes('Not resolved')) {
+    if (req.session.data['npa_wasQuestionResolved'] == 'Not resolved') {
       isNpaResolved = 'govuk-tag--grey';
     }
-    if (req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
+    if (req.session.data['ma_wasQuestionResolved'] == 'Not resolved') {
       isMaRresolved = 'govuk-tag--grey';
     }
-    if (req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')) {
+    if (req.session.data['chpa_wasQuestionResolved'] == 'Not resolved') {
       isRfchRresolved = 'govuk-tag--grey';
     }
-    if (req.session.data['othQ_wasQuestionResolved'].includes('Not resolved')) {
+    if (req.session.data['othQ_wasQuestionResolved'] == 'Not resolved') {
       isOthQresolved = 'govuk-tag--grey';
     }
 
@@ -3425,107 +3449,6 @@ router.post('/scenario-1/call-log-journey/check-for-add-note', function (req, re
   }
 })
 
-router.post('/scenario-1/call-log-journey/added-details', function(req, res) {
-
-
-  var isNpd = 'govuk-!-display-none';
-  var isNpa = 'govuk-!-display-none';
-  var isMp = 'govuk-!-display-none';
-  var isRfch = 'govuk-!-display-none';
-  var isOthQ = 'govuk-!-display-none';
-  var isSE = 'govuk-!-display-none';
-  var isNpdResolved = '';
-  var isNpaResolved = '';
-  var isMaRresolved = '';
-  var isRfchRresolved = '';
-  var isOthQresolved = '';
-
-  if (req.session.data['questionAsk'].includes('Next payment date')) {
-    isNpd = '';
-  }
-  if (req.session.data['questionAsk'].includes('Next payment amount')) {
-    isNpa = '';
-  }
-  if (req.session.data['questionAsk'].includes('Missing payment')) {
-    isMp = '';
-  }
-  if (req.session.data['questionAsk'].includes('Change in payment amount')) {
-    isRfch = '';
-  }
-  if (req.session.data['questionAsk'].includes('Other questions')) {
-    isOthQ = '';
-  }
-  if (req.session.data['questionAsk'].includes('Something else')) {
-    isSE = '';
-  }
-  if (req.session.data['npd_wasQuestionResolved'].includes('Not resolved')) {
-    isNpdResolved = 'govuk-tag--grey';
-  }
-  if (req.session.data['npa_wasQuestionResolved'].includes('Not resolved')) {
-    isNpaResolved = 'govuk-tag--grey';
-  }
-  if (req.session.data['ma_wasQuestionResolved'].includes('Not resolved')) {
-    isMaRresolved = 'govuk-tag--grey';
-  }
-  if (req.session.data['chpa_wasQuestionResolved'].includes('Not resolved')) {
-    isRfchRresolved = 'govuk-tag--grey';
-  }
-  if (req.session.data['othQ_wasQuestionResolved'].includes('Not resolved')) {
-    isOthQresolved = 'govuk-tag--grey';
-  }
-
-  // if (req.session.data['npd_wasQuestionResolved'] == '' || req.session.data['npa_wasQuestionResolved'] =='' || req.session.data['ma_wasQuestionResolved'] =='' || req.session.data['chpa_wasQuestionResolved'] =='') {
-  if (
-    req.session.data['npd_wasQuestionResolved'].includes('Not resolved') ||
-    req.session.data['npd_wasQuestionResolved'].includes('Resolved') ||
-    req.session.data['npa_wasQuestionResolved'].includes('Not resolved') ||
-    req.session.data['npa_wasQuestionResolved'].includes('Resolved') ||
-    req.session.data['ma_wasQuestionResolved'].includes('Not resolved') ||
-    req.session.data['ma_wasQuestionResolved'].includes('Resolved') ||
-    req.session.data['chpa_wasQuestionResolved'].includes('Not resolved') ||
-    req.session.data['chpa_wasQuestionResolved'].includes('Resolved') ||
-    req.session.data['othQ_wasQuestionResolved'].includes('Not resolved') ||
-    req.session.data['othQ_wasQuestionResolved'].includes('Resolved')
-  ) {
-    //All variable render here
-    res.render(
-      'prototype-sprint-wise/ur-8/scenario-1/call-log-journey/added-details',
-      {
-        isNpd: isNpd,
-        isNpa: isNpa,
-        isMp: isMp,
-        isRfch: isRfch,
-        isOthQ: isOthQ,
-        isSE: isSE,
-        isNpdResolved: isNpdResolved,
-        isNpaResolved: isNpaResolved,
-        isMaRresolved: isMaRresolved,
-        isRfchRresolved: isRfchRresolved,
-        isOthQresolved: isOthQresolved,
-      }
-    );
-  } else {
-    //All variable render here
-    res.render(
-      'prototype-sprint-wise/ur-8/scenario-1/call-log-journey/unHappy_journey/showValidation/questionAnswered-Error',
-      {
-        isNpd: isNpd,
-        isNpa: isNpa,
-        isMp: isMp,
-        isRfch: isRfch,
-        isOthQ: isOthQ,
-        isSE: isSE,
-        isNpdResolved: isNpdResolved,
-        isNpaResolved: isNpaResolved,
-        isMaRresolved: isMaRresolved,
-        isRfchRresolved: isRfchRresolved,
-        isOthQresolved: isOthQresolved,
-      }
-    );
-  }
-
-
-});
 
 router.post('/scenario-1/call-log-journey/do-you-want-complete-call', function (req, res) {
 
