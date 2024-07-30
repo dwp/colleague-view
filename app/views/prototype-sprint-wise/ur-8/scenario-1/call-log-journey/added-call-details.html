@@ -434,7 +434,7 @@
 
     {%else%}
     <!-- custom summary card -->
-    <div class="govuk-summary-card isGENERALCard">
+    <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ data['whichBenefitDiscussed'] }}</h2>
         <ul class="govuk-summary-card__actions">
@@ -464,12 +464,18 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isNpd}}">
+            <tr class="govuk-summary-list__row">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third"> Was the next payment date question resolved?</th>
               <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isNpdResolved}}">
-                  {{ data['npd_wasQuestionResolved'] }}
+                {% if data['npd_wasQuestionResolved'] == 'Resolved' %}
+                <strong class="govuk-tag">
+                  Resolved
                 </strong>
+                {%else%}
+                <strong class="govuk-tag govuk-tag--grey">
+                  Not resolved
+                </strong>
+                {%endif%}
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
                 <a href="questionAnswered.html">
@@ -478,14 +484,20 @@
                 </a>
               </td>
             </tr>
-            <tr class="govuk-summary-list__row {{isNpa}}">
+            <tr class="govuk-summary-list__row">
               <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
                 Was the next payment amount question resolved?
               </th>
               <td class="govuk-summary-list__value">
-                <strong class="govuk-tag {{isNpaResolved}}">
-                  {{ data['npa_wasQuestionResolved'] }}
+                {% if data['npa_wasQuestionResolved'] == 'Resolved' %}
+                <strong class="govuk-tag">
+                  Resolved
                 </strong>
+                {%else%}
+                <strong class="govuk-tag govuk-tag--grey">
+                  Not resolved
+                </strong>
+                {%endif%}
               </td>
               <td class="govuk-summary-list__actions govuk-!-display-none-print">
                 <a href="questionAnswered.html">
