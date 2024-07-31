@@ -2998,21 +2998,22 @@ router.post('/scenario-1/why-checking-info', function (req, res) {
     // res.render('prototype-sprint-wise/ur-8/a/why-you-checking-benefit-Info');
     res.redirect('/prototype-sprint-wise/ur-8/scenario-1/why-checking-info');
   } else {
-    var errMsg = '';
-    if (
-      req.session.data['nino-number-ur-8'] == '' ||
-      req.session.data['nino-number-ur-8'] == undefined
-    ) {
-      errMsg = "Enter the customer's National Insurance number";
-    } else {
-      errMsg =
-        "Enter the customer's National Insurance number in the correct format";
-    }
-    // Send user to error page
-    res.render(
-      '/prototype-sprint-wise/ur-8/scenario-1/error-nino-number',
-      { errMsg: errMsg }
-    );
+    res.redirect('back');
+    // var errMsg = '';
+    // if (
+    //   req.session.data['nino-number-ur-8'] == '' ||
+    //   req.session.data['nino-number-ur-8'] == undefined
+    // ) {
+    //   errMsg = "Enter the customer's National Insurance number";
+    // } else {
+    //   errMsg =
+    //     "Enter the customer's National Insurance number in the correct format";
+    // }
+    // // Send user to error page
+    // res.render(
+    //   '/prototype-sprint-wise/ur-8/scenario-1/error-nino-number',
+    //   { errMsg: errMsg }
+    // );
   }
 });
 
