@@ -10468,6 +10468,11 @@ router.use('/prototype-sprint-wise/ur-5', require('./views/prototype-sprint-wise
 router.use('/prototype-dev-baseline/mvp-1_1', require('./views/prototype-dev-baseline/mvp-1_1/_routes'));
 // sprint ur-8, remember to add older sprint when adding a new folder!
 router.use('/prototype-sprint-wise/ur-8', require('./views/prototype-sprint-wise/ur-8/_routes'));
+// test, remember to add older sprint when adding a new folder!
+router.use('/prototype-sprint-wise/test', require('./views/prototype-sprint-wise/test/_routes'));
+
+
+
 
 
 module.exports = router
