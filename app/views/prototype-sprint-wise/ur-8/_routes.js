@@ -5,7 +5,7 @@ const moment = require('moment');
 const data = require('./a/data.json');
 const paymentData = require('./a/payment-data.json');
 const paymentDataDiffentUserMVP1_0 = require('./a/different-type-contact-user/payment-data.json');
-// Add your routes here - above the module.exports line
+
 
 // for MVP 1.0 (both type of users)
 router.get(
