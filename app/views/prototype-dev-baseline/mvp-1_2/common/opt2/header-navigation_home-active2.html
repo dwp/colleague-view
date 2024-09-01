@@ -1,0 +1,71 @@
+{#
+  DWP internal service header - prototype
+  Added static Menu link and associated classes for header navigation no-js scenerio
+
+  1. Menu link will require path to the no-js navigation page
+ #}
+
+<header class="govuk-header dwp-header" data-header-id="some-id-name" role="banner" data-module="govuk-header">
+  <div class=" govuk-width-container ">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <a href="/" class="govuk-header__link govuk-header__link--service-name">
+            Colleague view
+          </a>
+        </div>
+        <div class="govuk-grid-column-one-third dwp-header__container--action govuk-!-text-align-right">
+           <a href="/internal-service-header-navigation/v1/navs/no-js-navigation" class="govuk-header__link action dwp-header-navigation__action dwp-header-navigation__nojs-mobile-nav-link dwp-header-navigation-v1__nojs-mobile-nav-link">
+            Menu
+          </a>
+         <!-- <a href="#" class="govuk-header__link action">
+            Signout
+          </a> -->
+        
+          <!-- <button class="govuk-button govuk-button--inverse govuk-!-margin-bottom-0" data-module="govuk-button">
+            Complete session
+          </button> -->
+          <!-- <a href="/prototype-sprint-wise/sprint23/opt1/engagement-log-journey/confirmation-complete-session" role="button" draggable="false" class="govuk-button govuk-button--inverse govuk-completeSession-button--inverse" data-module="govuk-button">
+            Complete session
+          </a> -->
+        </div>
+      </div>
+  </div>
+</header>
+
+{# DWP Internal service header navigation - prototype
+  For any nav using tablet and mobile js nav requires:
+  1. data-module  - data attribute used to collect any navigation on the page (there should only ever be one header nav per page)
+  2. data-header - uniquly indentifies the internal services header where the menu button will be placed (there should only ever be one header per page)
+  3. dwp-header-navigation--js-nav - required css class for tablet and mobile styles - by default css not have apply mobile styling
+
+  Absense of any of these details will default the menu into a basic responsive nav without any enhancements
+#}
+
+
+<nav class="dwp-header js-nav" data-header="nav" aria-label="Primary" role="navigation">
+  <div class="govuk-width-container">
+    <ul id="dwp-navigation" class="gov-header__navigation dwp-header__navigation" aria-label="Top level navigation">
+      <li class="govuk-header__navigation-item dwp-header__navigation--item">
+        <a href="../home-page.html" class="current govuk-header__link dwp-header__link dwp-header__link-active" aria-current="page">Home</a>
+      </li>
+      <li class="govuk-header__navigation-item dwp-header__navigation--item">
+        <a href="../personal-details.html" class="govuk-header__link dwp-header__link">Personal details</a>
+      </li>
+      <li class="govuk-header__navigation-item dwp-header__navigation--item">
+        <a href="../contact-history.html" class="govuk-header__link dwp-header__link">Contact history</a>
+      </li>
+      <li class="govuk-header__navigation-item dwp-header__navigation--item">
+        <a href="../payment-and-awards.html" class="govuk-header__link dwp-header__link">Payments and awards</a>
+      </li>
+    </ul>
+    <!-- <button id="dwp-navigation-toggle" class="govuk-header__link dwp-header__navigation--toggle menu-open" aria-controls="dwp-navigation" aria-expanded="true">Menu</button> -->
+  </div>
+</nav>
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/header-navigation.js"></script>
+  <script src="/public/javascripts/header-navigation-v2.js"></script>
+{% endblock %}
+  
