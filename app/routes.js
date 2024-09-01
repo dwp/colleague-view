@@ -10470,6 +10470,9 @@ router.use('/prototype-dev-baseline/mvp-1_1', require('./views/prototype-dev-bas
 router.use('/prototype-sprint-wise/ur-8', require('./views/prototype-sprint-wise/ur-8/_routes'));
 // test, remember to add older sprint when adding a new folder!
 router.use('/prototype-sprint-wise/test', require('./views/prototype-sprint-wise/test/_routes'));
+// test, remember to add older sprint when adding a new folder!
+router.use('/prototype-dev-baseline/mvp-1_2', require('./views/prototype-dev-baseline/mvp-1_2/_routes'));
+
 
 
 
