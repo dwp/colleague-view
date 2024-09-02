@@ -17,7 +17,10 @@ router.post('/why-checking-info', function (req, res) {
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
   req.session.data['whichBenefitDiscussed'] = '';
-  // req.session.data['whichBenefitDiscussed'] = '';
+  req.session.data['what-benefit-discussed'] = '';
+  req.session.data['question-asked'] = '';
+  req.session.data['questionAsk-esa'] = '';
+  req.session.data['questionAsk-pip'] = '';
   req.session.data['esaPayment'] = '';
   req.session.data['pipPayment'] = '';
   req.session.data['caPayment'] = '';
@@ -122,15 +125,44 @@ router.post('/different-type-contact-user/home', function (req, res) {
 
 router.post('/questions-asked', function (req, res) {
   console.log('Question asked');
+  req.session.data['questionAsk'] = '';
+  req.session.data['npd_wasQuestionResolved']= '';
+  req.session.data['npa_wasQuestionResolved']= '';
+
+  req.session.data['npd_wasQuestionResolved-esa']= '';
+  req.session.data['npa_wasQuestionResolved-esa']= '';
+  req.session.data['ma_question-resolved-esa']= '';
+  req.session.data['chpa_question-resolved-esa']= '';
+  req.session.data['othQ_question-resolved-esa']= '';
+
+  req.session.data['npd_wasQuestionResolved-pip']= '';
+  req.session.data['npa_wasQuestionResolved-pip']= '';
+  req.session.data['ma_question-resolved-pip']= '';
+  req.session.data['chpa_question-resolved-pip']= '';
+  req.session.data['othQ_question-resolved-pip']= '';
+  
+  if (req.session.data['what-benefit-discussed'].length>1){
+    res.redirect('/prototype-dev-baseline/mvp-1_2/questions-asked-esa');
+  } else{
   res.redirect('/prototype-dev-baseline/mvp-1_2/questions-asked');
+  }
 });
+
 
 router.post('/is-question-resolved', function (req, res) {
   console.log('Is question resolved');
+  
+  req.session.data['npd_question-resolved']= '';
+  req.session.data['npa_question-resolved']= '';
+  req.session.data['ma_question-resolved']= '';
+  req.session.data['chpa_question-resolved']= '';
+  req.session.data['othQ_question-resolved']= '';
   res.redirect('/prototype-dev-baseline/mvp-1_2/is-question-resolved');
 });
 
 router.post('/added-call-details', function (req, res) {
+  
+  req.session.data['addNote']= '';
   res.redirect('/prototype-dev-baseline/mvp-1_2/added-call-details');
 });
  
