@@ -1,0 +1,254 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What was the call about?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-8/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Step 2 of 3</span>
+        <!-- <form action="is-question-resolved" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading govuk-heading-l">
+                  <span class="govuk-caption-l">{{ data['what-benefit-discussed'] }}</span>
+                  What was the call about?
+                </h1>
+              </legend>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nextPaymentDate" name="question-asked" type="checkbox" value="Next payment date" {{ checked ('question-asked', 'Next payment date') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
+                    Next payment date
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="nextPaymentAmount" name="question-asked" type="checkbox" value="Next payment amount" {{ checked ('question-asked', 'Next payment amount') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="nextPaymentAmount">
+                    Next payment amount
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="missingPayment" name="question-asked" type="checkbox" value="Missing payment" {{ checked ('question-asked', 'Missing payment') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="missingPayment">
+                    Missing payment
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="reasonForChange" name="question-asked" type="checkbox" value="Change in payment amount" {{ checked ('question-asked', 'Change in payment amount') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="reasonForChange">
+                    Change in payment amount
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="otherQ" name="question-asked" type="checkbox" value="Something else" {{ checked ('question-asked', 'Something else') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="otherQ">
+                    Something else
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form> -->
+
+        <h1 class="govuk-heading-l">What questions were asked about?</h1>
+        <form action="added-call-details" method="post" novalidate>
+        {% set benefits =  data['what-benefit-discussed'] %}
+        {% set benefitLength =  data['what-benefit-discussed'] | length %} 
+        {% if benefitLength >1 %}
+        <!-- for ESA -->
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading govuk-heading-m">
+                Employment and Support Allowance
+              </h2>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="nextPaymentDate" name="questionAsk-esa" type="checkbox" value="Next payment date" {{ checked ('questionAsk-esa', 'Next payment date') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
+                  Next payment date
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="nextPaymentAmount" name="questionAsk-esa" type="checkbox" value="Next payment amount" {{ checked ('questionAsk-esa', 'Next payment amount') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="nextPaymentAmount">
+                  Next payment amount
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="missingPayment" name="questionAsk-esa" type="checkbox" value="Missing payment" {{ checked ('questionAsk-esa', 'Missing payment') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="missingPayment">
+                  Missing payment
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="reasonForChange" name="questionAsk-esa" type="checkbox" value="Change in payment amount" {{ checked ('questionAsk-esa', 'Change in payment amount') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="reasonForChange">
+                  Change in payment amount
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="otherQ" name="questionAsk-esa" type="checkbox" value="Other questions" {{ checked ('questionAsk-esa', 'Other questions') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="otherQ">
+                  Something else
+                </label>
+              </div>
+              <!-- <div class="govuk-checkboxes__divider">or</div> -->
+              <!-- <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="somethingElse" name="questionAsk-esa" type="checkbox" value="Something else" data-behaviour="exclusive" {{ checked ('questionAsk-esa_esa', 'Something else') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+                  Something else
+                </label>
+              </div> -->
+            </div>
+          </fieldset>
+        </div>
+        <!-- for PIP -->
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading govuk-heading-m">
+                Personal Independence Payment
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="nextPaymentDate" name="questionAsk-pip" type="checkbox" value="Next payment date" {{ checked ('questionAsk-pip', 'Next payment date') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
+                  Next payment date
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="nextPaymentAmount" name="questionAsk-pip" type="checkbox" value="Next payment amount" {{ checked ('questionAsk-pip', 'Next payment amount') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="nextPaymentAmount">
+                  Next payment amount
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="missingPayment" name="questionAsk-pip" type="checkbox" value="Missing payment" {{ checked ('questionAsk-pip', 'Missing payment') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="missingPayment">
+                  Missing payment
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="reasonForChange" name="questionAsk-pip" type="checkbox" value="Change in payment amount" {{ checked ('questionAsk-pip', 'Change in payment amount') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="reasonForChange">
+                  Change in payment amount
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="otherQ" name="questionAsk-pip" type="checkbox" value="Other questions" {{ checked ('questionAsk-pip', 'Other questions') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="otherQ">
+                  Something else
+                </label>
+              </div>
+              <!-- <div class="govuk-checkboxes__divider">or</div> -->
+              <!-- <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="somethingElse" name="questionAsk-pip" type="checkbox" value="Something else" data-behaviour="exclusive" {{ checked ('questionAsk-pip_esa', 'Something else') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+                  Something else
+                </label>
+              </div> -->
+            </div>
+          </fieldset>
+        </div>
+        {% else %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading govuk-heading-m">
+                <!-- <span class="govuk-caption-l">{{ data['what-benefit-discussed'] }}</span> -->
+                {{ data['what-benefit-discussed'] }}
+              </h2>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="nextPaymentDate" name="question-asked" type="checkbox" value="Next payment date" {{ checked ('question-asked', 'Next payment date') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="nextPaymentDate">
+                  Next payment date
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="nextPaymentAmount" name="question-asked" type="checkbox" value="Next payment amount" {{ checked ('question-asked', 'Next payment amount') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="nextPaymentAmount">
+                  Next payment amount
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="missingPayment" name="question-asked" type="checkbox" value="Missing payment" {{ checked ('question-asked', 'Missing payment') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="missingPayment">
+                  Missing payment
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="reasonForChange" name="question-asked" type="checkbox" value="Change in payment amount" {{ checked ('question-asked', 'Change in payment amount') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="reasonForChange">
+                  Change in payment amount
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="otherQ" name="question-asked" type="checkbox" value="Something else" {{ checked ('question-asked', 'Something else') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="otherQ">
+                  Something else
+                </label>
+              </div>
+              <!-- <div class="govuk-checkboxes__divider">or</div> -->
+              <!-- <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="somethingElse" name="question-asked" type="checkbox" value="Something else" data-behaviour="exclusive" {{ checked ('question-asked_esa', 'Something else') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+                  Something else
+                </label>
+              </div> -->
+            </div>
+          </fieldset>
+        </div>
+        {%endif%}
+
+        <div class="govuk-form-group govuk-character-count govuk-!-margin-top-6" data-module="govuk-character-count" data-maxlength="5000">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="with-hint">
+              Add a note (Optional)
+            </label>
+          </h2>
+          <p class="govuk-body">Add a note to give details of:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>what the call was about if you have not logged it already</li>
+            <li>who the call was with if it was not with the claimant or a known representative</li>
+          </ul>
+          <!-- <div id="with-hint-hint" class="govuk-hint">
+            You will be able to change this information later.
+          </div> -->
+          <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+          <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+            You have 5000 characters remaining
+          </div>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </form>
+      </div>
+    </div>
+
+{% endblock %}
