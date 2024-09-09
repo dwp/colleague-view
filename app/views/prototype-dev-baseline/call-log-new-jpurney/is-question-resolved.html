@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What information were you able to give?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-8/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          <span class="govuk-caption-l">{{ data['what-benefit-discussed'] }}</span>
+          What information were you able to give?
+        </h1>
+        <div class="govuk-inset-text">
+          Your answers will only to used to help other agents work on future contact with the claimant or their representative. You can add more details in the notes if needed. 
+        </div>
+        <!-- <form action="bhavin" method="post" novalidate> -->
+          {% set questionAsk = data['question-asked'] %}
+        <form action="added-call-details" method="post" novalidate>
+          {%for questions in questionAsk %}
+            {%if questions == 'Next payment date' %}
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Were you able to confirm the  <span class="govuk-!-font-weight-bold">next payment date</span>?
+                  </h2>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="npd_resolved" name="npd_question-resolved" type="radio" value="Resolved" {{ checked ('npd_question-resolved', 'Resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="npd_resolved">
+                      Yes <span class="govuk-visually-hidden">the next payment date question was resolved</span>
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="npd_Not-resolved" name="npd_question-resolved" type="radio" value="Not resolved" {{ checked ('npd_question-resolved', 'Not resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="npd_Not-resolved">
+                      No <span class="govuk-visually-hidden">the next payment date question was not resolved</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            {%elif questions == 'Next payment amount' %}
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Were you able to confirm <span class="govuk-!-font-weight-bold">next payment amount</span>?
+                  </h2>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="npa_resolved" name="npa_question-resolved" type="radio" value="Resolved" {{ checked ('npa_question-resolved', 'Resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="npa_resolved">
+                      Yes <span class="govuk-visually-hidden">the next payment amount question was resolved</span>
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="npa_Not-resolved" name="npa_question-resolved" type="radio" value="Not resolved" {{ checked ('npa_question-resolved', 'Not resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="npa_Not-resolved">
+                      No <span class="govuk-visually-hidden">the next payment amount question was not resolved</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            {%elif questions == 'Missing payment' %}
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Were you able to give information about the <span class="govuk-!-font-weight-bold">missing payment</span>?
+                  </h2>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="ma_resolved" name="ma_question-resolved" type="radio" value="Resolved" {{ checked ('ma_question-resolved', 'Resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="ma_resolved">
+                      Yes <span class="govuk-visually-hidden">the missing payment question was resolved</span>
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="ma_Not-resolved" name="ma_question-resolved" type="radio" value="Not resolved" {{ checked ('ma_question-resolved', 'Not resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="ma_Not-resolved">
+                      No <span class="govuk-visually-hidden">the missing payment question was not resolved</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            {%elif questions == 'Change in payment amount' %}
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Were you able to give information about the <span class="govuk-!-font-weight-bold">change in payment amount</span>?
+                  </h2>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="chpa_resolved" name="chpa_question-resolved" type="radio" value="Resolved" {{ checked ('chpa_question-resolved', 'Resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="chpa_resolved">
+                      Yes  <span class="govuk-visually-hidden">change in payment amount question was resolved</span>
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="chpa_Not-resolved" name="chpa_question-resolved" type="radio" value="Not resolved" {{ checked ('chpa_question-resolved', 'Not resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="chpa_Not-resolved">
+                      No  <span class="govuk-visually-hidden">change in payment amount question was not resolved</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            {%else%}
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend">
+                  <h2 class="govuk-fieldset__heading">
+                    Were you able to resolve all issues or questions about <span class="govuk-!-font-weight-bold">something else</span>?
+                  </h2>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="othQ_resolved" name="othQ_question-resolved" type="radio" value="Resolved" {{ checked ('othQ_question-resolved', 'Resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="othQ_resolved">
+                      Yes  <span class="govuk-visually-hidden">ther questions was resolved</span>
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="othQ_Not-resolved" name="othQ_question-resolved" type="radio" value="Not resolved" {{ checked ('othQ_question-resolved', 'Not resolved') }}>
+                    <label class="govuk-label govuk-radios__label" for="othQ_Not-resolved">
+                      No  <span class="govuk-visually-hidden">other question was not resolved</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            {%endif%}
+          {%endfor%}
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}
+
+
