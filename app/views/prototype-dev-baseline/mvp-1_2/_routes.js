@@ -205,9 +205,14 @@ router.post('/different-type-contact-user/home', function (req, res) {
 
 
 router.post('/add-call/what-benefits-discussed', function (req, res) {
-  req.session.data['what-benefit-discussed'] = '';
-
-  res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed');
+  if (req.session.data['what-benefit-discussed'] != '') {
+    console.log('Display summary page');
+    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-add-more-details');
+  }
+  else{
+    req.session.data['what-benefit-discussed'] = '';
+    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed');
+  }
 });
 
 router.post('/add-call/questions-asked', function (req, res) {
@@ -231,14 +236,30 @@ router.post('/add-call/questions-asked', function (req, res) {
   req.session.data['ma_question-resolved-pip']= '';
   req.session.data['chpa_question-resolved-pip']= '';
   req.session.data['othQ_question-resolved-pip']= '';
-  
-  // if (req.session.data['what-benefit-discussed'].length>1){
-  //   res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/questions-asked-esa');
-  // } else{
-  // res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/questions-asked');
-  // }
 
+  if (req.session.data['what-benefit-discussed'] == '')
+ {
+  console.log('Error page');
+  res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed-error');
+ } else {
   res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/questions-asked');
+ }
+})
+
+router.post('/add-call/questions-answered', function (req, res) {
+
+//  if (
+//   req.session.data['question-asked'] == '' || 
+//   req.session.data['questionAsk-esa'] == '' || 
+//   req.session.data['questionAsk-pip'] == ''
+// )
+//  {
+//   console.log('Error page');
+//   res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/questions-asked-error');
+//  } else {
+//   res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/questions-answered');
+//  }
+res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/questions-answered');
 });
 
 
@@ -274,8 +295,18 @@ router.post('/add-call/you-have-added-details', function (req, res) {
     res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/added-details')
 });
 
-router.post('/add-call/do-you-want-to-complete-call', function (req, res) {
-  res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/check-call-completion')
+// router.post('/add-call/do-you-want-to-complete-call', function (req, res) {
+//   res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/check-call-completion')
+// });
+
+router.post('/add-call/add-more-call-details', function (req, res) {
+  var addCallDetails = req.session.data['do-you-want-to-add-more-detail'];
+  if (addCallDetails == 'Yes, I want to add'){
+    req.session.data['what-benefit-discussed'] = '';
+    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed')
+  } else{
+    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed')
+  }
 });
 
 router.post('/add-call/complete-call', function (req, res) {
@@ -284,9 +315,19 @@ router.post('/add-call/complete-call', function (req, res) {
     console.log('Comlete phone call');
     res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed')
   } else{
-    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed')
+    res.redirect('/prototype-dev-baseline/mvp-1_2/home')
   }
 
+});
+
+router.post('/add-call/do-you-want-to-complete-call', function (req, res) {
+  if (req.session.data['what-benefit-discussed'] != '') {
+    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-add-more-details');
+  }
+  else{
+    req.session.data['what-benefit-discussed'] = '';
+    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/no-contact-added');
+  }
 });
 
 
