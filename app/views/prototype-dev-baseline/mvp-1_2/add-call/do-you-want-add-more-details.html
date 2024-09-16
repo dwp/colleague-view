@@ -15,7 +15,7 @@
 
 {% block beforeContent %}
   {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
-  <!-- <a class="govuk-back-link" href="javascript:window.history.back()">Back</a> -->
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -79,6 +79,9 @@
                     {% endfor %}
                   </ul>
                 </dd>
+                <dd class="govuk-summary-list__actions govuk-visually-hidden">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -90,7 +93,9 @@
                     <li>{{ benefit }}</li>
                     {% endfor %}
                   </ul>
-
+                </dd>
+                <dd class="govuk-summary-list__actions govuk-visually-hidden">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -99,6 +104,9 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{ data['addNote'] or "Not provided" }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
             </dl>
@@ -131,6 +139,9 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{ data['addNote'] or "Not provided" }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
             </dl>

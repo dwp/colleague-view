@@ -60,6 +60,9 @@
                     {% endfor %}
                   </ul>
                 </dd>
+                <dd class="govuk-summary-list__actions govuk-visually-hidden">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -71,7 +74,9 @@
                     <li>{{ benefit }}</li>
                     {% endfor %}
                   </ul>
-
+                </dd>
+                <dd class="govuk-summary-list__actions govuk-visually-hidden">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -82,7 +87,7 @@
                   {{ data['addNote'] or "Not provided" }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
             </dl>
@@ -115,6 +120,9 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{ data['addNote'] or "Not provided" }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
             </dl>
