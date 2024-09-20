@@ -333,7 +333,7 @@ router.post('/non-telephony/add-contact/complete-contact', function (req, res) {
   var checkCallCompletion = req.session.data['Do-you-want-to-complete-the-contact'];
   if (checkCallCompletion == 'Complete phone contact'){
     console.log('Comlete phone call');
-    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/call-completed')
+    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
   } else{
     res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/home')
   }
