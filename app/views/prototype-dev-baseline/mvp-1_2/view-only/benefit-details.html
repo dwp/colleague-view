@@ -1,0 +1,524 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Benefit payments
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/view-only/keydetail-bar" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/phase-banner.html" %}
+  <a href="benefit-payment.html" class="govuk-back-link">Back</a>
+  <!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Benefit payments</a>
+      </li>
+    </ol>
+  </div> -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Benefit details</h1>
+      </div>
+      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+        <form action="add-call/what-benefits-discussed" method="post">
+          <button class="govuk-button {{hideAddNote}}" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Add or view call details
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <!-- MOJ Side Navigation -->
+    <!-- <nav class="moj-side-navigation" aria-label="Side navigation">
+      <ul class="moj-side-navigation__list">
+        <li class="moj-side-navigation__item moj-side-navigation__item--active" onclick="showPIP()" id="pip-nav">
+          <a href="#pip" aria-current="location">Personal Independence Payment</a>
+        </li>
+        <li class="moj-side-navigation__item" onclick="showESA()" id="esa-nav">
+          <a href="#esa">Employment and Support Allowance</a>
+        </li>
+        <li class="moj-side-navigation__item" onclick="showDLA()" id="dla-nav">
+          <a href="#dla">Disability Living Allowance</a>
+        </li>
+      </ul>
+    </nav> -->
+  
+    <!-- DWWP Side navigation -->
+    <!-- <button class="dwp-side-navigation__button" data-module="dwp-side-navigation"
+      data-target="dwp-side-navigation-panel"
+      data-label-hide="Hide navigation"
+      data-label-show="Show navigation"
+      aria-expanded="false">
+      <span class="dwp-side-navigation__section-toggle-focus">
+      <span class="dwp-side-navigation__chevron dwp-side-navigation__chevron--down"></span>
+      <span class="dwp-side-navigation__section-toggle-text">Show navigation</span>
+      </span>
+    </button>
+    <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
+      <ul class="dwp-side-navigation__list">
+        <li class="dwp-side-navigation__item">
+          <a id="d-item-1" href="#d-item-1" class="dwp-side-navigation__link">
+            Personal Independence Payment
+          </a>
+        </li>
+        <li class="dwp-side-navigation__item">
+          <a id="d-item-2" href="#d-item-2" class="dwp-side-navigation__link">
+            Employment and Support Allowance
+          </a>
+        </li>
+        <li class="dwp-side-navigation__item">
+          <a id="d-item-3" href="#d-item-3" class="dwp-side-navigation__link">
+            Disability Living Allowance
+          </a>
+        </li>
+      </ul>
+    </nav> -->
+
+    <!-- nunjuck code -->
+
+{% from "side-navigation/macro.njk" import dwpSideNavigation %}
+
+{{ 
+    dwpSideNavigation({
+        pageId: "side-navigation-1",
+        selectedItem: "benefit-details?benefit=" + data.benefit,
+        items: [
+            {
+              text: "Personal Independence Payment",
+              href: "benefit-details?benefit=pip",
+              id: "Personal-Independence-Payment"
+            },
+            {
+              text: "Employment and Support Allowance",
+              href: "benefit-details?benefit=esa",
+              id: "Employment-and-Support-Allowance"
+            },
+            {
+              text: "Disability Living Allowance",
+              href: "benefit-details?benefit=dla",
+              id: "Disability-Living-Allowance"
+            }
+        ]
+    })
+}}
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    {% if data.benefit == "pip" %}
+    <!-- PIP details -->
+    <section class="" id="pip-details">
+      <h2 class="govuk-heading-l">
+        Personal Independence Payment
+      </h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            08 November 2020
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            End date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            02 December 2023
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Benefit type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Standard benefit
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Amount before deductions
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £559
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Payment frequency
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Monthly
+          </dd>
+        </div>
+      </dl>
+      <!-- componets included -->
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Components</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Component</th>
+            <th scope="col" class="govuk-table__header">Rate</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+            <th scope="col" class="govuk-table__header">Start date</th>
+            <th scope="col" class="govuk-table__header">End date</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Daily living</td>
+            <td class="govuk-table__cell">Standard</td>
+            <td class="govuk-table__cell">£329.20</td>
+            <td class="govuk-table__cell">08 November 2020</td>
+            <td class="govuk-table__cell">02 December 2023</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mobility</td>
+            <td class="govuk-table__cell">Enhanced</td>
+            <td class="govuk-table__cell">£229.80</td>
+            <td class="govuk-table__cell">08 November 2020</td>
+            <td class="govuk-table__cell">02 December 2023</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- deductions -->
+      <!-- <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Deductions</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Type of deduction</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+            <th scope="col" class="govuk-table__header">Start date</th>
+            <th scope="col" class="govuk-table__header">End date</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">ESA (Income Related)</td>
+            <td class="govuk-table__cell">£40.00</td>
+            <td class="govuk-table__cell">11 May 2023</td>
+            <td class="govuk-table__cell">10 May 2024</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Child Benefit</td>
+            <td class="govuk-table__cell">£40.00</td>
+            <td class="govuk-table__cell">15 July 2023</td>
+            <td class="govuk-table__cell">08 December 2024</td>
+          </tr>
+            <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total deductions</th>
+            <td class="govuk-table__cell" colspan="3">£80.00</td>
+          </tr>
+        </tbody>
+      </table> -->
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          Deductions are not available because we do not have this information.
+        </strong>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if data.benefit == "esa" %}
+    <!-- ESA details -->
+    <section class="" id="esa-details">
+      <h2 class="govuk-heading-l">
+        Employment and Support Allowance
+      </h2>
+      <dl class="govuk-summary-list">
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Benefit
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Employment and Support Allowance
+          </dd>
+        </div> -->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            11 May 2023
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            End date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            10 May 2024
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Benefit type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            ESA IR
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Amount before deductions
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £193.10
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Payment frequency
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Every 2 weeks
+          </dd>
+        </div>
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last payment date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            17 July 2023
+          </dd>
+        </div> -->
+      </dl>
+      <!-- componets included -->
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Components</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Component</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+            <th scope="col" class="govuk-table__header">Start date</th>
+            <th scope="col" class="govuk-table__header">End date</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Personal allowance</td>
+            <td class="govuk-table__cell">£154</td>
+            <td class="govuk-table__cell">11 May 2023</td>
+            <td class="govuk-table__cell">10 May 2024</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Client group premium</td>
+            <td class="govuk-table__cell">£39.10</td>
+            <td class="govuk-table__cell">11 May 2023</td>
+            <td class="govuk-table__cell">10 May 2024</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- deductions -->
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Deductions</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Type of deduction</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+            <th scope="col" class="govuk-table__header">Start date</th>
+            <th scope="col" class="govuk-table__header">End date</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Water/General Rates</td>
+            <td class="govuk-table__cell">£8.97</td>
+            <td class="govuk-table__cell">09 June 2023</td>
+            <td class="govuk-table__cell">No end date</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total deductions</th>
+            <td class="govuk-table__cell" colspan="3">£8.97</td>
+            <!-- <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td> -->
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+
+    {% if data.benefit == "dla" %}
+    <!-- DLA details -->
+    <section class="" id="dla-details">
+      <h2 class="govuk-heading-l">
+        Disability Living Allowance
+      </h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            08 November 2020
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            End date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            02 December 2023
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Benefit type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Others
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Amount before deductions
+          </dt>
+          <dd class="govuk-summary-list__value">
+            £559
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Payment frequency
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Every 4 week
+          </dd>
+        </div>
+      </dl>
+      <!-- componets included -->
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Components</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Component</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+            <th scope="col" class="govuk-table__header">Rate</th><th scope="col" class="govuk-table__header">Start date</th>
+            <th scope="col" class="govuk-table__header">End date</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Daily living</td>
+            <td class="govuk-table__cell">£329.20</td>
+            <td class="govuk-table__cell">Standard</td><td class="govuk-table__cell">08 November 2020</td>
+            <td class="govuk-table__cell">02 December 2023</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Mobility</td>
+            <td class="govuk-table__cell">£229.80</td>
+            <td class="govuk-table__cell">Enhanced</td><td class="govuk-table__cell">08 November 2020</td>
+            <td class="govuk-table__cell">02 December 2023</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- deductions -->
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Deductions</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Type of deduction</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+            <th scope="col" class="govuk-table__header">Start date</th>
+            <th scope="col" class="govuk-table__header">End date</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">ESA (Income Related)</td>
+            <td class="govuk-table__cell">£40</td>
+            <td class="govuk-table__cell">11 May 2023</td>
+            <td class="govuk-table__cell">10 May 2024</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Child Benefit</td>
+            <td class="govuk-table__cell">£40</td>
+            <td class="govuk-table__cell">15 July 2023</td>
+            <td class="govuk-table__cell">08 December 2024</td>
+          </tr>
+            <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total deductions</th>
+            <td class="govuk-table__cell" colspan="3">£80.00</td>
+            <!-- <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"></td> -->
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+  </div>
+</div>
+
+<!-- <script type="text/javascript">
+  function showPIP() {
+    var pip = document.getElementById('pip-details');
+    var esa = document.getElementById('esa-details');
+    var dla = document.getElementById('dla-details');
+    var pipNavigation = document.getElementById('pip-nav');
+    var esaNavigation = document.getElementById('esa-nav');
+    var dlaNavigation = document.getElementById('dla-nav');
+
+    pip.classList.remove("govuk-visually-hidden");
+    esa.classList.add("govuk-visually-hidden");
+    dla.classList.add("govuk-visually-hidden");
+    pipNavigation.classList.add("moj-side-navigation__item--active");
+    esaNavigation.classList.remove("moj-side-navigation__item--active");
+    dlaNavigation.classList.remove("moj-side-navigation__item--active");
+  }
+
+  function showESA() {
+    var pip = document.getElementById('pip-details');
+    var esa = document.getElementById('esa-details');
+    var dla = document.getElementById('dla-details');
+    var pipNavigation = document.getElementById('pip-nav');
+    var esaNavigation = document.getElementById('esa-nav');
+    var dlaNavigation = document.getElementById('dla-nav');
+
+    pip.classList.add("govuk-visually-hidden");
+    esa.classList.remove("govuk-visually-hidden");
+    dla.classList.add("govuk-visually-hidden");
+    pipNavigation.classList.remove("moj-side-navigation__item--active");
+    esaNavigation.classList.add("moj-side-navigation__item--active");
+    dlaNavigation.classList.remove("moj-side-navigation__item--active");
+  }
+
+  function showDLA() {
+    var pip = document.getElementById('pip-details');
+    var esa = document.getElementById('esa-details');
+    var dla = document.getElementById('dla-details');
+    var pipNavigation = document.getElementById('pip-nav');
+    var esaNavigation = document.getElementById('esa-nav');
+    var dlaNavigation = document.getElementById('dla-nav');
+
+    pip.classList.add("govuk-visually-hidden");
+    esa.classList.add("govuk-visually-hidden");
+    dla.classList.remove("govuk-visually-hidden");
+    pipNavigation.classList.remove("moj-side-navigation__item--active");
+    esaNavigation.classList.remove("moj-side-navigation__item--active");
+    dlaNavigation.classList.add("moj-side-navigation__item--active");
+
+  }
+
+  </script> -->
+
+{% endblock %}
