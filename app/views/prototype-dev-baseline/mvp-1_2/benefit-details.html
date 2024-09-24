@@ -32,72 +32,24 @@ Benefit payments
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
-        <h1 class="govuk-heading-xl">Benefit details</h1>
-      </div>
-      <div class="govuk-grid-column-one-half govuk-!-text-align-right">
-        <form action="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed" method="post">
-          <div class="govuk-button-group govuk-!-display-block">
-            <button type="submit" class="govuk-button" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed">
-              Add or view call details
-            </button>
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-to-complete-call">
-              Complete phone call
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+  <div class="govuk-grid-column-one-half">
+    <h1 class="govuk-heading-xl">Benefit details</h1>
   </div>
+  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+    <form action="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed" method="post">
+      <div class="govuk-button-group govuk-!-display-block">
+        <button type="submit" class="govuk-button" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed">
+          Add or view call details
+        </button>
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-to-complete-call">
+          Complete phone call
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
-    <!-- MOJ Side Navigation -->
-    <!-- <nav class="moj-side-navigation" aria-label="Side navigation">
-      <ul class="moj-side-navigation__list">
-        <li class="moj-side-navigation__item moj-side-navigation__item--active" onclick="showPIP()" id="pip-nav">
-          <a href="#pip" aria-current="location">Personal Independence Payment</a>
-        </li>
-        <li class="moj-side-navigation__item" onclick="showESA()" id="esa-nav">
-          <a href="#esa">Employment and Support Allowance</a>
-        </li>
-        <li class="moj-side-navigation__item" onclick="showDLA()" id="dla-nav">
-          <a href="#dla">Disability Living Allowance</a>
-        </li>
-      </ul>
-    </nav> -->
-  
-    <!-- DWWP Side navigation -->
-    <!-- <button class="dwp-side-navigation__button" data-module="dwp-side-navigation"
-      data-target="dwp-side-navigation-panel"
-      data-label-hide="Hide navigation"
-      data-label-show="Show navigation"
-      aria-expanded="false">
-      <span class="dwp-side-navigation__section-toggle-focus">
-      <span class="dwp-side-navigation__chevron dwp-side-navigation__chevron--down"></span>
-      <span class="dwp-side-navigation__section-toggle-text">Show navigation</span>
-      </span>
-    </button>
-    <nav data-module="dwp-side-navigation-panel" class="dwp-side-navigation dwp-side-navigation--mobile" aria-label="Side" role="navigation">
-      <ul class="dwp-side-navigation__list">
-        <li class="dwp-side-navigation__item">
-          <a id="d-item-1" href="#d-item-1" class="dwp-side-navigation__link">
-            Personal Independence Payment
-          </a>
-        </li>
-        <li class="dwp-side-navigation__item">
-          <a id="d-item-2" href="#d-item-2" class="dwp-side-navigation__link">
-            Employment and Support Allowance
-          </a>
-        </li>
-        <li class="dwp-side-navigation__item">
-          <a id="d-item-3" href="#d-item-3" class="dwp-side-navigation__link">
-            Disability Living Allowance
-          </a>
-        </li>
-      </ul>
-    </nav> -->
-
     <!-- nunjuck code -->
 
 {% from "side-navigation/macro.njk" import dwpSideNavigation %}
@@ -129,7 +81,7 @@ Benefit payments
   <div class="govuk-grid-column-two-thirds">
     {% if data.benefit == "pip" %}
     <!-- PIP details -->
-    <section class="" id="pip-details">
+    <section class="govuk-!-padding-top-2" id="pip-details">
       <h2 class="govuk-heading-l">
         Personal Independence Payment
       </h2>
@@ -246,7 +198,7 @@ Benefit payments
 
     {% if data.benefit == "esa" %}
     <!-- ESA details -->
-    <section class="" id="esa-details">
+    <section class="govuk-!-padding-top-2" id="esa-details">
       <h2 class="govuk-heading-l">
         Employment and Support Allowance
       </h2>
@@ -365,7 +317,7 @@ Benefit payments
 
     {% if data.benefit == "dla" %}
     <!-- DLA details -->
-    <section class="" id="dla-details">
+    <section class="govuk-!-padding-top-2" id="dla-details">
       <h2 class="govuk-heading-l">
         Disability Living Allowance
       </h2>
@@ -473,57 +425,5 @@ Benefit payments
     {% endif %}
   </div>
 </div>
-
-<!-- <script type="text/javascript">
-  function showPIP() {
-    var pip = document.getElementById('pip-details');
-    var esa = document.getElementById('esa-details');
-    var dla = document.getElementById('dla-details');
-    var pipNavigation = document.getElementById('pip-nav');
-    var esaNavigation = document.getElementById('esa-nav');
-    var dlaNavigation = document.getElementById('dla-nav');
-
-    pip.classList.remove("govuk-visually-hidden");
-    esa.classList.add("govuk-visually-hidden");
-    dla.classList.add("govuk-visually-hidden");
-    pipNavigation.classList.add("moj-side-navigation__item--active");
-    esaNavigation.classList.remove("moj-side-navigation__item--active");
-    dlaNavigation.classList.remove("moj-side-navigation__item--active");
-  }
-
-  function showESA() {
-    var pip = document.getElementById('pip-details');
-    var esa = document.getElementById('esa-details');
-    var dla = document.getElementById('dla-details');
-    var pipNavigation = document.getElementById('pip-nav');
-    var esaNavigation = document.getElementById('esa-nav');
-    var dlaNavigation = document.getElementById('dla-nav');
-
-    pip.classList.add("govuk-visually-hidden");
-    esa.classList.remove("govuk-visually-hidden");
-    dla.classList.add("govuk-visually-hidden");
-    pipNavigation.classList.remove("moj-side-navigation__item--active");
-    esaNavigation.classList.add("moj-side-navigation__item--active");
-    dlaNavigation.classList.remove("moj-side-navigation__item--active");
-  }
-
-  function showDLA() {
-    var pip = document.getElementById('pip-details');
-    var esa = document.getElementById('esa-details');
-    var dla = document.getElementById('dla-details');
-    var pipNavigation = document.getElementById('pip-nav');
-    var esaNavigation = document.getElementById('esa-nav');
-    var dlaNavigation = document.getElementById('dla-nav');
-
-    pip.classList.add("govuk-visually-hidden");
-    esa.classList.add("govuk-visually-hidden");
-    dla.classList.remove("govuk-visually-hidden");
-    pipNavigation.classList.remove("moj-side-navigation__item--active");
-    esaNavigation.classList.remove("moj-side-navigation__item--active");
-    dlaNavigation.classList.add("moj-side-navigation__item--active");
-
-  }
-
-  </script> -->
 
 {% endblock %}

@@ -31,8 +31,19 @@ Contact history
 
 {% block content %}
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h1 class="govuk-heading-xl" id="ch">Contact history</h1>
+  </div>
+  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+    <form action="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again" method="post">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Start service again
+        </button>
+    </form>
+  </div>
+</div>
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-xl" id ="ch">Contact history</h1>
     <div class="govuk-tabs" data-module="govuk-tabs">
       <h2 class="govuk-tabs__title">
         Contents

@@ -23,8 +23,8 @@
   <div class="govuk-grid-column-two-thirds">
     <span class="govuk-caption-l">Step 3 of 3</span>
     <h1 class="govuk-heading-l">Check the details you have added</h1>
-    {% set benefits =  data['what-benefit-discussed'] %}
-    {% set benefitLength =  data['what-benefit-discussed'] | length %}
+    {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
+    {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %}
     
     {% if benefitLength >1 %}
     <!-- CA Summary card -->
@@ -247,7 +247,7 @@
               </th>
               <td class="govuk-summary-list__value">
                 <ul class="govuk-list govuk-list--bullet">
-                  {% for benefit in data['what-benefit-discussed'] %}
+                  {% for benefit in data['what-benefit-discussed-non-telephony'] %}
                   <li>{{ benefit }}</li>
                   {% endfor %}
                 </ul>
