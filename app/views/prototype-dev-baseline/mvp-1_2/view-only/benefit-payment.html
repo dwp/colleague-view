@@ -32,11 +32,17 @@ Benefit payments
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-one-half">
     <h1 class="govuk-heading-xl">Benefit payments</h1>
   </div>
+  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+    <form action="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again" method="post">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Start service again
+        </button>
+    </form>
+  </div>
 </div>
-  
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h2 class="govuk-heading-m">Next payments</h2>

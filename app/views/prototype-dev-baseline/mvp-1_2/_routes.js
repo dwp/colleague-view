@@ -18,6 +18,7 @@ router.post('/why-checking-info', function (req, res) {
   req.session.data['Do-you-want-to-complete-the-session'] = '';
   req.session.data['whichBenefitDiscussed'] = '';
   req.session.data['what-benefit-discussed'] = '';
+  req.session.data['what-benefit-discussed-non-telephony'] = '';
   req.session.data['question-asked'] = '';
   req.session.data['questionAsk-esa'] = '';
   req.session.data['questionAsk-pip'] = '';
@@ -243,12 +244,12 @@ router.post('/add-call/do-you-want-to-complete-call', function (req, res) {
 // new routes for shorten call log - Non-Telephony
 
 router.post('/non-telephony/add-contact/what-benefits-discussed', function (req, res) {
-  if (req.session.data['what-benefit-discussed'] != '') {
-    console.log('Display summary page');
+  if (req.session.data['what-benefit-discussed-non-telephony'] != '') {
+    // console.log('Display summary page');
     res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/do-you-want-add-more-details');
   }
   else{
-    req.session.data['what-benefit-discussed'] = '';
+    req.session.data['what-benefit-discussed-non-telephony'] = '';
     res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed');
   }
 });
@@ -275,7 +276,7 @@ router.post('/non-telephony/add-contact/questions-asked', function (req, res) {
   req.session.data['chpa_question-resolved-pip']= '';
   req.session.data['othQ_question-resolved-pip']= '';
 
-  if (req.session.data['what-benefit-discussed'] == '')
+  if (req.session.data['what-benefit-discussed-non-telephony'] == '')
  {
   console.log('Error page');
   res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed-error');
@@ -322,7 +323,7 @@ router.post('/non-telephony/add-contact/check-before-start-sercive-again', funct
 router.post('/non-telephony/add-contact/contact-details-added', function (req, res) {
   var addContactDetails = req.session.data['add-contact-Details'];
   if (addContactDetails == 'Yes'){
-    req.session.data['what-benefit-discussed'] = '';
+    req.session.data['what-benefit-discussed-non-telephony'] = '';
     res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed')
   } else{
     res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
@@ -340,18 +341,24 @@ router.post('/non-telephony/add-contact/complete-contact', function (req, res) {
 
 });
 
-router.post('/add-contact/add-more-call-details', function (req, res) {
+router.post('/non-telephony/add-contact/add-more-contact-details', function (req, res) {
   var addCallDetails = req.session.data['do-you-want-to-add-more-detail'];
   if (addCallDetails == 'Yes, I want to add'){
-    req.session.data['what-benefit-discussed'] = '';
-    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed')
+    console.log('Add more benefits');
+    // req.session.data['what-benefit-discussed-non-telephony'] = '';
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed')
+  }
+  if (addCallDetails == 'Complete phone call'){
+    console.log('Complete call');
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/call-completed')
   }
   if (addCallDetails == 'Change your note'){
     console.log('Change notes');
     // res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed')
   }
-  if (addCallDetails == 'Complete phone call'){
-    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/call-completed')
+  if (addCallDetails == 'Add a note'){
+    console.log('Add a note');
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed')
   }
 });
 module.exports = router;

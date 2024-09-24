@@ -39,8 +39,8 @@ What was the call about?
 
         <h1 class="govuk-heading-l">What was the call about?</h1>
         <form action="questions-answered" method="post" novalidate>
-        {% set benefits =  data['what-benefit-discussed'] %}
-        {% set benefitLength =  data['what-benefit-discussed'] | length %} 
+        {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
+        {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %} 
         {% if benefitLength >1 %}
         <!-- for ESA -->
         <div class="govuk-form-group govuk-form-group--error">
@@ -138,7 +138,7 @@ What was the call about?
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading govuk-heading-m">
                 <!-- <span class="govuk-caption-l">{{ data['what-benefit-discussed'] }}</span> -->
-                {{ data['what-benefit-discussed'] }}
+                {{ data['what-benefit-discussed-non-telephony'] }}
               </h2>
             </legend>
             <p id="passport-issued-error" class="govuk-error-message">

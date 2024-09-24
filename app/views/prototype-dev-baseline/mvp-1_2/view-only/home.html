@@ -27,43 +27,53 @@ Home
 {% endblock %}
 
 {% block content %}
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h1 class="govuk-heading-xl">Home</h1>
+  </div>
+  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+    <form action="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again" method="post">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Start service again
+        </button>
+    </form>
+  </div>
+</div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-xl">Home</h1>
-        <!-- to be card styel -->
-        <ul class="govuk-grid-row nhsuk-card-group">
-          <li class="govuk-grid-column-one-third nhsuk-card-group__item">
-            <div class="nhsuk-card nhsuk-card--clickable">
-              <div class="nhsuk-card__content">
-                <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                  <a class="nhsuk-card__link govuk-link" href="personal-details.html">Personal details</a>
-                </h2>
-                <p class="nhsuk-card__description">View personal details, including contact numbers and addresses.</p>
-              </div>
+      <!-- to be card styel -->
+      <ul class="govuk-grid-row nhsuk-card-group">
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="personal-details.html">Personal details</a>
+              </h2>
+              <p class="nhsuk-card__description">View personal details, including contact numbers and addresses.</p>
             </div>
-          </li>
-          <li class="govuk-grid-column-one-third nhsuk-card-group__item">
-            <div class="nhsuk-card nhsuk-card--clickable">
-              <div class="nhsuk-card__content">
-                <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                  <a class="nhsuk-card__link govuk-link" href="contact-history.html">Contact history</a>
-                </h2>
-                <p class="nhsuk-card__description">View notes and details about previous contact.</p>
-              </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="contact-history.html">Contact history</a>
+              </h2>
+              <p class="nhsuk-card__description">View notes and details about previous contact.</p>
             </div>
-          </li>
-          <li class="govuk-grid-column-one-third nhsuk-card-group__item">
-            <div class="nhsuk-card nhsuk-card--clickable">
-              <div class="nhsuk-card__content">
-                <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                  <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
-                </h2>
-                <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
-              </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
+              </h2>
+              <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
             </div>
-          </li>
-        </ul>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 
