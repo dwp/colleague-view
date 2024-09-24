@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  You have added information about this call
+  You have added more details for this call?
 {% endblock %}
 
 {% block header %}
@@ -21,6 +21,8 @@
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        {% set checkNoteAdded =  data['addNote'] %}
+        {% if checkNoteAdded =='' %}
           <!-- Ask to complete session -->
           <form class="form" action="add-more-call-details" method="post">
             <div class="govuk-form-group">
@@ -30,17 +32,24 @@
                   Do you want to add more details for this call?
                 </h1>
                 </legend>
-                <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-2" name="do-you-want-to-add-more-detail" type="radio" value="Yes, I want to add">
-                    <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-2">
-                      Yes, I want to add
+                    <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-call-detail" type="radio" value="Yes, I want to add">
+                    <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-1">
+                      Add another benefit or query
                     </label>
                   </div>
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-detail" type="radio" value="Complete phone call">
-                    <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-1">
-                      No, complete phone call
+                    <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-2" name="do-you-want-to-add-more-call-detail" type="radio" value="Add a note">
+                    <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-2">
+                      Add a note
+                    </label>
+                  </div>
+                  <div class="govuk-radios__divider">or</div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-3" name="do-you-want-to-add-more-call-detail" type="radio" value="Complete phone call">
+                    <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-3">
+                      Complete phone call
                     </label>
                   </div>
                 </div>
@@ -50,7 +59,44 @@
               Save and continue
             </button>
           </form>
-          
+          {%else%} 
+          <form class="form" action="add-more-call-details" method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Do you want to add more details for this contact?
+                </h1>
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-call-detail" type="radio" value="Yes, I want to add">
+                    <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-1">
+                      Add another benefit or query
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-2" name="do-you-want-to-add-more-call-detail" type="radio" value="Change your note">
+                    <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-2">
+                      Change your note
+                    </label>
+                  </div>
+                  <div class="govuk-radios__divider">or</div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-3" name="do-you-want-to-add-more-call-detail" type="radio" value="Complete phone call">
+                    <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-3">
+                      Complete phone call
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+          </form>
+          {%endif%}
+
           <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
         <h2 class="govuk-heading-m">You have added details about this call</h2>
