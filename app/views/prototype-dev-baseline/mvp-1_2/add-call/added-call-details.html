@@ -295,6 +295,14 @@
                 </ul>
               </td>
             </tr>
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+               Note
+              </th>
+              <td class="govuk-summary-list__value">
+                {{ data['addNote'] or "Not provided" }}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -635,7 +643,7 @@
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
         <span class="govuk-visually-hidden">Warning</span>
-        When you select confirm, you will only be able to add or update the note.
+        When you select confirm, you will not be able to remove the benefits you have added.
       </strong>
     </div>
     <form action="added-details" method="post" novalidate>

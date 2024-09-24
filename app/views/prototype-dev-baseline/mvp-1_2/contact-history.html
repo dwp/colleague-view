@@ -33,14 +33,19 @@ Contact history
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl" id ="ch">Contact history</h1>
+      <div class="govuk-grid-column-one-half">
+        <h1 class="govuk-heading-xl">Contact history</h1>
       </div>
-      <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-        <form action="add-call/what-benefits-discussed" method="post">
-          <button class="govuk-button {{hideAddNote}}" data-module="govuk-button" onclick="global_var['a']['b']=1;">
-            Add or view call details
-          </button>
+      <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+        <form action="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed" method="post">
+          <div class="govuk-button-group govuk-!-display-block">
+            <button type="submit" class="govuk-button" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed">
+              Add or view call details
+            </button>
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-to-complete-call">
+              Complete phone call
+            </button>
+          </div>
         </form>
       </div>
     </div>
@@ -98,7 +103,7 @@ Contact history
                 </div>
                 <!-- filter options -->
                 <div class="moj-filter__options">
-                  <form action="filtered-list" method="post">
+                  <form action="" method="post">
                     <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
                       Apply filters
                     </button>
@@ -416,42 +421,25 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
-                        <td class="govuk-summary-list__value govuk-!-width-one-third">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                        <td class="govuk-summary-list__value">
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Next payment date</li>
+                            <li>Next payment amount</li>
+                          </ul>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value govuk-!-width-one-third">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Personal Independence Payment
                         </th>
                         <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Next payment date</li>
+                            <li>Next payment amount</li>
+                          </ul>
                         </td>
                       </tr>
                     </tbody>
@@ -471,42 +459,22 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Next payment date</li>
+                            <li>Next payment amount</li>
+                          </ul>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           No benefit
                         </th>
                         <td class="govuk-summary-list__value">
                           Check notes
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
                         </td>
                       </tr>
                     </tbody>
@@ -527,29 +495,22 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Carer's Allowance
                         </th>
                         <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Next payment date</li>
+                            <li>Next payment amount</li>
+                          </ul>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
                         </td>
                       </tr>
                     </tbody>
@@ -569,29 +530,14 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Next payment date</li>
+                            <li>Next payment amount</li>
+                          </ul>
                         </td>
                       </tr>
                     </tbody>
@@ -611,29 +557,19 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment amount
                         </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Personal Independence Payment
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment date
                         </td>
                       </tr>
                     </tbody>
@@ -653,29 +589,19 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Carer's Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment amount
                         </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment amount
                         </td>
                       </tr>
                     </tbody>
@@ -695,29 +621,14 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Next payment date</li>
+                            <li>Next payment amount</li>
+                          </ul>
                         </td>
                       </tr>
                     </tbody>
@@ -737,42 +648,22 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Next payment date</li>
+                            <li>Next payment amount</li>
+                          </ul>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Personal Independence Payment
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
                         </td>
                       </tr>
                     </tbody>
@@ -793,36 +684,20 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Personal Independence Payment
                         </th>
                         <td class="govuk-summary-list__value">
-                          Next payment date
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                          Personal Independence Payment
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Next payment amount
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Next payment date</li>
+                            <li>Next payment amount</li>
+                          </ul>
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
-
               <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
                   <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
@@ -836,29 +711,19 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           Personal Independence Payment
                         </th>
                         <td class="govuk-summary-list__value">
                           Something else
                         </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
-                        </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                        <th scope="row" class="govuk-summary-list__key">
                           No benefit
                         </th>
                         <td class="govuk-summary-list__value">
                           Check notes
-                        </td>
-                        <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                          <strong class="govuk-tag">
-                            Resolved
-                          </strong>
                         </td>
                       </tr>
                     </tbody>
@@ -870,23 +735,23 @@ Contact history
             <nav class="govuk-pagination" aria-label="Pagination">
               <ul class="govuk-pagination__list">
                 <li class="govuk-pagination__item govuk-pagination__item--current">
-                  <a class="govuk-link govuk-pagination__link" href="viewDetail.html" aria-label="Page 1" aria-current="page">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
                     1
                   </a>
                 </li>
                 <li class="govuk-pagination__item">
-                  <a class="govuk-link govuk-pagination__link" href="viewDetail.html" aria-label="Page 2">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
                     2
                   </a>
                 </li>
                 <li class="govuk-pagination__item">
-                  <a class="govuk-link govuk-pagination__link" href="viewDetail.html" aria-label="Page 3">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
                     3
                   </a>
                 </li>
               </ul>
               <div class="govuk-pagination__next">
-                <a class="govuk-link govuk-pagination__link" href="viewDetail.html" rel="next">
+                <a class="govuk-link govuk-pagination__link" href="#" rel="next">
                   <span class="govuk-pagination__link-title">
                     Next<span class="govuk-visually-hidden"> page</span>
                   </span>
