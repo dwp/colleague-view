@@ -31,14 +31,19 @@ Home
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-grid-column-one-half">
           <h1 class="govuk-heading-xl">Home</h1>
         </div>
-        <div class="govuk-grid-column-one-third govuk-!-text-align-right">
-          <form action="add-call/what-benefits-discussed" method="post">
-            <button class="govuk-button {{hideAddNote}}" data-module="govuk-button" onclick="global_var['a']['b']=1;">
-              Add or view call details
-            </button>
+        <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+          <form action="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed" method="post">
+            <div class="govuk-button-group govuk-!-display-block">
+              <button type="submit" class="govuk-button" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed">
+                Add or view call details
+              </button>
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-to-complete-call">
+                Complete phone call
+              </button>
+            </div>
           </form>
         </div>
       </div>

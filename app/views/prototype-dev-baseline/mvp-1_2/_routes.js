@@ -340,4 +340,18 @@ router.post('/non-telephony/add-contact/complete-contact', function (req, res) {
 
 });
 
+router.post('/add-contact/add-more-call-details', function (req, res) {
+  var addCallDetails = req.session.data['do-you-want-to-add-more-detail'];
+  if (addCallDetails == 'Yes, I want to add'){
+    req.session.data['what-benefit-discussed'] = '';
+    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed')
+  }
+  if (addCallDetails == 'Change your note'){
+    console.log('Change notes');
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed')
+  }
+  if (addCallDetails == 'Complete phone call'){
+    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/call-completed')
+  }
+});
 module.exports = router;
