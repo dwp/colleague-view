@@ -40,10 +40,17 @@
       </div>
       <div class="govuk-grid-column-one-half govuk-!-text-align-right">
         <form action="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed" method="post">
-          <div class="govuk-button-group govuk-!-display-block">
+          <div class="govuk-button-group">
+            {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
+            {%if benefits >=1 %}
             <button type="submit" class="govuk-button" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
-              Add or view contact details
+              Add or change contact details
             </button>
+            {%else%}
+            <button type="submit" class="govuk-button" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
+              Add contact details
+            </button>
+            {%endif%}
             <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again">
               Start service again
             </button>
