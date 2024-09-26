@@ -6,6 +6,7 @@ router.post('/index.html', function (req, res) {
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
+  req.session.data['addNote']= '';
   // req.session.data.outcomePage = '';
   res.redirect('/prototype-dev-baseline/mvp-1_2/index');
 });
@@ -132,11 +133,12 @@ router.post('/non-telephony/home', function (req, res) {
 
 router.post('/add-call/what-benefits-discussed', function (req, res) {
   if (req.session.data['what-benefit-discussed'] != '') {
-    console.log('Display summary page');
+    // console.log('Display summary page');
     res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-add-more-details');
   }
   else{
     req.session.data['what-benefit-discussed'] = '';
+    req.session.data['addNote']= '';
     res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed');
   }
 });
@@ -148,7 +150,6 @@ router.post('/add-call/questions-asked', function (req, res) {
   req.session.data['questionAsk-pip'] = '';
   req.session.data['question-asked'] = '';
 
-  req.session.data['addNote']= '';
   req.session.data['npd_wasQuestionResolved']= '';
   req.session.data['npa_wasQuestionResolved']= '';
 
