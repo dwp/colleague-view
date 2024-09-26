@@ -146,6 +146,7 @@ router.post('/add-call/questions-asked', function (req, res) {
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
   req.session.data['questionAsk-pip'] = '';
+  req.session.data['question-asked'] = '';
 
   req.session.data['addNote']= '';
   req.session.data['npd_wasQuestionResolved']= '';
@@ -393,6 +394,7 @@ router.post('/non-telephony/add-contact/do-you-want-to-complete-contact', functi
 
 
 // hide and show CTA
+
 
 
 module.exports = router;
