@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Do you want to complete the call?
+  Do you want to complete the call?
 {% endblock %}
 
 {% block header %}
@@ -19,32 +19,36 @@ Do you want to complete the call?
 {% endblock %}
 
 {% block content %}
-<form class="form" action="check-call-completion" method="post">
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-          Do you want to complete the call?
-        </h1>
-        </legend>
-        <div class="govuk-radios" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-acomplete-call-1" name="complete-call" type="radio" value="Yes">
-            <label class="govuk-label govuk-radios__label" for="do-you-want-to-acomplete-call-1">
-            Yes, complete phone call
-            </label>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="check-call-completion" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Do you want to complete the call?
+          </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="do-you-want-to-acomplete-call-1" name="complete-call" type="radio" value="Yes">
+              <label class="govuk-label govuk-radios__label" for="do-you-want-to-acomplete-call-1">
+              Yes, complete phone call
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="do-you-want-to-acomplete-call-2" name="complete-call" type="radio" value="No">
+              <label class="govuk-label govuk-radios__label" for="do-you-want-to-acomplete-call-2">
+                No
+              </label>
+            </div>
           </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-acomplete-call-2" name="complete-call" type="radio" value="No">
-            <label class="govuk-label govuk-radios__label" for="do-you-want-to-acomplete-call-2">
-              No
-            </label>
-          </div>
-        </div>
-      </fieldset>
-    </div>
-    <button class="govuk-button" data-module="govuk-button">
-      Continue
-    </button>
-  </form>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>
   {% endblock %}
