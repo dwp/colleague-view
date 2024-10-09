@@ -26,6 +26,7 @@ What was the call about?
         <h1 class="govuk-heading-l">What was the contact about?</h1>
         <form action="added-call-details" method="post" novalidate>
         {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
+        {%set checkNoteAdded = data['addNote'] %}
         {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %} 
         {% if benefitLength >1 %}
         <!-- for ESA -->
@@ -209,7 +210,7 @@ What was the call about?
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
               <span class="govuk-visually-hidden">Warning</span>
-              This note applies to the whole call. Do not delete your previous notes if they are still needed.
+              This note applies to the whole contact. Do not delete your previous notes if they are still needed.
             </strong>
           </div>
           <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->

@@ -341,10 +341,8 @@ router.post('/non-telephony/add-contact/check-before-start-sercive-again', funct
   if (req.session.data['what-benefit-discussed-non-telephony'] == ''){
     res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again');
   } else{
-    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed');
-    
+    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/do-you-want-to-complete-contact'); 
   }
- 
 });
 
 router.post('/non-telephony/add-contact/contact-details-added', function (req, res) {
@@ -391,6 +389,17 @@ router.post('/non-telephony/add-contact/add-more-contact-details', function (req
 
 router.post('/non-telephony/add-contact/do-you-want-to-complete-contact', function (req, res) {
   res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/added-details')
+});
+
+
+
+router.post('/non-telephony/add-contact/contact-details-completed', function (req, res) {
+  var addContactDetails = req.session.data['complete-contact'];
+  if (addContactDetails == 'Yes'){
+    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
+  } else{
+    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/home')
+  }
 });
 
 
