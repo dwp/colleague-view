@@ -154,79 +154,6 @@
         </table>
       </div>
     </div>
-    <!-- ESA Summary card -->
-    <!-- <div class="govuk-summary-card {{isESACard}}">
-      {% set questionAskESA = data['questionAsk-esa'] %}
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Employment and Support Allowance</h2>
-        <ul class="govuk-summary-card__actions">
-          <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="benefits-discussed.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
-          </li>
-        </ul>
-      </div>
-      <div class="govuk-summary-card__content">
-        <table class="govuk-summary-list govuk-!-margin-bottom-0">
-          <tbody class="govuk-summary-list">
-            <tr class="govuk-summary-list__row">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                Questions asked
-              </th>
-              <td class="govuk-summary-list__value">
-                <ul class="govuk-list govuk-list--bullet">
-                  {% for benefit in data['questionAsk-esa'] %}
-                  <li>{{ benefit }}</li>
-                  {% endfor %}
-                </ul>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questions-asked-esa.html">
-                  Change
-                <span class="govuk-visually-hidden">questions that the caller asked</span>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> -->
-    <!-- PIP Summary card -->
-    <!-- <div class="govuk-summary-card {{isPIPCard}}">
-      {% set questionAskPIP = data['questionAsk-pip'] %}
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Personal Independence Payment</h2>
-        <ul class="govuk-summary-card__actions">
-          <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="benefits-discussed.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
-          </li>
-        </ul>
-      </div>
-      <div class="govuk-summary-card__content">
-        <table class="govuk-summary-list govuk-!-margin-bottom-0">
-          <tbody class="govuk-summary-list">
-            <tr class="govuk-summary-list__row">
-              <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                Questions asked
-              </th>
-              <td class="govuk-summary-list__value">
-                <ul class="govuk-list govuk-list--bullet">
-                  {% for benefit in data['questionAsk-pip'] %}
-                  <li>{{ benefit }}</li>
-                  {% endfor %}
-                </ul>
-              </td>
-              <td class="govuk-summary-list__actions govuk-!-display-none-print">
-                <a href="questions-asked-pip.html">
-                  Change
-                <span class="govuk-visually-hidden">questions that the caller asked</span>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div> -->
-
 
     <!-- Benefit discussed -->
     <div class="govuk-summary-card">
@@ -261,7 +188,7 @@
     <div class="govuk-summary-card">
       {% set questionAsk = data['question-asked'] %}
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">What the call was about</h2>
+        <h2 class="govuk-summary-card__title">What the contact was about</h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
             <a class="govuk-link" href="questions-asked.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -328,7 +255,7 @@
     <div class="govuk-summary-card">
       {% set questionAsk = data['question-asked'] %}
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Benefits</h2>
+        <h2 class="govuk-summary-card__title">Benefits discussed</h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
             <a class="govuk-link" href="what-benefits-discussed.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
