@@ -146,16 +146,16 @@ Benefit payments
   <div class="govuk-grid-column-one-half">
     <h1 class="govuk-heading-xl">Benefit payments</h1>
   </div>
-  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+  <div class="govuk-grid-column-one-half">
     <form action="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed" method="post">
       <div class="govuk-button-group">
         {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
         {%if benefits >=1 %}
-        <button type="submit" class="govuk-button" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
           Add or change contact details
         </button>
         {%else%}
-        <button type="submit" class="govuk-button" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
           Add contact details
         </button>
         {%endif%}
