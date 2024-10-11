@@ -46,7 +46,9 @@ Benefit payments
       </div>
       <div class="moj-filter__content">
         <!-- selected filters -->
-        <div class="moj-filter__selected govuk-visually-hidden">
+        <!-- {% set benefitName = data['benefit'] %}
+        {% if benefitName >0 %}
+        <div class="moj-filter__selected">
           <div class="moj-filter__selected-heading">
             <div class="moj-filter__heading-title">
               <h3 class="govuk-heading-m">Selected filters</h3>
@@ -55,41 +57,54 @@ Benefit payments
               <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
             </div>
           </div>
-          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Type</h3>
           <ul class="moj-filter-tags">
-            <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Blue</a></li>
-            <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Yellow</a></li>
-          </ul>
-          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Status</h3>
-          <ul class="moj-filter-tags">
-            <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Completed</a></li>
+          {% for benefit in data['benefit'] %}
+            <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefit }}</a></li>
+          {% endfor %}
           </ul>
         </div>
+        {%else%} -->
+        <div class="moj-filter__selected" style="display: none;">
+          <div class="moj-filter__selected-heading">
+            <div class="moj-filter__heading-title">
+              <h3 class="govuk-heading-m">Selected filters</h3>
+            </div>
+            <div class="moj-filter__heading-action">
+              <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+            </div>
+          </div>
+          <ul class="moj-filter-tags">
+          {% for benefit in data['benefit'] %}
+            <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefit }}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+        {%endif%}
         <!-- filter options -->
         <div class="moj-filter__options">
-          <form action="" method="post">
+          <form action="payment-history-filter-selected" method="post">
             <!-- filter by benefits -->
             <div class="govuk-form-group govuk-!-margin-bottom-5">
-              {% set benefitName = data['benefit'] %}
+              <!-- {% set benefitName = data['benefit'] %} -->
               <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                     Benefit
                 </legend> 
                 <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="esa">
+                    <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" >
                     <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
                       Employment and Support Allowance
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="ca">
+                    <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" >
                     <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
                       Carer's Allowance
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="pip">
+                    <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
                     <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
                       Personal Independence Payment
                     </label>
@@ -106,6 +121,12 @@ Benefit payments
     </div>
   </div>
   <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">45 results</h2>
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      Sorted by:
+      <span class="govuk-!-font-weight-bold">Date</span>
+    </p>
+  
     {% if data['paymentTableData'].length > 0%}
     <div id="default-table">          
       <table class="govuk-table">
