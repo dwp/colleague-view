@@ -20,183 +20,183 @@ Which benefits did you discuss?
 
 {% block content %}
 <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-l">Step 1 of 3</span>
-        <form action="questions-asked" method="post" novalidate>
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
-                  Which benefits did you discuss?
-                </h1>
-              </legend>
-              <div id="changedName-hint" class="govuk-hint">
-                The options you select will automatically be added to the contact log. You can log any additional information later in the notes.
-              </div>
-              <div class="govuk-checkboxes govuk-!-margin-top-5" data-module="govuk-checkboxes">
-                <div class="govuk-radios__divider colleague-view-benefit-list">Active benefits</div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_ca" name="what-benefit-discussed" type="checkbox" value="Carer Allowance" {{ checked ('what-benefit-discussed', 'Carer Allowance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_ca">
-                    Carer's Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_esa" name="what-benefit-discussed" type="checkbox" value="Employment and Support Allowance" {{ checked ('what-benefit-discussed', 'Employment and Support Allowance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_esa">
-                    Employment and Support Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_pip" name="what-benefit-discussed" type="checkbox" value="Personal Independence Payment" {{ checked ('what-benefit-discussed', 'Personal Independence Payment') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_pip">
-                    Personal Independence Payment
-                  </label>
-                </div>
-                <div class="govuk-radios__divider colleague-view-benefit-list">Other benefits</div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_aa" name="what-benefit-discussed" type="checkbox" value="Attendance Allowance" {{ checked ('what-benefit-discussed', 'Attendance Allowance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_aa">
-                    Attendance Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_bb" name="what-benefit-discussed" type="checkbox" value="bb" {{ checked ('what-benefit-discussed', 'Bereavement Benefit') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_bb">
-                    Bereavement Benefit
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_dla" name="what-benefit-discussed" type="checkbox" value="dla" {{ checked ('what-benefit-discussed', 'Disability Living Allowance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_dla">
-                    Disability Living Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_is" name="what-benefit-discussed" type="checkbox" value="is" {{ checked ('what-benefit-discussed', 'Income Support') }} >
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_is">
-                    Income Support
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_ib" name="what-benefit-discussed" type="checkbox" value="ib" {{ checked ('what-benefit-discussed', 'Incapacity Benefit') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_ib">
-                    Incapacity Benefit
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_ivb" name="what-benefit-discussed" type="checkbox" value="ivb" {{ checked ('what-benefit-discussed', 'Invalidity Benefit ') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_ivb">
-                    Invalidity Benefit 
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_jsa" name="what-benefit-discussed" type="checkbox" value="jsa" {{ checked ('what-benefit-discussed', "Job Seeker's Allowance") }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_jsa">
-                    Job Seeker's Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_ma" name="what-benefit-discussed" type="checkbox" value="ma" {{ checked ('what-benefit-discussed', 'Maternity Allowance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_ma">
-                    Maternity Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_pc" name="what-benefit-discussed" type="checkbox" value="pc" {{ checked ('what-benefit-discussed', 'Pension Credit') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_pc">
-                    Pension Credit
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_sp" name="what-benefit-discussed" type="checkbox" value="State Pension" {{ checked ('what-benefit-discussed', 'State Pension') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_sp">
-                    State Pension
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_sda" name="what-benefit-discussed" type="checkbox" value="Severe Disablement Allowance" {{ checked ('what-benefit-discussed', 'Severe Disablement Allowance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_sda">
-                    Severe Disablement Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_stb" name="what-benefit-discussed" type="checkbox" value="Short Term Benefit" {{ checked ('what-benefit-discussed', 'Short Term Benefit') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_stb">
-                    Short Term Benefit
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_wb" name="what-benefit-discussed" type="checkbox" value="Widow's Benefit" {{ checked ('what-benefit-discussed', "Widow's Benefit") }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_wb">
-                    Widow's Benefit
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_wb_bb" name="what-benefit-discussed" type="checkbox" value="bereavement_benefit" {{ checked ('what-benefit-discussed', 'bereavement_benefit') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_wb_bb">
-                    Bereavement Benefit
-                  </label>
-                </div>
-                <!--
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_pip" name="what-benefit-discussed" type="checkbox" value="pip" {{ checked ('what-benefit-discussed', 'Personal Independence Payment') }} >
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_pip">
-                      Personal Independence Payment
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_rea" name="what-benefit-discussed" type="checkbox" value="Reduced Earnings Allowance" {{ checked ('what-benefit-discussed', 'Reduced Earnings Allowance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_rea">
-                    Reduced Earnings Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_sp" name="what-benefit-discussed" type="checkbox" value="State Pension" {{ checked ('what-benefit-discussed', 'State Pension') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_sp">
-                    State Pension
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_smi" name="what-benefit-discussed" type="checkbox" value="Support for Mortgage Interest" {{ checked ('what-benefit-discussed', 'Support for Mortgage Interest') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_smi">
-                    Support for Mortgage Interest
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_ssmg" name="what-benefit-discussed" type="checkbox" value="Sure Start Maternity Grant" {{ checked ('what-benefit-discussed', 'Sure Start Maternity Grant') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_ssmg">
-                    Sure Start Maternity Grant
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_sda" name="what-benefit-discussed" type="checkbox" value="Severe Disability Allowance" {{ checked ('what-benefit-discussed', 'Severe Disability Allowance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_sda">
-                    Severe Disability Allowance
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_wfp" name="what-benefit-discussed" type="checkbox" value="Winter Fuel Payment" {{ checked ('what-benefit-discussed', 'Winter Fuel Payment') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_wfp">
-                    Winter Fuel Payment
-                  </label>
-                </div>                -->
-                <div class="govuk-radios__divider">or</div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed" type="checkbox" value="No benefit" data-behaviour="exclusive" {{ checked ('what-benefit-discussed', 'No benefit') }} >
-                  <label class="govuk-label govuk-checkboxes__label" for="benefit_notDiscussed">
-                    No benefit
-                  </label>
-                </div>
-
-              </div>
-            </fieldset>
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Step 1 of 3</span>
+    <form action="questions-asked" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Which benefits did you discuss?
+            </h1>
+          </legend>
+          <div id="changedName-hint" class="govuk-hint">
+            The options you select will automatically be added to the contact log. You can log any additional information later in the notes.
           </div>
-          <button class="govuk-button" data-module="govuk-button">
-            Save and continue
-          </button>
-        </form>
+          <div class="govuk-checkboxes govuk-!-margin-top-5" data-module="govuk-checkboxes">
+            <div class="govuk-radios__divider colleague-view-benefit-list">Active benefits</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_ca" name="what-benefit-discussed" type="checkbox" value="Carer Allowance" {{ checked ('what-benefit-discussed', 'Carer Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_ca">
+                Carer's Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_esa" name="what-benefit-discussed" type="checkbox" value="Employment and Support Allowance" {{ checked ('what-benefit-discussed', 'Employment and Support Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_esa">
+                Employment and Support Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_pip" name="what-benefit-discussed" type="checkbox" value="Personal Independence Payment" {{ checked ('what-benefit-discussed', 'Personal Independence Payment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_pip">
+                Personal Independence Payment
+              </label>
+            </div>
+            <div class="govuk-radios__divider colleague-view-benefit-list">Other benefits</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_aa" name="what-benefit-discussed" type="checkbox" value="Attendance Allowance" {{ checked ('what-benefit-discussed', 'Attendance Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_aa">
+                Attendance Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_bb" name="what-benefit-discussed" type="checkbox" value="bb" {{ checked ('what-benefit-discussed', 'Bereavement Benefit') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_bb">
+                Bereavement Benefit
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_dla" name="what-benefit-discussed" type="checkbox" value="dla" {{ checked ('what-benefit-discussed', 'Disability Living Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_dla">
+                Disability Living Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_is" name="what-benefit-discussed" type="checkbox" value="is" {{ checked ('what-benefit-discussed', 'Income Support') }} >
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_is">
+                Income Support
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_ib" name="what-benefit-discussed" type="checkbox" value="ib" {{ checked ('what-benefit-discussed', 'Incapacity Benefit') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_ib">
+                Incapacity Benefit
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_ivb" name="what-benefit-discussed" type="checkbox" value="ivb" {{ checked ('what-benefit-discussed', 'Invalidity Benefit ') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_ivb">
+                Invalidity Benefit 
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_jsa" name="what-benefit-discussed" type="checkbox" value="jsa" {{ checked ('what-benefit-discussed', "Job Seeker's Allowance") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_jsa">
+                Job Seeker's Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_ma" name="what-benefit-discussed" type="checkbox" value="ma" {{ checked ('what-benefit-discussed', 'Maternity Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_ma">
+                Maternity Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_pc" name="what-benefit-discussed" type="checkbox" value="pc" {{ checked ('what-benefit-discussed', 'Pension Credit') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_pc">
+                Pension Credit
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_sp" name="what-benefit-discussed" type="checkbox" value="State Pension" {{ checked ('what-benefit-discussed', 'State Pension') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_sp">
+                State Pension
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_sda" name="what-benefit-discussed" type="checkbox" value="Severe Disablement Allowance" {{ checked ('what-benefit-discussed', 'Severe Disablement Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_sda">
+                Severe Disablement Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_stb" name="what-benefit-discussed" type="checkbox" value="Short Term Benefit" {{ checked ('what-benefit-discussed', 'Short Term Benefit') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_stb">
+                Short Term Benefit
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_wb" name="what-benefit-discussed" type="checkbox" value="Widow's Benefit" {{ checked ('what-benefit-discussed', "Widow's Benefit") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_wb">
+                Widow's Benefit
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_wb_bb" name="what-benefit-discussed" type="checkbox" value="bereavement_benefit" {{ checked ('what-benefit-discussed', 'bereavement_benefit') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_wb_bb">
+                Bereavement Benefit
+              </label>
+            </div>
+            <!--
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_pip" name="what-benefit-discussed" type="checkbox" value="pip" {{ checked ('what-benefit-discussed', 'Personal Independence Payment') }} >
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_pip">
+                  Personal Independence Payment
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_rea" name="what-benefit-discussed" type="checkbox" value="Reduced Earnings Allowance" {{ checked ('what-benefit-discussed', 'Reduced Earnings Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_rea">
+                Reduced Earnings Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_sp" name="what-benefit-discussed" type="checkbox" value="State Pension" {{ checked ('what-benefit-discussed', 'State Pension') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_sp">
+                State Pension
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_smi" name="what-benefit-discussed" type="checkbox" value="Support for Mortgage Interest" {{ checked ('what-benefit-discussed', 'Support for Mortgage Interest') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_smi">
+                Support for Mortgage Interest
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_ssmg" name="what-benefit-discussed" type="checkbox" value="Sure Start Maternity Grant" {{ checked ('what-benefit-discussed', 'Sure Start Maternity Grant') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_ssmg">
+                Sure Start Maternity Grant
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_sda" name="what-benefit-discussed" type="checkbox" value="Severe Disability Allowance" {{ checked ('what-benefit-discussed', 'Severe Disability Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_sda">
+                Severe Disability Allowance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_wfp" name="what-benefit-discussed" type="checkbox" value="Winter Fuel Payment" {{ checked ('what-benefit-discussed', 'Winter Fuel Payment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_wfp">
+                Winter Fuel Payment
+              </label>
+            </div>                -->
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed" type="checkbox" value="No benefit" data-behaviour="exclusive" {{ checked ('what-benefit-discussed', 'No benefit') }} >
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_notDiscussed">
+                No benefit
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
       </div>
-    </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+  </div>
+</div>
 
 {% endblock %}
