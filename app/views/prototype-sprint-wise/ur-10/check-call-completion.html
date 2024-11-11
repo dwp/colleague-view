@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Do you want to add more reasons for this call?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-10/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          Call details and notes have been saved successfully.
+        </h3>
+      </div>
+    </div>
+    <!-- Ask to complete session -->
+      <form class="form" action="complete-call" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Do you want to complete the call or go back to the home page?
+            </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="complete-the-call-2" name="Do-you-want-to-complete-the-call" type="radio" value="Complete phone call">
+                <label class="govuk-label govuk-radios__label" for="complete-the-call-2">
+                  Complete phone call
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="complete-the-call" name="Do-you-want-to-complete-the-call" type="radio" value="back to home page">
+                <label class="govuk-label govuk-radios__label" for="complete-the-call">
+                  Back to home page
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </form>
+  </div>
+</div>
+{% endblock %}
