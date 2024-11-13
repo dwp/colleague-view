@@ -89,6 +89,43 @@ You have added details about this call
             </dl>
           </div>
         </div>
+        {%endif%}
+
+        {%if benefitLength == 1 and benefits != 'No benefit' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Call details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  {{ data['what-benefit-discussed'] }}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for benefit in data['question-asked'] %}
+                    <li>{{ benefit }}</li>
+                    {% endfor %}
+                  </ul>
+                </dd>
+                <dd class="govuk-summary-list__actions govuk-!-display-none">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notes added
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['addNote'] or "Not provided" }}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
         {%else%} 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -105,14 +142,10 @@ You have added details about this call
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  {{ data['what-benefit-discussed'] }}
+                  Benefits
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  <ul class="govuk-list govuk-list--bullet">
-                    {% for benefit in data['question-asked'] %}
-                    <li>{{ benefit }}</li>
-                    {% endfor %}
-                  </ul>
+                  {{ data['what-benefit-discussed'] }}
                 </dd>
                 <dd class="govuk-summary-list__actions govuk-!-display-none">
                   <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>

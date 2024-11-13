@@ -169,7 +169,9 @@ router.post('/add-call/questions-asked', function (req, res) {
  {
   console.log('Error page');
   res.redirect('/prototype-sprint-wise/ur-10/add-call/what-benefits-discussed-error');
- } else {
+ } else if (req.session.data['what-benefit-discussed'] == 'No benefit') {
+  res.redirect('/prototype-sprint-wise/ur-10/add-call/no-benefit');
+ } else{
   res.redirect('/prototype-sprint-wise/ur-10/add-call/questions-asked');
  }
 })
