@@ -6,17 +6,17 @@ Home
 
 
 {% block header %}
-  {% include "prototype-dev-baseline/common/header.html" %}
-  {% include "prototype-dev-baseline/common/mvp1-1/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/header.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/opt2/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "prototype-dev-baseline/common/footer.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/phase-banner.html" %}
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
@@ -57,7 +57,8 @@ Home
                     <h2 class="nhsuk-card__heading nhsuk-heading-m">
                       <a class="nhsuk-card__link govuk-link" href="personal-details.html">Personal details</a>
                     </h2>
-                    <p class="nhsuk-card__description">View the customer's personal details.</p>
+                    <p class="nhsuk-card__description">
+                      View personal details, including contact numbers and addresses.</p>
                   </div>
                 </div>
               </li>
@@ -67,7 +68,8 @@ Home
                     <h2 class="nhsuk-card__heading nhsuk-heading-m">
                       <a class="nhsuk-card__link govuk-link" href="contact-history.html">Contact history</a>
                     </h2>
-                    <p class="nhsuk-card__description">View notes and details for previous contact with the customer.</p>
+                    <p class="nhsuk-card__description">
+                      View notes and details about previous contact.</p>
                   </div>
                 </div>
               </li>
@@ -75,9 +77,10 @@ Home
                 <div class="nhsuk-card nhsuk-card--clickable">
                   <div class="nhsuk-card__content">
                     <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                      <a class="nhsuk-card__link govuk-link" href="payment.html">Upcoming and historic benefit payments</a>
+                      <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
                     </h2>
-                    <p class="nhsuk-card__description">Check payments and details for benefits that the customer gets.</p>
+                    <p class="nhsuk-card__description">
+                      View details, including payment frequency and amounts.</p>
                   </div>
                 </div>
               </li>
