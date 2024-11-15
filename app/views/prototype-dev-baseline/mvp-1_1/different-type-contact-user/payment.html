@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-dev-baseline/common/header.html" %}
-  {% include "prototype-dev-baseline/common/opt2/different-type-contact-user/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/header.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/opt2/different-type-contact-user/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "prototype-dev-baseline/common/footer.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/phase-banner.html" %}
   <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
@@ -210,7 +210,7 @@
           Hide filter
         </button>
         <!-- Filter section display benefit options -->
-        <form action="/prototype-dev-baseline/mvp-1_1/different-type-contact-user/payment#history" method="post">
+        <form action="/prototype-dev-baseline/mvp-1_0/different-type-contact-user/payment#history" method="post">
           <div class="govuk-visually-hidden" id="filter-section">
             <div class="govuk-form-group govuk-!-margin-bottom-3">
               <fieldset class="govuk-fieldset">
@@ -564,9 +564,8 @@
                               <td class="govuk-table__cell">08 December 2024</td>
                             </tr>
                               <tr class="govuk-table__row">
-                              <th scope="row" class="govuk-table__header" total="" deduction<="" th="">Total deductions                                     </th><td class="govuk-table__cell">£80.00</td>
-                              <td class="govuk-table__cell"></td>
-                              <td class="govuk-table__cell"></td>
+                              <th scope="row" class="govuk-table__header">Total deductions</th>
+                              <td class="govuk-table__cell" colspan="3">£80.00</td>
                             </tr>
                           </tbody>
                         </table>
@@ -710,10 +709,8 @@
                               <td class="govuk-table__cell">No end date</td>
                             </tr>
                             <tr class="govuk-table__row">
-                              <th scope="row" class="govuk-table__header" total="" deduction<="" th="">Total deductions</th>
-                              <td class="govuk-table__cell">£8.97</td>
-                              <td class="govuk-table__cell"></td>
-                              <td class="govuk-table__cell"></td>
+                              <th scope="row" class="govuk-table__header">Total deductions</th>
+                              <td class="govuk-table__cell" colspan="3">£8.97</td>
                             </tr>
                           </tbody>
                         </table>

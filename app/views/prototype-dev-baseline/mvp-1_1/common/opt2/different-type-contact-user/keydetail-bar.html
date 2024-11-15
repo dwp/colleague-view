@@ -1,0 +1,33 @@
+<section class="dwp-key-details-bar" aria-label="Key details">
+  <div class=" govuk-width-container dwp-key-details-bar__key-details">
+    <dl class="dwp-key-details-bar__top-block">
+      <dt class="govuk-visually-hidden">Name:</dt>
+      <dd class="dwp-key-details-bar__primary">
+          Christopher Fox
+      </dd>
+      <dt class="govuk-visually-hidden">National Insurance Number:</dt>
+      <dd class="dwp-key-details-bar__secondary">
+        {{ data['national-insurance-number-sprint23-opt2'] | upper }}
+      </dd>
+      <dt class="govuk-visually-hidden">Claim status:</dt>
+      <dd class="govuk-table__cell dwp-key-details-bar__status govuk-!-margin-0 govuk-!-padding-0">
+        <form action="/prototype-dev-baseline/mvp-1_1/different-type-contact-user/call-log-journey/confirm_Complete_PhoneCall" method="post">
+          <button class="govuk-button govuk-button--inverse govuk-!-margin-bottom-0 {{hideCompleteCall}}" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+            Start service again
+          </button>
+        </form>
+    </dd>
+  </dl>
+  <dl class="dwp-key-details-bar__bottom-block {{hideKeyDatailInfo}}">
+    <dt class="govuk-visually-hidden">What type of engaement it is</dt>
+    <dd>
+      {{ data['What-type-of-contact'] }}
+    </dd>
+    <dt class="govuk-visually-hidden">Who is the engagement with</dt>
+    <dd>
+      {{ data['Who-is-contact-with'] }}
+      {{ data['Who-is-the-engagement-with'] }}
+    </dd>
+  </dl>
+  </div>
+</section>
