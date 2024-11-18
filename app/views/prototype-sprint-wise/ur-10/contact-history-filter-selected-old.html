@@ -89,33 +89,50 @@ Contact history
               </div>
               <div class="moj-filter__content">
                 <!-- selected filters -->
-                {% set benefits =  data['benefit'] | length %}
-                {% if benefits >= 1 %}
-                <hr class="govuk-section-break govuk-section-break--visible">
-                <div class="moj-filter__selected" style="box-shadow: none;">
+                <!-- <div class="moj-filter__selected govuk-visually-hidden">
                   <div class="moj-filter__selected-heading">
                     <div class="moj-filter__heading-title">
-                      <h3 class="govuk-heading-s">Selected filters</h3>
+                      <h3 class="govuk-heading-m">Selected filters</h3>
                     </div>
                     <div class="moj-filter__heading-action">
-                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
+                      <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
                     </div>
                   </div>
+                  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Type</h3>
                   <ul class="moj-filter-tags">
-                    {%for benefitName in data['benefit']%}
-                    <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
-                  {% endfor %}
+                    <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Blue</a></li>
+                    <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Yellow</a></li>
                   </ul>
-                </div>
-                <hr class="govuk-section-break govuk-section-break--visible">
-                {%endif%}
+                  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Status</h3>
+                  <ul class="moj-filter-tags">
+                    <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Completed</a></li>
+                  </ul>
+                </div> -->
+               
+                  <!-- selected filters -->
+                  {% set benefits =  data['benefit'] | length %}
+                  {% if benefits >= 1%}
+                  <hr class="govuk-section-break govuk-section-break--visible">
+                  <div class="moj-filter__selected" style="box-shadow: none;">
+                    <div class="moj-filter__selected-heading">
+                      <div class="moj-filter__heading-title">
+                        <h3 class="govuk-heading-s">Selected filters</h3>
+                      </div>
+                      <div class="moj-filter__heading-action">
+                        <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
+                      </div>
+                    </div>
+                    <ul class="moj-filter-tags">
+                      {%for benefitName in data['benefit']%}
+                      <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
+                    {% endfor %}
+                    </ul>
+                  </div>
+                  <hr class="govuk-section-break govuk-section-break--visible">
+                  {%endif%}
                 <!-- filter options -->
                 <div class="moj-filter__options">
-                  <form action="contact-history-filter-selected" method="post">
-                      <!-- apply filter button -->
-                      <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
-                      Apply filters
-                    </button>
+                  <form action="" method="post">
                     <!-- filter by Keywors -->
                     <div class="govuk-form-group govuk-!-padding-right-4">
                       <label class="govuk-label govuk-label--s" for="keyword-search">
@@ -128,26 +145,26 @@ Contact history
                     </div>
                     <!-- filter by benefits -->
                     <div class="govuk-form-group">
-                      {% set benefitName = data['benefit'] %}
+                      <!-- {% set benefitName = data['benefit'] %} -->
                       <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                             Benefit
                         </legend> 
                         <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
+                            <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="esa">
                             <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
                               Employment and Support Allowance
                             </label>
                           </div>
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
+                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="ca">
                             <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
                               Carer's Allowance
                             </label>
                           </div>
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
+                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="pip">
                             <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
                               Personal Independence Payment
                             </label>
@@ -341,20 +358,20 @@ Contact history
                             </legend>
                             <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="Last one month">
+                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
                                 <label class="govuk-label govuk-radios__label" for="changedName">
                                   Last one month
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="Last 3 months">
+                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
                                 <label class="govuk-label govuk-radios__label" for="changedName-2">
                                   Last 3 months
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="Last 6 months">
-                                <label class="govuk-label govuk-radios__label" for="changedName-3">
+                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                                <label class="govuk-label govuk-radios__label" for="changedName-2">
                                   Last 6 months
                                 </label>
                               </div>
@@ -371,14 +388,14 @@ Contact history
                         </legend>
                         <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
                           <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact-type-1" name="contact-type" type="radio" value="A telephone call">
-                            <label class="govuk-label govuk-radios__label" for="contact-type-1">
+                            <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
+                            <label class="govuk-label govuk-radios__label" for="changedName">
                               A telephone call
                             </label>
                           </div>
                           <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact-type-2" name="contact-type" type="radio" value=" A different type of contact">
-                            <label class="govuk-label govuk-radios__label" for="contact-type-2">
+                            <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                            <label class="govuk-label govuk-radios__label" for="changedName-2">
                               A different type of contact
                             </label>
                           </div>
@@ -386,7 +403,7 @@ Contact history
                       </fieldset>
                     </div>
                     <!-- apply filter button -->
-                    <button type="submit" class="govuk-button govuk-!-margin-top-5 govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
+                    <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
                       Apply filters
                     </button>
                   </form>
@@ -394,9 +411,7 @@ Contact history
               </div>
             </div>
           </div>
-          <div class="govuk-grid-column-two-thirds">
-            {%set benefitLength = data['benefit'] | length %}
-            {%if (benefitLength >1) or (benefitLength == 0) %}
+          <div class="govuk-grid-column-two-thirds">  
             <!-- default ch table -->
             <h3 class="govuk-heading-m">32 results</h3>
             <p class="govuk-body govuk-!-margin-bottom-6">
@@ -409,7 +424,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 05 Sep 2023, 13:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -421,7 +436,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                          No reports of any hospital stays of over 28 days that would impact the payability.
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -451,7 +466,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 15 Aug 2023, 09:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -493,7 +508,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <!-- <span class="govuk-!-font-weight-regular"></span> -->
-                      <a class="govuk-link" href="viewDetail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="viewDetail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -534,7 +549,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 15 July 2023, 13:00</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -567,7 +582,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-contact-detail.html">View contact details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -607,7 +622,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 28 Jun 2023, 12:15</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -647,7 +662,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 13 Jun 2023, 10:00</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -680,7 +695,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -722,7 +737,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
-                      <a class="govuk-link" href="viewDetail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="viewDetail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -734,7 +749,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the...</span> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
+                          No reports of any hospital stays of over 28 days that would impact the payability.
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -755,7 +770,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -767,7 +782,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.
+                          No reports of any hospital stays of over 28 days that would impact the payability.
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -821,592 +836,7 @@ Contact history
                 </a>
               </div>
             </nav>
-           {%endif%}
 
-           {%if (benefitLength ==1) and (data['benefit'] == 'Employment and Support Allowance') %}
-            <div class="eas-filtered">
-              <h3 class="govuk-heading-m">8 results</h3>
-              <p class="govuk-body govuk-!-margin-bottom-6">
-                  Sorted by:
-                  <span class="govuk-!-font-weight-bold">Date</span>
-              </p>
-              <div class="summry-card">
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 05 Sep 2023, 13:03</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                           Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 15 Aug 2023, 09:03</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                           Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No reports of any hospital stays of over 28 days that would impact the payability.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                              <p>Next payment date</p>
-                              <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            No benefit
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Check notes
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 08 Aug 2023, 09:20</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
-                        <a class="govuk-link" href="viewDetail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                           Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No notes added
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Carer's Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment amount
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 15 July 2023, 13:00</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                           Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No reports of any hospital stays of over 28 days that would impact the payability.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                           Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No reports of any hospital stays of over 28 days that would impact the payability.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment amount
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment date
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 28 Jun 2023, 12:15</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                           Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No reports of any hospital stays of over 28 days that would impact the payability.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Carer's Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment amount
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment amount
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 13 Jun 2023, 10:00</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                           Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No reports of any hospital stays of over 28 days that would impact the payability.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                           Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No reports of any hospital stays of over 28 days that would impact the payability.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment amount
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-            {%endif%}
-            {%if (benefitLength ==1) and (data['benefit'] == 'Personal Independence Payment') %}
-            <div class="pip-filtered">
-              <h3 class="govuk-heading-m">5 results</h3>
-              <p class="govuk-body govuk-!-margin-bottom-6">
-                  Sorted by:
-                  <span class="govuk-!-font-weight-bold">Date</span>
-              </p>
-              <div class="summry-card">
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 05 Sep 2023, 13:03</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No reports of any hospital stays of over 28 days that would impact the payability.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment amount
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment date
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            No reports of any hospital stays of over 28 days that would impact the payability.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Employment and Support Allowance
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Next payment amount
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
-                        <a class="govuk-link" href="viewDetail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the...</span> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            <p>Next payment date</p>
-                            <p>Next payment amount</p>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Something else
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            No benefit
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Check notes
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {%endif%}
-            {%if data['keywordSearch'] == '' %}
-            <div class="pip-filtered">
-              <h3 class="govuk-heading-m">1 results</h3>
-              <!-- <p class="govuk-body govuk-!-margin-bottom-6">
-                  Sorted by:
-                  <span class="govuk-!-font-weight-bold">Date</span>
-              </p> -->
-              <div class="summry-card">
-                <div class="govuk-summary-card">
-                  <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
-                    <ul class="govuk-summary-card__actions">
-                      <li class="govuk-summary-card__action">
-                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="govuk-summary-card__content">
-                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                      <tbody class="govuk-summary-list">
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Notes added
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            Personal Independence Payment
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Something else
-                          </td>
-                        </tr>
-                        <tr class="govuk-summary-list__row">
-                          <th scope="row" class="govuk-summary-list__key">
-                            No benefit
-                          </th>
-                          <td class="govuk-summary-list__value">
-                            Check notes
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {%endif%}
-            
           </div>
         </div>
       </div>
@@ -1563,54 +993,4 @@ Contact history
   </div>
 </div>
   
-<!-- logic for filter function -->
-<script type="text/javascript">
-  function showfull() {
-    var fullText = document.getElementById('full-text');
-    var fullTextlink = document.getElementById('full-text-link');
-    var lessText = document.getElementById('less-text');
-    var lessTextlink = document.getElementById('less-text-link');
-
-    fullText.classList.remove("govuk-!-display-none");
-    fullTextlink.classList.add("govuk-!-display-none");
-    
-    lessText.classList.add("govuk-!-display-none");
-    lessTextlink.classList.remove("govuk-!-display-none");
-  }
-  function showless() {
-    var fullText = document.getElementById('full-text');
-    var fullTextlink = document.getElementById('full-text-link');
-    var lessText = document.getElementById('less-text');
-    var lessTextlink = document.getElementById('less-text-link');
-
-    fullText.classList.add("govuk-!-display-none");
-    fullTextlink.classList.remove("govuk-!-display-none");
-    lessText.classList.remove("govuk-!-display-none");
-    lessTextlink.classList.add("govuk-!-display-none");
-  }
-  function showfull2() {
-    var fullText2 = document.getElementById('full-text-2');
-    var fullTextlink2 = document.getElementById('full-text-link-2');
-    var lessText2 = document.getElementById('less-text-2');
-    var lessTextlink2 = document.getElementById('less-text-link-2');
-
-    fullText2.classList.remove("govuk-!-display-none");
-    fullTextlink2.classList.add("govuk-!-display-none");
-    
-    lessText2.classList.add("govuk-!-display-none");
-    lessTextlink2.classList.remove("govuk-!-display-none");
-  }
-  function showless2() {
-    var fullText2 = document.getElementById('full-text-2');
-    var fullTextlink2 = document.getElementById('full-text-link-2');
-    var lessText2 = document.getElementById('less-text-2');
-    var lessTextlink2 = document.getElementById('less-text-link-2');
-
-    fullText2.classList.add("govuk-!-display-none");
-    fullTextlink2.classList.remove("govuk-!-display-none");
-    lessText2.classList.remove("govuk-!-display-none");
-    lessTextlink2.classList.add("govuk-!-display-none");
-  }
-  </script>
-
 {% endblock %}
