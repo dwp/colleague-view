@@ -204,7 +204,7 @@ Check the details you have added
               <td class="govuk-summary-list__value">
                 <ul class="govuk-list govuk-list--bullet">
                   {% for questionsESA in data['questionAsk-esa'] %}
-                  <li>{{ questionsESA }}</li>
+                  <li>{{ questionsESA or "No inquiry selected"}}</li>
                   {% endfor %}
                 </ul>
               </td>

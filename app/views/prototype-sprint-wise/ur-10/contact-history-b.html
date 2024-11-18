@@ -330,20 +330,20 @@ Contact history
                             </legend>
                             <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
+                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="Last one month">
                                 <label class="govuk-label govuk-radios__label" for="changedName">
                                   Last one month
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="Last 3 months">
                                 <label class="govuk-label govuk-radios__label" for="changedName-2">
                                   Last 3 months
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
-                                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="Last 6 months">
+                                <label class="govuk-label govuk-radios__label" for="changedName-3">
                                   Last 6 months
                                 </label>
                               </div>
@@ -366,7 +366,7 @@ Contact history
                             </label>
                           </div>
                           <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="contact-type-2" name="contact-type" type="radio" value="A different type of contact">
+                            <input class="govuk-radios__input" id="contact-type-2" name="contact-type" type="radio" value=" A different type of contact">
                             <label class="govuk-label govuk-radios__label" for="contact-type-2">
                               A different type of contact
                             </label>
@@ -385,7 +385,7 @@ Contact history
                       <input class="govuk-input" id="keyword-search" name="keywordSearch" type="text" aria-describedby="keyword-search-hint">
                     </div>
                     <!-- apply filter button -->
-                    <button type="submit" class="govuk-button govuk-!-margin-top-6 govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
+                    <button type="submit" class="govuk-button govuk-!-margin-top-5 govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
                       Apply filters
                     </button>
                   </form>
@@ -406,7 +406,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 05 Sep 2023, 13:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -418,7 +418,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          No reports of any hospital stays of over 28 days that would impact the payability.
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -448,7 +448,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 15 Aug 2023, 09:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -460,7 +460,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          No reports of any hospital stays of over 28 days that would impact the payability.
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -490,7 +490,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <!-- <span class="govuk-!-font-weight-regular"></span> -->
-                      <a class="govuk-link" href="viewDetail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="viewDetail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -531,7 +531,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 15 July 2023, 13:00</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -543,7 +543,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          No reports of any hospital stays of over 28 days that would impact the payability.
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -564,7 +564,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-contact-detail.html">View contact details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -576,7 +576,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          No reports of any hospital stays of over 28 days that would impact the payability.
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -604,7 +604,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 28 Jun 2023, 12:15</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -616,7 +616,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          No reports of any hospital stays of over 28 days that would impact the payability.
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -644,7 +644,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 13 Jun 2023, 10:00</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -656,7 +656,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          No reports of any hospital stays of over 28 days that would impact the payability.
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -677,7 +677,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -719,7 +719,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
-                      <a class="govuk-link" href="viewDetail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="viewDetail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -731,7 +731,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          No reports of any hospital stays of over 28 days that would impact the payability.
+                          <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -752,7 +752,7 @@ Contact history
                   <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
-                      <a class="govuk-link" href="view-call-detail.html">View call details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                     </li>
                   </ul>
                 </div>
@@ -764,7 +764,7 @@ Contact history
                          Notes added
                         </th>
                         <td class="govuk-summary-list__value">
-                          No reports of any hospital stays of over 28 days that would impact the payability.
+                          Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
@@ -975,4 +975,58 @@ Contact history
   </div>
 </div>
   
+<!-- logic for filter function -->
+<script type="text/javascript">
+  function showfull() {
+    var fullText = document.getElementById('full-text');
+    var fullTextlink = document.getElementById('full-text-link');
+    var lessText = document.getElementById('less-text');
+    var lessTextlink = document.getElementById('less-text-link');
+
+    fullText.classList.remove("govuk-!-display-none");
+    fullTextlink.classList.add("govuk-!-display-none");
+    
+    lessText.classList.add("govuk-!-display-none");
+    lessTextlink.classList.remove("govuk-!-display-none");
+  }
+
+  function showless() {
+    var fullText = document.getElementById('full-text');
+    var fullTextlink = document.getElementById('full-text-link');
+    var lessText = document.getElementById('less-text');
+    var lessTextlink = document.getElementById('less-text-link');
+
+    fullText.classList.add("govuk-!-display-none");
+    fullTextlink.classList.remove("govuk-!-display-none");
+    lessText.classList.remove("govuk-!-display-none");
+    lessTextlink.classList.add("govuk-!-display-none");
+  }
+
+
+  function showfull2() {
+    var fullText2 = document.getElementById('full-text-2');
+    var fullTextlink2 = document.getElementById('full-text-link-2');
+    var lessText2 = document.getElementById('less-text-2');
+    var lessTextlink2 = document.getElementById('less-text-link-2');
+
+    fullText2.classList.remove("govuk-!-display-none");
+    fullTextlink2.classList.add("govuk-!-display-none");
+    
+    lessText2.classList.add("govuk-!-display-none");
+    lessTextlink2.classList.remove("govuk-!-display-none");
+  }
+
+  function showless2() {
+    var fullText2 = document.getElementById('full-text-2');
+    var fullTextlink2 = document.getElementById('full-text-link-2');
+    var lessText2 = document.getElementById('less-text-2');
+    var lessTextlink2 = document.getElementById('less-text-link-2');
+
+    fullText2.classList.add("govuk-!-display-none");
+    fullTextlink2.classList.remove("govuk-!-display-none");
+    lessText2.classList.remove("govuk-!-display-none");
+    lessTextlink2.classList.add("govuk-!-display-none");
+  }
+  </script>
+
 {% endblock %}
