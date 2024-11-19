@@ -43,24 +43,24 @@ router.post('/why-checking-info', function (req, res) {
   req.session.data.tableValue = '';
   req.session.data.outcomePage = '';
 
-  if (
-    req.session.data['nino-number-ur-8'] == 'QQ123456Q' ||
-    req.session.data['nino-number-ur-8'] == 'qq123456q' ||
-    req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q'
-  ) {
-    res.redirect('/prototype-sprint-wise/ur-10/why-checking-info');
-  } else {
-    // var errMsg = '';
-    if (
-      req.session.data['nino-number-ur-8'] == '' ||
-      req.session.data['nino-number-ur-8'] == undefined
-    ) {
-      // errMsg = "Enter the customer's National Insurance number";
-      res.redirect('/prototype-sprint-wise/ur-10/error-nino-number');
-    } else {
-      res.redirect('back');
-    }
-  }
+  // if (
+  //   req.session.data['nino-number-ur-8'] == 'QQ123456Q' ||
+  //   req.session.data['nino-number-ur-8'] == 'qq123456q' ||
+  //   req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q'
+  // ) {
+  //   res.redirect('/prototype-sprint-wise/ur-10/why-checking-info');
+  // } else {
+  //   if (
+  //     req.session.data['nino-number-ur-8'] == '' ||
+  //     req.session.data['nino-number-ur-8'] == undefined
+  //   ) {
+  //     res.redirect('/prototype-sprint-wise/ur-10/error-nino-number');
+  //   } else {
+  //     res.redirect('back');
+  //   }
+  // }
+
+  res.redirect('/prototype-sprint-wise/ur-10/why-checking-info');
 });
 
 router.post('/call-with', function (req, res) {
