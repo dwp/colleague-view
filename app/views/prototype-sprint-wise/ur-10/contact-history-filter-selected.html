@@ -91,7 +91,9 @@ Contact history
                 <!-- selected filters -->
                 {% set benefits =  data['benefit'] | length %}
                 {% set keyword =  data['keywordSearch'] %}
+                {%set checkDay = data['from-date-day'] %}
                 {% set checkMonth = data['from-date-month'] %}
+                {%set checkYear = data['from-date-year'] %}
                 {% if benefits >= 1 %}
                 <hr class="govuk-section-break govuk-section-break--visible">
                 <div class="moj-filter__selected" style="box-shadow: none;">
@@ -140,7 +142,7 @@ Contact history
                     </div>
                   </div>
                   <ul class="moj-filter-tags">
-                    <li><a class="moj-filter__tag" href="#/"><span class="govuk-visually-hidden">Remove this filter</span> May</a></li>
+                    <li><a class="moj-filter__tag" href="#/"><span class="govuk-visually-hidden">Remove this filter</span>{{ checkDay }}/{{ checkMonth }}/{{ checkYear }}</a></li>
                   </ul>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
