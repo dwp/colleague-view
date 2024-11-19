@@ -411,6 +411,48 @@ Contact history
           </div>
           <div class="govuk-grid-column-two-thirds">
             {%set benefitLength = data['benefit'] | length %}
+            <!-- date filter -->
+            {% if (data['from-date-month'] == "5") or (data['from-date-month'] == "05") %}
+            <div class="pip-filtered">
+              <h3 class="govuk-heading-m">1 result</h3>
+              <div class="summry-card">
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
+                        <a class="govuk-link" href="viewDetail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Notes added
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the...</span> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Personal Independence Payment
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>Next payment date</p>
+                            <p>Next payment amount</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%else%}
             <!-- keyword search -->
             {% if data['keywordSearch'] === "change" %}
             <div class="pip-filtered">
@@ -1557,7 +1599,7 @@ Contact history
             </div>
             {%endif%}
           {%endif%}
-            
+        {%endif%} 
           </div>
         </div>
       </div>
