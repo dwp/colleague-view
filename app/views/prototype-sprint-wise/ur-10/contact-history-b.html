@@ -110,11 +110,7 @@ Contact history
                 </div> -->
                 <!-- filter options -->
                 <div class="moj-filter__options">
-                  <form action="contact-history-filter-selected" method="post">
-                      <!-- apply filter button -->
-                      <!-- <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
-                      Apply filters
-                    </button> -->
+                  <form action="contact-history-filter-selected-b" method="post">
                     <!-- filter by benefits -->
                     <div class="govuk-form-group">
                       {% set benefitName = data['benefit'] %}
@@ -141,45 +137,6 @@ Contact history
                               Personal Independence Payment
                             </label>
                           </div>
-                          <!-- <div class="govuk-checkboxes__item">
-                            {% if benefitName == "esa" %}
-                              <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="esa" checked="checked">
-                              <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
-                                Employment and Support Allowance
-                              </label>
-                            {% else %}
-                              <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="esa">
-                              <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
-                                Employment and Support Allowance
-                              </label>
-                            {% endif%}
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            {% if benefitName == "ca" %}
-                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="ca" checked="checked">
-                            <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
-                              Carer's Allowance
-                            </label>
-                            {% else %}
-                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="ca">
-                            <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
-                              Carer's Allowance
-                            </label>
-                            {% endif%}
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            {% if benefitName == "pip" %}
-                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="pip" checked="checked">
-                            <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
-                              Personal Independence Payment
-                            </label>
-                            {% else %}
-                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="pip">
-                            <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
-                              Personal Independence Payment
-                            </label>
-                            {% endif%}
-                          </div> -->
                         </div>
                       </fieldset>
                     </div>
@@ -189,39 +146,6 @@ Contact history
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                           Payment enquiry
                         </legend>
-                        <!-- <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="type" name="type" type="checkbox" value="1" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="type">
-                              Next payment date
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="type-2" name="type" type="checkbox" value="2" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="type-2">
-                              Next payment amount
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3">
-                            <label class="govuk-label govuk-checkboxes__label" for="type-3">
-                              Missing payment
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3">
-                            <label class="govuk-label govuk-checkboxes__label" for="type-3">
-                              Change in payment amount
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="type-3" name="type" type="checkbox" value="3">
-                            <label class="govuk-label govuk-checkboxes__label" for="type-3">
-                              Other questions
-                            </label>
-                          </div>
-                        </div> -->
-
                         <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
                             {% if data.tableFilterNpd == true%}
