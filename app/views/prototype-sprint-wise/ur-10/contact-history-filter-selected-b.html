@@ -104,7 +104,7 @@ Contact history
                   </div>
                   <ul class="moj-filter-tags">
                     {%for benefitName in data['benefit']%}
-                    <li><a class="moj-filter__tag" href="#/"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
+                    <li><a class="moj-filter__tag" href="contact-history-b.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
                   {% endfor %}
                   </ul>
                 </div>
@@ -122,7 +122,7 @@ Contact history
                     </div>
                   </div>
                   <ul class="moj-filter-tags">
-                    <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword }}</a></li>
+                    <li><a class="moj-filter__tag" href="contact-history-b.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword }}</a></li>
                   </ul>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
@@ -434,7 +434,7 @@ Contact history
                             Notes added
                           </th>
                           <td class="govuk-summary-list__value">
-                            <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the...</span> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
+                            <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter... </span> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
                           </td>
                         </tr>
                         <tr class="govuk-summary-list__row">
@@ -642,6 +642,15 @@ Contact history
               <!-- benefit name filter -->
               {%if (benefitLength >1) or (benefitLength == 0) %}
               <!-- default ch table -->
+              {% if (keyword != "change") or (keyword != "address") or (keyword != "change of circs") or (keyword != "change of address") %}
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                  There are no results found for "{{keyword}}". Showing results for all contact history. 
+                </strong>
+              </div>
+              {%endif%}
               <h3 class="govuk-heading-m">32 results</h3>
               <p class="govuk-body govuk-!-margin-bottom-6">
                   Sorted by:
@@ -665,7 +674,7 @@ Contact history
                           Notes added
                           </th>
                           <td class="govuk-summary-list__value">
-                            <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                            <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter...</span> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                           </td>
                         </tr>
                         <tr class="govuk-summary-list__row">

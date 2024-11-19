@@ -107,13 +107,14 @@ Contact history
                   </div>
                   <ul class="moj-filter-tags">
                     {%for benefitName in data['benefit']%}
-                    <li><a class="moj-filter__tag" href="#/"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
+                    <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
                   {% endfor %}
                   </ul>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
                 {%endif%}
-                {% if keyword != "" %}
+                {% if (keyword === "change") or (keyword === "address") or (keyword === "change of circs") or (keyword === "change of address") or (keyword === "Change of address") %}
+               
                 <hr class="govuk-section-break govuk-section-break--visible">
                 <div class="moj-filter__selected" style="box-shadow: none;">
                   <div class="moj-filter__selected-heading">
@@ -125,7 +126,7 @@ Contact history
                     </div>
                   </div>
                   <ul class="moj-filter-tags">
-                    <li><a class="moj-filter__tag" href="#/"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword }}</a></li>
+                    <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword }}</a></li>
                   </ul>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
@@ -142,7 +143,7 @@ Contact history
                     </div>
                   </div>
                   <ul class="moj-filter-tags">
-                    <li><a class="moj-filter__tag" href="#/"><span class="govuk-visually-hidden">Remove this filter</span>{{ checkDay }}/{{ checkMonth }}/{{ checkYear }}</a></li>
+                    <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span>{{ checkDay }}/{{ checkMonth }}/{{ checkYear }}</a></li>
                   </ul>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
@@ -162,7 +163,7 @@ Contact history
                       <div id="keyword-search-hint" class="govuk-hint">
                         Enter a word or phrase to find related notes
                       </div>
-                      <input class="govuk-input" id="keyword-search" name="keywordSearch" type="text" aria-describedby="keyword-search-hint">
+                      <input class="govuk-input" id="keyword-search" name="keywordSearch" type="text" aria-describedby="keyword-search-hint" value="{{data['keywordSearch']}}">
                     </div>
                     <!-- filter by benefits -->
                     <div class="govuk-form-group">
@@ -663,6 +664,15 @@ Contact history
             {%else%}
               {%if (benefitLength >1) or (benefitLength == 0) %}
               <!-- default ch table -->
+              {% if (keyword != "change") or (keyword != "address") or (keyword != "change of circs") or (keyword != "change of address") %}
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  <span class="govuk-visually-hidden">Warning</span>
+                  There are no results found for "{{keyword}}". Showing results for all contact history. 
+                </strong>
+              </div>
+              {%endif%}
               <h3 class="govuk-heading-m">32 results</h3>
               <p class="govuk-body govuk-!-margin-bottom-6">
                   Sorted by:
