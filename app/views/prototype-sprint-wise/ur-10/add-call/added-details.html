@@ -89,7 +89,7 @@ You have added details about this call
             </dl>
           </div>
         </div>
-        {%endif%}
+        {%else%}
 
         {%if benefitLength == 1 and benefits != 'No benefit' %}
         <div class="govuk-summary-card">
@@ -162,6 +162,7 @@ You have added details about this call
             </dl>
           </div>
         </div>
+        {%endif%}
         {%endif%}
           <!-- Ask to complete session -->
           <form class="form govuk-!-margin-top-9" action="complete-call" method="post">
