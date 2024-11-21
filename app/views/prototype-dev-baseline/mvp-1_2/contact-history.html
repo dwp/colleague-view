@@ -89,7 +89,7 @@ Contact history
               </div>
               <div class="moj-filter__content">
                 <!-- selected filters -->
-                <div class="moj-filter__selected govuk-visually-hidden">
+                <!-- <div class="moj-filter__selected govuk-visually-hidden">
                   <div class="moj-filter__selected-heading">
                     <div class="moj-filter__heading-title">
                       <h3 class="govuk-heading-m">Selected filters</h3>
@@ -107,13 +107,24 @@ Contact history
                   <ul class="moj-filter-tags">
                     <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> Completed</a></li>
                   </ul>
-                </div>
+                </div> -->
                 <!-- filter options -->
                 <div class="moj-filter__options">
-                  <form action="" method="post">
-                    <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
+                  <form action="contact-history-filter-selected" method="post">
+                      <!-- apply filter button -->
+                      <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
                       Apply filters
                     </button>
+                    <!-- filter by Keywors -->
+                    <div class="govuk-form-group govuk-!-padding-right-4">
+                      <label class="govuk-label govuk-label--s" for="keyword-search">
+                        Search keywords
+                      </label>
+                      <div id="keyword-search-hint" class="govuk-hint">
+                        Enter a word or phrase to find related notes
+                      </div>
+                      <input class="govuk-input" id="keyword-search" name="keywordSearch" type="text" aria-describedby="keyword-search-hint">
+                    </div>
                     <!-- filter by benefits -->
                     <div class="govuk-form-group">
                       {% set benefitName = data['benefit'] %}
@@ -123,19 +134,19 @@ Contact history
                         </legend> 
                         <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="esa">
+                            <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
                             <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
                               Employment and Support Allowance
                             </label>
                           </div>
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="ca">
+                            <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance">
                             <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
                               Carer's Allowance
                             </label>
                           </div>
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="pip">
+                            <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
                             <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
                               Personal Independence Payment
                             </label>
@@ -329,20 +340,20 @@ Contact history
                             </legend>
                             <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
+                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="Last one month">
                                 <label class="govuk-label govuk-radios__label" for="changedName">
                                   Last one month
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="Last 3 months">
                                 <label class="govuk-label govuk-radios__label" for="changedName-2">
                                   Last 3 months
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
-                                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                                <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="Last 6 months">
+                                <label class="govuk-label govuk-radios__label" for="changedName-3">
                                   Last 6 months
                                 </label>
                               </div>
@@ -351,7 +362,6 @@ Contact history
                         </div>
                       </fieldset>
                     </div>
-
                     <!-- filter by contact type -->
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
@@ -360,50 +370,26 @@ Contact history
                         </legend>
                         <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
                           <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
-                            <label class="govuk-label govuk-radios__label" for="changedName">
+                            <input class="govuk-radios__input" id="contact-type-1" name="contact-type" type="radio" value="A telephone call">
+                            <label class="govuk-label govuk-radios__label" for="contact-type-1">
                               A telephone call
                             </label>
                           </div>
                           <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
-                            <label class="govuk-label govuk-radios__label" for="changedName-2">
+                            <input class="govuk-radios__input" id="contact-type-2" name="contact-type" type="radio" value=" A different type of contact">
+                            <label class="govuk-label govuk-radios__label" for="contact-type-2">
                               A different type of contact
                             </label>
                           </div>
                         </div>
                       </fieldset>
                     </div>
-                    <!-- filter by status -->
-                    <!-- <div class="govuk-form-group">
-                      <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                          Status
-                        </legend>
-                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="status" name="status" type="checkbox" value="complete" checked>
-                            <label class="govuk-label govuk-checkboxes__label" for="status">
-                              Completed (2)
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="status-2" name="status" type="checkbox" value="incomplete">
-                            <label class="govuk-label govuk-checkboxes__label" for="status-2">
-                              Incomplete (5)
-                            </label>
-                          </div>
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="status-3" name="status" type="checkbox" value="inprogress">
-                            <label class="govuk-label govuk-checkboxes__label" for="status-3">
-                              In progress (3)
-                            </label>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div> -->
+                    <!-- apply filter button -->
+                    <button type="submit" class="govuk-button govuk-!-margin-top-5 govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
+                      Apply filters
+                    </button>
+                  </form>
                 </div>
-                </form>
               </div>
             </div>
           </div>
