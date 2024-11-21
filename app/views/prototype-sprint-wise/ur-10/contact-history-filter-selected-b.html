@@ -90,7 +90,7 @@ Contact history
               <div class="moj-filter__content">
                 <!-- selected filters -->
                 {% set benefits =  data['benefit'] | length %}
-                {% set keyword =  data['keywordSearch'] %}
+                {% set keyword =  data['keywordSearch'] | upper %}
                 {% if benefits >= 1 %}
                 <hr class="govuk-section-break govuk-section-break--visible">
                 <div class="moj-filter__selected" style="box-shadow: none;">
@@ -122,7 +122,7 @@ Contact history
                     </div>
                   </div>
                   <ul class="moj-filter-tags">
-                    <li><a class="moj-filter__tag" href="contact-history-b.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword }}</a></li>
+                    <li><a class="moj-filter__tag" href="contact-history-b.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword | capitalize }}</a></li>
                   </ul>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
@@ -131,16 +131,6 @@ Contact history
                 <div class="moj-filter__options">
                   <form action="contact-history-filter-selected" method="post">
 
-                    <!-- filter by Keywors -->
-                    <div class="govuk-form-group govuk-!-padding-right-4">
-                      <label class="govuk-label govuk-label--s" for="keyword-search">
-                        Search keywords
-                      </label>
-                      <div id="keyword-search-hint" class="govuk-hint">
-                        Enter a word or phrase to find related notes
-                      </div>
-                      <input class="govuk-input" id="keyword-search" name="keywordSearch" type="text" aria-describedby="keyword-search-hint">
-                    </div>
                     <!-- filter by benefits -->
                     <div class="govuk-form-group">
                       {% set benefitName = data['benefit'] %}
@@ -400,6 +390,16 @@ Contact history
                         </div>
                       </fieldset>
                     </div>
+                    <!-- filter by Keywors -->
+                    <div class="govuk-form-group govuk-!-padding-right-4">
+                      <label class="govuk-label govuk-label--s" for="keyword-search">
+                        Search keywords
+                      </label>
+                      <div id="keyword-search-hint" class="govuk-hint">
+                        Enter a word or phrase to find related notes
+                      </div>
+                      <input class="govuk-input" id="keyword-search" name="keywordSearch" type="text" aria-describedby="keyword-search-hint">
+                    </div>
                     <!-- apply filter button -->
                     <button type="submit" class="govuk-button govuk-!-margin-top-5 govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
                       Apply filters
@@ -454,7 +454,7 @@ Contact history
             </div>
             {%else%}
             <!-- keyword search -->
-            {% if data['keywordSearch'] === "change" %}
+            {% if keyword === "ADDRESS" %}
             <div class="pip-filtered">
               <h3 class="govuk-heading-m">1 results</h3>
               <div class="summry-card">
@@ -500,7 +500,7 @@ Contact history
                 </div>
               </div>
             </div>
-              {% elif data['keywordSearch'] === "address"  %}
+              {% elif keyword === "CHANGE OF CIRCS"  %}
               <div class="pip-filtered">
                 <h3 class="govuk-heading-m">1 results</h3>
                 <div class="summry-card">
@@ -546,7 +546,7 @@ Contact history
                   </div>
                 </div>
               </div>
-              {% elif data['keywordSearch'] === "change of circs" %}
+              {% elif keyword === "CHANGE OF ADDRESS" %}
               <div class="pip-filtered">
                 <h3 class="govuk-heading-m">1 results</h3>
                 <div class="summry-card">
@@ -592,7 +592,7 @@ Contact history
                   </div>
                 </div>
               </div>
-              {% elif data['keywordSearch'] === "change of address" %}
+              {% elif keyword === "CHANGE OF CIRCUMSTANCE" %}
               <div class="pip-filtered">
                 <h3 class="govuk-heading-m">1 results</h3>
                 <div class="summry-card">
@@ -642,7 +642,7 @@ Contact history
               <!-- benefit name filter -->
               {%if (benefitLength >1) or (benefitLength == 0) %}
               <!-- default ch table -->
-              {% if (keyword != "change") or (keyword != "address") or (keyword != "change of circs") or (keyword != "change of address") %}
+              {% if (keyword === "ADDRESS") or (keyword === "CHANGE OF CIRCS") or (keyword === "CHANGE OF ADDRESS") or (keyword === "CHANGE OF CIRCUMSTANCE") %}
               <div class="govuk-warning-text">
                 <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                 <strong class="govuk-warning-text__text">

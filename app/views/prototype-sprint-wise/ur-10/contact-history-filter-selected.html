@@ -90,7 +90,7 @@ Contact history
               <div class="moj-filter__content">
                 <!-- selected filters -->
                 {% set benefits =  data['benefit'] | length %}
-                {% set keyword =  data['keywordSearch'] %}
+                {% set keyword =  data['keywordSearch'] | upper  %}
                 {%set checkDay = data['from-date-day'] %}
                 {% set checkMonth = data['from-date-month'] %}
                 {%set checkYear = data['from-date-year'] %}
@@ -113,8 +113,7 @@ Contact history
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
                 {%endif%}
-                {% if (keyword === "change") or (keyword === "address") or (keyword === "change of circs") or (keyword === "change of address") or (keyword === "Change of address") %}
-               
+                {% if (keyword === "ADDRESS") or (keyword === "CHANGE OF CIRCS") or (keyword === "CHANGE OF ADDRESS") or (keyword === "CHANGE OF CIRCUMSTANCE") %}
                 <hr class="govuk-section-break govuk-section-break--visible">
                 <div class="moj-filter__selected" style="box-shadow: none;">
                   <div class="moj-filter__selected-heading">
@@ -126,7 +125,7 @@ Contact history
                     </div>
                   </div>
                   <ul class="moj-filter-tags">
-                    <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword }}</a></li>
+                    <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword | capitalize}}</a></li>
                   </ul>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
@@ -435,6 +434,7 @@ Contact history
           </div>
           <div class="govuk-grid-column-two-thirds">
             {%set benefitLength = data['benefit'] | length %}
+            {%set keywordSearch = data['keywordSearch'] | upper %}
             <!-- date filter -->
             {% if (data['from-date-month'] == "5") or (data['from-date-month'] == "05") %}
             <div class="pip-filtered">
@@ -477,7 +477,7 @@ Contact history
               </div>
             </div>
             {%else%}
-            {% if data['keywordSearch'] === "change" %}
+            {% if keywordSearch === "CHANGE OF CIRCS" %}
             <div class="pip-filtered">
               <h3 class="govuk-heading-m">1 results</h3>
               <div class="summry-card">
@@ -523,7 +523,7 @@ Contact history
                 </div>
               </div>
             </div>
-              {% elif data['keywordSearch'] === "address"  %}
+              {% elif keywordSearch === "ADDRESS"  %}
               <div class="pip-filtered">
                 <h3 class="govuk-heading-m">1 results</h3>
                 <div class="summry-card">
@@ -569,7 +569,7 @@ Contact history
                   </div>
                 </div>
               </div>
-              {% elif data['keywordSearch'] === "change of circs" %}
+              {% elif keywordSearch === "CHANGE OF ADDRESS" %}
               <div class="pip-filtered">
                 <h3 class="govuk-heading-m">1 results</h3>
                 <div class="summry-card">
@@ -615,7 +615,7 @@ Contact history
                   </div>
                 </div>
               </div>
-              {% elif data['keywordSearch'] === "change of address" %}
+              {% elif keywordSearch === "CHANGE OF CIRCUMSTANCE" %}
               <div class="pip-filtered">
                 <h3 class="govuk-heading-m">1 results</h3>
                 <div class="summry-card">
@@ -664,7 +664,7 @@ Contact history
             {%else%}
               {%if (benefitLength >1) or (benefitLength == 0) %}
               <!-- default ch table -->
-              {% if (keyword != "change") or (keyword != "address") or (keyword != "change of circs") or (keyword != "change of address") %}
+              {% if (keywordSearch != "CHANGE OF CIRCS") or (keywordSearch != "ADDRESS") or (keywordSearch != "CHANGE OF ADDRESS") or (keywordSearch != "CHANGE OF CIRCUMSTANCE") %}
               <div class="govuk-warning-text">
                 <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                 <strong class="govuk-warning-text__text">
