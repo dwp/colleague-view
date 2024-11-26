@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-10/common/header_keydetail_bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/header_keydetail_bar.html" %}
 {% endblock %}
 
 
@@ -137,28 +137,6 @@
           </tr>
           <tr class="govuk-summary-list__row">
             <th scope="row" class="govuk-summary-list__key">
-             Notes
-            </th>
-            <td class="govuk-summary-list__value">
-              {{ data['addNote'] or "Not provided" }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      {%else%}
-      {%if benefitLength == 1 and benefits == 'No benefit' %}
-      <table class="govuk-summary-list govuk-!-margin-bottom-0">
-        <tbody class="govuk-summary-list">
-          <tr class="govuk-summary-list__row">
-            <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-              Benefits
-            </th>
-            <td class="govuk-summary-list__value">
-              {{ data['what-benefit-discussed'] }}
-            </td>
-          </tr>
-          <tr class="govuk-summary-list__row">
-            <th scope="row" class="govuk-summary-list__key">
              Notes added
             </th>
             <td class="govuk-summary-list__value">
@@ -192,7 +170,6 @@
           </tr>
         </tbody>
       </table>
-      {%endif%}
       {%endif%}
     </div>
   </div>
