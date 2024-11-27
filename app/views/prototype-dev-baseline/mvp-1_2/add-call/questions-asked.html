@@ -24,9 +24,10 @@ What was the call about?
     <span class="govuk-caption-l">Step 2 of 3</span>
     <h1 class="govuk-heading-l">What was the call about?</h1>
     <form action="added-call-details" method="post" novalidate>
+    {%set contacttype = data['What-type-of-contact'] %}
     {% set benefits =  data['what-benefit-discussed'] %}
     {%set checkNoteAdded = data['addNote'] %}
-    {% set benefitLength =  data['what-benefit-discussed'] | length %} 
+    {% set benefitLength =  data['what-benefit-discussed'] | length %}    
     {% if benefitLength >1 %}
     <!-- for ESA -->
     <div class="govuk-form-group">
