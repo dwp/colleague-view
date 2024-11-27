@@ -78,6 +78,9 @@ router.post('/call-with', function (req, res) {
   if (req.session.data['What-type-of-contact'] == 'View only') {
     res.redirect('/prototype-dev-baseline/mvp-1_2/view-only/home');
   }
+  if (req.session.data['What-type-of-contact'] == 'Log a contact attempt') {
+    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed');
+  }
   if (req.session.data['What-type-of-contact'] == '') {
     console.log('Error page');
     res.redirect('/prototype-dev-baseline/mvp-1_2/error-why-checking-info');
@@ -144,6 +147,12 @@ router.post('/add-call/what-benefits-discussed', function (req, res) {
 });
 
 router.post('/add-call/questions-asked', function (req, res) {
+
+  if (req.session.data['What-type-of-contact'] == 'Log a contact attempt') {
+    req.session.data['addNote'] = '';
+;    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/add-note-for-failed-outbound');
+  } else {
+
   console.log('Question asked');
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
@@ -174,6 +183,7 @@ router.post('/add-call/questions-asked', function (req, res) {
   } else {
   res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/questions-asked');
  }
+}
 })
 
 router.post('/add-call/questions-answered', function (req, res) {

@@ -20,14 +20,20 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {%set contactType = data['What-type-of-contact']%}
+      {%if contactType == 'Log a contact attempt'%}
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Contact completed
+        </h1>
+      </div>
+      {%else%}
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title">
           Call completed
         </h1>
-        <!-- <div class="govuk-panel__body">
-          Session time<br><strong>15 Minutes</strong>
-        </div> -->
       </div>
+      {%endif%}
       <!-- <p class="govuk-body">Session start date and time: <span id="todayDate"></span></p> -->
       <h2 class="govuk-heading-m govuk-!-margin-top-6">What happens next</h2>
       <p class="govuk-body">
@@ -38,7 +44,7 @@
           Start service again
         </button>
       </form>
-    </div>
+     </div>
       <!-- <h1 class="govuk-heading-xl">Call completed</h1>
       <div class="govuk-form-group">
         <dl class="govuk-summary-list">
