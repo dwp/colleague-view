@@ -183,12 +183,23 @@ Which benefits did you review?
                 </div>                -->
                 <div class="govuk-radios__divider">or</div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed-non-telephony" type="checkbox" value="No benefit" data-behaviour="exclusive" {{ checked ('what-benefit-discussed-non-telephony', 'No benefit') }} >
+                  <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed-non-telephony" type="checkbox" value="No benefit" data-aria-controls="conditional-contact" data-behaviour="exclusive" {{ checked ('what-benefit-discussed-non-telephony', 'No benefit') }} >
                   <label class="govuk-label govuk-checkboxes__label" for="benefit_notDiscussed">
                     No benefit
                   </label>
                 </div>
-
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="discuss-no-benefit">
+                      Enter the subject of the call in a few words
+                    </label>
+                    <div id="no-benefit-hint" class="govuk-hint">
+                      For example, 'change of address'.
+                    </div>
+                    <input class="govuk-input govuk-!-width-one-half" id="discuss-no-benefit" name="noBenefitReason" type="text" aria-describedby="no-benefit-hint" value="{{data ['noBenefitReason']}}" >
+                  </div>
+                </div>
+    
               </div>
             </fieldset>
           </div>
