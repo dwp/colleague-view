@@ -11,7 +11,7 @@ router.post('/index.html', function (req, res) {
   res.redirect('/prototype-dev-baseline/mvp-1_2/index');
 });
 
-router.post('/why-checking-info', function (req, res) {
+router.post('/why-checking-information', function (req, res) {
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-contact-with'] = '';
