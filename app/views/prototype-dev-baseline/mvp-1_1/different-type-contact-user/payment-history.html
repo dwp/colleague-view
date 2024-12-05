@@ -4,16 +4,14 @@
 Payment history
 {% endblock %}
 
-
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_2/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_2/common/keydetail-bar.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/header.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/opt2/different-type-contact-user/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_2/common/footer.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/footer.html" %}
 {% endblock %}
-
 
 {% block beforeContent %}
   {% include "/prototype-dev-baseline/mvp-1_2/common/phase-banner.html" %}
@@ -22,31 +20,16 @@ Payment history
 
 {% block content %}
 <div class="govuk-grid-row">
-<div class="govuk-grid-column-one-half">
-  <h1 class="govuk-heading-xl">Payment history</h1>
-</div>
-<div class="govuk-grid-column-one-half">
-  <form action="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed" method="post">
-    <div class="govuk-button-group">
-      {% set benefits =  data['what-benefit-discussed'] | length %}
-      {%if benefits >=1 %}
-      <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed">
-        Add or change call details
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Payments history</h1>
+  </div>
+  <div class="govuk-grid-column-one-third govuk-!-text-align-right">
+    <form action="call-log-journey/selectBenefit" method="post">
+      <button class="govuk-button" data-module="govuk-button" onclick="global_var['a']['b']=1;">
+        Add or view call details
       </button>
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-to-complete-call">
-        Complete phone call
-      </button>
-      {%else%}
-      <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed">
-        Add call details
-      </button>
-      {%endif%}
-      <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-to-complete-call">
-        Complete phone call
-      </button> -->
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 </div>
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-one-third">
@@ -61,29 +44,43 @@ Payment history
     </div>
     <div class="moj-filter__content">
       <!-- selected filters -->
-      {% set benefits =  data['benefit'] | length %}
-      {% if benefits >= 1 %}
-      <hr class="govuk-section-break govuk-section-break--visible">
-      <div class="moj-filter__selected" style="box-shadow: none;">
+      <!-- {% set benefitName = data['benefit'] %}
+      {% if benefitName >0 %}
+      <div class="moj-filter__selected">
         <div class="moj-filter__selected-heading">
           <div class="moj-filter__heading-title">
-            <h3 class="govuk-heading-s">Selected filters</h3>
+            <h3 class="govuk-heading-m">Selected filters</h3>
           </div>
           <div class="moj-filter__heading-action">
-            <p><a class="govuk-link govuk-link--no-visited-state" href="payment-history.html">Clear filters</a></p>
+            <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
           </div>
         </div>
         <ul class="moj-filter-tags">
-          {%for benefitName in data['benefit']%}
-          <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
+        {% for benefit in data['benefit'] %}
+          <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefit }}</a></li>
         {% endfor %}
         </ul>
       </div>
-      <hr class="govuk-section-break govuk-section-break--visible">
+      {%else%} -->
+      <div class="moj-filter__selected" style="display: none;">
+        <div class="moj-filter__selected-heading">
+          <div class="moj-filter__heading-title">
+            <h3 class="govuk-heading-m">Selected filters</h3>
+          </div>
+          <div class="moj-filter__heading-action">
+            <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+          </div>
+        </div>
+        <ul class="moj-filter-tags">
+        {% for benefit in data['benefit'] %}
+          <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefit }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
       {%endif%}
       <!-- filter options -->
       <div class="moj-filter__options">
-        <form action="payment-history" method="post">
+        <form action="payment-history-filter-selected" method="post">
           <!-- filter by benefits -->
           <div class="govuk-form-group govuk-!-margin-bottom-5">
             <!-- {% set benefitName = data['benefit'] %} -->
@@ -93,19 +90,19 @@ Payment history
               </legend> 
               <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="ESA" {{ checked ('benefit', 'CA') }}>
+                  <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" >
                   <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
                     Employment and Support Allowance
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="CA" {{ checked ('benefit', 'CA') }}>
+                  <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" >
                   <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
                     Carer's Allowance
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="PIP" {{ checked ('benefit', 'PIP') }}>
+                  <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
                   <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
                     Personal Independence Payment
                   </label>
@@ -122,31 +119,11 @@ Payment history
   </div>
 </div>
 <div class="govuk-grid-column-two-thirds">
-  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">25 results</h2>
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-2">45 results</h2>
   <p class="govuk-body govuk-!-margin-bottom-6">
     Sorted by:
     <span class="govuk-!-font-weight-bold">Date</span>
   </p>
-  <!-- selected filters -->
-  <!-- {% set benefits =  data['benefit'] | length %}
-  {% if benefits >= 1 %}
-  <div class="moj-filter__selected">
-    <div class="moj-filter__selected-heading">
-      <div class="moj-filter__heading-title">
-        <h3 class="govuk-heading-s">Selected filters</h3>
-      </div>
-      <div class="moj-filter__heading-action">
-        <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
-      </div>
-    </div>
-    <ul class="moj-filter-tags">
-      {%for benefitName in data['benefit']%}
-      <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
-    {% endfor %}
-    </ul>
-  </div>
-  {%endif%} -->
-<!-- selected filter end here -->
 
   {% if data['paymentTableData'].length > 0%}
   <div id="default-table">          
@@ -273,11 +250,39 @@ Payment history
   </table>
 </div>
 {%endif%}
-<nav class="moj-pagination" aria-label="Pagination navigation" role="navigation">
+<!-- GOVUK Pagination -->
+<nav class="govuk-pagination" aria-label="Pagination">
+  <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+        1
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+      <span class="govuk-pagination__link-title">
+        Next<span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+    </a>
+  </div>
+</nav>
+
+<!-- <nav class="moj-pagination" aria-label="Pagination navigation" role="navigation">
   <ul class="moj-pagination__list">
-    <!-- <li class="moj-pagination__item  moj-pagination__item--prev">
-      <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
-    </li> -->
     <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1" aria-current="page">1</a></li>
 
     <li class="moj-pagination__item"><a class="moj-pagination__link" href="#" aria-label="Page 2">2</a></li>
@@ -293,7 +298,7 @@ Payment history
     </li>
   </ul>
   <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>60</b> results</p>
-</nav>
+</nav> -->
 </div>
 </div>
 
