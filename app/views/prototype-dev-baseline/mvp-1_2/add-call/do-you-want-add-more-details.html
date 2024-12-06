@@ -146,15 +146,19 @@
         </tbody>
       </table>
       {%else%}
-      {%if benefitLength == 1 and benefits == 'No benefit' %}
+      {%if benefitLength == 1 and benefits != 'No benefit' %}
       <table class="govuk-summary-list govuk-!-margin-bottom-0">
         <tbody class="govuk-summary-list">
           <tr class="govuk-summary-list__row">
             <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-              Benefits
+              {{ data['what-benefit-discussed'] }}
             </th>
             <td class="govuk-summary-list__value">
-              {{ data['what-benefit-discussed'] }} - {{data['noBenefitReason']}}
+              <ul class="govuk-list govuk-list--bullet">
+                {% for benefit in data['question-asked'] %}
+                <li>{{ benefit }}</li>
+                {% endfor %}
+              </ul>
             </td>
           </tr>
           <tr class="govuk-summary-list__row">
@@ -168,18 +172,15 @@
         </tbody>
       </table>
       {%else%}
+
       <table class="govuk-summary-list govuk-!-margin-bottom-0">
         <tbody class="govuk-summary-list">
           <tr class="govuk-summary-list__row">
             <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-              {{ data['what-benefit-discussed'] }}
+              Benefits
             </th>
             <td class="govuk-summary-list__value">
-              <ul class="govuk-list govuk-list--bullet">
-                {% for benefit in data['question-asked'] %}
-                <li>{{ benefit }}</li>
-                {% endfor %}
-              </ul>
+              {{ data['what-benefit-discussed'] }} - {{data['noBenefitReason']}}
             </td>
           </tr>
           <tr class="govuk-summary-list__row">
