@@ -231,7 +231,8 @@ router.post('/add-call/add-more-call-details', function (req, res) {
     res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed')
   }
   if (addCallDetails == 'Complete phone call'){
-    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed');
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed');
+    res.redirect('/prototype-dev-baseline/mvp-1_2/index')
   }
   if (addCallDetails == 'Change your note'){
     res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/change-notes');
@@ -244,8 +245,10 @@ router.post('/add-call/add-more-call-details', function (req, res) {
 router.post('/add-call/complete-call', function (req, res) {
   var checkCallCompletion = req.session.data['Do-you-want-to-complete-the-call'];
   if (checkCallCompletion == 'Complete phone call'){
-    console.log('Comlete phone call');
-    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed')
+    // console.log('Comlete phone call');
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed')
+    res.redirect('/prototype-dev-baseline/mvp-1_2/index')
+   
   } else{
     res.redirect('/prototype-dev-baseline/mvp-1_2/home')
   }
@@ -266,7 +269,7 @@ router.post('/add-call/check-call-completion', function (req, res) {
   var checkCallCompletion = req.session.data['complete-call'];
 
   if (checkCallCompletion == 'Yes') {
-    res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/call-completed');
+    res.redirect('/prototype-dev-baseline/mvp-1_2/index');
   }
   else{
     res.redirect('/prototype-dev-baseline/mvp-1_2/home');
@@ -379,7 +382,9 @@ router.post('/non-telephony/add-contact/complete-contact', function (req, res) {
   var checkCallCompletion = req.session.data['Do-you-want-to-complete-the-contact'];
   if (checkCallCompletion == 'Complete phone contact'){
     console.log('Comlete phone call');
-    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
+    res.redirect('/prototype-dev-baseline/mvp-1_2/index')
+   
   } else{
     res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/home')
   }
@@ -395,7 +400,8 @@ router.post('/non-telephony/add-contact/add-more-contact-details', function (req
   }
   if (addCallDetails == 'Complete phone call'){
     console.log('Complete call');
-    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
+    res.redirect('/prototype-dev-baseline/mvp-1_2/index')
   }
   if (addCallDetails == 'Change your note'){
     console.log('Change notes');

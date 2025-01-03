@@ -41,14 +41,14 @@ Contact history
           <div class="govuk-button-group">
             {% set benefits =  data['what-benefit-discussed'] | length %}
             {%if benefits >=1 %}
-            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-10/add-call/what-benefits-discussed">
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed">
               Add or change call details
             </button>
             <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/add-call/do-you-want-to-complete-call">
-              Complete phone call
+             Start service again
             </button>
             {%else%}
-            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-10/add-call/what-benefits-discussed">
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed">
               Add call details
             </button>
             {%endif%}
@@ -221,40 +221,40 @@ Contact history
                           </div>
                           <div class="govuk-checkboxes__item">
                             {% if data.tableFilterPM == true%}
-                            <input class="govuk-checkboxes__input" id="PM-subContext" name="querySubContext" type="checkbox" value="Payment method" checked="checked">
+                            <input class="govuk-checkboxes__input" id="PM-subContext" name="querySubContext" type="checkbox" value="Checking the payment method" checked="checked">
                             <label class="govuk-label govuk-checkboxes__label" for="PM-subContext">
-                              Payment method
+                              Checking the payment method
                             </label>
                             {% else %}
-                            <input class="govuk-checkboxes__input" id="PM-subContext" name="querySubContext" type="checkbox" value=" Payment method">
+                            <input class="govuk-checkboxes__input" id="PM-subContext" name="querySubContext" type="checkbox" value="Checking the payment method">
                             <label class="govuk-label govuk-checkboxes__label" for="PM-subContext">
-                              Payment method
+                              Checking the payment method
                             </label>
                             {% endif%}
                           </div>
                           <div class="govuk-checkboxes__item">
                             {% if data.tableFilterRO == true%}
-                            <input class="govuk-checkboxes__input" id="RO-subContext" name="querySubContext" type="checkbox" value="Report overpayment" checked="checked">
+                            <input class="govuk-checkboxes__input" id="RO-subContext" name="querySubContext" type="checkbox" value="Reporting an overpayment" checked="checked">
                             <label class="govuk-label govuk-checkboxes__label" for="RO-subContext">
-                              Report overpayment
+                              Reporting an overpayment
                             </label>
                             {% else %}
-                            <input class="govuk-checkboxes__input" id="RO-subContext" name="querySubContext" type="checkbox" value="Report overpayment">
+                            <input class="govuk-checkboxes__input" id="RO-subContext" name="querySubContext" type="checkbox" value="Reporting an overpayment">
                             <label class="govuk-label govuk-checkboxes__label" for="RO-subContext">
-                              Report overpayment
+                              Reporting an overpayment
                             </label>
                             {% endif%}
                           </div>
                           <div class="govuk-checkboxes__item">
                             {% if data.tableFilterHMR == true%}
-                            <input class="govuk-checkboxes__input" id="HMR-subContext" name="querySubContext" type="checkbox" value=" Help managing repayments" checked="checked">
+                            <input class="govuk-checkboxes__input" id="HMR-subContext" name="querySubContext" type="checkbox" value=" Repaying an overpayment" checked="checked">
                             <label class="govuk-label govuk-checkboxes__label" for="HMR-subContext">
-                              Help managing repayments
+                              Repaying an overpayment
                             </label>
                             {% else %}
-                            <input class="govuk-checkboxes__input" id="HMR-subContext" name="querySubContext" type="checkbox" value=" Help managing repayments">
+                            <input class="govuk-checkboxes__input" id="HMR-subContext" name="querySubContext" type="checkbox" value=" Repaying an overpayment">
                             <label class="govuk-label govuk-checkboxes__label" for="HMR-subContext">
-                              Help managing repayments
+                              Repaying an overpayment
                             </label>
                             {% endif%}
                           </div>
