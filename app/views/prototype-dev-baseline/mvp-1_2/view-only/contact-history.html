@@ -205,6 +205,45 @@ Contact history
                             {% endif%}
                           </div>
                           <div class="govuk-checkboxes__item">
+                            {% if data.tableFilterPM == true%}
+                            <input class="govuk-checkboxes__input" id="PM-subContext" name="querySubContext" type="checkbox" value="Payment method" checked="checked">
+                            <label class="govuk-label govuk-checkboxes__label" for="PM-subContext">
+                              Payment method
+                            </label>
+                            {% else %}
+                            <input class="govuk-checkboxes__input" id="PM-subContext" name="querySubContext" type="checkbox" value=" Payment method">
+                            <label class="govuk-label govuk-checkboxes__label" for="PM-subContext">
+                              Payment method
+                            </label>
+                            {% endif%}
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            {% if data.tableFilterRO == true%}
+                            <input class="govuk-checkboxes__input" id="RO-subContext" name="querySubContext" type="checkbox" value="Report overpayment" checked="checked">
+                            <label class="govuk-label govuk-checkboxes__label" for="RO-subContext">
+                              Report overpayment
+                            </label>
+                            {% else %}
+                            <input class="govuk-checkboxes__input" id="RO-subContext" name="querySubContext" type="checkbox" value="Report overpayment">
+                            <label class="govuk-label govuk-checkboxes__label" for="RO-subContext">
+                              Report overpayment
+                            </label>
+                            {% endif%}
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            {% if data.tableFilterHMR == true%}
+                            <input class="govuk-checkboxes__input" id="HMR-subContext" name="querySubContext" type="checkbox" value=" Help managing repayments" checked="checked">
+                            <label class="govuk-label govuk-checkboxes__label" for="HMR-subContext">
+                              Help managing repayments
+                            </label>
+                            {% else %}
+                            <input class="govuk-checkboxes__input" id="HMR-subContext" name="querySubContext" type="checkbox" value=" Help managing repayments">
+                            <label class="govuk-label govuk-checkboxes__label" for="HMR-subContext">
+                              Help managing repayments
+                            </label>
+                            {% endif%}
+                          </div>
+                          <div class="govuk-checkboxes__item">
                             {% if data.tableFilterOQ == true%}
                             <input class="govuk-checkboxes__input" id="OQ-subContext" name="querySubContext" type="checkbox" value="Other questions" checked="checked">
                             <label class="govuk-label govuk-checkboxes__label" for="OQ-subContext">
@@ -285,7 +324,7 @@ Contact history
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                         Contact type
+                          Contact type
                         </legend>
                         <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
                           <div class="govuk-radios__item">
@@ -318,7 +357,7 @@ Contact history
                       Apply filters
                     </button> -->
                     <div class="govuk-!-margin-top-5"> <a class="govuk-link" href="#filter">Back to top<span class="govuk-visually-hidden"> Benefit</span></a></div>
-                   
+                    
                   </form>
                 </div>
               </div>
@@ -346,14 +385,6 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -368,6 +399,14 @@ Contact history
                         <td class="govuk-summary-list__value">
                           <p>Next payment date</p>
                           <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
@@ -388,14 +427,6 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -409,6 +440,14 @@ Contact history
                         </th>
                         <td class="govuk-summary-list__value">
                           Check notes
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
@@ -430,14 +469,6 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          No notes added
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Carer's Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -451,6 +482,14 @@ Contact history
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment amount
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          No notes added
                         </td>
                       </tr>
                     </tbody>
@@ -471,18 +510,18 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text-3">Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.</span> <span class="" id="less-text-3">Claimant has moved address to 123 Test Street. The address we send letters...</span> <br/> <a href="#/" class="govuk-link" id="full-text-link-3" onclick="showfull3()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-3" onclick="showless3()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                          Benefits discussed
                         </th>
                         <td class="govuk-summary-list__value">
                           No benefit - Change of address
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text-3">Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.</span> <span class="" id="less-text-3">Claimant has moved address to 123 Test Street. The address we send letters...</span> <br/> <a href="#/" class="govuk-link" id="full-text-link-3" onclick="showfull3()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-3" onclick="showless3()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
@@ -503,14 +542,6 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -523,6 +554,14 @@ Contact history
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment date
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
@@ -543,14 +582,6 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Carer's Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -563,6 +594,14 @@ Contact history
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment amount
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
@@ -583,19 +622,19 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
                           <p>Next payment date</p>
                           <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
@@ -616,14 +655,6 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -637,6 +668,14 @@ Contact history
                         </th>
                         <td class="govuk-summary-list__value">
                           Next payment amount
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
@@ -658,19 +697,19 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the payability.</span><br /> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Personal Independence Payment
                         </th>
                         <td class="govuk-summary-list__value">
                           <p>Next payment date</p>
                           <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the payability.</span><br /> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
@@ -691,14 +730,6 @@ Contact history
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
                         <th scope="row" class="govuk-summary-list__key">
-                         Notes added
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Claimant has moved address to 123 Test Street. The address we send letters<br /> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
                           Personal Independence Payment
                         </th>
                         <td class="govuk-summary-list__value">
@@ -711,6 +742,14 @@ Contact history
                         </th>
                         <td class="govuk-summary-list__value">
                           Check notes
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Claimant has moved address to 123 Test Street. The address we send letters<br /> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
                         </td>
                       </tr>
                     </tbody>
