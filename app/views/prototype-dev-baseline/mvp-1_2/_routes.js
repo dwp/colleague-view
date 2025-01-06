@@ -422,7 +422,9 @@ router.post('/non-telephony/add-contact/do-you-want-to-complete-contact', functi
 router.post('/non-telephony/add-contact/contact-details-completed', function (req, res) {
   var addContactDetails = req.session.data['complete-contact'];
   if (addContactDetails == 'Yes'){
-    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
+    // res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/contact-completed')
+    res.redirect('/prototype-dev-baseline/mvp-1_2/index')
+    
   } else{
     res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/home')
   }
