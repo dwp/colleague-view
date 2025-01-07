@@ -73,6 +73,12 @@ Which benefits did you discuss?
               </label>
             </div>
             <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_cwp" name="what-benefit-discussed" type="checkbox" value="Cold_Weather_Payment" {{ checked ('what-benefit-discussed', 'Cold Weather Payment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_cwp">
+                Cold Weather Payment
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_dla" name="what-benefit-discussed" type="checkbox" value="dla" {{ checked ('what-benefit-discussed', 'Disability Living Allowance +65') }}>
               <label class="govuk-label govuk-checkboxes__label" for="benefit_dla">
                 Disability Living Allowance +65
@@ -126,13 +132,18 @@ Which benefits did you discuss?
                 Severe Disablement Allowance
               </label>
             </div>
-           
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_wfp" name="what-benefit-discussed" type="checkbox" value="Winter_Fuel_Payment" {{ checked ('what-benefit-discussed', 'Winter Fuel Payment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_wfp">
+                Winter Fuel Payment
+              </label>
+            </div>
             <div class="govuk-radios__divider">or</div>
             
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed" type="checkbox" value="No benefit" data-aria-controls="conditional-contact" data-behaviour="exclusive" {{ checked ('what-benefit-discussed', 'No benefit') }} >
+              <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed" type="checkbox" value="General information" data-aria-controls="conditional-contact" data-behaviour="exclusive" {{ checked ('what-benefit-discussed', 'No benefit') }} >
               <label class="govuk-label govuk-checkboxes__label" for="benefit_notDiscussed">
-                No benefit
+                General information
               </label>
             </div>
             <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
