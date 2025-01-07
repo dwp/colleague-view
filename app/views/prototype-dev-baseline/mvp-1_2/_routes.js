@@ -179,7 +179,7 @@ router.post('/add-call/questions-asked', function (req, res) {
  {
   console.log('Error page');
   res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/what-benefits-discussed-error');
-  } else if (req.session.data['what-benefit-discussed'] == 'No benefit') {
+  } else if (req.session.data['what-benefit-discussed'] == 'General information') {
     res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/no-benefit');
   } else {
   res.redirect('/prototype-dev-baseline/mvp-1_2/add-call/questions-asked');
@@ -317,7 +317,7 @@ router.post('/non-telephony/add-contact/questions-asked', function (req, res) {
  {
   console.log('Error page');
   res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed-error');
- } else if (req.session.data['what-benefit-discussed-non-telephony'] == 'No benefit') {
+ } else if (req.session.data['what-benefit-discussed-non-telephony'] == 'General information') {
   res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/no-benefit');
 } else {
   res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/questions-asked');

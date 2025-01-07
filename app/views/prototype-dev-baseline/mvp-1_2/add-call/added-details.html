@@ -158,7 +158,7 @@ You have added details about this call
           </div>
         </div>
         {%else%}
-        {%if benefitLength == 1 and benefits != 'No benefit' %}
+        {%if benefitLength == 1 and benefits != 'General information' %}
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
@@ -204,10 +204,10 @@ You have added details about this call
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Benefits
+                  {{ data['what-benefit-discussed'] }}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['what-benefit-discussed'] }} — {{data['noBenefitReason']}}
+                  {{data['noBenefitReason']}}
                 </dd>
                 <dd class="govuk-summary-list__actions govuk-!-display-none">
                   <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>

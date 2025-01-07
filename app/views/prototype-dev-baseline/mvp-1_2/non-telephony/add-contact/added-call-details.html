@@ -30,7 +30,7 @@
     {% if benefitLength >1 %}
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Benefits discussed</h2>
+          <h2 class="govuk-summary-card__title">Benefits</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
               <a class="govuk-link" href="what-benefits-discussed.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -41,7 +41,7 @@
           <table class="govuk-summary-list govuk-!-margin-bottom-0">
             <tbody class="govuk-summary-list">
               <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third govuk-!-display-none">
                   Benefit name
                 </th>
                 <td class="govuk-summary-list__value">
@@ -59,7 +59,7 @@
       <div class="govuk-summary-card">
         {% set questionAsk = data['question-asked'] %}
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">What the call was about</h2>
+          <h2 class="govuk-summary-card__title">What the contact was about</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
               <a class="govuk-link" href="questions-asked.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -114,11 +114,11 @@
         </strong>
       </div>
     {% else %}
-    {%if (benefitLength == 1) and ( benefits != 'No benefit') %}
+    {%if (benefitLength == 1) and ( benefits != 'General information') %}
       <div class="govuk-summary-card">
         {% set questionAsk = data['question-asked'] %}
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Benefit discussed</h2>
+          <h2 class="govuk-summary-card__title">Benefits</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
               <a class="govuk-link" href="what-benefits-discussed.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -129,7 +129,7 @@
           <table class="govuk-summary-list govuk-!-margin-bottom-0">
             <tbody class="govuk-summary-list">
               <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third govuk-!-display-none">
                   Benefit name
                 </th>
                 <td class="govuk-summary-list__value">
@@ -143,7 +143,7 @@
       <div class="govuk-summary-card">
         {% set questionAsk = data['question-asked'] %}
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">What the call was about</h2>
+          <h2 class="govuk-summary-card__title">What the contact was about</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
               <a class="govuk-link" href="questions-asked.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -191,7 +191,7 @@
         {% set questionAsk = data['question-asked'] %}
         {% set noBenefitReason = data['noBenefitReason'] %}
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Benefits</h2>
+          <h2 class="govuk-summary-card__title">What the contact was about</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
               <a class="govuk-link" href="what-benefits-discussed.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -202,7 +202,7 @@
           <table class="govuk-summary-list govuk-!-margin-bottom-0">
             <tbody class="govuk-summary-list">
               <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+                <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third govuk-!-display-none">
                   Benefit name
                 </th>
                 <td class="govuk-summary-list__value">
