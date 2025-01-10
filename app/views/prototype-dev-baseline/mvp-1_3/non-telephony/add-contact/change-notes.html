@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What was the contact about?
+{% endblock %}
+
+{% block header %}
+{% include "/prototype-dev-baseline/mvp-1_3/common/non-telephony/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="do-you-want-to-complete-contact" method="post" novalidate>
+          <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="with-hint">
+                Change your note
+              </label>
+            </h1>
+            <div class="govuk-warning-text ">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+                This note applies to the whole contact. Do not delete your previous notes if they are still needed. Do not include any personal details.
+              </strong>
+            </div>
+            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+              You have 5000 characters remaining
+            </div>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}
