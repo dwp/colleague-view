@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Contact history
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_3/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "/prototype-dev-baseline/mvp-1_3/common/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Call details about telephone call on 05 September 2023</h1>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Call taken by
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Agent (1003)
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Who the call was with
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Jane Doe (Appointee)
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Incoming telephone call
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Length of call
+        </dt>
+        <dd class="govuk-summary-list__value">
+          15 Minutes
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+{% endblock %}
