@@ -5,15 +5,15 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/header_keydetail_bar.html" %}
+  {% include "/prototype-sprint-wise/future-ur/common/header_keydetail_bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
+  {% include "/prototype-sprint-wise/future-ur/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-{% include "/prototype-dev-baseline/mvp-1_3/common/phase-banner.html" %}
+{% include "/prototype-sprint-wise/future-ur/common/phase-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -21,16 +21,33 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#inbound-contact-1">Select why you are checking this information</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <form class="form" action="call-with" method="post">
-        <div class="govuk-form-group">
+        <div class="govuk-form-group govuk-form-group--error">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 Why are you checking this information?
               </h1>
             </legend>
+            <p id="national-insurance-number-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select why you are checking this information
+            </p>
             <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
-              <div class="govuk-radios__divider colleague-view-benefit-list">To complete inbound contact</div>
+              <div class="govuk-radios__divider colleague-view-benefit-list">To work on inbound contact</div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="inbound-contact-1" name="What-type-of-contact" type="radio" value="Inbound phone call with">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-1">
@@ -38,19 +55,19 @@
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-2" name="What-type-of-contact" type="radio" value="Inbound letter to">
+                <input class="govuk-radios__input" id="inbound-contact-2" name="What-type-of-contact" type="radio" value="Inbound letter from">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-2">
                   Letter
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-3" name="What-type-of-contact" type="radio" value="Inbound email to">
+                <input class="govuk-radios__input" id="inbound-contact-3" name="What-type-of-contact" type="radio" value="Inbound email from">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-3">
                   Email
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-4" name="What-type-of-contact" type="radio" value="Inbound notification to">
+                <input class="govuk-radios__input" id="inbound-contact-4" name="What-type-of-contact" type="radio" value="Inbound notitfation from">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-4">
                   Notification
                 </label>
@@ -58,16 +75,16 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="inbound-contact-5" name="What-type-of-contact" type="radio" value="Inbound face to face converstaions with">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-5">
-                  Face to face conversations
+                  Face to face conversation
                 </label>
               </div>
-              <div class="govuk-radios__item">
+              <!-- <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="inbound-contact-6" name="What-type-of-contact" type="radio" value="Inbound referral to">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-6">
                   Referral
                 </label>
-              </div>
-              <div class="govuk-radios__divider colleague-view-benefit-list">To complete otbound contact</div>
+              </div> -->
+              <div class="govuk-radios__divider colleague-view-benefit-list">To work on outbound contact</div>
               <!-- <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="incoming-telephone-call-2" name="What-type-of-contact" type="radio" value="Contact with">
                 <label class="govuk-label govuk-radios__label" for="incoming-telephone-call-2">
@@ -101,7 +118,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="outbound-contact-5" name="What-type-of-contact" type="radio" value="Outbound face to face converstaions with">
                 <label class="govuk-label govuk-radios__label" for="outbound-contact-5">
-                  Face to face conversations
+                  Face to face conversation
                 </label>
               </div>
               <div class="govuk-radios__divider">or</div>
