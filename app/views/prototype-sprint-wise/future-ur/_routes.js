@@ -195,12 +195,12 @@ router.post('/call-with', function (req, res) {
   }
 
   // Notification condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound notitfation from' || req.session.data['What-type-of-contact'] == 'Outbound notitfation to') {
+  if (req.session.data['What-type-of-contact'] == 'Inbound notification from' || req.session.data['What-type-of-contact'] == 'Outbound notification to') {
     res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
   }
 
 // face to face converstaions condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound face to face converstaion with' || req.session.data['What-type-of-contact'] == 'Outbound face to face converstaion with') {
+  if (req.session.data['What-type-of-contact'] == 'Inbound face to face conversation with' || req.session.data['What-type-of-contact'] == 'Outbound face to face conversation with') {
     res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
   }
 
