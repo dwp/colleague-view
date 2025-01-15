@@ -64,52 +64,6 @@ router.post('/why-checking-information', function (req, res) {
   }
 });
 
-router.post('/call-with', function (req, res) {
-  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-  req.session.data['Who-is-contact-with'] = '';
-  req.session.data['Who-is-the-engagement-with'] = '';
-  
-  // Phone call conditions
-  if (req.session.data['What-type-of-contact'] == 'Inbound phone call with' || req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
-    res.redirect('/prototype-sprint-wise/future-ur/call-with');
-  }
-
-  // Email conditions
-  if (req.session.data['What-type-of-contact'] == 'Inbound letter from' || req.session.data['What-type-of-contact'] == 'Outbound letter to') {
-    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
-  }
-
-  // Letter condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound email from' || req.session.data['What-type-of-contact'] == 'Outbound email to') {
-    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
-  }
-
-  // Notification condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound notitfation from' || req.session.data['What-type-of-contact'] == 'Outbound notitfation to') {
-    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
-  }
-
-// face to face converstaions condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound face to face converstaion with' || req.session.data['What-type-of-contact'] == 'Outbound face to face converstaion with') {
-    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
-  }
-
-  // Referal condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound referral to' ) {
-    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
-  }
-  // view only
- if (req.session.data['What-type-of-contact'] == 'View only') {
-    res.redirect('/prototype-sprint-wise/future-ur/view-only/home');
-  }
-
-  // error message
-    if (req.session.data['What-type-of-contact'] == '') {
-    console.log('Error page');
-    res.redirect('/prototype-sprint-wise/future-ur/error-why-checking-info');
-  }
-});
-
 // Option B
 
 router.post('/why-checking-info-option-b', function (req, res) {
@@ -165,7 +119,6 @@ router.post('/why-checking-info-option-b', function (req, res) {
   }
 });
 
-
 // Option C
 
 router.post('/why-checking-info-option-c', function (req, res) {
@@ -220,6 +173,59 @@ router.post('/why-checking-info-option-c', function (req, res) {
     }
   }
 });
+
+router.post('/call-with', function (req, res) {
+  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  req.session.data['Who-is-contact-with'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
+  
+  // Phone call conditions
+  if (req.session.data['What-type-of-contact'] == 'Inbound phone call with' || req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
+    res.redirect('/prototype-sprint-wise/future-ur/call-with');
+  }
+
+  // Email conditions
+  if (req.session.data['What-type-of-contact'] == 'Inbound letter from' || req.session.data['What-type-of-contact'] == 'Outbound letter to') {
+    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
+  }
+
+  // Letter condition
+  if (req.session.data['What-type-of-contact'] == 'Inbound email from' || req.session.data['What-type-of-contact'] == 'Outbound email to') {
+    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
+  }
+
+  // Notification condition
+  if (req.session.data['What-type-of-contact'] == 'Inbound notitfation from' || req.session.data['What-type-of-contact'] == 'Outbound notitfation to') {
+    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
+  }
+
+// face to face converstaions condition
+  if (req.session.data['What-type-of-contact'] == 'Inbound face to face converstaion with' || req.session.data['What-type-of-contact'] == 'Outbound face to face converstaion with') {
+    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
+  }
+
+  // Referal condition
+  if (req.session.data['What-type-of-contact'] == 'Inbound referral to' ) {
+    res.redirect('/prototype-sprint-wise/future-ur/non-telephony/contact-with');
+  }
+  // view only
+ if (req.session.data['What-type-of-contact'] == 'View only') {
+    res.redirect('/prototype-sprint-wise/future-ur/view-only/home');
+  }
+
+    // view only
+ if (req.session.data['contact-type'] == 'View only') {
+  res.redirect('/prototype-sprint-wise/future-ur/view-only/home');
+}
+  
+
+  // error message
+  // if (req.session.data['What-type-of-contact'] == '') {
+  //   console.log('Error page');
+  //   res.redirect('/prototype-sprint-wise/future-ur/error-why-checking-info');
+  // }
+});
+
 
 // checking for validation 
 router.post('/call-with-test', function (req, res) {
