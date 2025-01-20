@@ -326,6 +326,38 @@ Contact history
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          Contact type
+                        </legend>
+                        <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="contact-type-1" name="contact-type" type="radio" value="A telephone call">
+                            <label class="govuk-label govuk-radios__label" for="contact-type-1">
+                              A telephone call
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="contact-type-2" name="contact-type" type="radio" value=" A different type of contact">
+                            <label class="govuk-label govuk-radios__label" for="contact-type-2">
+                              A different type of contact
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <!-- filter by Keywors -->
+                    <div class="govuk-form-group govuk-!-padding-right-4">
+                      <label class="govuk-label govuk-label--s" for="keyword-search">
+                        Search notes
+                      </label>
+                      <div id="keyword-search-hint" class="govuk-hint">
+                        Enter a word or phrase to find related notes
+                      </div>
+                      <input class="govuk-input" id="keyword-search" name="keywordSearch" type="text" aria-describedby="keyword-search-hint" value="{{data['keywordSearch']}}">
+                    </div> 
+                    <!-- filter by contact type -->
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                          Contact type
                         </legend>
                         <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
@@ -373,7 +405,7 @@ Contact history
               <div class="summry-card">
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 01 May 2023, 10:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
@@ -414,7 +446,7 @@ Contact history
               <div class="summry-card">
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -460,7 +492,7 @@ Contact history
                 <div class="summry-card">
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
-                      <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                      <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
                       <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -506,7 +538,7 @@ Contact history
                 <div class="summry-card">
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
-                      <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                      <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
                       <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -552,7 +584,7 @@ Contact history
                 <div class="summry-card">
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
-                      <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                      <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
                       <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -598,7 +630,7 @@ Contact history
                 <div class="summry-card">
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
-                      <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                      <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
                       <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -658,7 +690,7 @@ Contact history
               <div class="summry-card">
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 05 Sep 2023, 13:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 05 Sep 2023, 13:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -700,7 +732,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 15 Aug 2023, 09:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 15 Aug 2023, 09:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -741,7 +773,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 08 Aug 2023, 09:20</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 08 Aug 2023, 09:20</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <!-- <span class="govuk-!-font-weight-regular"></span> -->
@@ -783,7 +815,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 15 July 2023, 13:00</h2>
+                    <h2 class="govuk-summary-card__title"> Outbound phone call: 15 July 2023, 13:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -816,7 +848,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
+                    <h2 class="govuk-summary-card__title">Outbound phone call: 29 Jun 2023, 09:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -856,7 +888,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 28 Jun 2023, 12:15</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 28 Jun 2023, 12:15</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -896,7 +928,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 13 Jun 2023, 10:00</h2>
+                    <h2 class="govuk-summary-card__title"> Face to face: 13 Jun 2023, 10:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -929,7 +961,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 26 May 2023, 13:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -970,7 +1002,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 01 May 2023, 10:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
@@ -1004,7 +1036,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1084,7 +1116,7 @@ Contact history
               <div class="summry-card">
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 05 Sep 2023, 13:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 05 Sep 2023, 13:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1126,7 +1158,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 15 Aug 2023, 09:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 15 Aug 2023, 09:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1167,7 +1199,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 08 Aug 2023, 09:20</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 08 Aug 2023, 09:20</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <!-- <span class="govuk-!-font-weight-regular"></span> -->
@@ -1209,7 +1241,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 15 July 2023, 13:00</h2>
+                    <h2 class="govuk-summary-card__title"> Outbound phone call: 15 July 2023, 13:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1242,7 +1274,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
+                    <h2 class="govuk-summary-card__title">Outbound phone call: 29 Jun 2023, 09:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1282,7 +1314,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 28 Jun 2023, 12:15</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 28 Jun 2023, 12:15</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1322,7 +1354,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 13 Jun 2023, 10:00</h2>
+                    <h2 class="govuk-summary-card__title"> Face to face: 13 Jun 2023, 10:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1355,7 +1387,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 26 May 2023, 13:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1407,7 +1439,40 @@ Contact history
               <div class="summry-card">
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 05 Sep 2023, 13:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 15 Oct 2023, 11:10</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes added
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Personal Independence Payment
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>Next payment date</p>
+                            <p>Next payment amount</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 05 Sep 2023, 13:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1449,7 +1514,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
+                    <h2 class="govuk-summary-card__title">Outbound phone call: 29 Jun 2023, 09:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1489,7 +1554,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 26 May 2023, 13:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1530,7 +1595,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 01 May 2023, 10:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
@@ -1564,7 +1629,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1615,7 +1680,7 @@ Contact history
               <div class="summry-card">
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 05 Sep 2023, 13:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 05 Sep 2023, 13:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1657,7 +1722,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">A different contact type: 29 Jun 2023, 09:03</h2>
+                    <h2 class="govuk-summary-card__title">Outbound phone call: 29 Jun 2023, 09:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1697,7 +1762,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 26 May 2023, 13:03</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 26 May 2023, 13:03</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
@@ -1738,7 +1803,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 01 May 2023, 10:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
@@ -1772,7 +1837,7 @@ Contact history
                 </div>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
-                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
                     <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
