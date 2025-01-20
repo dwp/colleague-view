@@ -147,20 +147,33 @@ Contact history
                           </div>
                         </div>
                       </details>
-                      <!-- Payment query -->
+                      <!-- reason for contacts -->
                       <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
                         <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
                           <h2 class="app-c-filter-section__summary-heading">
                               <span class="govuk-visually-hidden">Filter by</span>
-                            Payment query
+                            Reason for contact
                           </h2>
                           <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
                         </summary>
                         <div class="app-c-filter-section__content">
-                          <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
+                          <!-- combo box for reason selection -->
+                          <div class="govuk-form-group govuk-!-margin-bottom-3">
+                            <label class="govuk-label govuk-visually-hidden" for="sort">
+                              Select reason for contact
+                            </label>
+                            <select class="govuk-select" id="reasonForContact" name="contact-reason" onchange="changeContact()">
+                              <option value="Payment query" selected>Payment query</option>
+                              <option value="Change of circumstances">Change of circumstances</option>
+                              <option value="Progress chasing">Progress chasing</option>
+                              <option value="Evidence">Evidence</option>
+                            </select>
+                          </div>
+                          <!-- filter by payment query -->
+                          <div class="govuk-form-group" id="paymentQ">
                             <fieldset class="govuk-fieldset">
-                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
-                                <span class="govuk-fieldset__heading">Payment enquiry</span>
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-visually-hidden">
+                                Payment enquiry
                               </legend>
                               <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                                 <div class="govuk-checkboxes__item">
@@ -258,34 +271,23 @@ Contact history
                                   {% if data.tableFilterOQ == true%}
                                   <input class="govuk-checkboxes__input" id="OQ-subContext" name="querySubContext" type="checkbox" value="Other questions" checked="checked">
                                   <label class="govuk-label govuk-checkboxes__label" for="OQ-subContext">
-                                    Other questions
+                                    Other queries
                                   </label>
                                   {% else %}
-                                  <input class="govuk-checkboxes__input" id="OQ-subContext" name="querySubContext" type="checkbox" value="Other query">
+                                  <input class="govuk-checkboxes__input" id="OQ-subContext" name="querySubContext" type="checkbox" value="Other questions">
                                   <label class="govuk-label govuk-checkboxes__label" for="OQ-subContext">
-                                    Other query
+                                    Other queries
                                   </label>
                                   {% endif%}
                                 </div>
                               </div>
                             </fieldset>
                           </div>
-                        </div>
-                      </details>
-                      <!-- Change of circs -->
-                      <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
-                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
-                          <h2 class="app-c-filter-section__summary-heading">
-                            <span class="govuk-visually-hidden">Filter by</span>
-                              Change of circumstances
-                          </h2>
-                          <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
-                        </summary>
-                        <div class="app-c-filter-section__content">
-                          <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
+                          <!-- filter by Change of cirs -->
+                          <div class="govuk-form-group govuk-!-display-none" id="cocQ">
                             <fieldset class="govuk-fieldset">
                               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
-                                <span class="govuk-fieldset__heading">Payment enquiry</span>
+                                <span class="govuk-fieldset__heading">Change of circumstances</span>
                               </legend>
                               <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                                 <div class="govuk-checkboxes__item">
@@ -327,19 +329,8 @@ Contact history
                               </div>
                             </fieldset>
                           </div>
-                        </div>
-                      </details>
-                      <!-- Change of progress chasing -->
-                      <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
-                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
-                          <h2 class="app-c-filter-section__summary-heading">
-                            <span class="govuk-visually-hidden">Filter by</span>
-                            Progress chasing
-                          </h2>
-                          <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
-                        </summary>
-                        <div class="app-c-filter-section__content">
-                          <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
+                          <!-- Change of progress chasing -->
+                          <div class="govuk-form-group govuk-!-display-none" id="progreschasingQ">
                             <fieldset class="govuk-fieldset">
                               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
                                 <span class="govuk-fieldset__heading"> Progress chasing</span>
@@ -372,51 +363,41 @@ Contact history
                               </div>
                             </fieldset>
                           </div>
-                        </div>
-                      </details>
-                      <!-- Change of evidence -->
-                      <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
-                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
-                          <h2 class="app-c-filter-section__summary-heading">
-                              <span class="govuk-visually-hidden">Filter by</span>
-                            Evidence
-                          </h2>
-                          <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
-                        </summary>
-                        <div class="app-c-filter-section__content">
-                          <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
-                            <fieldset class="govuk-fieldset">
-                              <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m gem-c-checkboxes__legend--hidden">Type</legend> -->
-                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
-                                <span class="govuk-fieldset__heading">Evidence</span>
-                              </legend>
-                              <div class="govuk-checkboxes">
-                                <div class="govuk-checkboxes__item">
-                                  <input type="checkbox" name="queryEV" id="queryEV" value="ID" class="govuk-checkboxes__input" checked="">
-                                  <label for="queryEV" class="govuk-label govuk-checkboxes__label">ID</label>
+                           <!-- Change of evidence -->
+                          <div class="govuk-form-group govuk-!-display-none" id="evidenceQ">
+                            <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
+                              <fieldset class="govuk-fieldset">
+                                <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m gem-c-checkboxes__legend--hidden">Type</legend> -->
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
+                                  <span class="govuk-fieldset__heading">Evidence</span>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                  <div class="govuk-checkboxes__item">
+                                    <input type="checkbox" name="queryEV" id="queryEV" value="ID" class="govuk-checkboxes__input" checked="">
+                                    <label for="queryEV" class="govuk-label govuk-checkboxes__label">ID</label>
+                                  </div>
+                                  <div class="govuk-checkboxes__item">
+                                    <input type="checkbox" name="queryEV" id="queryEV-2" value="Address" class="govuk-checkboxes__input">
+                                    <label for="queryEV-2" class="govuk-label govuk-checkboxes__label">Address</label>
+                                  </div>
+                                  <div class="govuk-checkboxes__item">
+                                    <input type="checkbox" name="queryEV" id="queryEV-3" value="Employment" class="govuk-checkboxes__input" checked="">
+                                    <label for="queryEV-3" class="govuk-label govuk-checkboxes__label">Employment</label>
+                                  </div>
+                                  <div class="govuk-checkboxes__item">
+                                    <input type="checkbox" name="queryEV" id="queryEV-4" value="Bank statement" class="govuk-checkboxes__input">
+                                    <label for="queryEV-4" class="govuk-label govuk-checkboxes__label">Bank statement</label>
+                                  </div>
+                                  <div class="govuk-checkboxes__item">
+                                    <input type="checkbox" name="queryEV" id="queryEV-5" value="Sick note" class="govuk-checkboxes__input">
+                                    <label for="queryEV-5" class="govuk-label govuk-checkboxes__label">Sick note</label>
+                                  </div>
+                                  <div class="govuk-checkboxes__item">
+                                    <input type="checkbox" name="queryEV" id="queryEV-6" value="Other" class="govuk-checkboxes__input">
+                                    <label for="queryEV-6" class="govuk-label govuk-checkboxes__label">Other</label>
+                                  </div>
                                 </div>
-                                <div class="govuk-checkboxes__item">
-                                  <input type="checkbox" name="queryEV" id="queryEV-2" value="Address" class="govuk-checkboxes__input">
-                                  <label for="queryEV-2" class="govuk-label govuk-checkboxes__label">Address</label>
-                                </div>
-                                <div class="govuk-checkboxes__item">
-                                  <input type="checkbox" name="queryEV" id="queryEV-3" value="Employment" class="govuk-checkboxes__input" checked="">
-                                  <label for="queryEV-3" class="govuk-label govuk-checkboxes__label">Employment</label>
-                                </div>
-                                <div class="govuk-checkboxes__item">
-                                  <input type="checkbox" name="queryEV" id="queryEV-4" value="Bank statement" class="govuk-checkboxes__input">
-                                  <label for="queryEV-4" class="govuk-label govuk-checkboxes__label">Bank statement</label>
-                                </div>
-                                <div class="govuk-checkboxes__item">
-                                  <input type="checkbox" name="queryEV" id="queryEV-5" value="Sick note" class="govuk-checkboxes__input">
-                                  <label for="queryEV-5" class="govuk-label govuk-checkboxes__label">Sick note</label>
-                                </div>
-                                <div class="govuk-checkboxes__item">
-                                  <input type="checkbox" name="queryEV" id="queryEV-6" value="Other" class="govuk-checkboxes__input">
-                                  <label for="queryEV-6" class="govuk-label govuk-checkboxes__label">Other</label>
-                                </div>
-                              </div>
-                            </fieldset>
+                              </fieldset>
                           </div>
                         </div>
                       </details>
@@ -1230,6 +1211,39 @@ Contact history
   
 <!-- logic for filter function -->
 <script type="text/javascript">
+  function changeContact() {
+    var reasonofcontact = document.getElementById("reasonForContact").value;
+    var paymentQuery = document.getElementById('paymentQ');
+    var cocQuery = document.getElementById('cocQ');
+    var prochaseQuery = document.getElementById('progreschasingQ');
+    var evidenceQuery = document.getElementById('evidenceQ');
+
+    if (reasonofcontact == 'Payment query') {
+      paymentQuery.classList.remove("govuk-!-display-none");
+      cocQuery.classList.add("govuk-!-display-none");
+      prochaseQuery.classList.add("govuk-!-display-none");
+      evidenceQuery.classList.add("govuk-!-display-none");
+      }
+      if (reasonofcontact == 'Change of circumstances') {
+      cocQuery.classList.remove("govuk-!-display-none");
+      paymentQuery.classList.add("govuk-!-display-none");
+      prochaseQuery.classList.add("govuk-!-display-none");
+      evidenceQuery.classList.add("govuk-!-display-none");
+      }
+      if (reasonofcontact == 'Progress chasing') {
+      prochaseQuery.classList.remove("govuk-!-display-none");
+      paymentQuery.classList.add("govuk-!-display-none");
+      cocQuery.classList.add("govuk-!-display-none");
+      evidenceQuery.classList.add("govuk-!-display-none");
+      }
+      if (reasonofcontact == 'Evidence') {
+      evidenceQuery.classList.remove("govuk-!-display-none");
+      paymentQuery.classList.add("govuk-!-display-none");
+      cocQuery.classList.add("govuk-!-display-none");
+      prochaseQuery.classList.add("govuk-!-display-none");
+      }
+  }
+
   function showfull() {
     var fullText = document.getElementById('full-text');
     var fullTextlink = document.getElementById('full-text-link');
