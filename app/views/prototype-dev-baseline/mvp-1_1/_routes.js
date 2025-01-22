@@ -4131,7 +4131,8 @@ router.post('/call-with', function (req, res) {
   }
   if (req.session.data['What-type-of-contact'] == '') {
     console.log('Error page');
-    res.redirect('/prototype-dev-baseline/mvp-1_1/error-why-checking-info');
+    res.redirect('back');
+    // res.redirect('/prototype-dev-baseline/mvp-1_1/error-why-checking-info');
   }
 });
 
