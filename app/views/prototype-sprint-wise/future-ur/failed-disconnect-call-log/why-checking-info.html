@@ -5,15 +5,15 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/future-ur/common/header_keydetail_bar.html" %}
+  {% include "/prototype-sprint-wise/future-ur/failed-disconnect-call-log/common/header_keydetail_bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-sprint-wise/future-ur/common/footer.html" %}
+  {% include "/prototype-sprint-wise/future-ur/failed-disconnect-call-log/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-{% include "/prototype-sprint-wise/future-ur/common/phase-banner.html" %}
+{% include "/prototype-sprint-wise/future-ur/failed-disconnect-call-log/common/phase-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -31,8 +31,8 @@
             </legend>
             <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-1" name="What-type-of-contact" type="radio" value="Inbound phone call with">
-                <label class="govuk-label govuk-radios__label" for="inbound-contact-1">
+                <input class="govuk-radios__input" id="inbound-contact" name="What-type-of-contact" type="radio" value="Inbound phone call with">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact">
                   Inbound phone call
                 </label>
               </div>
@@ -81,13 +81,13 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="inbound-contact-5" name="What-type-of-contact" type="radio" value="Inbound face to face conversation with">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-5">
-                  Face to face conversation at DWP office or Job centre appointment
+                  Inbound face to face conversation
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="outbound-contact-5" name="What-type-of-contact" type="radio" value="Outbound face to face conversation with">
                 <label class="govuk-label govuk-radios__label" for="outbound-contact-5">
-                  Face to face conversation at Visit to claimant
+                  Outbound face to face conversation
                 </label>
               </div>
 
@@ -108,5 +108,52 @@
       </form>
     </div>
   </div>
+
+
+  <!-- <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="call-with" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Why are you checking this information?
+              </h1>
+            </legend>
+            <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="incoming-telephone-call" name="What-type-of-contact" type="radio" value="Telephone call with">
+                <label class="govuk-label govuk-label--s govuk-radios__label" for="incoming-telephone-call">
+                  To complete a telephone call
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  Check a claimant's information when completing incoming or outgoing calls.
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="incoming-telephone-call-2" name="What-type-of-contact" type="radio" value="Contact with">
+                <label class="govuk-label govuk-label--s govuk-radios__label" for="incoming-telephone-call-2">
+                  To work on another type of contact
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  Check a claimant's information when working on face-to-face conversations, letters, emails, text messages or referrals.
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="view-info-only" name="What-type-of-contact" type="radio" value="View only">
+                <label class="govuk-label govuk-label--s govuk-radios__label" for="view-info-only">
+                  To view information only
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  You will not be able to add a note to the contact history.
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
+  </div> -->
 
 {% endblock %}
