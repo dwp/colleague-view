@@ -70,9 +70,9 @@
                 <div class="govuk-details__text">
                   <!-- goal -->
                   <ul class="govuk-list govuk-list--bullet">
-                    <li><a href="/prototype-sprint-wise/future-ur/index.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option a</a></li>
-                    <li><a href="/prototype-sprint-wise/future-ur/index-option-b.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option b</a></li>
-                    <li><a href="/prototype-sprint-wise/future-ur/index-option-c.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option c</a></li>  
+                    <!-- <li><a href="/prototype-sprint-wise/future-ur/index.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option a</a></li> -->
+                    <li><a href="/prototype-sprint-wise/future-ur/index-option-b.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option a</a></li>
+                    <li><a href="/prototype-sprint-wise/future-ur/index-option-c.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option b</a></li>  
                   </ul>
                   <h3 class="govuk-heading-m"> UR 10 insights to consider for iterations</h3>
                   <p>The most recent UR round has shown that users would like to see if contact was inbound or outbound as a priority, and would also like different types of contact to be specified in structured data for contact history. </p>
@@ -89,7 +89,7 @@
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/prototype-sprint-wise/future-ur/contact-history.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option a</a></li>
                     <li><a href="/prototype-sprint-wise/future-ur/contact-history-option-b.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option b</a></li>
-                    <li><a href="/prototype-sprint-wise/future-ur/contact-history-option-c.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option c</a></li>  
+                    <!-- <li><a href="/prototype-sprint-wise/future-ur/contact-history-option-c.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Option c</a></li>   -->
                   </ul>
                   <!-- goal -->
                   <h3 class="govuk-heading-m"> UR 10 insights to consider for iterations</h3>
@@ -116,6 +116,64 @@
                     <li>'I don't know what that means' - DLA agent on 'CHaRM referral'</li>
                     <li>user was worried about security and privacy - should all agents have the ability to see all contact notes for all benefits?</li>
                   </ul>
+                </div>
+              </details>
+              <details class="govuk-details govuk-!-margin-top-5">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                    Log failed or disconnected phone calls
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <!-- <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="/prototype-sprint-wise/future-ur/failed-disconnect-call-log/index.html" class="govuk-link govuk-!-font-weight-bold" rel="noreferrer noopener" target="_blank">Log failed or disconnected phone calls</a></li>
+                  </ul> -->
+                  <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
+                    <a href="/prototype-sprint-wise/future-ur/failed-disconnect-call-log/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
+                  </div>
+                  <!-- <h3 class="govuk-heading-m"> We need to have a record of:</h3> -->
+                  <p class="govuk-body">We need to have a record of:</p>
+                  <!-- <h2 class="govuk-heading-s">Filter</h2>                     -->
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Inbound telephony that disconnects</li>
+                    <li>Outbound call attempts if the claimant does not answer the phone</li>
+                    <!-- <li>looking for previous conversations, it's more likely we would look for other questions, not payment queries, as these would usually be answered straight away'.</li> -->
+                  </ul>
+                  <table class="govuk-table">
+                    <caption class="govuk-table__caption govuk-table__caption--s">Scenarios for disconnected inbound telephony: </caption>
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Call disconnecte</th>
+                        <th scope="col" class="govuk-table__header">Customer vulnerable?</th>
+                        <th scope="col" class="govuk-table__header">Call back made?</th>
+                        <th scope="col" class="govuk-table__header">Callback connected?</th>
+                        <th scope="col" class="govuk-table__header">Record</th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Yes</th>
+                        <td class="govuk-table__cell">No</td>
+                        <td class="govuk-table__cell">No</td>
+                        <td class="govuk-table__cell">N/A</td>
+                        <td class="govuk-table__cell">Info of the call before the disconnect only.</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Yes</th>
+                        <td class="govuk-table__cell">Yes</td>
+                        <td class="govuk-table__cell">Yes</td>
+                        <td class="govuk-table__cell">No</td>
+                        <td class="govuk-table__cell">Info of the call before the disconnect AND a note to say that a call back was made AND no response</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Yes</th>
+                        <td class="govuk-table__cell">Yes</td>
+                        <td class="govuk-table__cell">Yes</td>
+                        <td class="govuk-table__cell">Yes</td>
+                        <td class="govuk-table__cell">Info of the call as normal. 2 logs are not needed as the agent is expected to call back straight away so can do so in the same journey.  </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </details>
           </div>
@@ -664,8 +722,8 @@
           <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
             <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 56</strong>  <strong class="govuk-tag">Completed</strong></div>
             <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">Jan 2025: updated version of MVP 1.0</span>
-              <h1 class="govuk-heading-m">Shorter Contact Logging</h1>
+              <span class="govuk-caption-m">Jan 2025</span>
+              <h1 class="govuk-heading-m">Colleague View Prototype 1.2</h1>
             </div>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
             <p class="govuk-body">This version of prototype includes:</p>
@@ -685,7 +743,7 @@
           <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
             <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 52</strong> <strong class="govuk-tag">Completed</strong></div>
             <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">Sep 2024: updated version of MVP 1.0</span>
+              <span class="govuk-caption-m">Sep 2024</span>
               <h1 class="govuk-heading-m">Colleague View Prototype 1.1</h1>
             </div>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
@@ -703,7 +761,7 @@
           <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
             <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 39</strong> <strong class="govuk-tag">Completed</strong></div>
             <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">March  2024: Business release</span>
+              <span class="govuk-caption-m">March 2024: Business release</span>
               <h1 class="govuk-heading-m">Prototype MVP 1.0</h1>
             </div>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
@@ -718,7 +776,7 @@
           <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
           <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 35</strong> <strong class="govuk-tag">Completed</strong></div>
           <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-            <span class="govuk-caption-m">January  2024: technical release</span>
+            <span class="govuk-caption-m">January 2024: Technical release</span>
             <h1 class="govuk-heading-m">Prototype MVP 0.8</h1>
           </div>
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
