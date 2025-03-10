@@ -129,15 +129,26 @@ router.post('/who-were-tryingTo-contact', function (req, res) {
 
   // Phone call conditions
   if (req.session.data['was-call-answered'] == 'Yes') {
-    res.redirect('/prototype-sprint-wise/future-ur/failed-disconnect-call-log/who-were-tryingTo-contact');
+    res.redirect('/prototype-sprint-wise/future-ur/failed-disconnect-call-log/who-was-the-call-with');
   }
   else{
-    res.redirect('/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/what-benefits-discussed');
+    // res.redirect('/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/what-benefits-discussed');
+    res.redirect('/prototype-sprint-wise/future-ur/failed-disconnect-call-log/who-were-tryingTo-contact');
   }
 });
 
+router.post('/add-log-outbound-call-attempt-failed', function (req, res) {
+  req.session.data['what-benefit-discussed'] = '';
+  req.session.data['addNote']= '';
+  res.redirect('/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/what-benefits-discussed');
+
+});
+
+
 router.post('/home', function (req, res) {
   var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
+  req.session.data['what-benefit-discussed'] = '';
+  req.session.data['addNote']= '';
 
   if (req.session.data['Who-is-the-phone-call-with-ur8'] == '') {
     // Send user to error page
