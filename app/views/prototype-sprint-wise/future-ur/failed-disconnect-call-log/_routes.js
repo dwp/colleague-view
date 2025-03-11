@@ -194,7 +194,7 @@ router.post('/non-telephony/home', function (req, res) {
 // new routes for shorten call log - Telephony
 
 router.post('/add-call/what-benefits-discussed', function (req, res) {
-  if (req.session.data['what-benefit-discussed'] != '') {
+  if (req.session.data['what-benefit-discussed'] != '' && req.session.data['Do-you-want-to-complete-the-call'] != '') {
     // console.log('Display summary page');
     res.redirect('/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/do-you-want-add-more-details');
   }

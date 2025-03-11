@@ -24,6 +24,7 @@ What was the call about?
     <form action="added-call-details" method="post" novalidate>
     {% set benefits =  data['what-benefit-discussed'] %}
     {%set checkNoteAdded = data['addNote'] %}
+    {% set wasCallAnswered = data['was-call-answered'] %}
     {% set benefitLength =  data['what-benefit-discussed'] | length %} 
     <!-- add a note -->
     <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
@@ -35,7 +36,7 @@ What was the call about?
       </h1>
     {%if checkNoteAdded == ''%}
     {% if data['What-type-of-contact']== 'Outbound phone call with' %}
-      {%if wasCallAnswered == 'Yes' %}
+      {% if wasCallAnswered === 'Yes' %}
       <p class="govuk-body">Add a note to give details of:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>give more details of what the call was about</li>
