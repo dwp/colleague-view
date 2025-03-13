@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Why are you checking this information?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-12/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-12/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/prototype-sprint-wise/ur-12/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="call-with" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Why are you checking this information?
+              </h1>
+            </legend>
+            <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-1" name="What-type-of-contact" type="radio" value="Inbound phone call with">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-1">
+                  Inbound phone call
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="outbound-contact-1" name="What-type-of-contact" type="radio" value="Outbound phone call with">
+                <label class="govuk-label govuk-radios__label" for="outbound-contact-1">
+                  Outbound phone call
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-2" name="What-type-of-contact" type="radio" value="Inbound letter from">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-2">
+                  Inbound letter
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="outbound-contact-2" name="What-type-of-contact" type="radio" value="Outbound letter to">
+                <label class="govuk-label govuk-radios__label" for="outbound-contact-2">
+                  Outbound letter
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-3" name="What-type-of-contact" type="radio" value="Inbound email from">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-3">
+                  Inbound email
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="outbound-contact-3" name="What-type-of-contact" type="radio" value="Outbound email to">
+                <label class="govuk-label govuk-radios__label" for="outbound-contact-3">
+                  Outbound email
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-4" name="What-type-of-contact" type="radio" value="Inbound notification from">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-4">
+                  Inbound notification
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="outbound-contact-4" name="What-type-of-contact" type="radio" value="Outbound notification to">
+                <label class="govuk-label govuk-radios__label" for="outbound-contact-4">
+                  Outbound notification
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-5" name="What-type-of-contact" type="radio" value="Inbound face to face conversation with">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-5">
+                  Face to face conversation at DWP office or Job centre appointment
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="outbound-contact-5" name="What-type-of-contact" type="radio" value="Outbound face to face conversation with">
+                <label class="govuk-label govuk-radios__label" for="outbound-contact-5">
+                  Face to face conversation at Visit to claimant
+                </label>
+              </div>
+
+              <div class="govuk-radios__divider">or</div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="view-info-only" name="What-type-of-contact" type="radio" value="View only">
+                <label class="govuk-label govuk-radios__label" for="view-info-only">
+                  To work on a quality check
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  You will not be able to add a note to the contact history.
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

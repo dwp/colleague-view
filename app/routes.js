@@ -10476,6 +10476,9 @@ router.use('/prototype-sprint-wise/ur-10', require('./views/prototype-sprint-wis
 // test, using for future UR
 router.use('/prototype-sprint-wise/future-ur', require('./views/prototype-sprint-wise/future-ur/_routes'));
 router.use('/prototype-sprint-wise/future-ur/failed-disconnect-call-log', require('./views/prototype-sprint-wise/future-ur/failed-disconnect-call-log/_routes'));
+// for UR 12
+router.use('/prototype-sprint-wise/ur-12', require('./views/prototype-sprint-wise/ur-12/_routes'));
+router.use('/prototype-sprint-wise/ur-12/failed-disconnect-call-log', require('./views/prototype-sprint-wise/ur-12/failed-disconnect-call-log/_routes'));
 // test, using for 
 router.use('/prototype-dev-baseline/call-log-new-jpurney', require('./views/prototype-dev-baseline/call-log-new-jpurney/_routes'));
 // test, remember to add older sprint when adding a new folder!
