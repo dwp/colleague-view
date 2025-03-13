@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-What did you review?
+Which benefits did you discuss?
 {% endblock %}
 
 {% block header %}
@@ -27,14 +27,13 @@ What did you review?
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              What did you review?
+              Which benefits did you review?
             </h1>
           </legend>
           <div id="changedName-hint" class="govuk-hint">
             The options you select will automatically be added to the contact log. You can log any additional information later in the notes.
           </div>
           <div class="govuk-checkboxes govuk-!-margin-top-5" data-module="govuk-checkboxes">
-            <!-- active benefit section -->
             <div class="govuk-radios__divider colleague-view-benefit-list">Active benefits</div>
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_ca" name="what-benefit-discussed" type="checkbox" value="Carer Allowance" {{ checked ('what-benefit-discussed', 'Carer Allowance') }}>
@@ -54,7 +53,6 @@ What did you review?
                 Personal Independence Payment
               </label>
             </div>
-            <!-- other benefit section -->
             <div class="govuk-radios__divider colleague-view-benefit-list">Other benefits</div>
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_aa" name="what-benefit-discussed" type="checkbox" value="Attendance Allowance" {{ checked ('what-benefit-discussed', 'Attendance Allowance') }}>
@@ -62,16 +60,16 @@ What did you review?
                 Attendance Allowance
               </label>
             </div>
+            <!-- <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_bb" name="what-benefit-discussed" type="checkbox" value="bb" {{ checked ('what-benefit-discussed', 'Bereavement Benefit') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_bb">
+                Bereavement Benefit
+              </label>
+            </div> -->
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_bsp" name="what-benefit-discussed" type="checkbox" value="bereavement_support_payment" {{ checked ('what-benefit-discussed', 'Bereavement Support Payment') }}>
               <label class="govuk-label govuk-checkboxes__label" for="benefit_bsp">
                 Bereavement Support Payment
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="benefit_chm" name="what-benefit-discussed" type="checkbox" value="Child Maintenance" {{ checked ('what-benefit-discussed', 'Child Maintenance') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="benefit_chm">
-                Child Maintenance
               </label>
             </div>
             <div class="govuk-checkboxes__item">
@@ -123,12 +121,6 @@ What did you review?
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="benefit_sdb" name="what-benefit-discussed" type="checkbox" value="Scottish devolved benefits" {{ checked ('what-benefit-discussed', 'Scottish devolved benefits') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="benefit_sdb">
-                Scottish devolved benefits
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_sp" name="what-benefit-discussed" type="checkbox" value="State Pension" {{ checked ('what-benefit-discussed', 'State Pension') }}>
               <label class="govuk-label govuk-checkboxes__label" for="benefit_sp">
                 State Pension
@@ -141,18 +133,13 @@ What did you review?
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="benefit_uc" name="what-benefit-discussed" type="checkbox" value="Universal Credit" {{ checked ('what-benefit-discussed', 'Universal Credit') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="benefit_uc">
-                Universal Credit
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_wfp" name="what-benefit-discussed" type="checkbox" value="Winter_Fuel_Payment" {{ checked ('what-benefit-discussed', 'Winter Fuel Payment') }}>
               <label class="govuk-label govuk-checkboxes__label" for="benefit_wfp">
                 Winter Fuel Payment
               </label>
             </div>
             <div class="govuk-radios__divider">or</div>
+            
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed" type="checkbox" value="General information" data-aria-controls="conditional-contact" data-behaviour="exclusive" {{ checked ('what-benefit-discussed', 'No benefit') }} >
               <label class="govuk-label govuk-checkboxes__label" for="benefit_notDiscussed">

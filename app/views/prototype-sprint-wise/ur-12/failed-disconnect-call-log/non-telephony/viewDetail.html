@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Contact history
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "/prototype-dev-baseline/mvp-1_2/common/phase-banner.html" %}
+<!-- <div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">Contact history</a>
+  </li>
+</ol>
+</div> -->
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Notes about telephone call</h1>
+  </div>
+  <div class="govuk-grid-column-full govuk-!-margin-top-4">
+    <!-- call started at -->
+    <!-- <span class="govuk-caption-m">Started at</span>
+    <h2 class="govuk-heading-m">Monday 01 May 2023, 10:00</h2> -->
+    <h2 class="govuk-heading-m">Thuseday, 10 August 2023, 1:03 PM</h2>
+  </div>
+    <!-- Benefits discussed -->
+    <div class="govuk-grid-column-full govuk-!-margin-bottom-4">
+      <div class="nhsuk-card">
+        <!-- more information about call -->
+        <div class="govuk-inset-text">
+          No reports of any hospital stays of over 28 days that would impact the payability.
+        </div>
+      </div>
+    </div>
+      <!-- Call and Agent information -->
+      <div class="govuk-grid-column-full govuk-!-margin-bottom-4">
+        <div class="colleague-view-container-light-grey">
+        <div class="govuk-grid-row"> 
+          <div class="govuk-grid-column-one-third">
+            <span class="govuk-caption-m">Caller</span>
+            <div>
+              <span class="govuk-body govuk-!-font-weight-bold">Christopher Fox (Customer)</span>
+            </div>
+          </div>
+          <div class="govuk-grid-column-one-third">
+              <span class="govuk-caption-m">Call taken by</span>
+            <div>
+              <span class="govuk-body govuk-!-font-weight-bold">Agent (1003)</span>
+            </div>
+            </div>
+          <div class="govuk-grid-column-one-third">
+              <span class="govuk-caption-m">Length of call</span>
+                <div>
+                <span class="govuk-body govuk-!-font-weight-bold">15 Minutes</span>
+              </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+</div>
+
+{% endblock %}
