@@ -70,25 +70,6 @@ Payment history
       </div>
     </div>
     <div class="moj-filter__content">
-      <!-- selected filters -->
-      <!-- {% set benefitName = data['benefit'] %}
-      {% if benefitName >0 %}
-      <div class="moj-filter__selected">
-        <div class="moj-filter__selected-heading">
-          <div class="moj-filter__heading-title">
-            <h3 class="govuk-heading-m">Selected filters</h3>
-          </div>
-          <div class="moj-filter__heading-action">
-            <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
-          </div>
-        </div>
-        <ul class="moj-filter-tags">
-        {% for benefit in data['benefit'] %}
-          <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefit }}</a></li>
-        {% endfor %}
-        </ul>
-      </div>
-      {%else%} -->
       <div class="moj-filter__selected" style="display: none;">
         <div class="moj-filter__selected-heading">
           <div class="moj-filter__heading-title">
@@ -104,7 +85,6 @@ Payment history
         {% endfor %}
         </ul>
       </div>
-      {%endif%}
       <!-- filter options -->
       <div class="moj-filter__options">
         <form action="payment-history-filter-selected" method="post">
