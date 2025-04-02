@@ -10476,6 +10476,7 @@ router.use('/prototype-sprint-wise/ur-10', require('./views/prototype-sprint-wis
 // test, using for future UR
 router.use('/prototype-sprint-wise/future-ur', require('./views/prototype-sprint-wise/future-ur/_routes'));
 router.use('/prototype-sprint-wise/future-ur/failed-disconnect-call-log', require('./views/prototype-sprint-wise/future-ur/failed-disconnect-call-log/_routes'));
+router.use('/prototype-sprint-wise/future-ur/dla-type-selection', require('./views/prototype-sprint-wise/future-ur/dla-type-selection/_routes'));
 // for UR 12
 router.use('/prototype-sprint-wise/ur-12', require('./views/prototype-sprint-wise/ur-12/_routes'));
 router.use('/prototype-sprint-wise/ur-12/failed-disconnect-call-log', require('./views/prototype-sprint-wise/ur-12/failed-disconnect-call-log/_routes'));
@@ -10483,7 +10484,8 @@ router.use('/prototype-sprint-wise/ur-12/failed-disconnect-call-log', require('.
 router.use('/prototype-dev-baseline/call-log-new-jpurney', require('./views/prototype-dev-baseline/call-log-new-jpurney/_routes'));
 // test, remember to add older sprint when adding a new folder!
 router.use('/prototype-dev-baseline/mvp-1_3', require('./views/prototype-dev-baseline/mvp-1_3-InProgress/_routes'));
-
+//DLA type selection for UR testing
+// router.use('/prototype-sprint-wise/future-ur/dla-type-selection', require('./views/prototype-sprint-wise/future-ur/dla-type-selection/_routes-old.js'));
 
 
 

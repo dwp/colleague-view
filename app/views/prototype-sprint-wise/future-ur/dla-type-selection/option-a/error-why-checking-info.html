@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Why are you checking this information?
+{% endblock %}
+
+{% block header %}
+  {% include "/extra-scenarios/dla-type-selection/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/extra-scenarios/dla-type-selection/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/extra-scenarios/dla-type-selection/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#incoming-telephone-call">Select why you are checking this information</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <form class="form" action="call-with" method="post">
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Why are you checking this information?
+              </h1>
+            </legend>
+            <p id="national-insurance-number-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select why you are checking this information
+            </p>
+            <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="incoming-telephone-call" name="What-type-of-contact" type="radio" value="Telephone call with">
+                <label class="govuk-label govuk-label--s govuk-radios__label" for="incoming-telephone-call">
+                  To complete a telephone call
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  Check a claimant's information when completing incoming or outgoing calls.
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="incoming-telephone-call-2" name="What-type-of-contact" type="radio" value="Contact with">
+                <label class="govuk-label govuk-label--s govuk-radios__label" for="incoming-telephone-call-2">
+                  To work on another type of contact
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  Check a claimant's information when working on face-to-face conversations, letters, emails, text messages or handovers.
+                </div>
+              </div>
+              <div class="govuk-radios__divider">or</div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="view-info-only" name="What-type-of-contact" type="radio" value="View only">
+                <label class="govuk-label govuk-label--s govuk-radios__label" for="view-info-only">
+                  To view information only
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  This allows you to quality check an agent’s work
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
