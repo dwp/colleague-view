@@ -71,69 +71,7 @@ Benefit payments
         <h2 class="govuk-heading-l">
           Personal Independence Payment
         </h2>
-        <!-- Check the entitlement -->
-        <section class="govuk-!-margin-top-7">
-          <h3 class="govuk-heading-m">Check the entitlement</h3>
-          <p class="govuk-body">The claimant is entitled from 08 November 2020 to 02 December 2023.</p>
-          <p class="govuk-body">The claimant is paid every 4 weeks.</p>
-          <div class="govuk-inset-text">
-            <p class="govuk-body">This entitlement is made up of:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li><span class="govuk-body govuk-!-font-weight-bold">£329.20 for daily living at the standard rate</span>, from 08 November 2020 to 02 December 2023</li>
-              <li><span class="govuk-body govuk-!-font-weight-bold">£229.80 for mobility at the enhanced rate</span>, from 08 November 2020 to 02 December 2023</li>
-            </ul>
-          </div>
-        </section>
-        <!-- Adjustment to entitlement -->
-        <section class="govuk-!-margin-top-7">
-          <h3 class="govuk-heading-m">Check the entitlement adjustments</h3>
-          <h4 class="govuk-heading-s">Decreases to entitlement</h4>
-          <p class="govuk-body">The following adjustments are made every 4 weeks:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li><span class="govuk-body govuk-!-font-weight-bold">£20 overpayment recovery for Attendance Allowance</span>, from 31 May 2023 to 31 May 2024</li>
-          </ul>
-        </section>
-      </section>
-      {% endif %}
-  
-      {% if data.benefit == "esa" %}
-      <!-- ESA details -->
-      <section class="govuk-!-padding-top-2" id="esa-details">
-        <h2 class="govuk-heading-l">
-          Employment and Support Allowance
-        </h2>
-        <!-- Check the entitlement -->
-        <section class="govuk-!-margin-top-7">
-          <h3 class="govuk-heading-m">Check the entitlement</h3>
-          <p class="govuk-body">The claimant is entitled to a weekly payment of £193.10 before deductions, from 11 May 2023 to 10 December 2024.</p>
-          <p class="govuk-body">The claimant is paid every 2 weeks.</p>
-          <div class="govuk-inset-text">
-            <p class="govuk-body">This entitlement is made up of:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li><span class="govuk-body govuk-!-font-weight-bold">£154 for personal allowance</span>, from 11 May 2023 to 10 May 2024</li>
-              <li><span class="govuk-body govuk-!-font-weight-bold">£39.10 for client group premium</span>, from 11 May 2023 to 10 May 2024</li>
-            </ul>
-          </div>
-          <p class="govuk-body">The benefit type is ESA IR.</p>
-        </section>
-        <!-- deduction included -->
-        <section class="govuk-!-margin-top-7">
-          <h3 class="govuk-heading-m">Check the payment deductions</h3>
-          <p class="govuk-body">The following deductions are made weekly:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li><span class="govuk-body govuk-!-font-weight-bold">£10 for water rates</span>, from 09 June 2023</li>
-          </ul>
-        </section>
-      </section>
-      {% endif %}
-  
-      {% if data.benefit == "dla" %}
-      <!-- DLA details -->
-      <section class="govuk-!-padding-top-2" id="dla-details">
-        <h2 class="govuk-heading-l">
-          Disability Living Allowance
-        </h2>
-        <!-- <dl class="govuk-summary-list">
+        <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Start date
@@ -160,10 +98,71 @@ Benefit payments
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Amount before deductions
+              Payment frequency
             </dt>
             <dd class="govuk-summary-list__value">
-              £559
+              Every 4 weeks
+            </dd>
+          </div>
+        </dl>
+        <!-- componets included -->
+        <section class="govuk-!-margin-top-7">
+          <h3 class="govuk-heading-m">Check the components</h3>
+          <p class="govuk-body">This entitlement is made up of:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><span class="govuk-body govuk-!-font-weight-bold">£329.20</span> standard daily living, from 08 November 2020 to 02 December 2023</li>
+            <li><span class="govuk-body govuk-!-font-weight-bold">£229.80</span> enhanced mobility, from 08 November 2020 to 02 December 2023</li>
+          </ul>
+        </section>
+        <!-- Adjustment to entitlement -->
+        <section class="govuk-!-margin-top-7">
+          <h3 class="govuk-heading-m">Check the entitlement adjustments</h3>
+          <p class="govuk-body">The following adjustments are made every 4 weeks:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <!-- <li>£20 increase to award entitlement for offset mobility agreement, starting on 09 June 2023</li> -->
+            <li><span class="govuk-body govuk-!-font-weight-bold">£20</span> Attendance Allowance overpayment recovery, from 31 May 2023 to 31 May 2024</li>
+          </ul>
+        </section>
+      </section>
+      {% endif %}
+  
+      {% if data.benefit == "esa" %}
+      <!-- ESA details -->
+      <section class="govuk-!-padding-top-2" id="esa-details">
+        <h2 class="govuk-heading-l">
+          Employment and Support Allowance
+        </h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Start date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              11 May 2023
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              End date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              10 May 2024
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Benefit type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              ESA IR
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Payment before deductions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £193.10 weekly
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -171,37 +170,106 @@ Benefit payments
               Payment frequency
             </dt>
             <dd class="govuk-summary-list__value">
-              Every 4 week
+              Weekly
             </dd>
           </div>
-        </dl> -->
-
-        <!-- Check the entitlement -->
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last payment date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              17 July 2023
+            </dd>
+          </div> -->
+        </dl>
+        <!-- componets included -->
         <section class="govuk-!-margin-top-7">
-          <h3 class="govuk-heading-m">Check the entitlement</h3>
-          <p class="govuk-body">The claimant is entitled from 08 November 2020 to 02 December 2023.</p>
-          <p class="govuk-body">The claimant is paid every 4 weeks.</p>
-          <div class="govuk-inset-text">
-            <p class="govuk-body">This entitlement is made up of:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li><span class="govuk-body govuk-!-font-weight-bold">£329.20 for care at the standard rate</span>, from 08 November 2020 to 02 December 2023</li>
-              <li><span class="govuk-body govuk-!-font-weight-bold">£229.80 for mobility at the enhanced rate</span>, from 08 November 2020 to 02 December 2023</li>
-            </ul>
+          <h3 class="govuk-heading-m">Check the components</h3>
+          <p class="govuk-body">This entitlement is made up of:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><span class="govuk-body govuk-!-font-weight-bold">£154</span> personal allowance, from 11 May 2023 to 10 May 2024</li>
+            <li><span class="govuk-body govuk-!-font-weight-bold">£39.10</span> client group premium, from 11 May 2023 to 10 May 2024</li>
+          </ul>
+        </section>
+
+        <!-- deduction included -->
+        <section class="govuk-!-margin-top-7">
+          <h3 class="govuk-heading-m">Check the payment deductions</h3>
+          <p class="govuk-body">The following deductions are made weekly:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><span class="govuk-body govuk-!-font-weight-bold">£10 water rates</span>, from 09 June 2023</li>
+          </ul>
+        </section>
+      </section>
+      {% endif %}
+  
+      {% if data.benefit == "dla" %}
+      <!-- DLA details -->
+      <section class="govuk-!-padding-top-2" id="dla-details">
+        <h2 class="govuk-heading-l">
+          Disability Living Allowance
+        </h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Start date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              08 November 2020
+            </dd>
           </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              End date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              02 December 2023
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Benefit type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              There is only one type of this benefit
+            </dd>
+          </div>
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Amount before deductions
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £559
+            </dd>
+          </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Payment frequency
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Every 4 weeks
+            </dd>
+          </div>
+        </dl>
+
+        <!-- componets included -->
+        <section class="govuk-!-margin-top-7">
+          <h3 class="govuk-heading-m">Check the components</h3>
+          <p class="govuk-body">This entitlement is made up of:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><span class="govuk-body govuk-!-font-weight-bold">£329.20</span> standard care, from 08 November 2020 to 02 December 2023</li>
+            <li><span class="govuk-body govuk-!-font-weight-bold">£229.80</span> enhanced mobility, from 08 November 2020 to 02 December 2023</li>
+          </ul>
         </section>
         <!-- Adjustment to entitlement -->
         <section class="govuk-!-margin-top-7">
           <h3 class="govuk-heading-m">Check the entitlement adjustments</h3>
-          <h4 class="govuk-heading-s">Increases to entitlement</h4>
           <p class="govuk-body">The following adjustments are made weekly:</p>
           <ul class="govuk-list govuk-list--bullet">
-            <li><span class="govuk-body govuk-!-font-weight-bold">£20 increase for offset mobility agreement</span>, from 09 June 2023</li>
-          </ul>
-          <h4 class="govuk-heading-s">Decreases to entitlement</h4>
-          <p class="govuk-body">The following adjustments are made weekly:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li><span class="govuk-body govuk-!-font-weight-bold">£10 decrease as arrears</span> cannot be paid for Invalid Vehicle Scheme recovery, from August 2024 — cannot find recipient for death arrears and the amount payable at the end of the claim is below the departmental limit</li>
-            <li><span class="govuk-body govuk-!-font-weight-bold">£10 decrease as mobility allowance</span> has already been paid through another benefit, or is not to be paid by the system, from August 2024</li>
+            <li><span class="govuk-body govuk-!-font-weight-bold">£50 increase</span> for offset mobility agreement, from 09 June 2023</li>
+            <li><span class="govuk-body govuk-!-font-weight-bold">£10 decrease</span> as arrears cannot be paid for Invalid Vehicle Scheme recovery, from August 2024
+              amount payable at the end of the claim is below the departmental limit</li>
+            <li><span class="govuk-body govuk-!-font-weight-bold">£10 decrease</span> as mobility allowance has already been paid through another benefit, or is not to be paid by the system, from August 2024</li>
           </ul>
         </section>
        
