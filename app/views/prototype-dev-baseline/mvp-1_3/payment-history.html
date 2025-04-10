@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Benefit payments
+Payment history
 {% endblock %}
 
 
 {% block header %}
   {% include "/prototype-dev-baseline/mvp-1_3/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/view-only/keydetail-bar" %}
+  {% include "/prototype-dev-baseline/mvp-1_3/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -18,20 +18,46 @@ Benefit payments
 {% block beforeContent %}
   {% include "/prototype-dev-baseline/mvp-1_3/common/phase-banner.html" %}
   <a href="benefit-payment.html" class="govuk-back-link">Back</a>
+  <!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Benefit payments</a>
+      </li>
+    </ol>
+  </div> -->
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-half">
-    <h1 class="govuk-heading-xl">Payment history</h1>
-  </div>
-  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
-    <form action="/prototype-dev-baseline/mvp-1_3/index" method="post">
-        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Start service again
-        </button>
-    </form>
-  </div>
+<div class="govuk-grid-column-one-half">
+  <h1 class="govuk-heading-xl">Payment history</h1>
+</div>
+<div class="govuk-grid-column-one-half">
+  <form action="/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed" method="post">
+    <div class="govuk-button-group">
+      {% set benefits =  data['what-benefit-discussed'] | length %}
+      {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
+      {%if benefitAdded != '' %}
+      <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed">
+        Add or change call details
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/add-call/do-you-want-to-complete-call">
+        Start service again
+      </button>
+      {%else%}
+      <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed">
+        Add call details
+      </button>
+      {%endif%}
+      <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/add-call/do-you-want-to-complete-call">
+        Complete phone call
+      </button> -->
+    </div>
+  </form>
+</div>
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
@@ -382,95 +408,94 @@ Benefit payments
   </div>
   </div>
 
-
-  <!-- logic for filter function -->
-  <script type="text/javascript">
-    function showFilter() {
-      var link = document.getElementById('filter-section');
-      var link2 = document.getElementById('show-filter-btn');
-      var hdFilter = document.getElementById('hide-filter-btn');
-      var esaTable = document.getElementById('table-ESA');
-      var caTable = document.getElementById('table-CA');
-      var pipTable = document.getElementById('table-PIP');
-      link.classList.remove("govuk-visually-hidden");
-      link2.classList.add("govuk-visually-hidden");
-      hdFilter.classList.remove("govuk-visually-hidden");
-      esaTable.classList.add("govuk-visually-hidden");
-      document.getElementById("filter-1").checked = false;
-      document.getElementById("filter-2").checked = false;
-      document.getElementById("filter-3").checked = false;
-    }
-    function cancelFilter() {
-      var link = document.getElementById('filter-section');
-      var link2 = document.getElementById('show-filter-btn');
-      var hdFilter = document.getElementById('hide-filter-btn');
-      link.classList.add("govuk-visually-hidden");
-      hdFilter.classList.add("govuk-visually-hidden");
-      link2.classList.remove("govuk-visually-hidden");
-      document.getElementById("filter-1").checked = false;
-      document.getElementById("filter-2").checked = false;
-      document.getElementById("filter-3").checked = false;
-    }
-    function applyFilter() {
-      var link3 = document.getElementById('filter-selected');
-      var link2 = document.getElementById('show-filter-btn');
-      var link5 = document.getElementById('filter-section'); 
-      var tableDefault = document.getElementById('default-table')
-      var esaTable = document.getElementById('table-ESA');
-      var caTable = document.getElementById('table-CA');
-      var pipTable = document.getElementById('table-PIP');
-      // link3.classList.remove("govuk-visually-hidden");
-      if (document.getElementById("filter-1").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        esaTable.classList.remove("govuk-visually-hidden");
-        caTable.classList.add("govuk-visually-hidden");
-        pipTable.classList.add("govuk-visually-hidden");
-      }
-      else if (document.getElementById("filter-2").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        caTable.classList.remove("govuk-visually-hidden");
-        esaTable.classList.add("govuk-visually-hidden");
-        pipTable.classList.add("govuk-visually-hidden");
-    } else if (document.getElementById("filter-3").checked == true) {
-        // link3.classList.remove("govuk-visually-hidden");
-        link2.classList.remove("govuk-visually-hidden");
-        // link4.classList.add("govuk-visually-hidden");
-        link5.classList.add("govuk-visually-hidden");
-        tableDefault.classList.add("govuk-visually-hidden");
-        pipTable.classList.remove("govuk-visually-hidden");
-        esaTable.classList.add("govuk-visually-hidden");
-        caTable.classList.add("govuk-visually-hidden");
-    } else if (document.getElementsByName("benefit") != '') {
-       link3.classList.remove("govuk-visually-hidden");
-    }
+<!-- logic for filter function -->
+<script type="text/javascript">
+function showFilter() {
+  var link = document.getElementById('filter-section');
+  var link2 = document.getElementById('show-filter-btn');
+  var hdFilter = document.getElementById('hide-filter-btn');
+  var esaTable = document.getElementById('table-ESA');
+  var caTable = document.getElementById('table-CA');
+  var pipTable = document.getElementById('table-PIP');
+  link.classList.remove("govuk-visually-hidden");
+  link2.classList.add("govuk-visually-hidden");
+  hdFilter.classList.remove("govuk-visually-hidden");
+  esaTable.classList.add("govuk-visually-hidden");
+  document.getElementById("filter-1").checked = false;
+  document.getElementById("filter-2").checked = false;
+  document.getElementById("filter-3").checked = false;
+}
+function cancelFilter() {
+  var link = document.getElementById('filter-section');
+  var link2 = document.getElementById('show-filter-btn');
+  var hdFilter = document.getElementById('hide-filter-btn');
+  link.classList.add("govuk-visually-hidden");
+  hdFilter.classList.add("govuk-visually-hidden");
+  link2.classList.remove("govuk-visually-hidden");
+  document.getElementById("filter-1").checked = false;
+  document.getElementById("filter-2").checked = false;
+  document.getElementById("filter-3").checked = false;
+}
+function applyFilter() {
+  var link3 = document.getElementById('filter-selected');
+  var link2 = document.getElementById('show-filter-btn');
+  var link5 = document.getElementById('filter-section'); 
+  var tableDefault = document.getElementById('default-table')
+  var esaTable = document.getElementById('table-ESA');
+  var caTable = document.getElementById('table-CA');
+  var pipTable = document.getElementById('table-PIP');
+  // link3.classList.remove("govuk-visually-hidden");
+  if (document.getElementById("filter-1").checked == true) {
+    // link3.classList.remove("govuk-visually-hidden");
+    link2.classList.remove("govuk-visually-hidden");
+    link5.classList.add("govuk-visually-hidden");
+    tableDefault.classList.add("govuk-visually-hidden");
+    esaTable.classList.remove("govuk-visually-hidden");
+    caTable.classList.add("govuk-visually-hidden");
+    pipTable.classList.add("govuk-visually-hidden");
   }
-    function clearFilter() {
-      var link3 = document.getElementById('filter-selected');
-      var esaTable = document.getElementById('table-ESA');
-      var caTable = document.getElementById('table-CA');
-      var pipTable = document.getElementById('table-PIP');
-      var tableDefault = document.getElementById('default-table');
-      var hdFilter = document.getElementById('hide-filter-btn');
-      link3.classList.add("govuk-visually-hidden");
-      tableDefault.classList.remove("govuk-visually-hidden");
-      esaTable.classList.add("govuk-visually-hidden");
-      caTable.classList.add("govuk-visually-hidden");
-      pipTable.classList.add("govuk-visually-hidden");
-      link.classList.remove("govuk-visually-hidden");
-      hdFilter.classList.add("govuk-visually-hidden");
-      document.getElementById("filter-1").checked = false;
-      document.getElementById("filter-2").checked = false;
-      document.getElementById("filter-3").checked = false;
-      
-    }
-  </script>
+  else if (document.getElementById("filter-2").checked == true) {
+    // link3.classList.remove("govuk-visually-hidden");
+    link2.classList.remove("govuk-visually-hidden");
+    // link4.classList.add("govuk-visually-hidden");
+    link5.classList.add("govuk-visually-hidden");
+    tableDefault.classList.add("govuk-visually-hidden");
+    caTable.classList.remove("govuk-visually-hidden");
+    esaTable.classList.add("govuk-visually-hidden");
+    pipTable.classList.add("govuk-visually-hidden");
+} else if (document.getElementById("filter-3").checked == true) {
+    // link3.classList.remove("govuk-visually-hidden");
+    link2.classList.remove("govuk-visually-hidden");
+    // link4.classList.add("govuk-visually-hidden");
+    link5.classList.add("govuk-visually-hidden");
+    tableDefault.classList.add("govuk-visually-hidden");
+    pipTable.classList.remove("govuk-visually-hidden");
+    esaTable.classList.add("govuk-visually-hidden");
+    caTable.classList.add("govuk-visually-hidden");
+} else if (document.getElementsByName("benefit") != '') {
+    link3.classList.remove("govuk-visually-hidden");
+}
+}
+function clearFilter() {
+  var link3 = document.getElementById('filter-selected');
+  var esaTable = document.getElementById('table-ESA');
+  var caTable = document.getElementById('table-CA');
+  var pipTable = document.getElementById('table-PIP');
+  var tableDefault = document.getElementById('default-table');
+  var hdFilter = document.getElementById('hide-filter-btn');
+  link3.classList.add("govuk-visually-hidden");
+  tableDefault.classList.remove("govuk-visually-hidden");
+  esaTable.classList.add("govuk-visually-hidden");
+  caTable.classList.add("govuk-visually-hidden");
+  pipTable.classList.add("govuk-visually-hidden");
+  link.classList.remove("govuk-visually-hidden");
+  hdFilter.classList.add("govuk-visually-hidden");
+  document.getElementById("filter-1").checked = false;
+  document.getElementById("filter-2").checked = false;
+  document.getElementById("filter-3").checked = false;
+  
+}
+</script>
 
 
 {% endblock %}

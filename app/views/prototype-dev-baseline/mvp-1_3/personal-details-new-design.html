@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_3/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "/prototype-dev-baseline/mvp-1_3/common/phase-banner.html" %}
+<!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Personal details</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h1 class="govuk-heading-xl">Personal details</h1>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <form action="/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/what-benefits-discussed" method="post">
+          <div class="govuk-button-group">
+            {% set benefits =  data['what-benefit-discussed'] | length %}
+            {%if benefits >=1 %}
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/what-benefits-discussed">
+              Add or change call details
+            </button>
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/do-you-want-to-complete-call">
+              Start service again
+            </button>
+            {%else%}
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/what-benefits-discussed">
+              Add call details
+            </button>
+            {%endif%}
+            <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/future-ur/failed-disconnect-call-log/add-call/do-you-want-to-complete-call">
+              Complete phone call
+            </button> -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    <div class="govuk-grid-column-two-thirds">
+          <!-- summary card design -->
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Your details
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Christopher Fox
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Show name<span class="govuk-visually-hidden"> Christopher Fox</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              15 October 1977
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Show date of birth<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['nino-number-ur-8'] | upper  }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Show NINO<span class="govuk-visually-hidden"> NINO</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nationality
+            </dt>
+            <dd class="govuk-summary-list__value">
+              British citizen
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Show nationality<span class="govuk-visually-hidden"> nationality</span></a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Contact details
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Mobile numbers
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">07700 900 000</p>
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">07700 900 457</p>
+              <p class="govuk-body govuk-body govuk-!-margin-bottom-2">+1 123 1231234</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Show home address<span class="govuk-visually-hidden"> Christopher Fox</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Landline numbers
+            </dt>
+            <dd class="govuk-summary-list__value">
+              020 1234 1234
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Show date of birth<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address we can send letters to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              5 Highfield Av <br>Meltham <br>Holmfirth <br>HD9 5RF
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Show NINO<span class="govuk-visually-hidden"> NINO</span></a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+         Your benefits
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Benefit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>Carer's Allowance</p>
+              <hr class="govuk-section-break govuk-section-break--visible">
+              <!-- <div class="govuk-hint">
+                Start from 23 June 2023
+              </div> -->
+              <p>Employment and Support Allowance</p>
+              <hr class="govuk-section-break govuk-section-break--visible">
+              <!-- <div class="govuk-hint">
+                Start from 11 May 2023 to 10 May 2024
+              </div> -->
+              <p>Personal Independence Payment</p>
+              <!-- <div class="govuk-hint">
+                Start from 08 November 2020 to 02 December 2023
+              </div> -->
+            </dd>
+            <!-- <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Show name<span class="govuk-visually-hidden"> Christopher Fox</span></a>
+            </dd> -->
+          </div>
+        </dl>
+      </div>
+    </div>
+    <p class="govuk-body">
+      <a href="home" class="govuk-link">Back to home</a>
+    </p>
+    </div>
+</div>
+
+
+{% endblock %}

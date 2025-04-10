@@ -6,17 +6,17 @@ Benefit payments
 
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/keydetail-bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/non-telephony/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/phase-banner.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/phase-banner.html" %}
   <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
@@ -31,29 +31,29 @@ Benefit payments
 {% endblock %}
 
 {% block content %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
     <h1 class="govuk-heading-xl">Benefit payments</h1>
   </div>
   <div class="govuk-grid-column-one-half">
-    <form action="/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed" method="post">
+    <form action="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed" method="post">
       <div class="govuk-button-group">
-        {% set benefits =  data['what-benefit-discussed'] | length %}
-        {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
-        {%if benefitAdded != '' %}
-        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed">
-          Add or change call details
+        {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
+        {%if benefits >=1 %}
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
+          Add or change contact details
         </button>
-        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/add-call/do-you-want-to-complete-call">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again">
           Start service again
         </button>
         {%else%}
-        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed">
-          Add call details
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
+          Add contact details
         </button>
         {%endif%}
-        <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/add-call/do-you-want-to-complete-call">
-          Complete phone call
+        <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again">
+          Start service again
         </button> -->
       </div>
     </form>
@@ -90,12 +90,12 @@ Benefit payments
               Employment and Support Allowance
             </span>
             <div class="gem-c-big-number__value govuk-!-font-size-48 govuk-!-margin-top-2 govuk-!-margin-bottom-2">
-              £183.10
+              £184.13
             </div>
             <strong class="govuk-tag govuk-tag--orange govuk-!-margin-top-2 govuk-!-margin-bottom-2" style="max-width:300px">Payment has not been issued yet</strong>
             <br>
             <p class="govuk-body govuk-!-margin-bottom-2">This is due to be paid on 15 August 2023</p>
-            <p class="govuk-body govuk-!-margin-top-0">The total deduction applied is <span class="govuk-body govuk-!-font-weight-bold">£10</span></p> 
+            <p class="govuk-body govuk-!-margin-top-0">The total deduction applied is <span class="govuk-body govuk-!-font-weight-bold">£8.97</span></p> 
           </div>
           <!-- <a href="benefit-details-esa.html" role="button" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Check full benefit details
@@ -162,14 +162,16 @@ Benefit payments
     </p>
 
     <!-- <h2 class="govuk-heading-s" style="margin-top: 20px;">Check contact history</h2> -->
-    <!-- <p class="govuk-body">
+    <p class="govuk-body">
       <a href="contact-history.html" class="govuk-link govuk-link--no-visited-state">Contact history</a>
-    </p> -->
-    <!-- <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"> -->
+    </p>
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
     <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Payment history</button>
     <br>
     <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Benefit details</button> -->
     </div>
   </div>
+</div>
+
 </div>
 {% endblock %}
