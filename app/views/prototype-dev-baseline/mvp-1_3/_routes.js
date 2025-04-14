@@ -212,6 +212,41 @@ router.post('/add-call/what-benefits-discussed', function (req, res) {
   }
 });
 
+router.post('/add-call/select-contact-type', function (req, res) {
+
+  console.log('Question asked');
+  req.session.data['questionAsk'] = '';
+  req.session.data['questionAsk-esa'] = '';
+  req.session.data['questionAsk-pip'] = '';
+  req.session.data['question-asked'] = '';
+
+  req.session.data['npd_wasQuestionResolved']= '';
+  req.session.data['npa_wasQuestionResolved']= '';
+
+  req.session.data['npd_wasQuestionResolved-esa']= '';
+  req.session.data['npa_wasQuestionResolved-esa']= '';
+  req.session.data['ma_question-resolved-esa']= '';
+  req.session.data['chpa_question-resolved-esa']= '';
+  req.session.data['othQ_question-resolved-esa']= '';
+
+  req.session.data['npd_wasQuestionResolved-pip']= '';
+  req.session.data['npa_wasQuestionResolved-pip']= '';
+  req.session.data['ma_question-resolved-pip']= '';
+  req.session.data['chpa_question-resolved-pip']= '';
+  req.session.data['othQ_question-resolved-pip']= '';
+
+  if (req.session.data['what-benefit-discussed'] == '')
+ {
+  console.log('Error page');
+  res.redirect('/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed-error');
+  } else if (req.session.data['what-benefit-discussed'] == 'General information') {
+    res.redirect('/prototype-dev-baseline/mvp-1_3/add-call/general-information');
+  } else {
+  res.redirect('/prototype-dev-baseline/mvp-1_3/add-call/select-contact-type');
+ }
+})
+
+// Question asked original
 router.post('/add-call/questions-asked', function (req, res) {
 
   console.log('Question asked');
