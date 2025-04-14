@@ -155,10 +155,11 @@
             </th>
             <td class="govuk-summary-list__value">
               <ul class="govuk-list govuk-list--bullet">
-                {% for benefit in data['question-asked'] %}
-                <li>{{ benefit }}</li>
-                {% endfor %}
-              </ul>
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for contactTopics in data['contact-type'] %}
+                  <li>{{ contactTopics }}</li>
+                  {% endfor %}
+                </ul>
             </td>
           </tr>
           <tr class="govuk-summary-list__row">

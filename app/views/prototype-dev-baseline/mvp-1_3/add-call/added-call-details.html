@@ -212,7 +212,7 @@ Check the details you have added
           <h2 class="govuk-summary-card__title">What the call was about</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
-              <a class="govuk-link" href="questions-asked.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
+              <a class="govuk-link" href="select-contact-type.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
             </li>
           </ul>
         </div>
@@ -225,8 +225,8 @@ Check the details you have added
                 </th>
                 <td class="govuk-summary-list__value">
                   <ul class="govuk-list govuk-list--bullet">
-                    {% for questions in data['question-asked'] %}
-                    <li>{{ questions }}</li>
+                    {% for contactTopics in data['contact-type'] %}
+                    <li>{{ contactTopics }}</li>
                     {% endfor %}
                   </ul>
                 </td>
