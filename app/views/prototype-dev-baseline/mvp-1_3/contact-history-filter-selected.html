@@ -2164,13 +2164,13 @@ Contact history
             {%set noteAdded = data['addNote']%}
             {%set benefitAdded = data['what-benefit-discussed']%}
             <div id="contact-topics">
-              <h3 class="govuk-heading-m">3 results</h3>
-              <p class="govuk-body govuk-!-margin-bottom-6">
-                  Sorted by:
-                  <span class="govuk-!-font-weight-bold">Date</span>
-              </p>
               <div class="summry-card">
                 {%if data['what-benefit-discussed'] != '' %}
+                <h3 class="govuk-heading-m">3 results</h3>
+                <p class="govuk-body govuk-!-margin-bottom-6">
+                    Sorted by:
+                    <span class="govuk-!-font-weight-bold">Date</span>
+                </p>
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Inbound phone call: 15 April 2025, 10:30</h2>
@@ -2206,7 +2206,6 @@ Contact history
                     </table>
                   </div>
                 </div>
-                {%endif%}
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
@@ -2273,6 +2272,80 @@ Contact history
                     </table>
                   </div>
                 </div>
+                {%else%}
+                <h3 class="govuk-heading-m">2 results</h3>
+                <p class="govuk-body govuk-!-margin-bottom-6">
+                    Sorted by:
+                    <span class="govuk-!-font-weight-bold">Date</span>
+                </p>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Sent an entitlement certificate.
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Proof of benefit
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Requested an entitlement certificate.
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>A payment enquiry</p>
+                            <p>Proof of benefit</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                {%endif%}
+
               </div>
             </div>
             {%endif%}
