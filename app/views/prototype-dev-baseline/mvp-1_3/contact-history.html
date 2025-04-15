@@ -171,7 +171,7 @@ Contact history
                         </legend>
                         <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="contact-topic-1" name="contact-topic" type="checkbox" value="Payment enquiry" {{ checked ('contact-topic', 'Payment enquiry') }}>
+                            <input class="govuk-checkboxes__input" id="contact-topic-1" name="contact-topic" type="checkbox" value="Payment enquiry">
                             <label class="govuk-label govuk-checkboxes__label" for="contact-topic-1">
                               Payment enquiry
                             </label>
@@ -311,6 +311,44 @@ Contact history
                 <span class="govuk-!-font-weight-bold">Date</span>
             </p>
             <div class="summry-card">
+              {%if data['what-benefit-discussed'] != '' %}
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">Inbound phone call: 15 April 2025, 10:30</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          {{ data['addNote'] or "Not provided" }}
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <ul class="govuk-list govuk-list--bullet">
+                            <li>Payment enquiry</li>
+                            <li>Proof of benefit</li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {%endif%}
               <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
                   <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
@@ -336,7 +374,7 @@ Contact history
                           General change of circumstance
                         </th>
                         <td class="govuk-summary-list__value">
-                          <p>A request for evidence - Address</p>
+                          <p>A request for evidence</p>
                         </td>
                       </tr>
                     </tbody>
@@ -465,7 +503,7 @@ Contact history
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
-                          <p>A payment enquiry - Next payment date, Next payment amount</p>
+                          <p>A payment enquiry</p>
                           <p>Proof of benefit</p>
                         </td>
                       </tr>
