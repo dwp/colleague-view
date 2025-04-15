@@ -95,11 +95,13 @@ Contact history
               <div class="moj-filter__content">
                 <!-- selected filters -->
                 {% set benefits =  data['benefit'] | length %}
+                {% set contactTopic = data['contact-topic'] | length %}
                 {% set contactType = data['contact-type'] | length %}
                 {% set keyword =  data['keywordSearch'] | upper  %}
                 {%set checkDay = data['from-date-day'] %}
                 {% set checkMonth = data['from-date-month'] %}
                 {%set checkYear = data['from-date-year'] %}
+
                 <!-- benefit selected -->
                 {% if benefits >= 1 %}
                 <hr class="govuk-section-break govuk-section-break--visible">
@@ -136,6 +138,27 @@ Contact history
                     {%for contactTypes in data['contact-type']%}
                     <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ contactTypes }}</a></li>
                   {% endfor %}
+                  </ul>
+                </div>
+                <hr class="govuk-section-break govuk-section-break--visible">
+                {%endif%}
+
+                <!-- contact topics seelcted -->
+                {% if contactTopic >= 1 %}
+                <hr class="govuk-section-break govuk-section-break--visible">
+                <div class="moj-filter__selected" style="box-shadow: none;">
+                  <div class="moj-filter__selected-heading">
+                    <div class="moj-filter__heading-title">
+                      <h3 class="govuk-heading-s">Selected filters</h3>
+                    </div>
+                    <div class="moj-filter__heading-action">
+                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
+                    </div>
+                  </div>
+                  <ul class="moj-filter-tags">
+                    {%for contactTopics2 in data['contact-topic']%}
+                    <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ contactTopics2 }}</a></li>
+                    {% endfor %}
                   </ul>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
@@ -391,7 +414,7 @@ Contact history
             {%set contactTypeLength = data['contact-type'] | length %}
             {%set keywordSearch = data['keywordSearch'] | upper %}
 
-              {% if benefitLength > 1 %} 
+            {% if benefitLength > 1 %} 
               <div class="eas-pip-filtered">
                 <h3 class="govuk-heading-m">6 results</h3>
                 <p class="govuk-body govuk-!-margin-bottom-6">
@@ -424,7 +447,7 @@ Contact history
                               General change of circumstance
                             </th>
                             <td class="govuk-summary-list__value">
-                              <p>A request for evidence - Address</p>
+                              <p>A request for evidence</p>
                             </td>
                           </tr>
                         </tbody>
@@ -553,7 +576,7 @@ Contact history
                               Employment and Support Allowance
                             </th>
                             <td class="govuk-summary-list__value">
-                              <p>A payment enquiry - Next payment date, Next payment amount</p>
+                              <p>A payment enquiry</p>
                               <p>Proof of benefit</p>
                             </td>
                           </tr>
@@ -697,7 +720,7 @@ Contact history
                   </div>
                 </nav>
               </div>
-              {%else%}
+            {%else%}
               {% if (data['benefit'] === "Employment and Support Allowance") and (data['benefit'] === "General change of circumstance")  %} 
               <div class="eas-pip-filtered">
                 <h3 class="govuk-heading-m">6 results</h3>
@@ -731,7 +754,7 @@ Contact history
                               General change of circumstance
                             </th>
                             <td class="govuk-summary-list__value">
-                              <p>A request for evidence - Address</p>
+                              <p>A request for evidence</p>
                             </td>
                           </tr>
                         </tbody>
@@ -860,7 +883,7 @@ Contact history
                               Employment and Support Allowance
                             </th>
                             <td class="govuk-summary-list__value">
-                              <p>A payment enquiry - Next payment date, Next payment amount</p>
+                              <p>A payment enquiry</p>
                               <p>Proof of benefit</p>
                             </td>
                           </tr>
@@ -1038,7 +1061,7 @@ Contact history
                               General change of circumstance
                             </th>
                             <td class="govuk-summary-list__value">
-                              <p>A request for evidence - Address</p>
+                              <p>A request for evidence</p>
                             </td>
                           </tr>
                         </tbody>
@@ -1167,7 +1190,7 @@ Contact history
                               Employment and Support Allowance
                             </th>
                             <td class="govuk-summary-list__value">
-                              <p>A payment enquiry - Next payment date, Next payment amount</p>
+                              <p>A payment enquiry</p>
                               <p>Proof of benefit</p>
                             </td>
                           </tr>
@@ -1410,7 +1433,7 @@ Contact history
                               Employment and Support Allowance
                             </th>
                             <td class="govuk-summary-list__value">
-                              <p>A payment enquiry - Next payment date, Next payment amount</p>
+                              <p>A payment enquiry</p>
                               <p>Proof of benefit</p>
                             </td>
                           </tr>
@@ -1578,6 +1601,7 @@ Contact history
               {%endif%}
             {%endif%}
 
+            <!-- Display contact type - Inbound/outbound -->
             {%if data['contact-type'] == 'Inbound phone call' %}
             <div id="inbound-results">
               <h3 class="govuk-heading-m">4 results</h3>
@@ -1675,7 +1699,7 @@ Contact history
                             Employment and Support Allowance
                           </th>
                           <td class="govuk-summary-list__value">
-                            <p>A payment enquiry - Next payment date, Next payment amount</p>
+                            <p>A payment enquiry</p>
                             <p>Proof of benefit</p>
                           </td>
                         </tr>
@@ -1751,7 +1775,7 @@ Contact history
                             General change of circumstance
                           </th>
                           <td class="govuk-summary-list__value">
-                            <p>A request for evidence - Address</p>
+                            <p>A request for evidence</p>
                           </td>
                         </tr>
                       </tbody>
@@ -1859,7 +1883,7 @@ Contact history
                             General change of circumstance
                           </th>
                           <td class="govuk-summary-list__value">
-                            <p>A request for evidence - Address</p>
+                            <p>A request for evidence</p>
                           </td>
                         </tr>
                       </tbody>
@@ -1988,7 +2012,7 @@ Contact history
                             Employment and Support Allowance
                           </th>
                           <td class="govuk-summary-list__value">
-                            <p>A payment enquiry - Next payment date, Next payment amount</p>
+                            <p>A payment enquiry</p>
                             <p>Proof of benefit</p>
                           </td>
                         </tr>
@@ -2133,6 +2157,125 @@ Contact history
               </nav>
             </div>
             {%endif%}
+
+            <!-- Display contact topics - proof of benefit -->
+            {%if data['contact-topic'] == 'Proof of benefit' %}
+            
+            {%set noteAdded = data['addNote']%}
+            {%set benefitAdded = data['what-benefit-discussed']%}
+            <div id="contact-topics">
+              <h3 class="govuk-heading-m">3 results</h3>
+              <p class="govuk-body govuk-!-margin-bottom-6">
+                  Sorted by:
+                  <span class="govuk-!-font-weight-bold">Date</span>
+              </p>
+              <div class="summry-card">
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Inbound phone call: 15 April 2025, 10:30</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            {{noteAdded}}
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <ul class="govuk-list govuk-list--bullet">
+                              <li>Payment enquiry</li>
+                              <li>Proof of benefit</li>
+                            </ul>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Sent an entitlement certificate.
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Proof of benefit
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Requested an entitlement certificate.
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>A payment enquiry</p>
+                            <p>Proof of benefit</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%endif%}
+            
           </div>
         </div>
       </div>
