@@ -151,15 +151,16 @@ Contact history
                     <div class="moj-filter__heading-title">
                       <h3 class="govuk-heading-s">Selected filters</h3>
                     </div>
-                    <div class="moj-filter__heading-action">
+                    <!-- <div class="moj-filter__heading-action">
                       <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
-                    </div>
+                    </div> -->
                   </div>
                   <ul class="moj-filter-tags">
                     {%for contactTopics2 in data['contact-topic']%}
                     <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ contactTopics2 }}</a></li>
                     {% endfor %}
                   </ul>
+                  <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
                 {%endif%}
