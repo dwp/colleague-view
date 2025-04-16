@@ -214,7 +214,7 @@ router.post('/add-call/what-benefits-discussed', function (req, res) {
 
 router.post('/add-call/select-contact-type', function (req, res) {
 
-  console.log('Question asked');
+  req.session.data['contact-type'] = '';
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
   req.session.data['questionAsk-pip'] = '';

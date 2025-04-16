@@ -37,7 +37,7 @@ What did you review?
             {%endif%}
           </legend>
           <div id="changedName-hint" class="govuk-hint">
-            The options you select will automatically be added to the contact log. You can log any additional information later in the notes.
+            You can make multiple selections which will automatically be added to the contact record. You can add any additional information in the notes later.
           </div>
           <div class="govuk-checkboxes govuk-!-margin-top-5" data-module="govuk-checkboxes">
             <div class="govuk-radios__divider colleague-view-benefit-list">Active benefits</div>
@@ -59,7 +59,7 @@ What did you review?
                 Personal Independence Payment
               </label>
             </div>
-            <div class="govuk-radios__divider colleague-view-benefit-list">Other benefits</div>
+            <div class="govuk-radios__divider colleague-view-benefit-list">Other benefits or changes</div>
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_aa" name="what-benefit-discussed" type="checkbox" value="Attendance Allowance" {{ checked ('what-benefit-discussed', 'Attendance Allowance') }}>
               <label class="govuk-label govuk-checkboxes__label" for="benefit_aa">
@@ -144,14 +144,20 @@ What did you review?
                 Winter Fuel Payment
               </label>
             </div>
-            <div class="govuk-radios__divider">or</div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed" type="checkbox" value="General information" data-aria-controls="conditional-contact" data-behaviour="exclusive" {{ checked ('what-benefit-discussed', 'No benefit') }} >
-              <label class="govuk-label govuk-checkboxes__label" for="benefit_notDiscussed">
-                General information
+              <input class="govuk-checkboxes__input" id="general-CoC" name="what-benefit-discussed" type="checkbox" value="General change of circumstance" {{ checked ('what-benefit-discussed', 'General change of circumstance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="general-CoC">
+                Change of circumstance relevant to all benefits
               </label>
             </div>
-            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+            <!-- <div class="govuk-radios__divider">or</div> -->
+            <!-- <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_notDiscussed" name="what-benefit-discussed" type="checkbox" value="General change of circumstance" data-behaviour="exclusive" {{ checked ('what-benefit-discussed', 'General change of circumstance') }} >
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_notDiscussed">
+                Change of circumstance relevant to all benefits
+              </label>
+            </div> -->
+            <!-- <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
                 <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="30">
                 <label class="govuk-label" for="with-hint">
                   Enter the subject of the call in a few words.
@@ -164,7 +170,7 @@ What did you review?
                   Must be no more than 30 characters
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </fieldset>
       </div>
