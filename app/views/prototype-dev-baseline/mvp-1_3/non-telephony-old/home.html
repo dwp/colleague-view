@@ -6,8 +6,8 @@ Home
 
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/non-telephony/keydetail-bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/non-telephony/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -35,24 +35,23 @@ Home
           <h1 class="govuk-heading-xl">Home</h1>
         </div>
         <div class="govuk-grid-column-one-half">
-          <form action="/prototype-dev-baseline/mvp-1_3/non-telephony/add-call/what-benefits-discussed" method="post">
+          <form action="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed" method="post">
             <div class="govuk-button-group">
-              {% set benefits =  data['what-benefit-discussed'] | length %}
-              {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
-              {%if benefitAdded != '' %}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/non-telephony/add-call/what-benefits-discussed">
-                Add or change call details
+              {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
+              {%if benefits >=1 %}
+              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
+                Add or change contact details
               </button>
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/non-telephony/add-call/do-you-want-to-complete-call">
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again">
                 Start service again
               </button>
               {%else%}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/non-telephony/add-call/what-benefits-discussed">
-                Add call details
+              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/what-benefits-discussed">
+                Add contact details
               </button>
               {%endif%}
-              <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/add-call/do-you-want-to-complete-call">
-                Complete phone call
+              <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_2/non-telephony/add-contact/check-before-start-sercive-again">
+                Start service again
               </button> -->
             </div>
           </form>
