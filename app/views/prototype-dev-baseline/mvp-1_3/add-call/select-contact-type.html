@@ -35,6 +35,10 @@ What was the call about?
     <form action="added-call-details" method="post" novalidate>
     {% set benefits =  data['what-benefit-discussed'] %}
     {% set benefitLength =  data['what-benefit-discussed'] | length %}    
+    {% set checkNoteAdded = data['addNote'] %}
+    {% set wasCallAnswered = data['was-call-answered'] %}
+  
+
     <!-- for multiple benefit -->
     {% if benefitLength >1 %}
       {% for benefitsName in data['what-benefit-discussed'] %}
@@ -311,6 +315,7 @@ What was the call about?
         </div>
         {%endif%}
       {% endfor %}
+
       <!-- add a note -->
       {%if checkNoteAdded == ''%}
       <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="5000">
@@ -334,8 +339,6 @@ What was the call about?
           {%endif%}
         {%else%}
         <p class="govuk-body">You do not need to repeat anything you have already selected.</p>
-        <p class="govuk-body">You should make a note if the call was disconnected early and there was no successful call back attempt.</p>
-        <!-- <p class="govuk-body">Do not repeat anything you have already selected.</p> -->
         {%endif%}
         <div class="govuk-warning-text govuk-!-margin-bottom-2">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -731,8 +734,6 @@ What was the call about?
           {%endif%}
         {%else%}
         <p class="govuk-body">You do not need to repeat anything you have already selected.</p>
-        <p class="govuk-body">You should make a note if the call was disconnected early and there was no successful call back attempt.</p>
-        <!-- <p class="govuk-body">Do not repeat anything you have already selected.</p> -->
         {%endif%}
         <div class="govuk-warning-text govuk-!-margin-bottom-2">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
