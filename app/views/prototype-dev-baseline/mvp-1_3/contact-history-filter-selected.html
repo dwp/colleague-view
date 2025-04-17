@@ -94,6 +94,7 @@ Contact history
               </div>
               <div class="moj-filter__content">
                 <!-- selected filters -->
+                <!-- selected filters -->
                 {% set benefits =  data['benefit'] | length %}
                 {% set contactTopic = data['contact-topic'] | length %}
                 {% set contactType = data['contact-type'] | length %}
@@ -102,104 +103,69 @@ Contact history
                 {% set checkMonth = data['from-date-month'] %}
                 {%set checkYear = data['from-date-year'] %}
 
+                {% if data['benefit'] != '' or data['contact-topic'] != '' or data['contact-type'] != '' or data['keywordSearch'] != '' or data['from-date-day'] != '' or data['from-date-month'] != '' %}
+                <hr class="govuk-section-break govuk-section-break--visible">
+                <div class="moj-filter__selected" style="box-shadow: none;">
+                  <div class="moj-filter__selected-heading">
+                    <div class="moj-filter__heading-title">
+                      <h3 class="govuk-heading-s">Selected filters</h3>
+                    </div>
+                    <div class="moj-filter__heading-action">
+                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
+                    </div>
+                  </div>
+
                 <!-- benefit selected -->
                 {% if benefits >= 1 %}
-                <hr class="govuk-section-break govuk-section-break--visible">
-                <div class="moj-filter__selected" style="box-shadow: none;">
-                  <div class="moj-filter__selected-heading">
-                    <div class="moj-filter__heading-title">
-                      <h3 class="govuk-heading-s">Selected filters</h3>
-                    </div>
-                    <div class="moj-filter__heading-action">
-                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
-                    </div>
-                  </div>
-                  <ul class="moj-filter-tags">
+                  <ul class="moj-filter-tags govuk-!-margin-bottom-2">
                     {%for benefitName in data['benefit']%}
                     <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefitName }}</a></li>
-                  {% endfor %}
+                    {% endfor %}
                   </ul>
-                </div>
-                <hr class="govuk-section-break govuk-section-break--visible">
                 {%endif%}
+
                 <!-- contact type seelcted -->
                 {% if contactType >= 1 %}
-                <hr class="govuk-section-break govuk-section-break--visible">
-                <div class="moj-filter__selected" style="box-shadow: none;">
-                  <div class="moj-filter__selected-heading">
-                    <div class="moj-filter__heading-title">
-                      <h3 class="govuk-heading-s">Selected filters</h3>
-                    </div>
-                    <div class="moj-filter__heading-action">
-                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
-                    </div>
-                  </div>
-                  <ul class="moj-filter-tags">
+                  <ul class="moj-filter-tags govuk-!-margin-bottom-2">
                     {%for contactTypes in data['contact-type']%}
                     <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ contactTypes }}</a></li>
                   {% endfor %}
                   </ul>
-                </div>
-                <hr class="govuk-section-break govuk-section-break--visible">
                 {%endif%}
 
                 <!-- contact topics seelcted -->
                 {% if contactTopic >= 1 %}
-                <hr class="govuk-section-break govuk-section-break--visible">
-                <div class="moj-filter__selected" style="box-shadow: none;">
-                  <div class="moj-filter__selected-heading">
-                    <div class="moj-filter__heading-title">
-                      <h3 class="govuk-heading-s">Selected filters</h3>
-                    </div>
-                    <!-- <div class="moj-filter__heading-action">
-                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
-                    </div> -->
-                  </div>
-                  <ul class="moj-filter-tags">
+                  <ul class="moj-filter-tags govuk-!-margin-bottom-2">
                     {%for contactTopics2 in data['contact-topic']%}
                     <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ contactTopics2 }}</a></li>
                     {% endfor %}
                   </ul>
-                  <p class="govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
-                </div>
-                <hr class="govuk-section-break govuk-section-break--visible">
                 {%endif%}
 
                 <!-- Keyword entered -->
-                {% if (keyword === "ADDRESS") or (keyword === "CHANGE OF CIRCS") or (keyword === "CHANGE OF ADDRESS") or (keyword === "CHANGE OF CIRCUMSTANCE") or (keyword === "COA") %}
-                <hr class="govuk-section-break govuk-section-break--visible">
-                <div class="moj-filter__selected" style="box-shadow: none;">
-                  <div class="moj-filter__selected-heading">
-                    <div class="moj-filter__heading-title">
-                      <h3 class="govuk-heading-s">Selected filters</h3>
-                    </div>
-                    <div class="moj-filter__heading-action">
-                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
-                    </div>
-                  </div>
-                  <ul class="moj-filter-tags">
+                {% if (keyword === "ADDRESS") or (keyword === "CHANGE OF CIRCS") or (keyword === "CHANGE OF ADDRESS") or (keyword === "CHANGE OF CIRCUMSTANCE") or (keyword === "COA") or (keyword === "PROOF OF BENEFIT") %}
+                  <ul class="moj-filter-tags govuk-!-margin-bottom-2">
                     <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span> {{ keyword | capitalize}}</a></li>
                   </ul>
-                </div>
-                <hr class="govuk-section-break govuk-section-break--visible">
                 {%endif%}
+
                 {%if (checkMonth == "05") or (checkMonth == "5") %}
-                <hr class="govuk-section-break govuk-section-break--visible">
-                <div class="moj-filter__selected" style="box-shadow: none;">
-                  <div class="moj-filter__selected-heading">
-                    <div class="moj-filter__heading-title">
-                      <h3 class="govuk-heading-s">Selected filters</h3>
-                    </div>
-                    <div class="moj-filter__heading-action">
-                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
-                    </div>
-                  </div>
-                  <ul class="moj-filter-tags">
-                    <li><a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span>{{ checkDay }}/{{ checkMonth }}/{{ checkYear }}</a></li>
+                  <ul class="moj-filter-tags govuk-!-margin-bottom-2">
+                    <li>
+                      <a class="moj-filter__tag" href="contact-history.html"><span class="govuk-visually-hidden">Remove this filter</span>{{ checkDay }}/{{ checkMonth }}/{{ checkYear }}</a>
+                    </li>
                   </ul>
+                {%endif%}
+            
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
+                {%else%}
+                <hr class="govuk-section-break govuk-section-break--visible">
+                  <p>There is no filter selected</p>
+                <hr class="govuk-section-break govuk-section-break--visible">
                 {%endif%}
+                <!-- end of select filter -->
+
                 <!-- filter options -->
                 <div class="moj-filter__options">
                   <form action="contact-history-filter-selected" method="post">
@@ -244,7 +210,7 @@ Contact history
                         </legend>
                         <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="contact-type-1" name="contact-type" type="checkbox" value="Inbound phone call">
+                            <input class="govuk-checkboxes__input" id="contact-type-1" name="contact-type" type="checkbox" value="Inbound phone call" {{ checked ('contact-type', 'Inbound phone call') }}>
                             <label class="govuk-label govuk-checkboxes__label" for="contact-type-1">
                               Inbound phone call
                             </label>
@@ -414,7 +380,471 @@ Contact history
             {%set benefitLength = data['benefit'] | length %}
             {%set contactTypeLength = data['contact-type'] | length %}
             {%set keywordSearch = data['keywordSearch'] | upper %}
+            
+            <!-- date filter -->
+            {% if (data['from-date-month'] == "5") or (data['from-date-month'] == "05") %}
+            <div class="pip-filtered">
+              <h3 class="govuk-heading-m">1 result</h3>
+              <div class="summry-card">
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Notes added
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the payability....</span> <br /><a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Personal Independence Payment
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>Next payment date</p>
+                            <p>Next payment amount</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%endif%}
 
+            {% if keywordSearch === "CHANGE OF CIRCS" %}
+            <div class="pip-filtered">
+              <h3 class="govuk-heading-m">1 results</h3>
+              <div class="summry-card">
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Notes added
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <span class="govuk-!-display-none" id="full-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.</span> <span class="" id="less-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will...</span><br /> <a href="#/" class="govuk-link" id="full-text-link-4" onclick="showfull4()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-4" onclick="showless4()"> view less</a>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Personal Independence Payment
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Something else
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            No benefit
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Check notes
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% elif keywordSearch === "ADDRESS"  %}
+            <div class="pip-filtered">
+              <h3 class="govuk-heading-m">1 results</h3>
+              <div class="summry-card">
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Notes added
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <span class="govuk-!-display-none" id="full-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.</span> <span class="" id="less-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will...</span><br /> <a href="#/" class="govuk-link" id="full-text-link-4" onclick="showfull4()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-4" onclick="showless4()"> view less</a>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Personal Independence Payment
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Something else
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            No benefit
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Check notes
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% elif keywordSearch === "CHANGE OF ADDRESS" %}
+            <div class="pip-filtered">
+              <h3 class="govuk-heading-m">1 results</h3>
+              <div class="summry-card">
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Notes added
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <span class="govuk-!-display-none" id="full-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.</span> <span class="" id="less-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will...</span><br /> <a href="#/" class="govuk-link" id="full-text-link-4" onclick="showfull4()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-4" onclick="showless4()"> view less</a>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Personal Independence Payment
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Something else
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            No benefit
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Check notes
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% elif keywordSearch === "CHANGE OF CIRCUMSTANCE" %}
+            <div class="pip-filtered">
+              <h3 class="govuk-heading-m">1 results</h3>
+              <div class="summry-card">
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Notes added
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <span class="govuk-!-display-none" id="full-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.</span> <span class="" id="less-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will...</span><br /> <a href="#/" class="govuk-link" id="full-text-link-4" onclick="showfull4()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-4" onclick="showless4()"> view less</a>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Personal Independence Payment
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Something else
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            No benefit
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Check notes
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% elif keywordSearch === "PROOF OF BENEFIT" %}
+            {%set noteAdded = data['addNote']%}
+            {%set benefitAdded = data['what-benefit-discussed']%}
+            <div id="contact-topics">
+              <div class="summry-card">
+                {%if data['what-benefit-discussed'] != '' %}
+                <h3 class="govuk-heading-m">3 results</h3>
+                <p class="govuk-body govuk-!-margin-bottom-6">
+                    Sorted by:
+                    <span class="govuk-!-font-weight-bold">Date</span>
+                </p>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Inbound phone call: 15 April 2025, 10:30</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            {{ data['addNote'] or "Not provided" }}
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+  
+                              <p>Payment enquiry</p>
+                              <p>Proof of benefit</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Sent an entitlement certificate.
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Proof of benefit
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Requested an entitlement certificate.
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>A payment enquiry</p>
+                            <p>Proof of benefit</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                {%else%}
+                <h3 class="govuk-heading-m">2 results</h3>
+                <p class="govuk-body govuk-!-margin-bottom-6">
+                    Sorted by:
+                    <span class="govuk-!-font-weight-bold">Date</span>
+                </p>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Sent an entitlement certificate.
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Proof of benefit
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                           Notes
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Requested an entitlement certificate.
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Employment and Support Allowance
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>A payment enquiry</p>
+                            <p>Proof of benefit</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                {%endif%}
+
+              </div>
+            </div>
+            {% elif keywordSearch === "COA" %}
+            <div class="pip-filtered">
+              <h3 class="govuk-heading-m">1 results</h3>
+              <div class="summry-card">
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
+                    <ul class="govuk-summary-card__actions">
+                      <li class="govuk-summary-card__action">
+                        <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="govuk-summary-card__content">
+                    <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                      <tbody class="govuk-summary-list">
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Notes added
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <span class="govuk-!-display-none" id="full-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.</span> <span class="" id="less-text-4">Claimant has moved address to 123 Test Street. The address we send letters to will...</span><br /> <a href="#/" class="govuk-link" id="full-text-link-4" onclick="showfull4()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-4" onclick="showless4()"> view less</a>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Personal Independence Payment
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Something else
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            No benefit
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            Check notes
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%endif%}
+
+            <!-- Filter by benefit name -->
             {% if benefitLength > 1 %} 
               <div class="eas-pip-filtered">
                 <h3 class="govuk-heading-m">6 results</h3>
@@ -1591,6 +2021,81 @@ Contact history
                             </th>
                             <td class="govuk-summary-list__value">
                               Checking eligibility
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {%endif%}
+              {% if data['benefit'] == 'General change of circumstance' %}
+              <div class="pip-filtered">
+                <h3 class="govuk-heading-m">2 results</h3>
+                <p class="govuk-body govuk-!-margin-bottom-6">
+                    Sorted by:
+                    <span class="govuk-!-font-weight-bold">Date</span>
+                </p>
+                <div class="summry-card">
+                  <div class="govuk-summary-card">
+                    <div class="govuk-summary-card__title-wrapper">
+                      <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
+                      <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                          <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="govuk-summary-card__content">
+                      <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                        <tbody class="govuk-summary-list">
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                             Notes
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              No notes added
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              General change of circumstance
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>A request for evidence</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="govuk-summary-card">
+                    <div class="govuk-summary-card__title-wrapper">
+                      <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
+                      <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                          <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="govuk-summary-card__content">
+                      <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                        <tbody class="govuk-summary-list">
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                             Notes
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              Evidence required.
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              General change of circumstance
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              Address
                             </td>
                           </tr>
                         </tbody>

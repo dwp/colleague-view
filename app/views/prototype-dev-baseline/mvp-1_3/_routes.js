@@ -121,8 +121,6 @@ router.post('/call-with', function (req, res) {
 });
 
 // for outbound call
-
-
 router.post('/who-were-tryingTo-contact', function (req, res) {
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-contact-with'] = '';
@@ -158,8 +156,6 @@ router.post('/home', function (req, res) {
   req.session.data['addNote']= '';
 
   if (req.session.data['Who-is-the-phone-call-with-ur8'] == '') {
-    // Send user to error page
-    // res.redirect('/prototype-dev-baseline/mvp-1_3//call-with');
     res.redirect('back');
   } else {
     if (
@@ -168,20 +164,17 @@ router.post('/home', function (req, res) {
     ) {
       req.session.data['Who-is-the-engagement-with'] = '';
     }
-    // var b = "with";
-    // req.session.data['Who-is-the-phone-call-with-ur8'] = b + " " + contactType;
     res.redirect('/prototype-dev-baseline/mvp-1_3/home');
   }
 });
 
 router.post('/non-telephony/home', function (req, res) {
-  var contactType = req.session.data['Who-is-contact-with'];
+  // var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
+  req.session.data['what-benefit-discussed'] = '';
+  req.session.data['addNote']= '';
 
   if (req.session.data['Who-is-contact-with'] == '') {
-    // Send user to error page
-    res.redirect(
-      '/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with'
-    );
+    res.redirect('back');
   } else {
     if (
       req.session.data['Who-is-contact-with'] == 'someone else' ||
@@ -189,11 +182,7 @@ router.post('/non-telephony/home', function (req, res) {
     ) {
       req.session.data['Who-is-the-engagement-with'] = '';
     }
-    // var b = "with";
-    // req.session.data['Who-is-contact-with'] = b + " " + contactType;
-    res.redirect(
-      '/prototype-dev-baseline/mvp-1_3/non-telephony/home'
-    );
+    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/home');
   }
 });
 
@@ -510,8 +499,6 @@ router.post('/non-telephony/add-contact/add-more-contact-details', function (req
 router.post('/non-telephony/add-contact/do-you-want-to-complete-contact', function (req, res) {
   res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/added-details')
 });
-
-
 
 router.post('/non-telephony/add-contact/contact-details-completed', function (req, res) {
   var addContactDetails = req.session.data['complete-contact'];
