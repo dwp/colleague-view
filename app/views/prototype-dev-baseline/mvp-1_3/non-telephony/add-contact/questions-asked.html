@@ -34,10 +34,10 @@ What was the call about?
     
     <form action="added-call-details" method="post" novalidate>
     {% set contacttype = data['What-type-of-contact'] %}
-    {% set benefits =  data['what-benefit-discussed'] %}
+    {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
     {% set checkNoteAdded = data['addNote'] %}
     {% set wasCallAnswered = data['was-call-answered'] %}
-    {% set benefitLength =  data['what-benefit-discussed'] | length %}    
+    {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %}    
     <!-- for multiple benefit -->
     {% if benefitLength >1 %}
       <!-- for ESA -->
@@ -221,7 +221,7 @@ What was the call about?
     
     <!-- for only one benefit -->
     {% else %}
-    <h2 class="govuk-heading-m">{{ data['what-benefit-discussed'] }}</h2>
+    <h2 class="govuk-heading-m">{{ data['what-benefit-discussed-non-telephony'] }}</h2>
 
       <!-- Payment enquiry -->
       {% if data['contact-type'] == "Payment enquiry" %}

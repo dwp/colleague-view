@@ -24,7 +24,7 @@
   {% set checkNoteAdded =  data['addNote'] %}
   {% if checkNoteAdded =='' %}
   <!-- Ask to complete session -->
-  <form class="form" action="add-more-call-details" method="post">
+  <form class="form" action="add-more-contact-details" method="post">
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -34,20 +34,20 @@
         </legend>
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-call-detail" type="radio" value="Yes, I want to add">
+            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-detail" type="radio" value="Yes, I want to add">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-1">
               Add another benefit or query
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-2" name="do-you-want-to-add-more-call-detail" type="radio" value="Add a note">
+            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-2" name="do-you-want-to-add-more-detail" type="radio" value="Add a note">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-2">
               Add a note
             </label>
           </div>
           <div class="govuk-radios__divider">or</div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-3" name="do-you-want-to-add-more-call-detail" type="radio" value="Complete phone call">
+            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-3" name="do-you-want-to-add-more-detail" type="radio" value="Complete phone call">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-3">
               Start Service again
             </label>
@@ -60,7 +60,7 @@
     </button>
   </form>
   {%else%} 
-  <form class="form" action="add-more-call-details" method="post">
+  <form class="form" action="add-more-contact-details" method="post">
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -104,14 +104,14 @@
     <div class="govuk-!-width-two-thirds">
       <h2 class="govuk-heading-m">You have added details about this call</h2>
       <!-- <h2 class="govuk-heading-m">Reasons for this call</h2> -->
-      {% set benefits =  data['what-benefit-discussed'] %}
+      {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
       {% set questionESA = data['questionAsk-esa'] %}
       {% set questionPIP = data['questionAsk-pip'] %}
-      {% set benefitLength =  data['what-benefit-discussed'] | length %}
+      {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %}
       {% if benefitLength >1 %}
       <table class="govuk-summary-list govuk-!-margin-bottom-0">
         <tbody class="govuk-summary-list">
-          {% for benefitsName in data['what-benefit-discussed'] %}
+          {% for benefitsName in data['what-benefit-discussed-non-telephony'] %}
           <!-- for ESA -->
           {% if benefitsName == 'Employment and Support Allowance' %}
           <tr class="govuk-summary-list__row">
@@ -187,7 +187,7 @@
         <tbody class="govuk-summary-list">
           <tr class="govuk-summary-list__row">
             <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-              {{ data['what-benefit-discussed'] }}
+              {{ data['what-benefit-discussed-non-telephony'] }}
             </th>
             <td class="govuk-summary-list__value">
               {%if data['contact-type'] | length > 1 %}
@@ -217,7 +217,7 @@
         <tbody class="govuk-summary-list">
           <tr class="govuk-summary-list__row">
             <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-              {{ data['what-benefit-discussed'] }}
+              {{ data['what-benefit-discussed-non-telephony'] }}
             </th>
             <td class="govuk-summary-list__value">
               {{data['noBenefitReason']}}
