@@ -27,8 +27,8 @@ Which questions were you able to answer?
           This information will only to used to help other agents work on future contact. You can leave this blank if you were unable to provide any answers.
         </div>
         <form action="added-call-details" method="post" novalidate>
-        {% set benefits =  data['what-benefit-discussed'] %}
-        {% set benefitLength =  data['what-benefit-discussed'] | length %} 
+        {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
+        {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %} 
         {% if benefitLength >1 %}
         <!-- for ESA -->
         <div class="govuk-form-group">
@@ -75,8 +75,8 @@ Which questions were you able to answer?
           <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading govuk-heading-m">
-                <!-- <span class="govuk-caption-l">{{ data['what-benefit-discussed'] }}</span> -->
-                {{ data['what-benefit-discussed'] }}
+                <!-- <span class="govuk-caption-l">{{ data['what-benefit-discussed-non-telephony'] }}</span> -->
+                {{ data['what-benefit-discussed-non-telephony'] }}
               </h2>
             </legend>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">

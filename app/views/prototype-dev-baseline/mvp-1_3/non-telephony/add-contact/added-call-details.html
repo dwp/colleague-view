@@ -24,8 +24,8 @@ Check the details you have added
     <span class="govuk-caption-l">Step 3 of 3</span>
     <h1 class="govuk-heading-l">Check the details you have added</h1>
     {% set contactType =  data['What-type-of-contact'] %}
-    {% set benefits =  data['what-benefit-discussed'] %}
-    {% set benefitLength =  data['what-benefit-discussed'] | length %}
+    {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
+    {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %}
    
     {% if contactType == 'Log a contact attempt' %}
         <div class="govuk-summary-card">
@@ -47,7 +47,7 @@ Check the details you have added
                   </th>
                   <td class="govuk-summary-list__value">
                     <ul class="govuk-list govuk-list--bullet">
-                      {% for benefit in data['what-benefit-discussed'] %}
+                      {% for benefit in data['what-benefit-discussed-non-telephony'] %}
                       <li>{{ benefit }}</li>
                       {% endfor %}
                     </ul>
@@ -112,7 +112,7 @@ Check the details you have added
                 </th>
                 <td class="govuk-summary-list__value">
                   <ul class="govuk-list govuk-list--bullet">
-                    {% for benefit in data['what-benefit-discussed'] %}
+                    {% for benefit in data['what-benefit-discussed-non-telephony'] %}
                     <li>{{ benefit }}</li>
                     {% endfor %}
                   </ul>
@@ -135,7 +135,7 @@ Check the details you have added
         <div class="govuk-summary-card__content">
           <table class="govuk-summary-list govuk-!-margin-bottom-0">
             <tbody class="govuk-summary-list">
-              {% for benefitsName in data['what-benefit-discussed'] %}
+              {% for benefitsName in data['what-benefit-discussed-non-telephony'] %}
                 <!-- for ESA -->
                 {% if benefitsName == 'Employment and Support Allowance' %}
                 <tr class="govuk-summary-list__row">

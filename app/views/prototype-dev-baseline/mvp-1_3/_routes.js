@@ -97,7 +97,7 @@ router.post('/call-with', function (req, res) {
   }
 
 // face to face converstaions condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound face to face conversation with' || req.session.data['What-type-of-contact'] == 'Outbound face to face conversation with') {
+  if (req.session.data['What-type-of-contact'] == 'Face to face conversation at DWP office with' || req.session.data['What-type-of-contact'] == 'Face to face conversation at Jobcentre with') {
     res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
   }
 
@@ -463,9 +463,8 @@ router.post('/non-telephony/add-contact/contact-details-added', function (req, r
 
 router.post('/non-telephony/add-contact/complete-contact', function (req, res) {
   var checkCallCompletion = req.session.data['Do-you-want-to-complete-the-contact'];
-  if (checkCallCompletion == 'Complete phone contact'){
+  if (checkCallCompletion == 'Start Service again'){
     console.log('Comlete phone call');
-    // res.redirect('/prototype-dev-baseline/mvp-1_3//non-telephony/add-contact/contact-completed')
     res.redirect('/prototype-dev-baseline/mvp-1_3/index')
    
   } else{
