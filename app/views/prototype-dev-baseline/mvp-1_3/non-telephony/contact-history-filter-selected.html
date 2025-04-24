@@ -609,10 +609,10 @@ Contact history
             </div>
             {% elif keywordSearch === "PROOF OF BENEFIT" %}
             {%set noteAdded = data['addNote']%}
-            {%set benefitAdded = data[''what-benefit-discussed-non-telephony']%}
+            {%set benefitAdded = data['what-benefit-discussed-non-telephony']%}
             <div id="contact-topics">
               <div class="summry-card">
-                {%if data[''what-benefit-discussed-non-telephony'] != '' %}
+                {%if data['what-benefit-discussed-non-telephony'] != '' %}
                 <h3 class="govuk-heading-m">3 results</h3>
                 <p class="govuk-body govuk-!-margin-bottom-6">
                     Sorted by:
@@ -2667,10 +2667,10 @@ Contact history
             {%if data['contact-topic'] == 'Proof of benefit' %}
             
             {%set noteAdded = data['addNote']%}
-            {%set benefitAdded = data[''what-benefit-discussed-non-telephony']%}
+            {%set benefitAdded = data['what-benefit-discussed-non-telephony']%}
             <div id="contact-topics">
               <div class="summry-card">
-                {%if data[''what-benefit-discussed-non-telephony'] != '' %}
+                {%if data['what-benefit-discussed-non-telephony'] != '' %}
                 <h3 class="govuk-heading-m">3 results</h3>
                 <p class="govuk-body govuk-!-margin-bottom-6">
                     Sorted by:

@@ -20,281 +20,429 @@ You have added details about this call
 
 {% block content %}
 <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        {% set contactType =  data['What-type-of-contact'] %}
-        {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
-        {% set questionESA = data['questionAsk-esa'] %}
-        {% set questionPIP = data['questionAsk-pip'] %}
-        {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %}
+  <div class="govuk-grid-column-two-thirds">
+    {% set contactType =  data['What-type-of-contact'] %}
+    {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
+    {% set questionESA = data['questionAsk-esa'] %}
+    {% set questionPIP = data['questionAsk-pip'] %}
+    {% set benefitLength =  data['what-benefit-discussed-non-telephony'] | length %}
        
-        {% if contactType == 'Log a contact attempt' %}
-          <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-            <div class="govuk-notification-banner__header">
-              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-                Success
-              </h2>
-            </div>
-            <div class="govuk-notification-banner__content">
-              <h3 class="govuk-notification-banner__heading">
-                Contact details and notes have been saved successfully.
-              </h3>
-            </div>
-          </div>
-          <h1 class="govuk-heading-l">You have added details about this contact</h1>
-          <div class="govuk-summary-card">
-            <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">
-                Contact summary
-              </h2>
-            </div>
-            <div class="govuk-summary-card__content">
-              <dl class="govuk-summary-list">
-                {% if benefitLength >1 %}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Benefits
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    <ul class="govuk-list govuk-list--bullet">
-                      {% for benefit in data['what-benefit-discussed-non-telephony'] %}
-                      <li>{{ benefit }}</li>
-                      {% endfor %}
-                    </ul>
-                  </dd>
-                </div>
-                {%else%}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Benefits
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['what-benefit-discussed-non-telephony'] }}
-                  </dd>
-                  <dd class="govuk-summary-list__actions govuk-!-display-none">
-                    <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
-                  </dd>
-                </div>
-                {%endif%}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Notes added
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['addNote'] or "Not provided" }}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-          <!-- Ask to complete session -->
-          <form class="form govuk-!-margin-top-0" action="complete-contact" method="post">
-            <button class="govuk-button" data-module="govuk-button">
-              Complete contact
-            </button>
-          </form>
-        {%else%}
-        <!-- <span class="govuk-caption-l">Step 4 of 5</span> -->
-        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Success
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <h3 class="govuk-notification-banner__heading">
-              Call details and notes have been saved successfully.
-            </h3>
-          </div>
+    <!-- ------------------------------ for letter ------------------------------ -->
+    {% if (data['What-type-of-contact']== 'Inbound letter from') or (data['What-type-of-contact'] == 'Outbound letter to') %}
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
         </div>
-        <h1 class="govuk-heading-l">You have added details about this call</h1>
-
-        {% if benefitLength >1 %}
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Call details
-            </h2>
-          </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              {% for benefitsName in data['what-benefit-discussed-non-telephony'] %}
-                
-              <!-- for ESA -->
-                {% if benefitsName == 'Employment and Support Allowance' %}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Employment and Support Allowance
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {%if data['contact-type-esa'] | length > 1 %}
-                    <ul class="govuk-list govuk-list--bullet">
-                      {% for questionsESA in data['contact-type-esa'] %}
-                      <li>{{ questionsESA or "No inquiry selected"}}</li>
-                      {% endfor %}
-                    </ul>
-                  {%else%}
-                  <p>{{data['contact-type-esa']}}</p>
-                  {%endif%}
-                  </dd>
-                </div>
-                {%endif%}
-
-                <!-- for pip -->
-                {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Personal Independence Payment
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {%if data['contact-type-pip'] | length > 1 %}
-                    <ul class="govuk-list govuk-list--bullet">
-                      {% for questionsPIP in data['contact-type-pip'] %}
-                      <li>{{ questionsPIP }}</li>
-                      {% endfor %}
-                    </ul>
-                  {%else%}
-                    <p>{{data['contact-type-pip']}}</p>
-                    {%endif%}
-                  </dd>
-                </div>
-                {%endif%}
-
-                <!-- for General CoC -->
-                {% if benefitsName == 'General change of circumstance' %}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    General change of circumstance
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {%if data['contact-type-gCoC'] | length > 1 %}
-                      <ul class="govuk-list govuk-list--bullet">
-                        {% for questionsgCoC in data['contact-type-gCoC'] %}
-                        <li>{{ questionsgCoC }}</li>
-                        {% endfor %}
-                      </ul>
-                    {%else%}
-                      <p>{{data['contact-type-gCoC']}}</p>
-                    {%endif%}
-                  </dd>
-                </div>
-                {%endif%}
-              {% endfor %}
-                <!-- Note added -->
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+           Letter details and notes have been saved successfully.
+          </h3>
+        </div>
+      </div>
+      <h1 class="govuk-heading-l">You have added details about this letter</h1>
+      {% if benefitLength >1 %}
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Letter details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            {% for benefitsName in data['what-benefit-discussed-non-telephony'] %}
+              
+            <!-- for ESA -->
+              {% if benefitsName == 'Employment and Support Allowance' %}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Notes added
+                  Employment and Support Allowance
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['addNote'] or "Not provided" }}
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-        {%else%}
-        {%if benefitLength == 1 and benefits != 'General information' %}
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Call details
-            </h2>
-          </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  {{ data['what-benefit-discussed-non-telephony'] }}
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {%if data['contact-type'] | length > 1 %}
+                  {%if data['contact-type-esa'] | length > 1 %}
                   <ul class="govuk-list govuk-list--bullet">
-                    {% for contactTopics in data['contact-type'] %}
-                    <li>{{ contactTopics }}</li>
+                    {% for questionsESA in data['contact-type-esa'] %}
+                    <li>{{ questionsESA or "No inquiry selected"}}</li>
                     {% endfor %}
                   </ul>
-                  {%else%}
-                    <p>{{data['contact-type']}}</p>
+                {%else%}
+                <p>{{data['contact-type-esa']}}</p>
+                {%endif%}
+                </dd>
+              </div>
+              {%endif%}
+
+              <!-- for pip -->
+              {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Personal Independence Payment
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {%if data['contact-type-pip'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsPIP in data['contact-type-pip'] %}
+                    <li>{{ questionsPIP }}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                  <p>{{data['contact-type-pip']}}</p>
                   {%endif%}
                 </dd>
-                <dd class="govuk-summary-list__actions govuk-!-display-none">
-                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
-                </dd>
               </div>
+              {%endif%}
+
+              <!-- for General CoC -->
+              {% if benefitsName == 'General change of circumstance' %}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Notes added
+                  General change of circumstance
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['addNote'] or "Not provided" }}
+                  {%if data['contact-type-gCoC'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsgCoC in data['contact-type-gCoC'] %}
+                      <li>{{ questionsgCoC }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-gCoC']}}</p>
+                  {%endif%}
                 </dd>
               </div>
-            </dl>
-          </div>
+              {%endif%}
+            {% endfor %}
+              <!-- Note added -->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Notes added
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addNote'] or "Not provided" }}
+              </dd>
+            </div>
+          </dl>
         </div>
-        {%else%} 
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Call details
+      </div>
+      {%else%}
+      {%if benefitLength == 1 and benefits != 'General information' %}
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Letter details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                {{ data['what-benefit-discussed-non-telephony'] }}
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for contactTopics in data['contact-type'] %}
+                  <li>{{ contactTopics }}</li>
+                  {% endfor %}
+                </ul>
+                {%else%}
+                  <p>{{data['contact-type']}}</p>
+                {%endif%}
+              </dd>
+              <dd class="govuk-summary-list__actions govuk-!-display-none">
+                <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Notes added
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addNote'] or "Not provided" }}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      {%else%} 
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Letter details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                {{ data['what-benefit-discussed-non-telephony'] }}
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{data['noBenefitReason']}}
+              </dd>
+              <dd class="govuk-summary-list__actions govuk-!-display-none">
+                <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Notes added
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addNote'] or "Not provided" }}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      {%endif%}
+      {%endif%}
+
+      <!-- Ask to complete session -->
+      <form class="form govuk-!-margin-top-9" action="complete-contact" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">
+              Do you want to start the service again or continue working on this letter?
             </h2>
-          </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  {{ data['what-benefit-discussed-non-telephony'] }}
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{data['noBenefitReason']}}
-                </dd>
-                <dd class="govuk-summary-list__actions govuk-!-display-none">
-                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
-                </dd>
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="complete-the-call-2" name="Do-you-want-to-complete-the-contact" type="radio" value="Start Service again">
+                <label class="govuk-label govuk-radios__label" for="complete-the-call-2">
+                  Start Service again
+                </label>
               </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Notes added
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['addNote'] or "Not provided" }}
-                </dd>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="complete-the-call" name="Do-you-want-to-complete-the-contact" type="radio" value="back to home page">
+                <label class="govuk-label govuk-radios__label" for="complete-the-call">
+                  Continue working on this letter
+                </label>
               </div>
-            </dl>
-          </div>
+            </div>
+          </fieldset>
         </div>
-        {%endif%}
-        {%endif%}
-        <!-- Ask to complete session -->
-        <form class="form govuk-!-margin-top-9" action="complete-contact" method="post">
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h2 class="govuk-fieldset__heading">
-                Do you want to start the service again or continue working on this call? 
-              </h2>
-              </legend>
-              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="complete-the-call-2" name="Do-you-want-to-complete-the-contact" type="radio" value="Start Service again">
-                  <label class="govuk-label govuk-radios__label" for="complete-the-call-2">
-                    Start Service again
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="complete-the-call" name="Do-you-want-to-complete-the-contact" type="radio" value="back to home page">
-                  <label class="govuk-label govuk-radios__label" for="complete-the-call">
-                    Continue working on this call
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
-        </form>
-        {%endif%}
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </form>
+    {%endif%}
+
+    <!-- ------------------------------ for Email ------------------------------ -->
+    
+    {% if (data['What-type-of-contact']== 'Inbound email from') or (data['What-type-of-contact'] == 'Outbound email to') %}
+    <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+         Letter details and notes have been saved successfully.
+        </h3>
       </div>
     </div>
+    <h1 class="govuk-heading-l">You have added details about this letter</h1>
+    {% if benefitLength >1 %}
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Letter details
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          {% for benefitsName in data['what-benefit-discussed-non-telephony'] %}
+            
+          <!-- for ESA -->
+            {% if benefitsName == 'Employment and Support Allowance' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Employment and Support Allowance
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-esa'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for questionsESA in data['contact-type-esa'] %}
+                  <li>{{ questionsESA or "No inquiry selected"}}</li>
+                  {% endfor %}
+                </ul>
+              {%else%}
+              <p>{{data['contact-type-esa']}}</p>
+              {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+
+            <!-- for pip -->
+            {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Personal Independence Payment
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-pip'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for questionsPIP in data['contact-type-pip'] %}
+                  <li>{{ questionsPIP }}</li>
+                  {% endfor %}
+                </ul>
+              {%else%}
+                <p>{{data['contact-type-pip']}}</p>
+                {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+
+            <!-- for General CoC -->
+            {% if benefitsName == 'General change of circumstance' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                General change of circumstance
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-gCoC'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsgCoC in data['contact-type-gCoC'] %}
+                    <li>{{ questionsgCoC }}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                  <p>{{data['contact-type-gCoC']}}</p>
+                {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+          {% endfor %}
+            <!-- Note added -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Notes added
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['addNote'] or "Not provided" }}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    {%else%}
+    {%if benefitLength == 1 and benefits != 'General information' %}
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Letter details
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {{ data['what-benefit-discussed-non-telephony'] }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['contact-type'] | length > 1 %}
+              <ul class="govuk-list govuk-list--bullet">
+                {% for contactTopics in data['contact-type'] %}
+                <li>{{ contactTopics }}</li>
+                {% endfor %}
+              </ul>
+              {%else%}
+                <p>{{data['contact-type']}}</p>
+              {%endif%}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-display-none">
+              <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Notes added
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['addNote'] or "Not provided" }}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    {%else%} 
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Letter details
+        </h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {{ data['what-benefit-discussed-non-telephony'] }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['noBenefitReason']}}
+            </dd>
+            <dd class="govuk-summary-list__actions govuk-!-display-none">
+              <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Notes added
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['addNote'] or "Not provided" }}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    {%endif%}
+    {%endif%}
+
+    <!-- Ask to complete session -->
+    <form class="form govuk-!-margin-top-9" action="complete-contact" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Do you want to start the service again or continue working on this letter?
+          </h2>
+          </legend>
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="complete-the-call-2" name="Do-you-want-to-complete-the-contact" type="radio" value="Start Service again">
+              <label class="govuk-label govuk-radios__label" for="complete-the-call-2">
+                Start Service again
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="complete-the-call" name="Do-you-want-to-complete-the-contact" type="radio" value="back to home page">
+              <label class="govuk-label govuk-radios__label" for="complete-the-call">
+                Continue working on this letter
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+    {%endif%}
+
+    <!-- ------------------------------ for Notification ------------------------------ -->
+    {% if (data['What-type-of-contact']== 'Inbound notification from') or (data['What-type-of-contact'] == 'Inbound notification to') %}
+    {%endif%}
+
+    <!-- ------------------------------ for Face to face converstaion ------------------------------ -->
+    {% if (data['What-type-of-contact']== 'Face to face conversation at DWP office with') or (data['What-type-of-contact'] == 'Face to face conversation at Jobcentre with') %}
+    {%endif%}
+
+  </div>
+</div>
 
 {% endblock %}
