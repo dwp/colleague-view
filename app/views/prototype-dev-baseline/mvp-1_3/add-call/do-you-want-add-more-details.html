@@ -28,13 +28,35 @@
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-          Do you want to update the call details you have added?
-        </h1>
+          {% if (data['What-type-of-contact']== 'Inbound phone call with') or (data['What-type-of-contact']== 'What-type-of-contact') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the call details you have added?
+          </h1>
+          {%endif%}
+          {% if (data['What-type-of-contact']== 'Inbound letter from') or (data['What-type-of-contact']== 'Outbound letter to') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the letter details you have added?
+          </h1>
+          {%endif%}
+          {% if (data['What-type-of-contact']== 'Inbound email from') or (data['What-type-of-contact']== 'Outbound email to') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the email details you have added?
+          </h1>
+          {%endif%}
+          {% if (data['What-type-of-contact']== 'Inbound notification from') or (data['What-type-of-contact']== 'Outbound notification to') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the notification details you have added?
+          </h1>
+          {%endif%}
+          {% if (data['What-type-of-contact']== 'Face to face conversation at DWP office with') or (data['What-type-of-contact'] == 'Face to face conversation at Jobcentre with') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the face to face conversation details you have added?
+          </h1>
+          {%endif%}
         </legend>
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-call-detail" type="radio" value="Yes, I want to add">
+            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-call-detail" type="radio" value="Yes I want to add">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-1">
               Add another benefit or query
             </label>
@@ -64,13 +86,35 @@
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-          Do you want to update the call details you have added?
-        </h1>
+          {% if (data['What-type-of-contact']== 'Inbound phone call with') or (data['What-type-of-contact']== 'What-type-of-contact') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the call details you have added?
+          </h1>
+          {%endif%}
+          {% if (data['What-type-of-contact']== 'Inbound letter from') or (data['What-type-of-contact']== 'Outbound letter to') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the letter details you have added?
+          </h1>
+          {%endif%}
+          {% if (data['What-type-of-contact']== 'Inbound email from') or (data['What-type-of-contact']== 'Outbound email to') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the email details you have added?
+          </h1>
+          {%endif%}
+          {% if (data['What-type-of-contact']== 'Inbound notification from') or (data['What-type-of-contact']== 'Outbound notification to') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the notification details you have added?
+          </h1>
+          {%endif%}
+          {% if (data['What-type-of-contact']== 'Face to face conversation at DWP office with') or (data['What-type-of-contact'] == 'Face to face conversation at Jobcentre with') %}
+          <h1 class="govuk-fieldset__heading">
+            Do you want to update the face to face conversation details you have added?
+          </h1>
+          {%endif%}
         </legend>
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-call-detail" type="radio" value="Yes, I want to add">
+            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-call-detail" type="radio" value="Yes I want to add">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-1">
               Add another benefit or query
             </label>
@@ -102,8 +146,22 @@
   <div class="govuk-grid-column-full">
     <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
     <div class="govuk-!-width-two-thirds">
+      {% if (data['What-type-of-contact']== 'Inbound phone call with') or (data['What-type-of-contact']== 'What-type-of-contact') %}
       <h2 class="govuk-heading-m">You have added details about this call</h2>
-      <!-- <h2 class="govuk-heading-m">Reasons for this call</h2> -->
+      {%endif%}
+      {% if (data['What-type-of-contact']== 'Inbound letter from') or (data['What-type-of-contact']== 'Outbound letter to') %}
+      <h2 class="govuk-heading-m">You have added details about this letter</h2>
+      {%endif%}
+      {% if (data['What-type-of-contact']== 'Inbound email from') or (data['What-type-of-contact']== 'Outbound email to') %}
+      <h2 class="govuk-heading-m">You have added details about this email</h2>
+      {%endif%}
+      {% if (data['What-type-of-contact']== 'Inbound notification from') or (data['What-type-of-contact']== 'Outbound notification to') %}
+      <h2 class="govuk-heading-m">You have added details about this notification</h2>
+      {%endif%}
+      {% if (data['What-type-of-contact']== 'Face to face conversation at DWP office with') or (data['What-type-of-contact'] == 'Face to face conversation at Jobcentre with') %}
+      <h2 class="govuk-heading-m">You have added details about this conversation</h2>
+      {%endif%}
+      
       {% set benefits =  data['what-benefit-discussed'] %}
       {% set questionESA = data['questionAsk-esa'] %}
       {% set questionPIP = data['questionAsk-pip'] %}
