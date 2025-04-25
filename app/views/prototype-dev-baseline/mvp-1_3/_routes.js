@@ -309,7 +309,7 @@ router.post('/add-call/you-have-added-details', function (req, res) {
 
 router.post('/add-call/add-more-call-details', function (req, res) {
   var addCallDetails = req.session.data['do-you-want-to-add-more-call-detail'];
-  if (addCallDetails == 'Yes, I want to add'){
+  if (addCallDetails == 'Yes I want to add'){
     req.session.data['what-benefit-discussed'] = '';
     res.redirect('/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed')
   }
@@ -474,24 +474,23 @@ router.post('/non-telephony/add-contact/complete-contact', function (req, res) {
 });
 
 router.post('/non-telephony/add-contact/add-more-contact-details', function (req, res) {
-  var addCallDetails = req.session.data['do-you-want-to-add-more-detail'];
-  if (addCallDetails == 'Yes, I want to add'){
+  var addCallDetails = req.session.data['do-you-want-to-add-more-call-detail'];
+  if (addCallDetails == 'Yes I want to add'){
     console.log('Add more benefits');
     req.session.data['what-benefit-discussed-non-telephony'] = '';
-    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/what-benefits-discussed')
+    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/what-benefits-discussed');
   }
   if (addCallDetails == 'Complete phone call'){
     console.log('Complete call');
-    // res.redirect('/prototype-dev-baseline/mvp-1_3//non-telephony/add-contact/contact-completed')
-    res.redirect('/prototype-dev-baseline/mvp-1_3/index')
+    res.redirect('/prototype-dev-baseline/mvp-1_3/index');
   }
   if (addCallDetails == 'Change your note'){
     console.log('Change notes');
-    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/change-notes')
+    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/change-notes');
   }
   if (addCallDetails == 'Add a note'){
     console.log('Add a note');
-    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/add-a-note')
+    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/add-a-note');
   }
 });
 

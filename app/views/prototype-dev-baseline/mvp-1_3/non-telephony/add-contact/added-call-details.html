@@ -579,7 +579,7 @@ Check the details you have added
 
 
     <!-- ------------------------------ for Notification ------------------------------ -->
-    {% if (data['What-type-of-contact']== 'Inbound notification from') or (data['What-type-of-contact'] == 'Inbound notification to') %}
+    {% if (data['What-type-of-contact']== 'Inbound notification from') or (data['What-type-of-contact'] == 'Outbound notification to') %}
     {% if benefitLength >1 %}
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
@@ -888,7 +888,7 @@ Check the details you have added
       <div class="govuk-summary-card">
         {% set questionAsk = data['question-asked'] %}
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">What the call was about</h2>
+          <h2 class="govuk-summary-card__title">What the visit was about</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
               <a class="govuk-link" href="select-contact-type.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -1009,7 +1009,7 @@ Check the details you have added
         <div class="govuk-summary-card">
           {% set questionAsk = data['question-asked'] %}
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">What the call was about</h2>
+            <h2 class="govuk-summary-card__title">What the visit was about</h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link" href="select-contact-type.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
