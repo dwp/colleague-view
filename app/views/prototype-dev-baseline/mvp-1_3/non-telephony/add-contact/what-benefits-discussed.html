@@ -155,7 +155,7 @@ What did you review?
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Was the email about any benefits?
+              What did you review?
             </h1>
           </legend>
           <div id="changedName-hint" class="govuk-hint">
@@ -266,22 +266,16 @@ What did you review?
                 Winter Fuel Payment
               </label>
             </div>
-            <!-- <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="general-CoC" name="what-benefit-discussed-non-telephony" type="checkbox" value="General change of circumstance" {{ checked ('what-benefit-discussed-non-telephony', 'General change of circumstance') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="general-CoC">
-                Change of circumstance relevant to all benefits
-              </label>
-            </div> -->
           </div>
         </fieldset>
         {%endif%}
 
         <!-- for Notification -->
-        {% if (data['What-type-of-contact']== 'Inbound notification from') or (data['What-type-of-contact'] == 'Inbound notification to') %}
+        {% if (data['What-type-of-contact']== 'Inbound notification from') or (data['What-type-of-contact'] == 'Outbound notification to') %}
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Was the notification about any benefits?
+              What did you review?
             </h1>
           </legend>
           <div id="changedName-hint" class="govuk-hint">
@@ -519,12 +513,14 @@ What did you review?
                 Winter Fuel Payment
               </label>
             </div>
+            {%if data['What-type-of-contact'] == 'Face to face conversation at DWP office with'%}
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="general-CoC" name="what-benefit-discussed-non-telephony" type="checkbox" value="General change of circumstance" {{ checked ('what-benefit-discussed-non-telephony', 'General change of circumstance') }}>
               <label class="govuk-label govuk-checkboxes__label" for="general-CoC">
                 Change of circumstance relevant to all benefits
               </label>
             </div>
+            {%endif%}
           </div>
         </fieldset>
         {%endif%}
