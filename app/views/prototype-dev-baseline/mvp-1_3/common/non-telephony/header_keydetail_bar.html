@@ -27,7 +27,11 @@
     <dl class="dwp-key-details-bar__bottom-block">
       <dt class="govuk-visually-hidden">What type of engaement it is</dt>
       <dd>
+        {%if data['contact-types'] == 'Text message to' %}
+        {{ data['contact-types'] }}
+        {%else%}
         {{ data['What-type-of-contact'] }}
+        {%endif%}
       </dd>
       <dt class="govuk-visually-hidden">Who is the engagement with</dt>
       <dd>

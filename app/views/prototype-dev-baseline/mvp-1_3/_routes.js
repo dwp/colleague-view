@@ -7,6 +7,7 @@ router.post('/index.html', function (req, res) {
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data[' was-call-answered']= '';
+  req.session.data['benefit'] = '';
 
   // req.session.data.outcomePage = '';
   res.redirect('/prototype-dev-baseline/mvp-1_3/index');
@@ -73,34 +74,40 @@ router.post('/call-with', function (req, res) {
   req.session.data['Who-is-the-engagement-with'] = '';
 
   // Phone call conditions
-  if (req.session.data['What-type-of-contact'] == 'Inbound phone call with') {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/call-with');
+  if (req.session.data['contact-types'] == 'A phone call') {
+    if (req.session.data['What-type-of-contact'] == 'Inbound phone call with') {
+      res.redirect('/prototype-dev-baseline/mvp-1_3/call-with');
+    } else if (req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
+      res.redirect('/prototype-dev-baseline/mvp-1_3/was-call-answered');
+    }
   }
 
-  if (req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/was-call-answered');
+
+  // Letter conditions
+  if (req.session.data['contact-types'] == 'A letter') {
+    if (req.session.data['What-type-of-contact'] == 'Inbound letter from' || req.session.data['What-type-of-contact'] == 'Outbound letter to') {
+      res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
+    }
   }
 
-  // Email conditions
-  if (req.session.data['What-type-of-contact'] == 'Inbound letter from' || req.session.data['What-type-of-contact'] == 'Outbound letter to') {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
-  }
-
-  // Letter condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound email from' || req.session.data['What-type-of-contact'] == 'Outbound email to') {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
+  // Email condition
+  if (req.session.data['contact-types'] == 'An email') {
+    if (req.session.data['What-type-of-contact'] == 'Inbound email from' || req.session.data['What-type-of-contact'] == 'Outbound email to') {
+      res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
+    }
   }
 
   // Notification condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound notification from' || req.session.data['What-type-of-contact'] == 'Outbound notification to') {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
-  }
+  if (req.session.data['contact-types'] == 'Text message to') {
+      res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
+    }
 
-// face to face converstaions condition
-  if (req.session.data['What-type-of-contact'] == 'Face to face conversation at DWP office with' || req.session.data['What-type-of-contact'] == 'Face to face conversation at Jobcentre with') {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
+  // face to face converstaions condition
+  if (req.session.data['contact-types'] == 'A visit or appointment') {
+      if (req.session.data['What-type-of-contact'] == 'Conversation with' || req.session.data['What-type-of-contact'] == 'Visit to') {
+        res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
+      }
   }
-
   // Referal condition
   if (req.session.data['What-type-of-contact'] == 'Inbound referral to' ) {
     res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
@@ -111,7 +118,7 @@ router.post('/call-with', function (req, res) {
   }
 
     // view only
- if (req.session.data['contact-type'] == 'View only') {
+ if (req.session.data['contact-types'] == 'View only') {
   res.redirect('/prototype-dev-baseline/mvp-1_3/view-only/home');
 }
   if (req.session.data['What-type-of-contact'] == '') {
@@ -373,6 +380,42 @@ router.post('/non-telephony/add-contact/what-benefits-discussed', function (req,
     res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/what-benefits-discussed');
   }
 });
+
+router.post('/non-telephony/add-contact/select-contact-type', function (req, res) {
+
+  req.session.data['contact-type'] = '';
+  req.session.data['contact-type-gCoC'] = '';
+  req.session.data['contact-type-esa'] = '';
+  req.session.data['contact-type-pip'] = '';
+  
+  req.session.data['questionAsk'] = '';
+  req.session.data['questionAsk-esa'] = '';
+  req.session.data['questionAsk-pip'] = '';
+  req.session.data['question-asked'] = '';
+
+  req.session.data['npd_wasQuestionResolved']= '';
+  req.session.data['npa_wasQuestionResolved']= '';
+
+  req.session.data['npd_wasQuestionResolved-esa']= '';
+  req.session.data['npa_wasQuestionResolved-esa']= '';
+  req.session.data['ma_question-resolved-esa']= '';
+  req.session.data['chpa_question-resolved-esa']= '';
+  req.session.data['othQ_question-resolved-esa']= '';
+
+  req.session.data['npd_wasQuestionResolved-pip']= '';
+  req.session.data['npa_wasQuestionResolved-pip']= '';
+  req.session.data['ma_question-resolved-pip']= '';
+  req.session.data['chpa_question-resolved-pip']= '';
+  req.session.data['othQ_question-resolved-pip']= '';
+
+  if (req.session.data['what-benefit-discussed-non-telephony'] == '')
+ {
+  console.log('Error page');
+  res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/what-benefits-discussed-error');
+  } else {
+  res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/select-contact-type');
+ }
+})
 
 router.post('/non-telephony/add-contact/questions-asked', function (req, res) {
   console.log('Question asked');

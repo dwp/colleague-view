@@ -124,7 +124,7 @@
               <!-- <div class="govuk-radios__divider colleague-view-benefit-list">To complete inbound contact</div> -->
               <!-- phone call -->
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-1" name="contact-type" type="radio" value="Inbound phone call with" data-aria-controls="conditional-contact">
+                <input class="govuk-radios__input" id="inbound-contact-1" name="contact-types" type="radio" value="A phone call" data-aria-controls="conditional-contact">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-1">
                   A phone call
                 </label>
@@ -157,7 +157,7 @@
 
               <!-- Letter -->
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-2" name="contact-type" type="radio" value="Inbound letter to" data-aria-controls="conditional-contact-2">
+                <input class="govuk-radios__input" id="inbound-contact-2" name="contact-types" type="radio" value="A letter" data-aria-controls="conditional-contact-2">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-2">
                  A letter
                 </label>
@@ -190,7 +190,7 @@
 
               <!-- Email -->
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-3" name="contact-type" type="radio" value="Inbound email to" data-aria-controls="conditional-contact-3">
+                <input class="govuk-radios__input" id="inbound-contact-3" name="contact-types" type="radio" value="An email" data-aria-controls="conditional-contact-3">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-3">
                   An email
                 </label>
@@ -223,42 +223,16 @@
 
               <!-- Notification -->
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-4" name="contact-type" type="radio" value="Inbound notification to" data-aria-controls="conditional-contact-4">
+                <input class="govuk-radios__input" id="inbound-contact-4" name="contact-types" type="radio" value="Text message to">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-4">
-                  A notification
+                  Text message
                 </label>
               </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-4">
-                <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                      <h2 class="govuk-fieldset__heading">
-                        Is the notification inbound or outbound?
-                      </h2>
-                    </legend>
-                    <div class="govuk-radios" data-module="govuk-radios">
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="inbound-notification" name="What-type-of-contact" type="radio" value="Inbound notification from">
-                        <label class="govuk-label govuk-radios__label" for="inbound-notification">
-                          Inbound
-                        </label>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="outbound-notification" name="What-type-of-contact" type="radio" value="Outbound notification to">
-                        <label class="govuk-label govuk-radios__label" for="outbound-notification">
-                          Outbound
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
-              </div>
-
               <!-- face to face converstaions -->
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="inbound-contact-5" name="contact-type" type="radio" value="face to face conversation with" data-aria-controls="conditional-contact-5">
+                <input class="govuk-radios__input" id="inbound-contact-5" name="contact-types" type="radio" value="A visit or appointment" data-aria-controls="conditional-contact-5">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-5">
-                  A face to face conversation
+                  A visit or appointment
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-5">
@@ -266,20 +240,20 @@
                   <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                       <h2 class="govuk-fieldset__heading">
-                        Was the conversation held at a DWP office or Jobcentre?
+                        Is the visit inbound or outbound?
                       </h2>
                     </legend>
                     <div class="govuk-radios" data-module="govuk-radios">
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="inbound-face-face-conversion" name="What-type-of-contact" type="radio" value="Face to face conversation at DWP office with">
+                        <input class="govuk-radios__input" id="inbound-face-face-conversion" name="What-type-of-contact" type="radio" value="Conversation with">
                         <label class="govuk-label govuk-radios__label" for="inbound-face-face-conversion">
-                          Yes
+                          Inbound conversation at a DWP office or Jobcentre
                         </label>
                       </div>
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="outbound-face-face-conversion" name="What-type-of-contact" type="radio" value="Face to face conversation at Jobcentre with">
+                        <input class="govuk-radios__input" id="outbound-face-face-conversion" name="What-type-of-contact" type="radio" value="Visit to">
                         <label class="govuk-label govuk-radios__label" for="outbound-face-face-conversion">
-                          No
+                          Outbound visit to claimant
                         </label>
                       </div>
                     </div>
@@ -288,7 +262,7 @@
               </div>
               <div class="govuk-radios__divider">or</div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="view-info-only" name="contact-type" type="radio" value="View only">
+                <input class="govuk-radios__input" id="view-info-only" name="contact-types" type="radio" value="View only">
                 <label class="govuk-label govuk-radios__label" for="view-info-only">
                   To work on a quality check
                 </label>
