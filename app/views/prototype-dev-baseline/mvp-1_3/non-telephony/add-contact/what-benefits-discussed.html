@@ -274,12 +274,12 @@ What did you review?
           {%endif%}
         {%endif%}
 
-        <!-- for Notification -->
+        <!-- for text message -->
         {% if data['contact-types']== 'Text message to' %}
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              What did you review?
+              What was the text about?
             </h1>
           </legend>
           <div id="changedName-hint" class="govuk-hint">
@@ -403,10 +403,10 @@ What did you review?
 
         <!-- for Face to face conversation -->
         {% if data['contact-types']== 'A visit or appointment' %}
-          {% if (data['What-type-of-contact']== 'Conversation with') or (data['What-type-of-contact'] == 'Visit to') %}
+          {% if (data['What-type-of-contact']== 'Visit from') or (data['What-type-of-contact'] == 'Visit to') %}
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              {% if data['What-type-of-contact']== 'Conversation with' %}
+              {% if data['What-type-of-contact']== 'Visit from' %}
               <h1 class="govuk-fieldset__heading">
                 What did you review?
               </h1>

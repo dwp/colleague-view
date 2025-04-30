@@ -25,8 +25,12 @@
       </dd>
       <dt class="govuk-visually-hidden">Who is the engagement with</dt>
       <dd>
+        {%if data['What-type-of-contact']=='Outbound phone call with'%}
+        George Wood (appointee)
+        {%else%}
         {{ data['Who-is-the-phone-call-with-ur8'] }}
         {{ data['Who-is-the-engagement-with'] }}
+        {%endif%}
       </dd>
     </dl>
   </div>

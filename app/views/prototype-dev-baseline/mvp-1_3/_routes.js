@@ -104,7 +104,7 @@ router.post('/call-with', function (req, res) {
 
   // face to face converstaions condition
   if (req.session.data['contact-types'] == 'A visit or appointment') {
-      if (req.session.data['What-type-of-contact'] == 'Conversation with' || req.session.data['What-type-of-contact'] == 'Visit to') {
+      if (req.session.data['What-type-of-contact'] == 'Visit from' || req.session.data['What-type-of-contact'] == 'Visit to') {
         res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
       }
   }
@@ -128,6 +128,20 @@ router.post('/call-with', function (req, res) {
 });
 
 // for outbound call
+// router.post('/who-were-tryingTo-contact', function (req, res) {
+//   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+//   req.session.data['Who-is-contact-with'] = '';
+//   req.session.data['Who-is-the-engagement-with'] = '';
+
+//   if (req.session.data['was-call-answered'] == 'Yes') {
+//     res.redirect('/prototype-dev-baseline/mvp-1_3/who-was-the-call-with');
+//   }
+//   else{
+//     res.redirect('/prototype-dev-baseline/mvp-1_3/who-were-tryingTo-contact');
+//   }
+// });
+
+// for outbound call
 router.post('/who-were-tryingTo-contact', function (req, res) {
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-contact-with'] = '';
@@ -135,11 +149,19 @@ router.post('/who-were-tryingTo-contact', function (req, res) {
 
   // Phone call conditions
   if (req.session.data['was-call-answered'] == 'Yes') {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/who-was-the-call-with');
+    res.redirect('/prototype-dev-baseline/mvp-1_3/home');
   }
   else{
-    // res.redirect('/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed');
-    res.redirect('/prototype-dev-baseline/mvp-1_3/who-were-tryingTo-contact');
+    req.session.data['what-benefit-discussed'] = '';
+    req.session.data['addNote']= '';
+    if (
+      req.session.data['Who-is-the-phone-call-with-ur8'] == 'someone else' ||
+      req.session.data['Who-is-the-phone-call-with-ur8'] == 'Christopher Fox'
+    ) {
+      req.session.data['Who-is-the-engagement-with'] = '';
+    }
+    res.redirect('/prototype-dev-baseline/mvp-1_3/add-call/what-benefits-discussed');
+    // res.redirect('/prototype-dev-baseline/mvp-1_3/add-log-outbound-call-attempt-failed');
   }
 });
 

@@ -56,7 +56,7 @@
         <!-- ------------------------------ for A visit or appointment ------------------------------ -->
         {% if data['contact-types']== 'A visit or appointment' %}
         <h1 class="govuk-fieldset__heading">
-          Do you want to update the face to face conversation details you have added?
+          Do you want to update the visit details you have added?
         </h1>
         {%endif%}
         </legend>
@@ -119,7 +119,7 @@
           <!-- ------------------------------ for A visit or appointment ------------------------------ -->
           {% if data['contact-types']== 'A visit or appointment' %}
           <h1 class="govuk-fieldset__heading">
-            Do you want to update the face to face conversation details you have added?
+            Do you want to update the visit details you have added?
           </h1>
           {%endif%}
         </legend>
@@ -171,8 +171,8 @@
         {% if (data['What-type-of-contact']== '') and (data['contact-types']== 'Text message to') %} 
         <h2 class="govuk-heading-m">You have added details about this notification</h2>
         {%endif%}
-        {% if (data['What-type-of-contact']== 'Conversation with') or (data['What-type-of-contact'] == 'Visit to') %}
-        <h2 class="govuk-heading-m">You have added details about this conversation</h2>
+        {% if (data['What-type-of-contact']== 'Visit from') or (data['What-type-of-contact'] == 'Visit to') %}
+        <h2 class="govuk-heading-m">You have added details about this visit</h2>
         {%endif%}
 
         {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
