@@ -108,19 +108,12 @@ router.post('/call-with', function (req, res) {
         res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
       }
   }
-  // Referal condition
-  if (req.session.data['What-type-of-contact'] == 'Inbound referral to' ) {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/contact-with');
-  }
+
   // view only
- if (req.session.data['What-type-of-contact'] == 'View only') {
+ if (req.session.data['contact-types'] == 'View only') {
     res.redirect('/prototype-dev-baseline/mvp-1_3/view-only/home');
   }
 
-    // view only
- if (req.session.data['contact-types'] == 'View only') {
-  res.redirect('/prototype-dev-baseline/mvp-1_3/view-only/home');
-}
   if (req.session.data['What-type-of-contact'] == '') {
     console.log('Error page');
     res.redirect('/prototype-dev-baseline/mvp-1_3/error-why-checking-info');
