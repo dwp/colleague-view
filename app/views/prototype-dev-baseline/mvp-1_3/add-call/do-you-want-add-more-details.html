@@ -245,7 +245,12 @@
         <tbody class="govuk-summary-list">
           <tr class="govuk-summary-list__row">
             <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
+              <!-- {{ data['what-benefit-discussed'] }} -->
+              {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
+              {{ data['dla-type'] }}
+              {%else%}
               {{ data['what-benefit-discussed'] }}
+              {%endif%}
             </th>
             <td class="govuk-summary-list__value">
               {%if data['contact-type'] | length > 1 %}

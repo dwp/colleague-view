@@ -49,7 +49,13 @@ Check the details you have added
                 <td class="govuk-summary-list__value">
                   <ul class="govuk-list govuk-list--bullet">
                     {% for benefit in data['what-benefit-discussed-non-telephony'] %}
-                    <li>{{ benefit }}</li>
+                    <li>
+                      {%if benefit == "Disability Living Allowance" %}
+                      {{ data['dla-type'] }}
+                      {%else%}
+                      {{benefit}}
+                      {%endif%}
+                    </li>
                     {% endfor %}
                   </ul>
                 </td>
@@ -176,7 +182,11 @@ Check the details you have added
                     Benefit name
                   </th>
                   <td class="govuk-summary-list__value">
-                    {{benefits}}
+                    {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                    {{ data['dla-type'] }}
+                    {%else%}
+                    {{ data['what-benefit-discussed-non-telephony'] }}
+                    {%endif%}
                   </td>
                 </tr>
               </tbody>
@@ -202,7 +212,11 @@ Check the details you have added
               <tbody class="govuk-summary-list">
                 <tr class="govuk-summary-list__row">
                   <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                    {{ benefits }} 
+                    {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                    {{ data['dla-type'] }}
+                    {%else%}
+                    {{ data['what-benefit-discussed-non-telephony'] }}
+                    {%endif%}
                   </th>
                   <td class="govuk-summary-list__value">
                     {%if data['contact-type'] | length > 1 %}
@@ -324,7 +338,13 @@ Check the details you have added
                 <td class="govuk-summary-list__value">
                   <ul class="govuk-list govuk-list--bullet">
                     {% for benefit in data['what-benefit-discussed-non-telephony'] %}
-                    <li>{{ benefit }}</li>
+                    <li>
+                      {%if benefit == "Disability Living Allowance" %}
+                      {{ data['dla-type'] }}
+                      {%else%}
+                      {{benefit}}
+                      {%endif%}
+                    </li>
                     {% endfor %}
                   </ul>
                 </td>
@@ -450,7 +470,11 @@ Check the details you have added
                 Benefit name
               </th>
               <td class="govuk-summary-list__value">
-                {{benefits}}
+                {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                {{ data['dla-type'] }}
+                {%else%}
+                {{ data['what-benefit-discussed-non-telephony'] }}
+                {%endif%}
               </td>
             </tr>
           </tbody>
@@ -537,7 +561,13 @@ Check the details you have added
                 <td class="govuk-summary-list__value">
                   <ul class="govuk-list govuk-list--bullet">
                     {% for benefit in data['what-benefit-discussed-non-telephony'] %}
-                    <li>{{ benefit }}</li>
+                    <li>
+                      {%if benefit == "Disability Living Allowance" %}
+                      {{ data['dla-type'] }}
+                      {%else%}
+                      {{benefit}}
+                      {%endif%}
+                    </li>
                     {% endfor %}
                   </ul>
                 </td>
@@ -664,7 +694,11 @@ Check the details you have added
                     Benefit name
                   </th>
                   <td class="govuk-summary-list__value">
-                    {{benefits}}
+                    {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                    {{ data['dla-type'] }}
+                    {%else%}
+                    {{ data['what-benefit-discussed-non-telephony'] }}
+                    {%endif%}
                   </td>
                 </tr>
               </tbody>
@@ -690,7 +724,11 @@ Check the details you have added
               <tbody class="govuk-summary-list">
                 <tr class="govuk-summary-list__row">
                   <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                    {{ benefits }} 
+                    {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                    {{ data['dla-type'] }}
+                    {%else%}
+                    {{ data['what-benefit-discussed-non-telephony'] }}
+                    {%endif%}
                   </th>
                   <td class="govuk-summary-list__value">
                     {%if data['contact-type'] | length > 1 %}
@@ -814,7 +852,13 @@ Check the details you have added
                 <td class="govuk-summary-list__value">
                   <ul class="govuk-list govuk-list--bullet">
                     {% for benefit in data['what-benefit-discussed-non-telephony'] %}
-                    <li>{{ benefit }}</li>
+                    <li>
+                      {%if benefit == "Disability Living Allowance" %}
+                      {{ data['dla-type'] }}
+                      {%else%}
+                      {{benefit}}
+                      {%endif%}
+                    </li>
                     {% endfor %}
                   </ul>
                 </td>
@@ -938,7 +982,11 @@ Check the details you have added
                     Benefit name
                   </th>
                   <td class="govuk-summary-list__value">
-                    {{benefits}}
+                    {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                    {{ data['dla-type'] }}
+                    {%else%}
+                    {{ data['what-benefit-discussed-non-telephony'] }}
+                    {%endif%}
                   </td>
                 </tr>
               </tbody>

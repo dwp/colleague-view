@@ -42,6 +42,7 @@ You have added details about this call
         <h1 class="govuk-heading-l">You have added details about this call</h1>
 
         {% if benefitLength >1 %}
+        <!-- for multiple benefits -->
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
@@ -52,7 +53,7 @@ You have added details about this call
             <dl class="govuk-summary-list">
               {% for benefitsName in data['what-benefit-discussed'] %}
                 
-              <!-- for ESA -->
+                <!-- for ESA -->
                 {% if benefitsName == 'Employment and Support Allowance' %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
@@ -73,7 +74,7 @@ You have added details about this call
                 {%endif%}
 
                 <!-- for pip -->
-                {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
+                {% if benefitsName == 'Personal Independence Payment' %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Personal Independence Payment
@@ -87,6 +88,66 @@ You have added details about this call
                     </ul>
                   {%else%}
                     <p>{{data['contact-type-pip']}}</p>
+                    {%endif%}
+                  </dd>
+                </div>
+                {%endif%}
+
+                <!-- for aa -->
+                {% if benefitsName == 'Attendance Allowance' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Attendance Allowance
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-aa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsAA in data['contact-type-aa'] %}
+                      <li>{{ questionsAA }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-aa']}}</p>
+                    {%endif%}
+                  </dd>
+                </div>
+                {%endif%}
+
+                <!-- for dla -->
+                {% if benefitsName == 'Disability Living Allowance' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{ data['dla-type'] }}
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-dla'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsDLA in data['contact-type-dla'] %}
+                      <li>{{ questionsDLA }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-dla']}}</p>
+                    {%endif%}
+                  </dd>
+                </div>
+                {%endif%}
+
+                <!-- for ca -->
+                {% if benefitsName == "Carer's Allowance" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Carer's Allowance
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-ca'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsCA in data['contact-type-ca'] %}
+                      <li>{{ questionsCA }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-ca']}}</p>
                     {%endif%}
                   </dd>
                 </div>
@@ -111,6 +172,7 @@ You have added details about this call
                   </dd>
                 </div>
                 {%endif%}
+
               {% endfor %}
                 <!-- Note added -->
               <div class="govuk-summary-list__row">
@@ -125,6 +187,7 @@ You have added details about this call
           </div>
         </div>
         {%else%}
+        <!-- for one benefit -->
         {%if benefitLength == 1 and benefits != 'General information' %}
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -136,7 +199,12 @@ You have added details about this call
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
+                  <!-- {{ data['what-benefit-discussed'] }} -->
+                  {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
+                  {{ data['dla-type'] }}
+                  {%else%}
                   {{ data['what-benefit-discussed'] }}
+                  {%endif%}
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {%if data['contact-type'] | length > 1 %}

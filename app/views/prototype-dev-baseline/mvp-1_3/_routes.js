@@ -226,6 +226,11 @@ router.post('/add-call/what-benefits-discussed', function (req, res) {
 router.post('/add-call/select-contact-type', function (req, res) {
 
   req.session.data['contact-type'] = '';
+  req.session.data['contact-type-esa'] = '';
+  req.session.data['contact-type-pip'] = '';
+  req.session.data['contact-type-aa'] = '';
+  req.session.data['contact-type-dla'] = '';
+  req.session.data['contact-type-ca'] = '';
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
   req.session.data['questionAsk-pip'] = '';

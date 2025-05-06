@@ -136,7 +136,11 @@ You have added details about this call
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
+                {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                {{ data['dla-type'] }}
+                {%else%}
                 {{ data['what-benefit-discussed-non-telephony'] }}
+                {%endif%}
               </dt>
               <dd class="govuk-summary-list__value">
                 {%if data['contact-type'] | length > 1 %}
@@ -305,7 +309,11 @@ You have added details about this call
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+              {{ data['dla-type'] }}
+              {%else%}
               {{ data['what-benefit-discussed-non-telephony'] }}
+              {%endif%}
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['contact-type'] | length > 1 %}
@@ -475,7 +483,11 @@ You have added details about this call
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+              {{ data['dla-type'] }}
+              {%else%}
               {{ data['what-benefit-discussed-non-telephony'] }}
+              {%endif%}
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['contact-type'] | length > 1 %}
@@ -647,7 +659,11 @@ You have added details about this call
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
+                {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                {{ data['dla-type'] }}
+                {%else%}
                 {{ data['what-benefit-discussed-non-telephony'] }}
+                {%endif%}
               </dt>
               <dd class="govuk-summary-list__value">
                 {%if data['contact-type'] | length > 1 %}
@@ -816,7 +832,11 @@ You have added details about this call
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
+                {%if data['what-benefit-discussed-non-telephony']== "Disability Living Allowance" %}
+                {{ data['dla-type'] }}
+                {%else%}
                 {{ data['what-benefit-discussed-non-telephony'] }}
+                {%endif%}
               </dt>
               <dd class="govuk-summary-list__value">
                 {%if data['contact-type'] | length > 1 %}
