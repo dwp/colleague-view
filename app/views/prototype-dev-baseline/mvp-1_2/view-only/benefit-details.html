@@ -93,7 +93,7 @@ Benefit payments
               Benefit type
             </dt>
             <dd class="govuk-summary-list__value">
-              Standard benefit
+              There is only one type of this benefit
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -109,7 +109,7 @@ Benefit payments
               Payment frequency
             </dt>
             <dd class="govuk-summary-list__value">
-              Monthly
+              Every 4 weeks
             </dd>
           </div>
         </dl>
@@ -142,43 +142,28 @@ Benefit payments
             </tr>
           </tbody>
         </table>
-        <!-- deductions -->
-        <!-- <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Deductions</caption>
+        <!-- Adjustment to entitlement -->
+        <table class="govuk-table govuk-!-margin-top-6">
+          <caption class="govuk-table__caption govuk-table__caption--m">Adjustments to entitlement</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Type of deduction</th>
-              <th scope="col" class="govuk-table__header">Amount</th>
-              <th scope="col" class="govuk-table__header">Start date</th>
-              <th scope="col" class="govuk-table__header">End date</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%;">Reason for adjustment</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%;">Adjustment category</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%;">Amount</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%;">Adjustment period</th>
+              <!-- <th scope="col" class="govuk-table__header">End date</th> -->
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">ESA (Income Related)</td>
-              <td class="govuk-table__cell">£40.00</td>
-              <td class="govuk-table__cell">11 May 2023</td>
-              <td class="govuk-table__cell">10 May 2024</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Child Benefit</td>
-              <td class="govuk-table__cell">£40.00</td>
-              <td class="govuk-table__cell">15 July 2023</td>
-              <td class="govuk-table__cell">08 December 2024</td>
-            </tr>
-              <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Total deductions</th>
-              <td class="govuk-table__cell" colspan="3">£80.00</td>
+              <td class="govuk-table__cell">Attendance Allowance</td>
+              <td class="govuk-table__cell">Overpayment recovery</td>
+              <td class="govuk-table__cell"><span>&#8722;</span>£20 every 4 weeks</td>
+              <td class="govuk-table__cell">From 31 May 2023 To 31 May 2024</td>
+              <!-- <td class="govuk-table__cell">31 May 2024</td> -->
             </tr>
           </tbody>
-        </table> -->
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-visually-hidden">Warning</span>
-            Deductions are not available because we do not have this information.
-          </strong>
-        </div>
+        </table>
       </section>
       {% endif %}
   
@@ -189,14 +174,6 @@ Benefit payments
           Employment and Support Allowance
         </h2>
         <dl class="govuk-summary-list">
-          <!-- <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Benefit
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Employment and Support Allowance
-            </dd>
-          </div> -->
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Start date
@@ -237,17 +214,9 @@ Benefit payments
               Every 2 weeks
             </dd>
           </div>
-          <!-- <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Last payment date
-            </dt>
-            <dd class="govuk-summary-list__value">
-              17 July 2023
-            </dd>
-          </div> -->
         </dl>
         <!-- componets included -->
-        <table class="govuk-table">
+        <table class="govuk-table govuk-!-margin-top-8">
           <caption class="govuk-table__caption govuk-table__caption--m">Components</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -273,26 +242,26 @@ Benefit payments
           </tbody>
         </table>
         <!-- deductions -->
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Deductions</caption>
+        <table class="govuk-table govuk-!-margin-top-8">
+          <caption class="govuk-table__caption govuk-table__caption--m">Deductions to payment</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Type of deduction</th>
-              <th scope="col" class="govuk-table__header">Amount</th>
+              <th scope="col" class="govuk-table__header">Weekly amount</th>
               <th scope="col" class="govuk-table__header">Start date</th>
               <th scope="col" class="govuk-table__header">End date</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Water/General Rates</td>
-              <td class="govuk-table__cell">£8.97</td>
+              <td class="govuk-table__cell">Water rates</td>
+              <td class="govuk-table__cell">£10</td>
               <td class="govuk-table__cell">09 June 2023</td>
               <td class="govuk-table__cell">No end date</td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Total deductions</th>
-              <td class="govuk-table__cell" colspan="3">£8.97</td>
+              <td class="govuk-table__cell" colspan="3">£10</td>
               <!-- <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td> -->
             </tr>
@@ -329,7 +298,7 @@ Benefit payments
               Benefit type
             </dt>
             <dd class="govuk-summary-list__value">
-              Others
+              There is only one type of this benefit
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -345,7 +314,7 @@ Benefit payments
               Payment frequency
             </dt>
             <dd class="govuk-summary-list__value">
-              Every 4 week
+              Every 4 weeks
             </dd>
           </div>
         </dl>
@@ -355,28 +324,67 @@ Benefit payments
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Component</th>
+              <th scope="col" class="govuk-table__header">Rate</th>
               <th scope="col" class="govuk-table__header">Amount</th>
-              <th scope="col" class="govuk-table__header">Rate</th><th scope="col" class="govuk-table__header">Start date</th>
+              <th scope="col" class="govuk-table__header">Start date</th>
               <th scope="col" class="govuk-table__header">End date</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Daily living</td>
+              <td class="govuk-table__cell">Care</td>
+              <td class="govuk-table__cell">Standard</td>
               <td class="govuk-table__cell">£329.20</td>
-              <td class="govuk-table__cell">Standard</td><td class="govuk-table__cell">08 November 2020</td>
+              <td class="govuk-table__cell">08 November 2020</td>
               <td class="govuk-table__cell">02 December 2023</td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Mobility</td>
+              <td class="govuk-table__cell">Enhanced</td>
               <td class="govuk-table__cell">£229.80</td>
-              <td class="govuk-table__cell">Enhanced</td><td class="govuk-table__cell">08 November 2020</td>
+              <td class="govuk-table__cell">08 November 2020</td>
               <td class="govuk-table__cell">02 December 2023</td>
             </tr>
           </tbody>
         </table>
+        <!-- Adjustment to entitlement -->
+        <table class="govuk-table govuk-!-margin-top-6">
+          <caption class="govuk-table__caption govuk-table__caption--m">Adjustments to entitlement</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width: 25%;">Reason for adjustment</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%;">Adjustment category</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%;">Amount</th>
+              <th scope="col" class="govuk-table__header" style="width: 25%;">Adjustment period</th>
+              <!-- <th scope="col" class="govuk-table__header">End date</th> -->
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Invalid Vehicle Scheme recovery</td>
+              <td class="govuk-table__cell">Arrears cannot be paid</td>
+              <td class="govuk-table__cell"><span>&#8722;</span>£10 weekly</td>
+              <td class="govuk-table__cell">From 31 May 2023 To 31 May 2024</td>
+              <!-- <td class="govuk-table__cell">31 May 2024</td> -->
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Offset Mobility Allowance</td>
+              <td class="govuk-table__cell">Already paid or not to be paid</td>
+              <td class="govuk-table__cell"><span>&#8722;</span>£10 weekly</td>
+              <td class="govuk-table__cell">From 31 May 2023 To 31 May 2024</td>
+              <!-- <td class="govuk-table__cell">31 May 2024</td> -->
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Offset mobility agreement</td>
+              <td class="govuk-table__cell">Increase to entitlement</td>
+              <td class="govuk-table__cell">£50 weekly</td>
+              <td class="govuk-table__cell">From 09 June 2023</td>
+              <!-- <td class="govuk-table__cell">31 May 2024</td> -->
+            </tr>
+          </tbody>
+        </table>
         <!-- deductions -->
-        <table class="govuk-table">
+        <!-- <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">Deductions</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -402,11 +410,9 @@ Benefit payments
               <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Total deductions</th>
               <td class="govuk-table__cell" colspan="3">£80.00</td>
-              <!-- <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell"></td> -->
             </tr>
           </tbody>
-        </table>
+        </table> -->
       </section>
       {% endif %}
     </div>
