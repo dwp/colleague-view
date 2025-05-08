@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Which questions were you able to answer?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-13/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">Step 3 of 5</span>
+        <h1 class="govuk-heading-l">Which questions were you able to answer?</h1>
+        <div class="govuk-inset-text">
+          This information will only to used to help other agents work on future contact. You can leave this blank if you were unable to provide any answers.
+        </div>
+        <form action="added-call-details" method="post" novalidate>
+        {% set benefits =  data['what-benefit-discussed'] %}
+        {% set benefitLength =  data['what-benefit-discussed'] | length %} 
+        {% if benefitLength >1 %}
+        <!-- for ESA -->
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading govuk-heading-m">
+                Employment and Support Allowance
+              </h2>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              {% for questionAnsweredESA in data['questionAsk-esa'] %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="{{ questionAnsweredESA }}-esa" name="questionAnswered-esa" type="checkbox" value="{{ questionAnsweredESA }}">
+                <label class="govuk-label govuk-checkboxes__label" for="{{ questionAnsweredESA }}-esa">
+                  {{ questionAnsweredESA }}
+                </label>
+              </div>
+              {%endfor%}
+            </div>
+          </fieldset>
+        </div>
+        <!-- for PIP -->
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading govuk-heading-m">
+                Personal Independence Payment
+              </h2>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              {% for questionAnsweredPIP in data['questionAsk-pip'] %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="{{ questionAnsweredPIP }}-pip" name="questionAnswered-pip" type="checkbox" value="{{ questionAnsweredPIP }}">
+                <label class="govuk-label govuk-checkboxes__label" for="{{ questionAnsweredPIP }}-pip">
+                  {{ questionAnsweredPIP }}
+                </label>
+              </div>
+              {%endfor%}
+            </div>
+          </fieldset>
+        </div>
+        {% else %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading govuk-heading-m">
+                <!-- <span class="govuk-caption-l">{{ data['what-benefit-discussed'] }}</span> -->
+                {{ data['what-benefit-discussed'] }}
+              </h2>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              {% for questionAnswered in data['question-asked'] %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="{{ questionAnswered }}" name="question-answered" type="checkbox" value="{{ questionAnswered }}">
+                <label class="govuk-label govuk-checkboxes__label" for="{{ questionAnswered }}">
+                  {{ questionAnswered }}
+                </label>
+              </div>
+              {%endfor%}
+            </div>
+          </fieldset>
+        </div>
+        {%endif%}
+
+        <div class="govuk-form-group govuk-character-count govuk-!-margin-top-6" data-module="govuk-character-count" data-maxlength="5000">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="with-hint">
+              Add a note (optional)
+            </label>
+          </h2>
+          <p class="govuk-body">Add a note to give details of:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>what the call was about if you have not logged it already</li>
+            <li>who the call was with if it was not with the claimant or a known representative</li>
+          </ul>
+          <!-- <div id="with-hint-hint" class="govuk-hint">
+            You will be able to change this information later.
+          </div> -->
+          <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+          <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+            You have 5000 characters remaining
+          </div>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </form>
+      </div>
+    </div>
+
+{% endblock %}
