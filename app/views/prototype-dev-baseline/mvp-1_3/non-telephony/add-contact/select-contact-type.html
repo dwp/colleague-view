@@ -1014,7 +1014,7 @@ What was the call about?
          {%endif%}
  
          <!-- for PIP -->
-         {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
+         {% if benefitsName == 'Personal Independence Payment' %}
          <div class="govuk-form-group">
            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -1087,6 +1087,213 @@ What was the call about?
            </fieldset>
          </div>
          {%endif%}
+
+          <!-- for AA -->
+          {% if benefitsName == 'Attendance Allowance' %}
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading govuk-heading-m">
+                  {{benefitsName}}
+                </h2>
+              </legend>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-pip" type="checkbox" value="Proof of benefit" {{ checked ('contact-type-pip', 'Proof of benefit') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="proofofBenefit">
+                    Proof of benefit
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="Review" name="contact-type-pip" type="checkbox" value="Review" {{ checked ('contact-type-pip', 'Review') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="Review">
+                    Review
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="requestforEvidence" name="contact-type-pip" type="checkbox" value="Request for evidence" {{ checked ('contact-type-pip', 'Request for evidence') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
+                    Request for evidence
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="returningEvidence" name="contact-type-pip" type="checkbox" value="Returning evidence" {{ checked ('contact-type-pip', 'Returning evidence') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="returningEvidence">
+                    Returning evidence
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-pip" type="checkbox" value="Confirmation" {{ checked ('contact-type-pip', 'Confirmation') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+                    Confirmation 
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="claimOutcome" name="contact-type-pip" type="checkbox" value="Claim outcome" {{ checked ('contact-type-pip', 'Claim outcome') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="claimOutcome">
+                    Claim outcome
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="overpaymentLetter" name="contact-type-pip" type="checkbox" value="Overpayment letter" {{ checked ('contact-type-pip', 'Overpayment letter') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="overpaymentLetter">
+                  Overpayment letter
+                </label>
+              </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="mandatoryReconsiderationOrAppeal" name="contact-type-pip" type="checkbox" value="Mandatory reconsideration or appeal" {{ checked ('contact-type-pip', 'Mandatory reconsideration or appeal') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsiderationOrAppeal">
+                    Mandatory reconsideration or appeal
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="claimForm" name="contact-type-pip" type="checkbox" value="Claim form" {{ checked ('contact-type-pip', 'Claim form') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="claimForm">
+                    Claim form
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          {%endif%}
+
+          <!-- for CA -->
+          {% if benefitsName == "Carer's Allowance" %}
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading govuk-heading-m">
+                  {{benefitsName}}
+                </h2>
+              </legend>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-pip" type="checkbox" value="Proof of benefit" {{ checked ('contact-type-pip', 'Proof of benefit') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="proofofBenefit">
+                  Proof of benefit
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Review" name="contact-type-pip" type="checkbox" value="Review" {{ checked ('contact-type-pip', 'Review') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="Review">
+                  Review
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="requestforEvidence" name="contact-type-pip" type="checkbox" value="Request for evidence" {{ checked ('contact-type-pip', 'Request for evidence') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
+                  Request for evidence
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="returningEvidence" name="contact-type-pip" type="checkbox" value="Returning evidence" {{ checked ('contact-type-pip', 'Returning evidence') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="returningEvidence">
+                  Returning evidence
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-pip" type="checkbox" value="Confirmation" {{ checked ('contact-type-pip', 'Confirmation') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+                  Confirmation 
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="claimOutcome" name="contact-type-pip" type="checkbox" value="Claim outcome" {{ checked ('contact-type-pip', 'Claim outcome') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="claimOutcome">
+                  Claim outcome
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="overpaymentLetter" name="contact-type-pip" type="checkbox" value="Overpayment letter" {{ checked ('contact-type-pip', 'Overpayment letter') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="overpaymentLetter">
+                Overpayment letter
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="mandatoryReconsiderationOrAppeal" name="contact-type-pip" type="checkbox" value="Mandatory reconsideration or appeal" {{ checked ('contact-type-pip', 'Mandatory reconsideration or appeal') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsiderationOrAppeal">
+                  Mandatory reconsideration or appeal
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="claimForm" name="contact-type-pip" type="checkbox" value="Claim form" {{ checked ('contact-type-pip', 'Claim form') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="claimForm">
+                  Claim form
+                </label>
+              </div>
+              </div>
+            </fieldset>
+          </div>
+          {%endif%}
+
+          <!-- for DLA -->
+          {% if benefitsName == 'Disability Living Allowance' %}
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading govuk-heading-m">
+                  {{ data['dla-type'] }}
+                </h2>
+              </legend>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-pip" type="checkbox" value="Proof of benefit" {{ checked ('contact-type-pip', 'Proof of benefit') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="proofofBenefit">
+                    Proof of benefit
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="Review" name="contact-type-pip" type="checkbox" value="Review" {{ checked ('contact-type-pip', 'Review') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="Review">
+                    Review
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="requestforEvidence" name="contact-type-pip" type="checkbox" value="Request for evidence" {{ checked ('contact-type-pip', 'Request for evidence') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
+                    Request for evidence
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="returningEvidence" name="contact-type-pip" type="checkbox" value="Returning evidence" {{ checked ('contact-type-pip', 'Returning evidence') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="returningEvidence">
+                    Returning evidence
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-pip" type="checkbox" value="Confirmation" {{ checked ('contact-type-pip', 'Confirmation') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+                    Confirmation 
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="claimOutcome" name="contact-type-dla" type="checkbox" value="Claim outcome" {{ checked ('contact-type-dla', 'Claim outcome') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="claimOutcome">
+                    Claim outcome
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="overpaymentLetter" name="contact-type-dla" type="checkbox" value="Overpayment letter" {{ checked ('contact-type-dla', 'Overpayment letter') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="overpaymentLetter">
+                  Overpayment letter
+                </label>
+              </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="mandatoryReconsiderationOrAppeal" name="contact-type-dla" type="checkbox" value="Mandatory reconsideration or appeal" {{ checked ('contact-type-dla', 'Mandatory reconsideration or appeal') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsiderationOrAppeal">
+                    Mandatory reconsideration or appeal
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="claimForm" name="contact-type-dla" type="checkbox" value="Claim form" {{ checked ('contact-type-dla', 'Claim form') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="claimForm">
+                    Claim form
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          {%endif%}
  
           <!-- for General CoC -->
          {% if benefitsName == 'General change of circumstance' %}

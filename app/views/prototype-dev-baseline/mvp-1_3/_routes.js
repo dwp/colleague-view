@@ -391,7 +391,7 @@ router.post('/add-call/check-call-completion', function (req, res) {
 // new routes for shorten call log - Non-Telephony
 
 router.post('/non-telephony/add-contact/what-benefits-discussed', function (req, res) {
-  if (req.session.data['what-benefit-discussed-non-telephony'] != '') {
+  if (req.session.data['what-benefit-discussed-non-telephony'] != '' && req.session.data['Do-you-want-to-complete-the-contact'] != '')  {
     // console.log('Display summary page');
     res.redirect('/prototype-dev-baseline/mvp-1_3/non-telephony/add-contact/do-you-want-add-more-details');
   }
@@ -537,7 +537,7 @@ router.post('/non-telephony/add-contact/complete-contact', function (req, res) {
 });
 
 router.post('/non-telephony/add-contact/add-more-contact-details', function (req, res) {
-  var addCallDetails = req.session.data['do-you-want-to-add-more-call-detail'];
+  var addCallDetails = req.session.data['do-you-want-to-add-more-detail'];
   if (addCallDetails == 'Yes I want to add'){
     console.log('Add more benefits');
     req.session.data['what-benefit-discussed-non-telephony'] = '';
