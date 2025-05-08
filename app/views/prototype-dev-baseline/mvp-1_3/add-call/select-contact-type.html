@@ -317,7 +317,7 @@ What was the call about?
           </div>
           {%endif%}
 
-          <!-- for DLA -->
+          <!-- for DLA Acive benefit-->
           {% if benefitsName == 'Disability Living Allowance' %}
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
@@ -395,6 +395,93 @@ What was the call about?
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type-dla" type="checkbox" value="Call disconnected" {{ checked ('contact-type-dla', 'Call disconnected') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="callDisconnected">
+                    Call disconnected
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          {%endif%}
+
+          <!-- for DLA static benefit -->
+          {% if benefitsName == 'Disability Living Allowance 65+' or  benefitsName == 'Disability Living Allowance Adult' or  benefitsName == 'Disability Living Allowance Child' %}
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading govuk-heading-m">
+                  {{benefitsName}}
+                </h2>
+              </legend>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="paymentEnquiry" name="contact-type-aa" type="checkbox" value="Payment enquiry" {{ checked ('contact-type-aa', 'Payment enquiry') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="paymentEnquiry">
+                    Payment enquiry
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-aa" type="checkbox" value="Proof of benefit" {{ checked ('contact-type-aa', 'Proof of benefit') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="proofofBenefit">
+                    Proof of benefit
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="anExplanation" name="contact-type-aa" type="checkbox" value="An explanation" {{ checked ('contact-type-aa', 'An explanation') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="anExplanation">
+                    An explanation
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="mandatoryReconsideration" name="contact-type-aa" type="checkbox" value="A mandatory reconsideration or appeal" {{ checked ('contact-type-aa', 'A mandatory reconsideration or appeal') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
+                    A mandatory reconsideration or appeal
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="aComplaint" name="contact-type-aa" type="checkbox" value="A complaint" {{ checked ('contact-type-aa', 'A complaint') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="aComplaint">
+                    A complaint
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="evidenceEnquiry" name="contact-type-aa" type="checkbox" value="Evidence enquiry" {{ checked ('contact-type-aa', 'Evidence enquiry') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="evidenceEnquiry">
+                    Evidence enquiry
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="aFormRequest" name="contact-type-aa" type="checkbox" value="A form request" {{ checked ('contact-type-aa', 'A form request') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="aFormRequest">
+                    A form request
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="supportWithaNewClaim" name="contact-type-aa" type="checkbox" value="Support with a new claim" {{ checked ('contact-type-aa', 'Support with a new claim') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="supportWithaNewClaim">
+                    Support with a new claim
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="renewalOfaClaim" name="contact-type-aa" type="checkbox" value="Renewal of a claim" {{ checked ('contact-type-aa', 'Renewal of a claim') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="renewalOfaClaim">
+                    Renewal of a claim
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-aa" type="checkbox" value="A change of circumstance" {{ checked ('contact-type-aa', 'A change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                    A change of circumstance
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="supersessionRequest" name="contact-type-aa" type="checkbox" value="Supersession request" {{ checked ('contact-type-aa', 'Supersession request') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="supersessionRequest">
+                    Supersession request
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type-aa" type="checkbox" value="Call disconnected" {{ checked ('contact-type-aa', 'Call disconnected') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="callDisconnected">
                     Call disconnected
                   </label>
@@ -508,73 +595,73 @@ What was the call about?
               </legend>
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="name" name="contact-type-gCoC" type="checkbox" value="Name" {{ checked ('contact-type', 'Name') }}>
+                <input class="govuk-checkboxes__input" id="name" name="contact-type-gCoC" type="checkbox" value="Name" {{ checked ('contact-type-gCoC', 'Name') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="name">
                   Name
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="contactDetails" name="contact-type-gCoC" type="checkbox" value="Contact details" {{ checked ('contact-type', 'Contact details') }}>
+                <input class="govuk-checkboxes__input" id="contactDetails" name="contact-type-gCoC" type="checkbox" value="Contact details" {{ checked ('contact-type-gCoC', 'Contact details') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="contactDetails">
                   Contact details
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="address" name="contact-type-gCoC" type="checkbox" value="Address" {{ checked ('contact-type', 'Address') }}>
+                <input class="govuk-checkboxes__input" id="address" name="contact-type-gCoC" type="checkbox" value="Address" {{ checked ('contact-type-gCoC', 'Address') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="address">
                   Address
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="bankDetails" name="contact-type-gCoC" type="checkbox" value="Bank details" {{ checked ('contact-type', 'Bank details') }}>
+                <input class="govuk-checkboxes__input" id="bankDetails" name="contact-type-gCoC" type="checkbox" value="Bank details" {{ checked ('contact-type-gCoC', 'Bank details') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="bankDetails">
                   Bank details
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="housingCosts" name="contact-type-gCoC" type="checkbox" value="Housing costs" {{ checked ('contact-type', 'Housing costs') }}>
+                <input class="govuk-checkboxes__input" id="housingCosts" name="contact-type-gCoC" type="checkbox" value="Housing costs" {{ checked ('contact-type-gCoC', 'Housing costs') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="housingCosts">
                   Housing costs
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="householdIncome" name="contact-type-gCoC" type="checkbox" value="Household income" {{ checked ('contact-type', 'Household income') }}>
+                <input class="govuk-checkboxes__input" id="householdIncome" name="contact-type-gCoC" type="checkbox" value="Household income" {{ checked ('contact-type-gCoC', 'Household income') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="householdIncome">
                   Household income
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="dependancies" name="contact-type-gCoC" type="checkbox" value="Dependancies" {{ checked ('contact-type', 'Dependancies') }}>
+                <input class="govuk-checkboxes__input" id="dependancies" name="contact-type-gCoC" type="checkbox" value="Dependancies" {{ checked ('contact-type-gCoC', 'Dependancies') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="dependancies">
                   Dependancies
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="maritalStatus" name="contact-type-gCoC" type="checkbox" value="Marital status" {{ checked ('contact-type', 'Marital status') }}>
+                <input class="govuk-checkboxes__input" id="maritalStatus" name="contact-type-gCoC" type="checkbox" value="Marital status" {{ checked ('contact-type-gCoC', 'Marital status') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="maritalStatus">
                   Marital status
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="incomeAndAssets" name="contact-type-gCoC" type="checkbox" value="Income and assets" {{ checked ('contact-type', 'Income and assets') }}>
+                <input class="govuk-checkboxes__input" id="incomeAndAssets" name="contact-type-gCoC" type="checkbox" value="Income and assets" {{ checked ('contact-type-gCoC', 'Income and assets') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="incomeAndAssets">
                   Income and assets
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="education" name="contact-type-gCoC" type="checkbox" value="Education" {{ checked ('contact-type', 'Education') }}>
+                <input class="govuk-checkboxes__input" id="education" name="contact-type-gCoC" type="checkbox" value="Education" {{ checked ('contact-type-gCoC', 'Education') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="education">
                   Education
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="medical" name="contact-type-gCoC" type="checkbox" value="Medical" {{ checked ('contact-type', 'Medical') }}>
+                <input class="govuk-checkboxes__input" id="medical" name="contact-type-gCoC" type="checkbox" value="Medical" {{ checked ('contact-type-gCoC', 'Medical') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="medical">
                   Medical
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type-gCoC" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
+                <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type-gCoC" type="checkbox" value="Call disconnected" {{ checked ('contact-type-gCoC', 'Call disconnected') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="callDisconnected">
                   Call disconnected
                 </label>
@@ -634,8 +721,6 @@ What was the call about?
           <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h2 class="govuk-fieldset__heading govuk-heading-m">
-                <!-- <span class="govuk-caption-l">{{ data['what-benefit-discussed'] }}</span> -->
-                <!-- {{ data['what-benefit-discussed'] }} -->
                 {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
                 {{ data['dla-type'] }}
                 {%else%}
@@ -809,6 +894,83 @@ What was the call about?
                 </div>
               </div>
             {%endif%}
+            <!-- Static DLA options -->
+            {% if data['what-benefit-discussed'] == 'Disability Living Allowance 65+' or data['what-benefit-discussed'] == 'Disability Living Allowance Adult' or data['what-benefit-discussed'] == 'Disability Living Allowance Child' %}
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="paymentEnquiry" name="contact-type" type="checkbox" value="Payment enquiry" {{ checked ('contact-type', 'Payment enquiry') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="paymentEnquiry">
+                  Payment enquiry
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type" type="checkbox" value="Proof of benefit" {{ checked ('contact-type', 'Proof of benefit') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="proofofBenefit">
+                  Proof of benefit
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="anExplanation" name="contact-type" type="checkbox" value="An explanation" {{ checked ('contact-type', 'An explanation') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="anExplanation">
+                  An explanation
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="mandatoryReconsideration" name="contact-type" type="checkbox" value="A mandatory reconsideration or appeal" {{ checked ('contact-type', 'A mandatory reconsideration or appeal') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
+                  A mandatory reconsideration or appeal
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="aComplaint" name="contact-type" type="checkbox" value="A complaint" {{ checked ('contact-type', 'A complaint') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="aComplaint">
+                  A complaint
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="evidenceEnquiry" name="contact-type" type="checkbox" value="Evidence enquiry" {{ checked ('contact-type', 'Evidence enquiry') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="evidenceEnquiry">
+                  Evidence enquiry
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="aFormRequest" name="contact-type" type="checkbox" value="A form request" {{ checked ('contact-type', 'A form request') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="aFormRequest">
+                  A form request
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="supportWithaNewClaim" name="contact-type" type="checkbox" value="Support with a new claim" {{ checked ('contact-type', 'Support with a new claim') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="supportWithaNewClaim">
+                  Support with a new claim
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="renewalOfaClaim" name="contact-type" type="checkbox" value="Renewal of a claim" {{ checked ('contact-type', 'Renewal of a claim') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="renewalOfaClaim">
+                  Renewal of a claim
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="A change of circumstance" {{ checked ('contact-type', 'A change of circumstance') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  A change of circumstance
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="supersessionRequest" name="contact-type" type="checkbox" value="Supersession request" {{ checked ('contact-type', 'Supersession request') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="supersessionRequest">
+                  Supersession request
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="callDisconnected">
+                  Call disconnected
+                </label>
+              </div>
+            </div>
+            {%endif%}
             <!-- CA options -->
             {%if data['what-benefit-discussed'] == 'Carer Allowance' %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -896,73 +1058,73 @@ What was the call about?
             {%if data['what-benefit-discussed'] == 'General change of circumstance' %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="name" name="contact-type" type="checkbox" value="Name" {{ checked ('contact-type', 'Name') }}>
+                <input class="govuk-checkboxes__input" id="name" name="contact-type-gCoC" type="checkbox" value="Name" {{ checked ('contact-type-gCoC', 'Name') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="name">
                   Name
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="contactDetails" name="contact-type" type="checkbox" value="Contact details" {{ checked ('contact-type', 'Contact details') }}>
+                <input class="govuk-checkboxes__input" id="contactDetails" name="contact-type-gCoC" type="checkbox" value="Contact details" {{ checked ('contact-type-gCoC', 'Contact details') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="contactDetails">
                   Contact details
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="address" name="contact-type" type="checkbox" value="Address" {{ checked ('contact-type', 'Address') }}>
+                <input class="govuk-checkboxes__input" id="address" name="contact-type-gCoC" type="checkbox" value="Address" {{ checked ('contact-type-gCoC', 'Address') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="address">
                   Address
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="bankDetails" name="contact-type" type="checkbox" value="Bank details" {{ checked ('contact-type', 'Bank details') }}>
+                <input class="govuk-checkboxes__input" id="bankDetails" name="contact-type-gCoC" type="checkbox" value="Bank details" {{ checked ('contact-type-gCoC', 'Bank details') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="bankDetails">
                   Bank details
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="housingCosts" name="contact-type" type="checkbox" value="Housing costs" {{ checked ('contact-type', 'Housing costs') }}>
+                <input class="govuk-checkboxes__input" id="housingCosts" name="contact-type-gCoC" type="checkbox" value="Housing costs" {{ checked ('contact-type-gCoC', 'Housing costs') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="housingCosts">
                   Housing costs
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="householdIncome" name="contact-type" type="checkbox" value="Household income" {{ checked ('contact-type', 'Household income') }}>
+                <input class="govuk-checkboxes__input" id="householdIncome" name="contact-type-gCoC" type="checkbox" value="Household income" {{ checked ('contact-type-gCoC', 'Household income') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="householdIncome">
                   Household income
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="dependancies" name="contact-type" type="checkbox" value="Dependancies" {{ checked ('contact-type', 'Dependancies') }}>
+                <input class="govuk-checkboxes__input" id="dependancies" name="contact-type-gCoC" type="checkbox" value="Dependancies" {{ checked ('contact-type-gCoC', 'Dependancies') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="dependancies">
                   Dependancies
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="maritalStatus" name="contact-type" type="checkbox" value="Marital status" {{ checked ('contact-type', 'Marital status') }}>
+                <input class="govuk-checkboxes__input" id="maritalStatus" name="contact-type-gCoC" type="checkbox" value="Marital status" {{ checked ('contact-type-gCoC', 'Marital status') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="maritalStatus">
                   Marital status
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="incomeAndAssets" name="contact-type" type="checkbox" value="Income and assets" {{ checked ('contact-type', 'Income and assets') }}>
+                <input class="govuk-checkboxes__input" id="incomeAndAssets" name="contact-type-gCoC" type="checkbox" value="Income and assets" {{ checked ('contact-type-gCoC', 'Income and assets') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="incomeAndAssets">
                   Income and assets
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="education" name="contact-type" type="checkbox" value="Education" {{ checked ('contact-type', 'Education') }}>
+                <input class="govuk-checkboxes__input" id="education" name="contact-type-gCoC" type="checkbox" value="Education" {{ checked ('contact-type-gCoC', 'Education') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="education">
                   Education
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="medical" name="contact-type" type="checkbox" value="Medical" {{ checked ('contact-type', 'Medical') }}>
+                <input class="govuk-checkboxes__input" id="medical" name="contact-type-gCoC" type="checkbox" value="Medical" {{ checked ('contact-type-gCoC', 'Medical') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="medical">
                   Medical
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
+                <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type-gCoC" type="checkbox" value="Call disconnected" {{ checked ('contact-type-gCoC', 'Call disconnected') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="callDisconnected">
                   Call disconnected
                 </label>
@@ -1564,7 +1726,12 @@ What was the call about?
        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
           <h2 class="govuk-fieldset__heading govuk-heading-m">
+            <!-- {{ data['what-benefit-discussed'] }} -->
+            {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
+            {{ data['dla-type'] }}
+            {%else%}
             {{ data['what-benefit-discussed'] }}
+            {%endif%}
           </h2>
         </legend>
         <!-- for General CoC -->
@@ -1655,41 +1822,41 @@ What was the call about?
             </fieldset>
           </div>
         {%else%}
-          <!-- apply for All benefits except GCoC -->
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option1" name="contact-type" type="checkbox" value="Call back" {{ checked ('contact-type', 'Call back') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option1">
-                Call back
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option2" name="contact-type" type="checkbox" value="Review" {{ checked ('contact-type', 'Review') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option2">
-                Review
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option3" name="contact-type" type="checkbox" value="Missing information" {{ checked ('contact-type', 'Missing information') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option3">
-                Missing information
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option4" name="contact-type" type="checkbox" value="Change of circumstance" {{ checked ('contact-type', 'Change of circumstance') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option4">
-                Change of circumstance
-              </label>
-            </div>
-            {%if checkCallAnswered == 'yes' %}
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option5" name="contact-type" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
-              <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option5">
-                Call disconnected
-              </label>
-            </div>
-            {%endif%}
+        <!-- apply for All benefits except GCoC -->
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="outboundCall-option1" name="contact-type" type="checkbox" value="Call back" {{ checked ('contact-type', 'Call back') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option1">
+              Call back
+            </label>
           </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="outboundCall-option2" name="contact-type" type="checkbox" value="Review" {{ checked ('contact-type', 'Review') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option2">
+              Review
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="outboundCall-option3" name="contact-type" type="checkbox" value="Missing information" {{ checked ('contact-type', 'Missing information') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option3">
+              Missing information
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="outboundCall-option4" name="contact-type" type="checkbox" value="Change of circumstance" {{ checked ('contact-type', 'Change of circumstance') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option4">
+              Change of circumstance
+            </label>
+          </div>
+          {%if checkCallAnswered == 'yes' %}
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="outboundCall-option5" name="contact-type" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option5">
+              Call disconnected
+            </label>
+          </div>
+          {%endif%}
+        </div>
         {%endif%}
        </fieldset>
      </div>
