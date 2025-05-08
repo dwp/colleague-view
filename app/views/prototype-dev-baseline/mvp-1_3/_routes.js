@@ -231,6 +231,7 @@ router.post('/add-call/select-contact-type', function (req, res) {
   req.session.data['contact-type-aa'] = '';
   req.session.data['contact-type-dla'] = '';
   req.session.data['contact-type-ca'] = '';
+  req.session.data['contact-type-gCoC'] = '';
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
   req.session.data['questionAsk-pip'] = '';
@@ -407,7 +408,10 @@ router.post('/non-telephony/add-contact/select-contact-type', function (req, res
   req.session.data['contact-type-gCoC'] = '';
   req.session.data['contact-type-esa'] = '';
   req.session.data['contact-type-pip'] = '';
-  
+  req.session.data['contact-type-aa'] = '';
+  req.session.data['contact-type-dla'] = '';
+  req.session.data['contact-type-ca'] = '';
+
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
   req.session.data['questionAsk-pip'] = '';
