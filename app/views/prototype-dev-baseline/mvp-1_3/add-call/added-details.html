@@ -113,11 +113,30 @@ You have added details about this call
                 </div>
                 {%endif%}
 
-                <!-- for dla -->
+                <!-- for dla active -->
                 {% if benefitsName == 'Disability Living Allowance' %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     {{ data['dla-type'] }}
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-dla'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsDLA in data['contact-type-dla'] %}
+                      <li>{{ questionsDLA }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-dla']}}</p>
+                    {%endif%}
+                  </dd>
+                </div>
+                {%endif%}
+                <!-- for dla static -->
+                {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{benefitsName}}
                   </dt>
                   <dd class="govuk-summary-list__value">
                     {%if data['contact-type-dla'] | length > 1 %}
