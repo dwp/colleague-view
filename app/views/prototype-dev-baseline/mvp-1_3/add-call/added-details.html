@@ -187,8 +187,8 @@ You have added details about this call
           </div>
         </div>
         {%else%}
-        <!-- for one benefit -->
-        {%if benefitLength == 1 and benefits != 'General information' %}
+        <!-- for one benefit --> 
+        {%if data['what-benefit-discussed'] == 'General change of circumstance' %}
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
@@ -199,22 +199,17 @@ You have added details about this call
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  <!-- {{ data['what-benefit-discussed'] }} -->
-                  {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
-                  {{ data['dla-type'] }}
-                  {%else%}
-                  {{ data['what-benefit-discussed'] }}
-                  {%endif%}
+                  General change of circumstance
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {%if data['contact-type'] | length > 1 %}
+                  {%if data['contact-type-gCoC'] | length > 1 %}
                   <ul class="govuk-list govuk-list--bullet">
-                    {% for contactTopics in data['contact-type'] %}
-                    <li>{{ contactTopics }}</li>
+                    {% for contactTopicsgCoC in data['contact-type-gCoC'] %}
+                    <li>{{ contactTopicsgCoC }}</li>
                     {% endfor %}
                   </ul>
                   {%else%}
-                    <p>{{data['contact-type']}}</p>
+                    <p>{{data['contact-type-gCoC']}}</p>
                   {%endif%}
                 </dd>
                 <dd class="govuk-summary-list__actions govuk-!-display-none">
@@ -243,10 +238,23 @@ You have added details about this call
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
+                  <!-- {{ data['what-benefit-discussed'] }} -->
+                  {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
+                  {{ data['dla-type'] }}
+                  {%else%}
                   {{ data['what-benefit-discussed'] }}
+                  {%endif%}
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{data['noBenefitReason']}}
+                  {%if data['contact-type'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for contactTopics in data['contact-type'] %}
+                    <li>{{ contactTopics }}</li>
+                    {% endfor %}
+                  </ul>
+                  {%else%}
+                    <p>{{data['contact-type']}}</p>
+                  {%endif%}
                 </dd>
                 <dd class="govuk-summary-list__actions govuk-!-display-none">
                   <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
