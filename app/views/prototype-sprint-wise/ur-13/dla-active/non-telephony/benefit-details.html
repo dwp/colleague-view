@@ -7,7 +7,7 @@
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-13/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-13/common/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-13/common/non-telephony/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -26,24 +26,23 @@
     <h1 class="govuk-heading-xl">Benefit details</h1>
   </div>
   <div class="govuk-grid-column-one-half">
-    <form action="/prototype-sprint-wise/ur-13/dla-active/add-call/what-benefits-discussed" method="post">
+    <form action="/prototype-sprint-wise/ur-13/dla-active/non-telephony/add-contact/what-benefits-discussed" method="post">
       <div class="govuk-button-group">
-        {% set benefits =  data['what-benefit-discussed'] | length %}
-        {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
-        {%if benefitAdded != '' %}
-        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/dla-active/add-call/what-benefits-discussed">
-          Add or change call details
+        {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
+        {%if benefits >=1 %}
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/dla-active/non-telephony/add-contact/what-benefits-discussed">
+          Add or change contact details
         </button>
-        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/dla-active/add-call/do-you-want-to-complete-call">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/dla-active/non-telephony/add-contact/check-before-start-sercive-again">
           Start service again
         </button>
         {%else%}
-        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/dla-active/add-call/what-benefits-discussed">
-          Add call details
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/dla-active/non-telephony/add-contact/what-benefits-discussed">
+          Add contact details
         </button>
         {%endif%}
-        <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/add-call/do-you-want-to-complete-call">
-          Complete phone call
+        <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/dla-active/non-telephony/add-contact/check-before-start-sercive-again">
+          Start service again
         </button> -->
       </div>
     </form>
