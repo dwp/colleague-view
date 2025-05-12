@@ -10461,7 +10461,8 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/goToHom
 
 router.post('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active', function (req, res) {
   req.session.data['what-benefit-discussed'] = '';
-  req.session.data['addNote']= '';
+  data['What-type-of-contact'] = 'dla';
+  // req.session.data['addNote']= '';
   res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active');
 });
 

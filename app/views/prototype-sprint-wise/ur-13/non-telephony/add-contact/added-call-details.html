@@ -452,7 +452,7 @@ Check the details you have added
             <tbody class="govuk-summary-list">
               {% for benefitsName in data['what-benefit-discussed-non-telephony'] %}
                 <!-- for ESA -->
-                {% if benefitsName == 'Employment and Support Allowance' %}
+                {% if benefitsName == 'Employment and Support Allowance'%}
                 <tr class="govuk-summary-list__row">
                   <th scope="row" class="govuk-summary-list__key">
                     Employment and Support Allowance
@@ -470,8 +470,65 @@ Check the details you have added
                   </td>
                 </tr>
                 {%endif%}
-                {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
+                <!-- for AA -->
+                {% if benefitsName == 'Attendance Allowance' %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    Attendance Allowance
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-aa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsAA in data['contact-type-aa'] %}
+                        <li>{{ questionsAA or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-aa']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
+                <!-- for CA -->
+                {% if benefitsName == "Carer's Allowance" %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    Carer's Allowance
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-ca'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsCA in data['contact-type-ca'] %}
+                        <li>{{ questionsCA or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-ca']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
+                <!-- for DLA static -->
+                {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    {{benefitsName}}
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-dla'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsDLA in data['contact-type-dla'] %}
+                        <li>{{ questionsDLA or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-dla']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
                 <!-- for pip -->
+                {% if benefitsName == 'Personal Independence Payment' %}
                 <tr class="govuk-summary-list__row">
                   <th scope="row" class="govuk-summary-list__key">
                     Personal Independence Payment
@@ -489,7 +546,6 @@ Check the details you have added
                   </td>
                 </tr>
                 {%endif%}
-
                 {% if benefitsName == 'General change of circumstance' %}
                 <!-- for General CoC -->
                 <tr class="govuk-summary-list__row">
