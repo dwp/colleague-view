@@ -41,8 +41,9 @@ What was the call about?
   
    <!-------------------------------------- for inbound call ------------------------------------------->
    {% if data['What-type-of-contact']== 'Inbound phone call with' %}
-      <!-- for multiple benefit -->
+      
       {% if benefitLength >1 %}
+      <!-- for multiple benefit -->
         {% for benefitsName in data['what-benefit-discussed'] %}
           <!-- for ESA -->
           {% if benefitsName == 'Employment and Support Allowance' %}
@@ -715,8 +716,9 @@ What was the call about?
           </div>
         </div>
         {%endif%}
-      <!-- for only one benefit -->
+
       {% else %}
+      <!-- for only one benefit -->
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">

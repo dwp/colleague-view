@@ -1918,7 +1918,8 @@ What was the call about?
 
 
     <!-------------------------------------- for active DLA - one screen ------------------------------------------->
-    {% if data['What-type-of-contact']== '' %}
+    {%set checkContactType = data['What-type-of-contact']%}
+    {% if checkContactType == '' %}
     <!-- for multiple benefit -->
     {% if benefitLength >1 %}
       {% for benefitsName in data['what-benefit-discussed'] %}
