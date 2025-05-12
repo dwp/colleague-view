@@ -10492,8 +10492,7 @@ router.use('/prototype-dev-baseline/call-log-new-jpurney', require('./views/prot
 router.use('/prototype-dev-baseline/mvp-1_3', require('./views/prototype-dev-baseline/mvp-1_3/_routes'));
 // for UR 13
 router.use('/prototype-sprint-wise/ur-13', require('./views/prototype-sprint-wise/ur-13/_routes'));
-// for UR 13 - DLA active
-router.use('/prototype-sprint-wise/ur-13/dla-active', require('./views/prototype-sprint-wise/ur-13/dla-active/_routes'));
+
 
 
 
