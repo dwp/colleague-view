@@ -27,30 +27,9 @@ What did you review?
         <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <!-- for single screen - DLA -->
-            {% if data['What-type-of-contact']== '' %}
             <h1 class="govuk-fieldset__heading">
               What did you review?
             </h1>
-            {%endif%}
-            <!-- for inbound call -->
-            {% if data['What-type-of-contact']== 'Inbound phone call with' %}
-            <h1 class="govuk-fieldset__heading">
-              What did you review?
-            </h1>
-            {%endif%}
-            <!-- for outbound call -->
-            {% if data['What-type-of-contact']== 'Outbound phone call with' %}
-              {%if data['was-call-answered'] == 'Yes'%}
-                <h1 class="govuk-fieldset__heading">
-                  What did you review?
-                </h1>
-              {%else%}
-                <h1 class="govuk-fieldset__heading">
-                  What were you planning to review?
-                </h1>
-            {%endif%}
-            {%endif%}
-
           </legend>
           <div id="changedName-hint" class="govuk-hint">
             You can make multiple selections which will automatically be added to the contact record. You can add any additional information in the notes later.
