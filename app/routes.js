@@ -10459,6 +10459,12 @@ router.post('/prototype-dev-baseline/mvp-1_0/different-type-contact-user/goToHom
 
 // End of baseline MVP 1.0 here
 
+router.post('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active', function (req, res) {
+  req.session.data['what-benefit-discussed'] = '';
+  req.session.data['addNote']= '';
+  res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active');
+});
+
 // Start folder specific routes
 
 // sprint mvp1.1, remember to add older sprint when adding a new folder!

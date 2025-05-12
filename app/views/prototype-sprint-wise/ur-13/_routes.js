@@ -577,6 +577,15 @@ router.post('/non-telephony/add-contact/contact-details-completed', function (re
 });
 
 
+
+// for DLA active benefit
+
+router.post('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active', function (req, res) {
+    req.session.data['what-benefit-discussed'] = '';
+    req.session.data['addNote']= '';
+    res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active');
+});
+
 // hide and show CTA
 
 
