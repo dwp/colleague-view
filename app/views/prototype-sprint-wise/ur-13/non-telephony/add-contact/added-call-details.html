@@ -162,7 +162,7 @@ Check the details you have added
                 </tr>
                 {%endif%}
 
-                <!-- for DLA -->
+                <!-- for DLA active-->
                 {% if benefitsName == 'Disability Living Allowance' %}
                 <tr class="govuk-summary-list__row">
                   <th scope="row" class="govuk-summary-list__key">
@@ -182,6 +182,25 @@ Check the details you have added
                 </tr>
                 {%endif%}
 
+                <!-- for DLA static-->
+                {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    {{ benefitsName }}
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-dla'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsDLA in data['contact-type-dla'] %}
+                        <li>{{ questionsDLA }}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>{{data['contact-type-dla']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
                 {% if benefitsName == 'General change of circumstance' %}
                 <!-- for General CoC -->
                 <tr class="govuk-summary-list__row">
