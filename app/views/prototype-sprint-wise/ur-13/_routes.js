@@ -114,10 +114,9 @@ router.post('/call-with', function (req, res) {
     res.redirect('/prototype-sprint-wise/ur-13/view-only/home');
   }
 
-  if (req.session.data['What-type-of-contact'] == '') {
-    console.log('Error page');
-    res.redirect('/prototype-sprint-wise/ur-13/error-why-checking-info');
-  }
+  // if (req.session.data['What-type-of-contact'] == '') {
+  //   res.redirect('back');
+  // }
 });
 
 // for outbound call
