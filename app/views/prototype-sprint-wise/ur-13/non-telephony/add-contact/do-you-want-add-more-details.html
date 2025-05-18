@@ -125,20 +125,20 @@
         </legend>
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-call-detail" type="radio" value="Yes I want to add">
+            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-1" name="do-you-want-to-add-more-detail" type="radio" value="Yes I want to add">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-1">
               Add another benefit or query
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-2" name="do-you-want-to-add-more-call-detail" type="radio" value="Change your note">
+            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-2" name="do-you-want-to-add-more-detail" type="radio" value="Change your note">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-2">
               Change your note
             </label>
           </div>
           <div class="govuk-radios__divider">or</div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-3" name="do-you-want-to-add-more-call-detail" type="radio" value="Complete phone call">
+            <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-3" name="do-you-want-to-add-more-detail" type="radio" value="Complete phone call">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-3">
               Start Service again
             </label>
@@ -202,7 +202,7 @@
               </td>
             </tr>
             {%endif%}
-            {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
+            {% if benefitsName == 'Personal Independence Payment' %}
             <!-- for pip -->
             <tr class="govuk-summary-list__row">
               <th scope="row" class="govuk-summary-list__key">
@@ -218,6 +218,63 @@
                 {%else%}
                   <p>{{data['contact-type-pip']}}</p>
                   {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for AA -->
+            {% if benefitsName == 'Attendance Allowance' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Attendance Allowance
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-aa'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsAA in data['contact-type-aa'] %}
+                    <li>{{ questionsAA or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-aa']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for CA -->
+            {% if benefitsName == "Carer's Allowance" %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Carer's Allowance
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-ca'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsCA in data['contact-type-ca'] %}
+                    <li>{{ questionsCA or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-ca']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for DLA -->
+            {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                {{benefitsName}}
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-dla'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsDLA in data['contact-type-dla'] %}
+                    <li>{{ questionsDLA or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-dla']}}</p>
+                {%endif%}
               </td>
             </tr>
             {%endif%}

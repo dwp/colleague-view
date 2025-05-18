@@ -561,7 +561,7 @@ You have added details about this call
             {%endif%}
 
             <!-- for pip -->
-            {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
+            {% if benefitsName == 'Personal Independence Payment' %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Personal Independence Payment
@@ -576,6 +576,66 @@ You have added details about this call
               {%else%}
                 <p>{{data['contact-type-pip']}}</p>
                 {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+
+            <!-- for AA -->
+            {% if benefitsName == 'Attendance Allowance' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Attendance Allowance
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-aa'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for questionsAA in data['contact-type-aa'] %}
+                  <li>{{ questionsAA or "No inquiry selected"}}</li>
+                  {% endfor %}
+                </ul>
+              {%else%}
+              <p>{{data['contact-type-aa']}}</p>
+              {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+
+            <!-- for CA -->
+            {% if benefitsName == "Carer's Allowance" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Carer's Allowance
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-ca'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for questionsCA in data['contact-type-ca'] %}
+                  <li>{{ questionsCA or "No inquiry selected"}}</li>
+                  {% endfor %}
+                </ul>
+              {%else%}
+              <p>{{data['contact-type-ca']}}</p>
+              {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+
+            <!-- for DLA static -->
+            {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                {{benefitsName}}
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-dla'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for questionsDLA in data['contact-type-dla'] %}
+                  <li>{{ questionsDLA or "No inquiry selected"}}</li>
+                  {% endfor %}
+                </ul>
+              {%else%}
+              <p>{{data['contact-type-dla']}}</p>
+              {%endif%}
               </dd>
             </div>
             {%endif%}
@@ -715,7 +775,6 @@ You have added details about this call
         <div class="govuk-summary-card__content">
           <dl class="govuk-summary-list">
             {% for benefitsName in data['what-benefit-discussed-non-telephony'] %}
-              
             <!-- for ESA -->
               {% if benefitsName == 'Employment and Support Allowance' %}
               <div class="govuk-summary-list__row">
@@ -737,7 +796,7 @@ You have added details about this call
               {%endif%}
 
               <!-- for pip -->
-              {% if benefitsName == 'Personal Independence Payment' or benefitsName == 'Attendance Allowance' or benefitsName == 'dla' %}
+              {% if benefitsName == 'Personal Independence Payment' %}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Personal Independence Payment
@@ -751,6 +810,66 @@ You have added details about this call
                   </ul>
                 {%else%}
                   <p>{{data['contact-type-pip']}}</p>
+                  {%endif%}
+                </dd>
+              </div>
+              {%endif%}
+
+              <!-- for AA -->
+              {% if benefitsName == 'Attendance Allowance' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Attendance Allowance
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {%if data['contact-type-aa'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsAA in data['contact-type-aa'] %}
+                    <li>{{ questionsAA }}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                  <p>{{data['contact-type-aa']}}</p>
+                  {%endif%}
+                </dd>
+              </div>
+              {%endif%}
+
+              <!-- for CA -->
+              {% if benefitsName == "Carer's Allowance" %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Carer's Allowance
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {%if data['contact-type-ca'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsCA in data['contact-type-ca'] %}
+                    <li>{{ questionsCA }}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                  <p>{{data['contact-type-ca']}}</p>
+                  {%endif%}
+                </dd>
+              </div>
+              {%endif%}
+
+              <!-- for DLA static -->
+              {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  {{benefitsName}}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {%if data['contact-type-dla'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsDLA in data['contact-type-dla'] %}
+                    <li>{{ questionsDLA }}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                  <p>{{data['contact-type-dla']}}</p>
                   {%endif%}
                 </dd>
               </div>
@@ -863,6 +982,9 @@ You have added details about this call
       </form>
       {%endif%}
 
+
+
+
       <!-- for Outbound visit to claimant -->
       {% if data['What-type-of-contact'] == 'Visit to' %}
       <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
@@ -929,6 +1051,7 @@ You have added details about this call
               </div>
               {%endif%}
 
+
               <!-- for AA -->
               {% if benefitsName == 'Attendance Allowance' %}
               <div class="govuk-summary-list__row">
@@ -964,6 +1087,26 @@ You have added details about this call
                   </ul>
                 {%else%}
                   <p>{{data['contact-type-ca']}}</p>
+                  {%endif%}
+                </dd>
+              </div>
+              {%endif%}
+
+              <!-- for DLA static -->
+              {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  {{benefitsName}}
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {%if data['contact-type-dla'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsDLA in data['contact-type-dla'] %}
+                    <li>{{ questionsDLA }}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                  <p>{{data['contact-type-dla']}}</p>
                   {%endif%}
                 </dd>
               </div>
@@ -1050,7 +1193,7 @@ You have added details about this call
                 {%endif%}
               </dd>
               <dd class="govuk-summary-list__actions govuk-!-display-none">
-                <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> contact topics</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
