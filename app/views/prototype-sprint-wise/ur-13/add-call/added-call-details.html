@@ -208,6 +208,64 @@ Check the details you have added
                 </td>
               </tr>
               {%endif%}
+              <!-- for uc -->
+              {% if benefitsName == 'Universal Credit' %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Universal Credit
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-uc'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsUC in data['contact-type-uc'] %}
+                      <li>{{ questionsUC }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-uc']}}</p>
+                    {%endif%}
+                </td>
+              </tr>
+              {%endif%}
+
+              <!-- for ibjsa -->
+              {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Income-based Job Seeker's Allowance
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-ibjsa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsIBJSA in data['contact-type-ibjsa'] %}
+                      <li>{{ questionsIBJSA }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-ibjsa']}}</p>
+                    {%endif%}
+                </td>
+              </tr>
+              {%endif%}
+              <!-- for nsjsa -->
+              {% if benefitsName == "New Style Job Seeker's Allowance" %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  New Style Job Seeker's Allowance
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-nsjsa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsNSJSA in data['contact-type-nsjsa'] %}
+                      <li>{{ questionsNSJSA }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-nsjsa']}}</p>
+                    {%endif%}
+                </td>
+              </tr>
+              {%endif%}
               <!-- for General CoC -->
               {% if benefitsName == 'General change of circumstance' %}
               <tr class="govuk-summary-list__row">
@@ -407,7 +465,6 @@ Check the details you have added
             <tbody class="govuk-summary-list">
               <tr class="govuk-summary-list__row">
                 <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                  <!-- {{ benefits }}  -->
                   {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
                   {{ data['dla-type'] }}
                   {%else%}
