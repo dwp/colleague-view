@@ -450,6 +450,7 @@ What was the call about?
                     Evidence enquiry
                   </label>
                 </div>
+                {% if benefitsName == 'Disability Living Allowance Child' %}
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="aFormRequest" name="contact-type-dla" type="checkbox" value="A form request" {{ checked ('contact-type-dla', 'A form request') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="aFormRequest">
@@ -468,6 +469,7 @@ What was the call about?
                     Renewal of a claim
                   </label>
                 </div>
+                {%endif%}
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-dla" type="checkbox" value="A change of circumstance" {{ checked ('contact-type-dla', 'A change of circumstance') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
@@ -933,6 +935,7 @@ What was the call about?
                   Evidence enquiry
                 </label>
               </div>
+              {% if data['what-benefit-discussed'] == 'Disability Living Allowance Child' %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="aFormRequest" name="contact-type" type="checkbox" value="A form request" {{ checked ('contact-type', 'A form request') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="aFormRequest">
@@ -951,6 +954,7 @@ What was the call about?
                   Renewal of a claim
                 </label>
               </div>
+              {%endif%}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="A change of circumstance" {{ checked ('contact-type', 'A change of circumstance') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
