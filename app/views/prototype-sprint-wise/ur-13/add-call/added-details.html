@@ -15,7 +15,6 @@ You have added details about this call
 
 {% block beforeContent %}
   {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
-  <!-- <a class="govuk-back-link" href="javascript:window.history.back()">Back</a> -->
 {% endblock %}
 
 {% block content %}
@@ -167,6 +166,66 @@ You have added details about this call
                     </ul>
                   {%else%}
                     <p>{{data['contact-type-ca']}}</p>
+                    {%endif%}
+                  </dd>
+                </div>
+                {%endif%}
+
+                <!-- for ibjsa -->
+                {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Income-based Job Seeker's Allowance
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-ibjsa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsIBJSA in data['contact-type-ibjsa'] %}
+                      <li>{{ questionsIBJSA }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-ibjsa']}}</p>
+                    {%endif%}
+                  </dd>
+                </div>
+                {%endif%}
+
+                <!-- for nsjsa -->
+                {% if benefitsName == "New Style Job Seeker's Allowance" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    New Style Job Seeker's Allowance
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-nsjsa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsNSJSA in data['contact-type-nsjsa'] %}
+                      <li>{{ questionsNSJSA }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-nsjsa']}}</p>
+                    {%endif%}
+                  </dd>
+                </div>
+                {%endif%}
+
+                <!-- for uc -->
+                {% if benefitsName == 'Universal Credit' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Universal Credit
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-uc'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsUC in data['contact-type-uc'] %}
+                      <li>{{ questionsUC }}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>{{data['contact-type-uc']}}</p>
                     {%endif%}
                   </dd>
                 </div>
