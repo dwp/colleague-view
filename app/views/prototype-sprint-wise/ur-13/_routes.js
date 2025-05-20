@@ -230,6 +230,9 @@ router.post('/add-call/select-contact-type', function (req, res) {
   req.session.data['contact-type-aa'] = '';
   req.session.data['contact-type-dla'] = '';
   req.session.data['contact-type-ca'] = '';
+  req.session.data['contact-type-ibjsa'] = '';
+  req.session.data['contact-type-nsjsa'] = '';
+  req.session.data['contact-type-uc'] = '';
   req.session.data['contact-type-gCoC'] = '';
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
@@ -410,6 +413,9 @@ router.post('/non-telephony/add-contact/select-contact-type', function (req, res
   req.session.data['contact-type-aa'] = '';
   req.session.data['contact-type-dla'] = '';
   req.session.data['contact-type-ca'] = '';
+  req.session.data['contact-type-ibjsa'] = '';
+  req.session.data['contact-type-nsjsa'] = '';
+  req.session.data['contact-type-uc'] = '';
 
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
