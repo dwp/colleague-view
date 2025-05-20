@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact history
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-13/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-13/common/non-telephony/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-13/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "/prototype-sprint-wise/ur-13/common/phase-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Details of phone call on 05 September 2023</h1>
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Who worked on the call
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Agent (1003)
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Who the call was with
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Christopher Fox
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact type
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Incoming telephone call
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Time spent on Colleague View
+        </dt>
+        <dd class="govuk-summary-list__value">
+          15 Minutes
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+{% endblock %}
