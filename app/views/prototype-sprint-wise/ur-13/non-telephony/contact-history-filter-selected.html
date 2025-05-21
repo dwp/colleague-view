@@ -93,7 +93,6 @@ Contact history
               </div>
               <div class="moj-filter__content">
                 <!-- selected filters -->
-                <!-- selected filters -->
                 {% set benefits =  data['benefit'] | length %}
                 {% set contactTopic = data['contact-topic'] | length %}
                 {% set contactType = data['contact-type'] | length %}
@@ -107,10 +106,10 @@ Contact history
                 <div class="moj-filter__selected" style="box-shadow: none;">
                   <div class="moj-filter__selected-heading">
                     <div class="moj-filter__heading-title">
-                      <h3 class="govuk-heading-s">Selected filters</h3>
+                      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Selected filters</h3>
                     </div>
                     <div class="moj-filter__heading-action">
-                      <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
+                      <!-- <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p> -->
                     </div>
                   </div>
 
@@ -155,7 +154,7 @@ Contact history
                     </li>
                   </ul>
                 {%endif%}
-            
+                <p><a class="govuk-link govuk-link--no-visited-state" href="contact-history.html">Clear filters</a></p>
                 </div>
                 <hr class="govuk-section-break govuk-section-break--visible">
                 {%else%}
@@ -851,7 +850,311 @@ Contact history
               <!--  3 benenfits only seleted -->
               {% if contactTypeLength == 0 and contactTopicLength == 0 %}
                 {%if data['benefit'] == "Employment and Support Allowance,Personal Independence Payment,General change of circumstance" %}
-                <p>ESA, PIP and GCoC selected</p>
+                <!-- <p>ESA, PIP and GCoC selected</p> -->
+                  <!-- default ch table -->
+                  <h3 class="govuk-heading-m">32 results</h3>
+                  <p class="govuk-body govuk-!-margin-bottom-6">
+                      Sorted by:
+                      <span class="govuk-!-font-weight-bold">Date</span>
+                  </p>
+                  <div class="summry-card">
+                    <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                          <tbody class="govuk-summary-list">
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                              Notes
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                No notes added
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                General change of circumstance
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>A request for evidence</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                          <tbody class="govuk-summary-list">
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                              Notes
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Evidence required.
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                General change of circumstance
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Address
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                          <tbody class="govuk-summary-list">
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                              Notes
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <span class="govuk-!-display-none" id="full-text">Call disconnected before reason was established. Did not call back because caller was not identified as vulnerable.</span> <span class="" id="less-text">Call disconnected before reason was established. Did not call back because...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Employment and Support Allowance
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Call disconnected
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                            <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                          <tbody class="govuk-summary-list">
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                              Notes
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Sent an entitlement certificate.
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Employment and Support Allowance
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Proof of benefit
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                          <tbody class="govuk-summary-list">
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                              Notes
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Requested an entitlement certificate.
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Employment and Support Allowance
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>A payment enquiry</p>
+                                <p>Proof of benefit</p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                          <tbody class="govuk-summary-list">
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                              Notes
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Confirmed partner’s annual income. Claim updated.
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Employment and Support Allowance
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Missing information
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                          <tbody class="govuk-summary-list">
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                              Notes
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                No notes added.
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Employment and Support Allowance
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Making a claim over the phone
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="govuk-summary-card">
+                      <div class="govuk-summary-card__title-wrapper">
+                        <h2 class="govuk-summary-card__title">Jobcentre visit: 01 September 2024, 14:20</h2>
+                        <ul class="govuk-summary-card__actions">
+                          <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="view-call-detail-face-face.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="govuk-summary-card__content">
+                        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                          <tbody class="govuk-summary-list">
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                              Notes
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Eligible for ESA but not PIP.
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Employment and Support Allowance
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Checking eligibility
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Personal Independence Payment
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                Checking eligibility
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- pagination start here -->
+                  <nav class="govuk-pagination" aria-label="Pagination">
+                    <ul class="govuk-pagination__list">
+                      <li class="govuk-pagination__item govuk-pagination__item--current">
+                        <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+                          1
+                        </a>
+                      </li>
+                      <li class="govuk-pagination__item">
+                        <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                          2
+                        </a>
+                      </li>
+                      <li class="govuk-pagination__item">
+                        <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                          3
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="govuk-pagination__next">
+                      <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+                        <span class="govuk-pagination__link-title">
+                          Next<span class="govuk-visually-hidden"> page</span>
+                        </span>
+                        <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                          <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </nav>
                 {%endif%}
                 <!--  2 benenfits seleted -->
                 {%if data['benefit'] == "Employment and Support Allowance,General change of circumstance" %}
