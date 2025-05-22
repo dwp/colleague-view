@@ -466,6 +466,66 @@ You have added details about this call
             </div>
             {%endif%}
 
+            <!-- for Income based JSA -->
+            {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Income-based Job Seeker's Allowance
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-ibjsa'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for questionsIBJSA in data['contact-type-ibjsa'] %}
+                  <li>{{ questionsIBJSA }}</li>
+                  {% endfor %}
+                </ul>
+              {%else%}
+                <p>{{data['contact-type-ibjsa']}}</p>
+                {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+
+            <!-- for New style JSA -->
+            {% if benefitsName == "New Style Job Seeker's Allowance" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                New Style Job Seeker's Allowance
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-nsjsa'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for questionsNSJSA in data['contact-type-nsjsa'] %}
+                  <li>{{ questionsNSJSA }}</li>
+                  {% endfor %}
+                </ul>
+              {%else%}
+                <p>{{data['contact-type-nsjsa']}}</p>
+                {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+
+            <!-- for UC -->
+            {% if benefitsName == 'Universal Credit' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Universal Credit
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {%if data['contact-type-uc'] | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for questionsUC in data['contact-type-uc'] %}
+                  <li>{{ questionsUC }}</li>
+                  {% endfor %}
+                </ul>
+              {%else%}
+                <p>{{data['contact-type-uc']}}</p>
+                {%endif%}
+              </dd>
+            </div>
+            {%endif%}
+
             <!-- for General CoC -->
             {% if benefitsName == 'General change of circumstance' %}
             <div class="govuk-summary-list__row">

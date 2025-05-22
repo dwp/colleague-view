@@ -756,36 +756,6 @@ What was the call about?
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="makingaClaimOverThePhone " name="contact-type-ibjsa" type="checkbox" value="Making a claim over the phone" {{ checked ('contact-type-ibjsa', 'Making a claim over the phone') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="makingaClaimOverThePhone">
-                    Making a claim over the phone 
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="supportWithaNewClaim" name="contact-type-ibjsa" type="checkbox" value="Support with a new claim" {{ checked ('contact-type-ibjsa', 'Support with a new claim') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="supportWithaNewClaim">
-                    Support with a new claim
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="claimantCommitment" name="contact-type-ibjsa" type="checkbox" value="Claimant commitment" {{ checked ('contact-type-ibjsa', 'Claimant commitment') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="claimantCommitment">
-                    Claimant commitment
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="appointmentChange" name="contact-type-ibjsa" type="checkbox" value="Appointment change" {{ checked ('contact-type-ibjsa', 'Appointment change') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="appointmentChange">
-                    Appointment change
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="aHardshipPayment" name="contact-type-ibjsa" type="checkbox" value="A hardship payment" {{ checked ('contact-type-ibjsa', 'A hardship payment') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="aHardshipPayment">
-                    A hardship payment
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-ibjsa" type="checkbox" value="Change of circumstance" {{ checked ('contact-type-ibjsa', 'Change of circumstance') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                     Change of circumstance 
@@ -808,7 +778,7 @@ What was the call about?
           </div>
           {%endif%}
 
-          <!-- Income-basedJSA options -->
+          <!-- New Style JSA options -->
           {% if benefitsName == "New Style Job Seeker's Allowance" %}
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
@@ -843,12 +813,6 @@ What was the call about?
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="anSMILoan" name="contact-type-nsjsa" type="checkbox" value="An SMI loan" {{ checked ('contact-type-nsjsa', 'An SMI loan') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="anSMILoan">
-                    An SMI loan
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="mandatoryReconsideration" name="contact-type-nsjsa" type="checkbox" value="A mandatory reconsideration or appeal" {{ checked ('contact-type-nsjsa', 'A mandatory reconsideration or appeal') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
                     A mandatory reconsideration or appeal
@@ -867,33 +831,9 @@ What was the call about?
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="makingaClaimOverThePhone " name="contact-type-nsjsa" type="checkbox" value="Making a claim over the phone" {{ checked ('contact-type-nsjsa', 'Making a claim over the phone') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="makingaClaimOverThePhone">
-                    Making a claim over the phone 
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="supportWithaNewClaim" name="contact-type-nsjsa" type="checkbox" value="Support with a new claim" {{ checked ('contact-type-nsjsa', 'Support with a new claim') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="supportWithaNewClaim">
                     Support with a new claim
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="claimantCommitment" name="contact-type-nsjsa" type="checkbox" value="Claimant commitment" {{ checked ('contact-type-nsjsa', 'Claimant commitment') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="claimantCommitment">
-                    Claimant commitment
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="appointmentChange" name="contact-type-nsjsa" type="checkbox" value="Appointment change" {{ checked ('contact-type-nsjsa', 'Appointment change') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="appointmentChange">
-                    Appointment change
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="aHardshipPayment" name="contact-type-nsjsa" type="checkbox" value="A hardship payment" {{ checked ('contact-type-nsjsa', 'A hardship payment') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="aHardshipPayment">
-                    A hardship payment
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
@@ -1541,18 +1481,6 @@ What was the call about?
                 <input class="govuk-checkboxes__input" id="evidenceEnquiry" name="contact-type" type="checkbox" value="Evidence enquiry" {{ checked ('contact-type', 'Evidence enquiry') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="evidenceEnquiry">
                   Evidence enquiry
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="supportWithaNewClaim" name="contact-type" type="checkbox" value="Support with a new claim" {{ checked ('contact-type', 'Support with a new claim') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="supportWithaNewClaim">
-                  Support with a new claim
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="renewalofClaim " name="contact-type" type="checkbox" value="Renewal of a claim" {{ checked ('contact-type', 'Renewal of a claim') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="renewalofClaim">
-                  Renewal of a claim
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
@@ -2264,12 +2192,6 @@ What was the call about?
                 <input class="govuk-checkboxes__input" id="outboundCall-option2" name="contact-type-ibjsa" type="checkbox" value="Review" {{ checked ('contact-type-ibjsa', 'Review') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option2">
                   Review
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="outboundCall-option3" name="contact-type-ibjsa" type="checkbox" value="Missing information" {{ checked ('contact-type-ibjsa', 'Missing information') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option3">
-                  Missing information
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
