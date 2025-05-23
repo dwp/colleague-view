@@ -837,6 +837,12 @@ What was the call about?
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="renewalOfaClaim" name="contact-type-nsjsa" type="checkbox" value="Renewal of a claim" {{ checked ('contact-type-nsjsa', 'Renewal of a claim') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="renewalOfaClaim">
+                    Renewal of a claim
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-nsjsa" type="checkbox" value="Change of circumstance" {{ checked ('contact-type-nsjsa', 'Change of circumstance') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                     Change of circumstance 
@@ -2216,12 +2222,6 @@ What was the call about?
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="outboundCall-option3" name="contact-type-ibjsa" type="checkbox" value="Missing information" {{ checked ('contact-type-ibjsa', 'Missing information') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option3">
-                  Missing information
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="outboundCall-option4" name="contact-type-ibjsa" type="checkbox" value="Change of circumstance" {{ checked ('contact-type-ibjsa', 'Change of circumstance') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option4">
                   Change of circumstance
@@ -2618,7 +2618,7 @@ What was the call about?
                   Medical
                 </label>
               </div>
-              {%if checkCallAnswered == 'yes' %}
+              {%if checkCallAnswered == 'Yes' %}
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type-gCoC" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="callDisconnected">
@@ -2630,42 +2630,74 @@ What was the call about?
             </fieldset>
           </div>
         {%else%}
-        <!-- apply for All benefits except GCoC -->
-        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="outboundCall-option1" name="contact-type" type="checkbox" value="Call back" {{ checked ('contact-type', 'Call back') }}>
-            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option1">
-              Call back
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="outboundCall-option2" name="contact-type" type="checkbox" value="Review" {{ checked ('contact-type', 'Review') }}>
-            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option2">
-              Review
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="outboundCall-option3" name="contact-type" type="checkbox" value="Missing information" {{ checked ('contact-type', 'Missing information') }}>
-            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option3">
-              Missing information
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="outboundCall-option4" name="contact-type" type="checkbox" value="Change of circumstance" {{ checked ('contact-type', 'Change of circumstance') }}>
-            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option4">
-              Change of circumstance
-            </label>
-          </div>
-          {%if checkCallAnswered == 'yes' %}
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="outboundCall-option5" name="contact-type" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
-            <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option5">
-              Call disconnected
-            </label>
-          </div>
+          {% if data['what-benefit-discussed'] == "Income-based Job Seeker's Allowance" %}
+            <!-- apply for Incoome based JSA only -->
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option1" name="contact-type" type="checkbox" value="Call back" {{ checked ('contact-type', 'Call back') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option1">
+                  Call back
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option2" name="contact-type" type="checkbox" value="Review" {{ checked ('contact-type', 'Review') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option2">
+                  Review
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option4" name="contact-type" type="checkbox" value="Change of circumstance" {{ checked ('contact-type', 'Change of circumstance') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option4">
+                  Change of circumstance
+                </label>
+              </div>
+              {%if checkCallAnswered == 'Yes' %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option5" name="contact-type" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option5">
+                  Call disconnected
+                </label>
+              </div>
+              {%endif%}
+            </div>
+          {%else%}
+            <!-- apply for All benefits except GCoC -->
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option1" name="contact-type" type="checkbox" value="Call back" {{ checked ('contact-type', 'Call back') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option1">
+                  Call back
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option2" name="contact-type" type="checkbox" value="Review" {{ checked ('contact-type', 'Review') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option2">
+                  Review
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option3" name="contact-type" type="checkbox" value="Missing information" {{ checked ('contact-type', 'Missing information') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option3">
+                  Missing information
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option4" name="contact-type" type="checkbox" value="Change of circumstance" {{ checked ('contact-type', 'Change of circumstance') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option4">
+                  Change of circumstance
+                </label>
+              </div>
+              {%if checkCallAnswered == 'Yes' %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="outboundCall-option5" name="contact-type" type="checkbox" value="Call disconnected" {{ checked ('contact-type', 'Call disconnected') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option5">
+                  Call disconnected
+                </label>
+              </div>
+              {%endif%}
+            </div>
           {%endif%}
-        </div>
-        {%endif%}
+        {%endif%} 
        </fieldset>
      </div>
      <!-- add a note -->
