@@ -3312,6 +3312,93 @@ What was the call about?
       </div>
       {%endif%}
 
+    <!-- for Income based JSA -->
+    {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+         <h2 class="govuk-fieldset__heading govuk-heading-m">
+           {{benefitsName}}
+         </h2>
+       </legend>
+       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-ibjsa" type="checkbox" value="Confirmation" {{ checked ('contact-type-ibjsa', 'Confirmation') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+           Confirmation
+           </label>
+         </div>
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="budgetingLoanOutcome" name="contact-type-ibjsa" type="checkbox" value="Budgeting Loan outcome" {{ checked ('contact-type-ibjsa', 'Budgeting Loan outcome') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="budgetingLoanOutcome">
+           Budgeting Loan outcome
+           </label>
+         </div>
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-ibjsa" type="checkbox" value="Something else" {{ checked ('contact-type-ibjsa', 'Something else') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+           Something else
+           </label>
+         </div>
+       </div>
+     </fieldset>
+    </div>
+    {%endif%}
+
+    <!-- for New Style JSA -->
+    {% if benefitsName == "New Style Job Seeker's Allowance" %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+         <h2 class="govuk-fieldset__heading govuk-heading-m">
+           {{benefitsName}}
+         </h2>
+       </legend>
+       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-nsjsa" type="checkbox" value="Confirmation" {{ checked ('contact-type-nsjsa', 'Confirmation') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+           Confirmation
+           </label>
+         </div>
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-nsjsa" type="checkbox" value="Something else" {{ checked ('contact-type-nsjsa', 'Something else') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+           Something else
+           </label>
+         </div>
+       </div>
+     </fieldset>
+    </div>
+    {%endif%}
+
+    <!-- for UC -->
+    {% if benefitsName == 'Universal Credit' %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+         <h2 class="govuk-fieldset__heading govuk-heading-m">
+           {{benefitsName}}
+         </h2>
+       </legend>
+       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-uc" type="checkbox" value="Confirmation" {{ checked ('contact-type-uc', 'Confirmation') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+           Confirmation
+           </label>
+         </div>
+         <div class="govuk-checkboxes__item">
+           <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-uc" type="checkbox" value="Something else" {{ checked ('contact-type-uc', 'Something else') }}>
+           <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+           Something else
+           </label>
+         </div>
+       </div>
+     </fieldset>
+    </div>
+    {%endif%}
+
       <!-- for DLA static -->
       {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
       <div class="govuk-form-group">
@@ -4092,6 +4179,129 @@ What was the call about?
        </div>
        {%endif%}
 
+       <!-- for Income based JSA -->
+       {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+       <div class="govuk-form-group">
+         <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+             <h2 class="govuk-fieldset__heading govuk-heading-m">
+               {{benefitsName}}
+             </h2>
+           </legend>
+         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="requestToUploadEvidence" name="contact-type-ibjsa" type="checkbox" value="Request to upload evidence" {{ checked ('contact-type-ibjsa', 'Request to upload evidence') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="requestToUploadEvidence">
+               Request to upload evidence
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="budgetingLoanOutcome" name="contact-type-ibjsa" type="checkbox" value="Budgeting Loan outcome" {{ checked ('contact-type-ibjsa', 'Budgeting Loan outcome') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="budgetingLoanOutcome">
+               Budgeting Loan outcome
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="Request forClaimantToContactUs" name="contact-type-ibjsa" type="checkbox" value="Request for claimant to contact us" {{ checked ('contact-type-ibjsa', 'Request for claimant to contact us') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="forClaimantToContactUs">
+               Request for claimant to contact us
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="InformationThatWeWillContactThem" name="contact-type-ibjsa" type="checkbox" value="Information that we will contact them" {{ checked ('contact-type-ibjsa', 'Information that we will contact them') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="InformationThatWeWillContactThem">
+               Information that we will contact them
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-ibjsa" type="checkbox" value="Confirmation" {{ checked ('contact-type-ibjsa', 'Confirmation') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+               Confirmation
+             </label>
+           </div>
+         </div>
+         </fieldset>
+       </div>
+       {%endif%}
+
+       <!-- for New Style JSA -->
+       {% if benefitsName == "New Style Job Seeker's Allowance" %}
+       <div class="govuk-form-group">
+         <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+             <h2 class="govuk-fieldset__heading govuk-heading-m">
+               {{benefitsName}}
+             </h2>
+           </legend>
+         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="requestToUploadEvidence" name="contact-type-nsjsa" type="checkbox" value="Request to upload evidence" {{ checked ('contact-type-nsjsa', 'Request to upload evidence') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="requestToUploadEvidence">
+               Request to upload evidence
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="Request forClaimantToContactUs" name="contact-type-nsjsa" type="checkbox" value="Request for claimant to contact us" {{ checked ('contact-type-nsjsa', 'Request for claimant to contact us') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="forClaimantToContactUs">
+               Request for claimant to contact us
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="InformationThatWeWillContactThem" name="contact-type-nsjsa" type="checkbox" value="Information that we will contact them" {{ checked ('contact-type-nsjsa', 'Information that we will contact them') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="InformationThatWeWillContactThem">
+               Information that we will contact them
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-nsjsa" type="checkbox" value="Confirmation" {{ checked ('contact-type-nsjsa', 'Confirmation') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+               Confirmation
+             </label>
+           </div>
+         </div>
+         </fieldset>
+       </div>
+       {%endif%}
+
+       <!-- for UC -->
+       {% if benefitsName == 'Universal Credit' %}
+       <div class="govuk-form-group">
+         <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+             <h2 class="govuk-fieldset__heading govuk-heading-m">
+               {{benefitsName}}
+             </h2>
+           </legend>
+         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="requestToUploadEvidence" name="contact-type-uc" type="checkbox" value="Request to upload evidence" {{ checked ('contact-type-uc', 'Request to upload evidence') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="requestToUploadEvidence">
+               Request to upload evidence
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="Request forClaimantToContactUs" name="contact-type-uc" type="checkbox" value="Request for claimant to contact us" {{ checked ('contact-type-uc', 'Request for claimant to contact us') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="forClaimantToContactUs">
+               Request for claimant to contact us
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="InformationThatWeWillContactThem" name="contact-type-uc" type="checkbox" value="Information that we will contact them" {{ checked ('contact-type-uc', 'Information that we will contact them') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="InformationThatWeWillContactThem">
+               Information that we will contact them
+             </label>
+           </div>
+           <div class="govuk-checkboxes__item">
+             <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type-uc" type="checkbox" value="Confirmation" {{ checked ('contact-type-uc', 'Confirmation') }}>
+             <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+               Confirmation
+             </label>
+           </div>
+         </div>
+         </fieldset>
+       </div>
+       {%endif%}
+
          <!-- for General CoC -->
         {% if benefitsName == 'General change of circumstance' %}
         <div class="govuk-form-group">
@@ -4248,7 +4458,7 @@ What was the call about?
             </h2>
           </legend>
           <!-- ESA options -->
-          {%if data['what-benefit-discussed-non-telephony'] == 'Employment and Support Allowance' %}
+          {%if data['what-benefit-discussed-non-telephony'] == 'Employment and Support Allowance' or data['what-benefit-discussed-non-telephony'] == "Income-based Job Seeker's Allowance" %}
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="requestToUploadEvidence" name="contact-type" type="checkbox" value="Request to upload evidence" {{ checked ('contact-type', 'Request to upload evidence') }}>
@@ -4368,6 +4578,35 @@ What was the call about?
               </label>
             </div>
           </div>
+          {%endif%}
+          <!-- NSJSA and UC options -->
+          {%if data['what-benefit-discussed-non-telephony'] == "New Style Job Seeker's Allowance" or data['what-benefit-discussed-non-telephony'] == 'Universal Credit' %}
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="requestToUploadEvidence" name="contact-type" type="checkbox" value="Request to upload evidence" {{ checked ('contact-type', 'Request to upload evidence') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="requestToUploadEvidence">
+                  Request to upload evidence
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="RequestForClaimantToContactUs" name="contact-type" type="checkbox" value="Request for claimant to contact us" {{ checked ('contact-type', 'Request for claimant to contact us') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="RequestForClaimantToContactUs">
+                  Request for claimant to contact us
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="InformationThatWeWillContactThem" name="contact-type" type="checkbox" value="Information that we will contact them" {{ checked ('contact-type', 'Information that we will contact them') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="InformationThatWeWillContactThem">
+                  Information that we will contact them
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="Confirmation" name="contact-type" type="checkbox" value="Confirmation" {{ checked ('contact-type', 'Confirmation') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="Confirmation">
+                  Confirmation
+                </label>
+              </div>
+            </div>
           {%endif%}
           <!-- General CoC options -->
           {%if data['what-benefit-discussed-non-telephony'] == 'General change of circumstance' %}
@@ -4702,6 +4941,159 @@ What was the call about?
       </div>
       {%endif%}
 
+    <!-- for Income based JSA -->
+    {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading govuk-heading-m">
+            {{benefitsName}}
+          </h2>
+        </legend>
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="makingAnAppointment" name="contact-type-ibjsa" type="checkbox" value="Making an appointment" {{ checked ('contact-type-ibjsa', 'Making an appointment') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
+              Making an appointment 
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="shortTermBenefitAdvance" name="contact-type-ibjsa" type="checkbox" value="Short term benefit advance" {{ checked ('contact-type-ibjsa', 'Short term benefit advance') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="shortTermBenefitAdvance">
+              Short term benefit advance 
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-ibjsa" type="checkbox" value="Complaint" {{ checked ('contact-type-ibjsa', 'Complaint') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="Complaint">
+              Complaint
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-ibjsa" type="checkbox" value="Something else" {{ checked ('contact-type-ibjsa', 'Something else') }}>
+            <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+              Something else
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    {%endif%}
+
+      <!-- for New style JSA -->
+      {% if benefitsName == "New Style Job Seeker's Allowance" %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading govuk-heading-m">
+              {{benefitsName}}
+            </h2>
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="makingAnAppointment" name="contact-type-nsjsa" type="checkbox" value="Making an appointment" {{ checked ('contact-type-nsjsa', 'Making an appointment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
+                Making an appointment 
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="shortTermBenefitAdvance" name="contact-type-nsjsa" type="checkbox" value="Short term benefit advance" {{ checked ('contact-type-nsjsa', 'Short term benefit advance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="shortTermBenefitAdvance">
+                Short term benefit advance 
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="checkingEligibility" name="contact-type-nsjsa" type="checkbox" value="Checking eligibility" {{ checked ('contact-type-nsjsa', 'Checking eligibility') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="checkingEligibility">
+                Checking eligibility
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="makingAClaim" name="contact-type-nsjsa" type="checkbox" value="Making a claim" {{ checked ('contact-type-nsjsa', 'Making a claimy') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="makingAClaim">
+                Making a claim
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-nsjsa" type="checkbox" value="Complaint" {{ checked ('contact-type-nsjsa', 'Complaint') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Complaint">
+                Complaint
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-nsjsa" type="checkbox" value="Something else" {{ checked ('contact-type-nsjsa', 'Something else') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+                Something else
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {%endif%}
+
+      <!-- for UC-->
+      {% if benefitsName == 'Universal Credit' %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading govuk-heading-m">
+              {{benefitsName}}
+            </h2>
+          </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="makingAnAppointment" name="contact-type-uc" type="checkbox" value="Making an appointment" {{ checked ('contact-type-uc', 'Making an appointment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
+                Making an appointment 
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="regularClaimantAppointment" name="contact-type-uc" type="checkbox" value="Regular claimant appointment" {{ checked ('contact-type-uc', 'Regular claimant appointment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="regularClaimantAppointment">
+                Regular claimant appointment
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="workCoachAppointment" name="contact-type-uc" type="checkbox" value="Work coach appointment" {{ checked ('contact-type-uc', 'Work coach appointment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="workCoachAppointment">
+                Work coach appointment
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="claimantCommitment" name="contact-type-uc" type="checkbox" value="Claimant commitment" {{ checked ('contact-type-uc', 'Claimant commitment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="claimantCommitment">
+                Claimant commitment
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="aHardshipPayment" name="contact-type-uc" type="checkbox" value="A hardship payment" {{ checked ('contact-type-uc', 'A hardship payment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="aHardshipPayment">
+                A hardship payment
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="shortTermBenefitAdvance" name="contact-type-uc" type="checkbox" value="Short term benefit advance" {{ checked ('contact-type-uc', 'Short term benefit advance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="shortTermBenefitAdvance">
+                Short term benefit advance 
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-uc" type="checkbox" value="Complaint" {{ checked ('contact-type-uc', 'Complaint') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Complaint">
+                Complaint
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-uc" type="checkbox" value="Something else" {{ checked ('contact-type-uc', 'Something else') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+                Something else
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      {%endif%}
+
       <!-- for General CoC -->
      {% if benefitsName == 'General change of circumstance' %}
      <div class="govuk-form-group">
@@ -4988,6 +5380,129 @@ What was the call about?
             </label>
           </div>
         </div>
+      {%endif%}
+      <!-- Income based JSA options -->
+      {% if data['what-benefit-discussed-non-telephony'] == "Income-based Job Seeker's Allowance" %}
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="makingAnAppointment" name="contact-type" type="checkbox" value="Making an appointment" {{ checked ('contact-type', 'Making an appointment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
+            Making an appointment 
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="shortTermBenefitAdvance" name="contact-type" type="checkbox" value="Short term benefit advance" {{ checked ('contact-type', 'Short term benefit advance') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="shortTermBenefitAdvance">
+            Short term benefit advance
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type" type="checkbox" value="Complaint" {{ checked ('contact-type', 'Complaint') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="Complaint">
+            Complaint
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type" type="checkbox" value="Something else" {{ checked ('contact-type', 'Something else') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+            Something else
+          </label>
+        </div>
+      </div>
+      {%endif%}
+      <!-- New Style JSA options -->
+      {% if data['what-benefit-discussed-non-telephony'] == "New Style Job Seeker's Allowance" %}
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="makingAnAppointment" name="contact-type" type="checkbox" value="Making an appointment" {{ checked ('contact-type', 'Making an appointment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
+            Making an appointment 
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="shortTermBenefitAdvance" name="contact-type" type="checkbox" value="Short term benefit advance" {{ checked ('contact-type', 'Short term benefit advance') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="shortTermBenefitAdvance">
+            Short term benefit advance
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="checkingEligibility" name="contact-type" type="checkbox" value="Checking eligibility" {{ checked ('contact-type', 'Checking eligibility') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="checkingEligibility">
+            Checking eligibility
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="makingAClaim" name="contact-type" type="checkbox" value="Making a claim" {{ checked ('contact-type', 'Making a claim') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="makingAClaim">
+            Making a claim
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type" type="checkbox" value="Complaint" {{ checked ('contact-type', 'Complaint') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="Complaint">
+            Complaint
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type" type="checkbox" value="Something else" {{ checked ('contact-type', 'Something else') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+            Something else
+          </label>
+        </div>
+      </div>
+      {%endif%}
+      <!-- UC options -->
+      {% if data['what-benefit-discussed-non-telephony'] == 'Universal Credit' %}
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="makingAnAppointment" name="contact-type" type="checkbox" value="Making an appointment" {{ checked ('contact-type', 'Making an appointment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
+            Making an appointment 
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="regularClaimantAppointment" name="contact-type" type="checkbox" value="Regular claimant appointment" {{ checked ('contact-type', 'Regular claimant appointment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="regularClaimantAppointment">
+            Regular claimant appointment
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="workCoachAppointment" name="contact-type" type="checkbox" value="Work coach appointment" {{ checked ('contact-type', 'Work coach appointment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="workCoachAppointment">
+            Work coach appointment
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="claimantCommitment" name="contact-type" type="checkbox" value="Claimant commitment" {{ checked ('contact-type', 'Claimant commitment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="claimantCommitment">
+            Claimant commitment
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="aHardshipPayment" name="contact-type" type="checkbox" value="A hardship payment" {{ checked ('contact-type', 'A hardship payment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="aHardshipPayment">
+            A hardship payment
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="shortTermBenefitAdvance" name="contact-type" type="checkbox" value="Short term benefit advance" {{ checked ('contact-type', 'Short term benefit advance') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="shortTermBenefitAdvance">
+            Short term benefit advance 
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type" type="checkbox" value="Complaint" {{ checked ('contact-type', 'Complaint') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="Complaint">
+            Complaint
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type" type="checkbox" value="Something else" {{ checked ('contact-type', 'Something else') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+            Something else
+          </label>
+        </div>
+      </div>
       {%endif%}
       <!-- General CoC options -->
       {%if data['what-benefit-discussed-non-telephony'] == 'General change of circumstance' %}
@@ -5315,6 +5830,120 @@ What was the call about?
                 </label>
               </div>
             </div>
+          </fieldset>
+        </div>
+        {%endif%}
+         <!-- for Income based JSA -->
+         {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+         <div class="govuk-form-group">
+           <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+               <h2 class="govuk-fieldset__heading govuk-heading-m">
+                 {{benefitsName}}
+               </h2>
+             </legend>
+           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+             <div class="govuk-checkboxes__item">
+               <input class="govuk-checkboxes__input" id="Booked" name="contact-type-ibjsa" type="checkbox" value="Booked" {{ checked ('contact-type-ibjsa', 'Booked') }}>
+               <label class="govuk-label govuk-checkboxes__label" for="Booked">
+                 Booked
+               </label>
+             </div>
+             <div class="govuk-checkboxes__item">
+               <input class="govuk-checkboxes__input" id="Cancelled" name="contact-type-ibjsa" type="checkbox" value="Cancelled" {{ checked ('contact-type-ibjsa', 'Cancelled') }}>
+               <label class="govuk-label govuk-checkboxes__label" for="Cancelled">
+                 Cancelled
+               </label>
+             </div>
+             <div class="govuk-checkboxes__item">
+               <input class="govuk-checkboxes__input" id="Rearranged" name="contact-type-ibjsa" type="checkbox" value="Rearranged" {{ checked ('contact-type-ibjsa', 'Rearranged') }}>
+               <label class="govuk-label govuk-checkboxes__label" for="Rearranged">
+                 Rearranged
+               </label>
+             </div>
+             <div class="govuk-checkboxes__item">
+               <input class="govuk-checkboxes__input" id="Completed" name="contact-type-ibjsa" type="checkbox" value="Completed" {{ checked ('contact-type-ibjsa', 'Completed') }}>
+               <label class="govuk-label govuk-checkboxes__label" for="Completed">
+                 Completed
+               </label>
+             </div>
+           </div>
+           </fieldset>
+         </div>
+         {%endif%}
+        <!-- for New Style JSA -->
+        {% if benefitsName == "New Style Job Seeker's Allowance" %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading govuk-heading-m">
+                {{benefitsName}}
+              </h2>
+            </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Booked" name="contact-type-nsjsa" type="checkbox" value="Booked" {{ checked ('contact-type-nsjsa', 'Booked') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Booked">
+                Booked
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Cancelled" name="contact-type-nsjsa" type="checkbox" value="Cancelled" {{ checked ('contact-type-nsjsa', 'Cancelled') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Cancelled">
+                Cancelled
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Rearranged" name="contact-type-nsjsa" type="checkbox" value="Rearranged" {{ checked ('contact-type-nsjsa', 'Rearranged') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Rearranged">
+                Rearranged
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Completed" name="contact-type-nsjsa" type="checkbox" value="Completed" {{ checked ('contact-type-nsjsa', 'Completed') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Completed">
+                Completed
+              </label>
+            </div>
+          </div>
+          </fieldset>
+        </div>
+        {%endif%}
+        
+        {% if benefitsName == 'Universal Credit' %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading govuk-heading-m">
+                {{benefitsName}}
+              </h2>
+            </legend>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Booked" name="contact-type-uc" type="checkbox" value="Booked" {{ checked ('contact-type-uc', 'Booked') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Booked">
+                Booked
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Cancelled" name="contact-type-uc" type="checkbox" value="Cancelled" {{ checked ('contact-type-uc', 'Cancelled') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Cancelled">
+                Cancelled
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Rearranged" name="contact-type-uc" type="checkbox" value="Rearranged" {{ checked ('contact-type-uc', 'Rearranged') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Rearranged">
+                Rearranged
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="Completed" name="contact-type-uc" type="checkbox" value="Completed" {{ checked ('contact-type-uc', 'Completed') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="Completed">
+                Completed
+              </label>
+            </div>
+          </div>
           </fieldset>
         </div>
         {%endif%}

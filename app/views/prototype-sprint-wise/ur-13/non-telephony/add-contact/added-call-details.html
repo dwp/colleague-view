@@ -943,6 +943,63 @@ Check the details you have added
                   </td>
                 </tr>
                 {%endif%}
+                <!-- for Income based JSA -->
+                {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    Income-based Job Seeker's Allowance
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-ibjsa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsIBJSA in data['contact-type-ibjsa'] %}
+                        <li>{{ questionsIBJSA or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-ibjsa']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
+                <!-- for New Style JSA -->
+                {% if benefitsName == "New Style Job Seeker's Allowance" %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    New Style Job Seeker's Allowance
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-nsjsa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsNSJSA in data['contact-type-nsjsa'] %}
+                        <li>{{ questionsNSJSA or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-nsjsa']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
+                <!-- for UC -->
+                {% if benefitsName == 'Universal Credit' %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    Universal Credit
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-uc'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsUC in data['contact-type-uc'] %}
+                        <li>{{ questionsUC or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-uc']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
                 {% if benefitsName == 'General change of circumstance' %}
                 <!-- for General CoC -->
                 <tr class="govuk-summary-list__row">
@@ -1284,6 +1341,63 @@ Check the details you have added
                     {%else%}
                       <p>{{data['contact-type-dla']}}</p>
                       {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
+                <!-- for Income based JSA -->
+                {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    Income-based Job Seeker's Allowance
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-ibjsa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsIBJSA in data['contact-type-ibjsa'] %}
+                        <li>{{ questionsIBJSA or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-ibjsa']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
+                <!-- for New style JSA -->
+                {% if benefitsName == "New Style Job Seeker's Allowance" %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    New Style Job Seeker's Allowance
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-nsjsa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsNSJSA in data['contact-type-nsjsa'] %}
+                        <li>{{ questionsNSJSA or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-nsjsa']}}</p>
+                    {%endif%}
+                  </td>
+                </tr>
+                {%endif%}
+                <!-- for UC -->
+                {% if benefitsName == 'Universal Credit' %}
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    Universal Credit
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {%if data['contact-type-uc'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsUC in data['contact-type-uc'] %}
+                        <li>{{ questionsUC or "No inquiry selected"}}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>{{data['contact-type-uc']}}</p>
+                    {%endif%}
                   </td>
                 </tr>
                 {%endif%}
