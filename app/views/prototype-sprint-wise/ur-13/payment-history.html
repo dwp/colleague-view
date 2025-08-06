@@ -65,7 +65,7 @@ Payment history
     <div class="moj-filter cv-filter">
       <div class="moj-filter__header">
         <div class="moj-filter__header-title">
-          <h2 class="govuk-heading-m">Filter payment</h2>
+          <h2 class="govuk-heading-m">Filter payment history</h2>
         </div>
         <div class="moj-filter__header-action">
         </div>
@@ -90,6 +90,9 @@ Payment history
         <!-- filter options -->
         <div class="moj-filter__options">
           <form action="payment-history-filter-selected" method="post">
+            <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
+              Apply filters
+            </button>
             <!-- filter by benefits -->
             <div class="govuk-form-group govuk-!-margin-bottom-5">
               <!-- {% set benefitName = data['benefit'] %} -->
@@ -133,9 +136,9 @@ Payment history
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input" id="payment-status-2" name="payment-status" type="checkbox" value="Pending">
+                    <input class="govuk-checkboxes__input" id="payment-status-2" name="payment-status" type="checkbox" value="Not issued yet">
                     <label class="govuk-label govuk-checkboxes__label" for="payment-status-2">
-                      Pending
+                      Not issued yet
                     </label>
                   </div>
                   <div class="govuk-checkboxes__item">
@@ -166,78 +169,34 @@ Payment history
               </fieldset>
             </div>
             <!-- filter by date  -->
-            <div class="govuk-!-margin-bottom-6">
-              <h3 class="govuk-heading-s">Date</h3>
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
-                  <legend class="govuk-fieldset__legend">
-                    To
-                  </legend>
-                  <div class="govuk-date-input" id="from-date">
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="from-date-day">
-                              Day
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="from-date-month">
-                              Month
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="from-date-year">
-                              Year
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
-                      </div>
+            <div class="govuk-form-group govuk-!-margin-bottom-6">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                  Due date
+                </legend>
+                <div id="dob-hint" class="govuk-hint">
+                  For example, 3 1980
+                </div>
+                <div class="govuk-date-input" id="from-date">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="from-date-month">
+                            Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
                     </div>
                   </div>
-                </fieldset>
-              </div>
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
-                  <legend class="govuk-fieldset__legend">
-                    From
-                  </legend>
-                  <div class="govuk-date-input" id="from-date">
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="from-date-day">
-                              Day
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="from-date-month">
-                              Month
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
-                      </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="from-date-year">
-                              Year
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
-                      </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="from-date-year">
+                            Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
                     </div>
                   </div>
-                </fieldset>
-              </div>
+                </div>
+              </fieldset>
             </div>
-            <button type="submit" class="govuk-button govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
-              Apply filters
-            </button>
           </form>
         </div>
       </div>

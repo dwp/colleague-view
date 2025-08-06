@@ -45,25 +45,6 @@ Benefit payments
         </div>
       </div>
       <div class="moj-filter__content">
-        <!-- selected filters -->
-        <!-- {% set benefitName = data['benefit'] %}
-        {% if benefitName >0 %}
-        <div class="moj-filter__selected">
-          <div class="moj-filter__selected-heading">
-            <div class="moj-filter__heading-title">
-              <h3 class="govuk-heading-m">Selected filters</h3>
-            </div>
-            <div class="moj-filter__heading-action">
-              <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
-            </div>
-          </div>
-          <ul class="moj-filter-tags">
-          {% for benefit in data['benefit'] %}
-            <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefit }}</a></li>
-          {% endfor %}
-          </ul>
-        </div>
-        {%else%} -->
         <div class="moj-filter__selected" style="display: none;">
           <div class="moj-filter__selected-heading">
             <div class="moj-filter__heading-title">
@@ -79,10 +60,13 @@ Benefit payments
           {% endfor %}
           </ul>
         </div>
-        {%endif%}
+
         <!-- filter options -->
         <div class="moj-filter__options">
           <form action="payment-history-filter-selected" method="post">
+            <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
+              Apply filters
+            </button>
             <!-- filter by benefits -->
             <div class="govuk-form-group govuk-!-margin-bottom-5">
               <!-- {% set benefitName = data['benefit'] %} -->
@@ -112,9 +96,81 @@ Benefit payments
                 </div>
               </fieldset>
             </div>
-            <button type="submit" class="govuk-button govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
-              Apply filters
-            </button>
+            <!-- filter by status -->
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                  Status
+                </legend>
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-1" name="payment-status" type="checkbox" value="Issued">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-1">
+                      Issued
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-2" name="payment-status" type="checkbox" value="Not issued yet">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-2">
+                      Not issued yet
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-3" name="payment-status" type="checkbox" value="Cancelled">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-3">
+                      Cancelled
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-4" name="payment-status" type="checkbox" value="Recalled">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-4">
+                      Recalled
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-5" name="payment-status" type="checkbox" value="Rejected">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-5">
+                      Rejected
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-6" name="payment-status" type="checkbox" value="Returned">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-6">
+                      Returned
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- filter by date  -->
+            <div class="govuk-form-group govuk-!-margin-bottom-6">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                  Due date
+                </legend>
+                <div id="dob-hint" class="govuk-hint">
+                  For example, 3 1980
+                </div>
+                <div class="govuk-date-input" id="from-date">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="from-date-month">
+                            Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="from-date-year">
+                            Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
           </form>
         </div>
       </div>

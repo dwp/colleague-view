@@ -3,50 +3,48 @@ const router = express.Router();
 
 // this is for NINO number
 router.post('/index.html', function (req, res) {
-  req.session.data['What-type-of-contact'] = '';
-  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-  req.session.data['Who-is-the-engagement-with'] = '';
-  req.session.data[' was-call-answered']= '';
-  req.session.data['benefit'] = '';
-
-  // req.session.data.outcomePage = '';
   res.redirect('/prototype-sprint-wise/ur-13/index');
 });
 
 router.post('/why-checking-information', function (req, res) {
-  req.session.data['What-type-of-contact'] = '';
-  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-  req.session.data['Who-is-contact-with'] = '';
-  req.session.data[' was-call-answered']= '';
-  req.session.data['Who-is-the-engagement-with'] = '';
-  req.session.data['Do-you-want-to-complete-the-session'] = '';
-  req.session.data['whichBenefitDiscussed'] = '';
-  req.session.data['what-benefit-discussed'] = '';
-  req.session.data['what-benefit-discussed-non-telephony'] = '';
-  req.session.data['noBenefitReason'] = '';
-  req.session.data['question-asked'] = '';
-  req.session.data['questionAsk-esa'] = '';
-  req.session.data['questionAsk-pip'] = '';
-  req.session.data['esaPayment'] = '';
-  req.session.data['pipPayment'] = '';
-  req.session.data['caPayment'] = '';
-  req.session.data['ca-payment'] = '';
-  req.session.data['esa-payment'] = '';
-  req.session.data['pip-payment'] = '';
-  req.session.data['esa-process-chasing'] = '';
-  req.session.data['pip-process-chasing'] = '';
-  req.session.data['ca-process-chasing'] = '';
-  req.session.data['esa-coc'] = '';
-  req.session.data['pip-coc'] = '';
-  req.session.data['ca-coc'] = '';
-  req.session.data['esa-general'] = '';
-  req.session.data['pip-general'] = '';
-  req.session.data['ca-general'] = '';
-  req.session.data['Do-you-want-to-complete-the-call'] = '';
-  req.session.data.outcomePage = '';
-  req.session.data.notes = '';
-  req.session.data.tableValue = '';
-  req.session.data.outcomePage = '';
+  const ninoNumber = req.session.data['nino-number-ur-8'];
+req.session.data = {
+  'nino-number-ur-8': ninoNumber
+}
+
+  // req.session.data['What-type-of-contact'] = '';
+  // req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  // req.session.data['Who-is-contact-with'] = '';
+  // req.session.data[' was-call-answered']= '';
+  // req.session.data['Who-is-the-engagement-with'] = '';
+  // req.session.data['Do-you-want-to-complete-the-session'] = '';
+  // req.session.data['whichBenefitDiscussed'] = '';
+  // req.session.data['what-benefit-discussed'] = '';
+  // req.session.data['what-benefit-discussed-non-telephony'] = '';
+  // req.session.data['noBenefitReason'] = '';
+  // req.session.data['question-asked'] = '';
+  // req.session.data['questionAsk-esa'] = '';
+  // req.session.data['questionAsk-pip'] = '';
+  // req.session.data['esaPayment'] = '';
+  // req.session.data['pipPayment'] = '';
+  // req.session.data['caPayment'] = '';
+  // req.session.data['ca-payment'] = '';
+  // req.session.data['esa-payment'] = '';
+  // req.session.data['pip-payment'] = '';
+  // req.session.data['esa-process-chasing'] = '';
+  // req.session.data['pip-process-chasing'] = '';
+  // req.session.data['ca-process-chasing'] = '';
+  // req.session.data['esa-coc'] = '';
+  // req.session.data['pip-coc'] = '';
+  // req.session.data['ca-coc'] = '';
+  // req.session.data['esa-general'] = '';
+  // req.session.data['pip-general'] = '';
+  // req.session.data['ca-general'] = '';
+  // req.session.data['Do-you-want-to-complete-the-call'] = '';
+  // req.session.data.outcomePage = '';
+  // req.session.data.notes = '';
+  // req.session.data.tableValue = '';
+  // req.session.data.outcomePage = '';
 
   if (
     req.session.data['nino-number-ur-8'] == 'QQ123456Q' ||
@@ -69,9 +67,9 @@ router.post('/why-checking-information', function (req, res) {
 });
 
 router.post('/call-with', function (req, res) {
-  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-  req.session.data['Who-is-contact-with'] = '';
-  req.session.data['Who-is-the-engagement-with'] = '';
+  // req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  // req.session.data['Who-is-contact-with'] = '';
+  // req.session.data['Who-is-the-engagement-with'] = '';
 
   // Phone call conditions
   if (req.session.data['contact-types'] == 'A phone call') {
@@ -135,9 +133,9 @@ router.post('/call-with', function (req, res) {
 
 // for outbound call
 router.post('/who-were-tryingTo-contact', function (req, res) {
-  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-  req.session.data['Who-is-contact-with'] = '';
-  req.session.data['Who-is-the-engagement-with'] = '';
+  // req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  // req.session.data['Who-is-contact-with'] = '';
+  // req.session.data['Who-is-the-engagement-with'] = '';
 
   // Phone call conditions
   if (req.session.data['was-call-answered'] == 'Yes') {
@@ -191,8 +189,8 @@ router.post('/home', function (req, res) {
 
 router.post('/non-telephony/home', function (req, res) {
   // var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
-  req.session.data['what-benefit-discussed'] = '';
-  req.session.data['addNote']= '';
+  // req.session.data['what-benefit-discussed'] = '';
+  // req.session.data['addNote']= '';
 
   if (req.session.data['Who-is-contact-with'] == '') {
     res.redirect('back');
@@ -233,7 +231,15 @@ router.post('/add-call/select-contact-type', function (req, res) {
   req.session.data['contact-type-ibjsa'] = '';
   req.session.data['contact-type-nsjsa'] = '';
   req.session.data['contact-type-uc'] = '';
+  req.session.data['contact-type-sp'] = '';
+  req.session.data['contact-type-pc'] = '';
+  req.session.data['contact-type-wfp'] = '';
+  req.session.data['contact-type-cwp'] = '';
+  req.session.data['contact-type-ma'] = '';
+  req.session.data['contact-type-bsp'] = '';
+  req.session.data['contact-type-sda'] = '';
   req.session.data['contact-type-gCoC'] = '';
+  
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
   req.session.data['questionAsk-pip'] = '';
@@ -323,10 +329,10 @@ router.post('/add-call/added-call-details', function (req, res) {
 router.post('/add-call/added-details', function (req, res) {
   var addNote = req.session.data['do-you-want-add-note'];
   if(addNote =='Yes'){
-    console.log('Add Notes');
+    // console.log('Add Notes');
     res.redirect('/prototype-sprint-wise/ur-13/add-call/add-note')
   } else{
-    console.log('This is Newcastle');
+    // console.log('This is Newcastle');
     res.redirect('/prototype-sprint-wise/ur-13/add-call/added-details');
   }
 });
@@ -393,49 +399,65 @@ router.post('/add-call/check-call-completion', function (req, res) {
 
 // new routes for shorten call log - Non-Telephony
 
+// router.post('/non-telephony/add-contact/what-benefits-discussed', function (req, res) {
+//   if (req.session.data['what-benefit-discussed-non-telephon'] != '' && req.session.data['Do-you-want-to-complete-the-call'] != '') {
+//     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/do-you-want-add-more-details');
+
+//   }
+//   else{
+//     req.session.data['what-benefit-discussed-non-telephony'] = '';
+//     req.session.data['addNote']= '';
+//     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed');
+//   }
+// });
+
 router.post('/non-telephony/add-contact/what-benefits-discussed', function (req, res) {
-  if (req.session.data['what-benefit-discussed-non-telephony'] != '' && req.session.data['Do-you-want-to-complete-the-contact'] != '')  {
-    // console.log('Display summary page');
+  res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed');
+});
+
+router.post('/non-telephony/add-contact/do-you-want-add-more-details', function (req, res) {
     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/do-you-want-add-more-details');
-  }
-  else{
-    // req.session.data['what-benefit-discussed-non-telephony'] = '';
-    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed');
-  }
 });
 
 router.post('/non-telephony/add-contact/select-contact-type', function (req, res) {
 
-  req.session.data['contact-type'] = '';
-  req.session.data['contact-type-gCoC'] = '';
-  req.session.data['contact-type-esa'] = '';
-  req.session.data['contact-type-pip'] = '';
-  req.session.data['contact-type-aa'] = '';
-  req.session.data['contact-type-dla'] = '';
-  req.session.data['contact-type-ca'] = '';
-  req.session.data['contact-type-ibjsa'] = '';
-  req.session.data['contact-type-nsjsa'] = '';
-  req.session.data['contact-type-uc'] = '';
+  // req.session.data['contact-type'] = '';
+  // req.session.data['contact-type-gCoC'] = '';
+  // req.session.data['contact-type-esa'] = '';
+  // req.session.data['contact-type-pip'] = '';
+  // req.session.data['contact-type-aa'] = '';
+  // req.session.data['contact-type-dla'] = '';
+  // req.session.data['contact-type-ca'] = '';
+  // req.session.data['contact-type-ibjsa'] = '';
+  // req.session.data['contact-type-nsjsa'] = '';
+  // req.session.data['contact-type-uc'] = '';
+  // req.session.data['contact-type-pc'] = '';
+  // req.session.data['contact-type-sp'] = '';
+  // req.session.data['contact-type-wfp'] = '';
+  // req.session.data['contact-type-cwp'] = '';
+  // req.session.data['contact-type-bsp'] = '';
+  // req.session.data['contact-type-ma'] = '';
+  // req.session.data['contact-type-sda'] = '';
 
-  req.session.data['questionAsk'] = '';
-  req.session.data['questionAsk-esa'] = '';
-  req.session.data['questionAsk-pip'] = '';
-  req.session.data['question-asked'] = '';
+  // req.session.data['questionAsk'] = '';
+  // req.session.data['questionAsk-esa'] = '';
+  // req.session.data['questionAsk-pip'] = '';
+  // req.session.data['question-asked'] = '';
 
-  req.session.data['npd_wasQuestionResolved']= '';
-  req.session.data['npa_wasQuestionResolved']= '';
+  // req.session.data['npd_wasQuestionResolved']= '';
+  // req.session.data['npa_wasQuestionResolved']= '';
 
-  req.session.data['npd_wasQuestionResolved-esa']= '';
-  req.session.data['npa_wasQuestionResolved-esa']= '';
-  req.session.data['ma_question-resolved-esa']= '';
-  req.session.data['chpa_question-resolved-esa']= '';
-  req.session.data['othQ_question-resolved-esa']= '';
+  // req.session.data['npd_wasQuestionResolved-esa']= '';
+  // req.session.data['npa_wasQuestionResolved-esa']= '';
+  // req.session.data['ma_question-resolved-esa']= '';
+  // req.session.data['chpa_question-resolved-esa']= '';
+  // req.session.data['othQ_question-resolved-esa']= '';
 
-  req.session.data['npd_wasQuestionResolved-pip']= '';
-  req.session.data['npa_wasQuestionResolved-pip']= '';
-  req.session.data['ma_question-resolved-pip']= '';
-  req.session.data['chpa_question-resolved-pip']= '';
-  req.session.data['othQ_question-resolved-pip']= '';
+  // req.session.data['npd_wasQuestionResolved-pip']= '';
+  // req.session.data['npa_wasQuestionResolved-pip']= '';
+  // req.session.data['ma_question-resolved-pip']= '';
+  // req.session.data['chpa_question-resolved-pip']= '';
+  // req.session.data['othQ_question-resolved-pip']= '';
 
   if (req.session.data['what-benefit-discussed-non-telephony'] == '')
  {
@@ -523,13 +545,13 @@ router.post('/non-telephony/add-contact/check-before-start-sercive-again', funct
   }
 });
 
-router.post('/non-telephony/add-contact/contact-details-added', function (req, res) {
+router.post('/non-telephony/add-contact/start-service-again', function (req, res) {
   var addContactDetails = req.session.data['add-contact-Details'];
-  if (addContactDetails == 'Yes'){
-    req.session.data['what-benefit-discussed-non-telephony'] = '';
-    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed')
-  } else{
-    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/contact-completed')
+  if (addContactDetails == 'Yes') {
+    res.redirect('/prototype-sprint-wise/ur-13/index');
+  }
+  else{
+    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/home');
   }
 });
 

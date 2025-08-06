@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Do you want to update the call details you have added?
+  Do you want to update the details you have added?
 {% endblock %}
 
 {% block header %}
@@ -32,31 +32,31 @@
           <!-- ------------------------------ for Phone call ------------------------------ -->
         {% if data['contact-types']== 'A phone call' %}
         <h1 class="govuk-fieldset__heading">
-          Do you want to update the call details you have added?
+          Do you want to update the details you have added?
         </h1>
         {%endif%}
         <!-- ------------------------------ for letter ------------------------------ -->
         {% if data['contact-types']== 'A letter' %}
         <h1 class="govuk-fieldset__heading">
-          Do you want to update the letter details you have added?
+          Do you want to update the details you have added?
         </h1>
         {%endif%}
         <!-- ------------------------------ for Email ------------------------------ -->
         {% if data['contact-types']== 'An email' %}
         <h1 class="govuk-fieldset__heading">
-          Do you want to update the email details you have added?
+          Do you want to update the details you have added?
         </h1>
         {%endif%}
         <!-- ------------------------------ for text message ------------------------------ -->
         {% if data['contact-types']== 'Text message to' %}
         <h1 class="govuk-fieldset__heading">
-          Do you want to update the text message you have added?
+          Do you want to update the details you have added?
         </h1>
         {%endif%}
         <!-- ------------------------------ for A visit or appointment ------------------------------ -->
         {% if data['contact-types']== 'A visit or appointment' %}
         <h1 class="govuk-fieldset__heading">
-          Do you want to update the visit details you have added?
+          Do you want to update the details you have added?
         </h1>
         {%endif%}
         </legend>
@@ -77,7 +77,7 @@
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-3" name="do-you-want-to-add-more-detail" type="radio" value="Complete phone call">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-3">
-              Start Service again
+              Start service again
             </label>
           </div>
         </div>
@@ -95,31 +95,31 @@
           <!-- ------------------------------ for Phone call ------------------------------ -->
           {% if data['contact-types']== 'A phone call' %}
           <h1 class="govuk-fieldset__heading">
-            Do you want to update the call details you have added?
+            Do you want to update the details you have added?
           </h1>
           {%endif%}
           <!-- ------------------------------ for letter ------------------------------ -->
           {% if data['contact-types']== 'A letter' %}
           <h1 class="govuk-fieldset__heading">
-            Do you want to update the letter details you have added?
+            Do you want to update the details you have added?
           </h1>
           {%endif%}
           <!-- ------------------------------ for Email ------------------------------ -->
           {% if data['contact-types']== 'An email' %}
           <h1 class="govuk-fieldset__heading">
-            Do you want to update the email details you have added?
+            Do you want to update the details you have added?
           </h1>
           {%endif%}
           <!-- ------------------------------ for text message ------------------------------ -->
           {% if data['contact-types']== 'Text message to' %}
           <h1 class="govuk-fieldset__heading">
-            Do you want to update the notification details you have added?
+            Do you want to update the details you have added?
           </h1>
           {%endif%}
           <!-- ------------------------------ for A visit or appointment ------------------------------ -->
           {% if data['contact-types']== 'A visit or appointment' %}
           <h1 class="govuk-fieldset__heading">
-            Do you want to update the visit details you have added?
+            Do you want to update the details you have added?
           </h1>
           {%endif%}
         </legend>
@@ -140,7 +140,7 @@
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="do-you-want-to-add-more-detail-3" name="do-you-want-to-add-more-detail" type="radio" value="Complete phone call">
             <label class="govuk-label govuk-radios__label" for="do-you-want-to-add-more-detail-3">
-              Start Service again
+              Start service again
             </label>
           </div>
         </div>
@@ -169,7 +169,7 @@
         <h2 class="govuk-heading-m">You have added details about this email</h2>
         {%endif%}
         {% if (data['What-type-of-contact']== '') and (data['contact-types']== 'Text message to') %} 
-        <h2 class="govuk-heading-m">You have added details about this notification</h2>
+        <h2 class="govuk-heading-m">You have added details about this message</h2>
         {%endif%}
         {% if (data['What-type-of-contact']== 'Visit from') or (data['What-type-of-contact'] == 'Visit to') %}
         <h2 class="govuk-heading-m">You have added details about this visit</h2>
@@ -331,6 +331,139 @@
                   </ul>
                 {%else%}
                 <p>{{data['contact-type-uc']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for PC -->
+            {% if benefitsName == 'Pension Credit' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Pension Credit
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-pc'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsPC in data['contact-type-pc'] %}
+                    <li>{{ questionsPC or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-pc']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for SP -->
+            {% if benefitsName == 'State Pension' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                State Pension
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-sp'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsSP in data['contact-type-sp'] %}
+                    <li>{{ questionsSP or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-sp']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for WFP -->
+            {% if benefitsName == 'Winter Fuel Payment' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Winter Fuel Payment
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-wfp'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsWFP in data['contact-type-wfp'] %}
+                    <li>{{ questionsWFP or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-wfp']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for CWP -->
+            {% if benefitsName == 'Cold Weather Payment' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Cold Weather Payment
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-cwp'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsCWP in data['contact-type-cwp'] %}
+                    <li>{{ questionsCWP or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-cwp']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for BSP -->
+            {% if benefitsName == 'Bereavement Support Payment' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Bereavement Support Payment
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-bsp'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsBSP in data['contact-type-bsp'] %}
+                    <li>{{ questionsBSP or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-bsp']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for MA -->
+            {% if benefitsName == 'Maternity Allowance' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Maternity Allowance
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-ma'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsMA in data['contact-type-ma'] %}
+                    <li>{{ questionsMA or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-ma']}}</p>
+                {%endif%}
+              </td>
+            </tr>
+            {%endif%}
+            <!-- for SDA -->
+            {% if benefitsName == 'Severe Disablement Allowance' %}
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Severe Disablement Allowance
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['contact-type-sda'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for questionsSDA in data['contact-type-sda'] %}
+                    <li>{{ questionsSDA or "No inquiry selected"}}</li>
+                    {% endfor %}
+                  </ul>
+                {%else%}
+                <p>{{data['contact-type-sda']}}</p>
                 {%endif%}
               </td>
             </tr>

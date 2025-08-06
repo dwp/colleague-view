@@ -28,7 +28,7 @@ Check the details you have added
     {% set benefitLength =  data['what-benefit-discussed'] | length %}
     {% set checkCallAnswered = data['was-call-answered'] %}
     {% set contactType = data['What-type-of-contact'] %}
-
+    <!-- multiple benefits -->
     {% if benefitLength >1 %}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
@@ -227,7 +227,6 @@ Check the details you have added
                 </td>
               </tr>
               {%endif%}
-
               <!-- for ibjsa -->
               {% if benefitsName == "Income-based Job Seeker's Allowance" %}
               <tr class="govuk-summary-list__row">
@@ -266,6 +265,139 @@ Check the details you have added
                 </td>
               </tr>
               {%endif%}
+              <!-- for PC -->
+              {% if benefitsName == 'Pension Credit' %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Pension Credit
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-pc'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsPC in data['contact-type-pc'] %}
+                      <li>{{ questionsPC or "No inquiry selected"}}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                  <p>{{data['contact-type-pc']}}</p>
+                  {%endif%}
+                </td>
+              </tr>
+              {%endif%}
+              <!-- for SP -->
+              {% if benefitsName == 'State Pension' %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  State Pension
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-sp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsSP in data['contact-type-sp'] %}
+                      <li>{{ questionsSP or "No inquiry selected"}}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                  <p>{{data['contact-type-sp']}}</p>
+                  {%endif%}
+                </td>
+              </tr>
+              {%endif%}
+              <!-- for WFP -->
+              {% if benefitsName == 'Winter Fuel Payment' %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Winter Fuel Payment
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-wfp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsWFP in data['contact-type-wfp'] %}
+                      <li>{{ questionsWFP or "No inquiry selected"}}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                  <p>{{data['contact-type-wfp']}}</p>
+                  {%endif%}
+                </td>
+              </tr>
+              {%endif%}
+              <!-- for CWP -->
+              {% if benefitsName == 'Cold Weather Payment' %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Cold Weather Payment
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-cwp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsCWP in data['contact-type-cwp'] %}
+                      <li>{{ questionsCWP or "No inquiry selected"}}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                  <p>{{data['contact-type-cwp']}}</p>
+                  {%endif%}
+                </td>
+              </tr>
+              {%endif%}
+              <!-- for BSP -->
+              {% if benefitsName == 'Bereavement Support Payment' %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Bereavement Support Payment
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-bsp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsBSP in data['contact-type-bsp'] %}
+                      <li>{{ questionsBSP or "No inquiry selected"}}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                  <p>{{data['contact-type-bsp']}}</p>
+                  {%endif%}
+                </td>
+              </tr>
+              {%endif%}
+              <!-- for MA -->
+              {% if benefitsName == 'Maternity Allowance' %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Maternity Allowance
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-ma'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsMA in data['contact-type-ma'] %}
+                      <li>{{ questionsMA or "No inquiry selected"}}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                  <p>{{data['contact-type-ma']}}</p>
+                  {%endif%}
+                </td>
+              </tr>
+              {%endif%}
+              <!-- for SDA -->
+              {% if benefitsName == 'Severe Disablement Allowance' %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Severe Disablement Allowance
+                </th>
+                <td class="govuk-summary-list__value">
+                  {%if data['contact-type-sda'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsSDA in data['contact-type-sda'] %}
+                      <li>{{ questionsSDA or "No inquiry selected"}}</li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                  <p>{{data['contact-type-sda']}}</p>
+                  {%endif%}
+                </td>
+              </tr>
+              {%endif%}
               <!-- for General CoC -->
               {% if benefitsName == 'General change of circumstance' %}
               <tr class="govuk-summary-list__row">
@@ -300,6 +432,15 @@ Check the details you have added
       </div>
     </div>
     <!-- warning message -->
+    {%if data['was-call-answered'] == 'No'%}
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        When you select confirm, you will not be able to change this contact record.
+      </strong>
+    </div>
+    {%else%}
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
@@ -307,6 +448,8 @@ Check the details you have added
         When you select confirm, you will not be able to remove the benefits you have added.
       </strong>
     </div>
+    {%endif%}
+    <!-- only one benefit -->
     {% else %}
     {%if data['what-benefit-discussed'] == 'General change of circumstance' %}
       <!--GCoC -->
@@ -496,6 +639,15 @@ Check the details you have added
         </div>
       </div>
       <!-- warning message -->
+      {%if data['was-call-answered'] == 'No'%}
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          When you select confirm, you will not be able to change this contact record.
+        </strong>
+      </div>
+      {%else%}
       <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
@@ -503,6 +655,7 @@ Check the details you have added
           When you select confirm, you will not be able to remove the benefits you have added.
         </strong>
       </div>
+      {%endif%}
     {%endif%}
     {% endif %} 
 

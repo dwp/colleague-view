@@ -37,9 +37,7 @@ Home
         <div class="govuk-grid-column-one-half">
           <form action="/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed" method="post">
             <div class="govuk-button-group">
-              {% set benefits =  data['what-benefit-discussed'] | length %}
-              {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
-              {%if benefitAdded != '' %}
+              {%if benefits > 0 %}
               <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed">
                 Add or change call details
               </button>

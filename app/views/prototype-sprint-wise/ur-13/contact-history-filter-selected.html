@@ -299,15 +299,10 @@ Contact history
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                           Contact date
                         </legend>
+                        <div id="dob-hint" class="govuk-hint">
+                          For example, 3 1980
+                        </div>
                         <div class="govuk-date-input" id="from-date">
-                          <div class="govuk-date-input__item">
-                            <div class="govuk-form-group">
-                              <label class="govuk-label govuk-date-input__label" for="from-date-day">
-                                    Day
-                              </label>
-                              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
-                            </div>
-                          </div>
                           <div class="govuk-date-input__item">
                             <div class="govuk-form-group">
                               <label class="govuk-label govuk-date-input__label" for="from-date-month">
@@ -325,33 +320,6 @@ Contact history
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="govuk-form-group govuk-!-margin-top-2">
-                          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
-                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-visually-hidden">
-                              search by month
-                            </legend>
-                            <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="Last one month">
-                                <label class="govuk-label govuk-radios__label" for="changedName">
-                                  Last one month
-                                </label>
-                              </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="Last 3 months">
-                                <label class="govuk-label govuk-radios__label" for="changedName-2">
-                                  Last 3 months
-                                </label>
-                              </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="Last 6 months">
-                                <label class="govuk-label govuk-radios__label" for="changedName-3">
-                                  Last 6 months
-                                </label>
-                              </div>
-                            </div>
-                          </fieldset>
-                        </div> -->
                       </fieldset>
                     </div>
                     <!-- filter by Keywors -->
@@ -390,12 +358,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Telephone call: 01 May 2023, 10:00</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
-                        <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -417,6 +384,22 @@ Contact history
                             <p>Next payment amount</p>
                           </td>
                         </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -432,11 +415,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -463,6 +446,22 @@ Contact history
                           </th>
                           <td class="govuk-summary-list__value">
                             Check notes
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
                           </td>
                         </tr>
                       </tbody>
@@ -478,11 +477,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -509,6 +508,22 @@ Contact history
                           </th>
                           <td class="govuk-summary-list__value">
                             Check notes
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
                           </td>
                         </tr>
                       </tbody>
@@ -524,11 +539,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -555,6 +570,22 @@ Contact history
                           </th>
                           <td class="govuk-summary-list__value">
                             Check notes
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
                           </td>
                         </tr>
                       </tbody>
@@ -570,11 +601,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -601,6 +632,22 @@ Contact history
                           </th>
                           <td class="govuk-summary-list__value">
                             Check notes
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
                           </td>
                         </tr>
                       </tbody>
@@ -623,12 +670,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Inbound phone call: 15 April 2025, 10:30</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
-                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -651,6 +697,22 @@ Contact history
                               <p>Proof of benefit</p>
                           </td>
                         </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -658,12 +720,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
-                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -684,6 +745,22 @@ Contact history
                             Proof of benefit
                           </td>
                         </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -691,11 +768,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -715,6 +792,22 @@ Contact history
                           <td class="govuk-summary-list__value">
                             <p>A payment enquiry</p>
                             <p>Proof of benefit</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
                           </td>
                         </tr>
                       </tbody>
@@ -730,12 +823,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
-                        <!-- <span class="govuk-!-font-weight-regular"></span> -->
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -756,6 +848,22 @@ Contact history
                             Proof of benefit
                           </td>
                         </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
+                          </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -763,11 +871,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -787,6 +895,22 @@ Contact history
                           <td class="govuk-summary-list__value">
                             <p>A payment enquiry</p>
                             <p>Proof of benefit</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
                           </td>
                         </tr>
                       </tbody>
@@ -804,11 +928,11 @@ Contact history
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">Telephone call: 14 April 2023, 09:00</h2>
-                    <ul class="govuk-summary-card__actions">
+                    <!-- <ul class="govuk-summary-card__actions">
                       <li class="govuk-summary-card__action">
                         <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
                   <div class="govuk-summary-card__content">
                     <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -835,6 +959,22 @@ Contact history
                           </th>
                           <td class="govuk-summary-list__value">
                             Check notes
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Who the contact was with
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>George Wood (Appointee)</p>
+                          </td>
+                        </tr>
+                        <tr class="govuk-summary-list__row">
+                          <th scope="row" class="govuk-summary-list__key">
+                            Agent ID
+                          </th>
+                          <td class="govuk-summary-list__value">
+                            <p>1003</p>
                           </td>
                         </tr>
                       </tbody>
@@ -862,11 +1002,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -887,6 +1027,22 @@ Contact history
                                 <p>A request for evidence</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -894,11 +1050,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -919,6 +1075,22 @@ Contact history
                                 Address
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -926,11 +1098,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -951,6 +1123,22 @@ Contact history
                                 Call disconnected
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -958,12 +1146,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
-                            <!-- <span class="govuk-!-font-weight-regular"></span> -->
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -984,6 +1171,22 @@ Contact history
                                 Proof of benefit
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -991,11 +1194,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1017,6 +1220,22 @@ Contact history
                                 <p>Proof of benefit</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1024,11 +1243,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1049,6 +1268,22 @@ Contact history
                                 Missing information
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1056,11 +1291,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1081,6 +1316,22 @@ Contact history
                                 Making a claim over the phone
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1088,11 +1339,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Jobcentre visit: 01 September 2024, 14:20</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-face-face.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1119,6 +1370,22 @@ Contact history
                               </th>
                               <td class="govuk-summary-list__value">
                                 Checking eligibility
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
                               </td>
                             </tr>
                           </tbody>
@@ -1170,11 +1437,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1195,6 +1462,22 @@ Contact history
                                 <p>A request for evidence</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1202,11 +1485,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1227,6 +1510,22 @@ Contact history
                                 Address
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1234,11 +1533,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1259,6 +1558,22 @@ Contact history
                                 Call disconnected
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1266,12 +1581,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
-                            <!-- <span class="govuk-!-font-weight-regular"></span> -->
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1292,6 +1606,22 @@ Contact history
                                 Proof of benefit
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1299,11 +1629,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1325,6 +1655,22 @@ Contact history
                                 <p>Proof of benefit</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1332,11 +1678,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1357,6 +1703,22 @@ Contact history
                                 Missing information
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1364,11 +1726,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1389,6 +1751,22 @@ Contact history
                                 Making a claim over the phone
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1396,11 +1774,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Jobcentre visit: 01 September 2024, 14:20</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-face-face.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1427,6 +1805,22 @@ Contact history
                               </th>
                               <td class="govuk-summary-list__value">
                                 Checking eligibility
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
                               </td>
                             </tr>
                           </tbody>
@@ -1448,11 +1842,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1473,6 +1867,22 @@ Contact history
                                 Call disconnected
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1480,12 +1890,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
-                            <!-- <span class="govuk-!-font-weight-regular"></span> -->
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1506,6 +1915,22 @@ Contact history
                                 Proof of benefit
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1513,11 +1938,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1539,6 +1964,22 @@ Contact history
                                 <p>Proof of benefit</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1546,11 +1987,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1571,6 +2012,22 @@ Contact history
                                 Missing information
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1578,11 +2035,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1603,6 +2060,22 @@ Contact history
                                 Making a claim over the phone
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1610,11 +2083,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Jobcentre visit: 01 September 2024, 14:20</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-face-face.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1641,6 +2114,22 @@ Contact history
                               </th>
                               <td class="govuk-summary-list__value">
                                 Checking eligibility
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
                               </td>
                             </tr>
                           </tbody>
@@ -1700,11 +2189,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1725,6 +2214,22 @@ Contact history
                                 Call disconnected
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1732,12 +2237,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
-                            <!-- <span class="govuk-!-font-weight-regular"></span> -->
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1758,6 +2262,22 @@ Contact history
                                 Proof of benefit
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1765,11 +2285,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1791,6 +2311,22 @@ Contact history
                                 <p>Proof of benefit</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1798,11 +2334,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1823,6 +2359,22 @@ Contact history
                                 Missing information
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1830,11 +2382,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1855,6 +2407,22 @@ Contact history
                                 Making a claim over the phone
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1862,11 +2430,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Jobcentre visit: 01 September 2024, 14:20</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-face-face.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1893,6 +2461,22 @@ Contact history
                               </th>
                               <td class="govuk-summary-list__value">
                                 Checking eligibility
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
                               </td>
                             </tr>
                           </tbody>
@@ -1914,11 +2498,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Jobcentre visit: 01 September 2024, 14:20</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-face-face.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1947,6 +2531,22 @@ Contact history
                                 Checking eligibility
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1966,11 +2566,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -1991,6 +2591,22 @@ Contact history
                                 <p>A request for evidence</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1998,11 +2614,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2021,6 +2637,22 @@ Contact history
                               </th>
                               <td class="govuk-summary-list__value">
                                 Address
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
                               </td>
                             </tr>
                           </tbody>
@@ -2045,11 +2677,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2070,6 +2702,22 @@ Contact history
                               Call disconnected
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -2077,11 +2725,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2103,6 +2751,22 @@ Contact history
                               <p>Proof of benefit</p>
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -2110,11 +2774,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2133,6 +2797,22 @@ Contact history
                             </th>
                             <td class="govuk-summary-list__value">
                               Making a claim over the phone
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
                             </td>
                           </tr>
                         </tbody>
@@ -2158,11 +2838,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2181,6 +2861,22 @@ Contact history
                             </th>
                             <td class="govuk-summary-list__value">
                               Missing information
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
                             </td>
                           </tr>
                         </tbody>
@@ -2207,11 +2903,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2232,6 +2928,22 @@ Contact history
                               <p>A request for evidence</p>
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -2239,12 +2951,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                          <!-- <span class="govuk-!-font-weight-regular"></span> -->
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2263,6 +2974,22 @@ Contact history
                             </th>
                             <td class="govuk-summary-list__value">
                               Proof of benefit
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
                             </td>
                           </tr>
                         </tbody>
@@ -2286,11 +3013,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2310,6 +3037,22 @@ Contact history
                             <td class="govuk-summary-list__value">
                               <p>A payment enquiry</p>
                               <p>Proof of benefit</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
                             </td>
                           </tr>
                         </tbody>
@@ -2330,12 +3073,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                          <!-- <span class="govuk-!-font-weight-regular"></span> -->
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2356,6 +3098,22 @@ Contact history
                               Proof of benefit
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -2363,11 +3121,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2387,6 +3145,22 @@ Contact history
                             <td class="govuk-summary-list__value">
                               <p>A payment enquiry</p>
                               <p>Proof of benefit</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
                             </td>
                           </tr>
                         </tbody>
@@ -2411,11 +3185,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2435,6 +3209,22 @@ Contact history
                               <td class="govuk-summary-list__value">
                                 <p>A payment enquiry</p>
                                 <p>Proof of benefit</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
                               </td>
                             </tr>
                           </tbody>
@@ -2461,11 +3251,11 @@ Contact history
                       <div class="govuk-summary-card">
                         <div class="govuk-summary-card__title-wrapper">
                           <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                          <ul class="govuk-summary-card__actions">
+                          <!-- <ul class="govuk-summary-card__actions">
                             <li class="govuk-summary-card__action">
                               <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                             </li>
-                          </ul>
+                          </ul> -->
                         </div>
                         <div class="govuk-summary-card__content">
                           <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2485,6 +3275,22 @@ Contact history
                                 <td class="govuk-summary-list__value">
                                   <p>A payment enquiry</p>
                                   <p>Proof of benefit</p>
+                                </td>
+                              </tr>
+                              <tr class="govuk-summary-list__row">
+                                <th scope="row" class="govuk-summary-list__key">
+                                  Who the contact was with
+                                </th>
+                                <td class="govuk-summary-list__value">
+                                  <p>George Wood (Appointee)</p>
+                                </td>
+                              </tr>
+                              <tr class="govuk-summary-list__row">
+                                <th scope="row" class="govuk-summary-list__key">
+                                  Agent ID
+                                </th>
+                                <td class="govuk-summary-list__value">
+                                  <p>1003</p>
                                 </td>
                               </tr>
                             </tbody>
@@ -2513,11 +3319,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2538,6 +3344,22 @@ Contact history
                                 <p>A request for evidence</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -2545,11 +3367,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2570,6 +3392,22 @@ Contact history
                                 Address
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -2577,11 +3415,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2602,6 +3440,22 @@ Contact history
                                 Call disconnected
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -2609,12 +3463,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
-                            <!-- <span class="govuk-!-font-weight-regular"></span> -->
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2635,6 +3488,22 @@ Contact history
                                 Proof of benefit
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -2642,11 +3511,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2668,6 +3537,22 @@ Contact history
                                 <p>Proof of benefit</p>
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -2675,11 +3560,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2700,6 +3585,22 @@ Contact history
                                 Missing information
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -2707,11 +3608,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2732,6 +3633,22 @@ Contact history
                                 Making a claim over the phone
                               </td>
                             </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -2739,11 +3656,11 @@ Contact history
                     <div class="govuk-summary-card">
                       <div class="govuk-summary-card__title-wrapper">
                         <h2 class="govuk-summary-card__title">Jobcentre visit: 01 September 2024, 14:20</h2>
-                        <ul class="govuk-summary-card__actions">
+                        <!-- <ul class="govuk-summary-card__actions">
                           <li class="govuk-summary-card__action">
                             <a class="govuk-link" href="view-call-detail-face-face.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                           </li>
-                        </ul>
+                        </ul> -->
                       </div>
                       <div class="govuk-summary-card__content">
                         <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2770,6 +3687,22 @@ Contact history
                               </th>
                               <td class="govuk-summary-list__value">
                                 Checking eligibility
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Who the contact was with
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>George Wood (Appointee)</p>
+                              </td>
+                            </tr>
+                            <tr class="govuk-summary-list__row">
+                              <th scope="row" class="govuk-summary-list__key">
+                                Agent ID
+                              </th>
+                              <td class="govuk-summary-list__value">
+                                <p>1003</p>
                               </td>
                             </tr>
                           </tbody>
@@ -2820,12 +3753,11 @@ Contact history
                       <div class="govuk-summary-card">
                         <div class="govuk-summary-card__title-wrapper">
                           <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                          <ul class="govuk-summary-card__actions">
+                          <!-- <ul class="govuk-summary-card__actions">
                             <li class="govuk-summary-card__action">
-                              <!-- <span class="govuk-!-font-weight-regular"></span> -->
                               <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                             </li>
-                          </ul>
+                          </ul> -->
                         </div>
                         <div class="govuk-summary-card__content">
                           <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2844,6 +3776,22 @@ Contact history
                                 </th>
                                 <td class="govuk-summary-list__value">
                                   Proof of benefit
+                                </td>
+                              </tr>
+                              <tr class="govuk-summary-list__row">
+                                <th scope="row" class="govuk-summary-list__key">
+                                  Who the contact was with
+                                </th>
+                                <td class="govuk-summary-list__value">
+                                  <p>George Wood (Appointee)</p>
+                                </td>
+                              </tr>
+                              <tr class="govuk-summary-list__row">
+                                <th scope="row" class="govuk-summary-list__key">
+                                  Agent ID
+                                </th>
+                                <td class="govuk-summary-list__value">
+                                  <p>1003</p>
                                 </td>
                               </tr>
                             </tbody>
@@ -2871,11 +3819,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2896,6 +3844,22 @@ Contact history
                               Address
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -2903,11 +3867,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2928,6 +3892,22 @@ Contact history
                               Call disconnected
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -2935,11 +3915,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2961,6 +3941,22 @@ Contact history
                               <p>Proof of benefit</p>
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -2968,11 +3964,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -2993,6 +3989,22 @@ Contact history
                               Making a claim over the phone
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -3011,11 +4023,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -3036,6 +4048,22 @@ Contact history
                               Missing information
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -3054,11 +4082,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -3079,6 +4107,22 @@ Contact history
                               <p>A request for evidence</p>
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -3086,12 +4130,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                          <!-- <span class="govuk-!-font-weight-regular"></span> -->
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -3110,6 +4153,22 @@ Contact history
                             </th>
                             <td class="govuk-summary-list__value">
                               Proof of benefit
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
                             </td>
                           </tr>
                         </tbody>
@@ -3138,12 +4197,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                          <!-- <span class="govuk-!-font-weight-regular"></span> -->
                           <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -3164,6 +4222,22 @@ Contact history
                               Proof of benefit
                             </td>
                           </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -3171,11 +4245,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -3195,6 +4269,22 @@ Contact history
                             <td class="govuk-summary-list__value">
                               <p>A payment enquiry</p>
                               <p>Proof of benefit</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
                             </td>
                           </tr>
                         </tbody>
@@ -3215,11 +4305,11 @@ Contact history
                   <div class="govuk-summary-card">
                     <div class="govuk-summary-card__title-wrapper">
                       <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                      <ul class="govuk-summary-card__actions">
+                      <!-- <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
                           <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                     <div class="govuk-summary-card__content">
                       <table class="govuk-summary-list govuk-!-margin-bottom-0">
@@ -3239,6 +4329,22 @@ Contact history
                             <td class="govuk-summary-list__value">
                               <p>A payment enquiry</p>
                               <p>Proof of benefit</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Who the contact was with
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>George Wood (Appointee)</p>
+                            </td>
+                          </tr>
+                          <tr class="govuk-summary-list__row">
+                            <th scope="row" class="govuk-summary-list__key">
+                              Agent ID
+                            </th>
+                            <td class="govuk-summary-list__value">
+                              <p>1003</p>
                             </td>
                           </tr>
                         </tbody>

@@ -38,8 +38,8 @@ Home
           <form action="/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed" method="post">
             <div class="govuk-button-group">
               {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
-              {%if benefits >=1 %}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed">
+              {% if benefits > 0 %}
+              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/non-telephony/add-contact/do-you-want-add-more-details">
                 Add or change contact details
               </button>
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/non-telephony/add-contact/check-before-start-sercive-again">
@@ -48,6 +48,10 @@ Home
               {%else%}
               <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed">
                 Add contact details
+              </button>
+              <!-- Adde this grey button afer Karen's got conformation from Rhys -->
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/non-telephony/add-contact/check-before-start-sercive-again">
+                Start service again
               </button>
               {%endif%}
               <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/non-telephony/add-contact/check-before-start-sercive-again">

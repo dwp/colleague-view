@@ -25,9 +25,43 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <!-- a letter -->
+              {%if data['contact-types'] == 'A letter' %}
+                {%if data['What-type-of-contact'] == 'Inbound letter from' %}
+                <h1 class="govuk-fieldset__heading">
+                  Who is the letter from?
+                </h1>
+                {%else%}
+                <h1 class="govuk-fieldset__heading">
+                  Who is the letter to?
+                </h1>
+                {%endif%}
+              {%endif%}
+              <!-- an email -->
+              {%if data['contact-types'] == 'An email' %}
+                {%if data['What-type-of-contact'] == 'Inbound email from' %}
+                <h1 class="govuk-fieldset__heading">
+                  Who is the email from?
+                </h1>
+                {%endif%}
+                {%if data['What-type-of-contact'] == 'Outbound email to' %}
+                <h1 class="govuk-fieldset__heading">
+                  Who is the email to?
+                </h1>
+                {%endif%}
+              {%endif%}
+              <!-- a text message -->
+              {%if data['contact-types'] == 'Text message to' %}
               <h1 class="govuk-fieldset__heading">
-                Who was the contact with?
+                Who is the message to?
               </h1>
+              {%endif%}
+              <!-- a visit -->
+              {%if data['contact-types'] == 'A visit or appointment' %}
+              <h1 class="govuk-fieldset__heading">
+                Who is the visit with?
+              </h1>
+              {%endif%}
             </legend>
             <!-- <div id="changed-name-hint" class="govuk-hint">
               Select one option
