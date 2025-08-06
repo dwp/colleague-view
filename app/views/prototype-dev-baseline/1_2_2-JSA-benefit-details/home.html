@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Home
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/view-only/keydetail-bar" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/phase-banner.html" %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h1 class="govuk-heading-xl">Home</h1>
+  </div>
+  <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+    <form action="/prototype-dev-baseline/mvp-1_2/view-only/index" method="post">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Start service again
+        </button>
+    </form>
+  </div>
+</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <!-- to be card styel -->
+      <ul class="govuk-grid-row nhsuk-card-group">
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="#">Personal details</a>
+              </h2>
+              <p class="nhsuk-card__description">View personal details, including contact numbers and addresses.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="#">Contact history</a>
+              </h2>
+              <p class="nhsuk-card__description">View notes and details about previous contact.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
+              </h2>
+              <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

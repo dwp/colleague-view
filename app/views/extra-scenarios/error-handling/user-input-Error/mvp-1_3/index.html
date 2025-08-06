@@ -1,0 +1,857 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Display error message - prototype
+{% endblock %}
+
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "extra-scenarios/error-handling/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="../index">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <!-- <div class="govuk-grid-column-two-thirds"> -->
+    <div class="govuk-grid-column-full">
+    <span class="govuk-caption-l">Input errors</span>
+    <h1 class="govuk-heading-l">V1.3 structured data mapping</h1>
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#common-screens">
+            Common screens
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#telephony">
+            A phone call
+          </a>
+        </li>
+        <!-- <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#non-telephony">
+            Non-telephony
+          </a>
+        </li> -->
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#letter">
+            Letter
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#email">
+            Email
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#text-message">
+            Text message
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#visit">
+            A visit
+          </a>
+        </li>
+      </ul>
+      <!-- for common screens -->
+      <div class="govuk-tabs__panel" id="common-screens">
+        <h2 class="govuk-heading-l">Common screens</h2>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Check benefit information and contact history</td>
+              <td class="govuk-table__cell">NINO field is empty and user selects 'Start now'</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="nino/empty-nino.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Check benefit information and contact history</td>
+              <td class="govuk-table__cell">User enters NINO in incorrect format - accept spaces, upper case and lower case</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="nino/incorrect-format-nino.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Check benefit information and contact history</td>
+              <td class="govuk-table__cell">User enters NINO in correct format but it doesn't exist</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="nino/nino-not-exist.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="why-you-checking-benefit-Info.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Add a note/Change your note</td>
+              <td class="govuk-table__cell">User note input is over 5000 characters</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="add-note-common.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Telephony -->
+      <div class="govuk-tabs__panel" id="telephony">
+        <h2 class="govuk-heading-l">A phone call</h2>
+        <!-- Inbound call -->
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Inbound phone call</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/why-you-checking-benefit-Info.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an inbound or outbound option inside the radio selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/why-you-checking-benefit-Info-inboud-outbound.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Who is the phone call with?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/call-with.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/benefit-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/what-benefits-discussed-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the call about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/what-was-call-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Start service again / Continue working on this call</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/start-service-again-or-continue.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to update the details you have added?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/update-details.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to start the service again?</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/inbound/do-you-want-to-start-servce-again.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- Outbound call - successful -->
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Outbound phone call (successful)</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/why-you-checking-benefit-Info.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information whether inboud or outbound?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an inbound or outbound option inside the radio selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/why-you-checking-benefit-Info-inboud-outbound.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Was the call answered?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/was-the-call-answered.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/what-did-you-review.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/what-did-you-review-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell" colspan="3">
+                <div class="govuk-inset-text govuk-!-margin-0">
+                  All other error messages are same as Inbound phone call.
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- Outbound call - failled -->
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Outbound phone call (unsuccessful)</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/why-you-checking-benefit-Info.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information whether inboud or outbound?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an inbound or outbound option inside the radio selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/why-you-checking-benefit-Info-inboud-outbound.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Was the call answered?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/was-the-call-answered.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+                <td class="govuk-table__cell">What were you planning to review?</td>
+                <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  <a href="telephony/outbound/what-were-you-planning-to-review.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+                </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/outbound/what-did-you-review-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the call going to be about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/what-was-the-call-going-to-be-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <!-- <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What is the visit about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/what-is-the-visit-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What is the status of the visit?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/what-is-the-status-of-the-visit.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Add a note (for No benefit journey)</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without entered any text into add note text box.</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/no-benefit.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr> -->
+            <!-- <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What were you planning to review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/what-were-you-planning-to-review.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the call going to be about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/what-was-the-call-going-to-be-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/benefit-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the contact about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected (non-telephony)</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/benefit-discussed-no-benefit.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What is the visit about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/what-is-the-visit-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What is the status of the visit?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/what-is-the-status-of-the-visit.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Add a note (for No benefit journey)</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without entered any text into add note text box.</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/no-benefit.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the call about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/question-asked.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">You have added details about this call</td>
+              <td class="govuk-table__cell">User selects 'Continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/query-outcome.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to update the call details you have added?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/update-call-details.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to start the service again?</td>
+              <td class="govuk-table__cell">User selects 'Continue' button without an option selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="telephony/complete-the-call.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <!-- Letter -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="letter">
+        <h2 class="govuk-heading-l">A letter</h2>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Inbound letter</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/why-you-checking-benefit-Info.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an inbound or outbound option inside the radio selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/why-you-checking-benefit-Info-inboud-outbound.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Who is the letter from?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/who-is-the-letter-from.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/what-benefits-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/what-benefits-discussed-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was received?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact topic</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/what-was-received.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Start service again / Continue working on this letter</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/start-service-again-or-continue.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to update the details you have added?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/update-details.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to start the service again?</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/inbound/do-you-want-to-start-servce-again.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">outbound letter</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Who is the letter to?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/outbound/who-is-the-letter-to.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/outbound/what-benefits-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/outbound/what-benefits-discussed-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you send?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact topic</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="letter/outbound/what-did-you-send.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Email -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="email">
+        <h2 class="govuk-heading-l">An email</h2>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Inbound email</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/why-you-checking-benefit-Info.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an inbound or outbound option inside the radio selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/why-you-checking-benefit-Info-inboud-outbound.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Who is the email from?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/who-is-the-email-from.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/what-benefits-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/what-benefits-discussed-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the email about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact topic</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/what-was-the-email-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Start service again / Continue working on this email</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/start-service-again-or-continue.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to update the details you have added?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/update-details.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to start the service again?</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/inbound/do-you-want-to-start-servce-again.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">outbound email</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Who is the email to?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/outbound/who-is-the-letter-to.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/outbound/what-benefits-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/outbound/what-benefits-discussed-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the email about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact topic</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="email/outbound/what-was-the-email-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Text-message -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="text-message">
+        <h2 class="govuk-heading-l">Text message</h2>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="text-message/why-you-checking-benefit-Info.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Who is the message to?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="text-message/who-is-the-message-to.html.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the message about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="text-message/what-benefits-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="text-message/what-benefits-discussed-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you send?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact topic</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="text-message/what-did-you-send.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Start service again / Continue working on this email</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="text-message/start-service-again-or-continue.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to update the details you have added?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="text-message/update-details.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to start the service again?</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="text-message/do-you-want-to-start-servce-again.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Visit -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="visit">
+        <h2 class="govuk-heading-l">A visit</h2>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Inbound visit</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/why-you-checking-benefit-Info.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Why are you checking this information?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' button without an inbound or outbound option inside the radio selected</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/why-you-checking-benefit-Info-inboud-outbound.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Who is the visit with?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/ who-is-the-visit-with.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/what-benefits-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/what-benefits-discussed-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What was the visit about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact topic</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/what-was-the-visit-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Start service again / Continue working on this visit</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/start-service-again-or-continue.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to update the details you have added?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/update-details.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Do you want to start the service again?</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/inbound/do-you-want-to-start-servce-again.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">outbound visit</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Screen</th>
+              <th scope="col" class="govuk-table__header">Validation rule</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Who is the visit with?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/outbound/ who-is-the-visit-with.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What is the visit about?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/outbound/what-benefits-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/outbound/what-benefits-discussed.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What did you review if DLA is an active benefit?</td>
+              <td class="govuk-table__cell">If DLA is active and user selects 'Save and continue' without selecting a DLA type</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/outbound/what-benefits-discussed-dla.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" >view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">What is the status of the visit?</td>
+              <td class="govuk-table__cell">User selects 'Save and continue' without selecting a contact topic</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/outbound/what-was-the-visit-about.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Start service again / Continue working on this visit</td>
+              <td class="govuk-table__cell">User selects 'Continue' without selecting an option</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="visit/outbound/start-service-again-or-continue.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">view prototype</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Error: Why are you checking this information?
+{% endblock %}
+
+{% block header %}
+{% include "extra-scenarios/error-handling/user-input-Error/mvp-1_3/common/header_keydetail_bar-call-inbound.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="#ßß" method="post">
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  <a href="#incoming-telephone-call">Select why you are checking this informaton</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Why are you checking this information?
+              </h1>
+            </legend>
+            <p id="nationality-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span>Select why you are checking this informaton
+            </p>
+            <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-1" name="contact-types" type="radio" value="A phone call" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-1">
+                  A phone call
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">
+                        Is the phone call inbound or outbound?
+                      </h2>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="inbound-phone-call" name="What-type-of-contact" type="radio" value="Inbound phone call with">
+                        <label class="govuk-label govuk-radios__label" for="inbound-phone-call">
+                          Inbound
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="outbound-phone-call" name="What-type-of-contact" type="radio" value="Outbound phone call with">
+                        <label class="govuk-label govuk-radios__label" for="outbound-phone-call">
+                          Outbound
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <!-- Letter -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-2" name="contact-types" type="radio" value="A letter" data-aria-controls="conditional-contact-2">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-2">
+                 A letter
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">
+                        Is the letter inbound or outbound?
+                      </h2>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="inbound-letter" name="What-type-of-contact" type="radio" value="Inbound letter from">
+                        <label class="govuk-label govuk-radios__label" for="inbound-letter">
+                          Inbound
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="outbound-letter" name="What-type-of-contact" type="radio" value="Outbound letter to">
+                        <label class="govuk-label govuk-radios__label" for="outbound-letter">
+                          Outbound
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-3" name="contact-types" type="radio" value="An email" data-aria-controls="conditional-contact-3">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-3">
+                  An email
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">
+                        Is the email inbound or outbound?
+                      </h2>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="inbound-email" name="What-type-of-contact" type="radio" value="Inbound email from">
+                        <label class="govuk-label govuk-radios__label" for="inbound-email">
+                          Inbound
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="outbound-email" name="What-type-of-contact" type="radio" value="Outbound email to">
+                        <label class="govuk-label govuk-radios__label" for="outbound-email">
+                          Outbound
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <!-- Notification -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-4" name="contact-types" type="radio" value="Text message to">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-4">
+                  A text message
+                </label>
+              </div>
+              <!-- face to face converstaions -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="inbound-contact-5" name="contact-types" type="radio" value="A visit or appointment" data-aria-controls="conditional-contact-5">
+                <label class="govuk-label govuk-radios__label" for="inbound-contact-5">
+                  A visit
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-5">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">
+                        Is the visit inbound or outbound?
+                      </h2>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="inbound-face-face-conversion" name="What-type-of-contact" type="radio" value="Visit from">
+                        <label class="govuk-label govuk-radios__label" for="inbound-face-face-conversion">
+                          Inbound visit to a DWP office or Jobcentre
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="outbound-face-face-conversion" name="What-type-of-contact" type="radio" value="Visit to">
+                        <label class="govuk-label govuk-radios__label" for="outbound-face-face-conversion">
+                          Outbound visit to claimant
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="govuk-radios__divider">or</div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="view-info-only" name="contact-types" type="radio" value="View only">
+                <label class="govuk-label govuk-radios__label" for="view-info-only">
+                  To work on a quality check
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  You will not be able to add a note to the contact history.
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

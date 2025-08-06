@@ -34,25 +34,13 @@ Contact history
   <div class="govuk-grid-column-full">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half">
-        <h1 class="govuk-heading-xl">Contact history</h1>
+        <h1 class="govuk-heading-xl" id="ch">Contact history</h1>
       </div>
-      <div class="govuk-grid-column-one-half">
-        <form action="/prototype-sprint-wise/ur-10/add-call/what-benefits-discussed" method="post">
-          <div class="govuk-button-group">
-            {% set benefits =  data['what-benefit-discussed'] | length %}
-            {%if benefits >=1 %}
-            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-10/add-call/what-benefits-discussed">
-              Add or change call details
+      <div class="govuk-grid-column-one-half govuk-!-text-align-right">
+        <form action="/prototype-dev-baseline/mvp-1_2/view-only/index" method="post">
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Start service again
             </button>
-            {%else%}
-            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-10/add-call/what-benefits-discussed">
-              Add call details
-            </button>
-            {%endif%}
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-10/add-call/do-you-want-to-complete-call">
-              Complete phone call
-            </button>
-          </div>
         </form>
       </div>
     </div>

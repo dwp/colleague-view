@@ -7,7 +7,6 @@ router.post('/index.html', function (req, res) {
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['addNote']= '';
-  // req.session.data.outcomePage = '';
   res.redirect('/prototype-dev-baseline/mvp-1_2/index');
 });
 
@@ -87,6 +86,7 @@ router.post('/call-with', function (req, res) {
     res.redirect('/prototype-dev-baseline/mvp-1_2/error-why-checking-info');
   }
 });
+
 
 
 router.post('/home', function (req, res) {
@@ -378,6 +378,16 @@ router.post('/non-telephony/add-contact/contact-details-added', function (req, r
   }
 });
 
+router.post('/non-telephony/add-contact/start-service-again', function (req, res) {
+  var addContactDetails = req.session.data['add-contact-Details'];
+  if (addContactDetails == 'Yes') {
+    res.redirect('/prototype-dev-baseline/mvp-1_2/index');
+  }
+  else{
+    res.redirect('/prototype-dev-baseline/mvp-1_2/non-telephony/home');
+  }
+});
+
 router.post('/non-telephony/add-contact/complete-contact', function (req, res) {
   var checkCallCompletion = req.session.data['Do-you-want-to-complete-the-contact'];
   if (checkCallCompletion == 'Complete phone contact'){
@@ -430,6 +440,36 @@ router.post('/non-telephony/add-contact/contact-details-completed', function (re
   }
 });
 
+
+// for view only user
+
+
+router.post('/view-only/index', function (req, res) {
+  // console.log('View only user');
+  req.session.data['nino-number-ur-8'] = '';
+  res.redirect('/prototype-dev-baseline/mvp-1_2/view-only/index');
+});
+
+router.post('/view-only/home', function (req, res) {
+  // console.log('View only user');
+  req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+  req.session.data['Who-is-contact-with'] = '';
+  req.session.data['Who-is-the-engagement-with'] = '';
+  if (req.session.data['nino-number-ur-8'] == ''){
+    res.redirect('back');
+  } 
+  else if (
+    req.session.data['nino-number-ur-8'] == 'QQ123456Q' ||
+    req.session.data['nino-number-ur-8'] == 'qq123456q' ||
+    req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q'
+  ){
+    res.redirect('/prototype-dev-baseline/mvp-1_2/view-only/home');
+  }
+   else {
+    res.redirect('back');
+  }
+
+});
 
 // hide and show CTA
 

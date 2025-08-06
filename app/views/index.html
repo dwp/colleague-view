@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block content %}
-
+{{data | log}}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
         Colleague View prototypes
       </h1>
 
-      <p>The aimss of the Colleague View minimum viable product (MVP) is give customers' benefit information to agents answering the telephones, so that they can answer common questions.</p>
+      <p>The aim of the Colleague View minimum viable product (MVP) is give customers' benefit information to agents answering the telephones, so that they can answer common questions.</p>
       <p>The users that we are focusing on for MVP are agents that work on Employment and Support Allowance (ESA).</p>
 
       <p>The scope of the MVP is to meet agents' needs for:</p>
@@ -61,7 +61,26 @@
             </div>
             <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
             <p class="govuk-body govuk-!-margin-top-3">In this round, we will perform <span class="govuk-body govuk-!-font-weight-bold">A/B testing</span> on below designs:</p>   
-              <details class="govuk-details govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+            <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-2">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                  Remove general change of circumstances for all benefits design options 
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <h4 class="govuk-heading-s">Design options</h4>
+                <!-- goal -->
+                <div class="govuk-!-margin-bottom-4">
+                  <a href="/prototype-sprint-wise/future-ur/change-of-circs-for-specific-benefits/option-A.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - A</a>
+                </div>
+                <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-6">
+                  <a href="/prototype-sprint-wise/future-ur/change-of-circs-for-specific-benefits/option-B.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - B</a>
+                </div>
+                <p class="govuk-body">Fix for benefit details screen to show 'Adjustments'</p>
+          <p class="govuk-body">We are receiving adjustment data from the SAS API instead of deductions. So, we would like to display the correct information for the benefits details section.</p>
+              </div>
+            </details>  
+            <details class="govuk-details govuk-!-margin-top-0 govuk-!-margin-bottom-2">
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text govuk-!-font-weight-bold">
                     Contact history filter and summary cards
@@ -159,16 +178,17 @@
             <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4">
               <a href="/prototype-sprint-wise/ur-13/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype</a>
             </div>
-            <!-- <details class="govuk-details govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+            <!-- DLA an active benefit -->
+            <details class="govuk-details govuk-!-margin-top-5 govuk-!-margin-bottom-2">
               <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text govuk-!-font-weight-bold">
                  DLA an active benefit
                 </span>
               </summary>
               <div class="govuk-details__text">
-                <div class="govuk-!-margin-bottom-4">
+                <!-- <div class="govuk-!-margin-bottom-4">
                   <a href="/prototype-dev-baseline/mvp-1_3/index.html" role="button" draggable="false" class="govuk-link govuk-!-margin-bottom-0" data-module="govuk-button">DLA an active benefit</a>
-                </div>
+                </div> -->
                 <form class="form button_to" action="/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active" method="post">
                   <button draggable="false" data-module="govuk-button" class="govuk-button" type="submit">
                     DLA an active benefit
@@ -178,7 +198,23 @@
                   <a href="/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-static.html" role="button" draggable="false" class="govuk-link govuk-!-margin-bottom-0" data-module="govuk-button">DLA as a static benefit</a>
                 </div>
               </div>
-            </details> -->
+            </details>
+            <!-- A, B testing for 'Why are checking this information' -->
+            <details class="govuk-details govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text govuk-!-font-weight-bold">
+                  Why are you checking this information?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <div class="govuk-!-margin-bottom-4">
+                  <a href="/prototype-sprint-wise/ur-13/why-checking-info-option-a.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - A</a>
+                </div>
+                <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-6">
+                  <a href="/prototype-sprint-wise/ur-13/why-checking-info-option-b.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">View prototype option - B</a>
+                </div>
+              </div>
+            </details>
           </div>
           <!-- round-12 -->
           <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
@@ -827,21 +863,40 @@
         <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="dev-baseline-prototype">
           <h2 class="govuk-heading-l">Development baseline prototype</h2>
           <!-- Verson 1.3: Baseline for dev -->
-          <!-- <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
-            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 63</strong> <strong class="govuk-tag govuk-tag--red">In progress</strong></div>
+          <!-- Verson 1.2.2: JSA payment added -->
+          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
+            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 72</strong>  <strong class="govuk-tag govuk-tag--red">In progress</strong></div>
             <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
-              <span class="govuk-caption-m">March 2025</span>
-              <h1 class="govuk-heading-m"> Structured data and filters (1.3)</h1>
+              <span class="govuk-caption-m">July 2025</span>
+              <h1 class="govuk-heading-m">JSA payment details 1.2.2</h1>
             </div>
             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-            <p class="govuk-body">
-              In this prototype we have implemented "Add date and keyword filter to Payment history" where agent have ability to filter payment history by date range will improve usability.
- 
-            </p>
+            <p class="govuk-body">This version of prototype includes:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>This includes JSA benefit details </li>
+            </ul>
             <div class="govuk-!-margin-top-4">
-              <a href="prototype-dev-baseline/mvp-1_3/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" alt="Colleague View Prototype 1.2">Prototype - version 1.3</a>
+              <a href="prototype-dev-baseline/1_2_2-JSA-benefit-details/benefit-details?benefit=jsa" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" alt="Colleague View Prototype 1.2">Prototype - version 1.2.1</a>
             </div>
-          </div> -->
+          </div>
+          <!-- Verson 1.2.1: View only -Baseline for dev -->
+          <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
+            <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 71</strong>  <strong class="govuk-tag">Completed</strong></div>
+            <div class="govuk-!-padding-top-1 govuk-!-padding-bottom-0">
+              <span class="govuk-caption-m">June 2025</span>
+              <h1 class="govuk-heading-m">View Only journey 1.2.1</h1>
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+            <p class="govuk-body">This version of prototype includes:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>personal details </li>
+              <li>payment details, including frequency and amounts</li>
+              <li>historical contact records</li>
+            </ul>
+            <div class="govuk-!-margin-top-4">
+              <a href="prototype-dev-baseline/mvp-1_2/view-only/index.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" alt="Colleague View Prototype 1.2">Prototype - version 1.2.1</a>
+            </div>
+          </div>
           <!-- Verson 1.2: Baseline for dev -->
           <div class="govuk-!-padding-6 govuk-!-margin-top-6 govuk-!-width-two-thirds" style="background-color:#f3f2f1; border-radius:10px;">
             <div class="govuk-!-text-align-right"><strong class="govuk-tag govuk-tag--purple">Sprint 56</strong>  <strong class="govuk-tag">Completed</strong></div>
@@ -874,7 +929,7 @@
             <p class="govuk-body">Fix for benefit details screen to show 'Adjustments'</p>
             <p class="govuk-body">We are receiving adjustment data from the SAS API instead of deductions. So, we would like to display the correct information for the benefits details section.</p>
             <div class="govuk-!-margin-top-4">
-              <a href="prototype-dev-baseline/dla-enhancements-and-benefit-adjustments/benefit-details?benefit=pip" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" alt="Colleague View Prototype 1.2">Prototype - version 1.1.1</a>
+              <a href="prototype-dev-baseline/1_1_1-dla-enhancements-and-benefit-adjustments/benefit-details?benefit=pip" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" alt="Colleague View Prototype 1.2">Prototype - version 1.1.1</a>
             </div>
           </div>
           <!-- Verson 1.1: Baseline for dev -->
