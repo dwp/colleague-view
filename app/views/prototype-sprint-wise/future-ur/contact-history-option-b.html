@@ -1,0 +1,1328 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact history
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/future-ur/common/header.html" %}
+  {% include "/prototype-sprint-wise/future-ur/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/future-ur/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/future-ur/common/phase-banner.html" %}
+  <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="view-call-detail.html">Contact history</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h1 class="govuk-heading-xl">Contact history</h1>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <form action="/prototype-sprint-wise/ur-10/add-call/what-benefits-discussed" method="post">
+          <div class="govuk-button-group">
+            {% set benefits =  data['what-benefit-discussed'] | length %}
+            {%if benefits >=1 %}
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/future-ur/add-call/what-benefits-discussed">
+              Add or change call details
+            </button>
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/future-ur/add-call/do-you-want-to-complete-call">
+             Start service again
+            </button>
+            {%else%}
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/future-ur/add-call/what-benefits-discussed">
+              Add call details
+            </button>
+            {%endif%}
+            <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-10/add-call/do-you-want-to-complete-call">
+              Complete phone call
+            </button> -->
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="govuk-tabs" data-module="govuk-tabs" id="filter">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <!-- Tab button here -->
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#view">
+            View contact history
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#jsaps-notes">
+            JSAPS notes for ESA
+          </a>
+        </li>
+      </ul>
+      <!-- Tab1 content start here -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="view">
+        <!-- <h2 class="govuk-heading-l">View contact history</h2> -->
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            <!-- MOJ filter -->
+            <div class="moj-filter cv-filter">
+              <div class="moj-filter__header">
+                <div class="moj-filter__header-title">
+                  <h2 class="govuk-heading-m">Filter</h2>
+                </div>
+                <div class="moj-filter__header-action">
+                </div>
+              </div>
+              <div class="moj-filter__content">
+                <!-- filter options -->
+                <div class="moj-filter__options">
+                  <form action="contact-history-filter-selected-option-b" method="post">
+                    <!-- apply filter button -->
+                    <!-- <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
+                    Apply filters
+                    </button> -->
+                    <!-- apply filter button -->
+                    <button type="submit" class="govuk-button govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
+                      Apply filters
+                    </button>
+                    <!-- new expandable filter -->
+                    <div class="app-c-filter-panel__content" id="filter-panel-842e3a51" role="region" aria-labelledby="filter-button-842e3a51">
+                      <!-- Benefit -->
+                      <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
+                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
+                          <h2 class="app-c-filter-section__summary-heading">
+                              <span class="govuk-visually-hidden">Filter by</span>
+                            Benefits
+                          </h2>
+                          <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
+                        </summary>
+                        <div class="app-c-filter-section__content">
+                          <div class="govuk-form-group">
+                            {% set benefitName = data['benefit'] %}
+                            <fieldset class="govuk-fieldset">
+                              <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                  Benefit
+                              </legend>  -->
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
+                                <span class="govuk-fieldset__heading">Benefit</span>
+                              </legend>
+                              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance">
+                                  <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                                    Employment and Support Allowance
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carers Allowance">
+                                  <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                                    Carer's Allowance
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
+                                  <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
+                                    Personal Independence Payment
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </details>
+                      <!-- Payment query -->
+                      <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
+                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
+                          <h2 class="app-c-filter-section__summary-heading">
+                              <span class="govuk-visually-hidden">Filter by</span>
+                            Payment query
+                          </h2>
+                          <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
+                        </summary>
+                        <div class="app-c-filter-section__content">
+                          <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
+                                <span class="govuk-fieldset__heading">Payment enquiry</span>
+                              </legend>
+                              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  {% if data.tableFilterNpd == true%}
+                                    <input class="govuk-checkboxes__input" id="NPD-subContext" name="querySubContext" type="checkbox" value="Next payment date" checked="checked">
+                                    <label class="govuk-label govuk-checkboxes__label" for="NPD-subContext">
+                                      Next payment date
+                                    </label>
+                                  {% else %}
+                                    <input class="govuk-checkboxes__input" id="NPD-subContext" name="querySubContext" type="checkbox" value="Next payment date">
+                                    <label class="govuk-label govuk-checkboxes__label" for="NPD-subContext">
+                                      Next payment date
+                                    </label>
+                                  {% endif%}
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  {% if data.tableFilterNpa == true%}
+                                  <input class="govuk-checkboxes__input" id="NPA-subContext" name="querySubContext" type="checkbox" value="Next payment amount" checked="checked">
+                                  <label class="govuk-label govuk-checkboxes__label" for="NPA-subContext">
+                                    Next payment amount
+                                  </label>
+                                  {% else %}
+                                  <input class="govuk-checkboxes__input" id="NPA-subContext" name="querySubContext" type="checkbox" value="Next payment amount">
+                                  <label class="govuk-label govuk-checkboxes__label" for="NPA-subContext">
+                                    Next payment amount
+                                  </label>
+                                  {% endif%}
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  {% if data.tableFilterMp == true%}
+                                  <input class="govuk-checkboxes__input" id="MP-subContext" name="querySubContext" type="checkbox" value="Missing payment" checked="checked">
+                                  <label class="govuk-label govuk-checkboxes__label" for="MP-subContext">
+                                    Missing payment
+                                  </label>
+                                  {% else %}
+                                  <input class="govuk-checkboxes__input" id="MP-subContext" name="querySubContext" type="checkbox" value="Missing payment">
+                                  <label class="govuk-label govuk-checkboxes__label" for="MP-subContext">
+                                    Missing payment
+                                  </label>
+                                  {% endif%}
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  {% if data.tableFilterCPA == true%}
+                                  <input class="govuk-checkboxes__input" id="CPA-subContext" name="querySubContext" type="checkbox" value="Change in payment amount" checked="checked">
+                                  <label class="govuk-label govuk-checkboxes__label" for="CPA-subContext">
+                                    Change in payment amount
+                                  </label>
+                                  {% else %}
+                                  <input class="govuk-checkboxes__input" id="CPA-subContext" name="querySubContext" type="checkbox" value="Change in payment amount">
+                                  <label class="govuk-label govuk-checkboxes__label" for="CPA-subContext">
+                                    Change in payment amount
+                                  </label>
+                                  {% endif%}
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  {% if data.tableFilterPM == true%}
+                                  <input class="govuk-checkboxes__input" id="PM-subContext" name="querySubContext" type="checkbox" value="Checking the payment method" checked="checked">
+                                  <label class="govuk-label govuk-checkboxes__label" for="PM-subContext">
+                                    Checking the payment method
+                                  </label>
+                                  {% else %}
+                                  <input class="govuk-checkboxes__input" id="PM-subContext" name="querySubContext" type="checkbox" value="Checking the payment method">
+                                  <label class="govuk-label govuk-checkboxes__label" for="PM-subContext">
+                                    Checking the payment method
+                                  </label>
+                                  {% endif%}
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  {% if data.tableFilterRO == true%}
+                                  <input class="govuk-checkboxes__input" id="RO-subContext" name="querySubContext" type="checkbox" value="Reporting an overpayment" checked="checked">
+                                  <label class="govuk-label govuk-checkboxes__label" for="RO-subContext">
+                                    Reporting an overpayment
+                                  </label>
+                                  {% else %}
+                                  <input class="govuk-checkboxes__input" id="RO-subContext" name="querySubContext" type="checkbox" value="Reporting an overpayment">
+                                  <label class="govuk-label govuk-checkboxes__label" for="RO-subContext">
+                                    Reporting an overpayment
+                                  </label>
+                                  {% endif%}
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  {% if data.tableFilterHMR == true%}
+                                  <input class="govuk-checkboxes__input" id="HMR-subContext" name="querySubContext" type="checkbox" value=" Repaying an overpayment" checked="checked">
+                                  <label class="govuk-label govuk-checkboxes__label" for="HMR-subContext">
+                                    Repaying an overpayment
+                                  </label>
+                                  {% else %}
+                                  <input class="govuk-checkboxes__input" id="HMR-subContext" name="querySubContext" type="checkbox" value=" Repaying an overpayment">
+                                  <label class="govuk-label govuk-checkboxes__label" for="HMR-subContext">
+                                    Repaying an overpayment
+                                  </label>
+                                  {% endif%}
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  {% if data.tableFilterOQ == true%}
+                                  <input class="govuk-checkboxes__input" id="OQ-subContext" name="querySubContext" type="checkbox" value="Other questions" checked="checked">
+                                  <label class="govuk-label govuk-checkboxes__label" for="OQ-subContext">
+                                    Other questions
+                                  </label>
+                                  {% else %}
+                                  <input class="govuk-checkboxes__input" id="OQ-subContext" name="querySubContext" type="checkbox" value="Other query">
+                                  <label class="govuk-label govuk-checkboxes__label" for="OQ-subContext">
+                                    Other query
+                                  </label>
+                                  {% endif%}
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </details>
+                      <!-- Change of circs -->
+                      <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
+                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
+                          <h2 class="app-c-filter-section__summary-heading">
+                            <span class="govuk-visually-hidden">Filter by</span>
+                              Change of circumstances
+                          </h2>
+                          <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
+                        </summary>
+                        <div class="app-c-filter-section__content">
+                          <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
+                                <span class="govuk-fieldset__heading">Payment enquiry</span>
+                              </legend>
+                              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="queryCoC" name="queryCoC" type="checkbox" value="Address">
+                                    <label class="govuk-label govuk-checkboxes__label" for="queryCoC">
+                                      Address
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="queryCoC-2" name="queryCoC" type="checkbox" value="Bank details">
+                                  <label class="govuk-label govuk-checkboxes__label" for="queryCoC-2">
+                                    Bank details
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="queryCoC-3" name="queryCoC" type="checkbox" value="Relationship">
+                                  <label class="govuk-label govuk-checkboxes__label" for="queryCoC-3">
+                                    Relationship
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="queryCoC-4" name="queryCoC" type="checkbox" value="Dependancies">
+                                  <label class="govuk-label govuk-checkboxes__label" for="queryCoC-4">
+                                    Dependancies
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="queryCoC-5" name="queryCoC" type="checkbox" value="Employment">
+                                  <label class="govuk-label govuk-checkboxes__label" for="queryCoC-5">
+                                    Employment
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="queryCoC-6" name="queryCoC" type="checkbox" value="Other changes">
+                                  <label class="govuk-label govuk-checkboxes__label" for="queryCoC-6">
+                                    Other changes
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </details>
+                      <!-- Change of progress chasing -->
+                      <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
+                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
+                          <h2 class="app-c-filter-section__summary-heading">
+                            <span class="govuk-visually-hidden">Filter by</span>
+                            Progress chasing
+                          </h2>
+                          <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
+                        </summary>
+                        <div class="app-c-filter-section__content">
+                          <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
+                                <span class="govuk-fieldset__heading"> Progress chasing</span>
+                              </legend>
+                              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="queryPC" name="queryPC" type="checkbox" value="Claim">
+                                    <label class="govuk-label govuk-checkboxes__label" for="queryPC">
+                                      Claim
+                                    </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="queryPC-2" name="queryPC" type="checkbox" value="Evidence">
+                                  <label class="govuk-label govuk-checkboxes__label" for="queryPC-2">
+                                    Evidence
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="queryPC-3" name="queryPC" type="checkbox" value="Letter of entitlement">
+                                  <label class="govuk-label govuk-checkboxes__label" for="queryPC-3">
+                                    Letter of entitlement
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="queryPC-4" name="queryPC" type="checkbox" value="Other">
+                                  <label class="govuk-label govuk-checkboxes__label" for="queryPC-4">
+                                    Other
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </details>
+                      <!-- Change of evidence -->
+                      <details data-ga4-index="{&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Type" data-ga4-filter-parent="Type" data-ga4-change-category="update-filter checkbox" class="app-c-filter-section">
+                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;text&quot;:&quot;Type&quot;,&quot;index_section&quot;:4,&quot;index_section_count&quot;:4}">
+                          <h2 class="app-c-filter-section__summary-heading">
+                              <span class="govuk-visually-hidden">Filter by</span>
+                            Evidence
+                          </h2>
+                          <!-- <span class="app-c-filter-section__summary-status">2 selected</span> -->
+                        </summary>
+                        <div class="app-c-filter-section__content">
+                          <div id="checkboxes-b2904fb9" data-module="gem-checkboxes govuk-checkboxes" class="gem-c-checkboxes govuk-form-group govuk-checkboxes--small" data-gem-checkboxes-module-started="true" data-govuk-checkboxes-init="" data-govuk-checkboxes-module-started="true">
+                            <fieldset class="govuk-fieldset">
+                              <!-- <legend class="govuk-fieldset__legend govuk-fieldset__legend--m gem-c-checkboxes__legend--hidden">Type</legend> -->
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
+                                <span class="govuk-fieldset__heading">Evidence</span>
+                              </legend>
+                              <div class="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input type="checkbox" name="queryEV" id="queryEV" value="ID" class="govuk-checkboxes__input" checked="">
+                                  <label for="queryEV" class="govuk-label govuk-checkboxes__label">ID</label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input type="checkbox" name="queryEV" id="queryEV-2" value="Address" class="govuk-checkboxes__input">
+                                  <label for="queryEV-2" class="govuk-label govuk-checkboxes__label">Address</label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input type="checkbox" name="queryEV" id="queryEV-3" value="Employment" class="govuk-checkboxes__input" checked="">
+                                  <label for="queryEV-3" class="govuk-label govuk-checkboxes__label">Employment</label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input type="checkbox" name="queryEV" id="queryEV-4" value="Bank statement" class="govuk-checkboxes__input">
+                                  <label for="queryEV-4" class="govuk-label govuk-checkboxes__label">Bank statement</label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input type="checkbox" name="queryEV" id="queryEV-5" value="Sick note" class="govuk-checkboxes__input">
+                                  <label for="queryEV-5" class="govuk-label govuk-checkboxes__label">Sick note</label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input type="checkbox" name="queryEV" id="queryEV-6" value="Other" class="govuk-checkboxes__input">
+                                  <label for="queryEV-6" class="govuk-label govuk-checkboxes__label">Other</label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </details>
+                      <!-- Contact type -->
+                      <details data-ga4-index="{&quot;index_section&quot;:1,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Sort by" data-ga4-filter-parent="Sort by" data-ga4-change-category="update-filter radio" class="app-c-filter-section">
+                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Sort by&quot;,&quot;text&quot;:&quot;Sort by&quot;,&quot;index_section&quot;:1,&quot;index_section_count&quot;:4}">
+                          <h2 class="app-c-filter-section__summary-heading">
+                            Contact type
+                          </h2>
+                        </summary>
+                        <div class="app-c-filter-section__content">
+                          <div class="govuk-form-group govuk-!-margin-bottom-2">
+                            <fieldset class="govuk-fieldset">
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">
+                                <span class="govuk-fieldset__heading">Sort order</span>
+                              </legend>
+                              <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-1" name="contact-type" type="checkbox" value="Inbound phone call">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-1">
+                                    Inbound phone call
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-2" name="contact-type" type="checkbox" value="Outbound phone call">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-2">
+                                    Outbound phone call
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-3" name="contact-type" type="checkbox" value="Inbound letter">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-3">
+                                    Inbound letter
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-4" name="contact-type" type="checkbox" value="Outbound letter">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-4">
+                                    Outbound letter
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-5" name="contact-type" type="checkbox" value="Inbound email">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-5">
+                                    Inbound email
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-6" name="contact-type" type="checkbox" value="Outbound email">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-6">
+                                    Outbound email
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-7" name="contact-type" type="checkbox" value="Text message">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-7">
+                                    Text message
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-8" name="contact-type" type="checkbox" value="Face to face">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-8">
+                                    Face to face
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="contact-type-9" name="contact-type" type="checkbox" value="Referral">
+                                  <label class="govuk-label govuk-checkboxes__label" for="contact-type-9">
+                                    Referral
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </details>
+                      <!-- Date -->
+                      <details data-ga4-index="{&quot;index_section&quot;:2,&quot;index_section_count&quot;:4}" data-module="filter-section" data-ga4-section="Date" data-ga4-filter-parent="Date" data-ga4-change-category="update-filter date" class="app-c-filter-section">
+                        <summary class="app-c-filter-section__summary" data-ga4-expandable="" data-ga4-event="{&quot;event_name&quot;:&quot;select_content&quot;,&quot;type&quot;:&quot;finder&quot;,&quot;section&quot;:&quot;Date&quot;,&quot;text&quot;:&quot;Date&quot;,&quot;index_section&quot;:2,&quot;index_section_count&quot;:4}">
+                          <h2 class="app-c-filter-section__summary-heading">
+                          <span class="govuk-visually-hidden">Filter by</span>
+                          Date
+                          </h2>
+                        </summary>
+                        <div class="app-c-filter-section__content">
+                          <!-- <div data-ga4-section="Updated after">
+                            <div class="govuk-form-group">
+                              <div class="gem-c-fieldset govuk-form-group" role="group">
+                                <fieldset class="govuk-fieldset" aria-describedby="hint-8445ae89" role="group">
+                                <legend class="govuk-fieldset__legend">Updated after</legend>
+                                  <div id="hint-8445ae89" class="gem-c-hint govuk-hint govuk-!-margin-bottom-2">
+                                    For example, 28 2 2023
+                                  </div>
+                                <div class="gem-c-date-input govuk-date-input" id="public_timestamp[from]">
+                                  <div class="govuk-date-input__item">
+                                    
+                                <div class="govuk-form-group">        
+                                <label for="input-0bfe67ae" class="gem-c-label govuk-label">Day</label>
+                                <input class="gem-c-input govuk-input govuk-input--width-2" id="input-0bfe67ae" inputmode="numeric" name="public_timestamp[from][day]" spellcheck="false" type="text">
+                                </div>
+                                </div>        <div class="govuk-date-input__item">
+                                    
+                                <div class="govuk-form-group">
+
+                                      
+                                <label for="input-462720c5" class="gem-c-label govuk-label">Month</label>
+                                <input class="gem-c-input govuk-input govuk-input--width-2" id="input-462720c5" inputmode="numeric" name="public_timestamp[from][month]" spellcheck="false" type="text">
+                                </div>
+                                </div>        <div class="govuk-date-input__item">
+                                    
+                                <div class="govuk-form-group">      
+                                <label for="input-b5d77c5e" class="gem-c-label govuk-label">Year</label>
+                                <input class="gem-c-input govuk-input govuk-input--width-4" id="input-b5d77c5e" inputmode="numeric" name="public_timestamp[from][year]" spellcheck="false" type="text">
+                                </div>
+                                </div>
+                                </div>
+                                </fieldset>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div data-ga4-section="Updated before">
+                            <div class="govuk-form-group">
+                              <div class="gem-c-fieldset govuk-form-group" role="group">
+                                <fieldset class="govuk-fieldset" aria-describedby="hint-7d583978" role="group">
+                                <legend class="govuk-fieldset__legend">Updated before</legend>
+                                  <div id="hint-7d583978" class="gem-c-hint govuk-hint govuk-!-margin-bottom-2">
+                                    For example, 13 12 2024
+                                  </div>
+                                <div class="gem-c-date-input govuk-date-input" id="public_timestamp[to]">
+                                  <div class="govuk-date-input__item">
+                                    
+                                <div class="govuk-form-group">  
+                                <label for="input-bb100552" class="gem-c-label govuk-label">Day</label>
+                                <input class="gem-c-input govuk-input govuk-input--width-2" id="input-bb100552" inputmode="numeric" name="public_timestamp[to][day]" spellcheck="false" type="text">
+                                </div>
+                                </div>        <div class="govuk-date-input__item">
+                                    
+                                <div class="govuk-form-group">
+
+                                      
+                                <label for="input-91d7aefe" class="gem-c-label govuk-label">Month</label>
+                                <input class="gem-c-input govuk-input govuk-input--width-2" id="input-91d7aefe" inputmode="numeric" name="public_timestamp[to][month]" spellcheck="false" type="text">
+                                </div>
+                                </div>        <div class="govuk-date-input__item">
+                                    
+                                <div class="govuk-form-group">     
+                                <label for="input-00dc87b2" class="gem-c-label govuk-label">Year</label>
+                                <input class="gem-c-input govuk-input govuk-input--width-4" id="input-00dc87b2" inputmode="numeric" name="public_timestamp[to][year]" spellcheck="false" type="text">
+                                </div>
+                                </div>
+                                </div>
+                                </fieldset>
+                              </div>
+                            </div>
+
+                          </div> -->
+                        
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                              <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                Search by date
+                              </legend>
+                              <div class="govuk-date-input" id="from-date">
+                                <div class="govuk-date-input__item">
+                                  <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="from-date-day">
+                                          Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-day" name="from-date-day" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromDay}}">
+                                  </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                  <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="from-date-month">
+                                          Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
+                                  </div>
+                                </div>
+                                <div class="govuk-date-input__item">
+                                  <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="from-date-year">
+                                          Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </details>   
+                    </div>
+                    <!-- Keyword search -->
+                    <div class="govuk-form-group govuk-!-padding-right-4">
+                      <label class="govuk-label govuk-label--s" for="keyword-search">
+                        Search notes
+                      </label>
+                      <div id="keyword-search-hint" class="govuk-hint">
+                        Enter a word or phrase to find related notes
+                      </div>
+                      <input class="govuk-input" id="keyword-search" name="keywordSearch" type="text" aria-describedby="keyword-search-hint">
+                    </div>  
+                    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                    <!-- <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button" id="apply-filter-btn">
+                      Apply filters
+                    </button>  -->
+                    <!-- Back to top link -->
+                    <div class="govuk-!-margin-top-5"> <a class="govuk-link" href="#filter">Back to top<span class="govuk-visually-hidden"> Benefit</span></a></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="govuk-grid-column-two-thirds">  
+            <!-- default ch table -->
+            <h3 class="govuk-heading-m">32 results</h3>
+            <p class="govuk-body govuk-!-margin-bottom-6">
+                Sorted by:
+                <span class="govuk-!-font-weight-bold">Date</span>
+            </p>
+            <div class="summry-card">
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Inbound phone call: 15 Oct 2023, 11:10</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Personal Independence Payment
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <p>Next payment date</p>
+                          <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Inbound phone call: 05 Sep 2023, 13:03</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <p>Next payment date</p>
+                          <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Personal Independence Payment
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <p>Next payment date</p>
+                          <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Inbound phone call: 15 Aug 2023, 09:03</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                            <p>Next payment date</p>
+                            <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          No benefit
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Check notes
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Inbound phone call: 08 Aug 2023, 09:20</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <!-- <span class="govuk-!-font-weight-regular"></span> -->
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          No notes added
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Carer's Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <p>Next payment date</p>
+                          <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment amount
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Outbound phone call: 15 July 2023, 13:00</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text-3">Claimant has moved address to 123 Test Street. The address we send letters to will also be updated.</span> <span class="" id="less-text-3">Claimant has moved address to 123 Test Street. The address we send letters...</span> <br/> <a href="#/" class="govuk-link" id="full-text-link-3" onclick="showfull3()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-3" onclick="showless3()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Benefits discussed
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          No benefit - Change of address
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Outbound phone call: 29 Jun 2023, 09:03</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail-outbound-call.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment amount
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Personal Independence Payment
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment date
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Inbound phone call: 28 Jun 2023, 12:15</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Carer's Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment amount
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment amount
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Face to face: 13 Jun 2023, 10:00</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail-face-face.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /> <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <p>Next payment date</p>
+                          <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Inbound phone call: 26 May 2023, 13:03</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text">No reports of any hospital stays of over 28 days that would impact the payability...</span> <br /><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Employment and Support Allowance
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <p>Next payment date</p>
+                          <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Personal Independence Payment
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Next payment amount
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Inbound phone call: 01 May 2023, 10:00</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <!-- <span class="govuk-!-font-weight-regular">No notes added</span> -->
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <span class="govuk-!-display-none" id="full-text-2">No reports of any hospital stays of over 28 days that would impact the payability. Claimant requested that we send future correspondence in large print. CHaRM referral issued to progress change request. Claimant also requested a letter to confirm entitlement which I have sent in large print.</span> <span class="" id="less-text-2">No reports of any hospital stays of over 28 days that would impact the payability.</span><br /> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="showfull2()">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Personal Independence Payment
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          <p>Next payment date</p>
+                          <p>Next payment amount</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title"> Inbound phone call: 14 April 2023, 09:00</h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="view-call-detail.html">More details<span class="govuk-visually-hidden"> Benefit</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
+                    <tbody class="govuk-summary-list">
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                         Notes added
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Claimant has moved address to 123 Test Street. The address we send letters<br /> <a href="#/" class="govuk-link" id="full-text-link-2" onclick="">view more notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link-2" onclick="showless2()"> view less</a>
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          Personal Independence Payment
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Something else
+                        </td>
+                      </tr>
+                      <tr class="govuk-summary-list__row">
+                        <th scope="row" class="govuk-summary-list__key">
+                          No benefit
+                        </th>
+                        <td class="govuk-summary-list__value">
+                          Check notes
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- pagination start here -->
+            <nav class="govuk-pagination" aria-label="Pagination">
+              <ul class="govuk-pagination__list">
+                <li class="govuk-pagination__item govuk-pagination__item--current">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+                    1
+                  </a>
+                </li>
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                    2
+                  </a>
+                </li>
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                    3
+                  </a>
+                </li>
+              </ul>
+              <div class="govuk-pagination__next">
+                <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+                  <span class="govuk-pagination__link-title">
+                    Next<span class="govuk-visually-hidden"> page</span>
+                  </span>
+                  <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                  </svg>
+                </a>
+              </div>
+            </nav>
+
+          </div>
+        </div>
+      </div>
+      <!-- Tab2 content start here -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="jsaps-notes">
+        <div id="showContactHistory-bydefault">
+          <h2 class="govuk-heading-l">JSAPS notes for ESA</h2>
+          <!-- data table -->
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">When note was created</th>
+                <th scope="col" class="govuk-table__header">Notes</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">15 October 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">17 October 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">10 November 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">17 November 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">25 November 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">11 December 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">20 December 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">20 January 2024</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">12 February 2024</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">15 March 2024</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- table pagination -->
+          <nav class="moj-pagination" aria-label="Pagination navigation" role="navigation">
+            <ul class="moj-pagination__list">
+              <!-- <li class="moj-pagination__item  moj-pagination__item--prev">
+                <a class="moj-pagination__link" href="">Previous<span class="govuk-visually-hidden"> page</span></a>
+              </li> -->
+              <li class="moj-pagination__item moj-pagination__item--active" aria-label="Page 1" aria-current="page">1</a></li>
+  
+              <li class="moj-pagination__item"><a class="moj-pagination__link" href="view-call-detail.html" aria-label="Page 2">2</a></li>
+  
+              <li class="moj-pagination__item"><a class="moj-pagination__link" href="view-call-detail.html" aria-label="Page 3">3</a></li>
+  
+              <li class="moj-pagination__item moj-pagination__item--dots">…</li>
+  
+              <li class="moj-pagination__item"><a class="moj-pagination__link" href="view-call-detail.html" aria-label="Page 5">5</a></li>
+  
+              <li class="moj-pagination__item  moj-pagination__item--next">
+                <a class="moj-pagination__link" href="">Next<span class="govuk-visually-hidden"> page</span></a>
+              </li>
+            </ul>
+            <p class="moj-pagination__results">Showing <b>1</b> to <b>10</b> of <b>45</b> results</p>
+          </nav>
+        </div>
+          <!-- contact details section -->
+          <div class="govuk-visually-hidden" id="showCtDetails">
+            <a class="govuk-back-link" href="javascript:void(0);" onclick="showContactHistory();">Back</a>
+            <h2 class="govuk-!-width-two-thirds govuk-heading-l govuk-!-margin-top-6">Details about Telephone call on 17 October 2023</h2>
+            <!-- call started at -->
+            <div class="ovuk-!-width-full govuk-!-margin-bottom-6">
+              <span class="govuk-caption-m">Started at</span>
+              <h2 class="govuk-heading-m">Monday 17 Oct 2023, 13:03</h2>
+            </div>
+            <!-- Benefits discussed -->
+            <div class="govuk-!-width-full govuk-!-margin-top-4 govuk-!-margin-bottom-8">
+              <div class="colleague-view-upcomming-payment-benefit">
+                <h2 class="govuk-heading-m">
+                  Benefits discussed
+                </h2>
+                <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header ">Benefits</th>
+                      <th scope="col" class="govuk-table__header">Type of enquiry</th>
+                      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Notes<span class="govuk-hint"> (optional)</span</th>
+                      <th scope="col" class="govuk-table__header">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Employment and Support Allowance</td>
+                      <td class="govuk-table__cell">Next payment date</td>
+                      <td class="govuk-table__cell">-</td>
+                      <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">Employment and Support Allowance</td>
+                      <td class="govuk-table__cell">Next payment amount</td>
+                      <td class="govuk-table__cell">-</td>
+                      <td class="govuk-table__cell"><strong class="govuk-tag">Resolved</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Call and Agent information -->
+            <div class="colleague-view-container-light-grey govuk-!-margin-bottom-4">
+              <div class="govuk-grid-row"> 
+                <div class="govuk-grid-column-one-third">
+                  <span class="govuk-caption-m">Caller</span>
+                  <div>
+                    <span class="govuk-body govuk-!-font-weight-bold break-line-colleague-view">Jane Doe (Appointee)</span>
+                  </div>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                  <span class="govuk-caption-m">Call taken by</span>
+                  <div>
+                    <span class="govuk-body govuk-!-font-weight-bold break-line-colleague-view">Agent (1003)</span>
+                  </div>
+                </div>
+                <div class="govuk-grid-column-one-third">
+                  <span class="govuk-caption-m">Length of call</span>
+                  <div>
+                    <span class="govuk-body govuk-!-font-weight-bold break-line-colleague-view">15 Minutes</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- call ended at -->
+            <div class="govuk-!-width-full">
+              <span class="govuk-caption-m">Ended at</span>
+              <h2 class="govuk-heading-m">Monday 17 Oct 2023, 13:18</h2>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<!-- logic for filter function -->
+<script type="text/javascript">
+  function showfull() {
+    var fullText = document.getElementById('full-text');
+    var fullTextlink = document.getElementById('full-text-link');
+    var lessText = document.getElementById('less-text');
+    var lessTextlink = document.getElementById('less-text-link');
+
+    fullText.classList.remove("govuk-!-display-none");
+    fullTextlink.classList.add("govuk-!-display-none");
+    
+    lessText.classList.add("govuk-!-display-none");
+    lessTextlink.classList.remove("govuk-!-display-none");
+  }
+
+  function showless() {
+    var fullText = document.getElementById('full-text');
+    var fullTextlink = document.getElementById('full-text-link');
+    var lessText = document.getElementById('less-text');
+    var lessTextlink = document.getElementById('less-text-link');
+
+    fullText.classList.add("govuk-!-display-none");
+    fullTextlink.classList.remove("govuk-!-display-none");
+    lessText.classList.remove("govuk-!-display-none");
+    lessTextlink.classList.add("govuk-!-display-none");
+  }
+
+
+  function showfull2() {
+    var fullText2 = document.getElementById('full-text-2');
+    var fullTextlink2 = document.getElementById('full-text-link-2');
+    var lessText2 = document.getElementById('less-text-2');
+    var lessTextlink2 = document.getElementById('less-text-link-2');
+
+    fullText2.classList.remove("govuk-!-display-none");
+    fullTextlink2.classList.add("govuk-!-display-none");
+    
+    lessText2.classList.add("govuk-!-display-none");
+    lessTextlink2.classList.remove("govuk-!-display-none");
+  }
+
+  function showless2() {
+    var fullText2 = document.getElementById('full-text-2');
+    var fullTextlink2 = document.getElementById('full-text-link-2');
+    var lessText2 = document.getElementById('less-text-2');
+    var lessTextlink2 = document.getElementById('less-text-link-2');
+
+    fullText2.classList.add("govuk-!-display-none");
+    fullTextlink2.classList.remove("govuk-!-display-none");
+    lessText2.classList.remove("govuk-!-display-none");
+    lessTextlink2.classList.add("govuk-!-display-none");
+  }
+
+  function showfull3() {
+    var fullText3 = document.getElementById('full-text-3');
+    var fullTextlink3 = document.getElementById('full-text-link-3');
+    var lessText3 = document.getElementById('less-text-3');
+    var lessTextlink3 = document.getElementById('less-text-link-3');
+
+    fullText3.classList.remove("govuk-!-display-none");
+    fullTextlink3.classList.add("govuk-!-display-none");
+    
+    lessText3.classList.add("govuk-!-display-none");
+    lessTextlink3.classList.remove("govuk-!-display-none");
+  }
+
+  function showless3() {
+    var fullText3 = document.getElementById('full-text-3');
+    var fullTextlink3 = document.getElementById('full-text-link-3');
+    var lessText3 = document.getElementById('less-text-3');
+    var lessTextlink3 = document.getElementById('less-text-link-3');
+
+    fullText3.classList.add("govuk-!-display-none");
+    fullTextlink3.classList.remove("govuk-!-display-none");
+    lessText3.classList.remove("govuk-!-display-none");
+    lessTextlink3.classList.add("govuk-!-display-none");
+  }
+  </script>
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Error: You have added details about this email
+{% endblock %}
+
+{% block header %}
+{% include "extra-scenarios/error-handling/user-input-Error/mvp-1_3/common/header_keydetail_bar-email-inbound.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}  
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  <a href="#complete-the-call-2">Select if you want to start the service again or continue working</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              The details of this email have been saved successfully.
+            </h3>
+          </div>
+        </div>
+        <h1 class="govuk-heading-l">You have added details about this email</h1>
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Email details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Employment and Support Allowance
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Next payment date</li>
+                    <li>Next payment amount</li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Personal Independence Payment
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li>Next payment date</li>
+                    <li>Next payment amount</li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notes added
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Test note
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+          <!-- Ask to complete session -->
+          <form class="form govuk-!-margin-top-9" action="complete-call" method="post">
+            <div class="govuk-form-group govuk-form-group--error">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading">
+                  Do you want to start the service again or continue working on this email?
+                </h2>
+                </legend>
+                <p id="passport-issued-error" class="govuk-error-message">
+                  <span class="govuk-visually-hidden">Error:</span> Select if you want to start the service again or continue working
+                </p>
+                <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="complete-the-call-2" name="Do-you-want-to-complete-the-call" type="radio" value="Complete phone call">
+                    <label class="govuk-label govuk-radios__label" for="complete-the-call-2">
+                      Start service again
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="complete-the-call" name="Do-you-want-to-complete-the-call" type="radio" value="back to home page">
+                    <label class="govuk-label govuk-radios__label" for="complete-the-call">
+                      Continue working on this email
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <button class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+          </form>
+      </div>
+    </div>
+{% endblock %}
+
+

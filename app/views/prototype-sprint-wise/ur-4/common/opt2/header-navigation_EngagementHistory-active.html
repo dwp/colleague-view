@@ -1,0 +1,47 @@
+{#
+  DWP internal service header - prototype
+  Added static Menu link and associated classes for header navigation no-js scenerio
+
+  1. Menu link will require path to the no-js navigation page
+ #}
+
+ <header class="dwp-header">
+  <div class="dwp-header__content govuk-width-container">
+    <div class="dwp-header__service-name dwp-header__service-name--with-action">
+      <a href="/" class="dwp-header__link">Internal service name</a>
+    </div>
+    <div class="dwp-header__service-action">
+      <a href="#" class="dwp-header__link">Sign out</a>
+    </div>
+  </div>
+</header>
+
+{# DWP Internal service header navigation - prototype
+  For any nav using tablet and mobile js nav requires:
+  1. data-module  - data attribute used to collect any navigation on the page (there should only ever be one header nav per page)
+  2. data-header - uniquly indentifies the internal services header where the menu button will be placed (there should only ever be one header per page)
+  3. dwp-header-navigation--js-nav - required css class for tablet and mobile styles - by default css not have apply mobile styling
+
+  Absense of any of these details will default the menu into a basic responsive nav without any enhancements
+#}
+<nav class="dwp-header-navigation-v1 dwp-header-navigation--js-nav" data-module="dwp-header-nav"  data-header="some-id-name" aria-label="Primary">
+  <ul>
+    <li>
+      <a href="home-page.html">Home</a>
+    </li>
+    <li>
+      <a href="personal-details.html">Personal details</a>
+    </li>
+    <li>
+      <a href="#" class="current" aria-current="page">Contact history</a>
+    </li>
+    <li>
+      <a href="payment-and-awards.html">Payments and awards</a>
+    </li>
+  </ul>
+</nav>
+
+
+{% block pageScripts %}
+  <script src="/public/javascripts/components/internal-services-header-navigation/v1.js"></script>
+{% endblock %}

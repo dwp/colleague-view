@@ -1,0 +1,267 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+  Outcome of questions
+{% endblock %}
+
+{% block header %}
+{% include "prototype-sprint-wise/sprint23/common/opt2/header-navigation_inside.html" %} 
+{% include "prototype-sprint-wise/sprint23/common/opt2/keydetail-bar-call-log.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "prototype-sprint-wise/sprint23/common/phase-banner--user-research.html" %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-8">Outcome of questions</h1>
+        <div class="govuk-form-group govuk-!-margin-bottom-8">
+          <!-- Accordion 1 -->
+          <div class="{{isEsa}}">
+                  <!-- new design journey code -->
+                  <form action="checkAnswer" method="post" class="{{esaPayment}}" novalidate>
+                    <div class="govuk-form-group {{esaNextPaymentDate}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the next payment date question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="npd_resolved" name="npd_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="npd_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="npd_Not-resolved" name="npd_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="npd_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="govuk-form-group {{esaNextPaymentAmount}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the next payment amount question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="npa_resolved" name="npa_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="npa_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="npa_Not-resolved" name="npa_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="npa_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="govuk-form-group {{esaMissingPayment}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the missing payment question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="esa_missP_resolved" name="esa_missP_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="esa_missP_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="esa_missP_Not-resolved" name="esa_missP_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="esa_missP_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  <button class="govuk-button" data-module="govuk-button">
+                    Save and continue
+                  </button>
+                </form>
+          </div>
+          <!-- Accordion 2 -->
+          <div class="{{isPip}}">
+                  <!-- new design journey code -->
+                  <form action="checkAnswer" method="post" class="{{pipPayment}}" novalidate>
+                    <div class="govuk-form-group {{pipNextPaymentDate}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the next payment date question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="pip_npd_resolved" name="pip_npd_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="pip_npd_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="pip_npd_Not-resolved" name="pip_npd_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="pip_npd_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="govuk-form-group {{pipNextPaymentAmount}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the next payment amount question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="pip_npa_resolved" name="pip_npa_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="pip_npa_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="pip_npa_Not-resolved" name="pip_npa_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="pip_npa_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="govuk-form-group {{pipMissingPayment}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the missing payment question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="pip_esa_missP_resolved" name="pip_esa_missP_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="pip_esa_missP_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="pip_esa_missP_Not-resolved" name="pip_esa_missP_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="pip_esa_missP_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  <button class="govuk-button" data-module="govuk-button">
+                    Save and continue
+                  </button>
+                </form>
+          </div>
+          <!-- Accordion 3 -->
+          <div class="{{isCa}}">
+                  <!-- new design journey code -->
+                  <form action="checkAnswer" method="post" class="{{caPayment}}" novalidate>
+                    <div class="govuk-form-group {{caNextPaymentDate}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the next payment date question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="ca_npd_resolved" name="ca_npd_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="ca_npd_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="ca_npd_Not-resolved" name="ca_npd_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="ca_npd_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="govuk-form-group {{pipNextPaymentAmount}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the next payment amount question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="pip_npa_resolved" name="pip_npa_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="pip_npa_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="pip_npa_Not-resolved" name="pip_npa_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="pip_npa_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="govuk-form-group {{caNextPaymentAmount}}">
+                      <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h2 class="govuk-fieldset__heading">
+                            Was the missing payment question resolved?
+                          </h2>
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="ca_esa_missP_resolved" name="ca_esa_missP_wasQuestionResolved" type="radio" value="Resolved">
+                            <label class="govuk-label govuk-radios__label" for="ca_esa_missP_resolved">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="ca_esa_missP_Not-resolved" name="ca_esa_missP_wasQuestionResolved" type="radio" value="Not resolved">
+                            <label class="govuk-label govuk-radios__label" for="ca_esa_missP_Not-resolved">
+                              Not
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                  <button class="govuk-button" data-module="govuk-button">
+                    Save and continue
+                  </button>
+                </form>
+           </div>
+        </div>
+      </div>
+    </div>
+    
+{% endblock %}
+
+

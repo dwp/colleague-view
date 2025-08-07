@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Display error message - prototype
+{% endblock %}
+
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="../index">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Tech-error</span>
+    <h1 class="govuk-heading-l">Failed API call</h1>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">APIs failed</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Screens</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"> </th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">APIs unavailable (Core Bio/Nationality/Residency/SAA/Citizen Preferences/Correspondence)</td>
+          <td class="govuk-table__cell">Personal details</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/personal-details-api.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">AME payments service is unavailable and SAA is available</td>
+          <td class="govuk-table__cell">Next payments</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/Failed-API-call-2_3#upcoming-payments" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <!-- <tr class="govuk-table__row">
+          <td class="govuk-table__cell">AME payments service is available and SAA is unavailable</td>
+          <td class="govuk-table__cell">Next payments</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/Failed-API-call-2_4#upcoming-payments" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr> -->
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">When both the AME payments and SAA are unavailable</td>
+          <td class="govuk-table__cell">Next payments</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/Failed-API-call-2_5#upcoming-payments" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">When AME payments unavailable</td>
+          <td class="govuk-table__cell">Payment history</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/failed-API-call-2_8#history" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">When SAS are unavailable - all benefit call fails</td>
+          <td class="govuk-table__cell">Benefit details</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/failed-API-call-2_7" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">When SAS are unavailable - individual benefit call fails</td>
+          <td class="govuk-table__cell">Benefit details</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/failed-SAS-one-benefit-call?benefit=pip" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">When SAS Payment Adjustment API call fails - JSA</td>
+          <td class="govuk-table__cell">Benefit details</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/failed-SAS-payment-adjustment-api?benefit=jsa" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">When SAA are unavailable</td>
+          <td class="govuk-table__cell">Call log - Which benefits did you discuss?</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/failed-API-call-2_9" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">When CH-API and  JSAPS unavailable </td>
+          <td class="govuk-table__cell">Contact history</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a href="display-message-to-internal-page/failed-API-call-2_6#view" role="button" draggable="false" class="govuk-button" data-module="govuk-button">view prototype</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

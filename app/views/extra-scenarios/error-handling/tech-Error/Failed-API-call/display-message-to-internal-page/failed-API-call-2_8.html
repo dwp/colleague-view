@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Payments and Awards
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/common/header.html" %}
+  {% include "prototype-dev-baseline/common/opt2/keydetail-bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a href="../internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-sprint-wise/sprint23/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Payments history</h1>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <!-- MOJ filter -->
+    <div class="moj-filter cv-filter govuk-visually-hidden">
+      <div class="moj-filter__header">
+        <div class="moj-filter__header-title">
+          <h2 class="govuk-heading-m">Filter payment</h2>
+        </div>
+        <div class="moj-filter__header-action">
+        </div>
+      </div>
+      <div class="moj-filter__content">
+        <div class="moj-filter__selected" style="display: none;">
+          <div class="moj-filter__selected-heading">
+            <div class="moj-filter__heading-title">
+              <h3 class="govuk-heading-m">Selected filters</h3>
+            </div>
+            <div class="moj-filter__heading-action">
+              <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+            </div>
+          </div>
+          <ul class="moj-filter-tags">
+          {% for benefit in data['benefit'] %}
+            <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefit }}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+        <!-- filter options -->
+        <div class="moj-filter__options">
+          <form action="payment-history-filter-selected" method="post">
+            <!-- filter by benefits -->
+            <div class="govuk-form-group govuk-!-margin-bottom-5">
+              <!-- {% set benefitName = data['benefit'] %} -->
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    Benefit
+                </legend> 
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" >
+                    <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                      Employment and Support Allowance
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" >
+                    <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                      Carer's Allowance
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
+                    <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
+                      Personal Independence Payment
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <button type="submit" class="govuk-button govuk-!-margin-bottom-2" data-module="govuk-button" id="apply-filter-btn">
+              Apply filters
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body">
+      There was a problem getting this information from another system. Try again later.
+    </p>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who is the contact with?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-sprint-wise/ur-4/common/opt1/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "prototype-sprint-wise/ur-4/common/phase-banner--user-research.html" %}
+    <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "prototype-sprint-wise/ur-4/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="home-page-first-time" method="post">
+
+        <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Who is the contact with?
+        </h1>
+      </legend>
+      <div id="changed-name-hint" class="govuk-hint">
+        Select one option
+      </div>
+      <div class="govuk-radios govuk-!-margin-top-5" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-ur4" type="radio" value="Christopher Fox">
+          <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-1">
+            Christopher Fox
+          </label>
+          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+            Customer
+          </div>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="Who-is-the-engagement-with-2" name="Who-is-the-engagement-with-ur4" type="radio" value="Jane Doe">
+          <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-2">
+            Jane Doe
+          </label>
+          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+            Appointee
+          </div>
+        </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="Who-is-the-engagement-with-3" name="Who-is-the-engagement-with-ur4" type="radio" value="Family" data-aria-controls="conditional-contact">
+        <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-3">
+          Family
+        </label>
+      </div>
+      <!-- <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-email">
+            Family name
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email">
+        </div>
+      </div>-->
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="Who-is-the-engagement-with-4" name="Who-is-the-engagement-with-ur4" type="radio" value="Friend" data-aria-controls="conditional-contact-2">
+        <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-4">
+          Friend
+        </label>
+      </div>
+      <!-- <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-phone">
+            Friend's name
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contact-by-phone" type="tel" autocomplete="tel">
+        </div>
+      </div>-->
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="Who-is-the-engagement-with-5" name="Who-is-the-engagement-with-ur4" type="radio" value="Not Listed above">
+        <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-5">
+          Not listed above
+        </label>
+      </div>
+      </div>
+    </fieldset>
+  </div>
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Homepage
+{% endblock %}
+
+
+{% block header %}
+  {% include "sprint22/common/agent-dashboard-header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "sprint22/common/phase-banner--user-research.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "sprint22/common/footer.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Check box response</h1>
+        <p class="govuk-body">Total nuber of benefit: {{ data['select-benefit'] | length }}</p>
+        <p class="govuk-body">{{ pageLength }}</p>
+        <p class="govuk-body"> {{isEsa}} </p>
+
+        <!-- testing filter in Table -->
+        <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+        <table id="myTable">
+          <tr class="header">
+            <th style="width:60%;">Name</th>
+            <th style="width:40%;">Country</th>
+          </tr>
+          <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Berglunds snabbkop</td>
+            <td>Sweden</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Koniglich Essen</td>
+            <td>Germany</td>
+          </tr>
+        </table> -->
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="event-name">
+            Search for names
+          </label>
+          <input class="govuk-input" name="eventName" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+        </div>
+
+        <table class="govuk-table" id="myTable">
+          <caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-!-width-one-half">Name</th>
+              <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Country</th>
+              <!-- <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Rate for bicycles</th> -->
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Alfreds Futterkiste</th>
+              <td class="govuk-table__cell">Germany</td>
+              <!-- <td class="govuk-table__cell">£59.10 per week</td> -->
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Berglunds snabbkop</th>
+              <td class="govuk-table__cell">Sweden</td>
+              <!-- <td class="govuk-table__cell">£89.10 per week</td> -->
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Island Trading</th>
+              <td class="govuk-table__cell">UK</td>
+              <!-- <td class="govuk-table__cell">£2,182.20</td> -->
+            </tr>
+          </tbody>
+        </table>
+
+    </div>
+  </div>
+  <script>
+    function myFunction() {
+      // Declare variables 
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        } 
+      }
+    }
+    </script>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Which type of Disability Living Allowance does the claimant get?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-10/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="asked-query-type" method="post">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Which type of Disability Living Allowance does the claimant get?
+            </h1>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="dla-type-1" name="dla-type" type="radio" value="Disability Living Allowance 65+">
+              <label class="govuk-label govuk-radios__label" for="dla-type-1">
+                65+
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="dla-type-2" name="dla-type" type="radio" value="Disability Living Allowance Adult">
+              <label class="govuk-label govuk-radios__label" for="dla-type-2">
+                Adult
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="dla-type-3" name="dla-type" type="radio" value="Disability Living Allowance Child">
+              <label class="govuk-label govuk-radios__label" for="dla-type-3">
+                Child
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>
+  {% endblock %}

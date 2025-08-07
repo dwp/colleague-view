@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Payments and Awards
+{% endblock %}
+
+{% block header %}
+  {% include "sprint13/common/opt1/header-navigation_PaymentandAwards-active.html" %}
+    {% include "sprint13/common/opt1/keydetail-bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "sprint13/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+<ol class="govuk-breadcrumbs__list">
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="home-page.html">Home</a>
+  </li>
+  <li class="govuk-breadcrumbs__list-item">
+    <a class="govuk-breadcrumbs__link" href="#">Payments and awards</a>
+  </li>
+</ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Payments and Awards</h1>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <nav class="moj-sub-navigation" aria-label="Sub navigation">
+              <ul class="moj-sub-navigation__list">
+                <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" aria-current="page" href="#1">Upcoming payments and awards</a>
+                </li>
+
+                <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" href="payment-history.html">Payment history</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <h2 class="govuk-heading-l">Upcoming payment and awards</h2>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Upcoming Payments</h3>
+            <div class="govuk-warning-text govuk-!-padding-top-4">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                Payments due within approximately 3 days
+              </strong>
+            </div>
+
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Benefit</th>
+                  <th scope="col" class="govuk-table__header">Next payment date</th>
+                  <th scope="col" class="govuk-table__header">Next payment amount</th>
+                  <th scope="col" class="govuk-table__header govuk-!-text-align-right">Action</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Employment and Support Allowance (ESA)</th>
+                  <td class="govuk-table__cell">21 April 2023</td>
+                  <td class="govuk-table__cell">£148.15</td>
+                  <td class="govuk-table__cell govuk-!-text-align-right"><a href="payment-breakdown-details-ESA.html" class="govuk-link">View details<span class="govuk-visually-hidden"> ESA Payment breakdown</span></a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Personal Independence Payment (PIP)</th>
+                  <td class="govuk-table__cell">21 April 2023</td>
+                  <td class="govuk-table__cell">£212.15</td>
+                  <td class="govuk-table__cell govuk-!-text-align-right"><a href="payment-breakdown-details-PIP.html" class="govuk-link">View details<span class="govuk-visually-hidden"> PIP Payment breakdown</span></a></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+
+          <div class="govuk-grid-row govuk-!-margin-top-6">
+            <div class="govuk-grid-column-full">
+              <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Award amount and estimated next payment amount</h3>
+
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-half">Benefit</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Payment frequency</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-!-width-one-quarter">Estimated payment amount</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Carer's Allowance (CA)</th>
+                    <td class="govuk-table__cell">Every 4 weeks</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£3.85</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£274.95</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Employment and Support Allowance (ESA)</th>
+                    <td class="govuk-table__cell">Every 2 weeks</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£154.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£3.85</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£150.15</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Personal Independence Payment (PIP)</th>
+                    <td class="govuk-table__cell">Every 4 weeks</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£247.40</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£35.25</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£212.15</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

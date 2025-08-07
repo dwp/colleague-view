@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  What did you discussed with the caller?
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/common/opt2/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="unHappy_summary_CallLogged" method="post" novalidate>
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="addNote">
+                What did you discuss with the caller?
+              </label>
+              <div id="more-detail-hint" class="govuk-hint">
+                You will be able to change this information later.
+              </div>
+            </h1>
+            <textarea class="govuk-textarea govuk-!-margin-bottom-3" id="addNote" name="addNote" value="{{addNote}}" rows="5" aria-describedby="more-detail-hint"> {{ data['addNote'] }}</textarea>
+            <div class="govuk-hint">
+              You have 500 characters remaining
+            </div>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+{% endblock %}

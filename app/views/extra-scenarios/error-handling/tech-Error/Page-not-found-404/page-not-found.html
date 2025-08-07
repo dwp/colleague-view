@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Page not found
+{% endblock %}
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "extra-scenarios/error-handling/common/phase-banner.html" %}
+<!-- <a class="govuk-back-link" href="../index#service-unavailable">Back</a> -->
+{% endblock %}
+
+{% block footer %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Page not found</h1>
+    <p class="govuk-body">
+      If you typed the web address, check it is correct.
+    </p>
+    <p class="govuk-body">
+      If you pasted the web address, check you copied the entire address.
+    </p>
+    <p class="govuk-body">
+      If the web address is correct or you selected a link or button, <a href="https://dwp.service-now.com/itsupport" class="govuk-link">report the problem on DWP Place</a> and <a href="enter-nino.html" class="govuk-link">start the service again</a>.
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-third govuk-visually-hidden">
+    <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a class="govuk-link" href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-link govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</div>
+
+{% endblock %}

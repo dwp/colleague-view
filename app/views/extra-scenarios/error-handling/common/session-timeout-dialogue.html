@@ -1,0 +1,21 @@
+
+
+{% block content %}
+<div class="app-example-page">
+  <dialog class="govuk-timeout-warning dialog" data-module="govuk-timeout-warning" id="js-timeout-warning" data-minutes-idle-timeout="0.1" data-minutes-modal-visible="0.2" data-url-redirect="../tech-Error/Session-time-out/service-timeout-1" aria-live="polite" aria-labelledby="dialog-title" open="">
+    <h1 id="dialog-title" class="govuk-heading-l">
+      You are about to be signed out
+    </h1>
+    <div class="govuk-body">
+      <p>For your security, we will sign you out in <strong>90 minutes</strong>.</p>
+    </div>
+    <div class="govuk-button-group">
+      <button class="govuk-button dialog-button js-dialog-close" data-module="govuk-button">
+        Stay signed in
+      </button>
+      <a class="govuk-link" href="#">Sign out</a>
+    </div>
+  </dialog>
+</div>
+{% endblock %}
+

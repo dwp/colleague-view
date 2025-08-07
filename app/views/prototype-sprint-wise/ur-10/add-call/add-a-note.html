@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Add a note
+{% endblock %}
+
+{% block header %}
+{% include "/prototype-sprint-wise/ur-10/common/non-telephony/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="added-details" method="post" novalidate>
+      <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="with-hint">
+            Add a note
+          </label>
+        </h1>
+        <p class="govuk-body">Add a note to give details of:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>what the call was about if you have not logged it already</li>
+          <li>who the call was with if it was not with the claimant or a known representative</li>
+        </ul>
+        <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You have 5000 characters remaining
+        </div>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

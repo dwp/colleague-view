@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Benefit details
+{% endblock %}
+
+{% block header %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/header.html" %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/opt2/view-only-user/keydetail-bar.html" %} 
+{% endblock %}
+
+
+{% block footer %}
+  {% include "prototype-dev-baseline/mvp-1_1/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
+  <a href="../internal-pages" class="govuk-back-link govuk-!-display-none-print">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Benefit details</h1>
+    <p>Benefit details are not available because we do not have this information. Try again later.</p>
+  </div>
+</div>
+
+{% endblock %}
