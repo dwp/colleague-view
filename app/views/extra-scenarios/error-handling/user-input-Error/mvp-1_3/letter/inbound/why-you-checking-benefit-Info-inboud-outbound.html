@@ -21,7 +21,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="#" method="post">
+      <form class="form" action="call-with" method="post">
         <div class="govuk-error-summary" data-module="govuk-error-summary">
           <div role="alert">
             <h2 class="govuk-error-summary__title">
@@ -40,10 +40,15 @@
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Why are you checking this information?
+                What are you currently working on?
               </h1>
             </legend>
+            <div id="changedName-hint" class="govuk-hint">
+              Select which contact you have had or will have with this person, or if you're doing a check
+            </div>
             <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
+              <!-- <div class="govuk-radios__divider colleague-view-benefit-list">To complete inbound contact</div> -->
+              <!-- phone call -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="inbound-contact-1" name="contact-types" type="radio" value="A phone call" data-aria-controls="conditional-contact">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-1">
@@ -58,9 +63,6 @@
                         Is the phone call inbound or outbound?
                       </h2>
                     </legend>
-                    <p id="nationality-error" class="govuk-error-message">
-                      <span class="govuk-visually-hidden">Error:</span>Select if the contact is inbound or outbound
-                    </p>
                     <div class="govuk-radios" data-module="govuk-radios">
                       <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="inbound-phone-call" name="What-type-of-contact" type="radio" value="Inbound phone call with">
@@ -78,12 +80,12 @@
                   </fieldset>
                 </div>
               </div>
-
+  
               <!-- Letter -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="inbound-contact-2" name="contact-types" type="radio" value="A letter" data-aria-controls="conditional-contact-2" checked>
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-2">
-                 A letter
+                  A letter or other posted documents
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
@@ -114,12 +116,12 @@
                   </fieldset>
                 </div>
               </div>
-
+  
               <!-- Email -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="inbound-contact-3" name="contact-types" type="radio" value="An email" data-aria-controls="conditional-contact-3">
                 <label class="govuk-label govuk-radios__label" for="inbound-contact-3">
-                  An email
+                  An email or other emailed documents
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
@@ -147,7 +149,7 @@
                   </fieldset>
                 </div>
               </div>
-
+  
               <!-- Notification -->
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="inbound-contact-4" name="contact-types" type="radio" value="Text message to">
@@ -191,10 +193,10 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="view-info-only" name="contact-types" type="radio" value="View only">
                 <label class="govuk-label govuk-radios__label" for="view-info-only">
-                  To work on a quality check
+                  A quality or compliance check
                 </label>
                 <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
-                  You will not be able to add a note to the contact history.
+                  You will not be able to add a contact record
                 </div>
               </div>
             </div>
