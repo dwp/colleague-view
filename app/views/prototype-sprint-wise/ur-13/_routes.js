@@ -80,28 +80,44 @@ router.post('/call-with', function (req, res) {
 
 
   // Letter conditions
+  // if (req.session.data['contact-types'] == 'A letter') {
+  //   if (req.session.data['What-type-of-contact'] == 'Inbound letter from' || req.session.data['What-type-of-contact'] == 'Outbound letter to') {
+  //     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/contact-with');
+  //   }
+  // }
+
   if (req.session.data['contact-types'] == 'A letter') {
-    if (req.session.data['What-type-of-contact'] == 'Inbound letter from' || req.session.data['What-type-of-contact'] == 'Outbound letter to') {
-      res.redirect('/prototype-sprint-wise/ur-13/non-telephony/contact-with');
+    if (req.session.data['What-type-of-contact'] == 'Inbound letter from') {
+      res.redirect('/prototype-sprint-wise/ur-13/non-telephony/letter-from');
+    } else if (req.session.data['What-type-of-contact'] == 'Outbound letter to') {
+      res.redirect('/prototype-sprint-wise/ur-13/non-telephony/letter-to');
     }
   }
 
   // Email condition
+  // if (req.session.data['contact-types'] == 'An email') {
+  //   if (req.session.data['What-type-of-contact'] == 'Inbound email from' || req.session.data['What-type-of-contact'] == 'Outbound email to') {
+  //     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/contact-with');
+  //   }
+  // }
+
   if (req.session.data['contact-types'] == 'An email') {
-    if (req.session.data['What-type-of-contact'] == 'Inbound email from' || req.session.data['What-type-of-contact'] == 'Outbound email to') {
-      res.redirect('/prototype-sprint-wise/ur-13/non-telephony/contact-with');
+    if (req.session.data['What-type-of-contact'] == 'Inbound email from') {
+      res.redirect('/prototype-sprint-wise/ur-13/non-telephony/email-from');
+    } else if (req.session.data['What-type-of-contact'] == 'Outbound email to') {
+      res.redirect('/prototype-sprint-wise/ur-13/non-telephony/email-to');
     }
   }
 
   // Notification condition
   if (req.session.data['contact-types'] == 'Text message to') {
-      res.redirect('/prototype-sprint-wise/ur-13/non-telephony/contact-with');
+      res.redirect('/prototype-sprint-wise/ur-13/non-telephony/message-to');
     }
 
   // face to face converstaions condition
   if (req.session.data['contact-types'] == 'A visit or appointment') {
       if (req.session.data['What-type-of-contact'] == 'Visit from' || req.session.data['What-type-of-contact'] == 'Visit to') {
-        res.redirect('/prototype-sprint-wise/ur-13/non-telephony/contact-with');
+        res.redirect('/prototype-sprint-wise/ur-13/non-telephony/visit-with');
       }
   }
 
@@ -115,20 +131,6 @@ router.post('/call-with', function (req, res) {
   // }
 });
 
-// for outbound call
-// router.post('/who-were-tryingTo-contact', function (req, res) {
-//   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-//   req.session.data['Who-is-contact-with'] = '';
-//   req.session.data['Who-is-the-engagement-with'] = '';
-
-//   if (req.session.data['was-call-answered'] == 'Yes') {
-//     res.redirect('/prototype-sprint-wise/ur-13/who-was-the-call-with');
-//   }
-//   else{
-//     res.redirect('/prototype-sprint-wise/ur-13/who-were-tryingTo-contact');
-//   }
-// });
-
 
 // for outbound call
 router.post('/add-call/planned-for-review', function (req, res) {
@@ -138,7 +140,7 @@ router.post('/add-call/planned-for-review', function (req, res) {
 
   // Phone call conditions
   if (req.session.data['was-call-answered'] == 'Yes') {
-    res.redirect('/prototype-sprint-wise/ur-13/home');
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/home');
   }
   else{
     req.session.data['what-benefit-discussed'] = '';
@@ -149,7 +151,7 @@ router.post('/add-call/planned-for-review', function (req, res) {
     ) {
       req.session.data['Who-is-the-engagement-with'] = '';
     }
-    res.render('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed');
+    res.render('/prototype-sprint-wise/ur-13/add-call/reviewed');
   }
 });
 
@@ -162,12 +164,12 @@ router.post('/add-log-outbound-call-attempt-failed', function (req, res) {
   ) {
     req.session.data['Who-is-the-engagement-with'] = '';
   }
-  res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed');
+  res.redirect('/prototype-sprint-wise/ur-13/add-call/reviewed');
 
 });
 
 
-router.post('/home', function (req, res) {
+router.post('/telephony/home', function (req, res) {
   var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
   req.session.data['what-benefit-discussed'] = '';
   req.session.data['addNote']= '';
@@ -181,7 +183,7 @@ router.post('/home', function (req, res) {
     ) {
       req.session.data['Who-is-the-engagement-with'] = '';
     }
-    res.redirect('/prototype-sprint-wise/ur-13/home');
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/home');
   }
 });
 
@@ -206,7 +208,7 @@ router.post('/non-telephony/home', function (req, res) {
 
 // new routes for shorten call log - Telephony
 
-router.post('/add-call/what-benefits-discussed', function (req, res) {
+router.post('/add-call/reviewed', function (req, res) {
   if (req.session.data['what-benefit-discussed'] != '' && req.session.data['Do-you-want-to-complete-the-call'] != '') {
     // console.log('Display summary page');
     res.redirect('/prototype-sprint-wise/ur-13/add-call/do-you-want-add-more-details');
@@ -214,7 +216,7 @@ router.post('/add-call/what-benefits-discussed', function (req, res) {
   else{
     req.session.data['what-benefit-discussed'] = '';
     req.session.data['addNote']= '';
-    res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed');
+    res.redirect('/prototype-sprint-wise/ur-13/add-call/reviewed');
   }
 });
 
@@ -261,7 +263,7 @@ router.post('/add-call/planned-action', function (req, res) {
   if (req.session.data['what-benefit-discussed'] == '')
  {
   console.log('Error page');
-  res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-error');
+  res.redirect('/prototype-sprint-wise/ur-13/add-call/reviewed-error');
   } else if (req.session.data['what-benefit-discussed'] == 'General information') {
     res.redirect('/prototype-sprint-wise/ur-13/add-call/general-information');
   } else {
@@ -296,7 +298,7 @@ router.post('/add-call/questions-asked', function (req, res) {
   if (req.session.data['what-benefit-discussed'] == '')
  {
   console.log('Error page');
-  res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-error');
+  res.redirect('/prototype-sprint-wise/ur-13/add-call/reviewed-error');
   } else if (req.session.data['what-benefit-discussed'] == 'General information') {
     res.redirect('/prototype-sprint-wise/ur-13/add-call/general-information');
   } else {
@@ -345,7 +347,7 @@ router.post('/add-call/add-more-call-details', function (req, res) {
   var addCallDetails = req.session.data['do-you-want-to-add-more-call-detail'];
   if (addCallDetails == 'Yes I want to add'){
     req.session.data['what-benefit-discussed'] = '';
-    res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed')
+    res.redirect('/prototype-sprint-wise/ur-13/add-call/reviewed')
   }
   if (addCallDetails == 'Complete phone call'){
     // res.redirect('/prototype-sprint-wise/ur-13//add-call/call-completed');
@@ -367,7 +369,7 @@ router.post('/add-call/complete-call', function (req, res) {
     res.redirect('/prototype-sprint-wise/ur-13/index')
    
   } else{
-    res.redirect('/prototype-sprint-wise/ur-13/home')
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/home')
   }
 
 });
@@ -389,7 +391,7 @@ router.post('/add-call/check-call-completion', function (req, res) {
     res.redirect('/prototype-sprint-wise/ur-13/index');
   }
   else{
-    res.redirect('/prototype-sprint-wise/ur-13/home');
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/home');
   }
 });
 
@@ -397,7 +399,7 @@ router.post('/add-call/check-call-completion', function (req, res) {
 
 // new routes for shorten call log - Non-Telephony
 
-// router.post('/non-telephony/add-contact/what-benefits-discussed', function (req, res) {
+// router.post('/non-telephony/add-contact/reviewed', function (req, res) {
 //   if (req.session.data['what-benefit-discussed-non-telephon'] != '' && req.session.data['Do-you-want-to-complete-the-call'] != '') {
 //     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/do-you-want-add-more-details');
 
@@ -405,12 +407,12 @@ router.post('/add-call/check-call-completion', function (req, res) {
 //   else{
 //     req.session.data['what-benefit-discussed-non-telephony'] = '';
 //     req.session.data['addNote']= '';
-//     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed');
+//     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/reviewed');
 //   }
 // });
 
-router.post('/non-telephony/add-contact/what-benefits-discussed', function (req, res) {
-  res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed');
+router.post('/non-telephony/add-contact/reviewed', function (req, res) {
+  res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/reviewed');
 });
 
 router.post('/non-telephony/add-contact/do-you-want-add-more-details', function (req, res) {
@@ -460,7 +462,7 @@ router.post('/non-telephony/add-contact/select-contact-type', function (req, res
   if (req.session.data['what-benefit-discussed-non-telephony'] == '')
  {
   console.log('Error page');
-  res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed-error');
+  res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/reviewed-error');
   } else {
   res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/select-contact-type');
  }
@@ -491,7 +493,7 @@ router.post('/non-telephony/add-contact/questions-asked', function (req, res) {
   if (req.session.data['what-benefit-discussed-non-telephony'] == '')
  {
   console.log('Error page');
-  res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed-error');
+  res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/reviewed-error');
  } else if (req.session.data['what-benefit-discussed-non-telephony'] == 'General information') {
   res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/general-information');
 } else {
@@ -570,7 +572,7 @@ router.post('/non-telephony/add-contact/add-more-contact-details', function (req
   if (addCallDetails == 'Yes I want to add'){
     console.log('Add more benefits');
     req.session.data['what-benefit-discussed-non-telephony'] = '';
-    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/what-benefits-discussed');
+    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/reviewed');
   }
   if (addCallDetails == 'Complete phone call'){
     console.log('Complete call');
@@ -605,10 +607,10 @@ router.post('/non-telephony/add-contact/contact-details-completed', function (re
 
 // for DLA active benefit
 
-router.post('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active', function (req, res) {
+router.post('/prototype-sprint-wise/ur-13/add-call/reviewed-dla-active', function (req, res) {
     req.session.data['what-benefit-discussed'] = '';
     req.session.data['addNote']= '';
-    res.redirect('/prototype-sprint-wise/ur-13/add-call/what-benefits-discussed-dla-active');
+    res.redirect('/prototype-sprint-wise/ur-13/add-call/reviewed-dla-active');
 });
 
 // hide and show CTA
