@@ -342,7 +342,6 @@ router.post('/add-call/you-have-added-details', function (req, res) {
     res.redirect('/prototype-sprint-wise/ur-13/add-call/added-details')
 });
 
-
 router.post('/add-call/add-more-call-details', function (req, res) {
   var addCallDetails = req.session.data['do-you-want-to-add-more-call-detail'];
   if (addCallDetails == 'Yes I want to add'){
