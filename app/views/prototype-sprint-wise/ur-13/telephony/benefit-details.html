@@ -26,25 +26,22 @@
     <h1 class="govuk-heading-xl">Benefit details</h1>
   </div>
   <div class="govuk-grid-column-one-half">
-    <form action="/prototype-sprint-wise/ur-13/dla-active/add-call/reviewed" method="post">
+    <form action="/prototype-sprint-wise/ur-13/dla-active/telephony/add-call/reviewed" method="post">
       <div class="govuk-button-group">
         {% set benefits =  data['what-benefit-discussed'] | length %}
         {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
         {%if benefitAdded != '' %}
-        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/dla-active/add-call/reviewed">
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/dla-active/telephony/add-call/reviewed">
           Add or change call details
         </button>
-        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/dla-active/add-call/do-you-want-to-complete-call">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/dla-active/telephony/add-call/do-you-want-to-complete-call">
           Start service again
         </button>
         {%else%}
-        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/dla-active/add-call/reviewed">
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-13/dla-active/telephony/add-call/reviewed">
           Add call details
         </button>
         {%endif%}
-        <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-13/add-call/do-you-want-to-complete-call">
-          Complete phone call
-        </button> -->
       </div>
     </form>
   </div>

@@ -1917,6 +1917,12 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="sfrbd" name="contact-type-dla" type="checkbox" value="Sent a form requesting bank details" {{ checked ('contact-type-dla', 'Sent a form requesting bank details') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="sfrbd">
+                    Sent a form requesting bank details
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="slcla" name="contact-type-dla" type="checkbox" value="Sent a letter to check living accommodation" {{ checked ('contact-type-dla', 'Sent a letter to check living accommodation') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="slcla">
                     Sent a letter to check living accommodation
@@ -2632,7 +2638,7 @@
                 Sent the outcome of a claim
               </label>
             </div>
-            <div class="govuk-checkboxes__item">
+            <!-- <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="formRequest" name="contact-type-ma" type="checkbox" value="Sent a claim form" {{ checked ('contact-type-ma', 'Sent a claim form') }}>
               <label class="govuk-label govuk-checkboxes__label" for="formRequest">
                 Sent a claim form
@@ -2640,7 +2646,7 @@
               <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
                 You must also make a record of this as an outbound letter
               </div>
-            </div>
+            </div> -->
             <div class="govuk-checkboxes__item">
              <input class="govuk-checkboxes__input" id="overpaymentLetter" name="contact-type-ma" type="checkbox" value="Sent an overpayment letter" {{ checked ('contact-type-ma', 'Sent an overpayment letter') }}>
              <label class="govuk-label govuk-checkboxes__label" for="overpaymentLetter">
@@ -3107,7 +3113,7 @@
                 Sent the outcome of a claim
               </label>
             </div>
-            <div class="govuk-checkboxes__item">
+            <!-- <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="formRequest" name="contact-type" type="checkbox" value="Sent a claim form" {{ checked ('contact-type', 'Sent a claim form') }}>
               <label class="govuk-label govuk-checkboxes__label" for="formRequest">
                 Sent a claim form
@@ -3115,7 +3121,7 @@
               <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
                 You must also make a record of this as an outbound letter
               </div>
-            </div>
+            </div> -->
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="overpaymentLetter" name="contact-type" type="checkbox" value="Sent an overpayment letter" {{ checked ('contact-type', 'Sent an overpayment letter') }}>
               <label class="govuk-label govuk-checkboxes__label" for="overpaymentLetter">
@@ -3142,7 +3148,7 @@
             </div>
           </div>
           {%endif%}
-          <!-- CWP, DLA-Child, New Style JSA, MA, PC, options -->
+          <!-- CWP, New Style, PC, options -->
           {%if data['what-benefit-discussed-non-telephony'] == 'Cold Weather Payment' or data['what-benefit-discussed-non-telephony'] == "New Style Job Seeker's Allowance" or data['what-benefit-discussed-non-telephony'] == 'Pension Credit' %}
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
             <div class="govuk-checkboxes__item">
@@ -3338,6 +3344,12 @@
               <input class="govuk-checkboxes__input" id="Review" name="contact-type" type="checkbox" value="Sent an annual review letter" {{ checked ('contact-type', 'Sent an annual review letter') }}>
               <label class="govuk-label govuk-checkboxes__label" for="Review">
                 Sent an annual review letter
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="sfrbd" name="contact-type" type="checkbox" value="Sent a form requesting bank details" {{ checked ('contact-type', 'Sent a form requesting bank details') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="sfrbd">
+                Sent a form requesting bank details
               </label>
             </div>
             <div class="govuk-checkboxes__item">

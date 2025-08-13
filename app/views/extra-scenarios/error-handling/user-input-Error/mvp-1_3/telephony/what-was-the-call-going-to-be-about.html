@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Error:What was the call going to be about?
+Error:What action were you going to take?
 {% endblock %}
 
 {% block header %}
@@ -39,11 +39,10 @@ Error:What was the call going to be about?
         </div>
       </div>
       <span class="govuk-caption-l">Step 2 of 3</span>
-      <h1 class="govuk-heading-l">What was the call going to be about?</h1>
-      <form action="#" method="post" novalidate>
-        <!-- for ESA -->
-        <div class="govuk-form-group govuk-form-group--error">
-          <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+        <h1 class="govuk-heading-l">What action were you going to take?</h1>
+      <form action="added-call-details" method="post" novalidate="">
+       <div class="govuk-form-group govuk-form-group--error">
+         <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h2 class="govuk-fieldset__heading govuk-heading-m">
               Employment and Support Allowance
@@ -52,34 +51,46 @@ Error:What was the call going to be about?
           <p id="passport-issued-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> Select what the call was going to be about for Employment and Support Allowance
           </p>
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes" data-govuk-checkboxes-init="">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option1" name="contact-type-esa" type="checkbox" value="Call back" {{ checked ('contact-type', 'Call back') }}>
+              <input class="govuk-checkboxes__input" id="outboundCall-option1" name="contact-type" type="checkbox" value="Complete a call back request">
               <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option1">
-                Call back
+                Complete a call back request
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option2" name="contact-type-esa" type="checkbox" value="Review" {{ checked ('contact-type', 'Review') }}>
+              <input class="govuk-checkboxes__input" id="outboundCall-option2" name="contact-type" type="checkbox" value="Conduct an annual review">
               <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option2">
-                Review
+                Conduct an annual review
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option3" name="contact-type-esa" type="checkbox" value="Missing information" {{ checked ('contact-type', 'Missing information') }}>
+              <input class="govuk-checkboxes__input" id="outboundCall-option3" name="contact-type" type="checkbox" value="Request missing information for a new claim">
               <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option3">
-                Missing information
+                Request missing information for a new claim
               </label>
             </div>
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="outboundCall-option4" name="contact-type-esa" type="checkbox" value="Change of circumstance" {{ checked ('contact-type', 'Change of circumstance') }}>
+              <input class="govuk-checkboxes__input" id="outboundCall-option4" name="contact-type" type="checkbox" value="Confirm or check for a change of circumstance">
               <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option4">
-                Change of circumstance
+                Confirm or check for a change of circumstance
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="outboundCall-option5" name="contact-type" type="checkbox" value="Request evidence be sent">
+              <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option5">
+                Request evidence be sent
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="outboundCall-option6" name="contact-type" type="checkbox" value="Something else">
+              <label class="govuk-label govuk-checkboxes__label" for="outboundCall-option6">
+                Something else
               </label>
             </div>
           </div>
-          </fieldset>
-        </div>
+         </fieldset>
+       </div>
         <!-- add a note -->
         <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9 govuk-form-group--error" data-module="govuk-character-count" data-maxlength="5000">
           <h2 class="govuk-label-wrapper">
