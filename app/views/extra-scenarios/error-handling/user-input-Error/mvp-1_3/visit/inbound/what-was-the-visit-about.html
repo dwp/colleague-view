@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Error: What was the visit about?
+Error: What action you took?
 {% endblock %}
 
 {% block header %}
@@ -29,10 +29,10 @@ Error: What was the visit about?
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#makingAnAppointment-esa">Select what the visit was about for Employment and Support Allowance</a>
+              <a href="#makingAnAppointment-esa">Select what action you took for Employment and Support Allowance</a>
             </li>
             <li>
-              <a href="#makingAnAppointment-pip">Select what the visit was about for Personal Independence Payment</a>
+              <a href="#makingAnAppointment-pip">Select what action you took for Personal Independence Payment</a>
             </li> 
             <li>
               <a href="#with-hint">Enter a note that is less than 5000 characters</a>
@@ -42,7 +42,7 @@ Error: What was the visit about?
       </div>
     </div>
     <span class="govuk-caption-l">Step 2 of 3</span>
-    <h1 class="govuk-heading-l">What was the visit about?</h1>
+    <h1 class="govuk-heading-l">What action you took?</h1>
     <form action="added-call-details" method="post" novalidate>
      <!-- for ESA -->
      <div class="govuk-form-group govuk-form-group--error">
@@ -53,35 +53,29 @@ Error: What was the visit about?
           </h2>
         </legend>
         <p id="nationality-error" class="govuk-error-message">
-         <span class="govuk-visually-hidden">Error:</span> Select what the visit was about for Employment and Support Allowance
+         <span class="govuk-visually-hidden">Error:</span> Select what action you took for Employment and Support Allowance
        </p>
-       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes" data-govuk-checkboxes-init="">
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="makingAnAppointment-esa" name="contact-type-esa" type="checkbox" value="Making an appointment" {{ checked ('contact-type-esa', 'Making an appointment') }}>
+          <input class="govuk-checkboxes__input" id="makingAnAppointment-esa" name="contact-type-esa" type="checkbox" value="Made an appointment">
           <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
-            Making an appointment 
+           Made an appointment
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="shortTermBenefitAdvance" name="contact-type-esa" type="checkbox" value="Short term benefit advance" {{ checked ('contact-type-esa', 'Short term benefit advance') }}>
-          <label class="govuk-label govuk-checkboxes__label" for="shortTermBenefitAdvance">
-            Short term benefit advance 
-          </label>
-        </div>
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="checkingEligibility" name="contact-type-esa" type="checkbox" value="Checking eligibility" {{ checked ('contact-type-esa', 'Checking eligibility') }}>
+          <input class="govuk-checkboxes__input" id="checkingEligibility" name="contact-type-esa" type="checkbox" value="Checked eligibility">
           <label class="govuk-label govuk-checkboxes__label" for="checkingEligibility">
-            Checking eligibility
+           Checked eligibility
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-esa" type="checkbox" value="Complaint" {{ checked ('contact-type-esa', 'Complaint') }}>
+          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-esa" type="checkbox" value="Handled a complaint">
           <label class="govuk-label govuk-checkboxes__label" for="Complaint">
-            Complaint
+           Handled a complaint
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-esa" type="checkbox" value="Something else" {{ checked ('contact-type-esa', 'Something else') }}>
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-esa" type="checkbox" value="Something else">
           <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
             Something else
           </label>
@@ -98,29 +92,29 @@ Error: What was the visit about?
           </h2>
         </legend>
         <p id="nationality-error" class="govuk-error-message">
-         <span class="govuk-visually-hidden">Error:</span> Select what the visit was about for Personal Independence Payment
+         <span class="govuk-visually-hidden">Error:</span> Select what action you took for Personal Independence Payment
        </p>
-       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes" data-govuk-checkboxes-init="">
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="makingAnAppointment-pip" name="contact-type-pip" type="checkbox" value="Making an appointment" {{ checked ('contact-type-esa', 'Making an appointment') }}>
+          <input class="govuk-checkboxes__input" id="makingAnAppointment-pip" name="contact-type-pip" type="checkbox" value="Made an appointment">
           <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
-            Making an appointment 
+           Made an appointment
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="checkingEligibility" name="contact-type-pip" type="checkbox" value="Checking eligibility" {{ checked ('contact-type-esa', 'Checking eligibility') }}>
+          <input class="govuk-checkboxes__input" id="checkingEligibility" name="contact-type-pip" type="checkbox" value="Checked eligibility">
           <label class="govuk-label govuk-checkboxes__label" for="checkingEligibility">
-            Checking eligibility
+           Checked eligibility
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-pip" type="checkbox" value="Complaint" {{ checked ('contact-type-esa', 'Complaint') }}>
+          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-pip" type="checkbox" value="Handled a complaint">
           <label class="govuk-label govuk-checkboxes__label" for="Complaint">
-            Complaint
+            Handled a complaint
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-pip" type="checkbox" value="Something else" {{ checked ('contact-type-esa', 'Something else') }}>
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-pip" type="checkbox" value="Something else">
           <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
             Something else
           </label>

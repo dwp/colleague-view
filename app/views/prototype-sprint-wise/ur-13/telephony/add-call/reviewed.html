@@ -1,7 +1,28 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-What did you review?
+{%if data['contact-types'] == 'A phone call'%}
+  {% if data['What-type-of-contact']== 'Outbound phone call with' %}
+    {% if data['was-call-answered']=='No' %}
+      What were you planning to review?
+    {%endif%} 
+  {%else%}
+    What did you review?
+  {%endif%}
+{%endif%}
+{%if data['contact-types'] == 'A letter'%}
+  What did you review?
+{%endif%}
+{%if data['contact-types'] == 'An email'%}
+  What did you review?
+{%endif%}
+{%if data['contact-types'] == 'Text message to'%}
+  What was the message about?
+{%endif%}
+{%if data['contact-types'] == 'A visit or appointment'%}
+  What did you review?
+{%endif%}
+
 {% endblock %}
 
 {% block header %}

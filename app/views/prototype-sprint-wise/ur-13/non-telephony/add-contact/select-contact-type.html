@@ -1,23 +1,20 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %} 
-{% if data['contact-types']== 'A phone call' %}
-  What was the call about?
-{%endif%}
 {% if data['What-type-of-contact']== 'Inbound letter from' %} 
-  What was received?
+What action did you take?
 {%endif%}
 {% if data['What-type-of-contact']== 'Outbound letter to' %} 
-  What did you send?
+What action did you take?
 {%endif%}
 {% if data['contact-types']== 'An email' %}
-  What was the email about?
+What action did you take?
 {%endif%}
 {% if data['contact-types']== 'Text message to' %} 
   What did you send?
 {%endif%}
 {% if data['What-type-of-contact']== 'Visit from' %}
-  What was the visit about?
+  What action you took?
 {%endif%}
 {% if data['What-type-of-contact'] == 'Visit to' %}
   What is the status of the visit?
