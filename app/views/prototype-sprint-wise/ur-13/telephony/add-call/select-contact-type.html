@@ -70,7 +70,7 @@ What action did you take?
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-ca" type="checkbox" data-aria-controls="conditional-contact" value="Reported a change of circumstance" {{ checked ('contact-type-ca', 'Reported a change of circumstance') }}>
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-ca" type="checkbox" data-aria-controls="conditional-contact" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-ca', 'Reported a change of circumstance') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                     Reported a change of circumstance
                   </label>
@@ -239,19 +239,19 @@ What action did you take?
                     Helped with a payment enquiry
                   </label>
                 </div>
-                <!-- <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-esa" type="checkbox" value="Reported a change of circumstance" {{ checked ('contact-type-esa', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
-                    Reported a change of circumstance
-                  </label>
-                </div> -->
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-esa" type="checkbox" data-aria-controls="conditional-contact" value="Reported a change of circumstance" {{ checked ('contact-type-esa', 'Reported a change of circumstance') }}>
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-esa" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-esa', 'Reported a change of circumstance') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                     Reported a change of circumstance
                   </label>
                 </div>
-                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+                <!-- <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-esa" type="checkbox" data-aria-controls="conditional-contact" value="Reported a change of circumstance" {{ checked ('contact-type-esa', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                    Reported a change of circumstance
+                  </label>
+                </div> -->
+                <!-- <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
                   <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                       <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
@@ -297,13 +297,7 @@ What action did you take?
                       </div>
                     </fieldset>
                   </div>
-                  <!-- <div class="govuk-form-group">
-                    <label class="govuk-label" for="contact-by-email">
-                      Email address
-                    </label>
-                    <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contactByEmail" type="email" spellcheck="false" autocomplete="email">
-                  </div> -->
-                </div>
+                </div> -->
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-esa" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-esa', 'Sent a proof of benefit letter') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="proofofBenefit">
@@ -1740,7 +1734,7 @@ What action did you take?
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                     Reported a change of circumstance
                   </label>
@@ -1814,7 +1808,7 @@ What action did you take?
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                     Reported a change of circumstance
                   </label>
@@ -1976,7 +1970,7 @@ What action did you take?
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
+                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                   Reported a change of circumstance
                 </label>
@@ -2068,7 +2062,7 @@ What action did you take?
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
+                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                   Reported a change of circumstance
                 </label>
@@ -2130,7 +2124,7 @@ What action did you take?
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
+                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                   Reported a change of circumstance
                 </label>
@@ -2228,7 +2222,7 @@ What action did you take?
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
+                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type', 'Reported a change of circumstance') }}>
                 <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
                   Reported a change of circumstance
                 </label>
@@ -2372,60 +2366,63 @@ What action did you take?
           </fieldset>
         </div>
         <!-- add a note -->
-        {%if checkNoteAdded == ''%}
-        <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="5000">
-          <h2 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--m" for="with-hint">
-              Add a note (optional)
-            </label>
-          </h2>
-    
-          {% if data['What-type-of-contact']== 'Outbound phone call with' %}
-            {%if wasCallAnswered == 'Yes' %}
-            <p class="govuk-body">You do not need to repeat anything you have already selected.</p>
-            <!-- <p class="govuk-body">You should make a note if the call was disconnected early and there was no successful call back attempt.</p> -->
-            {%else%}
-            <p class="govuk-body">Add a note to give details of:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>what attempt this was at contacting the claimant</li>
-              <li>if you will try to contact the claimant again</li>
-              <li>if any awards or payment will change due to the call being unsuccessful</li>
-            </ul>
+        <div id ="myNote" style="display: block;">
+          {%if checkNoteAdded == ''%}
+          <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="5000">
+            <h2 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--m" for="with-hint">
+                Add a note (optional)
+              </label>
+            </h2>
+      
+            {% if data['What-type-of-contact']== 'Outbound phone call with' %}
+              {%if wasCallAnswered == 'Yes' %}
+              <p class="govuk-body">You do not need to repeat anything you have already selected.</p>
+              <!-- <p class="govuk-body">You should make a note if the call was disconnected early and there was no successful call back attempt.</p> -->
+              {%else%}
+              <p class="govuk-body">Add a note to give details of:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>what attempt this was at contacting the claimant</li>
+                <li>if you will try to contact the claimant again</li>
+                <li>if any awards or payment will change due to the call being unsuccessful</li>
+              </ul>
+              {%endif%}
             {%endif%}
+            <div class="govuk-warning-text govuk-!-margin-bottom-2">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+                Do not include any personal details.
+              </strong>
+            </div>
+            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+              You have 5000 characters remaining
+            </div>
+          </div>
+          {%else%}
+          <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="5000">
+            <h2 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--m" for="with-hint">
+                Add a note (optional)
+              </label>
+            </h2>
+            <div class="govuk-warning-text govuk-!-margin-bottom-2">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+                This note applies to the whole call. Do not delete your previous notes if they are still needed.
+              </strong>
+            </div>
+            <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->
+            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+            <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+              You have 5000 characters remaining
+            </div>
+          </div>
           {%endif%}
-          <div class="govuk-warning-text govuk-!-margin-bottom-2">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-visually-hidden">Warning</span>
-              Do not include any personal details.
-            </strong>
-          </div>
-          <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
-          <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
-            You have 5000 characters remaining
-          </div>
         </div>
-        {%else%}
-        <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="5000">
-          <h2 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--m" for="with-hint">
-              Add a note (optional)
-            </label>
-          </h2>
-          <div class="govuk-warning-text govuk-!-margin-bottom-2">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-visually-hidden">Warning</span>
-              This note applies to the whole call. Do not delete your previous notes if they are still needed.
-            </strong>
-          </div>
-          <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->
-          <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
-          <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
-            You have 5000 characters remaining
-          </div>
-        </div>
-        {%endif%}
+
       {%endif%}
     {%endif%}
 
@@ -4397,4 +4394,20 @@ What action did you take?
   </form>
   </div>
 </div>
+
+<script type="text/javascript">
+  function myFunction() {
+    // Get the checkbox
+    var checkBox = document.getElementById("changeOfCircumstance");
+    // Get the output text
+    var noteField = document.getElementById("myNote");
+  
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      noteField.style.display = "none";
+    } else {
+      noteField.style.display = "block";
+    }
+  }
+</script>
 {% endblock %}

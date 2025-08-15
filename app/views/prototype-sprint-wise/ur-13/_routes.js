@@ -262,7 +262,7 @@ router.post('/telephony/add-call/planned-action', function (req, res) {
   req.session.data['othQ_question-resolved-pip']= '';
 
   if (req.session.data['what-benefit-discussed'] == '')
- {
+  {
   console.log('Error page');
   res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/reviewed-error');
   } else if (req.session.data['what-benefit-discussed'] == 'General information') {
@@ -272,7 +272,7 @@ router.post('/telephony/add-call/planned-action', function (req, res) {
  }
 })
 
-// Question asked original
+// select sub-queries
 router.post('/telephony/add-call/questions-asked', function (req, res) {
 
   console.log('Question asked');
@@ -307,6 +307,7 @@ router.post('/telephony/add-call/questions-asked', function (req, res) {
  }
 })
 
+
 router.post('/telephony/add-call/questions-answered', function (req, res) {
   res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/questions-answered');
 });
@@ -323,7 +324,35 @@ router.post('/telephony/add-call/is-question-resolved', function (req, res) {
 });
 
 router.post('/telephony/add-call/added-call-details', function (req, res) {
-  
+
+  if(
+    req.session.data['contact-type-ca'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-esa'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-pip'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-aa'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-bsp'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-cwp'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-dla'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-ibjsa'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-nsjsa'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-ma'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-pc'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-sp'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-sda'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-uc'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-wfp'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type'].includes("Reported a change of circumstance")
+  )
+  { 
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/what-coc-have-been-selected');
+
+  } else{
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/added-call-details');
+  }
+});
+
+// added call details along with CoC 
+router.post('/telephony/add-call/added-call-details-with-coc', function (req, res) {
   res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/added-call-details');
 });
  
