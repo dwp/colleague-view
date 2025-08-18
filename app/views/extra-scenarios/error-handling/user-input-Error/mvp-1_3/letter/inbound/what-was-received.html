@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Error: What action did you take?
+Error: What was received? 
 {% endblock %}
 
 {% block header %}
@@ -20,7 +20,6 @@ Error: What action did you take?
 {% block content %}
 
 <div class="govuk-grid-row">
-
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-error-summary" data-module="govuk-error-summary">
       <div role="alert">
@@ -30,10 +29,10 @@ Error: What action did you take?
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
             <li>
-              <a href="#claimFform-esa">Select what action you took for Employment and Support Allowance</a>
+              <a href="#claimFform-esa">Select what was received for Employment and Support Allowance</a>
             </li>
             <li>
-              <a href="#claimFform">Select what action you took for Personal Independence Payment</a>
+              <a href="#claimFform-pip">Select what was received for Personal Independence Payment</a>
             </li> 
             <li>
               <a href="#with-hint">Enter a note that is less than 5000 characters</a>
@@ -43,141 +42,149 @@ Error: What action did you take?
       </div>
     </div>
     <span class="govuk-caption-l">Step 2 of 3</span>
-    <h1 class="govuk-heading-l">What action did you take?</h1>
-    <form action="added-call-details" method="post" novalidate="">
-      <div class="govuk-form-group govuk-form-group--error">
-        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h2 class="govuk-fieldset__heading govuk-heading-m">
+    <h1 class="govuk-heading-l">What was received? </h1>
+    <form action="added-call-details" method="post" novalidate>
+     <!-- for ESA -->
+     <div class="govuk-form-group govuk-form-group--error">
+      <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading govuk-heading-m">
             Employment and Support Allowance
-            </h2>
-          </legend>
-          <p id="nationality-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> Select what action you took for Employment and Support Allowance
-        </p>
-        <div class="govuk-checkboxes" data-module="govuk-checkboxes" data-govuk-checkboxes-init="">
+          </h2>
+        </legend>
+        <p id="nationality-error" class="govuk-error-message">
+         <span class="govuk-visually-hidden">Error:</span> Select what was received for Employment and Support Allowance
+       </p>
+       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="claimFform-esa" name="contact-type-esa" type="checkbox" value="Processed a claim form">
+          <input class="govuk-checkboxes__input" id="claimFform-esa" name="contact-type-esa" type="checkbox" value="Claim form" {{ checked ('contact-type-esa', 'Claim form') }}>
           <label class="govuk-label govuk-checkboxes__label" for="claimForm">
-            Processed a claim form
+           Claim form
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-esa" type="checkbox" value="Reported a change of circumstance">
-          <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
-            Reported a change of circumstance
-          </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Evidence" name="contact-type-esa" type="checkbox" value="Checked evidence">
-          <label class="govuk-label govuk-checkboxes__label" for="Evidence">
-            Checked evidence
-          </label>
-        </div>
-        <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="repaymentLetter" name="contact-type-esa" type="checkbox" value="Processed a repayment">
+          <input class="govuk-checkboxes__input" id="repaymentLetter" name="contact-type-esa" type="checkbox" value="Repayment letter" {{ checked ('contact-type-esa', 'Repayment letter') }}>
           <label class="govuk-label govuk-checkboxes__label" for="repaymentLetter">
-            Processed a repayment
+           Repayment letter
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="mandatoryReconsideration" name="contact-type-esa" type="checkbox" value="Progressed a mandatory reconsideration or appeal">
+          <input class="govuk-checkboxes__input" id="mandatoryReconsideration" name="contact-type-esa" type="checkbox" value="A mandatory reconsideration or appeal" {{ checked ('contact-type-esa', 'A mandatory reconsideration or appeal') }}>
           <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
-            Progressed a mandatory reconsideration or appeal
+            A mandatory reconsideration or appeal
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="aComplaint" name="contact-type-esa" type="checkbox" value="Handled a complaint">
+          <input class="govuk-checkboxes__input" id="aComplaint" name="contact-type-esa" type="checkbox" value="A complaint" {{ checked ('contact-type-esa', 'A complaint') }}>
           <label class="govuk-label govuk-checkboxes__label" for="aComplaint">
-            Handled a complaint
+            A complaint
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="visitingOfficerReport" name="contact-type-esa" type="checkbox" value="Reviewed a Visiting Officer report">
+          <input class="govuk-checkboxes__input" id="Evidence" name="contact-type-esa" type="checkbox" value="Evidence" {{ checked ('contact-type-esa', 'Evidence') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="Evidence">
+           Evidence 
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="evidenceEnquiry" name="contact-type-esa" type="checkbox" value="Evidence enquiry" {{ checked ('contact-type-esa', 'Evidence enquiry') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="evidenceEnquiry">
+            Evidence enquiry
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+         <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-esa" type="checkbox" value="A change of circumstance" {{ checked ('contact-type-esa', 'A change of circumstance') }}>
+         <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+           A change of circumstance
+         </label>
+       </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="visitingOfficerReport" name="contact-type-esa" type="checkbox" value="Visiting Officer report" {{ checked ('contact-type-esa', 'Visiting Officer report') }}>
           <label class="govuk-label govuk-checkboxes__label" for="visitingOfficerReport">
-            Reviewed a Visiting Officer report
+           Visiting Officer report
+          </label>
+        </div>
+        <!-- <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-esa" type="checkbox" value="Something else" {{ checked ('contact-type-esa', 'Something else') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+           Something else
+          </label>
+        </div> -->
+       </div>
+      </fieldset>
+    </div>
+    <!-- for PIP -->
+    <div class="govuk-form-group govuk-form-group--error">
+      <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading govuk-heading-m">
+            Personal Independence Payment
+          </h2>
+        </legend>
+        <p id="nationality-error" class="govuk-error-message">
+         <span class="govuk-visually-hidden">Error:</span> Select what was received for Personal Independence Payment
+       </p>
+       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="claimFform-pip" name="contact-type-esa" type="checkbox" value="Claim form" {{ checked ('contact-type-esa', 'Claim form') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="claimForm">
+           Claim form
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-esa" type="checkbox" value="Something else">
-          <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
-            Something else
+          <input class="govuk-checkboxes__input" id="repaymentLetter" name="contact-type-esa" type="checkbox" value="Repayment letter" {{ checked ('contact-type-esa', 'Repayment letter') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="repaymentLetter">
+           Repayment letter
           </label>
         </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="mandatoryReconsideration" name="contact-type-esa" type="checkbox" value="A mandatory reconsideration or appeal" {{ checked ('contact-type-esa', 'A mandatory reconsideration or appeal') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
+            A mandatory reconsideration or appeal
+          </label>
         </div>
-        </fieldset>
-      </div>
-      <!-- for PIP -->
-      <div class="govuk-form-group govuk-form-group--error">
-        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h2 class="govuk-fieldset__heading govuk-heading-m">
-            Personal Independence Payment
-            </h2>
-          </legend>
-          <p id="nationality-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> Select what action you took for Personal Independence Payment
-        </p>
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes" data-govuk-checkboxes-init="">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="claimFform" name="contact-type-pip" type="checkbox" value="Processed a claim form">
-            <label class="govuk-label govuk-checkboxes__label" for="claimForm">
-              Processed a claim form
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="sentaClaimForm" name="contact-type-pip" type="checkbox" value="Sent a claim form">
-            <label class="govuk-label govuk-checkboxes__label" for="sentaClaimForm">
-              Sent a claim form
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-pip" type="checkbox" value="Reported a change of circumstance">
-            <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
-              Reported a change of circumstance
-            </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="Evidence" name="contact-type-pip" type="checkbox" value="Checked evidence">
-            <label class="govuk-label govuk-checkboxes__label" for="Evidence">
-              Checked evidence
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="repaymentLetter" name="contact-type-pip" type="checkbox" value="Processed a repayment">
-            <label class="govuk-label govuk-checkboxes__label" for="repaymentLetter">
-              Processed a repayment
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="mandatoryReconsideration" name="contact-type-pip" type="checkbox" value="Progressed a mandatory reconsideration or appeal">
-            <label class="govuk-label govuk-checkboxes__label" for="mandatoryReconsideration">
-              Progressed a mandatory reconsideration or appeal
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="aComplaint" name="contact-type-pip" type="checkbox" value="Handled a complaint">
-            <label class="govuk-label govuk-checkboxes__label" for="aComplaint">
-              Handled a complaint
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="visitingOfficerReport" name="contact-type-pip" type="checkbox" value="Reviewed a Visiting Officer report">
-            <label class="govuk-label govuk-checkboxes__label" for="visitingOfficerReport">
-              Reviewed a Visiting Officer report
-            </label>
-          </div>
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-pip" type="checkbox" value="Something else">
-            <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
-              Something else
-            </label>
-          </div>
-          </div>
-        </fieldset>
-      </div>
-   <!-- add a note -->
-   <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9 govuk-form-group--error" data-module="govuk-character-count" data-maxlength="5000">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="aComplaint" name="contact-type-esa" type="checkbox" value="A complaint" {{ checked ('contact-type-esa', 'A complaint') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="aComplaint">
+            A complaint
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="Evidence" name="contact-type-esa" type="checkbox" value="Evidence" {{ checked ('contact-type-esa', 'Evidence') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="Evidence">
+           Evidence 
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="evidenceEnquiry" name="contact-type-esa" type="checkbox" value="Evidence enquiry" {{ checked ('contact-type-esa', 'Evidence enquiry') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="evidenceEnquiry">
+            Evidence enquiry
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+         <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-esa" type="checkbox" value="A change of circumstance" {{ checked ('contact-type-esa', 'A change of circumstance') }}>
+         <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+           A change of circumstance
+         </label>
+       </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="visitingOfficerReport" name="contact-type-esa" type="checkbox" value="Visiting Officer report" {{ checked ('contact-type-esa', 'Visiting Officer report') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="visitingOfficerReport">
+           Visiting Officer report
+          </label>
+        </div>
+        <!-- <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-esa" type="checkbox" value="Something else" {{ checked ('contact-type-esa', 'Something else') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+           Something else
+          </label>
+        </div> -->
+       </div>
+      </fieldset>
+    </div>
+
+  <!-- add a note -->
+  <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9 govuk-form-group--error" data-module="govuk-character-count" data-maxlength="5000">
     <h2 class="govuk-label-wrapper">
       <label class="govuk-label govuk-label--m" for="with-hint">
         Add a note (optional)
@@ -212,7 +219,7 @@ It's your first impression and it should be polished, correct, and comprehensive
       You have 5000 characters remaining
     </div>
   </div>
-    <button class="govuk-button" data-module="govuk-button" data-govuk-button-init="">
+    <button class="govuk-button" data-module="govuk-button">
       Save and continue
     </button>
   </form>

@@ -1,57 +1,76 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Error: What was the message about?
+{%if data['contact-types'] == 'A phone call'%}
+  {% if data['What-type-of-contact']== 'Outbound phone call with' %}
+    {% if data['was-call-answered']=='No' %}
+      What were you planning to review?
+    {%endif%} 
+  {%else%}
+    What did you review?
+  {%endif%}
+{%endif%}
+{%if data['contact-types'] == 'A letter'%}
+  What did you review?
+{%endif%}
+{%if data['contact-types'] == 'An email'%}
+  What did you review?
+{%endif%}
+{%if data['contact-types'] == 'Text message to'%}
+  What was the message about?
+{%endif%}
+{%if data['contact-types'] == 'A visit or appointment'%}
+  What did you review?
+{%endif%}
+
 {% endblock %}
 
 {% block header %}
-  {% include "extra-scenarios/error-handling/user-input-Error/mvp-1_3/common/header_keydetail_bar-text.html" %}
+  {% include "/prototype-sprint-wise/ur-13/common/header_keydetail_bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "prototype-dev-baseline/common/footer.html" %}
+  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "prototype-dev-baseline/common/phase-banner.html" %}  
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}  
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-error-summary" data-module="govuk-error-summary">
-      <div role="alert">
-        <h2 class="govuk-error-summary__title">
-          There is a problem
-        </h2>
-        <div class="govuk-error-summary__body">
-          <ul class="govuk-list govuk-error-summary__list">
-            <li>
-              <a href="#benefit_ca">Select what the message was about</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
     <span class="govuk-caption-l">Step 1 of 3</span>
-    <form action="#" method="post" novalidate>
-      <div class="govuk-form-group govuk-form-group--error">
+    <form action="planned-action" method="post" novalidate>
+      <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <!-- for inbound call -->
+            {% if data['What-type-of-contact']== 'Inbound phone call with' %}
             <h1 class="govuk-fieldset__heading">
-              What was the message about?
+              What did you review?
             </h1>
+            {%endif%}
+            <!-- for outbound call -->
+            {% if data['What-type-of-contact']== 'Outbound phone call with' %}
+              {%if data['was-call-answered'] == 'Yes'%}
+                <h1 class="govuk-fieldset__heading">
+                  What did you review?
+                </h1>
+              {%else%}
+                <h1 class="govuk-fieldset__heading">
+                  What were you planning to review?
+                </h1>
+            {%endif%}
+            {%endif%}
+
           </legend>
           <div id="changedName-hint" class="govuk-hint">
             You can make multiple selections which will automatically be added to the contact record. You can add any additional information in the notes later.
           </div>
-          <p id="whereDoYouLive-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span>Select what the message was about
-          </p>
-          <div class="govuk-checkboxes govuk-!-margin-top-4" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes govuk-!-margin-top-5" data-module="govuk-checkboxes">
             <div class="govuk-radios__divider colleague-view-benefit-list">Active benefits</div>
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_ca" name="what-benefit-discussed" type="checkbox" value="Carer's Allowance" {{ checked ('what-benefit-discussed', "Carer's Allowance") }}>
@@ -156,12 +175,12 @@ Error: What was the message about?
                 Winter Fuel Payment
               </label>
             </div>
-            <div class="govuk-checkboxes__item">
+            <!-- <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="general-CoC" name="what-benefit-discussed" type="checkbox" value="General change of circumstance" {{ checked ('what-benefit-discussed', 'General change of circumstance') }}>
               <label class="govuk-label govuk-checkboxes__label" for="general-CoC">
                 Change of circumstance relevant to all benefits
               </label>
-            </div>
+            </div> -->
           </div>
         </fieldset>
       </div>
@@ -171,4 +190,5 @@ Error: What was the message about?
     </form>
   </div>
 </div>
+
 {% endblock %}

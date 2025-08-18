@@ -55,29 +55,35 @@ Error: What is the status of the visit?
         <p id="nationality-error" class="govuk-error-message">
          <span class="govuk-visually-hidden">Error:</span> Select the status of the visit for Employment and Support Allowance
        </p>
-      <div class="govuk-checkboxes" data-module="govuk-checkboxes" data-govuk-checkboxes-init="">
+       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Booked" name="contact-type-esa" type="checkbox" value="Booked">
-          <label class="govuk-label govuk-checkboxes__label" for="Booked">
-            Booked
+          <input class="govuk-checkboxes__input" id="makingAnAppointment-esa" name="contact-type-esa" type="checkbox" value="Making an appointment" {{ checked ('contact-type-esa', 'Making an appointment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
+            Making an appointment 
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Cancelled" name="contact-type-esa" type="checkbox" value="Cancelled">
-          <label class="govuk-label govuk-checkboxes__label" for="Cancelled">
-            Cancelled
+          <input class="govuk-checkboxes__input" id="shortTermBenefitAdvance" name="contact-type-esa" type="checkbox" value="Short term benefit advance" {{ checked ('contact-type-esa', 'Short term benefit advance') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="shortTermBenefitAdvance">
+            Short term benefit advance 
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Rearranged" name="contact-type-esa" type="checkbox" value="Rearranged">
-          <label class="govuk-label govuk-checkboxes__label" for="Rearranged">
-            Rearranged
+          <input class="govuk-checkboxes__input" id="checkingEligibility" name="contact-type-esa" type="checkbox" value="Checking eligibility" {{ checked ('contact-type-esa', 'Checking eligibility') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="checkingEligibility">
+            Checking eligibility
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Completed" name="contact-type-esa" type="checkbox" value="Completed">
-          <label class="govuk-label govuk-checkboxes__label" for="Completed">
-            Completed
+          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-esa" type="checkbox" value="Complaint" {{ checked ('contact-type-esa', 'Complaint') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="Complaint">
+            Complaint
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-esa" type="checkbox" value="Something else" {{ checked ('contact-type-esa', 'Something else') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+            Something else
           </label>
         </div>
       </div>
@@ -94,29 +100,29 @@ Error: What is the status of the visit?
         <p id="nationality-error" class="govuk-error-message">
          <span class="govuk-visually-hidden">Error:</span> Select the status of the visit for Personal Independence Payment
        </p>
-      <div class="govuk-checkboxes" data-module="govuk-checkboxes" data-govuk-checkboxes-init="">
+       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Booked" name="contact-type-pip" type="checkbox" value="Booked">
-          <label class="govuk-label govuk-checkboxes__label" for="Booked">
-            Booked
+          <input class="govuk-checkboxes__input" id="makingAnAppointment-pip" name="contact-type-pip" type="checkbox" value="Making an appointment" {{ checked ('contact-type-esa', 'Making an appointment') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="makingAnAppointment">
+            Making an appointment 
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Cancelled" name="contact-type-pip" type="checkbox" value="Cancelled">
-          <label class="govuk-label govuk-checkboxes__label" for="Cancelled">
-            Cancelled
+          <input class="govuk-checkboxes__input" id="checkingEligibility" name="contact-type-pip" type="checkbox" value="Checking eligibility" {{ checked ('contact-type-esa', 'Checking eligibility') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="checkingEligibility">
+            Checking eligibility
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Rearranged" name="contact-type-pip" type="checkbox" value="Rearranged">
-          <label class="govuk-label govuk-checkboxes__label" for="Rearranged">
-            Rearranged
+          <input class="govuk-checkboxes__input" id="Complaint" name="contact-type-pip" type="checkbox" value="Complaint" {{ checked ('contact-type-esa', 'Complaint') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="Complaint">
+            Complaint
           </label>
         </div>
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="Completed" name="contact-type-pip" type="checkbox" value="Completed">
-          <label class="govuk-label govuk-checkboxes__label" for="Completed">
-            Completed
+          <input class="govuk-checkboxes__input" id="somethingElse" name="contact-type-pip" type="checkbox" value="Something else" {{ checked ('contact-type-esa', 'Something else') }}>
+          <label class="govuk-label govuk-checkboxes__label" for="somethingElse">
+            Something else
           </label>
         </div>
       </div>

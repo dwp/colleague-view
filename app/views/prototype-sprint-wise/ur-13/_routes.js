@@ -223,7 +223,6 @@ router.post('/telephony/add-call/reviewed', function (req, res) {
 router.post('/telephony/add-call/planned-action', function (req, res) {
 
   req.session.data['contact-type'] = '';
-  req.session.data['addNote'] = '';
   req.session.data['contact-type-esa'] = '';
   req.session.data['contact-type-pip'] = '';
   req.session.data['contact-type-aa'] = '';
@@ -262,7 +261,7 @@ router.post('/telephony/add-call/planned-action', function (req, res) {
   req.session.data['othQ_question-resolved-pip']= '';
 
   if (req.session.data['what-benefit-discussed'] == '')
-  {
+ {
   console.log('Error page');
   res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/reviewed-error');
   } else if (req.session.data['what-benefit-discussed'] == 'General information') {
@@ -272,7 +271,7 @@ router.post('/telephony/add-call/planned-action', function (req, res) {
  }
 })
 
-// select sub-queries
+// Question asked original
 router.post('/telephony/add-call/questions-asked', function (req, res) {
 
   console.log('Question asked');
@@ -307,7 +306,6 @@ router.post('/telephony/add-call/questions-asked', function (req, res) {
  }
 })
 
-
 router.post('/telephony/add-call/questions-answered', function (req, res) {
   res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/questions-answered');
 });
@@ -324,35 +322,7 @@ router.post('/telephony/add-call/is-question-resolved', function (req, res) {
 });
 
 router.post('/telephony/add-call/added-call-details', function (req, res) {
-
-  if(
-    req.session.data['contact-type-ca'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-esa'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-pip'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-aa'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-bsp'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-cwp'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-dla'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-ibjsa'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-nsjsa'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-ma'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-pc'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-sp'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-sda'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-uc'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type-wfp'].includes("Reported a change of circumstance") ||
-    req.session.data['contact-type'].includes("Reported a change of circumstance")
-  )
-  { 
-    res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/what-coc-have-been-selected');
-
-  } else{
-    res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/added-call-details');
-  }
-});
-
-// added call details along with CoC 
-router.post('/telephony/add-call/added-call-details-with-coc', function (req, res) {
+  
   res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/added-call-details');
 });
  
@@ -449,44 +419,6 @@ router.post('/non-telephony/add-contact/do-you-want-add-more-details', function 
 });
 
 router.post('/non-telephony/add-contact/select-contact-type', function (req, res) {
-
-  // req.session.data['contact-type'] = '';
-  // req.session.data['contact-type-gCoC'] = '';
-  // req.session.data['contact-type-esa'] = '';
-  // req.session.data['contact-type-pip'] = '';
-  // req.session.data['contact-type-aa'] = '';
-  // req.session.data['contact-type-dla'] = '';
-  // req.session.data['contact-type-ca'] = '';
-  // req.session.data['contact-type-ibjsa'] = '';
-  // req.session.data['contact-type-nsjsa'] = '';
-  // req.session.data['contact-type-uc'] = '';
-  // req.session.data['contact-type-pc'] = '';
-  // req.session.data['contact-type-sp'] = '';
-  // req.session.data['contact-type-wfp'] = '';
-  // req.session.data['contact-type-cwp'] = '';
-  // req.session.data['contact-type-bsp'] = '';
-  // req.session.data['contact-type-ma'] = '';
-  // req.session.data['contact-type-sda'] = '';
-
-  // req.session.data['questionAsk'] = '';
-  // req.session.data['questionAsk-esa'] = '';
-  // req.session.data['questionAsk-pip'] = '';
-  // req.session.data['question-asked'] = '';
-
-  // req.session.data['npd_wasQuestionResolved']= '';
-  // req.session.data['npa_wasQuestionResolved']= '';
-
-  // req.session.data['npd_wasQuestionResolved-esa']= '';
-  // req.session.data['npa_wasQuestionResolved-esa']= '';
-  // req.session.data['ma_question-resolved-esa']= '';
-  // req.session.data['chpa_question-resolved-esa']= '';
-  // req.session.data['othQ_question-resolved-esa']= '';
-
-  // req.session.data['npd_wasQuestionResolved-pip']= '';
-  // req.session.data['npa_wasQuestionResolved-pip']= '';
-  // req.session.data['ma_question-resolved-pip']= '';
-  // req.session.data['chpa_question-resolved-pip']= '';
-  // req.session.data['othQ_question-resolved-pip']= '';
 
   if (req.session.data['what-benefit-discussed-non-telephony'] == '')
  {
@@ -645,5 +577,90 @@ router.post('/prototype-sprint-wise/ur-13/telephony/add-call/reviewed-dla-active
 // hide and show CTA
 
 
+// CoC secondary option option A
+router.post('/telephony/add-call/option-a/planned-action', function (req, res) {
+
+  req.session.data['contact-type'] = '';
+  req.session.data['addNote'] = '';
+  req.session.data['contact-type-esa'] = '';
+  req.session.data['contact-type-pip'] = '';
+  req.session.data['contact-type-aa'] = '';
+  req.session.data['contact-type-dla'] = '';
+  req.session.data['contact-type-ca'] = '';
+  req.session.data['contact-type-ibjsa'] = '';
+  req.session.data['contact-type-nsjsa'] = '';
+  req.session.data['contact-type-uc'] = '';
+  req.session.data['contact-type-sp'] = '';
+  req.session.data['contact-type-pc'] = '';
+  req.session.data['contact-type-wfp'] = '';
+  req.session.data['contact-type-cwp'] = '';
+  req.session.data['contact-type-ma'] = '';
+  req.session.data['contact-type-bsp'] = '';
+  req.session.data['contact-type-sda'] = '';
+  req.session.data['contact-type-gCoC'] = '';
+  
+  req.session.data['questionAsk'] = '';
+  req.session.data['questionAsk-esa'] = '';
+  req.session.data['questionAsk-pip'] = '';
+  req.session.data['question-asked'] = '';
+
+  req.session.data['npd_wasQuestionResolved']= '';
+  req.session.data['npa_wasQuestionResolved']= '';
+
+  req.session.data['npd_wasQuestionResolved-esa']= '';
+  req.session.data['npa_wasQuestionResolved-esa']= '';
+  req.session.data['ma_question-resolved-esa']= '';
+  req.session.data['chpa_question-resolved-esa']= '';
+  req.session.data['othQ_question-resolved-esa']= '';
+
+  req.session.data['npd_wasQuestionResolved-pip']= '';
+  req.session.data['npa_wasQuestionResolved-pip']= '';
+  req.session.data['ma_question-resolved-pip']= '';
+  req.session.data['chpa_question-resolved-pip']= '';
+  req.session.data['othQ_question-resolved-pip']= '';
+
+  if (req.session.data['what-benefit-discussed'] == '')
+  {
+  console.log('Error page');
+  res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/reviewed-error');
+  } else if (req.session.data['what-benefit-discussed'] == 'General information') {
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/general-information');
+  } else {
+  res.render('/prototype-sprint-wise/ur-13/telephony/add-call/option-a/select-contact-type');
+ }
+})
+
+router.post('/telephony/add-call/option-a/added-call-details', function (req, res) {
+
+  if(
+    req.session.data['contact-type-ca'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-esa'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-pip'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-aa'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-bsp'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-cwp'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-dla'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-ibjsa'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-nsjsa'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-ma'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-pc'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-sp'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-sda'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-uc'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type-wfp'].includes("Reported a change of circumstance") ||
+    req.session.data['contact-type'].includes("Reported a change of circumstance")
+  )
+  { 
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/option-a/what-coc-have-been-selected');
+
+  } else{
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/option-a/added-call-details');
+  }
+});
+
+// added call details along with CoC 
+router.post('/telephony/add-call/option-a/added-call-details-with-coc', function (req, res) {
+  res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/option-a/added-call-details');
+});
 
 module.exports = router;
