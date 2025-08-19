@@ -616,13 +616,6 @@ Check the details you have added
                 </th>
                 <td class="govuk-summary-list__value">
                   {%if data['contact-type'] | length > 1 %}
-<<<<<<< Updated upstream
-                  <ul class="govuk-list govuk-list--bullet">
-                    {% for contactTopics in data['contact-type'] %}
-                    <li>{{ contactTopics }}</li>
-                    {% endfor %}
-                  </ul>
-=======
                     <ul class="govuk-list govuk-list--bullet">
                       {% for contactTopics in data['contact-type'] %}
                       <li>
@@ -634,7 +627,6 @@ Check the details you have added
                       </li>
                       {% endfor %}
                     </ul>
->>>>>>> Stashed changes
                   {%else%}
                     <p>{{data['contact-type']}}</p>
                   {%endif%}
