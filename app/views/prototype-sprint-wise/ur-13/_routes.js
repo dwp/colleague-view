@@ -168,7 +168,6 @@ router.post('/add-log-outbound-call-attempt-failed', function (req, res) {
 
 });
 
-
 router.post('/telephony/home', function (req, res) {
   var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
   req.session.data['what-benefit-discussed'] = '';
@@ -394,8 +393,6 @@ router.post('/telephony/add-call/check-call-completion', function (req, res) {
   }
 });
 
-
-
 // new routes for shorten call log - Non-Telephony
 
 // router.post('/non-telephony/add-contact/reviewed', function (req, res) {
@@ -411,8 +408,18 @@ router.post('/telephony/add-call/check-call-completion', function (req, res) {
 // });
 
 router.post('/non-telephony/add-contact/reviewed', function (req, res) {
-  res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/reviewed');
+  var checkVisistType = req.session.data['contact-types'].includes('A visit or appointment');
+  var visitTo = req.session.data['What-type-of-contact'].includes('Visit to');
+  if (req.session.data['contact-types'] == 'Text message to'){
+    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/message-about');
+  } else if(checkVisistType && visitTo){
+    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/visit-about');
+  } else {
+    res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/reviewed');
+  }
+
 });
+
 
 router.post('/non-telephony/add-contact/do-you-want-add-more-details', function (req, res) {
     res.redirect('/prototype-sprint-wise/ur-13/non-telephony/add-contact/do-you-want-add-more-details');
@@ -564,10 +571,7 @@ router.post('/non-telephony/add-contact/contact-details-completed', function (re
   }
 });
 
-
-
 // for DLA active benefit
-
 router.post('/prototype-sprint-wise/ur-13/telephony/add-call/reviewed-dla-active', function (req, res) {
     req.session.data['what-benefit-discussed'] = '';
     req.session.data['addNote']= '';
@@ -575,7 +579,7 @@ router.post('/prototype-sprint-wise/ur-13/telephony/add-call/reviewed-dla-active
 });
 
 
-
+// ---------------for CoC secondary data design options -------------------
 
 // CoC secondary option option A
 router.post('/telephony/add-call/option-a/planned-action', function (req, res) {
@@ -744,12 +748,12 @@ router.post('/telephony/add-call/option-b/add-a-note-optional', function (req, r
 router.post('/telephony/add-call/option-b/added-call-details-with-coc', function (req, res) {
   res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/option-b/add-a-note-optional');
 });
-
 // Add note-optional page
 router.post('/telephony/add-call/option-b/added-call-details', function (req, res) {
   res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/option-b/added-call-details');
 
 });
 
+// ---------------close here CoC secondary data design options -------------------
 
 module.exports = router;

@@ -1,17 +1,16 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Benefit details
+Benefit payments
 {% endblock %}
 
 {% block header %}
-  {% include "prototype-dev-baseline/mvp-1_1/common/header.html" %}
-  {% include "prototype-dev-baseline/mvp-1_1/common/opt2/view-only-user/keydetail-bar.html" %} 
+  {% include "/prototype-dev-baseline/mvp-1_2/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/view-only/keydetail-bar" %}
 {% endblock %}
 
-
 {% block footer %}
-  {% include "prototype-dev-baseline/mvp-1_1/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_2/common/footer.html" %}
 {% endblock %}
 
 
@@ -30,36 +29,36 @@
   <div class="govuk-grid-column-one-third">
     <!-- nunjuck code -->
 
-  {% from "side-navigation/macro.njk" import dwpSideNavigation %}
-
-  {{ 
-      dwpSideNavigation({
-          pageId: "side-navigation-1",
-          selectedItem: "Failed-SAS-one-benefit-call?benefit=" + data.benefit,
-          items: [
-              {
-                text: "Personal Independence Payment",
-                href: "Failed-SAS-one-benefit-call?benefit=pip",
-                id: "Personal-Independence-Payment"
-              },
-              {
-                text: "Employment and Support Allowance",
-                href: "Failed-SAS-one-benefit-call?benefit=esa",
-                id: "Employment-and-Support-Allowance"
-              },
-              {
-                text: "Disability Living Allowance",
-                href: "Failed-SAS-one-benefit-call?benefit=dla",
-                id: "Disability-Living-Allowance"
-              },
-              {
-                text: "Jobseeker's Allowance",
-                href: "Failed-SAS-one-benefit-call?benefit=jsa",
-                id: "Jobseeker's-Allowance"
-              }
-          ]
-      })
-  }}
+    {% from "side-navigation/macro.njk" import dwpSideNavigation %}
+  
+    {{ 
+        dwpSideNavigation({
+            pageId: "side-navigation-1",
+            selectedItem: "failed-SAS-payment-deduction-api?benefit=" + data.benefit,
+            items: [
+                {
+                  text: "Personal Independence Payment",
+                  href: "failed-SAS-payment-deduction-api?benefit=pip",
+                  id: "Personal-Independence-Payment"
+                },
+                {
+                  text: "Employment and Support Allowance",
+                  href: "failed-SAS-payment-deduction-api?benefit=esa",
+                  id: "Employment-and-Support-Allowance"
+                },
+                {
+                  text: "Disability Living Allowance",
+                  href: "failed-SAS-payment-deduction-api?benefit=dla",
+                  id: "Disability-Living-Allowance"
+                },
+                {
+                  text: "Jobseeker's Allowance",
+                  href: "failed-SAS-payment-deduction-api?benefit=jsa",
+                  id: "Jobseeker's-Allowance"
+                }
+            ]
+        })
+    }}
   </div>
   <div class="govuk-grid-column-two-thirds">
     {% if data.benefit == "pip" %}
@@ -68,8 +67,7 @@
       <h2 class="govuk-heading-l">
         Personal Independence Payment
       </h2>
-      <p>This information is not available.</p>
-      <!-- <dl class="govuk-summary-list">
+      <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Start date
@@ -110,9 +108,9 @@
             Monthly
           </dd>
         </div>
-      </dl> -->
+      </dl>
       <!-- componets included -->
-      <!-- <table class="govuk-table">
+      <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">Components</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -139,7 +137,7 @@
             <td class="govuk-table__cell">02 December 2023</td>
           </tr>
         </tbody>
-      </table> -->
+      </table>
       <!-- deductions -->
       <!-- <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">Deductions</caption>
@@ -170,13 +168,13 @@
           </tr>
         </tbody>
       </table> -->
-      <!-- <div class="govuk-warning-text">
+      <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
           <span class="govuk-visually-hidden">Warning</span>
           Deductions are not available because we do not have this information.
         </strong>
-      </div> -->
+      </div>
     </section>
     {% endif %}
 

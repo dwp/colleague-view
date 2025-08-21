@@ -1,15 +1,15 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-{% if data['What-type-of-contact']== 'Outbound phone call with' %}
-  {% if data['was-call-answered']=='Yes' %}
-    What was the call about?
+  {% if data['What-type-of-contact']== 'Outbound phone call with' %}
+    {% if data['was-call-answered']=='Yes' %}
+      What was the call about?
+    {%else%}
+        What action were you going to take?
+    {%endif%}
   {%else%}
-    What was the call going to be about?
+    What was the call about?
   {%endif%}
-{%else%}
-  What was the call about?
-{%endif%}
 {% endblock %}
 
 {% block header %}
