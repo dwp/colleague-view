@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Check benefit information and contact history
+Check payment details and contact history
 {% endblock %}
 
 {% block header %}
@@ -17,25 +17,25 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Check benefit information and contact history</h1>
+    <h1 class="govuk-heading-xl">Check payment details and contact history </h1>
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
         <span class="govuk-visually-hidden">Warning</span>
-        This service does not provide payment information for Universal Credit.
+        This service does not provide payment or entitlement details for Universal Credit, Scottish devolved benefits or Child Maintenance. 
       </strong>
     </div>
-    <p class="govuk-body">Use this service to:</p>
+    <p class="govuk-body">Use this service to check:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>view personal details</li>
-      <li>view live and past benefit information</li>
-      <li>check DWP contact notes</li>
-      <li>add details of new contact</li>
+      <li>personal details </li>
+      <li>payment and entitlement details, including frequency and amounts</li>
+      <li>historical contact records</li>
+      <!-- <li>add details of new contact</li> -->
     </ul>
-    <form class="form button_to" action="why-checking-information" method="post">
+    <p class="govuk-body"> If your role involves communicating with members of the public, you may also add new contact records.</p>
+    <form class="form button_to" action="working-on" method="post">
       <div class="govuk-form-group">
         <h2 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="full-name-input">

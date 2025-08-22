@@ -14,17 +14,17 @@ Do you want to add anything else to the contact history?
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-sprint-wise/ur-8/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
 {% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="contact-details-added" method="post" novalidate>
+        <form action="start-service-again" method="post" novalidate>
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                Do you want to add details about this contact?
+                Do you want to start the service again?
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
@@ -36,7 +36,7 @@ Do you want to add anything else to the contact history?
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="do-you-want-add-Details-no" name="add-contact-Details" type="radio" value="No">
                   <label class="govuk-label govuk-radios__label" for="do-you-want-add-Details-no">
-                    No, start service again
+                    No
                   </label>
                 </div>
               </div>
