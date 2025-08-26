@@ -754,6 +754,71 @@ router.post('/telephony/add-call/option-b/added-call-details', function (req, re
 
 });
 
+
+// CoC secondary - COnditional reveal option
+
+router.post('/telephony/add-call/option-c/planned-action', function (req, res) {
+
+  req.session.data['contact-type'] = '';
+  req.session.data['addNote'] = '';
+  req.session.data['contact-type-esa'] = '';
+  req.session.data['contact-type-pip'] = '';
+  req.session.data['contact-type-aa'] = '';
+  req.session.data['contact-type-dla'] = '';
+  req.session.data['contact-type-ca'] = '';
+  req.session.data['contact-type-ibjsa'] = '';
+  req.session.data['contact-type-nsjsa'] = '';
+  req.session.data['contact-type-uc'] = '';
+  req.session.data['contact-type-sp'] = '';
+  req.session.data['contact-type-pc'] = '';
+  req.session.data['contact-type-wfp'] = '';
+  req.session.data['contact-type-cwp'] = '';
+  req.session.data['contact-type-ma'] = '';
+  req.session.data['contact-type-bsp'] = '';
+  req.session.data['contact-type-sda'] = '';
+  req.session.data['contact-type-gCoC'] = '';
+  
+  req.session.data['questionAsk'] = '';
+  req.session.data['questionAsk-esa'] = '';
+  req.session.data['questionAsk-pip'] = '';
+  req.session.data['question-asked'] = '';
+
+  req.session.data['npd_wasQuestionResolved']= '';
+  req.session.data['npa_wasQuestionResolved']= '';
+
+  req.session.data['npd_wasQuestionResolved-esa']= '';
+  req.session.data['npa_wasQuestionResolved-esa']= '';
+  req.session.data['ma_question-resolved-esa']= '';
+  req.session.data['chpa_question-resolved-esa']= '';
+  req.session.data['othQ_question-resolved-esa']= '';
+
+  req.session.data['npd_wasQuestionResolved-pip']= '';
+  req.session.data['npa_wasQuestionResolved-pip']= '';
+  req.session.data['ma_question-resolved-pip']= '';
+  req.session.data['chpa_question-resolved-pip']= '';
+  req.session.data['othQ_question-resolved-pip']= '';
+
+  if (req.session.data['what-benefit-discussed'] == '')
+  {
+  console.log('Error page');
+  res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/reviewed-error');
+  } else if (req.session.data['what-benefit-discussed'] == 'General information') {
+    res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/general-information');
+  } else {
+  res.render('/prototype-sprint-wise/ur-13/telephony/add-call/option-c/select-contact-type');
+ }
+})
+router.post('/telephony/add-call/option-c/added-call-details', function (req, res) {
+  
+  res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/option-c/added-call-details');
+});
+// added call details along with CoC 
+router.post('/telephony/add-call/option-c/added-call-details-with-coc', function (req, res) {
+  res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/option-c/added-call-details');
+});
+
+
+
 // ---------------close here CoC secondary data design options -------------------
 
 module.exports = router;

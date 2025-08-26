@@ -26,7 +26,7 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/header_keydetail_bar.html" %}
+  {% include "/prototype-sprint-wise/ur-13/common/header_keydetail_bar.html" %}
 {% endblock %}
 
 
@@ -94,7 +94,7 @@
                 Personal Independence Payment
               </label>
             </div>
-            <div class="govuk-radios__divider colleague-view-benefit-list">Other benefits or changes</div>
+            <div class="govuk-radios__divider colleague-view-benefit-list">Other benefits</div>
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="benefit_aa" name="what-benefit-discussed" type="checkbox" value="Attendance Allowance" {{ checked ('what-benefit-discussed', 'Attendance Allowance') }}>
               <label class="govuk-label govuk-checkboxes__label" for="benefit_aa">
@@ -188,6 +188,7 @@
           </div>
         </fieldset>
       </div>
+
       <div class="govuk-button-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
