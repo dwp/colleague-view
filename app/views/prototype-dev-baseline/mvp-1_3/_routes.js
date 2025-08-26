@@ -43,6 +43,7 @@ router.post('/working-on', function (req, res) {
   req.session.data.notes = '';
   req.session.data.tableValue = '';
   req.session.data.outcomePage = '';
+  req.session.data['addNote']= '';
 
   if (
     req.session.data['nino-number-ur-8'] == 'QQ123456Q' ||
