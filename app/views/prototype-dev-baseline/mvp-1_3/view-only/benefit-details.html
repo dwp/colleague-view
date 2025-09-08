@@ -37,37 +37,36 @@ Benefit payments
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">
       <!-- nunjuck code -->
+      {% from "side-navigation/macro.njk" import dwpSideNavigation %}
   
-  {% from "side-navigation/macro.njk" import dwpSideNavigation %}
-  
-  {{ 
-      dwpSideNavigation({
-          pageId: "side-navigation-1",
-          selectedItem: "benefit-details?benefit=" + data.benefit,
-          items: [
-              {
-                text: "Personal Independence Payment",
-                href: "benefit-details?benefit=pip",
-                id: "Personal-Independence-Payment"
-              },
-              {
-                text: "Employment and Support Allowance",
-                href: "benefit-details?benefit=esa",
-                id: "Employment-and-Support-Allowance"
-              },
-              {
-                text: "Disability Living Allowance",
-                href: "benefit-details?benefit=dla",
-                id: "Disability-Living-Allowance"
-              },
-              {
-                text: "Jobseeker's Allowance",
-                href: "benefit-details?benefit=jsa",
-                id: "Jobseeker's-Allowance"
-              }
-          ]
-      })
-  }}
+      {{ 
+          dwpSideNavigation({
+              pageId: "side-navigation-1",
+              selectedItem: "benefit-details?benefit=" + data.benefit,
+              items: [
+                  {
+                    text: "Personal Independence Payment",
+                    href: "benefit-details?benefit=pip",
+                    id: "Personal-Independence-Payment"
+                  },
+                  {
+                    text: "Employment and Support Allowance",
+                    href: "benefit-details?benefit=esa",
+                    id: "Employment-and-Support-Allowance"
+                  },
+                  {
+                    text: "Disability Living Allowance",
+                    href: "benefit-details?benefit=dla",
+                    id: "Disability-Living-Allowance"
+                  },
+                  {
+                    text: "Jobseeker's Allowance",
+                    href: "benefit-details?benefit=jsa",
+                    id: "Jobseeker's-Allowance"
+                  }
+              ]
+          })
+      }}
     </div>
     <div class="govuk-grid-column-two-thirds">
       {% if data.benefit == "pip" %}
@@ -411,7 +410,7 @@ Benefit payments
               Amount before deductions
             </dt>
             <dd class="govuk-summary-list__value">
-              £1,234.56
+              £201.63
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -439,13 +438,13 @@ Benefit payments
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Personal Allowance</td>
               <td class="govuk-table__cell">Income based Jobseeker's Allowance</td>
-              <td class="govuk-table__cell">£0</td>
+              <td class="govuk-table__cell">£80</td>
               <td class="govuk-table__cell">23 July 2025</td>
               <td class="govuk-table__cell">20 August 2025</td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Dependents Allowance</td>
-              <td class="govuk-table__cell">Contribution based Jobseeker's Allowance</td>
+              <td class="govuk-table__cell">Income based Jobseeker's Allowance</td>
               <td class="govuk-table__cell">£56.10</td>
               <td class="govuk-table__cell">29 July 2025</td>
               <td class="govuk-table__cell">21 August 2025</td>
@@ -453,14 +452,14 @@ Benefit payments
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Family Premium</td>
               <td class="govuk-table__cell">Income based Jobseeker's Allowance</td>
-              <td class="govuk-table__cell">-£26.43</td>
+              <td class="govuk-table__cell">£26.43</td>
               <td class="govuk-table__cell">23 July 2025</td>
               <td class="govuk-table__cell">20 August 2025</td>
             </tr>
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">Client Group Premium</td>
-              <td class="govuk-table__cell">Contribution based Jobseeker's Allowance</td>
-              <td class="govuk-table__cell">£1,234.56</td>
+              <td class="govuk-table__cell">Income based Jobseeker's Allowance</td>
+              <td class="govuk-table__cell">£39.10</td>
               <td class="govuk-table__cell">21 July 2025</td>
               <td class="govuk-table__cell">15 August 2025</td>
             </tr>
@@ -479,26 +478,23 @@ Benefit payments
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row"> 
-              <td class="govuk-table__cell">Social</td>
+              <td class="govuk-table__cell">Electricity</td>
               <!-- <td class="govuk-table__cell">Overpayment</td> -->
-              <td class="govuk-table__cell">-£3.45 one time payment</td>
+              <td class="govuk-table__cell">£10 weekly</td>
               <td class="govuk-table__cell">From 11 May 2025 to 27 June 2025</td>
             </tr>
-            <tr class="govuk-table__row"> 
+            <!-- <tr class="govuk-table__row"> 
               <td class="govuk-table__cell">Not known</td>
-              <!-- <td class="govuk-table__cell">Overpayment</td> -->
               <td class="govuk-table__cell">£8.10 every 52 weeks</td>
               <td class="govuk-table__cell">From 28 June 2025 to 08 August 2025</td>
             </tr>
             <tr class="govuk-table__row"> 
               <td class="govuk-table__cell">Irregular Payment</td>
-              <!-- <td class="govuk-table__cell">Overpayment</td> -->
               <td class="govuk-table__cell">Not known</td>
               <td class="govuk-table__cell">From 28 June 2025 to 08 August 2025</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
-      </section>
       </section>
       {% endif %}
     </div>
