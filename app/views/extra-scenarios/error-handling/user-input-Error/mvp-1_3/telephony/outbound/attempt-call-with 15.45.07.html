@@ -1,19 +1,20 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Who is the phone call with?
+Error:Select who you attemped to call?
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/header_keydetail_bar.html" %}
+  {% include "extra-scenarios/error-handling/user-input-Error/mvp-1_3/common/header_keydetail_bar-call-outbound.html" %}
 {% endblock %}
 
+
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
+  {% include "prototype-dev-baseline/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-{% include "/prototype-dev-baseline/mvp-1_3/common/phase-banner.html" %}
+  {% include "prototype-dev-baseline/common/phase-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -21,16 +22,31 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="telephony/home" method="post">
-        <div class="govuk-form-group">
+      <form class="form" action="home" method="post">
+        <div class="govuk-error-summary" data-module="govuk-error-summary">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title">
+              There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  <a href="#Who-is-the-engagement-with-1">Select who you attemped to call</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-form-group govuk-form-group--error">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              {% if data['What-type-of-contact']== "Outbound phone call with" and data['was-call-answered'] == "No" %}
-               <h1 class="govuk-fieldset__heading">Who did you attempt to call?</h1>
-              {%else%}
-               <h1 class="govuk-fieldset__heading">Who is the phone call with?</h1>
-              {%endif%}
+              <h1 class="govuk-fieldset__heading">
+                Who did you attempt to call? 
+              </h1>
             </legend>
+            <p id="passport-issued-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> Select who you attemped to call
+            </p>
             <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="Who-is-the-engagement-with-1" name="Who-is-the-phone-call-with-ur8" type="radio" value="Christopher Fox" aria-describedby="Customer-hint" onchange="handleRadio('Who-is-the-engagement-with','(Customer)')">
@@ -76,10 +92,4 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    function handleRadio(name, value) {
-      document.getElementById(name).value = value;
-    }
-  </script>
-    
 {% endblock %}
