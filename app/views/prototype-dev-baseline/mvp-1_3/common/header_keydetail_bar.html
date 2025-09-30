@@ -24,21 +24,17 @@
       <dd class="govuk-table__cell dwp-key-details-bar__status govuk-!-margin-0 govuk-!-padding-0">
     </dd>
     </dl>
-    <dl class="dwp-key-details-bar__bottom-block">
-      <dt class="govuk-visually-hidden">What type of engaement it is</dt>
-      <dd>
-        {{ data['What-type-of-contact'] }}
-      </dd>
-      <dt class="govuk-visually-hidden">Who is the engagement with</dt>
-      <dd>
-        {%if data['What-type-of-contact']=='Outbound phone call with'%}
-        George Wood (appointee)
-        {%else%}
-        {{ data['Who-is-the-phone-call-with-ur8'] }}
-        {{ data['Who-is-the-engagement-with'] }}
-        {%endif%}
-      </dd>
-    </dl>
+  <dl class="dwp-key-details-bar__bottom-block {{hideKeyDatailInfo}}">
+    <dt class="govuk-visually-hidden">What type of engaement it is</dt>
+    <dd>
+      {{ data['What-type-of-contact'] }}
+    </dd>
+    <dt class="govuk-visually-hidden">Who is the engagement with</dt>
+    <dd>
+      {{ data['Who-is-the-phone-call-with-ur8'] }}
+      {{ data['Who-is-the-engagement-with'] }}
+    </dd>
+  </dl>
   </div>
 </section>
 
