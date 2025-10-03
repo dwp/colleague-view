@@ -67,16 +67,15 @@ router.post('/working-on', function (req, res) {
 
 router.post('/call-with', function (req, res) {
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-  // req.session.data['Who-is-contact-with'] = '';
-  // req.session.data['Who-is-the-engagement-with'] = '';
 
   // Phone call conditions
   if (req.session.data['contact-types'] == 'A phone call') {
-    if (req.session.data['What-type-of-contact'] == 'Inbound phone call with') {
-      res.redirect('/prototype-dev-baseline/mvp-1_3/call-with');
-    } else if (req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
-      res.redirect('/prototype-dev-baseline/mvp-1_3/call-status');
-    }
+          res.redirect('/prototype-dev-baseline/mvp-1_3/call-with');
+    // if (req.session.data['What-type-of-contact'] == 'Inbound phone call with') {
+    //   res.redirect('/prototype-dev-baseline/mvp-1_3/call-with');
+    // } else if (req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
+    //   res.redirect('/prototype-dev-baseline/mvp-1_3/call-status');
+    // }
   }
 
   if (req.session.data['contact-types'] == 'A letter') {
@@ -120,11 +119,17 @@ router.post('/call-with', function (req, res) {
 
 // for outbound call
 router.post('/telephony/add-call/planned-for-review', function (req, res) {
+  if (
+      req.session.data['Who-is-the-phone-call-with-ur8'] == 'someone else' ||
+      req.session.data['Who-is-the-phone-call-with-ur8'] == 'Christopher Fox'
+      ) {
+      req.session.data['Who-is-the-engagement-with'] = '';
+      }
 
   // Phone call conditions
   if (req.session.data['was-call-answered'] == 'Yes') {
-    req.session.data['Who-is-the-phone-call-with-ur8'] = '';
-    res.redirect('/prototype-dev-baseline/mvp-1_3/call-with')
+    // req.session.data['Who-is-the-phone-call-with-ur8'] = '';
+     res.redirect('/prototype-dev-baseline/mvp-1_3/telephony/home');
   }
   else{
     req.session.data['what-benefit-discussed'] = '';
@@ -135,7 +140,7 @@ router.post('/telephony/add-call/planned-for-review', function (req, res) {
     ) {
     req.session.data['Who-is-the-engagement-with'] = '';
     }
-    res.redirect('/prototype-dev-baseline/mvp-1_3/call-with')
+    res.redirect('/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed');
   }
 });
 
@@ -153,7 +158,6 @@ router.post('/add-log-outbound-call-attempt-failed', function (req, res) {
 });
 
 router.post('/telephony/home', function (req, res) {
-  var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
   req.session.data['what-benefit-discussed'] = '';
   req.session.data['addNote']= '';
 
@@ -163,18 +167,11 @@ router.post('/telephony/home', function (req, res) {
       ) {
       req.session.data['Who-is-the-engagement-with'] = '';
       }
-
-  if ( req.session.data['What-type-of-contact'] == "Outbound phone call with"){
-
-      if ( req.session.data['was-call-answered'] == 'No'){
-          res.redirect('/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed');
-      } else {
-          // res.render('/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed');
-          res.redirect('/prototype-dev-baseline/mvp-1_3/telephony/home');
+    if (req.session.data['What-type-of-contact'] == 'Inbound phone call with') {
+        res.redirect('/prototype-dev-baseline/mvp-1_3/telephony/home');
+      } else if (req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
+        res.redirect('/prototype-dev-baseline/mvp-1_3/call-status');
       }
-  } else {
-    res.redirect('/prototype-dev-baseline/mvp-1_3/telephony/home');
-  }
 });
 
 router.post('/non-telephony/home', function (req, res) {

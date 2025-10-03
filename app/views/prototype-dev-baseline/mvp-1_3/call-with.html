@@ -25,8 +25,8 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              {% if data['What-type-of-contact']== "Outbound phone call with" and data['was-call-answered'] == "No" %}
-               <h1 class="govuk-fieldset__heading">Who did you attempt to call?</h1>
+              {% if data['What-type-of-contact']== "Outbound phone call with" %}
+               <h1 class="govuk-fieldset__heading"> Who did you call?</h1>
               {%else%}
                <h1 class="govuk-fieldset__heading">Who is the phone call with?</h1>
               {%endif%}
@@ -51,23 +51,23 @@
                   <!-- <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-1" type="text" value="(Corporate PAB)" hidden> -->
                 </div>
               </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="Who-is-the-engagement-with-3" name="Who-is-the-phone-call-with-ur8" type="radio" value="Susan Jones" aria-describedby="Partner-hint" onchange="handleRadio('Who-is-the-engagement-with','(Partner)')">
-              <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-3">
-                Susan Jones
-              </label>
-              <div id="Partner-hint" class="govuk-hint govuk-radios__hint" name="govuk-hint govuk-radios__hint">
-                Partner 
-                <!-- <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-1" type="text" value="(Partner)" hidden> -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Who-is-the-engagement-with-3" name="Who-is-the-phone-call-with-ur8" type="radio" value="Susan Jones" aria-describedby="Partner-hint" onchange="handleRadio('Who-is-the-engagement-with','(Partner)')">
+                <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-3">
+                  Susan Jones
+                </label>
+                <div id="Partner-hint" class="govuk-hint govuk-radios__hint" name="govuk-hint govuk-radios__hint">
+                  Partner 
+                  <!-- <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-1" type="text" value="(Partner)" hidden> -->
+                </div>
               </div>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="Who-is-the-engagement-with-5" name="Who-is-the-phone-call-with-ur8" type="radio" value="someone else">
-              <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-5">
-                Someone else  
-              </label>
-            </div>
-            <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with" name="Who-is-the-engagement-with" type="text" autocomplete="on" hidden>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Who-is-the-engagement-with-5" name="Who-is-the-phone-call-with-ur8" type="radio" value="someone else">
+                <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-5">
+                  Someone else  
+                </label>
+              </div>
+              <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with" name="Who-is-the-engagement-with" type="text" autocomplete="on" hidden>
             </div>
           </fieldset>
         </div>
