@@ -777,6 +777,10 @@ router.post('/telephony/add-call/option-c/planned-action', function (req, res) {
   req.session.data['contact-type-bsp'] = '';
   req.session.data['contact-type-sda'] = '';
   req.session.data['contact-type-gCoC'] = '';
+  req.session.data['contact-type-ca-opt2'] = '';
+  req.session.data['contact-type-esa-opt2'] = '';
+  req.session.data['contact-type-pip-opt2'] = '';
+  req.session.data['addNote-opt2'] = '';
   
   req.session.data['questionAsk'] = '';
   req.session.data['questionAsk-esa'] = '';
