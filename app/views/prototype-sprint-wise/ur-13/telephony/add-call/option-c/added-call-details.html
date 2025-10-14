@@ -24,8 +24,8 @@ Check the details you have added
     <!-- <span class="govuk-caption-l">Step 3 of 3</span> -->
     <h1 class="govuk-heading-l">Check the details you have added</h1>
     {% set contactType =  data['What-type-of-contact'] %}
-    {% set benefits =  data['what-benefit-discussed'] %}
-    {% set benefitLength =  data['what-benefit-discussed'] | length %}
+    {% set benefits =  data['what-benefit-discussed-opt2'] %}
+    {% set benefitLength =  data['what-benefit-discussed-opt2'] | length %}
     {% set checkCallAnswered = data['was-call-answered'] %}
     {% set contactType = data['What-type-of-contact'] %}
     <!-- multiple benefits -->
@@ -56,7 +56,7 @@ Check the details you have added
                 </th>
                 <td class="govuk-summary-list__value">
                   <ul class="govuk-list govuk-list--bullet">
-                    {% for benefit in data['what-benefit-discussed'] %}
+                    {% for benefit in data['what-benefit-discussed-opt2'] %}
                     <li>
                       {%if benefit == "Disability Living Allowance" %}
                       {{ data['dla-type'] }}
@@ -93,7 +93,7 @@ Check the details you have added
         <div class="govuk-summary-card__content">
           <table class="govuk-summary-list govuk-!-margin-bottom-0">
             <tbody class="govuk-summary-list">
-              {% for benefitsName in data['what-benefit-discussed'] %}
+              {% for benefitsName in data['what-benefit-discussed-opt2'] %}
                 <!-- for ESA -->
                 {% if benefitsName == 'Employment and Support Allowance' %}
                 <tr class="govuk-summary-list__row">
@@ -101,9 +101,9 @@ Check the details you have added
                     Employment and Support Allowance
                   </th>
                   <td class="govuk-summary-list__value">
-                    {%if data['contact-type-esa'] | length > 1 %}
+                    {%if data['contact-type-esa-opt2'] | length > 1 %}
                       <ul class="govuk-list govuk-list--bullet">
-                        {% for questionsESA in data['contact-type-esa'] %}
+                        {% for questionsESA in data['contact-type-esa-opt2'] %}
                         <li>
                           {%if questionsESA == "Reported a change of circumstance" %}
                           {{ questionsESA }} - {{data['coc-option-esa']}}
@@ -114,10 +114,10 @@ Check the details you have added
                         {% endfor %}
                       </ul>
                     {%else%}
-                      {%if data['contact-type-esa'] == "Reported a change of circumstance" %}
-                      <p>{{data['contact-type-esa']}} - {{data['coc-option-esa']}}</p>
+                      {%if data['contact-type-esa-opt2'] == "Reported a change of circumstance" %}
+                      <p>{{data['contact-type-esa-opt2']}} - {{data['coc-option-esa']}}</p>
                       {%else%}
-                      <p>{{data['contact-type-esa']}}</p>
+                      <p>{{data['contact-type-esa-opt2']}}</p>
                       {%endif%}
                     {%endif%}
                   </td>
@@ -130,9 +130,9 @@ Check the details you have added
                     Personal Independence Payment
                   </th>
                   <td class="govuk-summary-list__value">
-                    {%if data['contact-type-pip'] | length > 1 %}
+                    {%if data['contact-type-pip-opt2'] | length > 1 %}
                       <ul class="govuk-list govuk-list--bullet">
-                        {% for questionsPIP in data['contact-type-pip'] %}
+                        {% for questionsPIP in data['contact-type-pip-opt2'] %}
                         <li>
                           {%if questionsPIP == "Reported a change of circumstance" %}
                           {{ questionsPIP }} - {{data['coc-option-pip']}}
@@ -143,10 +143,10 @@ Check the details you have added
                         {% endfor %}
                       </ul>
                     {%else%}
-                      {%if data['contact-type-pip'] == "Reported a change of circumstance" %}
-                      <p>{{data['contact-type-pip']}} - {{data['coc-option-pip']}}</p>
+                      {%if data['contact-type-pip-opt2'] == "Reported a change of circumstance" %}
+                      <p>{{data['contact-type-pip-opt2']}} - {{data['coc-option-pip']}}</p>
                       {%else%}
-                      <p>{{data['contact-type-pip']}}</p>
+                      <p>{{data['contact-type-pip-opt2']}}</p>
                       {%endif%}
                     {%endif%}
                   </td>
@@ -236,12 +236,12 @@ Check the details you have added
                     Carer's Allowance
                   </th>
                   <td class="govuk-summary-list__value">
-                    {%if data['contact-type-ca'] | length > 1 %}
+                    {%if data['contact-type-ca-opt2'] | length > 1 %}
                       <ul class="govuk-list govuk-list--bullet">
-                        {% for questionsCA in data['contact-type-ca'] %}
+                        {% for questionsCA in data['contact-type-ca-opt2'] %}
                         <li>
                           {%if questionsCA == "Reported a change of circumstance" %}
-                          {{ questionsCA }} - {{data['coc-option-ca']}}
+                          {{ questionsCA }} - {{data['coc-option-ca-opt2']}}
                           {%else%}
                           {{ questionsCA }}
                           {%endif%}
@@ -249,10 +249,10 @@ Check the details you have added
                         {% endfor %}
                       </ul>
                     {%else%}
-                      {%if data['contact-type-ca'] == "Reported a change of circumstance" %}
-                      <p>{{data['contact-type-ca']}} - {{data['coc-option-ca']}}</p>
+                      {%if data['contact-type-ca-opt2'] == "Reported a change of circumstance" %}
+                      <p>{{data['contact-type-ca-opt2']}} - {{data['coc-option-ca-opt2']}}</p>
                       {%else%}
-                      <p>{{data['contact-type-ca']}}</p>
+                      <p>{{data['contact-type-ca-opt2']}}</p>
                       {%endif%}
                     {%endif%}
                   </td>
@@ -520,10 +520,10 @@ Check the details you have added
                 </th>
                 <td class="govuk-summary-list__value">
                   <!-- {{benefits}} -->
-                  {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
+                  {%if data['what-benefit-discussed-opt2']== "Disability Living Allowance" %}
                   {{ data['dla-type'] }}
                   {%else%}
-                  {{ data['what-benefit-discussed'] }}
+                  {{ data['what-benefit-discussed-opt2'] }}
                   {%endif%}
                   
                 </td>
@@ -555,10 +555,10 @@ Check the details you have added
             <tbody class="govuk-summary-list">
               <tr class="govuk-summary-list__row">
                 <th scope="row" class="govuk-summary-list__key govuk-!-width-one-third">
-                  {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
+                  {%if data['what-benefit-discussed-opt2']== "Disability Living Allowance" %}
                   {{ data['dla-type'] }}
                   {%else%}
-                  {{ data['what-benefit-discussed'] }}
+                  {{ data['what-benefit-discussed-opt2'] }}
                   {%endif%}
                 </th>
                 <td class="govuk-summary-list__value">
@@ -620,7 +620,7 @@ Check the details you have added
         <button class="govuk-button" data-module="govuk-button">
           Confirm
         </button>
-        <a class="govuk-link" href="#">Cancel</a>
+        <!-- <a class="govuk-link" href="#">Cancel</a> -->
       </div>
     </form>
   </div>

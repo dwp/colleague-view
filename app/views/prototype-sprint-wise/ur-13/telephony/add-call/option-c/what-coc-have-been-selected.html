@@ -29,18 +29,18 @@
     {% set benefitLength =  data['coc-options'] | length %}  -->
     {% set checkNoteAdded = data['addNote'] %}
 
-    {% set benefits =  data['what-benefit-discussed'] %}
-    {% set benefitLength =  data['what-benefit-discussed'] | length %}  
+    {% set benefits =  data['what-benefit-discussed-opt2'] %}
+    {% set benefitLength =  data['what-benefit-discussed-opt2'] | length %}  
     {% set checkNoteAdded = data['addNote'] %}
     {% set wasCallAnswered = data['was-call-answered'] %}
     {% set checkCallAnswered = data['was-call-answered'] %}
   
       <!-- for multiple benefit -->
       {% if benefitLength >1 %}
-        {% for benefitsName in data['what-benefit-discussed'] %}
+        {% for benefitsName in data['what-benefit-discussed-opt2'] %}
           <!-- CA options -->
           {% if benefitsName == "Carer's Allowance" %}
-            {% for cocName in  data['contact-type-ca'] %}
+            {% for cocName in  data['contact-type-ca-opt2'] %}
               {% if cocName == 'Reported a change of circumstance'%}
               <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
@@ -51,37 +51,37 @@
                   </legend>
                   <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-ca" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-ca', 'Contact details changed on all relevant systems') }}>
+                      <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-ca-opt2" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-ca-opt2', 'Contact details changed on all relevant systems') }}>
                       <label class="govuk-label govuk-checkboxes__label" for="coc-item">
                         Contact details changed on all relevant systems
                       </label>
                     </div>
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-ca" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-ca', 'Address changed on all relevant systems') }}>
+                      <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-ca-opt2" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-ca-opt2', 'Address changed on all relevant systems') }}>
                       <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
                         Address changed on all relevant systems
                       </label>
                     </div>
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-ca" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-ca', 'Bank details changed on all relevant systems') }}>
+                      <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-ca-opt2" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-ca-opt2', 'Bank details changed on all relevant systems') }}>
                       <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
                         Bank details changed on all relevant systems
                       </label>
                     </div>
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-ca" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-ca', 'Updated appointee details on all relevant systems') }}>
+                      <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-ca-opt2" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-ca-opt2', 'Updated appointee details on all relevant systems') }}>
                       <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
                         Updated appointee details on all relevant systems
                       </label>
                     </div>
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-ca" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-ca', 'Name changed on all relevant systems') }}>
+                      <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-ca-opt2" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-ca-opt2', 'Name changed on all relevant systems') }}>
                       <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
                         Name changed on all relevant systems
                       </label>
                     </div>
                     <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-ca" type="checkbox" value="Something else" {{ checked ('coc-option-ca', 'Something else') }}>
+                      <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-ca-opt2" type="checkbox" value="Something else" {{ checked ('coc-option-ca-opt2', 'Something else') }}>
                       <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
                         Something else
                       </label>
@@ -94,7 +94,7 @@
           {%endif%}
           <!-- ESA options -->
           {% if benefitsName == "Employment and Support Allowance" %}
-          {% for cocName in  data['contact-type-esa'] %}
+          {% for cocName in  data['contact-type-esa-opt2'] %}
             {% if cocName == 'Reported a change of circumstance'%}
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
@@ -148,7 +148,7 @@
           {%endif%}
           <!-- PIP options -->
           {% if benefitsName == "Personal Independence Payment" %}
-          {% for cocName in  data['contact-type-pip'] %}
+          {% for cocName in  data['contact-type-pip-opt2'] %}
             {% if cocName == 'Reported a change of circumstance'%}
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
@@ -207,7 +207,7 @@
         <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h2 class="govuk-fieldset__heading govuk-heading-m">
-              {{data['what-benefit-discussed']}}
+              {{data['what-benefit-discussed-opt2']}}
             </h2>
           </legend>
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -311,7 +311,7 @@
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
         </button>
-        <a class="govuk-link" href="#">Cancel</a>
+        <!-- <a class="govuk-link" href="#">Cancel</a> -->
       </div>
   </form>
 
