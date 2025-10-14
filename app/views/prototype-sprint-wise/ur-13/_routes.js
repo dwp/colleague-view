@@ -654,6 +654,7 @@ router.post('/telephony/add-call/option-a/added-call-details', function (req, re
     req.session.data['contact-type'].includes("Reported a change of circumstance")
   )
   { 
+    req.session.data['addNote'] = '';
     res.redirect('/prototype-sprint-wise/ur-13/telephony/add-call/option-a/what-coc-have-been-selected');
 
   } else{
