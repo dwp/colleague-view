@@ -106,7 +106,7 @@ Check the details you have added
                         {% for questionsESA in data['contact-type-esa-opt2'] %}
                         <li>
                           {%if questionsESA == "Reported a change of circumstance" %}
-                          {{ questionsESA }} - {{data['coc-option-esa']}}
+                          {{ questionsESA }} - {{data['coc-option-esa-opt2']}}
                           {%else%}
                           {{ questionsESA }}
                           {%endif%}
@@ -115,7 +115,7 @@ Check the details you have added
                       </ul>
                     {%else%}
                       {%if data['contact-type-esa-opt2'] == "Reported a change of circumstance" %}
-                      <p>{{data['contact-type-esa-opt2']}} - {{data['coc-option-esa']}}</p>
+                      <p>{{data['contact-type-esa-opt2']}} - {{data['coc-option-esa-opt2']}}</p>
                       {%else%}
                       <p>{{data['contact-type-esa-opt2']}}</p>
                       {%endif%}
@@ -135,7 +135,7 @@ Check the details you have added
                         {% for questionsPIP in data['contact-type-pip-opt2'] %}
                         <li>
                           {%if questionsPIP == "Reported a change of circumstance" %}
-                          {{ questionsPIP }} - {{data['coc-option-pip']}}
+                          {{ questionsPIP }} - {{data['coc-option-pip-opt2']}}
                           {%else%}
                           {{ questionsPIP }}
                           {%endif%}
@@ -144,7 +144,7 @@ Check the details you have added
                       </ul>
                     {%else%}
                       {%if data['contact-type-pip-opt2'] == "Reported a change of circumstance" %}
-                      <p>{{data['contact-type-pip-opt2']}} - {{data['coc-option-pip']}}</p>
+                      <p>{{data['contact-type-pip-opt2']}} - {{data['coc-option-pip-opt2']}}</p>
                       {%else%}
                       <p>{{data['contact-type-pip-opt2']}}</p>
                       {%endif%}
