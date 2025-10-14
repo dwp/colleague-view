@@ -27,11 +27,11 @@
     <form action="added-call-details-with-coc" method="post" novalidate>
     <!-- {% set benefits =  data['coc-options'] %}
     {% set benefitLength =  data['coc-options'] | length %}  -->
-    {% set checkNoteAdded = data['addNote'] %}
+    {% set checkNoteAdded = data['addNote-opt2'] %}
 
     {% set benefits =  data['what-benefit-discussed-opt2'] %}
     {% set benefitLength =  data['what-benefit-discussed-opt2'] | length %}  
-    {% set checkNoteAdded = data['addNote'] %}
+    {% set checkNoteAdded = data['addNote-opt2'] %}
     {% set wasCallAnswered = data['was-call-answered'] %}
     {% set checkCallAnswered = data['was-call-answered'] %}
   
@@ -281,7 +281,7 @@
             Do not include any personal details.
           </strong>
         </div>
-        <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+        <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote-opt2" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote-opt2'] }}</textarea>
         <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
           You have 5000 characters remaining
         </div>
@@ -301,7 +301,7 @@
           </strong>
         </div>
         <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->
-        <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+        <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote-opt2" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote-opt2'] }}</textarea>
         <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
           You have 5000 characters remaining
         </div>

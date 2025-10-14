@@ -43,7 +43,7 @@ What action did you take?
     <form action="added-call-details" method="post" novalidate>
     {% set benefits =  data['what-benefit-discussed-opt2'] %}
     {% set benefitLength =  data['what-benefit-discussed-opt2'] | length %}    
-    {% set checkNoteAdded = data['addNote'] %}
+    {% set checkNoteAdded = data['addNote-opt2'] %}
     {% set wasCallAnswered = data['was-call-answered'] %}
     {% set checkCallAnswered = data['was-call-answered'] %}
   
@@ -2461,7 +2461,7 @@ What action did you take?
                 Do not include any personal details.
               </strong>
             </div>
-            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote'] }}</textarea>
+            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote-opt2" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote-opt2'] }}</textarea>
             <div id="add-a-note-info" class="govuk-hint govuk-character-count__message">
               You have 5000 characters remaining
             </div>
@@ -2481,7 +2481,7 @@ What action did you take?
               </strong>
             </div>
             <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->
-            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote'] }}</textarea>
+            <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote-opt2" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote-opt2'] }}</textarea>
             <div id="add-a-note-info" class="govuk-hint govuk-character-count__message">
               You have 5000 characters remaining
             </div>
@@ -2489,7 +2489,7 @@ What action did you take?
           {%endif%}
         </div>
         <!-- dispaly message for add note on next page -->
-        <div class="govuk-inset-text" id="addNoteMessage" style="display: none;">
+        <div class="govuk-inset-text" id="addNote-opt2Message" style="display: none;">
           You can still add a note on the next page if it is needed.
         </div>
 
@@ -4193,7 +4193,7 @@ What action did you take?
            Do not include any personal details.
          </strong>
        </div>
-       <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote'] }}</textarea>
+       <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote-opt2" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote-opt2'] }}</textarea>
        <div id="add-a-note-info" class="govuk-hint govuk-character-count__message">
          You have 5000 characters remaining
        </div>
@@ -4213,7 +4213,7 @@ What action did you take?
          </strong>
        </div>
        <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->
-       <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote'] }}</textarea>
+       <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote-opt2" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote-opt2'] }}</textarea>
        <div id="add-a-note-info" class="govuk-hint govuk-character-count__message">
          You have 5000 characters remaining
        </div>
@@ -4425,7 +4425,7 @@ What action did you take?
            Do not include any personal details.
          </strong>
        </div>
-       <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote'] }}</textarea>
+       <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote-opt2" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote-opt2'] }}</textarea>
        <div id="add-a-note-info" class="govuk-hint govuk-character-count__message">
          You have 5000 characters remaining
        </div>
@@ -4445,7 +4445,7 @@ What action did you take?
          </strong>
        </div>
        <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->
-       <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote'] }}</textarea>
+       <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="add-a-note" name="addNote-opt2" rows="7" aria-describedby="add-a-note-info add-a-note-hint">{{ data['addNote-opt2'] }}</textarea>
        <div id="add-a-note-info" class="govuk-hint govuk-character-count__message">
          You have 5000 characters remaining
        </div>
@@ -4472,7 +4472,7 @@ What action did you take?
     // Get the note field
     var noteField = document.getElementById("myNote");
     // Get the message for note
-    var noteMessage = document.getElementById("addNoteMessage");
+    var noteMessage = document.getElementById("addNote-opt2Message");
     // If the checkbox is checked, display the output text
     if (checkBox.checked == true){
       noteField.style.display = "none";
@@ -4489,7 +4489,7 @@ What action did you take?
     // Get the output text
     var noteField = document.getElementById("myNote");
     // Get the message for note
-    var noteMessage = document.getElementById("addNoteMessage");
+    var noteMessage = document.getElementById("addNote-opt2Message");
     // If the checkbox is checked, display the output text
     if (checkBox.checked == true){
       noteField.style.display = "none";
@@ -4506,7 +4506,7 @@ What action did you take?
     // Get the output text
     var noteField = document.getElementById("myNote");
     // Get the message for note
-    var noteMessage = document.getElementById("addNoteMessage");
+    var noteMessage = document.getElementById("addNote-opt2Message");
     // If the checkbox is checked, display the output text
     if (checkBox.checked == true){
       noteField.style.display = "none";
@@ -4523,7 +4523,7 @@ What action did you take?
     // Get the output text
     var noteField = document.getElementById("myNote");
     // Get the message for note
-    var noteMessage = document.getElementById("addNoteMessage");
+    var noteMessage = document.getElementById("addNote-opt2Message");
     // If the checkbox is checked, display the output text
     if (checkBox.checked == true){
       noteField.style.display = "none";
@@ -4540,7 +4540,7 @@ What action did you take?
     // Get the output text
     var noteField = document.getElementById("myNote");
     // Get the message for note
-    var noteMessage = document.getElementById("addNoteMessage");
+    var noteMessage = document.getElementById("addNote-opt2Message");
     // If the checkbox is checked, display the output text
     if (checkBox.checked == true){
       noteField.style.display = "none";
@@ -4557,7 +4557,7 @@ function myFunctionForDLA() {
     // Get the output text
     var noteField = document.getElementById("myNote");
     // Get the message for note
-    var noteMessage = document.getElementById("addNoteMessage");
+    var noteMessage = document.getElementById("addNote-opt2Message");
     // If the checkbox is checked, display the output text
     if (checkBox.checked == true){
       noteField.style.display = "none";
