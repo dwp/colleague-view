@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check payment details and contact history
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/header.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Check payment details and contact history </h1>
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        This service does not provide payment or entitlement details for Universal Credit, Scottish devolved benefits or Child Maintenance. 
+      </strong>
+    </div>
+    <p class="govuk-body">Use this service to check:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>personal details </li>
+      <li>payment and entitlement details, including frequency and amounts</li>
+      <li>historical contact records</li>
+      <!-- <li>add details of new contact</li> -->
+    </ul>
+    <p class="govuk-body"> If your role involves communicating with members of the public, you may also add new contact records.</p>
+    <form class="form button_to" action="working-on" method="post">
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="full-name-input">
+            Enter the National Insurance number
+          </label>
+        </h2>
+
+        <div id="national-insurance-number-hint" class="govuk-hint">
+          This can be found on the person's National Insurance card, benefit letter, payslip or P60. For example, QQ 12 34 56 Q
+        </div>
+        <input class="govuk-input govuk-input--width-10" id="full-name-input" name="nino-number-ur-8" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint" autocomplete="on">
+      </div>
+        <button draggable="false" data-module="govuk-button" class="govuk-button govuk-button--start" type="submit">
+          Start now<svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" focusable="false" aria-hidden="true">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+          </svg>
+        </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

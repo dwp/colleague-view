@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What was the call about?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="added-call-details" method="post" novalidate>
+    <!-- add a note -->
+    <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+      <span class="govuk-caption-l">Step 2 of 3</span>
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="with-hint">
+          Add a note
+        </label>
+      </h1>
+      <p class="govuk-body">Add a note to give details of:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>why you were trying to make contact</li>
+        <li>at needs to happen due to the contact being unsuccessful</li>
+        <li>if you will try to make contact again and how</li>
+      </ul>
+      <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->
+      <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
+      <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+        You have 5000 characters remaining
+      </div>
+    </div>
+    <button class="govuk-button" data-module="govuk-button">
+      Save and continue
+    </button>
+  </form>
+  </div>
+</div>
+
+{% endblock %}

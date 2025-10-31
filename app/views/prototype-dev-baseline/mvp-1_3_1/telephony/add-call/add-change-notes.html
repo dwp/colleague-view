@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Change your note
+Add a note
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/header_keydetail_bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/header_keydetail_bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,23 +21,21 @@ Change your note
 {% block content %}
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="added-details" method="post" novalidate>
+        <form action="#" method="post" novalidate>
           <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
             <h1 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--l" for="with-hint">
-                Change your note
+                Add a note
               </label>
             </h1>
-            <div id="more-detail-hint" class="govuk-hint">
-              Do not include personal information in your note, for example name, National Insurance number, or date of birth. Include any information that may help other DWP colleagues to identify, understand and support the customer with any complex needs, for example, customer is in hospital, detained under the mental health act, or a Six Point Plan is in place.
-            </div>
-            <div class="govuk-warning-text ">
-              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-              <strong class="govuk-warning-text__text">
-                <span class="govuk-visually-hidden">Warning</span>
-                This note applies to the whole call. Do not delete your previous notes if they are still needed. Do not include any personal details.
-              </strong>
-            </div>
+            <p class="govuk-body">Add a note to give details of:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>what the call was about if you have not logged it already</li>
+              <li>who the call was with if it was not with the claimant or a known representative</li>
+            </ul>
+            <!-- <div id="with-hint-hint" class="govuk-hint">
+              You will be able to change this information later.
+            </div> -->
             <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
             <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
               You have 5000 characters remaining
