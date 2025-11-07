@@ -62,12 +62,24 @@ You have added details
                     {%if data['contact-type-esa'] | length > 1 %}
                     <ul class="govuk-list govuk-list--bullet">
                       {% for questionsESA in data['contact-type-esa'] %}
-                      <li>{{ questionsESA or "No inquiry selected"}}</li>
+                      <li>
+                      {%if questionsESA == "Reported a change of circumstance" %}
+                      {{ questionsESA }} - {{data['coc-option-esa']}}
+                      {%else%}
+                      {{ questionsESA }}
+                      {%endif%}
+                      </li>
                       {% endfor %}
                     </ul>
                   {%else%}
-                  <p>{{data['contact-type-esa']}}</p>
-                  {%endif%}
+                    <p>
+                       {%if data['contact-type-esa'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-esa'] }} - {{data['coc-option-esa']}}
+                      {%else%}
+                      {{data['contact-type-esa'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
                   </dd>
                 </div>
                 {%endif%}
@@ -81,11 +93,23 @@ You have added details
                     {%if data['contact-type-pip'] | length > 1 %}
                     <ul class="govuk-list govuk-list--bullet">
                       {% for questionsPIP in data['contact-type-pip'] %}
-                      <li>{{ questionsPIP }}</li>
+                      <li>
+                      {%if questionsPIP == "Reported a change of circumstance" %}
+                      {{ questionsPIP }} - {{data['coc-option-pip']}}
+                      {%else%}
+                      {{ questionsPIP }}
+                      {%endif%}
+                      </li>
                       {% endfor %}
                     </ul>
                   {%else%}
-                    <p>{{data['contact-type-pip']}}</p>
+                    <p>
+                       {%if data['contact-type-pip'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-pip'] }} - {{data['coc-option-pip']}}
+                      {%else%}
+                      {{ data['contact-type-pip'] }}
+                      {%endif%}
+                    </p>
                     {%endif%}
                   </dd>
                 </div>
@@ -157,11 +181,23 @@ You have added details
                     {%if data['contact-type-ca'] | length > 1 %}
                     <ul class="govuk-list govuk-list--bullet">
                       {% for questionsCA in data['contact-type-ca'] %}
-                      <li>{{ questionsCA }}</li>
+                      <li>
+                      {%if questionsCA == "Reported a change of circumstance" %}
+                      {{ questionsCA }} - {{data['coc-option-ca']}}
+                      {%else%}
+                      {{ questionsCA }}
+                      {%endif%}
+                      </li>
                       {% endfor %}
                     </ul>
                   {%else%}
-                    <p>{{data['contact-type-ca']}}</p>
+                    <p>
+                       {%if data['contact-type-ca'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-ca'] }} - {{data['coc-option-ca']}}
+                      {%else%}
+                      {{data['contact-type-ca'] }}
+                      {%endif%}
+                    </p>
                     {%endif%}
                   </dd>
                 </div>
@@ -376,7 +412,8 @@ You have added details
                 </div>
                 {%endif%}
               {% endfor %}
-              {%if contactType == 'Inbound phone call with' %}
+              <!-- 6 point plan -->
+              <!-- {%if contactType == 'Inbound phone call with' %}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                    Followed the 6 point plan
@@ -385,7 +422,7 @@ You have added details
                    {{ data['six-point-plan']}}
                 </dd>
               </div>
-              {%endif%}
+              {%endif%} -->
                 <!-- Note added -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -400,46 +437,6 @@ You have added details
         </div>
         {%else%}
         <!-- for one benefit --> 
-        {%if data['what-benefit-discussed'] == 'General change of circumstance' %}
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Call details
-            </h2>
-          </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  General change of circumstance
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {%if data['contact-type-gCoC'] | length > 1 %}
-                  <ul class="govuk-list govuk-list--bullet">
-                    {% for contactTopicsgCoC in data['contact-type-gCoC'] %}
-                    <li>{{ contactTopicsgCoC }}</li>
-                    {% endfor %}
-                  </ul>
-                  {%else%}
-                    <p>{{data['contact-type-gCoC']}}</p>
-                  {%endif%}
-                </dd>
-                <dd class="govuk-summary-list__actions govuk-!-display-none">
-                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Notes added
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['addNote'] or "Not provided" }}
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-        {%else%} 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
@@ -461,7 +458,13 @@ You have added details
                   {%if data['contact-type'] | length > 1 %}
                   <ul class="govuk-list govuk-list--bullet">
                     {% for contactTopics in data['contact-type'] %}
-                    <li>{{ contactTopics }}</li>
+                      <li>
+                        {%if contactTopics == "Reported a change of circumstance" %}
+                        {{ contactTopics }} - {{data['coc-option']}}
+                        {%else%}
+                        {{ contactTopics }}
+                        {%endif%}
+                      </li>
                     {% endfor %}
                   </ul>
                   {%else%}
@@ -472,7 +475,8 @@ You have added details
                   <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
-              {%if contactType == 'Inbound phone call with' %}
+              <!-- 6 point plan -->
+              <!-- {%if contactType == 'Inbound phone call with' %}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                    Followed the 6 point plan
@@ -481,7 +485,7 @@ You have added details
                    {{ data['six-point-plan']}}
                 </dd>
               </div>
-              {%endif%}
+              {%endif%} -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Notes added
@@ -493,7 +497,6 @@ You have added details
             </dl>
           </div>
         </div>
-        {%endif%}
         {%endif%}
 
         {%if data['What-type-of-contact'] == 'Inbound phone call with'%}

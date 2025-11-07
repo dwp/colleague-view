@@ -756,7 +756,7 @@ router.post('/telephony/add-call/option-b/added-call-details', function (req, re
 });
 
 
-// CoC secondary - COnditional reveal option
+// CoC secondary - COnditional reveal option C
 
 router.post('/telephony/add-call/option-c/planned-action', function (req, res) {
 
