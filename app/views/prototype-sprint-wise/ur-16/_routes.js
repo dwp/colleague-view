@@ -9,7 +9,7 @@ router.post('/index.html', function (req, res) {
 router.post('/working-on', function (req, res) {
   const ninoNumber = req.session.data['nino-number-ur-8'];
   req.session.data = {'nino-number-ur-8': ninoNumber}
-
+  req.session.data['what-benefit-discussed'] = '';
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-contact-with'] = '';
@@ -245,9 +245,15 @@ router.post('/telephony/add-call/planned-action', function (req, res) {
   req.session.data['chpa_question-resolved-pip']= '';
   req.session.data['othQ_question-resolved-pip']= '';
 
-  if (req.session.data['what-benefit-discussed'] == '') {
+
+  if (
+  req.session.data['what-benefit-discussed'] == '' ||
+  req.session.data['what-benefit-discussed'] == undefined
+  ) {
+    console.log('Benefit not selected');
   res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/reviewed-error');
   } else {
+    console.log('Benefit Selected', req.session.data['what-benefit-discussed']);
   res.render('/prototype-sprint-wise/ur-16/telephony/add-call/select-contact-type');
  }
 })
