@@ -99,15 +99,7 @@
         
           <!-- CA options -->
           {% if benefitsName == "Carer's Allowance" %}
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-            {%if data['contact-type-ca'] == "" %}
-=======
             {%if data['contact-type-ca']|length == 0 %}
->>>>>>> 328f41c (chore: six point changes fixed)
-=======
-            {%if data['contact-type-ca']|length == 0 %}
->>>>>>> Stashed changes
             <div class="govuk-form-group govuk-form-group--error">
               <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -294,15 +286,7 @@
           {%endif%}
           <!-- for ESA -->
           {% if benefitsName == 'Employment and Support Allowance' %}
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-            {%if data['contact-type-esa'] == "" %}
-=======
             {%if data['contact-type-esa']|length == 0 %}
->>>>>>> 328f41c (chore: six point changes fixed)
-=======
-            {%if data['contact-type-esa']|length == 0 %}
->>>>>>> Stashed changes
             <div class="govuk-form-group govuk-form-group--error">
               <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -525,15 +509,7 @@
           {%endif%}
           <!-- for PIP -->
           {% if benefitsName == 'Personal Independence Payment' %}
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-            {%if data['contact-type-pip'] == "" %}
-=======
             {%if data['contact-type-pip'] |length == 0 %}
->>>>>>> 328f41c (chore: six point changes fixed)
-=======
-            {%if data['contact-type-pip'] |length == 0 %}
->>>>>>> Stashed changes
             <div class="govuk-form-group govuk-form-group--error">
               <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -2038,15 +2014,7 @@
 
       <!-- for only one benefit -->
       {% else %}
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-        {% if data['contact-type'] == "" %}
-=======
         {% if data['contact-type']|length == 0  %}
->>>>>>> 328f41c (chore: six point changes fixed)
-=======
-        {% if data['contact-type']|length == 0  %}
->>>>>>> Stashed changes
         <div class="govuk-form-group govuk-form-group--error">
           <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -3358,13 +3326,7 @@
         {%endif%}
       {%endif%}
       <!-- capture 6 point plan -->
-<<<<<<< Updated upstream
-<<<<<<< HEAD
       {% if data['six-point-plan'] == "" %}
-=======
->>>>>>> 328f41c (chore: six point changes fixed)
-=======
->>>>>>> Stashed changes
       <div class="govuk-form-group govuk-form-group--error govuk-!-margin-top-9">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -3377,15 +3339,7 @@
           </p>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-              <input class="govuk-radios__input" id="six-point-plan-1" name="six-point-plan" type="radio" value="Yes" {{ checked ('six-point-plan', "Yes") }}>
-=======
               <input class="govuk-radios__input" id="six-point-plan-1" name="six-point-plan" type="radio" value="Yes" {{ checked ('six-point-plan', 'Yes') }}>
->>>>>>> 328f41c (chore: six point changes fixed)
-=======
-              <input class="govuk-radios__input" id="six-point-plan-1" name="six-point-plan" type="radio" value="Yes" {{ checked ('six-point-plan', 'Yes') }}>
->>>>>>> Stashed changes
               <label class="govuk-label govuk-radios__label" for="six-point-plan-1">
                 Yes, notify others of this when accessing this account
               </label>
@@ -3399,8 +3353,6 @@
           </div>
         </fieldset>
       </div>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
       {%else%}
       <div class="govuk-form-group govuk-!-margin-top-9">
         <fieldset class="govuk-fieldset">
@@ -3427,10 +3379,6 @@
       </div>
       {%endif%}
 
-=======
->>>>>>> 328f41c (chore: six point changes fixed)
-=======
->>>>>>> Stashed changes
       <!-- add a note -->
       <div id ="myNote" style="display: block;">
         {%if checkNoteAdded == ''%}
@@ -3488,16 +3436,6 @@
         </div>
         {%endif%}
       </div>
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-      <!-- dispaly message for add note on next page -->
-      <div class="govuk-inset-text" id="addNoteMessage" style="display: none;">
-        You can still add a note on the next page if it is needed.
-      </div>
-=======
->>>>>>> 328f41c (chore: six point changes fixed)
-=======
->>>>>>> Stashed changes
     {%endif%}
 
 
