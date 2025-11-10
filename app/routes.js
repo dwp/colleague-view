@@ -7799,18 +7799,20 @@ router.use('/prototype-sprint-wise/ur-10', require('./views/prototype-sprint-wis
 router.use('/prototype-sprint-wise/future-ur', require('./views/prototype-sprint-wise/future-ur/_routes'));
 router.use('/prototype-sprint-wise/future-ur/failed-disconnect-call-log', require('./views/prototype-sprint-wise/future-ur/failed-disconnect-call-log/_routes'));
 router.use('/prototype-sprint-wise/future-ur/dla-type-selection', require('./views/prototype-sprint-wise/future-ur/dla-type-selection/_routes'));
+
 // for UR 12
 router.use('/prototype-sprint-wise/ur-12', require('./views/prototype-sprint-wise/ur-12/_routes'));
+// for UR 12.1 failled / disconnected call
 router.use('/prototype-sprint-wise/ur-12/failed-disconnect-call-log', require('./views/prototype-sprint-wise/ur-12/failed-disconnect-call-log/_routes'));
-
+// for UR 13
+router.use('/prototype-sprint-wise/ur-13', require('./views/prototype-sprint-wise/ur-13/\_routes'));
 // version 1.3
 router.use('/prototype-dev-baseline/mvp-1_3', require('./views/prototype-dev-baseline/mvp-1_3/\_routes'));
 // version 1.3.3
 router.use('/prototype-dev-baseline/mvp-1_3_1', require('./views/prototype-dev-baseline/mvp-1_3_1/\_routes'));
 // for UR 16
 router.use('/prototype-sprint-wise/ur-16', require('./views/prototype-sprint-wise/ur-16/\_routes'));
-// for UR 13
-router.use('/prototype-sprint-wise/ur-13', require('./views/prototype-sprint-wise/ur-13/\_routes'));
+
 
 
 
