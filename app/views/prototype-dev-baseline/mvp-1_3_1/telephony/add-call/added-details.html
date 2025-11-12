@@ -134,7 +134,7 @@ You have added details
                     </ul>
                   {%else%}
                     <p>
-                       {%if data['contact-type-esa'] == "Reported a change of circumstance" %}
+                      {%if data['contact-type-esa'] == "Confirmed or checked for a change of circumstance" %}
                       {{ data['contact-type-esa'] }} - {{data['coc-option-esa']}}
                       {%else%}
                       {{data['contact-type-esa'] }}
@@ -170,7 +170,6 @@ You have added details
                     </p>
                     {%endif%}
                   </dd>
-                  {%endif%}
                 </div>
                 {%endif%}
                 <!-- for pip -->
@@ -179,11 +178,7 @@ You have added details
                   <dt class="govuk-summary-list__key">
                     Personal Independence Payment
                   </dt>
-<<<<<<< Updated upstream
                   {% if data['What-type-of-contact']=='Outbound phone call with'%}
-=======
-                   {% if data['What-type-of-contact']=='Outbound phone call with'%}
->>>>>>> Stashed changes
                   <dd class="govuk-summary-list__value">
                     {%if data['contact-type-pip'] | length > 1 %}
                     <ul class="govuk-list govuk-list--bullet">
@@ -199,11 +194,7 @@ You have added details
                     </ul>
                   {%else%}
                     <p>
-<<<<<<< Updated upstream
                       {%if data['contact-type-pip'] == "Confirmed or checked for a change of circumstance" %}
-=======
-                       {%if data['contact-type-pip'] == "Reported a change of circumstance" %}
->>>>>>> Stashed changes
                       {{ data['contact-type-pip'] }} - {{data['coc-option-pip']}}
                       {%else%}
                       {{ data['contact-type-pip'] }}
@@ -239,7 +230,6 @@ You have added details
                     </p>
                     {%endif%}
                   </dd>
-                  {%endif%}
                 </div>
                 {%endif%}
                 <!-- for aa -->
@@ -346,31 +336,6 @@ You have added details
                   <dt class="govuk-summary-list__key">
                     Carer's Allowance
                   </dt>
-                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
-                  <dd class="govuk-summary-list__value">
-                    {%if data['contact-type-ca'] | length > 1 %}
-                    <ul class="govuk-list govuk-list--bullet">
-                      {% for questionsCA in data['contact-type-ca'] %}
-                      <li>
-                      {%if questionsCA == "Confirmed or checked for a change of circumstance" %}
-                      {{ questionsCA }} - {{data['coc-option-ca']}}
-                      {%else%}
-                      {{ questionsCA }}
-                      {%endif%}
-                      </li>
-                      {% endfor %}
-                    </ul>
-                  {%else%}
-                    <p>
-                       {%if data['contact-type-ca'] == "Confirmed or checked for a change of circumstance" %}
-                      {{ data['contact-type-ca'] }} - {{data['coc-option-ca']}}
-                      {%else%}
-                      {{data['contact-type-ca'] }}
-                      {%endif%}
-                    </p>
-                    {%endif%}
-                  </dd>
-                  {%else%}
                   <dd class="govuk-summary-list__value">
                     {%if data['contact-type-ca'] | length > 1 %}
                     <ul class="govuk-list govuk-list--bullet">
@@ -408,10 +373,7 @@ You have added details
                     </p>
                     {%endif%}
                   </dd>
-<<<<<<< Updated upstream
                   {%endif%}
-=======
->>>>>>> Stashed changes
                 </div>
                 {%endif%}
                 <!-- for ibjsa -->
@@ -666,31 +628,6 @@ You have added details
                   {{ data['what-benefit-discussed'] }}
                   {%endif%}
                 </dt>
-                {% if data['What-type-of-contact']=='Outbound phone call with'%}
-                 <dd class="govuk-summary-list__value">
-                  {%if data['contact-type'] | length > 1 %}
-                  <ul class="govuk-list govuk-list--bullet">
-                    {% for contactTopics in data['contact-type'] %}
-                      <li>
-                        {%if contactTopics == "Confirmed or checked for a change of circumstance" %}
-                        {{ contactTopics }} - {{data['coc-option']}}
-                        {%else%}
-                        {{ contactTopics }}
-                        {%endif%}
-                      </li>
-                    {% endfor %}
-                  </ul>
-                  {%else%}
-                    <p>
-                       {%if data['contact-type'] == "Confirmed or checked for a change of circumstance" %}
-                        {{ data['contact-type'] }} - {{data['coc-option']}}
-                        {%else%}
-                        {{ data['contact-type'] }}
-                        {%endif%}
-                    </p>
-                  {%endif%}
-                </dd>
-                {%else%}
                 <dd class="govuk-summary-list__value">
                   {%if data['contact-type'] | length > 1 %}
                   <ul class="govuk-list govuk-list--bullet">
@@ -705,16 +642,9 @@ You have added details
                     {% endfor %}
                   </ul>
                   {%else%}
-                    <p>
-                      {%if data['contact-type'] == "Reported a change of circumstance" %}
-                        {{ data['contact-type'] }} - {{data['coc-option']}}
-                        {%else%}
-                        {{ data['contact-type'] }}
-                        {%endif%}
-                    </p>
+                    <p>{{data['contact-type']}}</p>
                   {%endif%}
                 </dd>
-                {%endif%}
                 <dd class="govuk-summary-list__actions govuk-!-display-none">
                   <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
