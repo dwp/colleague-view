@@ -62,7 +62,7 @@ You have added details
                       <ul class="govuk-list govuk-list--bullet">
                         {% for questionsCA in data['contact-type-ca'] %}
                         <li>
-                        {%if questionsCA == "Confirmed or checked for a change of circumstance" %}
+                        {%if (questionsCA == "Confirmed or checked for a change of circumstance") or (questionsCA == "Confirm or check for a change of circumstance") %}
                         {{ questionsCA }} - {{data['coc-option-ca']}}
                         {%else%}
                         {{ questionsCA }}
@@ -72,11 +72,11 @@ You have added details
                       </ul>
                     {%else%}
                       <p>
-                        {%if data['contact-type-ca'] == "Confirmed or checked for a change of circumstance" %}
-                        {{ data['contact-type-ca'] }} - {{data['coc-option-ca']}}
-                        {%else%}
-                        {{data['contact-type-ca'] }}
-                        {%endif%}
+                      {%if (data['contact-type-ca'] == "Confirmed or checked for a change of circumstance") or (data['contact-type-ca'] == "Confirm or check for a change of circumstance") %}
+                        {{data['contact-type-ca']}} - {{data['coc-option-ca']}}
+                      {%else%}
+                        {{data['contact-type-ca']}}
+                      {%endif%}
                       </p>
                     {%endif%}
                   </dd>
@@ -86,22 +86,22 @@ You have added details
                     <ul class="govuk-list govuk-list--bullet">
                       {% for questionsCA in data['contact-type-ca'] %}
                       <li>
-                      {%if questionsCA == "Reported a change of circumstance" %}
-                      {{ questionsCA }} - {{data['coc-option-ca']}}
-                      {%else%}
-                      {{ questionsCA }}
-                      {%endif%}
+                        {%if questionsCA == "Reported a change of circumstance" %}
+                        {{ questionsCA }} - {{data['coc-option-ca']}}
+                        {%else%}
+                        {{ questionsCA }}
+                        {%endif%}
                       </li>
                       {% endfor %}
                     </ul>
                     {%else%}
-                    <p>
-                      {%if data['contact-type-ca'] == "Reported a change of circumstance" %}
-                      {{ data['contact-type-ca'] }} - {{data['coc-option-ca']}}
-                      {%else%}
-                      {{data['contact-type-ca'] }}
-                      {%endif%}
-                    </p>
+                      <p>
+                        {%if data['contact-type-ca'] == "Reported a change of circumstance" %}
+                          {{ data['contact-type-ca'] }} - {{data['coc-option-ca']}}
+                          {%else%}
+                          {{ data['contact-type-ca']}}
+                        {%endif%}
+                      </p>
                     {%endif%}
                   </dd>
                   {%endif%}
@@ -116,26 +116,26 @@ You have added details
                   {% if data['What-type-of-contact']=='Outbound phone call with'%}
                   <dd class="govuk-summary-list__value">
                     {%if data['contact-type-esa'] | length > 1 %}
-                      <ul class="govuk-list govuk-list--bullet">
-                        {% for questionsESA in data['contact-type-esa'] %}
-                        <li>
-                        {%if questionsESA == "Confirmed or checked for a change of circumstance" %}
-                        {{ questionsESA }} - {{data['coc-option-esa']}}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsESA in data['contact-type-esa'] %}
+                      <li>
+                        {%if (questionsESA == "Confirmed or checked for a change of circumstance") or (questionsESA == "Confirm or check for a change of circumstance") %}
+                        {{questionsESA}} - {{data['coc-option-esa']}}
                         {%else%}
-                        {{ questionsESA }}
+                        {{questionsESA}}
                         {%endif%}
-                        </li>
-                        {% endfor %}
-                      </ul>
-                    {%else%}
-                      <p>
-                        {%if data['contact-type-esa'] == "Confirmed or checked for a change of circumstance" %}
-                        {{ data['contact-type-esa'] }} - {{data['coc-option-esa']}}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                      {%if (data['contact-type-esa'] == "Confirmed or checked for a change of circumstance") or (data['contact-type-esa'] == "Confirm or check for a change of circumstance") %}
+                        {{data['contact-type-esa']}} - {{data['coc-option-esa']}}
                         {%else%}
-                        {{data['contact-type-esa'] }}
-                        {%endif%}
-                      </p>
-                    {%endif%}
+                        {{data['contact-type-esa']}}
+                      {%endif%}
+                    </p>
+                  {%endif%}
                   </dd>
                   {%else%}
                   <dd class="govuk-summary-list__value">
@@ -173,26 +173,26 @@ You have added details
                   {% if data['What-type-of-contact']=='Outbound phone call with'%}
                   <dd class="govuk-summary-list__value">
                     {%if data['contact-type-pip'] | length > 1 %}
-                      <ul class="govuk-list govuk-list--bullet">
-                        {% for questionsPIP in data['contact-type-pip'] %}
-                        <li>
-                        {%if questionsPIP == "Confirmed or checked for a change of circumstance" %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsPIP in data['contact-type-pip'] %}
+                      <li>
+                        {%if (questionsPIP == "Confirmed or checked for a change of circumstance") or (questionsPIP == "Confirm or check for a change of circumstance") %}
                         {{ questionsPIP }} - {{data['coc-option-pip']}}
                         {%else%}
                         {{ questionsPIP }}
                         {%endif%}
-                        </li>
-                        {% endfor %}
-                      </ul>
-                    {%else%}
-                      <p>
-                        {%if data['contact-type-pip'] == "Confirmed or checked for a change of circumstance" %}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                      {%if (data['contact-type-pip'] == "Confirmed or checked for a change of circumstance") or (data['contact-type-pip'] == "Confirm or check for a change of circumstance") %}
                         {{ data['contact-type-pip'] }} - {{data['coc-option-pip']}}
-                        {%else%}
-                        {{data['contact-type-pip'] }}
-                        {%endif%}
-                      </p>
-                    {%endif%}
+                      {%else%}
+                        {{data['contact-type-pip']}}
+                      {%endif%}
+                    </p>
+                  {%endif%}
                   </dd>
                   {%else%}
                   <dd class="govuk-summary-list__value">
@@ -948,23 +948,55 @@ You have added details
                   {{ data['what-benefit-discussed'] }}
                   {%endif%}
                 </dt>
+                {% if data['What-type-of-contact']=='Outbound phone call with'%}
                 <dd class="govuk-summary-list__value">
                   {%if data['contact-type'] | length > 1 %}
-                  <ul class="govuk-list govuk-list--bullet">
-                    {% for contactTopics in data['contact-type'] %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questions in data['contact-type'] %}
                       <li>
-                        {%if contactTopics == "Reported a change of circumstance" %}
-                        {{ contactTopics }} - {{data['coc-option']}}
+                        {%if (questions == "Confirmed or checked for a change of circumstance") or (questions == "Confirm or check for a change of circumstance") %}
+                        {{questions}} - {{data['coc-option']}}
                         {%else%}
-                        {{ contactTopics }}
+                        {{questions}}
                         {%endif%}
                       </li>
-                    {% endfor %}
-                  </ul>
+                      {% endfor %}
+                    </ul>
                   {%else%}
-                    <p>{{data['contact-type']}}</p>
+                    <p>  
+                      {%if (data['contact-type'] == "Confirmed or checked for a change of circumstance") or (data['contact-type'] == "Confirm or check for a change of circumstance") %}
+                      {{data['contact-type']}} - {{data['coc-option']}}
+                      {%else%}
+                      {{data['contact-type']}}
+                      {%endif%}
+                    </p>
                   {%endif%}
                 </dd>
+                {%else%}
+                <dd class="govuk-summary-list__value"></dd>
+                {%if data['contact-type'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questions in data['contact-type'] %}
+                      <li>
+                        {%if questions == "Reported a change of circumstance" %}
+                        {{ questions }} - {{data['coc-option']}}
+                        {%else%}
+                        {{ questions }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                      {%if data['contact-type'] == "Reported a change of circumstance" %}
+                        {{ data['contact-type'] }} - {{data['coc-option']}}
+                        {%else%}
+                        {{ data['contact-type']}}
+                      {%endif%}
+                    </p>
+                  {%endif%}
+                  </dd>
+                {%endif%}
                 <dd class="govuk-summary-list__actions govuk-!-display-none">
                   <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
