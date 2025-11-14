@@ -481,13 +481,11 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceAA" name="contact-type-aa" type="checkbox" value="Reported a change of circumstance" onclick="myFunctionForAA()" {{ checked ('contact-type-aa', 'Reported a change of circumstance') }}>
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceAA" name="contact-type-aa" type="checkbox" data-aria-controls="conditional-contact4" value="Reported a change of circumstance" {{ checked ('contact-type-aa', 'Reported a change of circumstance') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceAA">
                     Reported a change of circumstance
                   </label>
                 </div>
-<<<<<<< Updated upstream
-=======
                 <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact4">
                   <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
@@ -536,7 +534,6 @@
                     </fieldset>
                   </div>
                 </div>
->>>>>>> Stashed changes
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefitAA" name="contact-type-aa" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-aa', 'Sent a proof of benefit letter') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="proofofBenefitAA">
@@ -630,10 +627,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-bsp" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-bsp', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceBSP" name="contact-type-bsp" type="checkbox" data-aria-controls="conditional-contact5" value="Reported a change of circumstance" {{ checked ('contact-type-bsp', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceBSP">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact5">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-bsp" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-bsp', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-bsp" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-bsp', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-bsp" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-bsp', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-bsp" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-bsp', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-bsp" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-bsp', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-bsp" type="checkbox" value="Something else" {{ checked ('coc-option-bsp', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-bsp" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-bsp', 'Sent a proof of benefit letter') }}>
@@ -713,10 +758,58 @@
                 </label>
               </div>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-cwp" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-cwp', 'Reported a change of circumstance') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                <input class="govuk-checkboxes__input" id="changeOfCircumstanceCWP" name="contact-type-cwp" type="checkbox" data-aria-controls="conditional-contact6" value="Reported a change of circumstance" {{ checked ('contact-type-cwp', 'Reported a change of circumstance') }}>
+                <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceCWP">
                   Reported a change of circumstance
                 </label>
+              </div>
+              <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact6">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                        What have you updated? 
+                        <span class="govuk-visually-hidden">for change of circumstance</span>
+                    </legend>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-cwp" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-cwp', 'Contact details changed on all relevant systems') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                          Contact details changed on all relevant systems
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-cwp" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-cwp', 'Address changed on all relevant systems') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                          Address changed on all relevant systems
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-cwp" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-cwp', 'Bank details changed on all relevant systems') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                          Bank details changed on all relevant systems
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-cwp" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-cwp', 'Updated appointee details on all relevant systems') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                          Updated appointee details on all relevant systems
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-cwp" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-cwp', 'Name changed on all relevant systems') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                          Name changed on all relevant systems
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-cwp" type="checkbox" value="Something else" {{ checked ('coc-option-cwp', 'Something else') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                          Something else
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
               </div>
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-cwp" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-cwp', 'Sent a proof of benefit letter') }}>
@@ -882,10 +975,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-dla" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-dla', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceDLA" name="contact-type-dla" type="checkbox" data-aria-controls="conditional-contact7" value="Reported a change of circumstance" {{ checked ('contact-type-dla', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceDLA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact7">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-dla" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-dla', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-dla" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-dla', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-dla" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-dla', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-dla" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-dla', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-dla" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-dla', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-dla" type="checkbox" value="Something else" {{ checked ('coc-option-dla', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-dla" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-dla', 'Sent a proof of benefit letter') }}>
@@ -982,10 +1123,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-ibjsa" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-ibjsa', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceDLA" name="contact-type-ibjsa" type="checkbox" data-aria-controls="conditional-contact8" value="Reported a change of circumstance" {{ checked ('contact-type-ibjsa', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceDLA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact8">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-ibjsa" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-ibjsa', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-ibjsa" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-ibjsa', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-ibjsa" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-ibjsa', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-ibjsa" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-ibjsa', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-ibjsa" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-ibjsa', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-ibjsa" type="checkbox" value="Something else" {{ checked ('coc-option-ibjsa', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-ibjsa" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-ibjsa', 'Sent a proof of benefit letter') }}>
@@ -1053,10 +1242,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-nsjsa" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-nsjsa', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceNSJSA" name="contact-type-nsjsa" type="checkbox" data-aria-controls="conditional-contact9" value="Reported a change of circumstance" {{ checked ('contact-type-nsjsa', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceNSJSA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact9">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-nsjsa" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-nsjsa', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-nsjsa" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-nsjsa', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-nsjsa" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-nsjsa', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-nsjsa" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-nsjsa', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-nsjsa" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-nsjsa', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-nsjsa" type="checkbox" value="Something else" {{ checked ('coc-option-nsjsa', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-nsjsa" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-nsjsa', 'Sent a proof of benefit letter') }}>
@@ -1130,16 +1367,64 @@
               </legend>
               <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="paymentEnquiry" name="contact-type-ma" type="checkbox" value="Helped with a payment enquiry" onclick="myFunction()" {{ checked ('contact-type-ma', 'Helped with a payment enquiry') }}>
+                  <input class="govuk-checkboxes__input" id="paymentEnquiry" name="contact-type-ma" type="checkbox" value="Helped with a payment enquiry" {{ checked ('contact-type-ma', 'Helped with a payment enquiry') }}>
                   <label class="govuk-label govuk-checkboxes__label" for="paymentEnquiry">
                     Helped with a payment enquiry
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-ma" type="checkbox" value="Reported a change of circumstance" {{ checked ('contact-type-ma', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceMA" name="contact-type-ma" type="checkbox" data-aria-controls="conditional-contact10" value="Reported a change of circumstance" {{ checked ('contact-type-ma', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceMA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact10">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-ma" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-ma', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-ma" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-ma', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-ma" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-ma', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-ma" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-ma', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-ma" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-ma', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-ma" type="checkbox" value="Something else" {{ checked ('coc-option-ma', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-ma" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-ma', 'Sent a proof of benefit letter') }}>
@@ -1219,10 +1504,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-pc" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-pc', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceMA" name="contact-type-pc" type="checkbox" data-aria-controls="conditional-contact11" value="Reported a change of circumstance" {{ checked ('contact-type-pc', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceMA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact11">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-pc" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-pc', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-pc" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-pc', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-pc" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-pc', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-pc" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-pc', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-pc" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-pc', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-pc" type="checkbox" value="Something else" {{ checked ('coc-option-pc', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-pc" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-pc', 'Sent a proof of benefit letter') }}>
@@ -1311,10 +1644,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-sp" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-sp', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceMA" name="contact-type-sp" type="checkbox" data-aria-controls="conditional-contact12" value="Reported a change of circumstance" {{ checked ('contact-type-sp', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceMA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact12">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-sp" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-sp', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-sp" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-sp', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-sp" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-sp', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-sp" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-sp', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-sp" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-sp', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-sp" type="checkbox" value="Something else" {{ checked ('coc-option-sp', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-sp" type="checkbox" value="Sent a proof of pension letter" {{ checked ('contact-type-sp', 'Sent a proof of pension letter') }}>
@@ -1418,10 +1799,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-sda" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-sda', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceMA" name="contact-type-sda" type="checkbox" data-aria-controls="conditional-contact13" value="Reported a change of circumstance" {{ checked ('contact-type-sda', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceMA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact13">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-sda" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-sda', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-sda" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-sda', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-sda" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-sda', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-sda" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-sda', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-sda" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-sda', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-sda" type="checkbox" value="Something else" {{ checked ('coc-option-sda', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-sda" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-sda', 'Sent a proof of benefit letter') }}>
@@ -1489,10 +1918,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-uc" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-uc', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceMA" name="contact-type-uc" type="checkbox" data-aria-controls="conditional-contact14" value="Reported a change of circumstance" {{ checked ('contact-type-uc', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceMA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact14">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-uc" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-uc', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-uc" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-uc', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-uc" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-uc', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-uc" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-uc', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-uc" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-uc', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-uc" type="checkbox" value="Something else" {{ checked ('coc-option-uc', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-uc" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-uc', 'Sent a proof of benefit letter') }}>
@@ -1590,10 +2067,58 @@
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="changeOfCircumstance" name="contact-type-wfp" type="checkbox" value="Reported a change of circumstance" onclick="myFunction()" {{ checked ('contact-type-wfp', 'Reported a change of circumstance') }}>
-                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstance">
+                  <input class="govuk-checkboxes__input" id="changeOfCircumstanceMA" name="contact-type-wfp" type="checkbox" data-aria-controls="conditional-contact15" value="Reported a change of circumstance" {{ checked ('contact-type-wfp', 'Reported a change of circumstance') }}>
+                  <label class="govuk-label govuk-checkboxes__label" for="changeOfCircumstanceMA">
                     Reported a change of circumstance
                   </label>
+                </div>
+                <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact15">
+                  <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                          What have you updated? 
+                          <span class="govuk-visually-hidden">for change of circumstance</span>
+                      </legend>
+                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item" name="coc-option-wfp" type="checkbox" value="Contact details changed on all relevant systems" {{ checked ('coc-option-wfp', 'Contact details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item">
+                            Contact details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item1" name="coc-option-wfp" type="checkbox" value="Address changed on all relevant systems" {{ checked ('coc-option-wfp', 'Address changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item1">
+                            Address changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item2" name="coc-option-wfp" type="checkbox" value="Bank details changed on all relevant systems" {{ checked ('coc-option-wfp', 'Bank details changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item2">
+                            Bank details changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item3" name="coc-option-wfp" type="checkbox" value="Updated appointee details on all relevant systems" {{ checked ('coc-option-wfp', 'Updated appointee details on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item3">
+                            Updated appointee details on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item4" name="coc-option-wfp" type="checkbox" value="Name changed on all relevant systems" {{ checked ('coc-option-wfp', 'Name changed on all relevant systems') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item4">
+                            Name changed on all relevant systems
+                          </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="coc-item5" name="coc-option-wfp" type="checkbox" value="Something else" {{ checked ('coc-option-wfp', 'Something else') }}>
+                          <label class="govuk-label govuk-checkboxes__label" for="coc-item5">
+                            Something else
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="proofofBenefit" name="contact-type-wfp" type="checkbox" value="Sent a proof of benefit letter" {{ checked ('contact-type-wfp', 'Sent a proof of benefit letter') }}>
@@ -1641,92 +2166,6 @@
                   </label>
                 </div>
               </div>
-            </fieldset>
-          </div>
-          {%endif%}
-          <!-- for General CoC -->
-          {% if benefitsName == 'General change of circumstance' %}
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <h2 class="govuk-fieldset__heading govuk-heading-m">
-                  {{benefitsName}}
-                </h2>
-              </legend>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="name" name="contact-type-gCoC" type="checkbox" value="Name" {{ checked ('contact-type-gCoC', 'Name') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="name">
-                  Name
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="contactDetails" name="contact-type-gCoC" type="checkbox" value="Contact details" {{ checked ('contact-type-gCoC', 'Contact details') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="contactDetails">
-                  Contact details
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="address" name="contact-type-gCoC" type="checkbox" value="Address" {{ checked ('contact-type-gCoC', 'Address') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="address">
-                  Address
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="bankDetails" name="contact-type-gCoC" type="checkbox" value="Bank details" {{ checked ('contact-type-gCoC', 'Bank details') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="bankDetails">
-                  Bank details
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="housingCosts" name="contact-type-gCoC" type="checkbox" value="Housing costs" {{ checked ('contact-type-gCoC', 'Housing costs') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="housingCosts">
-                  Housing costs
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="householdIncome" name="contact-type-gCoC" type="checkbox" value="Household income" {{ checked ('contact-type-gCoC', 'Household income') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="householdIncome">
-                  Household income
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="dependancies" name="contact-type-gCoC" type="checkbox" value="Dependancies" {{ checked ('contact-type-gCoC', 'Dependancies') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="dependancies">
-                  Dependancies
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="maritalStatus" name="contact-type-gCoC" type="checkbox" value="Marital status" {{ checked ('contact-type-gCoC', 'Marital status') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="maritalStatus">
-                  Marital status
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="incomeAndAssets" name="contact-type-gCoC" type="checkbox" value="Income and assets" {{ checked ('contact-type-gCoC', 'Income and assets') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="incomeAndAssets">
-                  Income and assets
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="education" name="contact-type-gCoC" type="checkbox" value="Education" {{ checked ('contact-type-gCoC', 'Education') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="education">
-                  Education
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="medical" name="contact-type-gCoC" type="checkbox" value="Medical" {{ checked ('contact-type-gCoC', 'Medical') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="medical">
-                  Medical
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="callDisconnected" name="contact-type-gCoC" type="checkbox" value="Call disconnected" {{ checked ('contact-type-gCoC', 'Call disconnected') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="callDisconnected">
-                  Call disconnected
-                </label>
-              </div>
-            </div>
             </fieldset>
           </div>
           {%endif%}
@@ -4698,23 +5137,23 @@
 //       noteMessage.style.display ="none";
 //     }
 //   }
-//   // For AA
-//   function myFunctionForAA() {
-//     // Get the checkbox
-//     var checkBox = document.getElementById("changeOfCircumstanceAA");
-//     // Get the output text
-//     var noteField = document.getElementById("myNote");
-//     // Get the message for note
-//     var noteMessage = document.getElementById("addNoteMessage");
-//     // If the checkbox is checked, display the output text
-//     if (checkBox.checked == true){
-//       noteField.style.display = "none";
-//       noteMessage.style.display ="block";
-//     } else {
-//       noteField.style.display = "block";
-//       noteMessage.style.display ="none";
-//     }
-//   }
+  // // For AA
+  // function myFunctionForAA() {
+  //   // Get the checkbox
+  //   var checkBox = document.getElementById("changeOfCircumstanceAA");
+  //   // Get the output text
+  //   var noteField = document.getElementById("myNote");
+  //   // Get the message for note
+  //   var noteMessage = document.getElementById("addNoteMessage");
+  //   // If the checkbox is checked, display the output text
+  //   if (checkBox.checked == true){
+  //     noteField.style.display = "none";
+  //     noteMessage.style.display ="block";
+  //   } else {
+  //     noteField.style.display = "block";
+  //     noteMessage.style.display ="none";
+  //   }
+  // }
 // // For DLA
 // function myFunctionForDLA() {
     // Get the checkbox
