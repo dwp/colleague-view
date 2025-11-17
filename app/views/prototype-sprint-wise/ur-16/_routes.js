@@ -200,8 +200,14 @@ router.post('/telephony/add-call/reviewed', function (req, res) {
   else{
     req.session.data['what-benefit-discussed'] = '';
     req.session.data['addNote']= '';
+    req.session.data['additional-support-needs']= '';
+    req.session.data['what-additional-support']= '';
     res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/reviewed');
   }
+});
+
+router.post('/telephony/add-call/identified-additional-support-needs', function (req, res) {
+    res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/identified-additional-support-needs');
 });
 
 router.post('/telephony/add-call/planned-action', function (req, res) {

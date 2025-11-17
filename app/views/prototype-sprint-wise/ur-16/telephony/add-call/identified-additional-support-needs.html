@@ -22,100 +22,101 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Step 2 of 4</span>
       <form action="planned-action" method="post" novalidate>
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h1 class="govuk-fieldset__heading">
-         Have you identified additional support needs?
-      </h1>
-    </legend>
-    <div id="contact-hint" class="govuk-hint">
-     You need to give details of any circumstances that affect how we communicate with this person. We will ask you for more information.
-    </div>
-    <div class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="additional-support-needs-1" name="additional-support-needs" type="radio" value="Yes" data-aria-controls="conditional-contact" {{ checked ('additional-support-needs', 'Yes') }}>
-        <label class="govuk-label govuk-radios__label" for="additional-support-needs-1">
-          Yes, notfiy others when they access this account
-        </label>
-      </div>
-      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              What additional support needs have you idenitifed? 
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Do you want to add or update additional support needs?
+              </h1>
             </legend>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support" name="what-additional-support" type="checkbox" value="This person has a mental health condition" {{ checked ('what-additional-support', 'This person has a mental health condition') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support">
-                  This person has a mental health condition
+            <div id="contact-hint" class="govuk-hint">
+            You need to give details of any circumstances that affect how we communicate with this person. We will ask you for more information.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional-support-needs-1" name="additional-support-needs" type="radio" value="Yes" data-aria-controls="conditional-contact" onclick="showNote()" {{ checked ('additional-support-needs', 'Yes') }}>
+                <label class="govuk-label govuk-radios__label" for="additional-support-needs-1">
+                  Yes, notfiy others when they access this account
                 </label>
               </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support-2" name="what-additional-support" type="checkbox" value="This person is struggling with financial hardship" {{ checked ('what-additional-support', 'This person is struggling with financial hardship') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-2">
-                This person is struggling with financial hardship
-                </label>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      What do you need to add or update?
+                    </legend>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support" name="what-additional-support" type="checkbox" value="This person has a mental health condition" {{ checked ('what-additional-support', 'This person has a mental health condition') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support">
+                          This person has a mental health condition
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support-2" name="what-additional-support" type="checkbox" value="This person is struggling with financial hardship" {{ checked ('what-additional-support', 'This person is struggling with financial hardship') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-2">
+                        This person is struggling with financial hardship
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support-3" name="what-additional-support" type="checkbox" value="This person is living with domestic or financial abuse" {{ checked ('what-additional-support', 'This person is living with domestic or financial abuse') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-3">
+                          This person is living with domestic or financial abuse
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support-4" name="what-additional-support" type="checkbox" value="This person has thoughts of suicide or self harm (6 point plan)" {{ checked ('what-additional-support', 'This person has thoughts of suicide or self harm (6 point plan)') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-4">
+                          This person has thoughts of suicide or self harm (6 point plan)
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support-5" name="what-additional-support" type="checkbox" value="This person is experiencing bereavement" {{ checked ('what-additional-support', 'This person is experiencing bereavement') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-5">
+                        This person is experiencing bereavement
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support-6" name="what-additional-support" type="checkbox" value="This person has a drug or alcohol addition" {{ checked ('what-additional-support', 'This person has a drug or alcohol addition') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-6">
+                        This person has a drug or alcohol addition
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support-7" name="what-additional-support" type="checkbox" value="This person is homeless" {{ checked ('what-additional-support', 'This person is homeless') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-7">
+                        This person is homeless
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support-8" name="what-additional-support" type="checkbox" value="This person is an asylum seeker" {{ checked ('what-additional-support', 'This person is an asylum seeker') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-8">
+                        This person is an asylum seeker
+                        </label>
+                      </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="what-additional-support-9" name="what-additional-support" type="checkbox" value="Something else" {{ checked ('what-additional-support', 'Something else') }}>
+                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-9">
+                        Something else
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
               </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support-3" name="what-additional-support" type="checkbox" value="This person is living with domestic or financial abuse" {{ checked ('what-additional-support', 'This person is living with domestic or financial abuse') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-3">
-                  This person is living with domestic or financial abuse
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support-4" name="what-additional-support" type="checkbox" value="This person has thoughts of suicide or self harm (6 point plan)" {{ checked ('what-additional-support', 'This person has thoughts of suicide or self harm (6 point plan)') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-4">
-                  This person has thoughts of suicide or self harm (6 point plan)
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support-5" name="what-additional-support" type="checkbox" value="This person is experiencing bereavement" {{ checked ('what-additional-support', 'This person is experiencing bereavement') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-5">
-                This person is experiencing bereavement
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support-6" name="what-additional-support" type="checkbox" value="This person has a drug or alcohol addition" {{ checked ('what-additional-support', 'This person has a drug or alcohol addition') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-6">
-                This person has a drug or alcohol addition
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support-7" name="what-additional-support" type="checkbox" value="This person is homeless" {{ checked ('what-additional-support', 'This person is homeless') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-7">
-                This person is homeless
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support-8" name="what-additional-support" type="checkbox" value="This person is an asylum seeker" {{ checked ('what-additional-support', 'This person is an asylum seeker') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-8">
-                This person is an asylum seeker
-                </label>
-              </div>
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="what-additional-support-9" name="what-additional-support" type="checkbox" value="Something else" {{ checked ('what-additional-support', 'Something else') }}>
-                <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-9">
-                Something else
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional-support-needs-2" name="additional-support-needs" type="radio" value="No" onclick="hideNote()" {{ checked ('additional-support-needs', 'No') }}>
+                <label class="govuk-label govuk-radios__label" for="additional-support-needs-2">
+                  No
                 </label>
               </div>
             </div>
           </fieldset>
         </div>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="additional-support-needs-2" name="additional-support-needs" type="radio" value="No" {{ checked ('additional-support-needs', 'No') }}>
-        <label class="govuk-label govuk-radios__label" for="additional-support-needs-2">
-          No
-        </label>
-      </div>
-    </div>
-  </fieldset>
-</div>
         <!-- add note for additional support needs -->
-        <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9" data-module="govuk-character-count" data-maxlength="5000">
+        <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9 govuk-!-display-none" data-module="govuk-character-count" data-maxlength="5000" id="additional-support-note">
           <h2 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--m" for="with-hint-additional-support-needs">
               Add a note about the additional needs (optional)
@@ -137,8 +138,6 @@
             You have 5000 characters remaining
           </div>
         </div>
-    
-
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
         </button>
@@ -146,4 +145,15 @@
     </div>
   </div>
 
+  <!-- logic for filter function -->
+  <script type="text/javascript">
+  function showNote() {
+    var showNote = document.getElementById('additional-support-note');
+    showNote.classList.remove("govuk-!-display-none");
+  }
+    function hideNote() {
+    var showNote = document.getElementById('additional-support-note');
+    showNote.classList.add("govuk-!-display-none");
+  }
+  </script>
 {% endblock %}
