@@ -356,37 +356,8 @@ You have added details
                   </dd>
                 </div>
                 {%endif%}
-                <!-- for General CoC -->
-                {% if benefitsName == 'General change of circumstance' %}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    General change of circumstance
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {%if data['contact-type-gCoC'] | length > 1 %}
-                      <ul class="govuk-list govuk-list--bullet">
-                        {% for questionsgCoC in data['contact-type-gCoC'] %}
-                        <li>{{ questionsgCoC }}</li>
-                        {% endfor %}
-                      </ul>
-                    {%else%}
-                      <p>{{data['contact-type-gCoC']}}</p>
-                    {%endif%}
-                  </dd>
-                </div>
-                {%endif%}
               {% endfor %}
-              {%if contactType == 'Inbound phone call with' %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                   6 point plan
-                </dt>
-                <dd class="govuk-summary-list__value">
-                   {{ data['six-point-plan']}}
-                </dd>
-              </div>
-              {%endif%}
-                <!-- Note added -->
+              <!-- Note added -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Notes added
@@ -395,51 +366,45 @@ You have added details
                   {{ data['addNote'] or "Not provided" }}
                 </dd>
               </div>
+               <!-- additional support needs -->
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Additional needs identified
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {%if data['additional-support-needs'] == 'Yes'%}
+                    {%if data['what-additional-support'] | length >1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for additionalSupportNeeds in data['what-additional-support'] %}
+                        <li>
+                          {{additionalSupportNeeds}}
+                        </li>
+                        {%endfor%}
+                      </ul>
+                    {%else%}
+                    {{ data['what-additional-support']}}
+                    {%endif%}
+                  {%else%}
+                  {{ data['additional-support-needs']}}
+                  {%endif%}
+                </dd>
+              </div>
+              <!-- Note for additional support needs -->
+               {%if data['additional-support-needs'] == 'Yes'%}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Notes added for additional needs identified
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['addNote-additional-support'] or "Not provided" }}
+                  </dd>
+                </div>
+               {%endif%}
             </dl>
           </div>
         </div>
         {%else%}
         <!-- for one benefit --> 
-        {%if data['what-benefit-discussed'] == 'General change of circumstance' %}
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">
-              Call details
-            </h2>
-          </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  General change of circumstance
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {%if data['contact-type-gCoC'] | length > 1 %}
-                  <ul class="govuk-list govuk-list--bullet">
-                    {% for contactTopicsgCoC in data['contact-type-gCoC'] %}
-                    <li>{{ contactTopicsgCoC }}</li>
-                    {% endfor %}
-                  </ul>
-                  {%else%}
-                    <p>{{data['contact-type-gCoC']}}</p>
-                  {%endif%}
-                </dd>
-                <dd class="govuk-summary-list__actions govuk-!-display-none">
-                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Notes added
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['addNote'] or "Not provided" }}
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-        {%else%} 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
@@ -472,16 +437,6 @@ You have added details
                   <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
-              {%if contactType == 'Inbound phone call with' %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                   6 point plan
-                </dt>
-                <dd class="govuk-summary-list__value">
-                   {{ data['six-point-plan']}}
-                </dd>
-              </div>
-              {%endif%}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Notes added
@@ -490,10 +445,43 @@ You have added details
                   {{ data['addNote'] or "Not provided" }}
                 </dd>
               </div>
+               <!-- additional support needs -->
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Additional needs identified
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {%if data['additional-support-needs'] == 'Yes'%}
+                    {%if data['what-additional-support'] | length >1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for additionalSupportNeeds in data['what-additional-support'] %}
+                        <li>
+                          {{additionalSupportNeeds}}
+                        </li>
+                        {%endfor%}
+                      </ul>
+                    {%else%}
+                    {{ data['what-additional-support']}}
+                    {%endif%}
+                  {%else%}
+                  {{ data['additional-support-needs']}}
+                  {%endif%}
+                </dd>
+              </div>
+              <!-- Note for additional support needs -->
+               {%if data['additional-support-needs'] == 'Yes'%}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Notes added
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['addNote-additional-support'] or "Not provided" }}
+                  </dd>
+                </div>
+               {%endif%}
             </dl>
           </div>
         </div>
-        {%endif%}
         {%endif%}
 
         {%if data['What-type-of-contact'] == 'Inbound phone call with'%}

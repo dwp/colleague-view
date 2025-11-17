@@ -398,37 +398,7 @@ Check the details you have added
                 </td>
               </tr>
               {%endif%}
-              <!-- for General CoC -->
-              {% if benefitsName == 'General change of circumstance' %}
-              <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key">
-                  General change of circumstance
-                </th>
-                <td class="govuk-summary-list__value">
-                  {%if data['contact-type-gCoC'] | length > 1 %}
-                    <ul class="govuk-list govuk-list--bullet">
-                      {% for questionsgCoC in data['contact-type-gCoC'] %}
-                      <li>{{ questionsgCoC }}</li>
-                      {% endfor %}
-                    </ul>
-                  {%else%}
-                    <p>{{data['contact-type-gCoC']}}</p>
-                  {%endif%}
-                </td>
-              </tr>
-              {%endif%}
             {% endfor %}
-            <!-- for 6 point plan -->
-            {%if contactType == 'Inbound phone call with' %}
-            <tr class="govuk-summary-list__row">
-              <th scope="row" class="govuk-summary-list__key">
-                6 point plan
-              </th>
-              <td class="govuk-summary-list__value">
-                {{ data['six-point-plan']}}
-              </td>
-            </tr>
-            {%endif%}
             <!-- for notes -->
             <tr class="govuk-summary-list__row">
               <th scope="row" class="govuk-summary-list__key">
@@ -436,6 +406,53 @@ Check the details you have added
               </th>
               <td class="govuk-summary-list__value">
                 {{ data['addNote'] or "Not provided" }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="govuk-summary-card">
+      {% set questionAsk = data['question-asked'] %}
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">What additional needs apply</h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link" href="identified-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-summary-card__content">
+        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+          <tbody class="govuk-summary-list">
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Additional needs 
+              </th>
+              <td class="govuk-summary-list__value">
+                {%if data['additional-support-needs'] == 'Yes'%}
+                  {%if data['what-additional-support'] | length >1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for additionalSupportNeeds in data['what-additional-support'] %}
+                      <li>
+                        {{additionalSupportNeeds}}
+                      </li>
+                      {%endfor%}
+                    </ul>
+                  {%else%}
+                  {{ data['what-additional-support']}}
+                  {%endif%}
+                {%else%}
+                {{ data['additional-support-needs']}}
+                {%endif%}
+              </td>
+            </tr>
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Note
+              </th>
+              <td class="govuk-summary-list__value">
+                {{ data['addNote-additional-support'] or "Not provided" }}
               </td>
             </tr>
           </tbody>
@@ -548,22 +565,59 @@ Check the details you have added
                   {%endif%}
                 </td>
               </tr>
-              {%if contactType == 'Inbound phone call with' %}
-              <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key">
-                  6 point plan
-                </th>
-                <td class="govuk-summary-list__value">
-                  {{ data['six-point-plan']}}
-                </td>
-              </tr>
-              {%endif%}
               <tr class="govuk-summary-list__row">
                 <th scope="row" class="govuk-summary-list__key">
                   Note
                 </th>
                 <td class="govuk-summary-list__value">
                   {{ data['addNote'] or "Not provided" }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="govuk-summary-card">
+        {% set questionAsk = data['question-asked'] %}
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">What additional needs apply</h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link" href="identified-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <table class="govuk-summary-list govuk-!-margin-bottom-0">
+            <tbody class="govuk-summary-list">
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Additional needs 
+                </th>
+                <td class="govuk-summary-list__value">
+                 {%if data['additional-support-needs'] == 'Yes'%}
+                    {%if data['what-additional-support'] | length >1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for additionalSupportNeeds in data['what-additional-support'] %}
+                        <li>
+                          {{additionalSupportNeeds}}
+                        </li>
+                        {%endfor%}
+                      </ul>
+                    {%else%}
+                    {{ data['what-additional-support']}}
+                    {%endif%}
+                  {%else%}
+                  {{ data['additional-support-needs']}}
+                  {%endif%}
+                </td>
+              </tr>
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Note
+                </th>
+                <td class="govuk-summary-list__value">
+                  {{ data['addNote-additional-support'] or "Not provided" }}
                 </td>
               </tr>
             </tbody>

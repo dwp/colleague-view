@@ -254,7 +254,7 @@ router.post('/telephony/add-call/planned-action', function (req, res) {
   res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/reviewed-error');
   } else {
     console.log('Benefit Selected', req.session.data['what-benefit-discussed']);
-  res.render('/prototype-sprint-wise/ur-16/telephony/add-call/select-contact-type');
+  res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/select-contact-type');
  }
 })
 
@@ -275,12 +275,13 @@ router.post('/telephony/add-call/is-question-resolved', function (req, res) {
 
 router.post('/telephony/add-call/added-call-details', function (req, res) {
     // check 6 point plan
-    if (req.session.data['six-point-plan'] == ''){
-        console.log("6 point plan not selected");
-      res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/select-contact-type-error');
-    }else{
-      res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/added-call-details');
-    }
+    // if (req.session.data['six-point-plan'] == ''){
+    //     console.log("6 point plan not selected");
+    //   res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/select-contact-type-error');
+    // }else{
+    //   res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/added-call-details');
+    // }
+    res.redirect('/prototype-sprint-wise/ur-16/telephony/add-call/added-call-details');
 
 });
  
