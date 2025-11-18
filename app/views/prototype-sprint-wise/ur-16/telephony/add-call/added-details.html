@@ -366,10 +366,11 @@ You have added details
                   {{ data['addNote'] or "Not provided" }}
                 </dd>
               </div>
+               {%if data['additional-support-needs'] == 'Yes'%}
                <!-- additional support needs -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                   Additional needs identified
+                   Updated additional needs
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {%if data['additional-support-needs'] == 'Yes'%}
@@ -390,15 +391,14 @@ You have added details
                 </dd>
               </div>
               <!-- Note for additional support needs -->
-               {%if data['additional-support-needs'] == 'Yes'%}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Notes added for additional needs
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['addNote-additional-support'] or "Not provided" }}
-                  </dd>
-                </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notes added for additional needs
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['addNote-additional-support'] or "Not provided" }}
+                </dd>
+              </div>
                {%endif%}
             </dl>
           </div>
@@ -445,10 +445,11 @@ You have added details
                   {{ data['addNote'] or "Not provided" }}
                 </dd>
               </div>
+              {%if data['additional-support-needs'] == 'Yes'%}
                <!-- additional support needs -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                   Additional needs identified
+                   Updated additional needs
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {%if data['additional-support-needs'] == 'Yes'%}
@@ -469,15 +470,14 @@ You have added details
                 </dd>
               </div>
               <!-- Note for additional support needs -->
-               {%if data['additional-support-needs'] == 'Yes'%}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                   Notes added for additional needs
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['addNote-additional-support'] or "Not provided" }}
-                  </dd>
-                </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notes added for additional needs
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['addNote-additional-support'] or "Not provided" }}
+                </dd>
+              </div>
                {%endif%}
             </dl>
           </div>

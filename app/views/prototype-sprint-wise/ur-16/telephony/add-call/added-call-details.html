@@ -415,7 +415,7 @@ Check the details you have added
     <div class="govuk-summary-card">
       {% set questionAsk = data['question-asked'] %}
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">What additional needs apply</h2>
+        <h2 class="govuk-summary-card__title">Updated additional needs</h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
             <a class="govuk-link" href="identified-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -447,6 +447,7 @@ Check the details you have added
                 {%endif%}
               </td>
             </tr>
+            {%if data['additional-support-needs'] == 'Yes'%}
             <tr class="govuk-summary-list__row">
               <th scope="row" class="govuk-summary-list__key">
                 Note
@@ -455,6 +456,7 @@ Check the details you have added
                 {{ data['addNote-additional-support'] or "Not provided" }}
               </td>
             </tr>
+            {%endif%}
           </tbody>
         </table>
       </div>
@@ -580,7 +582,7 @@ Check the details you have added
       <div class="govuk-summary-card">
         {% set questionAsk = data['question-asked'] %}
         <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">What additional needs apply</h2>
+          <h2 class="govuk-summary-card__title">Updated additional needs</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
               <a class="govuk-link" href="identified-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
@@ -612,6 +614,7 @@ Check the details you have added
                   {%endif%}
                 </td>
               </tr>
+               {%if data['additional-support-needs'] == 'Yes'%}
               <tr class="govuk-summary-list__row">
                 <th scope="row" class="govuk-summary-list__key">
                   Note
@@ -620,6 +623,7 @@ Check the details you have added
                   {{ data['addNote-additional-support'] or "Not provided" }}
                 </td>
               </tr>
+              {%endif%}
             </tbody>
           </table>
         </div>
