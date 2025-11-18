@@ -70,12 +70,7 @@ router.post('/call-with', function (req, res) {
 
   // Phone call conditions
   if (req.session.data['contact-types'] == 'A phone call') {
-          res.redirect('/prototype-sprint-wise/ur-16/call-with');
-    // if (req.session.data['What-type-of-contact'] == 'Inbound phone call with') {
-    //   res.redirect('/prototype-sprint-wise/ur-16/call-with');
-    // } else if (req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
-    //   res.redirect('/prototype-sprint-wise/ur-16/call-status');
-    // }
+      res.redirect('/prototype-sprint-wise/ur-16/call-with');
   }
 
   if (req.session.data['contact-types'] == 'A letter') {
@@ -111,9 +106,6 @@ router.post('/call-with', function (req, res) {
     res.redirect('/prototype-sprint-wise/ur-16/view-only/home');
   }
 
-  // if (req.session.data['What-type-of-contact'] == '') {
-  //   res.redirect('back');
-  // }
 });
 
 

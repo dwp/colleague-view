@@ -7,7 +7,7 @@ Home
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-16/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar-additional-support-needs.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -27,49 +27,56 @@ Home
 {% endblock %}
 
 {% block content %}
+<!-- Notification banner -->
+  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Important
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+      Additional needs updated on 20 January 2025
+      </h3>
+      <p class="govuk-body">This person has a mental health condition</p>
+      <a class="govuk-notification-banner__heading govuk-notification-banner__link" href="additional-needs.html">Check notes</a>
+    </div>
+  </div>
+<!-- Warning text -->
+ <!-- <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+   <h2 class="govuk-heading-m">Additional needs updated on 20 January 2025</h2>
+   <ul class="govuk-list govuk-list--bullet">
+      <li>This person has a <span class="govuk-!-font-weight-bold">mental health condition</span></li>
+      <li>This person has thoughts of <span class="govuk-!-font-weight-bold">suicide or self harm (6 point plan)</span></li>
+          <a href="additional-needs.html" class="govuk-link govuk-!-font-weight-bold">Check notes</a>
+    </ul>
+  </strong>
+</div> -->
+
+<!-- Inset text -->
+  <!-- <div class="govuk-inset-text govuk-!-margin-top-0 govuk-!-margin-bottom-8" style="background-color: #f4f8fb; border-color: #5694ca">
+    <h2 class="govuk-heading-m">Additional needs updated on 20 January 2025</h2>
+    <p class="govuk-body govuk-!-margin-bottom-2">This person has a <span class="govuk-!-font-weight-bold">mental health condition</span></p>
+    <a href="additional-needs.html" class="govuk-link">Check notes</a>
+  </div> -->
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-half">
-      <h1 class="govuk-heading-xl">Home</h1>
-    </div>
-    <div class="govuk-grid-column-one-half">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Home</h1>
+  </div>
+    <div class="govuk-grid-column-one-third">
       <form action="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed" method="post">
-        <!-- <div class="govuk-button-group">
-          {%if benefits > 0 %}
-          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed">
-            Add or change call details
-          </button>
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/do-you-want-to-complete-call">
-            Start service again
-          </button>
-          {%else%}
-          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed">
-            Add call details
-          </button>
-          {%endif%}
-        </div> -->
         <div class="govuk-button-group">
-          {% set benefits =  data['what-benefit-discussed'] | length %}
-          {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
-          {%if benefitAdded != '' %}
-          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed">
-            Add or change call details
-          </button>
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/do-you-want-to-complete-call">
-            Start service again
-          </button>
-          {%else%}
-          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed">
+          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button" formaction="#">
             Add call details
           </button>
-          {%endif%}
-          <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/do-you-want-to-complete-call">
-            Complete phone call
-          </button> -->
         </div>
       </form>
     </div>
-  </div>
+</div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <!-- to be card styel -->
