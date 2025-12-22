@@ -7812,7 +7812,8 @@ router.use('/prototype-dev-baseline/mvp-1_3', require('./views/prototype-dev-bas
 router.use('/prototype-dev-baseline/mvp-1_3_1', require('./views/prototype-dev-baseline/mvp-1_3_1/\_routes'));
 // for UR 16
 router.use('/prototype-sprint-wise/ur-16', require('./views/prototype-sprint-wise/ur-16/\_routes'));
-
+// for UR 17
+router.use('/prototype-sprint-wise/ur-16', require('./views/prototype-sprint-wise/ur-16/\_routes'));
 
 
 

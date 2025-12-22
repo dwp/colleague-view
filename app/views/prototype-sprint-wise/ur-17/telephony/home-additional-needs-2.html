@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Home
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-16/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar-additional-support-needs.html" %}
+{% endblock %}
+
+{% block footer %}
+{% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/phase-banner.html" %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Notification banner -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+         Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+      Fraud risk
+        <span class="govuk-body-l">– Refer this case to the National Identity Fraud unit (NIFU)</span>
+      </h3>
+      <h3 class="govuk-notification-banner__heading">
+      Special measures
+        <span class="govuk-body-l">– Unacceptable behaviour reported</span>
+      </h3>
+      <h3 class="govuk-notification-banner__heading">
+      Additional needs
+        <span class="govuk-body-l">– This person has thoughts of suicide or self-harm (6 point plan). <a class="govuk-notification-banner__link" href="additional-needs.html">View additional needs notes</a></span>
+      </h3>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Home</h1>
+  </div>
+    <div class="govuk-grid-column-one-third">
+      <form action="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed" method="post">
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button" formaction="#">
+            Add call details
+          </button>
+        </div>
+      </form>
+    </div>
+</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <!-- to be card styel -->
+      <ul class="govuk-grid-row nhsuk-card-group">
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="personal-details.html">Personal details</a>
+              </h2>
+              <p class="nhsuk-card__description">View personal details, including contact numbers and addresses.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="contact-history.html">Contact history</a>
+              </h2>
+              <p class="nhsuk-card__description">View notes and details about previous contact.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
+              </h2>
+              <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}
