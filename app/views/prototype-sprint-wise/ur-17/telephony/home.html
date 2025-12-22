@@ -37,7 +37,7 @@ Home
         </h2>
       </div>
       <div class="govuk-notification-banner__content">
-      <h3 class="govuk-notification-banner__heading">
+      <h3 class="govuk-heading-s">
       Additional needs
       </h3>
       <ul class="govuk-list govuk-list--bullet">
@@ -45,7 +45,7 @@ Home
       <li>this person is struggling with financial hardship</li>
       <li>this person has thoughts of suicide or self-harm (6 point plan)</li>
       </ul>
-      <p class="govuk-body-l"><a class="govuk-notification-banner__link" href="#">View additional needs notes</a></p>
+      <p class="govuk-body"><a class="govuk-notification-banner__link" href="additional-needs.html">View additional needs notes</a></p>
     </div>
   </div>
   <div class="govuk-grid-row">
@@ -55,18 +55,23 @@ Home
     <div class="govuk-grid-column-one-half">
       <form action="/prototype-sprint-wise/ur-17/telephony/add-call/reviewed" method="post">
         <!-- <div class="govuk-button-group">
-          {%if benefits > 0 %}
-          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-17/telephony/add-call/reviewed">
-            Add or change call details
-          </button>
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-17/telephony/add-call/do-you-want-to-complete-call">
+        {# Read the value from session data and normalise it #}
+        {% set benefitAdded = data['Do-you-want-to-complete-call'] | default('') | trim | lower %}
+
+        {# Show 'Add or change call details' ONLY if user chose Yes #}
+        {% if benefitAdded == 'yes' %}
+          <button type="submit"
+                  class="govuk-button"
+                  style="margin-left: auto;"
+                  data-module="govuk-button"
+                  formaction="/prototype-st-to-complete-call
             Start service again
           </button>
-          {%else%}
-          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-17/telephony/add-call/reviewed">
+        {% else %}
+          /prototype-sprint-wise/ur-17/telephony/add-call/reviewed
             Add call details
           </button>
-          {%endif%}
+        {% endif %}
         </div> -->
         <div class="govuk-button-group">
           {% set benefits =  data['what-benefit-discussed'] | length %}
