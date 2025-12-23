@@ -7,7 +7,7 @@
 {% block content %}
 {{data | log}}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
         Colleague View prototypes
       </h1>
@@ -15,14 +15,27 @@
       <p>The aim of the Colleague View minimum viable product (MVP) is give customers' benefit information to agents answering the telephones, so that they can answer common questions.</p>
       <p>The users that we are focusing on for MVP are agents that work on Employment and Support Allowance (ESA).</p>
 
-      <p>The scope of the MVP is to meet agents' needs for:</p>
-      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
-        <li>answering questions about next payment dates and amounts</li>
-        <li>viewing a customer's personal details</li>
-        <li>adding details about a call with a customer</li>
-        <li>viewing details about previous calls with a customer</li>
-      </ul>
+        <details class="govuk-details">
+        <summary class="govuk-details__summary govuk-!-margin-bottom-5">
+        <span class="govuk-details__summary-text">
+          The scope of the MVP
+        </span>
+        </summary>
+          <div class="govuk-details__text">
+          <p>The scope of the MVP is to meet agents' needs for:</p>
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-1">
+          <li>answering questions about next payment dates and amounts</li>
+          <li>viewing a customer's personal details</li>
+          <li>adding details about a call with a customer</li>
+          <li>viewing details about previous calls with a customer</li>
+          </ul>
+        </div>
+      </details>
+      </div>
+    </div>
 
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
       <div class="govuk-tabs" data-module="govuk-tabs">
         <h2 class="govuk-tabs__title">
           Contents
