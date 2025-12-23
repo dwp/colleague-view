@@ -42,6 +42,12 @@
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="additional-support-needs-1" name="additional-support-needs" type="radio" value="Yes" {{ checked ('additional-support-needs', 'Yes') }}>
+                <label class="govuk-label govuk-radios__label" for="additional-support-needs-3">
+                  Yes, remove one or more additional needs
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional-support-needs-1" name="additional-support-needs" type="radio" value="Yes" {{ checked ('additional-support-needs', 'Yes') }}>
                 <label class="govuk-label govuk-radios__label" for="additional-support-needs-1">
                   Yes, add or update additional support needs
                 </label>
@@ -49,7 +55,7 @@
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="additional-support-needs-2" name="additional-support-needs" type="radio" value="No updates" onclick="hideNote()" {{ checked ('additional-support-needs', 'No updates') }}>
                 <label class="govuk-label govuk-radios__label" for="additional-support-needs-2">
-                  No, keep current additional needs
+                  No
                 </label>
               </div>
             </div>

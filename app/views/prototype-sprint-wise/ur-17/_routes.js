@@ -594,4 +594,101 @@ router.post('/telephony/add-call/option-b/added-details', function (req, res) {
   }
 });
 
+// UR 17
+
+
+// recommended
+router.post('/prototype-sprint-wise/ur-17/telephony/add-call/added-details', function (req, res) {
+  const addNote = req.session.data['do-you-want-add-note'];
+  if (addNote === 'Yes') {
+    return res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/add-note');
+  }
+  // move forward instead of looping back to itself
+  return res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/complete-call');
+});
+
+
+router.post('/prototype-sprint-wise/ur-17/telephony/add-call/you-have-added-details', function (req, res) {
+    console.log('Added details');
+    res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/added-details')
+});
+
+router.post('/prototype-sprint-wise/ur-17/telephony/add-call/add-more-call-details', function (req, res) {
+  var addCallDetails = req.session.data['do-you-want-to-add-more-call-detail'];
+  if (addCallDetails == 'Yes I want to add'){
+    req.session.data['what-benefit-discussed'] = '';
+    res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/reviewed')
+  }
+  if (addCallDetails == 'Complete phone call'){
+    // res.redirect('/prototype-sprint-wise/ur-17//add-call/call-completed');
+    res.redirect('/prototype-sprint-wise/ur-17/index')
+  }
+  if (addCallDetails == 'Change your note'){
+    res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/change-notes');
+  }
+  if (addCallDetails == 'Add a note'){
+    res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/add-a-note');
+  }
+});
+
+
+
+
+router.post('/prototype-sprint-wise/ur-17/telephony/add-call/complete-call', function (req, res) {
+  const choice = req.session.data['Do-you-want-to-complete-the-call'];
+
+  if (choice === 'Complete phone call') {
+    // Start service again
+    return res.redirect('/prototype-sprint-wise/ur-17/index');
+  }
+
+  if (choice === 'back to home page') {
+    // Continue working on this call -> Home
+    return res.redirect('/prototype-sprint-wise/ur-17/telephony/home');
+  }
+
+  // Fallback: keep user in the call context
+  return res.redirect('/prototype-sprint-wise/ur-17/telephony/home');
+});
+
+
+
+
+
+router.post('/prototype-sprint-wise/ur-17/telephony/add-call/do-you-want-to-complete-call', function (req, res) {
+  if (req.session.data['what-benefit-discussed']) {
+    // proceed to decision handler, not back to itself
+    return res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/complete-call');
+  }
+  req.session.data['what-benefit-discussed'] = '';
+  return res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/no-contact-added');
+});
+
+
+router.post('/telephony/add-call/check-call-completion', function (req, res) {
+  var checkCallCompletion = req.session.data['complete-call'];
+
+  if (checkCallCompletion == 'Yes') {
+    res.redirect('/prototype-sprint-wise/ur-17/index');
+  }
+  else{
+    res.redirect('/prototype-sprint-wise/ur-17/telephony/home');
+  }
+});
+
+
+// Save and continue
+router.post('/prototype-sprint-wise/ur-17/telephony/add-call/select-contact-type', (req, res) => {
+  // Continue your normal flow (e.g., go to contact type selection page)
+  return res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/select-contact-type'); // or the correct next step
+});
+
+// Add or update other needs
+router.post('/prototype-sprint-wise/ur-17/telephony/add-call/add-additional-support-needs', (req, res) => {
+  // Go to the page where user can add/update needs
+  return res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/add-additional-support-needs');
+});
+``
+
+
 module.exports = router;
