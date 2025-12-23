@@ -7,7 +7,7 @@ Benefit payments
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-16/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/non-telephony/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -36,19 +36,33 @@ Benefit payments
     <h1 class="govuk-heading-xl">Benefit payments</h1>
   </div>
   <div class="govuk-grid-column-one-half">
-      <form action="/prototype-sprint-wise/ur-17/telephony/add-call/reviewed" method="post">
-        <div class="govuk-button-group" style="justify-content: flex-end;">
-            <button type="submit"
-                    class="govuk-button"
-                    data-module="govuk-button">
-              Add call details
-            </button>
-          </div>
-        </form>
+    <form action="/prototype-sprint-wise/ur-16/non-telephony/add-contact/reviewed" method="post">
+      <div class="govuk-button-group">
+        {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
+        {%if benefits >=1 %}
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-16/non-telephony/add-contact/reviewed">
+          Add or change contact details
+        </button>
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-16/non-telephony/add-contact/check-before-start-sercive-again">
+          Start service again
+        </button>
+        {%else%}
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-16/non-telephony/add-contact/reviewed">
+          Add contact details
+        </button>
+        <!-- Adde this grey button afer Karen's got conformation from Rhys -->
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-16/non-telephony/add-contact/check-before-start-sercive-again">
+          Start service again
+        </button>
+        {%endif%}
+        <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-16/non-telephony/add-contact/check-before-start-sercive-again">
+          Start service again
+        </button> -->
       </div>
-    </div>
-
-  <div class="govuk-grid-row">
+    </form>
+  </div>
+</div>
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h2 class="govuk-heading-m">Next payments</h2>
     <div class="">

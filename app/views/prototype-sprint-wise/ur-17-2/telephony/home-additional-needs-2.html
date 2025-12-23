@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Home
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-16/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar-additional-support-needs.html" %}
+{% endblock %}
+
+{% block footer %}
+{% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/phase-banner.html" %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#"></a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Home</h1>
+  </div>
+    <div class="govuk-grid-column-one-third">
+      <form action="/prototype-sprint-wise/ur-17/telephony/add-call/reviewed" method="post">
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button" formaction="#">
+            Add call details
+          </button>
+        </div>
+      </form>
+    </div>
+</div>
+<!-- inset notification -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-inset-text app-inset--red">
+        <h3 class="govuk-heading-s">
+          Fraud risk
+          <span class="govuk-body">– Refer this case to the National Identity Fraud unit (NIFU)</span>
+        </h3>
+      </div>
+      <div class="govuk-inset-text app-inset--orange">
+        <h3 class="govuk-heading-s">
+          Special measures
+          <span class="govuk-body">– Unacceptable behaviour reported</span>
+        </h3>
+      </div>
+      <div class="govuk-inset-text app-inset--blue">
+        <h3 class="govuk-heading-s">
+          Additional needs
+          <span class="govuk-body">– This person has thoughts of suicide or self-harm (6 point plan). <a class="govuk-notification-banner__link" href="additional-needs-2.html">View additional needs notes</a></span>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <!-- to be card styel -->
+      <ul class="govuk-grid-row nhsuk-card-group">
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="personal-details.html">Personal details</a>
+              </h2>
+              <p class="nhsuk-card__description">View personal details, including contact numbers and addresses.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="contact-history.html">Contact history</a>
+              </h2>
+              <p class="nhsuk-card__description">View notes and details about previous contact.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
+              </h2>
+              <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <style nonce="{{ cspNonce }}">
+    .app-inset--blue   { background-color:#fff !important; color:#0b0c0c; border-left:10px solid #0b6fa4; padding:15px; }
+    .app-inset--orange  { background-color:#fff !important; color:	#0b0c0c; border-left:10px solid #f47738; padding:15px; }
+    .app-inset--red { background-color:#fff !important; color:	#0b0c0c; border-left:10px solid 	#d4351c;  padding:15px; }
+
+    .app-inset--blue .govuk-heading-s,
+    .app-inset--green .govuk-heading-s,
+    .app-inset--purple .govuk-heading-s,
+    .app-inset--blue .govuk-body,
+    .app-inset--green .govuk-body,
+    .app-inset--purple .govuk-body,
+    .app-inset--blue .govuk-link,
+    .app-inset--green .govuk-link,
+    .app-inset--purple .govuk-link { color:	#0b0c0c; }
+  </style>
+
+{% endblock %}
