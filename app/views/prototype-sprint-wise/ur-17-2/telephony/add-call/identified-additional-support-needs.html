@@ -23,7 +23,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-l">Step 2 of 4</span>
-      <form action="remove-additional-support-needs" method="post" novalidate>
+      <form action="/additional-support-router" method="post" novalidate>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -32,35 +32,54 @@
               </h1>
             </legend>
             <div class="govuk-inset-text">
-              <p class="govuk-body">Current additional support needs:</p>
-            <ul class="govuk-list govuk-list--bullet">
-              <li>this person has a mental health condition</li>
-              <li>this person is struggling with financial hardship</li>
-              <li>this person has thoughts of suicide or self harm (6 point plan)</li>
-            </ul>
+              <h2 class="govuk-heading-s">
+                Current additional support needs
+              </h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>This person has a mental health condition</li>
+                <li>This person is struggling with financial hardship</li>
+                <li>This person has thoughts of suicide or self harm (6 point plan)</li>
+              </ul>
             </div>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="additional-support-needs-1" name="additional-support-needs" type="radio" value="Yes" {{ checked ('additional-support-needs', 'Yes') }}>
-                <label class="govuk-label govuk-radios__label" for="additional-support-needs-3">
-                  Yes, remove one or more additional needs
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="additional-support-needs-1" name="additional-support-needs" type="radio" value="Yes" {{ checked ('additional-support-needs', 'Yes') }}>
-                <label class="govuk-label govuk-radios__label" for="additional-support-needs-1">
-                  Yes, add or update additional support needs
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="additional-support-needs-2" name="additional-support-needs" type="radio" value="No updates" onclick="hideNote()" {{ checked ('additional-support-needs', 'No updates') }}>
-                <label class="govuk-label govuk-radios__label" for="additional-support-needs-2">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
+                      <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input"
+                                id="additional-support-remove"
+                                name="additional-support-needs"
+                                type="radio"
+                                value="remove">
+                          <label class="govuk-label govuk-radios__label"
+                                for="additional-support-remove">
+                            Yes, remove one or more additional needs
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input"
+                                id="additional-support-add"
+                                name="additional-support-needs"
+                                type="radio"
+                                value="add">
+                          <label class="govuk-label govuk-radios__label"
+                                for="additional-support-add">
+                            Yes, add or update additional support needs
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input"
+                                id="additional-support-no"
+                                name="additional-support-needs"
+                                type="radio"
+                                value="no">
+                          <label class="govuk-label govuk-radios__label"
+                                for="additional-support-no">
+                            No
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
         
         <button class="govuk-button" data-module="govuk-button">
           Save and continue

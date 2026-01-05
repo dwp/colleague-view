@@ -594,4 +594,18 @@ router.post('/telephony/add-call/option-b/added-details', function (req, res) {
   }
 });
 
+router.post('/additional-support-router', function (req, res) {
+  const answer = req.body['additional-support-needs']
+
+  if (answer === 'remove') {
+    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/remove-additional-support-needs')
+  } 
+  else if (answer === 'add') {
+    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/add-additional-support-needs')
+  } 
+  else {
+    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/select-contact-type')
+  }
+})
+
 module.exports = router;

@@ -370,30 +370,20 @@ You have added details
                <!-- additional support needs -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                   Updated additional needs
+                   Removed additional needs
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {%if data['additional-support-needs'] == 'Yes'%}
-                    {%if data['what-additional-support'] | length >1 %}
-                      <ul class="govuk-list govuk-list--bullet">
-                        {% for additionalSupportNeeds in data['what-additional-support'] %}
-                        <li>
-                          {{additionalSupportNeeds}}
-                        </li>
-                        {%endfor%}
-                      </ul>
-                    {%else%}
-                    {{ data['what-additional-support']}}
-                    {%endif%}
-                  {%else%}
-                  {{ data['additional-support-needs']}}
-                  {%endif%}
+                  <ul class="govuk-list govuk-list--bullet">
+                  <li>This person has a mental health condition</li>
+                  <li>This person is struggling with financial hardship</li>
+                  <li>This person has thoughts of suicide or self harm (6 point plan)</li>
+                  </ul>
                 </dd>
               </div>
               <!-- Note for additional support needs -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Notes added for additional needs
+                  Updates added
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{ data['addNote-additional-support'] or "Not provided" }}
@@ -449,30 +439,20 @@ You have added details
                <!-- additional support needs -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                   Updated additional needs
+                   Removed additional needs
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {%if data['additional-support-needs'] == 'Yes'%}
-                    {%if data['what-additional-support'] | length >1 %}
-                      <ul class="govuk-list govuk-list--bullet">
-                        {% for additionalSupportNeeds in data['what-additional-support'] %}
-                        <li>
-                          {{additionalSupportNeeds}}
-                        </li>
-                        {%endfor%}
-                      </ul>
-                    {%else%}
-                    {{ data['what-additional-support']}}
-                    {%endif%}
-                  {%else%}
-                  {{ data['additional-support-needs']}}
-                  {%endif%}
+                 <ul class="govuk-list govuk-list--bullet">
+                  <li>This person has a mental health condition</li>
+                  <li>This person is struggling with financial hardship</li>
+                  <li>This person has thoughts of suicide or self harm (6 point plan)</li>
+                  </ul>
                 </dd>
               </div>
               <!-- Note for additional support needs -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Notes added for additional needs
+                  Updates added
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{ data['addNote-additional-support'] or "Not provided" }}

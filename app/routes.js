@@ -7816,7 +7816,21 @@ router.use('/prototype-sprint-wise/ur-16', require('./views/prototype-sprint-wis
 router.use('/prototype-sprint-wise/ur-16', require('./views/prototype-sprint-wise/ur-16/\_routes'));
 
 
+// UR 17-2 routes
 
+router.post('/additional-support-router', function (req, res) {
+  const answer = req.body['additional-support-needs']
+
+  if (answer === 'remove') {
+    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/remove-additional-support-needs')
+  } 
+  else if (answer === 'add') {
+    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/add-additional-support-needs')
+  } 
+  else {
+    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/select-contact-type')
+  }
+})
 
 
 

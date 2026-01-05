@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-17/common/header_keydetail_bar.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/header_keydetail_bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "/prototype-sprint-wise/ur-17/common/footer.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -28,17 +28,34 @@
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Update additional support needs
+                Do you want to add or update additional support needs?
               </h1>
             </legend>
+             <div class="govuk-inset-text">
+              <h2 class="govuk-heading-s">
+                Current additional support needs
+              </h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>This person has a mental health condition</li>
+                <li>This person is struggling with financial hardship</li>
+                <li>This person has thoughts of suicide or self harm (6 point plan)</li>
+              </ul>
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional-support-needs-1" name="additional-support-needs" type="radio" value="Yes" data-aria-controls="conditional-contact" onclick="showNote()" {{ checked ('additional-support-needs', 'Yes') }}>
+                <label class="govuk-label govuk-radios__label" for="additional-support-needs-1">
+                  Yes, notfiy others when they access this account
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
                 <div class="govuk-form-group">
-                <p>
-                  You need to provide details of any circumstances that affect how we communicate with this person. We’ll ask you for more information.
-                </p>
-
                   <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                    <div id="additional-needs-hint" class="govuk-hint">
-                      Select all needs that apply and deselect any needs that no longer apply
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      What do you need to add or update?
+                    </legend>
+                    <div id="contact-hint" class="govuk-hint">
+                    You need to give details of any circumstances that affect how we communicate with this person. We will ask you for more information.
                     </div>
                     <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                       <div class="govuk-checkboxes__item">
@@ -115,54 +132,54 @@
                   </fieldset>
                 </div>
               </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="additional-support-needs-2" name="additional-support-needs" type="radio" value="No updates" onclick="hideNote()" {{ checked ('additional-support-needs', 'No updates') }}>
+                <label class="govuk-label govuk-radios__label" for="additional-support-needs-2">
+                  No
+                </label>
+              </div>
             </div>
           </fieldset>
         </div>
-        
-        <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <!-- Note box -->
-            <div class="govuk-form-group govuk-character-count govuk-!-margin-top-5"
-                data-module="govuk-character-count"
-                data-maxlength="5000"
-                id="additional-support-note">
-              <h2 class="govuk-label-wrapper">
-                <label class="govuk-label govuk-label--m" for="with-hint-additional-support-needs">
-                  Give an update about the additional needs (optional)
-                </label>
-              </h2>
-
-              <div id="more-detail-hint" class="govuk-hint">
-                This note will be held separately from the main contact history. It will be accessible from the homepage of this account.
-              </div>
-
-              <div class="govuk-warning-text govuk-!-margin-bottom-2">
-                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-                <strong class="govuk-warning-text__text">
-                  <span class="govuk-visually-hidden">Warning</span>
-                  Do not include personal identifiable information such as name, National Insurance number, or date of birth.
-                </strong>
-              </div>
-
-              <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3"
-                        id="with-hint-additional-support-needs"
-                        name="addNote-additional-support"
-                        rows="7"
-                        aria-describedby="with-hint-info more-detail-hint"
-                        maxlength="5000">{{ data['addNote-additional-support'] }}</textarea>
-
-              <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
-                You have 5000 characters remaining
-              </div>
-            </div>
-
-            <button class="govuk-button" data-module="govuk-button">
-              Save and continue
-            </button>
+        <!-- add note for additional support needs -->
+        <div class="govuk-form-group govuk-character-count govuk-!-margin-top-9 govuk-!-display-none" data-module="govuk-character-count" data-maxlength="5000" id="additional-support-note">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="with-hint-additional-support-needs">
+              Add a note about the additional needs (optional)
+            </label>
+          </h2>
+          <div id="more-detail-hint" class="govuk-hint">
+           This note will be held separately from the main contact history. It will be accessible from the homepage of this account.
+          </div>
+          <div class="govuk-warning-text govuk-!-margin-bottom-2">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              Do not include identifiable personal information.
+            </strong>
+          </div>
+          <!-- <p class="govuk-body">This note applies to the whole call. Do not delete your previous notes if they are still needed.</p> -->
+          <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint-additional-support-needs" name="addNote-additional-support" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote-additional-support'] }}</textarea>
+          <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+            You have 5000 characters remaining
           </div>
         </div>
-
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
       </form>
     </div>
   </div>
+
+  <!-- logic for filter function -->
+  <script type="text/javascript">
+  function showNote() {
+    var showNote = document.getElementById('additional-support-note');
+    showNote.classList.remove("govuk-!-display-none");
+  }
+    function hideNote() {
+    var showNote = document.getElementById('additional-support-note');
+    showNote.classList.add("govuk-!-display-none");
+  }
+  </script>
 {% endblock %}
