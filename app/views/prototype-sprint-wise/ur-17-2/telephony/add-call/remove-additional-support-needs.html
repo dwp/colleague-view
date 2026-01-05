@@ -36,33 +36,60 @@
                     You should remove a need if it no longer applies or if the account holder requests for it to be removed. You do not need to add a note about this. 
                   </div>
                   <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-                      <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="what-additional-support" name="what-additional-support" type="checkbox" value="This person has a mental health condition" {{ checked('what-additional-support', 'This person has a mental health condition') }}>
-                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support">
-                          This person has a mental health condition
-                        </label>
-                      </div>
-                      <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="what-additional-support-2" name="what-additional-support" type="checkbox" value="This person is struggling with financial hardship" {{ checked ('what-additional-support', 'This person is struggling with financial hardship') }}>
-                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-2">
-                        This person is struggling with financial hardship
-                        </label>
-                      </div>
-                      <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="what-additional-support-4" name="what-additional-support" type="checkbox" value="This person has thoughts of suicide or self harm (6 point plan)" {{ checked ('what-additional-support', 'This person has thoughts of suicide or self harm (6 point plan)') }}>
-                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-4">
-                          This person has thoughts of suicide or self harm (6 point plan)
-                        </label>
-                      </div>
-                      <div class="govuk-checkboxes__divider">or</div>
-                      <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="what-additional-support-11" name="what-additional-support" type="checkbox" value="Additional needs no longer apply" data-behaviour="exclusive" {{ ('what-additional-support', 'Additional needs no longer apply') }}>
-                        <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-11">
-                          Remove all additional support needs
-                        </label>
-                      </div>
+                    
+<div class="govuk-checkboxes" data-module="govuk-checkboxes" id="support-needs-group">
+
+                    <!-- Master: Select all support needs -->
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input"
+                            id="what-additional-support-all"
+                            name="selectAllSupportNeeds"
+                            type="checkbox"
+                            value="all"
+                            data-behaviour="select-all"
+                            aria-describedby="select-all-context">
+                      <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-all">
+                        Remove all listed support needs
+                      </label>
+                      <span id="select-all-context" class="govuk-visually-hidden">
+                        Select or unselect all following options
+                      </span>
                     </div>
+
+                    <!-- Regular items -->
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input"
+                            id="what-additional-support"
+                            name="what-additional-support"
+                            type="checkbox"
+                            value="This person has a mental health condition">
+                      <label class="govuk-label govuk-checkboxes__label" for="what-additional-support">
+                        This person has a mental health condition
+                      </label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input"
+                            id="what-additional-support-2"
+                            name="what-additional-support"
+                            type="checkbox"
+                            value="This person is struggling with financial hardship">
+                      <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-2">
+                        This person is struggling with financial hardship
+                      </label>
+                    </div>
+
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input"
+                            id="what-additional-support-4"
+                            name="what-additional-support"
+                            type="checkbox"
+                            value="This person has thoughts of suicide or self harm (6 point plan)">
+                      <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-4">
+                        This person has thoughts of suicide or self harm (6 point plan)
+                      </label>
+
+                  </div>
                   </fieldset>
                 </div>
               </div>
@@ -83,4 +110,80 @@
       </form>
     </div>
   </div>
+
+
+
+<script>
+  (function () {
+    // Grab elements right where we are in the DOM
+    const group = document.getElementById('support-needs-group');
+    console.log('[SelectAll] group found?', !!group);
+    if (!group) return;
+
+    const selectAll = group.querySelector('[data-behaviour="select-all"]');
+    const exclusiveNone = group.querySelector('[data-behaviour="exclusive"]');
+    const items = Array.from(group.querySelectorAll('.govuk-checkboxes__input'))
+      .filter(i => i !== selectAll && i !== exclusiveNone);
+
+    console.log('[SelectAll] selectAll:', !!selectAll, 'exclusiveNone:', !!exclusiveNone, 'items:', items.length);
+
+    function enabledItems() {
+      return items.filter(i => !i.disabled);
+    }
+
+    function syncSelectAll() {
+      const enabled = enabledItems();
+      const allChecked = enabled.every(i => i.checked);
+      const someChecked = enabled.some(i => i.checked);
+
+      if (selectAll) {
+        selectAll.checked = allChecked;
+        selectAll.indeterminate = !allChecked && someChecked; // show partial state
+      }
+      console.log('[SelectAll] sync -> allChecked:', allChecked, 'someChecked:', someChecked);
+    }
+
+    function setAllRegular(checked) {
+      enabledItems().forEach(i => { i.checked = checked; });
+    }
+
+    // Master toggles all; clears exclusive 'none'
+    if (selectAll) {
+      selectAll.addEventListener('change', () => {
+        console.log('[SelectAll] master changed ->', selectAll.checked);
+        if (exclusiveNone) exclusiveNone.checked = false;
+        setAllRegular(selectAll.checked);
+        syncSelectAll();
+      });
+    }
+
+    // Regular items: keep master in sync; any selection clears 'none'
+    items.forEach(i => {
+      i.addEventListener('change', () => {
+        console.log('[SelectAll] item changed ->', i.id, i.checked);
+        if (exclusiveNone && i.checked) exclusiveNone.checked = false;
+        syncSelectAll();
+      });
+    });
+
+    // Exclusive 'none': clear everything including master
+    if (exclusiveNone) {
+      exclusiveNone.addEventListener('change', () => {
+        console.log('[SelectAll] none changed ->', exclusiveNone.checked);
+        if (exclusiveNone.checked) {
+          setAllRegular(false);
+          if (selectAll) {
+            selectAll.checked = false;
+            selectAll.indeterminate = false;
+          }
+        }
+      });
+    }
+
+    // Initialise state
+    syncSelectAll();
+  })();
+</script>
+
+
 {% endblock %}
