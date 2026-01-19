@@ -32,7 +32,7 @@ Check the details you have added
         <h2 class="govuk-summary-card__title">Support needs</h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="identified-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
+            <a class="govuk-link" href="add-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
           </li>
         </ul>
       </div>
@@ -41,29 +41,32 @@ Check the details you have added
           <tbody class="govuk-summary-list">
           <tr class="govuk-summary-list__row">
             <th scope="row" class="govuk-summary-list__key">Added support needs</th>
-            
             <td class="govuk-summary-list__value">
 
-              {# Get submitted value(s) #}
+              {# ✔ Get submitted value(s) #}
               {% set selections = data['what-additional-support'] %}
 
-              {# Case A: nothing selected #}
-              {% if not selections %}
-                None selected
+              {# ✔ Convert single string → array #}
+              {% if selections and (selections is string) %}
+                {% set selections = [ selections ] %}
+              {% endif %}
 
-              {# Case B: one item selected → it's a string → show as plain text #}
-              {% elseif selections is string %}
-                {{ selections }}
-
-              {# Case C: multiple items selected → it's an array → show bullet list #}
-              {% else %}
+              {# ✔ If more than 1 → bullet list #}
+              {% if selections and (selections | length > 1) %}
                 <ul class="govuk-list govuk-list--bullet">
                   {% for item in selections %}
                     <li>{{ item }}</li>
                   {% endfor %}
                 </ul>
-              {% endif %}
 
+              {# ✔ If exactly 1 → plain text #}
+              {% elseif selections and (selections | length == 1) %}
+                <p>{{ selections[0] }}</p>
+
+              {# ✔ If none selected #}
+              {% else %}
+                <p></p>
+              {% endif %}
             </td>
           </tr>
 
