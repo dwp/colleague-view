@@ -7832,6 +7832,24 @@ router.post('/additional-support-router', function (req, res) {
   }
 })
 
+// UR 18 routes
+
+router.post('/check-additional-needs', function (req, res) {
+  let sel = req.session.data['what-additional-support'];
+
+  // Normalize to an array:
+  if (sel === undefined || sel === null || sel === '') {
+    sel = [];
+  } else if (typeof sel === 'string') {
+    sel = [sel];
+  } // if it's already an array, leave as-is
+
+  req.session.data['what-additional-support'] = sel;
+
+  // Continue to your check page
+  res.redirect('/check-the-details-you-have-added'); // update to your actual URL
+});
+
 
 
 

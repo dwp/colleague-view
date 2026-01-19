@@ -1,0 +1,460 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment history
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-16/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-16/common/phase-banner.html" %}
+  <a href="benefit-payment.html" class="govuk-back-link">Back</a>
+  <!-- <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Benefit payments</a>
+      </li>
+    </ol>
+  </div> -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-one-half">
+  <h1 class="govuk-heading-xl">Payment history</h1>
+</div>
+<div class="govuk-grid-column-one-half">
+  <form action="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed" method="post">
+    <div class="govuk-button-group">
+      {% set benefits =  data['what-benefit-discussed'] | length %}
+      {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
+      {%if benefitAdded != '' %}
+      <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed">
+        Add or change call details
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/do-you-want-to-complete-call">
+        Start service again
+      </button>
+      {%else%}
+      <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed">
+        Add call details
+      </button>
+      {%endif%}
+      <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-sprint-wise/ur-16/telephony/add-call/do-you-want-to-complete-call">
+        Complete phone call
+      </button> -->
+    </div>
+  </form>
+</div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <!-- MOJ filter -->
+    <div class="moj-filter cv-filter">
+      <div class="moj-filter__header">
+        <div class="moj-filter__header-title">
+          <h2 class="govuk-heading-m">Filter payment history</h2>
+        </div>
+        <div class="moj-filter__header-action">
+        </div>
+      </div>
+      <div class="moj-filter__content">
+        <div class="moj-filter__selected" style="display: none;">
+          <div class="moj-filter__selected-heading">
+            <div class="moj-filter__heading-title">
+              <h3 class="govuk-heading-m">Selected filters</h3>
+            </div>
+            <div class="moj-filter__heading-action">
+              <p><a class="govuk-link govuk-link--no-visited-state" href="">Clear filters</a></p>
+            </div>
+          </div>
+          <ul class="moj-filter-tags">
+          {% for benefit in data['benefit'] %}
+            <li><a class="moj-filter__tag" href="/path/to/remove/this"><span class="govuk-visually-hidden">Remove this filter</span> {{ benefit }}</a></li>
+          {% endfor %}
+          </ul>
+        </div>
+
+        <!-- filter options -->
+        <div class="moj-filter__options">
+          <form action="payment-history-filter-selected" method="post">
+            <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
+              Apply filters
+            </button>
+            <!-- filter by benefits -->
+            <div class="govuk-form-group govuk-!-margin-bottom-5">
+              <!-- {% set benefitName = data['benefit'] %} -->
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    Benefit
+                </legend> 
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="ESA-benefit" name="benefit" type="checkbox" value="Employment and Support Allowance" >
+                    <label class="govuk-label govuk-checkboxes__label" for="ESA-benefit">
+                      Employment and Support Allowance
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="JA-benefit" name="benefit" type="checkbox" value="Carer's Allowance" >
+                    <label class="govuk-label govuk-checkboxes__label" for="JA-benefit">
+                      Carer's Allowance
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="PIP-benefit" name="benefit" type="checkbox" value="Personal Independence Payment">
+                    <label class="govuk-label govuk-checkboxes__label" for="PIP-benefit">
+                      Personal Independence Payment
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- filter by status -->
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                  Status
+                </legend>
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-1" name="payment-status" type="checkbox" value="Issued">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-1">
+                      Issued
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-2" name="payment-status" type="checkbox" value="Not issued yet">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-2">
+                      Not issued yet
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-3" name="payment-status" type="checkbox" value="Cancelled">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-3">
+                      Cancelled
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-4" name="payment-status" type="checkbox" value="Recalled">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-4">
+                      Recalled
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-5" name="payment-status" type="checkbox" value="Rejected">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-5">
+                      Rejected
+                    </label>
+                  </div>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="payment-status-6" name="payment-status" type="checkbox" value="Returned">
+                    <label class="govuk-label govuk-checkboxes__label" for="payment-status-6">
+                      Returned
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- filter by date  -->
+            <div class="govuk-form-group govuk-!-margin-bottom-6">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                  Due date
+                </legend>
+                <div id="dob-hint" class="govuk-hint">
+                  For example, 3 1980
+                </div>
+                <div class="govuk-date-input" id="from-date">
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="from-date-month">
+                            Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="from-date-month" name="from-date-month" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromMonth}}">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="from-date-year">
+                            Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="from-date-year" name="from-date-year" type="text" inputmode="numeric" autocomplete="on" value="{{data.fromYear}}">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">45 results</h2>
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      Sorted by:
+      <span class="govuk-!-font-weight-bold">Date</span>
+    </p>
+  
+    {% if data['paymentTableData'].length > 0%}
+    <div id="default-table">          
+      <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Benefit</th>
+          <th scope="col" class="govuk-table__header">Due date</th>
+          <th scope="col" class="govuk-table__header ">Status</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% for item in data['paymentTableData'] %}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">{{item.benefit}}</th>
+          <td class="govuk-table__cell">{{item.dueData}}</td>
+          <td class="govuk-table__cell">{{item.status}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">{{item.award}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">{{item.deduction}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">{{item.amount}}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+      </table>
+    </div>
+  {% else %}
+  <div id="default-table">          
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Benefit</th>
+          <th scope="col" class="govuk-table__header">Due date</th>
+          <th scope="col" class="govuk-table__header ">Status</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+          <td class="govuk-table__cell">01 August 2023</td>
+          <td class="govuk-table__cell">Issued</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+          <td class="govuk-table__cell">18 July 2023</td>
+          <td class="govuk-table__cell">Not issued yet</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Carer Allowance</th>
+          <td class="govuk-table__cell">21 July 2023</td>
+          <td class="govuk-table__cell">Issued</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
+          <td class="govuk-table__cell">14 July 2023</td>
+          <td class="govuk-table__cell">Issued</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£479.00</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+          <td class="govuk-table__cell">04 July 2023</td>
+          <td class="govuk-table__cell">Issued</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£377.23</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£368.26</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+          <td class="govuk-table__cell">20 June 2023</td>
+          <td class="govuk-table__cell">Cancelled</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Carer Allowance</th>
+          <td class="govuk-table__cell">23 June 2023</td>
+          <td class="govuk-table__cell">Issued</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£278.80</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
+          <td class="govuk-table__cell">14 June 2023</td>
+          <td class="govuk-table__cell">Issued</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£479.80</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Employment and Support Allowance</th>
+          <td class="govuk-table__cell">06 June 2023</td>
+          <td class="govuk-table__cell">Issued</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Personal Independence Payment</th>
+          <td class="govuk-table__cell">12 May 2023</td>
+          <td class="govuk-table__cell">Issued</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£40.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">£519.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  {%endif%}
+<!-- GOVUK Pagination -->
+<nav class="govuk-pagination" aria-label="Pagination">
+  <ul class="govuk-pagination__list">
+    <li class="govuk-pagination__item govuk-pagination__item--current">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+        1
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+        2
+      </a>
+    </li>
+    <li class="govuk-pagination__item">
+      <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+        3
+      </a>
+    </li>
+  </ul>
+  <div class="govuk-pagination__next">
+    <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+      <span class="govuk-pagination__link-title">
+        Next<span class="govuk-visually-hidden"> page</span>
+      </span>
+      <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+      </svg>
+    </a>
+  </div>
+</nav>
+  </div>
+  </div>
+
+<!-- logic for filter function -->
+<script type="text/javascript">
+function showFilter() {
+  var link = document.getElementById('filter-section');
+  var link2 = document.getElementById('show-filter-btn');
+  var hdFilter = document.getElementById('hide-filter-btn');
+  var esaTable = document.getElementById('table-ESA');
+  var caTable = document.getElementById('table-CA');
+  var pipTable = document.getElementById('table-PIP');
+  link.classList.remove("govuk-visually-hidden");
+  link2.classList.add("govuk-visually-hidden");
+  hdFilter.classList.remove("govuk-visually-hidden");
+  esaTable.classList.add("govuk-visually-hidden");
+  document.getElementById("filter-1").checked = false;
+  document.getElementById("filter-2").checked = false;
+  document.getElementById("filter-3").checked = false;
+}
+function cancelFilter() {
+  var link = document.getElementById('filter-section');
+  var link2 = document.getElementById('show-filter-btn');
+  var hdFilter = document.getElementById('hide-filter-btn');
+  link.classList.add("govuk-visually-hidden");
+  hdFilter.classList.add("govuk-visually-hidden");
+  link2.classList.remove("govuk-visually-hidden");
+  document.getElementById("filter-1").checked = false;
+  document.getElementById("filter-2").checked = false;
+  document.getElementById("filter-3").checked = false;
+}
+function applyFilter() {
+  var link3 = document.getElementById('filter-selected');
+  var link2 = document.getElementById('show-filter-btn');
+  var link5 = document.getElementById('filter-section'); 
+  var tableDefault = document.getElementById('default-table')
+  var esaTable = document.getElementById('table-ESA');
+  var caTable = document.getElementById('table-CA');
+  var pipTable = document.getElementById('table-PIP');
+  // link3.classList.remove("govuk-visually-hidden");
+  if (document.getElementById("filter-1").checked == true) {
+    // link3.classList.remove("govuk-visually-hidden");
+    link2.classList.remove("govuk-visually-hidden");
+    link5.classList.add("govuk-visually-hidden");
+    tableDefault.classList.add("govuk-visually-hidden");
+    esaTable.classList.remove("govuk-visually-hidden");
+    caTable.classList.add("govuk-visually-hidden");
+    pipTable.classList.add("govuk-visually-hidden");
+  }
+  else if (document.getElementById("filter-2").checked == true) {
+    // link3.classList.remove("govuk-visually-hidden");
+    link2.classList.remove("govuk-visually-hidden");
+    // link4.classList.add("govuk-visually-hidden");
+    link5.classList.add("govuk-visually-hidden");
+    tableDefault.classList.add("govuk-visually-hidden");
+    caTable.classList.remove("govuk-visually-hidden");
+    esaTable.classList.add("govuk-visually-hidden");
+    pipTable.classList.add("govuk-visually-hidden");
+} else if (document.getElementById("filter-3").checked == true) {
+    // link3.classList.remove("govuk-visually-hidden");
+    link2.classList.remove("govuk-visually-hidden");
+    // link4.classList.add("govuk-visually-hidden");
+    link5.classList.add("govuk-visually-hidden");
+    tableDefault.classList.add("govuk-visually-hidden");
+    pipTable.classList.remove("govuk-visually-hidden");
+    esaTable.classList.add("govuk-visually-hidden");
+    caTable.classList.add("govuk-visually-hidden");
+} else if (document.getElementsByName("benefit") != '') {
+    link3.classList.remove("govuk-visually-hidden");
+}
+}
+function clearFilter() {
+  var link3 = document.getElementById('filter-selected');
+  var esaTable = document.getElementById('table-ESA');
+  var caTable = document.getElementById('table-CA');
+  var pipTable = document.getElementById('table-PIP');
+  var tableDefault = document.getElementById('default-table');
+  var hdFilter = document.getElementById('hide-filter-btn');
+  link3.classList.add("govuk-visually-hidden");
+  tableDefault.classList.remove("govuk-visually-hidden");
+  esaTable.classList.add("govuk-visually-hidden");
+  caTable.classList.add("govuk-visually-hidden");
+  pipTable.classList.add("govuk-visually-hidden");
+  link.classList.remove("govuk-visually-hidden");
+  hdFilter.classList.add("govuk-visually-hidden");
+  document.getElementById("filter-1").checked = false;
+  document.getElementById("filter-2").checked = false;
+  document.getElementById("filter-3").checked = false;
+  
+}
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Check the details you have added
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-16/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}  
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Step 2 of 2</span>
+    <h1 class="govuk-heading-l">Check the details you have added</h1>
+   
+    
+      
+    <div class="govuk-summary-card">
+      {% set questionAsk = data['question-asked'] %}
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">Support needs</h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link" href="identified-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-summary-card__content">
+        <table class="govuk-summary-list govuk-!-margin-bottom-0">
+          <tbody class="govuk-summary-list">
+          <tr class="govuk-summary-list__row">
+            <th scope="row" class="govuk-summary-list__key">Added support needs</th>
+            
+            <td class="govuk-summary-list__value">
+
+              {# Get submitted value(s) #}
+              {% set selections = data['what-additional-support'] %}
+
+              {# Case A: nothing selected #}
+              {% if not selections %}
+                None selected
+
+              {# Case B: one item selected → it's a string → show as plain text #}
+              {% elseif selections is string %}
+                {{ selections }}
+
+              {# Case C: multiple items selected → it's an array → show bullet list #}
+              {% else %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for item in selections %}
+                    <li>{{ item }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+            </td>
+          </tr>
+
+
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Note
+              </th>
+              <td class="govuk-summary-list__value">
+                {{ data['addNote-additional-support'] or "Not provided" }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <form action="added-support-needs" method="post" novalidate>
+      <input type="hidden" name="answers-checked" value="true">
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

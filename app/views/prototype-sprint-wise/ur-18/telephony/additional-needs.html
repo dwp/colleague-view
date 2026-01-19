@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-17/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-17/common/keydetail-bar-additional-support-needs.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-17/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "/prototype-sprint-wise/ur-16/common/phase-banner.html" %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="home-additional-needs.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Support needs</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" aria-describedby="additiona-needs-hint">Support needs</h1>
+    <div id="additiona-needs-hint" class="govuk-hint">
+      Theses notes only apply to support needs. You can find general contact notes in the account's main contact history.
+    </div>
+  </div>
+    <div class="govuk-grid-column-one-third">
+    <form action="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed" method="post">
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button" formaction="#">
+          Add call details
+        </button>
+      </div>
+    </form>
+    </div>
+</div>
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+            <table class="govuk-summary-list govuk-!-margin-bottom-0">
+            <tbody class="govuk-summary-list">
+                <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                    Added support needs
+                </th>
+                <td class="govuk-summary-list__value">
+                    This person has thoughts of suicide or self-harm (6 point plan)
+                </td>
+                </tr>
+                 <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                    Update
+                </th>
+                <td class="govuk-summary-list__value">
+                    Claimant is living with depression. They cannot afford repayments. Claimant is very distressed. Do not send further overpayment letters. All other correspondence must be done over the phone or in person.
+                </td>
+                </tr>
+                <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                    Who the contact was with
+                </th>
+                <td class="govuk-summary-list__value">
+                    <p>Christopher Fox</p>
+                </td>
+                </tr>
+                <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                    Agent ID
+                </th>
+                <td class="govuk-summary-list__value">
+                    <p>1003</p>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+</div>
+{%endblock%}

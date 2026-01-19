@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+ Have you identified additional support needs?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-17/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-17/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}  
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/additional-support-router" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What would you like to do?
+              </h1>
+            </legend>
+            <div class="govuk-inset-text">
+              <h2 class="govuk-heading-s">
+                Current support needs
+              </h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>This person has a mental health condition</li>
+                <li>This person is struggling with financial hardship</li>
+                <li>This person has thoughts of suicide or self harm (6 point plan)</li>
+              </ul>
+            </div>
+                      <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input"
+                                id="additional-support-remove"
+                                name="additional-support-needs"
+                                type="radio"
+                                value="remove">
+                          <label class="govuk-label govuk-radios__label"
+                                for="additional-support-remove">
+                            Remove one or more support needs
+                          </label>
+                        </div>
+
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input"
+                                id="additional-support-add"
+                                name="additional-support-needs"
+                                type="radio"
+                                value="add">
+                          <label class="govuk-label govuk-radios__label"
+                                for="additional-support-add">
+                            Add or update support needs
+                          </label>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+        
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
