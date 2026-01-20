@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Additional needs
+Home
 {% endblock %}
 
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-17/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-17/common/keydetail-bar-additional-support-needs.html" %}
+  {% include "/prototype-sprint-wise/ur-17/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -20,36 +20,21 @@ Additional needs
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
         <li class="govuk-breadcrumbs__list-item">
-            <a class="govuk-breadcrumbs__link" href="#"></a>
+            <a class="govuk-breadcrumbs__link" href="#">Home</a>
         </li>
     </ol>
 </div>
 {% endblock %}
 
 {% block content %}
-<!-- Notification banner -->
-<div class="govuk-notification-banner support-alert" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-         Important
-        </h2>
-      </div>
-      <div class="govuk-notification-banner__content">
-      <h3 class="govuk-heading-s">
-      Support needs
-      <span class="govuk-body">– This person is homeless. <a class="govuk-notification-banner__link" href="additional-needs.html">View support needs notes</a></span>
-      </h3>
-    </div>
-    </div>
-
-
-
 
   <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Home</h1>
-  </div>
-    <div class="govuk-grid-column-one-third">
+    <div class="govuk-grid-column-full">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <h1 class="govuk-heading-xl">Home</h1>
+    </div>
+    <div class="govuk-grid-column-one-half">
       <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
         <div class="govuk-button-group" style="justify-content: flex-end;">
             <button type="submit"
@@ -59,8 +44,9 @@ Additional needs
             </button>
           </div>
         </form>
+      </div>
     </div>
-</div>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <!-- to be card styel -->
@@ -99,7 +85,7 @@ Additional needs
           <div class="nhsuk-card nhsuk-card--clickable">
             <div class="nhsuk-card__content">
               <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                <a class="nhsuk-card__link govuk-link" href="add-call/add-additional-support-needs.html">Update support needs</a>
+                <a class="nhsuk-card__link govuk-link" href="add-call/add-additional-support-needs.html">Add support needs</a>
               </h2>
               <p class="nhsuk-card__description">Add, update or remove support needs on this account.</p>
             </div>
@@ -108,5 +94,6 @@ Additional needs
       </ul>
     </div>
   </div>
+
 
 {% endblock %}

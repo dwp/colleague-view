@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+You have added details
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-17/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+             Support needs have been saved successfully.
+            </h3>
+          </div>
+        </div>
+        <h1 class="govuk-heading-l">You have added details</h1>
+
+    
+        <div class="govuk-summary-card">
+          {% set questionAsk = data['question-asked'] %}
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">Support needs</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="add-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <table class="govuk-summary-list govuk-!-margin-bottom-0">
+              <tbody class="govuk-summary-list">
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">Added support needs</th>
+                <td class="govuk-summary-list__value">
+
+                  {# ✔ Get submitted value(s) #}
+                  {% set selections = data['what-additional-support'] %}
+
+                  {# ✔ Convert single string → array #}
+                  {% if selections and (selections is string) %}
+                    {% set selections = [ selections ] %}
+                  {% endif %}
+
+                  {# ✔ If more than 1 → bullet list #}
+                  {% if selections and (selections | length > 1) %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for item in selections %}
+                        <li>{{ item }}</li>
+                      {% endfor %}
+                    </ul>
+
+                  {# ✔ If exactly 1 → plain text #}
+                  {% elseif selections and (selections | length == 1) %}
+                    <p>{{ selections[0] }}</p>
+
+                  {# ✔ If none selected #}
+                  {% else %}
+                    <p></p>
+                  {% endif %}
+                </td>
+              </tr>
+
+
+                <tr class="govuk-summary-list__row">
+                  <th scope="row" class="govuk-summary-list__key">
+                    Note
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {{ data['addNote-additional-support'] or "Not provided" }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        
+      <form action="/prototype-sprint-wise/ur-18/telephony/home-additional-needs" method="post" novalidate>
+      <input type="hidden" name="answers-checked" value="true">
+      <button class="govuk-button" data-module="govuk-button">
+        Return to home
+      </button>
+      </form>
+
+         
+    
+      </div>
+    </div>
+
+{% endblock %}

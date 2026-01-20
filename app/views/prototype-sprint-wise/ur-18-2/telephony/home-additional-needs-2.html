@@ -1,17 +1,17 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Additional needs
+Home
 {% endblock %}
 
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-17/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-17/common/keydetail-bar-additional-support-needs.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar-additional-support-needs.html" %}
 {% endblock %}
 
 {% block footer %}
-{% include "/prototype-sprint-wise/ur-17/common/footer.html" %}
+{% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
 {% endblock %}
 
 
@@ -28,7 +28,9 @@ Additional needs
 
 {% block content %}
 <!-- Notification banner -->
-<div class="govuk-notification-banner support-alert" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
         <div class="govuk-notification-banner__header">
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
          Important
@@ -36,29 +38,32 @@ Additional needs
       </div>
       <div class="govuk-notification-banner__content">
       <h3 class="govuk-heading-s">
+        Fraud risk
+        <span class="govuk-body">– Refer this case to the National Identity Fraud unit (NIFU)</span>
+      </h3>
+      <h3 class="govuk-heading-s">
+      Special measures
+        <span class="govuk-body">– Reported by Keeping Customer Interactions Safe</span>
+      </h3>
+      <h3 class="govuk-heading-s">
       Support needs
-      <span class="govuk-body">– This person is homeless. <a class="govuk-notification-banner__link" href="additional-needs.html">View support needs notes</a></span>
+        <span class="govuk-body">– This person has thoughts of suicide or self-harm (6 point plan). <a class="govuk-notification-banner__link" href="additional-needs-2.html">View support needs notes</a></span>
       </h3>
     </div>
-    </div>
-
-
-
+  </div>
 
   <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Home</h1>
   </div>
     <div class="govuk-grid-column-one-third">
-      <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
-        <div class="govuk-button-group" style="justify-content: flex-end;">
-            <button type="submit"
-                    class="govuk-button"
-                    data-module="govuk-button">
-              Add call details
-            </button>
-          </div>
-        </form>
+      <form action="/prototype-sprint-wise/ur-17/telephony/add-call/reviewed" method="post">
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button" formaction="#">
+            Add call details
+          </button>
+        </div>
+      </form>
     </div>
 </div>
   <div class="govuk-grid-row">
@@ -92,16 +97,6 @@ Additional needs
                 <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
               </h2>
               <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
-            </div>
-          </div>
-        </li>
-        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
-          <div class="nhsuk-card nhsuk-card--clickable">
-            <div class="nhsuk-card__content">
-              <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                <a class="nhsuk-card__link govuk-link" href="add-call/add-additional-support-needs.html">Update support needs</a>
-              </h2>
-              <p class="nhsuk-card__description">Add, update or remove support needs on this account.</p>
             </div>
           </div>
         </li>

@@ -5,7 +5,7 @@ You have added details
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-17/common/header_keydetail_bar.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/header_keydetail_bar.html" %}
 {% endblock %}
 
 
@@ -356,8 +356,38 @@ You have added details
                   </dd>
                 </div>
                 {%endif%}
+                <!-- for General CoC -->
+                {% if benefitsName == 'General change of circumstance' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    General change of circumstance
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-gCoC'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsgCoC in data['contact-type-gCoC'] %}
+                        <li>{{ questionsgCoC }}</li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>{{data['contact-type-gCoC']}}</p>
+                    {%endif%}
+                  </dd>
+                </div>
+                {%endif%}
               {% endfor %}
-              <!-- Note added -->
+              <!-- for 6 point plan -->
+            {%if data['six-point-plan'] | length > 0  %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   6 point plan
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {{ data['six-point-plan']}}
+                </dd>
+              </div>
+              {%endif%}
+                <!-- Note added -->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Notes added
@@ -366,35 +396,51 @@ You have added details
                   {{ data['addNote'] or "Not provided" }}
                 </dd>
               </div>
-               {%if data['additional-support-needs'] == 'Yes'%}
-               <!-- additional support needs -->
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                   Removed support needs
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  <ul class="govuk-list govuk-list--bullet">
-                  <li>This person has a mental health condition</li>
-                  <li>This person is struggling with financial hardship</li>
-                  <li>This person has thoughts of suicide or self harm (6 point plan)</li>
-                  </ul>
-                </dd>
-              </div>
-              <!-- Note for additional support needs -->
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Updates added
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['addNote-additional-support'] or "Not provided" }}
-                </dd>
-              </div>
-               {%endif%}
             </dl>
           </div>
         </div>
         {%else%}
         <!-- for one benefit --> 
+        {%if data['what-benefit-discussed'] == 'General change of circumstance' %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Call details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  General change of circumstance
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {%if data['contact-type-gCoC'] | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for contactTopicsgCoC in data['contact-type-gCoC'] %}
+                    <li>{{ contactTopicsgCoC }}</li>
+                    {% endfor %}
+                  </ul>
+                  {%else%}
+                    <p>{{data['contact-type-gCoC']}}</p>
+                  {%endif%}
+                </dd>
+                <dd class="govuk-summary-list__actions govuk-!-display-none">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notes added
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['addNote'] or "Not provided" }}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        {%else%} 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
@@ -427,6 +473,17 @@ You have added details
                   <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
+            <!-- for 6 point plan -->
+            {%if data['six-point-plan'] | length > 0  %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   6 point plan
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {{ data['six-point-plan']}}
+                </dd>
+              </div>
+              {%endif%}
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   Notes added
@@ -435,38 +492,15 @@ You have added details
                   {{ data['addNote'] or "Not provided" }}
                 </dd>
               </div>
-              {%if data['additional-support-needs'] == 'Yes'%}
-               <!-- additional support needs -->
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                   Removed support needs
-                </dt>
-                <dd class="govuk-summary-list__value">
-                 <ul class="govuk-list govuk-list--bullet">
-                  <li>This person has a mental health condition</li>
-                  <li>This person is struggling with financial hardship</li>
-                  <li>This person has thoughts of suicide or self harm (6 point plan)</li>
-                  </ul>
-                </dd>
-              </div>
-              <!-- Note for additional support needs -->
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Updates added
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['addNote-additional-support'] or "Not provided" }}
-                </dd>
-              </div>
-               {%endif%}
             </dl>
           </div>
         </div>
         {%endif%}
+        {%endif%}
 
-        {%if data['What-type-of-contact'] == 'Inbound phone call with'%}
+        <!-- {%if data['What-type-of-contact'] == 'Inbound phone call with'%} -->
         <!-- Inbound complete session -->
-        <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18-2/index" method="post">
+        <form class="form govuk-!-margin-top-9" action="complete-call" method="post">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -494,19 +528,19 @@ You have added details
             Continue
           </button>
         </form>
-        {%endif%}
+        <!-- {%endif%} -->
 
         {%if data['What-type-of-contact'] == 'Outbound phone call with'%}
           {%if data['was-call-answered']== 'No'%}
           <!-- Outbound - Call not answered -->
-          <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18-2/telephony/home" method="post">
+          <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-16/index" method="post">
             <button class="govuk-button" data-module="govuk-button">
               Start service again
             </button>
           </form>
           {%else%}
           <!-- Outbound - Call answered  -->
-          <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18-2/telephony/home" method="post">
+          <form class="form govuk-!-margin-top-9" action="complete-call" method="post">
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
