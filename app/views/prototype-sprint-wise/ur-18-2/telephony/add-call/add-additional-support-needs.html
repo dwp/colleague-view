@@ -28,7 +28,7 @@
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <span class="govuk-caption-l">Step 1 of 2</span>
               <h1 class="govuk-fieldset__heading">
-                What do you want to add?
+                What do you want to add or update?
               </h1>
             </legend>
                 <div class="govuk-form-group">
@@ -80,7 +80,7 @@
                         </label>
                       </div>
                       <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="what-additional-support-8" name="what-additional-support" type="checkbox" value="This person is homeless" {{ checked ('what-additional-support', 'This person is homeless') }}>
+                        <input class="govuk-checkboxes__input" id="what-additional-support-8" name="what-additional-support" type="checkbox" value="This person is homeless or is at risk of being homeless" {{ checked ('what-additional-support', 'This person is homeless or is at risk of being homeless') }}>
                         <label class="govuk-label govuk-checkboxes__label" for="what-additional-support-8">
                         This person is homeless or is at risk of being homeless
                         </label>
@@ -159,6 +159,8 @@
             <button type="submit" class="govuk-button" data-module="govuk-button">
               Save and continue
             </button>
+            <a id="continue-button" role="button" draggable="false" class="govuk-button govuk-button--secondary"
+              href="/prototype-sprint-wise/ur-18-2/telephony/add-call/remove-additional-support-needs">Remove existing needs</a>
           </div>
         </div>
 

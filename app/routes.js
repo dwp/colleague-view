@@ -7850,7 +7850,19 @@ router.post('/check-additional-needs', function (req, res) {
   res.redirect('/check-the-details-you-have-added'); // update to your actual URL
 });
 
+router.post('/additional-support-router-2', function (req, res) {
+  const answer = req.body['additional-support-needs']
 
+  if (answer === 'remove') {
+    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/remove-additional-support-needs')
+  } 
+  else if (answer === 'add') {
+    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/add-additional-support-needs')
+  } 
+  else {
+    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/select-contact-type')
+  }
+})
 
 
 

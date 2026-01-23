@@ -1,9 +1,9 @@
+
 {% extends "layout.html" %}
 
 {% block pageTitle %}
   Personal details
 {% endblock %}
-
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-17/common/header.html" %}
@@ -14,22 +14,22 @@
   {% include "/prototype-sprint-wise/ur-17/common/footer.html" %}
 {% endblock %}
 
-
 {% block beforeContent %}
-{% include "/prototype-sprint-wise/ur-16/common/phase-banner.html" %}
-<div class="govuk-breadcrumbs">
-  <ol class="govuk-breadcrumbs__list">
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="home-additional-needs.html">Home</a>
-    </li>
-    <li class="govuk-breadcrumbs__list-item">
-      <a class="govuk-breadcrumbs__link" href="#">Support needs</a>
-    </li>
-  </ol>
-</div>
+  {% include "/prototype-sprint-wise/ur-16/common/phase-banner.html" %}
+    <div class="govuk-breadcrumbs">
+      <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="home-additional-needs.html">Home</a>
+        </li>
+        <li class="govuk-breadcrumbs__list-item">
+          <a class="govuk-breadcrumbs__link" href="#">Support needs</a>
+        </li>
+      </ol>
+    </div>
 {% endblock %}
+
 {% block content %}
-<div class="govuk-grid-row">
+  <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl" aria-describedby="additiona-needs-hint">Support needs</h1>
     <div id="additiona-needs-hint" class="govuk-hint">
@@ -46,51 +46,74 @@
     </form>
     </div>
 </div>
-<div class="govuk-grid-row govuk-!-margin-top-4">
-  <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-summary-card">
+
+  <div class="govuk-grid-row govuk-!-margin-top-4">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- CARD 1: Inbound phone call -->
+      <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
+          <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
         </div>
         <div class="govuk-summary-card__content">
-            <table class="govuk-summary-list govuk-!-margin-bottom-0">
-            <tbody class="govuk-summary-list">
-                <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key">
-                    Added support needs
-                </th>
-                <td class="govuk-summary-list__value">
-                    This person is homeless
-                </td>
-                </tr>
-                 <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key">
-                    Update
-                </th>
-                <td class="govuk-summary-list__value">
-                    Note goes here
-                </td>
-                </tr>
-                <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key">
-                    Who the contact was with
-                </th>
-                <td class="govuk-summary-list__value">
-                    <p>Christopher Fox</p>
-                </td>
-                </tr>
-                <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key">
-                    Agent ID
-                </th>
-                <td class="govuk-summary-list__value">
-                    <p>1003</p>
-                </td>
-                </tr>
-            </tbody>
-            </table>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Removed support needs</dt>
+              <dd class="govuk-summary-list__value">This person is struggling with financial hardship</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Updated support needs</dt>
+              <dd class="govuk-summary-list__value">This person has a mental health condition</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Update</dt>
+              <dd class="govuk-summary-list__value">Note goes here</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Who the contact was with</dt>
+              <dd class="govuk-summary-list__value"><p class="govuk-body">Christopher Fox</p></dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Agent ID</dt>
+              <dd class="govuk-summary-list__value"><p class="govuk-body">1003</p></dd>
+            </div>
+          </dl>
         </div>
+      </div>
+
+      <!-- CARD 2: Added support needs -->
+      <div class="govuk-summary-card govuk-!-margin-top-4">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Inbound phone call: 20 March 2024, 13:02
+</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Added support needs</dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                  <li>This person is struggling with financial hardship</li>
+                  <li>This person has a mental health condition</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Update</dt>
+              <dd class="govuk-summary-list__value">Note goes here</dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Who the contact was with</dt>
+              <dd class="govuk-summary-list__value"><p class="govuk-body">Christopher Fox</p></dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Agent ID</dt>
+              <dd class="govuk-summary-list__value"><p class="govuk-body">1003</p></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
-{%endblock%}
+{% endblock %}

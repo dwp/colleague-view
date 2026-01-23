@@ -36,53 +36,64 @@ Check the details you have added
           </li>
         </ul>
       </div>
+      
       <div class="govuk-summary-card__content">
-        <table class="govuk-summary-list govuk-!-margin-bottom-0">
-          <tbody class="govuk-summary-list">
-          <tr class="govuk-summary-list__row">
-            <th scope="row" class="govuk-summary-list__key">Added support needs</th>
-            <td class="govuk-summary-list__value">
+          <table class="govuk-summary-list govuk-!-margin-bottom-0">
+            <tbody class="govuk-summary-list">
+              <!-- New row added at the top -->
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Removed support needs
+                </th>
+                <td class="govuk-summary-list__value">
+                  <p>This person is struggling with financial hardship</p>
+                </td>
+              </tr>
 
-              {# ✔ Get submitted value(s) #}
-              {% set selections = data['what-additional-support'] %}
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">Updated support needs</th>
+                <td class="govuk-summary-list__value">
 
-              {# ✔ Convert single string → array #}
-              {% if selections and (selections is string) %}
-                {% set selections = [ selections ] %}
-              {% endif %}
+                  {# ✔ Get submitted value(s) #}
+                  {% set selections = data['what-additional-support'] %}
 
-              {# ✔ If more than 1 → bullet list #}
-              {% if selections and (selections | length > 1) %}
-                <ul class="govuk-list govuk-list--bullet">
-                  {% for item in selections %}
-                    <li>{{ item }}</li>
-                  {% endfor %}
-                </ul>
+                  {# ✔ Convert single string → array #}
+                  {% if selections and (selections is string) %}
+                    {% set selections = [ selections ] %}
+                  {% endif %}
 
-              {# ✔ If exactly 1 → plain text #}
-              {% elseif selections and (selections | length == 1) %}
-                <p>{{ selections[0] }}</p>
+                  {# ✔ If more than 1 → bullet list #}
+                  {% if selections and (selections | length > 1) %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for item in selections %}
+                        <li>{{ item }}</li>
+                      {% endfor %}
+                    </ul>
 
-              {# ✔ If none selected #}
-              {% else %}
-                <p></p>
-              {% endif %}
-            </td>
-          </tr>
+                  {# ✔ If exactly 1 → plain text #}
+                  {% elseif selections and (selections | length == 1) %}
+                    <p>{{ selections[0] }}</p>
 
+                  {# ✔ If none selected #}
+                  {% else %}
+                    <p></p>
+                  {% endif %}
+                </td>
+              </tr>
 
-            <tr class="govuk-summary-list__row">
-              <th scope="row" class="govuk-summary-list__key">
-                Note
-              </th>
-              <td class="govuk-summary-list__value">
-                {{ data['addNote-additional-support'] or "Not provided" }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Note
+                </th>
+                <td class="govuk-summary-list__value">
+                  {{ data['addNote-additional-support'] or "Not provided" }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+
 
     <form action="added-support-needs" method="post" novalidate>
       <input type="hidden" name="answers-checked" value="true">
