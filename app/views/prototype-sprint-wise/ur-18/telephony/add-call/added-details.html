@@ -466,7 +466,7 @@ You have added details
 
         {%if data['What-type-of-contact'] == 'Inbound phone call with'%}
         <!-- Inbound complete session -->
-        <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18-2/index" method="post">
+        <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18/telephony/home" method="post">
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -499,14 +499,14 @@ You have added details
         {%if data['What-type-of-contact'] == 'Outbound phone call with'%}
           {%if data['was-call-answered']== 'No'%}
           <!-- Outbound - Call not answered -->
-          <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18-2/telephony/home" method="post">
+          <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18/telephony/home" method="post">
             <button class="govuk-button" data-module="govuk-button">
               Start service again
             </button>
           </form>
           {%else%}
           <!-- Outbound - Call answered  -->
-          <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18-2/telephony/home" method="post">
+          <form class="form govuk-!-margin-top-9" action="/prototype-sprint-wise/ur-18/telephony/home" method="post">
             <div class="govuk-form-group">
               <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
