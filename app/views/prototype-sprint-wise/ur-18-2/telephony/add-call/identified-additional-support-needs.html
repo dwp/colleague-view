@@ -1,3 +1,4 @@
+
 {% extends "layout.html" %}
 
 {% block pageTitle %}
@@ -7,7 +8,6 @@
 {% block header %}
   {% include "/prototype-sprint-wise/ur-17/common/header_keydetail_bar.html" %}
 {% endblock %}
-
 
 {% block footer %}
   {% include "/prototype-sprint-wise/ur-17/common/footer.html" %}
@@ -27,9 +27,10 @@
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                What would you like to do?
+                What changes do you need to make to support needs?
               </h1>
             </legend>
+
             <div class="govuk-inset-text">
               <h2 class="govuk-heading-s">
                 Current support needs
@@ -39,30 +40,50 @@
                 <li>This person is struggling with financial hardship</li>
               </ul>
             </div>
-                      <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="additional-support-remove" name="additional-support-needs" type="radio" value="remove">
-                          <label class="govuk-label govuk-radios__label"
-                                for="additional-support-remove">
-                            Remove one or more support needs
-                          </label>
-                        </div>
 
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input"
-                                id="additional-support-add"
-                                name="additional-support-needs"
-                                type="radio"
-                                value="add">
-                          <label class="govuk-label govuk-radios__label"
-                                for="additional-support-add">
-                            Add or update support needs
-                          </label>
-                        </div>
-                      </div>
-                    </fieldset>
-                  </div>
-        
+            <div class="govuk-radios" data-module="govuk-radios">
+              <!-- Add first -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input"
+                      id="additional-support-add"
+                      name="additional-support-needs"
+                      type="radio"
+                      value="add">
+                <label class="govuk-label govuk-radios__label"
+                      for="additional-support-add">
+                  Add or update support needs
+                </label>
+              </div>
+
+              <!-- Remove second -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input"
+                      id="additional-support-remove"
+                      name="additional-support-needs"
+                      type="radio"
+                      value="remove">
+                <label class="govuk-label govuk-radios__label"
+                      for="additional-support-remove">
+                  Remove support needs
+                </label>
+              </div>
+
+              <!-- Combined third -->
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input"
+                      id="additional-support-both"
+                      name="additional-support-needs"
+                      type="radio"
+                      value="both">
+                <label class="govuk-label govuk-radios__label"
+                      for="additional-support-both">
+                  Add or update and remove support needs
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
         </button>
