@@ -59,7 +59,23 @@ You have added details
                 Removed support needs
               </th>
               <td class="govuk-summary-list__value">
-                <p>This person is struggling with financial hardship</p>
+                {% set removed = data['remove-additional-support'] %}
+
+                  {% if removed and (removed is string) %}
+                    {% set removed = [ removed ] %}
+                  {% endif %}
+
+                  {% if removed and (removed | length > 1) %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for item in removed %}
+                        <li>{{ item }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% elseif removed and (removed | length == 1) %}
+                    <p>{{ removed[0] }}</p>
+                  {% else %}
+                    <p>None</p>
+                  {% endif %}
               </td>
             </tr>
 

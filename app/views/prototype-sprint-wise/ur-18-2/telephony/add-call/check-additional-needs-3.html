@@ -32,7 +32,7 @@ Check the details you have added
         <h2 class="govuk-summary-card__title">Support needs</h2>
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
-            <a class="govuk-link" href="add-additional-support-needs.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
+            <a class="govuk-link" href="add-additional-support-needs-2.html">Change<span class="govuk-visually-hidden">the benefit that was discussed</span></a>
           </li>
         </ul>
       </div>
@@ -40,33 +40,6 @@ Check the details you have added
       <div class="govuk-summary-card__content">
           <table class="govuk-summary-list govuk-!-margin-bottom-0">
             <tbody class="govuk-summary-list">
-              <!-- New row added at the top -->
-              <tr class="govuk-summary-list__row">
-                <th scope="row" class="govuk-summary-list__key">
-                  Removed support needs
-                </th>
-                <td class="govuk-summary-list__value">
-                  {% set removed = data['remove-additional-support'] %}
-
-                  {% if removed and (removed is string) %}
-                    {% set removed = [ removed ] %}
-                  {% endif %}
-
-                  {% if removed and (removed | length > 1) %}
-                    <ul class="govuk-list govuk-list--bullet">
-                      {% for item in removed %}
-                        <li>{{ item }}</li>
-                      {% endfor %}
-                    </ul>
-                  {% elseif removed and (removed | length == 1) %}
-                    <p>{{ removed[0] }}</p>
-                  {% else %}
-                    <p>None</p>
-                  {% endif %}
-
-                </td>
-              </tr>
-
               <tr class="govuk-summary-list__row">
                 <th scope="row" class="govuk-summary-list__key">Updated support needs</th>
                 <td class="govuk-summary-list__value">
@@ -95,6 +68,31 @@ Check the details you have added
                   {% else %}
                     <p></p>
                   {% endif %}
+                </td>
+              </tr>
+              <tr class="govuk-summary-list__row">
+                <th scope="row" class="govuk-summary-list__key">
+                  Removed support needs
+                </th>
+                <td class="govuk-summary-list__value">
+                  {% set removed = data['remove-additional-support'] %}
+
+                  {% if removed and (removed is string) %}
+                    {% set removed = [ removed ] %}
+                  {% endif %}
+
+                  {% if removed and (removed | length > 1) %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for item in removed %}
+                        <li>{{ item }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% elseif removed and (removed | length == 1) %}
+                    <p>{{ removed[0] }}</p>
+                  {% else %}
+                    <p>None</p>
+                  {% endif %}
+
                 </td>
               </tr>
 
