@@ -53,32 +53,6 @@ You have added details
       <div class="govuk-summary-card__content">
         <table class="govuk-summary-list govuk-!-margin-bottom-0">
           <tbody class="govuk-summary-list">
-            <!-- New row added at the top -->
-            <tr class="govuk-summary-list__row">
-              <th scope="row" class="govuk-summary-list__key">
-                Removed support needs
-              </th>
-              <td class="govuk-summary-list__value">
-                {% set removed = data['remove-additional-support'] %}
-
-                  {% if removed and (removed is string) %}
-                    {% set removed = [ removed ] %}
-                  {% endif %}
-
-                  {% if removed and (removed | length > 1) %}
-                    <ul class="govuk-list govuk-list--bullet">
-                      {% for item in removed %}
-                        <li>{{ item }}</li>
-                      {% endfor %}
-                    </ul>
-                  {% elseif removed and (removed | length == 1) %}
-                    <p>{{ removed[0] }}</p>
-                  {% else %}
-                    <p>None</p>
-                  {% endif %}
-              </td>
-            </tr>
-
             <tr class="govuk-summary-list__row">
               <th scope="row" class="govuk-summary-list__key">Updated support needs</th>
               <td class="govuk-summary-list__value">
@@ -107,6 +81,30 @@ You have added details
                 {% else %}
                   <p></p>
                 {% endif %}
+              </td>
+            </tr>
+            <tr class="govuk-summary-list__row">
+              <th scope="row" class="govuk-summary-list__key">
+                Removed support needs
+              </th>
+              <td class="govuk-summary-list__value">
+                {% set removed = data['remove-additional-support'] %}
+
+                  {% if removed and (removed is string) %}
+                    {% set removed = [ removed ] %}
+                  {% endif %}
+
+                  {% if removed and (removed | length > 1) %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for item in removed %}
+                        <li>{{ item }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% elseif removed and (removed | length == 1) %}
+                    <p>{{ removed[0] }}</p>
+                  {% else %}
+                    <p>None</p>
+                  {% endif %}
               </td>
             </tr>
 
