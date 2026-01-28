@@ -7867,6 +7867,14 @@ router.post('/additional-support-router-2', function (req, res) {
   }
 })
 
+// app/routes.js
+module.exports = function (router) {
+  // POST → redirect to GET for the Check page so auto-store-data persists form values
+  router.post('/prototype-sprint-wise/ur-18-2/telephony/add-call/check-additional-needs-3', function (req, res) {
+    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/check-additional-needs-3');
+  });
+};
+``
 
 
 module.exports = router
