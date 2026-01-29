@@ -21,18 +21,17 @@
 
   {# Normalise what was selected on the Add page #}
   {% set existing = data['what-additional-support'] %}
-  {% if existing is string %}
-    {% set existing = [ existing ] %}
-  {% endif %}
+  {% if existing is string %}{% set existing = [ existing ] %}{% endif %}
   {% set existing = existing or [] %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="check-additional-needs-2" method="post" novalidate>
+
+      <form action="/prototype-sprint-wise/ur-18-2/telephony/add-call/check-additional-needs-2" method="post" novalidate>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <span class="govuk-caption-l">Step 1 of 2</span>
+              <span class="govuk-caption-l">Step 2 of 2</span>
               <h1 class="govuk-fieldset__heading">
                 What do you want to remove?
               </h1>
@@ -42,19 +41,19 @@
               <div id="contact-hint" class="govuk-hint">
                 You should remove a need if it no longer applies or if the account holder requests for it to be removed. You do not need to add a note about this. 
               </div>
-              <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                
+
+              <fieldset class="govuk-fieldset">
                 <div class="govuk-checkboxes" data-module="govuk-checkboxes" id="support-needs-group">
 
                   <!-- Master: Select all support needs -->
                   <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input"
-                          id="remove-additional-support-all"
-                          name="selectAllSupportNeeds"
-                          type="checkbox"
-                          value="all"
-                          data-behaviour="select-all"
-                          aria-describedby="select-all-context">
+                           id="remove-additional-support-all"
+                           name="selectAllSupportNeeds"
+                           type="checkbox"
+                           value="all"
+                           data-behaviour="select-all"
+                           aria-describedby="select-all-context">
                     <label class="govuk-label govuk-checkboxes__label" for="remove-additional-support-all">
                       Remove all support needs
                     </label>
@@ -63,36 +62,31 @@
                     </span>
                   </div>
 
-                  <!-- Regular items (render only if they exist from the Add step) -->
-                  {% if "This person has a mental health condition" in existing %}
+                 
                     <div class="govuk-checkboxes__item">
                       <input class="govuk-checkboxes__input"
-                            id="remove-additional-support-1"
-                            name="remove-additional-support"
-                            type="checkbox"
-                            value="This person has a mental health condition"
-                            {{ checked('remove-additional-support', 'This person has a mental health condition') }}>
+                             id="remove-additional-support-1"
+                             name="remove-additional-support"
+                             type="checkbox"
+                             value="This person has a mental health condition"
+                             {{ checked('remove-additional-support', 'This person has a mental health condition') }}>
                       <label class="govuk-label govuk-checkboxes__label" for="remove-additional-support-1">
                         This person has a mental health condition
                       </label>
                     </div>
-                  {% endif %}
 
-                  {% if "This person is struggling with financial hardship" in existing %}
+                  
                     <div class="govuk-checkboxes__item">
                       <input class="govuk-checkboxes__input"
-                            id="remove-additional-support-2"
-                            name="remove-additional-support"
-                            type="checkbox"
-                            value="This person is struggling with financial hardship"
-                            {{ checked('remove-additional-support', 'This person is struggling with financial hardship') }}>
+                             id="remove-additional-support-2"
+                             name="remove-additional-support"
+                             type="checkbox"
+                             value="This person is struggling with financial hardship"
+                             {{ checked('remove-additional-support', 'This person is struggling with financial hardship') }}>
                       <label class="govuk-label govuk-checkboxes__label" for="remove-additional-support-2">
                         This person is struggling with financial hardship
                       </label>
                     </div>
-                  {% endif %}
-
-                  {# If you add more categories, copy the pattern above and change the text #}
 
                 </div>
               </fieldset>
@@ -100,14 +94,10 @@
           </fieldset>
         </div>
         
-        <div class="govuk-grid-row">
-          <div class="govuk-grid-column-two-thirds">
-            <div class="govuk-button-group">
-              <button type="submit" class="govuk-button" data-module="govuk-button">
-                Save and continue
-              </button>
-            </div>
-          </div>
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
         </div>
 
       </form>
@@ -118,15 +108,12 @@
     (function () {
       // Grab elements right where we are in the DOM
       const group = document.getElementById('support-needs-group');
-      console.log('[SelectAll] group found?', !!group);
       if (!group) return;
 
       const selectAll = group.querySelector('[data-behaviour="select-all"]');
       const exclusiveNone = group.querySelector('[data-behaviour="exclusive"]');
       const items = Array.from(group.querySelectorAll('.govuk-checkboxes__input'))
         .filter(i => i !== selectAll && i !== exclusiveNone);
-
-      console.log('[SelectAll] selectAll:', !!selectAll, 'exclusiveNone:', !!exclusiveNone, 'items:', items.length);
 
       function enabledItems() {
         return items.filter(i => !i.disabled);
@@ -141,7 +128,6 @@
           selectAll.checked = allChecked;
           selectAll.indeterminate = !allChecked && someChecked; // show partial state
         }
-        console.log('[SelectAll] sync -> allChecked:', allChecked, 'someChecked:', someChecked);
       }
 
       function setAllRegular(checked) {
@@ -151,7 +137,6 @@
       // Master toggles all; clears exclusive 'none'
       if (selectAll) {
         selectAll.addEventListener('change', () => {
-          console.log('[SelectAll] master changed ->', selectAll.checked);
           if (exclusiveNone) exclusiveNone.checked = false;
           setAllRegular(selectAll.checked);
           syncSelectAll();
@@ -161,7 +146,6 @@
       // Regular items: keep master in sync; any selection clears 'none'
       items.forEach(i => {
         i.addEventListener('change', () => {
-          console.log('[SelectAll] item changed ->', i.id, i.checked);
           if (exclusiveNone && i.checked) exclusiveNone.checked = false;
           syncSelectAll();
         });
@@ -170,7 +154,6 @@
       // Exclusive 'none': clear everything including master
       if (exclusiveNone) {
         exclusiveNone.addEventListener('change', () => {
-          console.log('[SelectAll] none changed ->', exclusiveNone.checked);
           if (exclusiveNone.checked) {
             setAllRegular(false);
             if (selectAll) {
