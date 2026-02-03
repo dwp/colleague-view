@@ -1,0 +1,1103 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+You have added details
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_3_1/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {% set contactType =  data['What-type-of-contact'] %}
+        {% set benefits =  data['what-benefit-discussed'] %}
+        {% set questionESA = data['questionAsk-esa'] %}
+        {% set questionPIP = data['questionAsk-pip'] %}
+        {% set benefitLength =  data['what-benefit-discussed'] | length %}
+       
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+             The details of this call have been saved successfully.
+            </h3>
+          </div>
+        </div>
+        <h1 class="govuk-heading-l">You have added details</h1>
+        {% if benefitLength >1 %}
+        <!-- for multiple benefits -->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Call details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              {% for benefitsName in data['what-benefit-discussed'] %}
+                <!-- for ca -->
+                {% if benefitsName == "Carer's Allowance" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Carer's Allowance
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-ca'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsCA in data['contact-type-ca'] %}
+                        <li>
+                        {%if (questionsCA == "Confirmed or checked for a change of circumstance") or (questionsCA == "Confirm or check for a change of circumstance") %}
+                        {{ questionsCA }} - {{data['coc-option-ca']}}
+                        {%else%}
+                        {{ questionsCA }}
+                        {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>
+                      {%if (data['contact-type-ca'] == "Confirmed or checked for a change of circumstance") or (data['contact-type-ca'] == "Confirm or check for a change of circumstance") %}
+                        {{data['contact-type-ca']}} - {{data['coc-option-ca']}}
+                      {%else%}
+                        {{data['contact-type-ca']}}
+                      {%endif%}
+                      </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-ca'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsCA in data['contact-type-ca'] %}
+                      <li>
+                        {%if questionsCA == "Reported a change of circumstance" %}
+                        {{ questionsCA }} - {{data['coc-option-ca']}}
+                        {%else%}
+                        {{ questionsCA }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                      <p>
+                        {%if data['contact-type-ca'] == "Reported a change of circumstance" %}
+                          {{ data['contact-type-ca'] }} - {{data['coc-option-ca']}}
+                          {%else%}
+                          {{ data['contact-type-ca']}}
+                        {%endif%}
+                      </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for ESA -->
+                {% if benefitsName == "Employment and Support Allowance" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                   Employment and Support Allowance
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-esa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsESA in data['contact-type-esa'] %}
+                      <li>
+                        {%if (questionsESA == "Confirmed or checked for a change of circumstance") or (questionsESA == "Confirm or check for a change of circumstance") %}
+                        {{questionsESA}} - {{data['coc-option-esa']}}
+                        {%else%}
+                        {{questionsESA}}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                      {%if (data['contact-type-esa'] == "Confirmed or checked for a change of circumstance") or (data['contact-type-esa'] == "Confirm or check for a change of circumstance") %}
+                        {{data['contact-type-esa']}} - {{data['coc-option-esa']}}
+                        {%else%}
+                        {{data['contact-type-esa']}}
+                      {%endif%}
+                    </p>
+                  {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-esa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsESA in data['contact-type-esa'] %}
+                      <li>
+                      {%if questionsESA == "Reported a change of circumstance" %}
+                      {{ questionsESA }} - {{data['coc-option-esa']}}
+                      {%else%}
+                      {{ questionsESA }}
+                      {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-esa'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-esa'] }} - {{data['coc-option-esa']}}
+                      {%else%}
+                      {{data['contact-type-esa'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for PIP -->
+                {% if benefitsName == "Personal Independence Payment" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                   Personal Independence Payment
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-pip'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsPIP in data['contact-type-pip'] %}
+                      <li>
+                        {%if (questionsPIP == "Confirmed or checked for a change of circumstance") or (questionsPIP == "Confirm or check for a change of circumstance") %}
+                        {{ questionsPIP }} - {{data['coc-option-pip']}}
+                        {%else%}
+                        {{ questionsPIP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                      {%if (data['contact-type-pip'] == "Confirmed or checked for a change of circumstance") or (data['contact-type-pip'] == "Confirm or check for a change of circumstance") %}
+                        {{ data['contact-type-pip'] }} - {{data['coc-option-pip']}}
+                      {%else%}
+                        {{data['contact-type-pip']}}
+                      {%endif%}
+                    </p>
+                  {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-pip'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsPIP in data['contact-type-pip'] %}
+                      <li>
+                      {%if questionsPIP == "Reported a change of circumstance" %}
+                      {{ questionsPIP }} - {{data['coc-option-pip']}}
+                      {%else%}
+                      {{ questionsPIP }}
+                      {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-pip'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-pip'] }} - {{data['coc-option-pip']}}
+                      {%else%}
+                      {{data['contact-type-pip'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for aa -->
+                {% if benefitsName == 'Attendance Allowance' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Attendance Allowance
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-aa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsAA in data['contact-type-aa'] %}
+                      <li>
+                      {%if questionsAA == "Confirmed or checked for a change of circumstance" %}
+                      {{ questionsAA }} - {{data['coc-option-aa']}}
+                      {%else%}
+                      {{ questionsAA }}
+                      {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                      {%if data['contact-type-aa'] == "Confirmed or checked for a change of circumstance" %}
+                      {{ data['contact-type-aa'] }} - {{data['coc-option-aa']}}
+                      {%else%}
+                      {{ data['contact-type-aa'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-aa'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsAA in data['contact-type-aa'] %}
+                      <li>
+                      {%if questionsAA == "Reported a change of circumstance" %}
+                      {{ questionsAA }} - {{data['coc-option-aa']}}
+                      {%else%}
+                      {{ questionsAA }}
+                      {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                      {%if data['contact-type-aa'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-aa'] }} - {{data['coc-option-aa']}}
+                      {%else%}
+                      {{ data['contact-type-aa'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for DLA -->
+                {% if benefitsName == 'Disability Living Allowance 65+' or benefitsName == 'Disability Living Allowance Adult' or benefitsName == 'Disability Living Allowance Child' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                   {{benefitsName}}
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-dla'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsDLA in data['contact-type-dla'] %}
+                        <li>
+                        {%if questionsDLA == "Confirmed or checked for a change of circumstance" %}
+                        {{ questionsDLA }} - {{data['coc-option-dla']}}
+                        {%else%}
+                        {{ questionsDLA }}
+                        {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>
+                        {%if data['contact-type-dla'] == "Confirmed or checked for a change of circumstance" %}
+                        {{ data['contact-type-dla'] }} - {{data['coc-option-dla']}}
+                        {%else%}
+                        {{data['contact-type-dla'] }}
+                        {%endif%}
+                      </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-dla'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsDLA in data['contact-type-dla'] %}
+                      <li>
+                      {%if questionsDLA == "Reported a change of circumstance" %}
+                      {{ questionsDLA }} - {{data['coc-option-dla']}}
+                      {%else%}
+                      {{ questionsDLA }}
+                      {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-dla'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-dla'] }} - {{data['coc-option-dla']}}
+                      {%else%}
+                      {{data['contact-type-dla'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for ibjsa -->
+                {% if benefitsName == "Income-based Job Seeker's Allowance" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Income-based Job Seeker's Allowance
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-ibjsa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsIBJSA in data['contact-type-ibjsa'] %}
+                        <li>
+                          {%if questionsIBJSA == "Confirmed or checked for a change of circumstance" %}
+                          {{ questionsIBJSA }} - {{data['coc-option-ibjsa']}}
+                          {%else%}
+                          {{ questionsIBJSA }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>
+                        {%if data['contact-type-ibjsa'] == "Confirmed or checked for a change of circumstance" %}
+                        {{ data['contact-type-ibjsa']}} - {{data['coc-option-ibjsa']}}
+                        {%else%}
+                        {{ data['contact-type-ibjsa']}}
+                        {%endif%}
+                      </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-ibjsa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsIBJSA in data['contact-type-ibjsa'] %}
+                        <li>
+                          {%if questionsIBJSA == "Reported a change of circumstance" %}
+                          {{ questionsIBJSA }} - {{data['coc-option-ibjsa']}}
+                          {%else%}
+                          {{ questionsIBJSA }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>
+                        {%if data['contact-type-ibjsa'] == "Reported a change of circumstance" %}
+                        {{ data['contact-type-ibjsa']}} - {{data['coc-option-ibjsa']}}
+                        {%else%}
+                        {{ data['contact-type-ibjsa']}}
+                        {%endif%}
+                      </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for nsjsa -->
+                {% if benefitsName == "New Style Job Seeker's Allowance" %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    New Style Job Seeker's Allowance
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-nsjsa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsNSJSA in data['contact-type-nsjsa'] %}
+                        <li>
+                          {%if questionsNSJSA == "Confirmed or checked for a change of circumstance" %}
+                          {{ questionsNSJSA }} - {{data['coc-option-nsjsa']}}
+                          {%else%}
+                          {{ questionsNSJSA }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>
+                        {%if data['contact-type-nsjsa'] == "Confirmed or checked for a change of circumstance" %}
+                        {{ data['contact-type-nsjsa'] }} - {{data['coc-option-nsjsa']}}
+                        {%else%}
+                        {{ data['contact-type-nsjsa'] }}
+                        {%endif%}
+                      </p>
+                      {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-nsjsa'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsNSJSA in data['contact-type-nsjsa'] %}
+                        <li>
+                          {%if questionsNSJSA == "Reported a change of circumstance" %}
+                          {{ questionsNSJSA }} - {{data['coc-option-nsjsa']}}
+                          {%else%}
+                          {{ questionsNSJSA }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>
+                        {%if data['contact-type-nsjsa'] == "Reported a change of circumstance" %}
+                        {{ data['contact-type-nsjsa'] }} - {{data['coc-option-nsjsa']}}
+                        {%else%}
+                        {{ data['contact-type-nsjsa'] }}
+                        {%endif%}
+                      </p>
+                      {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for uc -->
+                {% if benefitsName == 'Universal Credit' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Universal Credit
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-uc'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsUC in data['contact-type-uc'] %}
+                      <li>
+                        {%if questionsUC == "Confirmed or checked for a change of circumstance" %}
+                        {{ questionsUC }} - {{data['coc-option-uc']}}
+                        {%else%}
+                        {{ questionsUC }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                        {%if data['contact-type-uc'] == "Confirmed or checked for a change of circumstance" %}
+                        {{ data['contact-type-uc'] }} - {{data['coc-option-uc']}}
+                        {%else%}
+                        {{ data['contact-type-uc'] }}
+                        {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-uc'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsUC in data['contact-type-uc'] %}
+                      <li>
+                        {%if questionsUC == "Reported a change of circumstance" %}
+                        {{ questionsUC }} - {{data['coc-option-uc']}}
+                        {%else%}
+                        {{ questionsUC }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                        {%if data['contact-type-uc'] == "Reported a change of circumstance" %}
+                        {{ data['contact-type-uc'] }} - {{data['coc-option-uc']}}
+                        {%else%}
+                        {{ data['contact-type-uc'] }}
+                        {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for PC -->
+                {% if benefitsName == 'Pension Credit' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Pension Credit
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-pc'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsPC in data['contact-type-pc'] %}
+                        <li>
+                          {%if questionsPC == "Confirmed or checked for a change of circumstance" %}
+                          {{ questionsPC }} - {{data['coc-option-pc']}}
+                          {%else%}
+                          {{ questionsPC }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-pc'] == "Confirmed or checked for a change of circumstance" %}
+                      {{ data['contact-type-pc'] }} - {{data['coc-option-pc']}}
+                      {%else%}
+                      {{ data['contact-type-pc'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-pc'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsPC in data['contact-type-pc'] %}
+                        <li>
+                          {%if questionsPC == "Reported a change of circumstance" %}
+                          {{ questionsPC }} - {{data['coc-option-pc']}}
+                          {%else%}
+                          {{ questionsPC }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-pc'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-pc'] }} - {{data['coc-option-pc']}}
+                      {%else%}
+                      {{ data['contact-type-pc'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for SP -->
+                {% if benefitsName == 'State Pension' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    State Pension
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-sp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsSP in data['contact-type-sp'] %}
+                      <li>
+                        {%if questionsSP == "Confirmed or checked for a change of circumstance" %}
+                        {{ questionsSP }} - {{data['coc-option-sp']}}
+                        {%else%}
+                        {{ questionsSP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-sp'] == "Confirmed or checked for a change of circumstance" %}
+                      {{ data['contact-type-sp'] }} - {{data['coc-option-sp']}}
+                      {%else%}
+                      {{ data['contact-type-sp'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-sp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsSP in data['contact-type-sp'] %}
+                      <li>
+                        {%if questionsSP == "Reported a change of circumstance" %}
+                        {{ questionsSP }} - {{data['coc-option-sp']}}
+                        {%else%}
+                        {{ questionsSP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-sp'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-sp'] }} - {{data['coc-option-sp']}}
+                      {%else%}
+                      {{ data['contact-type-sp'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for WFP -->
+                {% if benefitsName == 'Winter Fuel Payment' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Winter Fuel Payment
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-wfp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsWFP in data['contact-type-wfp'] %}
+                      <li>
+                        {%if questionsWFP == "Confirmed or checked for a change of circumstance" %}
+                        {{ questionsWFP }} - {{data['coc-option-wfp']}}
+                        {%else%}
+                        {{ questionsWFP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-wfp'] == "Confirmed or checked for a change of circumstance" %}
+                      {{ data['contact-type-wfp'] }} - {{data['coc-option-wfp']}}
+                      {%else%}
+                      {{ data['contact-type-wfp'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-wfp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsWFP in data['contact-type-wfp'] %}
+                      <li>
+                        {%if questionsWFP == "Reported a change of circumstance" %}
+                        {{ questionsWFP }} - {{data['coc-option-wfp']}}
+                        {%else%}
+                        {{ questionsWFP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-wfp'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-wfp'] }} - {{data['coc-option-wfp']}}
+                      {%else%}
+                      {{ data['contact-type-wfp'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for CWP -->
+                {% if benefitsName == 'Cold Weather Payment' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Cold Weather Payment
+                  </dt>
+                   {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-cwp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsCWP in data['contact-type-cwp'] %}
+                      <li>
+                        {%if questionsCWP == "Confirmed or checked for a change of circumstance" %}
+                        {{ questionsCWP }} - {{data['coc-option-cwp']}}
+                        {%else%}
+                        {{ questionsCWP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-cwp'] == "Confirmed or checked for a change of circumstance" %}
+                      {{ data['contact-type-cwp'] }} - {{data['coc-option-cwp']}}
+                      {%else%}
+                      {{ data['contact-type-cwp'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-cwp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsCWP in data['contact-type-cwp'] %}
+                      <li>
+                        {%if questionsCWP == "Reported a change of circumstance" %}
+                        {{ questionsCWP }} - {{data['coc-option-cwp']}}
+                        {%else%}
+                        {{ questionsCWP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-cwp'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-cwp'] }} - {{data['coc-option-cwp']}}
+                      {%else%}
+                      {{ data['contact-type-cwp'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for BSP -->
+                {% if benefitsName == 'Bereavement Support Payment' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Bereavement Support Payment
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-bsp'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsBSP in data['contact-type-bsp'] %}
+                      <li>
+                        {%if questionsBSP == "Confirmed or checked for a change of circumstance" %}
+                        {{ questionsBSP }} - {{data['coc-option-bsp']}}
+                        {%else%}
+                        {{ questionsBSP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                      </ul>
+                    {%else%}
+                      <p>
+                      {%if data['contact-type-bsp'] == "Confirmed or checked for a change of circumstance" %}
+                      {{ data['contact-type-bsp'] }} - {{data['coc-option-bsp']}}
+                      {%else%}
+                      {{ data['contact-type-bsp'] }}
+                      {%endif%}
+                      </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-bsp'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questionsBSP in data['contact-type-bsp'] %}
+                      <li>
+                        {%if questionsBSP == "Reported a change of circumstance" %}
+                        {{ questionsBSP }} - {{data['coc-option-bsp']}}
+                        {%else%}
+                        {{ questionsBSP }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                    {%else%}
+                    <p>
+                    {%if data['contact-type-bsp'] == "Reported a change of circumstance" %}
+                    {{ data['contact-type-bsp'] }} - {{data['coc-option-bsp']}}
+                    {%else%}
+                    {{ data['contact-type-bsp'] }}
+                    {%endif%}
+                    </p>
+                    {%endif%}       
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for MA -->
+                {% if benefitsName == 'Maternity Allowance' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Maternity Allowance
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-ma'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsMA in data['contact-type-ma'] %}
+                        <li>
+                          {%if questionsMA == "Confirmed or checked for a change of circumstance" %}
+                          {{ questionsMA }} - {{data['coc-option-ma']}}
+                          {%else%}
+                          {{ questionsMA }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-ma'] == "Confirmed or checked for a change of circumstance" %}
+                      {{ data['contact-type-ma'] }} - {{data['coc-option-ma']}}
+                      {%else%}
+                      {{ data['contact-type-ma'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-ma'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsMA in data['contact-type-ma'] %}
+                        <li>
+                          {%if questionsMA == "Reported a change of circumstance" %}
+                          {{ questionsMA }} - {{data['coc-option-ma']}}
+                          {%else%}
+                          {{ questionsMA }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-ma'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-ma'] }} - {{data['coc-option-ma']}}
+                      {%else%}
+                      {{ data['contact-type-ma'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+                <!-- for SDA -->
+                {% if benefitsName == 'Severe Disablement Allowance' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Severe Disablement Allowance
+                  </dt>
+                  {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-sda'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsSDA in data['contact-type-sda'] %}
+                        <li>
+                          {%if questionsSDA == "Confirmed or checked for a change of circumstance" %}
+                          {{ questionsSDA }} - {{data['coc-option-sda']}}
+                          {%else%}
+                          {{ questionsSDA }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-sda'] == "Confirmed or checked for a change of circumstance" %}
+                      {{ data['contact-type-sda'] }} - {{data['coc-option-sda']}}
+                      {%else%}
+                      {{ data['contact-type-sda'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%else%}
+                  <dd class="govuk-summary-list__value">
+                    {%if data['contact-type-sda'] | length > 1 %}
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for questionsSDA in data['contact-type-sda'] %}
+                        <li>
+                          {%if questionsSDA == "Reported a change of circumstance" %}
+                          {{ questionsSDA }} - {{data['coc-option-sda']}}
+                          {%else%}
+                          {{ questionsSDA }}
+                          {%endif%}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    {%else%}
+                    <p>
+                      {%if data['contact-type-sda'] == "Reported a change of circumstance" %}
+                      {{ data['contact-type-sda'] }} - {{data['coc-option-sda']}}
+                      {%else%}
+                      {{ data['contact-type-sda'] }}
+                      {%endif%}
+                    </p>
+                    {%endif%}
+                  </dd>
+                  {%endif%}
+                </div>
+                {%endif%}
+              {% endfor %}
+              <!-- 6 point plan -->
+              <!-- {%if contactType == 'Inbound phone call with' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Followed the 6 point plan
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {{ data['six-point-plan']}}
+                </dd>
+              </div>
+              {%endif%} -->
+                <!-- Note added -->
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notes added
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['addNote'] or "Not provided" }}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        {%else%}
+        <!-- for one benefit --> 
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Call details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  <!-- {{ data['what-benefit-discussed'] }} -->
+                  {%if data['what-benefit-discussed']== "Disability Living Allowance" %}
+                  {{ data['dla-type'] }}
+                  {%else%}
+                  {{ data['what-benefit-discussed'] }}
+                  {%endif%}
+                </dt>
+                {% if data['What-type-of-contact']=='Outbound phone call with'%}
+                <dd class="govuk-summary-list__value">
+                  {%if data['contact-type'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questions in data['contact-type'] %}
+                      <li>
+                        {%if (questions == "Confirmed or checked for a change of circumstance") or (questions == "Confirm or check for a change of circumstance") %}
+                        {{questions}} - {{data['coc-option']}}
+                        {%else%}
+                        {{questions}}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>  
+                      {%if (data['contact-type'] == "Confirmed or checked for a change of circumstance") or (data['contact-type'] == "Confirm or check for a change of circumstance") %}
+                      {{data['contact-type']}} - {{data['coc-option']}}
+                      {%else%}
+                      {{data['contact-type']}}
+                      {%endif%}
+                    </p>
+                  {%endif%}
+                </dd>
+                {%else%}
+                <dd class="govuk-summary-list__value"></dd>
+                {%if data['contact-type'] | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for questions in data['contact-type'] %}
+                      <li>
+                        {%if questions == "Reported a change of circumstance" %}
+                        {{ questions }} - {{data['coc-option']}}
+                        {%else%}
+                        {{ questions }}
+                        {%endif%}
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  {%else%}
+                    <p>
+                      {%if data['contact-type'] == "Reported a change of circumstance" %}
+                        {{ data['contact-type'] }} - {{data['coc-option']}}
+                        {%else%}
+                        {{ data['contact-type']}}
+                      {%endif%}
+                    </p>
+                  {%endif%}
+                  </dd>
+                {%endif%}
+                <dd class="govuk-summary-list__actions govuk-!-display-none">
+                  <a class="govuk-link" href="add-change-notes.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
+              <!-- 6 point plan -->
+              <!-- {%if contactType == 'Inbound phone call with' %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                   Followed the 6 point plan
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {{ data['six-point-plan']}}
+                </dd>
+              </div>
+              {%endif%} -->
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notes added
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['addNote'] or "Not provided" }}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        {%endif%}
+
+        {%if data['What-type-of-contact'] == 'Inbound phone call with'%}
+        <!-- Inbound complete session -->
+        <form class="form govuk-!-margin-top-9" action="complete-call" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Do you want to start the service again or continue working on this call? 
+              </h2>
+              </legend>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="complete-the-call-2" name="Do-you-want-to-complete-the-call" type="radio" value="Complete phone call">
+                  <label class="govuk-label govuk-radios__label" for="complete-the-call-2">
+                    Start service again
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="complete-the-call" name="Do-you-want-to-complete-the-call" type="radio" value="back to home page">
+                  <label class="govuk-label govuk-radios__label" for="complete-the-call">
+                    Continue working on this call
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+        {%endif%}
+
+        {%if data['What-type-of-contact'] == 'Outbound phone call with'%}
+          {%if data['was-call-answered']== 'No'%}
+          <!-- Outbound - Call not answered -->
+          <form class="form govuk-!-margin-top-9" action="/prototype-dev-baseline/mvp-1_3_1/index" method="post">
+            <button class="govuk-button" data-module="govuk-button">
+              Start service again
+            </button>
+          </form>
+          {%else%}
+          <!-- Outbound - Call answered  -->
+          <form class="form govuk-!-margin-top-9" action="complete-call" method="post">
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading">
+                  Do you want to start the service again or continue working on this call? 
+                </h2>
+                </legend>
+                <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="complete-the-call-2" name="Do-you-want-to-complete-the-call" type="radio" value="Complete phone call">
+                    <label class="govuk-label govuk-radios__label" for="complete-the-call-2">
+                      Start service again
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="complete-the-call" name="Do-you-want-to-complete-the-call" type="radio" value="back to home page">
+                    <label class="govuk-label govuk-radios__label" for="complete-the-call">
+                      Continue working on this call
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <button class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+          </form>
+          {%endif%}
+        {%endif%}
+      </div>
+    </div>
+
+{% endblock %}

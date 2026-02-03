@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Change your note
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_3_2/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_3_2/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span 
+        class="govuk-caption-l" 
+        aria-label="Inbound phone call, 2 February 2026 at 14:04"
+      >
+        Inbound phone call: 2 February 2026, 14:04
+      </span>
+
+      <h1 
+        class="govuk-heading-l" 
+        aria-label="Notes history"
+      >
+        Notes history
+      </h1>
+
+      <!-- Most recent note -->
+      <h2 
+        class="govuk-heading-m" 
+        aria-label="Note recorded on 3 February 2026 at 10:14"
+      >
+        3 February 2026, 10:14
+      </h2>
+
+      <p class="govuk-body-s" aria-label="Updated by Agent 1003">
+        Updated by Agent 1003
+      </p>
+
+      <div class="govuk-inset-text" aria-label="Note content">
+        Call disconnected before reason was established. Did not call back because caller was not identified as vulnerable.
+      </div>
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <!-- Original note -->
+      <h2 
+        class="govuk-heading-m" 
+        aria-label="Note recorded on 2 February 2026 at 14:04"
+      >
+        2 February 2026, 14:04
+      </h2>
+
+      <p class="govuk-body-s" aria-label="Recorded by Agent 1003">
+        Recorded by Agent 1003
+      </p>
+
+      <div class="govuk-inset-text" aria-label="Note content">
+        Call disconnected before reason was established.
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

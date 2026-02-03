@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Change your note
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_3_2/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_3_2/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/prototype-dev-baseline/mvp-1_3_2/telephony/contact-history-2" method="post" novalidate>
+
+        <div
+          class="govuk-form-group govuk-character-count"
+          data-module="govuk-character-count"
+          data-maxlength="5000"
+        >
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="note-textarea">
+              Change this note
+            </label>
+          </h1>
+
+          <div id="note-hint" class="govuk-hint">
+            Change this historical note if it is inaccurate or missing information.
+          </div>
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              Do not include personal identifiable information, such as a name, National Insurance number or date of birth.
+            </strong>
+          </div>
+
+          <textarea
+            class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3"
+            id="note-textarea"
+            name="addNote"
+            rows="7"
+            aria-describedby="note-hint note-textarea-info"
+          >{{ data['addNote'] | default('Call disconnected before reason was established.') }}</textarea>
+
+          <div
+            id="note-textarea-info"
+            class="govuk-hint govuk-character-count__message"
+            aria-live="polite"
+          >
+            You have 5000 characters remaining
+          </div>
+        </div>
+
+        <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <a class="govuk-link" href="/prototype-dev-baseline/mvp-1_3_2/telephony/contact-history">Cancel</a>
+      </div>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
