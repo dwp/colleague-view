@@ -17,8 +17,8 @@
     </dd>
     <dt class="govuk-visually-hidden">Who is the engagement with</dt>
     <dd>
-      {{ data['Who-is-the-phone-call-with-ur8'] }}
-      {{ data['Who-is-the-engagement-with'] }}
+      {{ (data['Who-is-the-phone-call-with-ur8'] or '') | replace('(Customer)', '') }}
+      {{ (data['Who-is-the-engagement-with'] or '') | replace('(Customer)', '') }}
     </dd>
   </dl>
   </div>
