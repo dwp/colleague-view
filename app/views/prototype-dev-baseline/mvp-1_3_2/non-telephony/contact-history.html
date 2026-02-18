@@ -5,17 +5,17 @@ Contact history
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3_1/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_3_1/common/non-telephony/keydetail-bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_2/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_2/common/non-telephony/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_3_1/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_2/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "/prototype-dev-baseline/mvp-1_3_1/common/phase-banner.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_2/common/phase-banner.html" %}
   <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
@@ -37,26 +37,26 @@ Contact history
         <h1 class="govuk-heading-xl">Contact history</h1>
       </div>
       <div class="govuk-grid-column-one-half">
-        <form action="/prototype-dev-baseline/mvp-1_3_1/non-telephony/add-contact/reviewed" method="post">
+        <form action="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/reviewed" method="post">
           <div class="govuk-button-group">
             {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
             {%if benefits >=1 %}
-            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3_1/non-telephony/add-contact/reviewed">
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/reviewed">
               Add or change contact details
             </button>
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3_1/non-telephony/add-contact/check-before-start-sercive-again">
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/check-before-start-sercive-again">
               Start service again
             </button>
             {%else%}
-            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3_1/non-telephony/add-contact/reviewed">
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/reviewed">
               Add contact details
             </button>
             <!-- Adde this grey button afer Karen's got conformation from Rhys -->
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3_1/non-telephony/add-contact/check-before-start-sercive-again">
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/check-before-start-sercive-again">
               Start service again
             </button>
             {%endif%}
-            <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3_1/non-telephony/add-contact/check-before-start-sercive-again">
+            <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/check-before-start-sercive-again">
               Start service again
             </button> -->
           </div>
