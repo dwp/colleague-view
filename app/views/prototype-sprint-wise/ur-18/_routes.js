@@ -162,7 +162,7 @@ router.post('/telephony/home', function (req, res) {
     if (req.session.data['What-type-of-contact'] == 'Inbound phone call with') {
         res.redirect('/prototype-sprint-wise/ur-18/telephony/home');
       } else if (req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
-        res.redirect('/prototype-sprint-wise/18/call-status');
+        res.redirect('/prototype-sprint-wise/ur-18/call-status');
       }
 });
 
@@ -249,7 +249,7 @@ router.post('/telephony/add-call/planned-action', function (req, res) {
   req.session.data['what-benefit-discussed'] == undefined
   ) {
     console.log('Benefit not selected');
-  res.redirect('/prototype-sprint-wise/8/telephony/add-call/reviewed-error');
+  res.redirect('/prototype-sprint-wise/ur-18/telephony/add-call/reviewed-error');
   } else {
     console.log('Benefit Selected', req.session.data['what-benefit-discussed']);
   res.redirect('/prototype-sprint-wise/ur-18/telephony/add-call/select-contact-type');
@@ -617,18 +617,19 @@ router.post('/prototype-sprint-wise/ur-18/telephony/add-call/add-more-call-detai
   var addCallDetails = req.session.data['do-you-want-to-add-more-call-detail'];
   if (addCallDetails == 'Yes I want to add'){
     req.session.data['what-benefit-discussed'] = '';
-    res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/reviewed')
+    return res.redirect('/prototype-sprint-wise/ur-18/telephony/add-call/reviewed');
   }
   if (addCallDetails == 'Complete phone call'){
-    // res.redirect('/prototype-sprint-wise/ur-17//add-call/call-completed');
-    res.redirect('/prototype-sprint-wise/ur-17/index')
+    return res.redirect('/prototype-sprint-wise/ur-18/index');
   }
   if (addCallDetails == 'Change your note'){
-    res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/change-notes');
+    return res.redirect('/prototype-sprint-wise/ur-18/telephony/add-call/change-notes');
   }
   if (addCallDetails == 'Add a note'){
-    res.redirect('/prototype-sprint-wise/ur-17/telephony/add-call/add-a-note');
+    return res.redirect('/prototype-sprint-wise/ur-18/telephony/add-call/add-a-note');
   }
+  // fallback (optional)
+  return res.redirect('/prototype-sprint-wise/ur-18/telephony/add-call/reviewed');
 });
 
 
@@ -688,7 +689,7 @@ router.post('/prototype-sprint-wise/ur-18/telephony/add-call/add-additional-supp
   // Go to the page where user can add/update needs
   return res.redirect('/prototype-sprint-wise/ur-18/telephony/add-call/add-additional-support-needs');
 });
-``
+
 
 
 module.exports = router;
