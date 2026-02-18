@@ -24,16 +24,23 @@
       <dd class="govuk-table__cell dwp-key-details-bar__status govuk-!-margin-0 govuk-!-padding-0">
     </dd>
     </dl>
-  <dl class="dwp-key-details-bar__bottom-block {{hideKeyDatailInfo}}">
-    <dt class="govuk-visually-hidden">What type of engaement it is</dt>
-    <dd>
-      {{ data['What-type-of-contact'] }}
-    </dd>
-    <dt class="govuk-visually-hidden">Who is the engagement with</dt>
-    <dd>
-      {{ (data['Who-is-the-phone-call-with-ur8'] or '') | replace('(Customer)', '') }}
-      {{ (data['Who-is-the-engagement-with'] or '') | replace('(Customer)', '') }}
-    </dd>
+    <dl class="dwp-key-details-bar__bottom-block {{hideKeyDatailInfo}}">
+      <dt class="govuk-visually-hidden">What type of engaement it is</dt>
+      <dd>
+        {{ data['What-type-of-contact'] }}
+      </dd>
+      <dt class="govuk-visually-hidden">Who is the engagement with</dt>
+      <dd>
+    {# Clean raw data to avoid undefined and strip labels #}
+    {% set phoneRaw = data['Who-is-the-phone-call-with-ur8'] or '' %}
+    {% set phone = phoneRaw | replace('(Customer)', '') | replace('(Partner)', '') | replace('(appointee)', '') | trim %}
+
+    {% set callerRaw = data['Who-is-the-engagement-with'] or '' %}
+    {% set caller = callerRaw | replace('(Customer)', '') | replace('(Partner)', '') | replace('(appointee)', '') | trim %}
+
+    {# Join both values with a space only if both exist #}
+    {{ [phone, caller] | reject('equalto', '') | join(' ') }}
+  </dd>
   </dl>
   </div>
 </section>
