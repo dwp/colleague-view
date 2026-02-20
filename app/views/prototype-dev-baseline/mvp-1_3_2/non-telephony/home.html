@@ -35,25 +35,36 @@ Home
           <h1 class="govuk-heading-xl">Home</h1>
         </div>
         <div class="govuk-grid-column-one-half">
-          <form action="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/reviewed" method="post">
+          <form action="/non-telephony/add-contact/reviewed" method="post">
             <div class="govuk-button-group">
               {% set benefits =  data['what-benefit-discussed-non-telephony'] | length %}
               {% if benefits > 0 %}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/do-you-want-add-more-details">
-                Add or change contact details
-              </button>
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/check-before-start-sercive-again">
-                Start service again
-              </button>
-              {%else%}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/reviewed">
-                Add contact details
-              </button>
-              <!-- Adde this grey button afer Karen's got conformation from Rhys -->
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3_2/non-telephony/add-contact/check-before-start-sercive-again">
-                Start service again
-              </button>
-              {%endif%}
+                <button type="submit" class="govuk-button" style="margin-left: auto;"
+                  data-module="govuk-button"
+                  formaction="/non-telephony/add-contact/do-you-want-add-more-details">
+                  Add or change contact details
+                </button>
+
+                <button type="submit" class="govuk-button govuk-button--secondary"
+                  data-module="govuk-button"
+                  formaction="/non-telephony/add-contact/check-before-start-sercive-again">
+                  Start service again
+                </button>
+
+              {% else %}
+
+                <button type="submit" class="govuk-button" style="margin-left: auto;"
+                  data-module="govuk-button"
+                  formaction="/non-telephony/add-contact/reviewed">
+                  Add contact details
+                </button>
+
+                <button type="submit" class="govuk-button govuk-button--secondary"
+                  data-module="govuk-button"
+                  formaction="/non-telephony/add-contact/check-before-start-sercive-again">
+                  Start service again
+                </button>
+              {% endif %}
             </div>
           </form>
         </div>
