@@ -191,18 +191,31 @@ router.post('/non-telephony/home', function (req, res) {
     res.redirect('/prototype-dev-baseline/mvp-1_4/non-telephony/home');
   }
 });
-// new routes for shorten call log - Telephony
+// -------------------------------------------
+// OLD ROUTE (causes redirect to wrong page) to be removed
+// -------------------------------------------
+//
+// router.post('/telephony/add-call/reviewed', function (req, res) {
+//   if (
+//     req.session.data['what-benefit-discussed'] != '' &&
+//     req.session.data['Do-you-want-to-complete-the-call'] != ''
+//   ) {
+//     // This redirect is what hijacked your flow
+//     res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/add-call/do-you-want-add-more-details');
+//   }
+//   else {
+//     req.session.data['what-benefit-discussed'] = '';
+//     req.session.data['addNote'] = '';
+//     res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed');
+//   }
+// });
+// -------------------------------------------
+// NEW ROUTE (always goes to reviewed)
+// -------------------------------------------
 router.post('/telephony/add-call/reviewed', function (req, res) {
-  if (req.session.data['what-benefit-discussed'] != '' && req.session.data['Do-you-want-to-complete-the-call'] != '') {
-    // console.log('Display summary page');
-    res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/add-call/do-you-want-add-more-details');
-  }
-  else{
-    req.session.data['what-benefit-discussed'] = '';
-    req.session.data['addNote']= '';
-    res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed');
-  }
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed');
 });
+
 
 router.post('/telephony/add-call/planned-action', function (req, res) {
 

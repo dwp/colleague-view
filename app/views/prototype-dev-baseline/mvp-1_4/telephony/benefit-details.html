@@ -6,17 +6,17 @@
 
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/keydetail-bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/phase-banner.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
   <a href="benefit-payment.html" class="govuk-back-link">Back</a>
 {% endblock %}
 
@@ -26,23 +26,23 @@
     <h1 class="govuk-heading-xl">Benefit details</h1>
   </div>
   <div class="govuk-grid-column-one-half">
-    <form action="/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed" method="post">
+    <form action="/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed" method="post">
       <div class="govuk-button-group">
         {% set benefits =  data['what-benefit-discussed'] | length %}
         {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
         {%if benefitAdded != '' %}
-        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed">
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed">
           Add or change call details
         </button>
-        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/do-you-want-to-complete-call">
+        <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_4/telephony/add-call/do-you-want-to-complete-call">
           Start service again
         </button>
         {%else%}
-        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed">
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed">
           Add call details
         </button>
         {%endif%}
-        <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/do-you-want-to-complete-call">
+        <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_4/telephony/add-call/do-you-want-to-complete-call">
           Complete phone call
         </button> -->
       </div>
@@ -571,9 +571,9 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Industrial Injuries Disablement Benefit</td>
-            <td class="govuk-table__cell">Does not apply</td>
+            <td class="govuk-table__cell">We do not have this information</td>
             <td class="govuk-table__cell">30%</td>
-            <td class="govuk-table__cell">Does not apply</td>
+            <td class="govuk-table__cell">We do not have this information</td>
             <!-- <td class="govuk-table__cell">Do not apply</td> -->
           </tr>
           <tr class="govuk-table__row">
@@ -586,7 +586,7 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">Retirement Allowance</td>
             <td class="govuk-table__cell">£90</td>
-            <td class="govuk-table__cell">Does not apply</td>
+            <td class="govuk-table__cell">We do not have this information</td>
             <td class="govuk-table__cell">13</td>
             <!-- <td class="govuk-table__cell">Do not apply</td> -->
           </tr>
@@ -615,112 +615,6 @@
     </section>
     {% endif %}
 
-    {% if data.benefit == "iidb" %}
-    <!-- IIDB details -->
-    <section class="govuk-!-padding-top-2" id="iidb-details">
-      <h2 class="govuk-heading-l">
-        Industrial Injuries Disablement Benefit
-      </h2>
-      <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Start date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            29 September 2010
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            End date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No end date
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Benefit type
-          </dt>
-          <dd class="govuk-summary-list__value">
-              Life
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Amount before deductions
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Award amount is not available because we do not have this information
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Payment frequency
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Every 4 weeks
-          </dd>
-        </div>
-      </dl>
-      <!-- componets included -->
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Components</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Component</th>
-            <th scope="col" class="govuk-table__header">Amount</th>
-            <th scope="col" class="govuk-table__header">Rate</th>
-            <th scope="col" class="govuk-table__header">Payment in lieu (percentage awarded)</th>
-            <th scope="col" class="govuk-table__header">Start and end dates</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Industrial Injuries Disablement Benefit</td>
-            <td class="govuk-table__cell">Does not apply</td>
-            <td class="govuk-table__cell">30%</td>
-            <td class="govuk-table__cell">Does not apply</td>
-            <td class="govuk-table__cell">Do not apply</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Reduced Earnings Allowance</td>
-            <td class="govuk-table__cell">£140</td>
-            <td class="govuk-table__cell">Maximum</td>
-            <td class="govuk-table__cell">03</td>
-            <td class="govuk-table__cell">Do not apply</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Retirement Allowance</td>
-            <td class="govuk-table__cell">£90</td>
-            <td class="govuk-table__cell">Does not apply</td>
-            <td class="govuk-table__cell">13</td>
-            <td class="govuk-table__cell">Do not apply</td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- Adjustment to entitlement -->
-      <table class="govuk-table govuk-!-margin-top-6">
-        <caption class="govuk-table__caption govuk-table__caption--m">Adjustments</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header" style="width: 25%;">Type</th>
-            <th scope="col" class="govuk-table__header" style="width: 25%;">Category</th>
-            <th scope="col" class="govuk-table__header" style="width: 25%;">Amount</th>
-            <th scope="col" class="govuk-table__header" style="width: 25%;">Period</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row"> 
-            <td class="govuk-table__cell">Personal Independence Payment</td>
-            <td class="govuk-table__cell">Recovery of overpayment</td>
-            <td class="govuk-table__cell">£25 every 4 weeks</td>
-            <td class="govuk-table__cell">From 24 December 2022 to 14 June 2026</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    {% endif %}
   </div>
 </div>
 

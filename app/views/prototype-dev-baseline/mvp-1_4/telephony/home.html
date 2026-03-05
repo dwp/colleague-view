@@ -6,12 +6,12 @@ Home
 
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_3/common/keydetail-bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-{% include "/prototype-dev-baseline/mvp-1_3/common/footer.html" %}
+{% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
 {% endblock %}
 
 
@@ -35,41 +35,24 @@ Home
           <h1 class="govuk-heading-xl">Home</h1>
         </div>
         <div class="govuk-grid-column-one-half">
-          <form action="/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed" method="post">
-            <!-- <div class="govuk-button-group">
-              {%if benefits > 0 %}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed">
+          {% set base = "/prototype-dev-baseline/mvp-1_4" %}
+          <div class="govuk-button-group">
+            {% set completed = data['Do-you-want-to-complete-the-call'] %}
+
+            {% if completed %}
+              <a class="govuk-button" data-module="govuk-button" href="{{ base }}/telephony/add-call/reviewed" style="margin-left:auto">
                 Add or change call details
-              </button>
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/do-you-want-to-complete-call">
+              </a>
+
+              <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="{{ base }}/telephony/add-call/do-you-want-to-complete-call">
                 Start service again
-              </button>
-              {%else%}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed">
+              </a>
+            {% else %}
+              <a class="govuk-button" data-module="govuk-button" href="{{ base }}/telephony/add-call/reviewed" style="margin-left:auto">
                 Add call details
-              </button>
-              {%endif%}
-            </div> -->
-            <div class="govuk-button-group">
-              {% set benefits =  data['what-benefit-discussed'] | length %}
-              {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
-              {%if benefitAdded != '' %}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed">
-                Add or change call details
-              </button>
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/do-you-want-to-complete-call">
-                Start service again
-              </button>
-              {%else%}
-              <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/reviewed">
-                Add call details
-              </button>
-              {%endif%}
-              <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_3/telephony/add-call/do-you-want-to-complete-call">
-                Complete phone call
-              </button> -->
-            </div>
-          </form>
+              </a>
+            {% endif %}
+          </div>
         </div>
       </div>
         <!-- to be card styel -->
@@ -101,6 +84,16 @@ Home
                   <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
                 </h2>
                 <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
+              </div>
+            </div>
+          </li>
+          <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+            <div class="nhsuk-card nhsuk-card--clickable">
+              <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                  <a class="nhsuk-card__link govuk-link" href="add-support-needs.html">Add support needs</a>
+                </h2>
+                <p class="nhsuk-card__description">Add a new support need to this account.</p>
               </div>
             </div>
           </li>
