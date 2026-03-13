@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/phase-banner.html" %}
+
+  <nav class="govuk-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a href="/prototype-dev-baseline/mvp-1_4/telephony/home" class="govuk-breadcrumbs__link">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="page">
+        <span class="govuk-breadcrumbs__link">Support needs</span>
+      </li>
+    </ol>
+  </nav>
+{% endblock %}
+
+{% block content %}
+
+{# ---------------------------------------------------------------
+   LOAD STATE
+--------------------------------------------------------------- #}
+
+{% set support       = data['supportNeeds'] or {} %}
+{% set activeNeeds   = support.items or [] %}
+{% set events        = data['supportNeedsEvents'] or [] %}
+
+{# Fallback (only used if an individual event missed whoWith) #}
+{% set whoWithFallback =
+  data['Who-is-the-phone-call-with-ur8']
+  or data['Who-is-the-engagement-with']
+  or data['Who-is-contact-with']
+  or '' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" aria-describedby="support-needs-notes-hint">
+      Support needs
+    </h1>
+
+    <div id="support-needs-notes-hint" class="govuk-hint">
+      These notes only apply to support needs. You can find general contact
+      notes in the account’s main contact history.
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <a href="/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed"
+       class="govuk-button"
+       data-module="govuk-button">
+      Add call details
+    </a>
+  </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+
+    {# Track shown cards after filtering #}
+    {% set shownCount = 0 %}
+
+    {# ============================================================
+       LOOP: ONE SUMMARY CARD PER EVENT (newest → oldest)
+       ============================================================ #}
+    {% for ev in events %}
+
+      {# --------------------------------------------
+         LEVEL 1: Show event only if at least one of
+         its needs is still active (present in activeNeeds).
+         If *all* needs in the event were removed, hide the event.
+         -------------------------------------------- #}
+      {% set showEvent = false %}
+      {% for need in ev.needs %}
+        {% if activeNeeds.includes(need) %}
+          {% set showEvent = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if showEvent %}
+
+        {# --------------------------------------------
+           LEVEL 2: Build a visible list of *only* active needs
+           and **explicitly hide "Something else"** in the notes timeline.
+           -------------------------------------------- #}
+        {% set visibleNeeds = [] %}
+        {% for need in ev.needs %}
+          {% if activeNeeds.includes(need) and (need != 'Something else') %}
+            {% set visibleNeeds = visibleNeeds.concat([need]) %}
+          {% endif %}
+        {% endfor %}
+
+        {% set shownCount = shownCount + 1 %}
+
+        <div class="govuk-summary-card govuk-!-margin-bottom-4">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              {{ (ev.contactType or 'Contact') | replace(' with', '') }}: {{ ev.contactTime or ev.at }}
+            </h2>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+              {# ROW 1: SUPPORT NEEDS (filtered to active; bullet only if >1) #}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Support needs</dt>
+                <dd class="govuk-summary-list__value">
+                  {% if visibleNeeds | length > 1 %}
+                    <ul class="govuk-list govuk-list--bullet">
+                      {% for n in visibleNeeds %}
+                        <li>{{ n }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% elseif visibleNeeds | length == 1 %}
+                    <p>{{ visibleNeeds[0] }}</p>
+                  {% else %}
+                    <span class="govuk-hint">None recorded</span>
+                  {% endif %}
+                </dd>
+              </div>
+
+              {# ROW 2: NOTE (add/update only) #}
+              {% if ev.action in ['add', 'update'] %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {% if ev.action == 'update' %}Updated note{% else %}Note{% endif %}
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if ev.note %}
+                      {{ ev.note }}
+                    {% else %}
+                      <span class="govuk-hint">Not provided</span>
+                    {% endif %}
+                  </dd>
+                </div>
+              {% endif %}
+
+              {# ROW 3: WHO THE CONTACT WAS WITH #}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Who the contact was with</dt>
+                <dd class="govuk-summary-list__value">
+                  {% if ev.whoWith %}
+                    {{ ev.whoWith }}
+                  {% elseif whoWithFallback %}
+                    {{ whoWithFallback }}
+                  {% else %}
+                    <span class="govuk-hint">Not recorded</span>
+                  {% endif %}
+                </dd>
+              </div>
+
+              {# ROW 4: AGENT ID (hardcoded) #}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">Agent ID</dt>
+                <dd class="govuk-summary-list__value">1003</dd>
+              </div>
+
+            </dl>
+          </div>
+        </div>
+
+      {% endif %}
+    {% endfor %}
+
+    {% if shownCount == 0 %}
+      <div class="govuk-inset-text">
+        There are no support needs notes yet.
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

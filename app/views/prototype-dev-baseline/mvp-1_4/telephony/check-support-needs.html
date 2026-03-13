@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Remove support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{# ----------------------------
+   INPUTS
+------------------------------ #}
+
+{# ADD selections #}
+{% set addSelections = data['what-additional-support'] %}
+{% if addSelections is string %}{% set addSelections = [addSelections] %}{% endif %}
+{% set addSelections = addSelections or [] %}
+
+{# REMOVE selections #}
+{% set removeSelections = data['remove-support-needs'] %}
+{% if removeSelections is string %}{% set removeSelections = [removeSelections] %}{% endif %}
+{% set removeSelections = removeSelections or [] %}
+
+{# UPDATE selections #}
+{% set updateSelections = data['update-support-needs'] %}
+{% if updateSelections is string %}{% set updateSelections = [updateSelections] %}{% endif %}
+{% set updateSelections = updateSelections or [] %}
+
+{# ----------------------------
+   DETERMINE MODE
+------------------------------ #}
+{% if updateSelections | length > 0 %}
+  {% set mode = "update" %}
+{% elseif removeSelections | length > 0 %}
+  {% set mode = "remove" %}
+{% else %}
+  {% set mode = "add" %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Step 2 of 2</span>
+
+    {% if mode == "update" %}
+      <h1 class="govuk-heading-l">Check the details you want to update</h1>
+    {% elseif mode == "remove" %}
+      <h1 class="govuk-heading-l">Check the details you want to remove</h1>
+    {% else %}
+      <h1 class="govuk-heading-l">Check the details you have added</h1>
+    {% endif %}
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">Support needs</h2>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {% if mode == "update" %}
+                Updated support needs
+              {% elseif mode == "remove" %}
+                Removed support needs
+              {% else %}
+                Added support needs
+              {% endif %}
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+
+              {# ----------------------------
+                 UPDATE MODE
+              ------------------------------ #}
+              {% if mode == "update" %}
+
+                {% if updateSelections | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for item in updateSelections %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+
+                {% elseif updateSelections | length == 1 %}
+                  <p>{{ updateSelections[0] }}</p>
+
+                {% else %}
+                  <p>None selected</p>
+                {% endif %}
+
+              {# ----------------------------
+                 REMOVE MODE — FIXED
+              ------------------------------ #}
+              {% elseif mode == "remove" %}
+
+                {% if removeSelections | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for item in removeSelections %}
+                      <li>{{ item }}</li>
+                    {% endfor %}
+                  </ul>
+
+                {% elseif removeSelections | length == 1 %}
+                  <p>{{ removeSelections[0] }}</p>
+
+                {% else %}
+                  <p>None selected</p>
+                {% endif %}
+
+              {# ----------------------------
+                 ADD MODE
+              ------------------------------ #}
+              {% else %}
+
+                {% if addSelections | length > 1 %}
+                  <ul class="govuk-list govuk-list--bullet">
+                    {% for item in addSelections %}
+                      <li>
+                        {% if item == "Something else" %}
+                          {{ data['something-else-detail'] }}
+                        {% else %}
+                          {{ item }}
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+
+                {% elseif addSelections | length == 1 %}
+                  {% if addSelections[0] == "Something else" %}
+                    <p>{{ data['something-else-detail'] }}</p>
+                  {% else %}
+                    <p>{{ addSelections[0] }}</p>
+                  {% endif %}
+
+                {% else %}
+                  <p>None selected</p>
+                {% endif %}
+
+              {% endif %}
+
+            </dd>
+          </div>
+
+          {# ----------------------------
+             NOTES AREA
+------------------------------ #}
+
+          {% if mode == "add" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Note</dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['addNote-additional-support'] or "Not provided" }}
+              </dd>
+            </div>
+
+          {% elseif mode == "update" %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Updated note</dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['update-note'] or "Not provided" }}
+              </dd>
+            </div>
+          {% endif %}
+
+        </dl>
+      </div>
+    </div>
+
+    {# ----------------------------
+       DYNAMIC FORM ACTION
+    ------------------------------ #}
+
+    {% if mode == "update" %}
+      <form action="/prototype-dev-baseline/mvp-1_4/telephony/updated-support-needs" method="post" novalidate>
+    {% elseif mode == "remove" %}
+      <form action="/prototype-dev-baseline/mvp-1_4/telephony/removed-support-needs" method="post" novalidate>
+    {% else %}
+      <form action="/prototype-dev-baseline/mvp-1_4/telephony/added-support-needs" method="post" novalidate>
+    {% endif %}
+
+      <button class="govuk-button" data-module="govuk-button">Confirm</button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

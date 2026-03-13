@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {% set flow = data['supportNeedsFlow'] or '' %}
+  {% if flow == 'update' %}
+    You have updated details
+  {% elseif flow == 'remove' or data['supportNeedsJustRemoved'] %}
+    You have removed details
+  {% else %}
+    You have added details
+  {% endif %}
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+{# -------------------------------------------------------------
+   DETERMINE MODE (ADD / REMOVE / UPDATE)
+   Prefer explicit flow flag; fall back to legacy keys if needed
+-------------------------------------------------------------- #}
+{% set flow = data['supportNeedsFlow'] or '' %}
+
+{% if flow == 'update' %}
+  {% set mode = 'update' %}
+{% elseif flow == 'remove' %}
+  {% set mode = 'remove' %}
+{% elseif flow == 'add' %}
+  {% set mode = 'add' %}
+{% else %}
+  {# Legacy fallback: detect by presence of old payloads #}
+  {% if (data['supportNeedsJustRemoved'] or {}).items %}
+    {% set mode = 'remove' %}
+  {% else %}
+    {% set mode = 'add' %}
+  {% endif %}
+{% endif %}
+
+{# -------------------------------------------------------------
+   EXTRACT ITEMS + NOTE BASED ON MODE
+   (use the one-shot payload objects populated by the confirm routes)
+-------------------------------------------------------------- #}
+{% if mode == 'update' %}
+  {% set updated = data['supportNeedsJustUpdated'] or {} %}
+  {% set items   = updated.items or [] %}
+  {% set note    = updated.note  or '' %}
+  {% set other   = '' %} {# not used in update #}
+
+{% elseif mode == 'remove' %}
+  {% set removed = data['supportNeedsJustRemoved'] or {} %}
+  {% set items   = removed.items or [] %}
+  {% set note    = '' %}
+  {% set other   = '' %}
+
+{% else %}
+  {% set added = data['supportNeedsJustAdded'] or {} %}
+  {% set items = added.items or [] %}
+  {% set note  = added.note or '' %}
+  {% set other = added.otherText or '' %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-notification-banner govuk-notification-banner--success"
+         role="alert"
+         aria-labelledby="govuk-notification-banner-title"
+         data-module="govuk-notification-banner">
+
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">
+          Support needs have been saved successfully.
+        </h3>
+      </div>
+    </div>
+
+    {% if mode == 'update' %}
+      <h1 class="govuk-heading-l">You have updated details</h1>
+    {% elseif mode == 'remove' %}
+      <h1 class="govuk-heading-l">You have removed details</h1>
+    {% else %}
+      <h1 class="govuk-heading-l">You have added details</h1>
+    {% endif %}
+
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">Support needs</h2>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {% if mode == 'update' %}
+                Updated support needs
+              {% elseif mode == 'remove' %}
+                Removed support needs
+              {% else %}
+                Added support needs
+              {% endif %}
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+              {% if items | length > 1 %}
+              <ul class="govuk-list govuk-list--bullet">
+                {% for item in items %}
+                  <li>
+                    {% if item == "Something else" and mode == "add" %}
+                      {{ other or "Not provided" }}
+                    {% else %}
+                      {{ item }}
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+
+            {% elseif items | length == 1 %}
+              {% set only = items[0] %}
+              {% if only == "Something else" and mode == "add" %}
+                <p>{{ other or "Not provided" }}</p>
+              {% else %}
+                <p>{{ only }}</p>
+              {% endif %}
+
+            {% else %}
+              <p>Not provided</p>
+            {% endif %}
+            </dd>
+          </div>
+
+          {# Show a note row for ADD and UPDATE; nothing for REMOVE #}
+          {% if mode == 'add' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Note</dt>
+              <dd class="govuk-summary-list__value">
+                {% if note %}
+                  {{ note }}
+                {% else %}
+                  <span class="govuk-body">Not provided</span>
+                {% endif %}
+              </dd>
+            </div>
+          {% elseif mode == 'update' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Updated note</dt>
+              <dd class="govuk-summary-list__value">
+                {% if note %}
+                  {{ note }}
+                {% else %}
+                  <span class="govuk-body">Not provided</span>
+                {% endif %}
+              </dd>
+            </div>
+          {% endif %}
+
+        </dl>
+      </div>
+    </div>
+
+    <p class="govuk-body">
+      <a href="/prototype-dev-baseline/mvp-1_4/telephony/home">
+        Return to home
+      </a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

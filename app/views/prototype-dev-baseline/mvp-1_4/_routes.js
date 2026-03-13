@@ -1,6 +1,39 @@
 const express = require('express');
 const router = express.Router();
 
+// SAVE SUPPORT NEEDS (Return to home on confirmation)
+router.post('/telephony/home', function (req, res) {
+  let selections = req.session.data['what-additional-support'];
+
+  // normalise to array
+  if (selections && !Array.isArray(selections)) {
+    selections = [ selections ];
+  }
+
+  const otherText = (req.session.data['something-else-detail'] || '').trim();
+  const note      = (req.session.data['addNote-additional-support'] || '').trim();
+
+  req.session.data.supportNeeds = {
+    items: selections || [],
+    otherText,
+    note
+  };
+
+  req.session.data.supportNeedsJustSaved = true;
+
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/home');
+});
+
+// TELEPHONY HOME PAGE (GET)
+router.get('/telephony/home', function (req, res) {
+  return res.render('prototype-dev-baseline/mvp-1_4/telephony/home');
+});
+
+// NOTES PAGE (linked from home banner)
+router.get('/telephony/support-needs-notes', function (req, res) {
+  return res.render('prototype-dev-baseline/mvp-1_4/telephony/support-needs-notes');
+});
+
 // this is for NINO number
 router.post('/index.html', function (req, res) {
   res.redirect('/prototype-dev-baseline/mvp-1_4/index');
@@ -8,12 +41,18 @@ router.post('/index.html', function (req, res) {
 
 router.post('/working-on', function (req, res) {
   const ninoNumber = req.session.data['nino-number-ur-8'];
-  req.session.data = {'nino-number-ur-8': ninoNumber}
 
+  // ❗ DO NOT wipe the whole session object
+  // req.session.data = {'nino-number-ur-8': ninoNumber}
+
+  // ✅ Instead, keep what already exists, then reset only fields you want:
+  req.session.data['nino-number-ur-8'] = ninoNumber;
+
+  // Reset ONLY the fields that should be cleared
   req.session.data['What-type-of-contact'] = '';
   req.session.data['Who-is-the-phone-call-with-ur8'] = '';
   req.session.data['Who-is-contact-with'] = '';
-  req.session.data[' was-call-answered']= '';
+  req.session.data['was-call-answered'] = '';
   req.session.data['Who-is-the-engagement-with'] = '';
   req.session.data['Do-you-want-to-complete-the-session'] = '';
   req.session.data['whichBenefitDiscussed'] = '';
@@ -42,25 +81,22 @@ router.post('/working-on', function (req, res) {
   req.session.data.outcomePage = '';
   req.session.data.notes = '';
   req.session.data.tableValue = '';
-  req.session.data.outcomePage = '';
-  req.session.data['addNote']= '';
+  req.session.data['addNote'] = '';
+
+  // ❗ DO NOT touch: supportNeeds, supportNeedsJustSaved
+  // These must survive to show the banner.
 
   if (
     req.session.data['nino-number-ur-8'] == 'QQ123456Q' ||
     req.session.data['nino-number-ur-8'] == 'qq123456q' ||
     req.session.data['nino-number-ur-8'] == 'QQ 12 34 56 Q'
   ) {
-    res.render('/prototype-dev-baseline/mvp-1_4/working-on');
+    return res.render('/prototype-dev-baseline/mvp-1_4/working-on');
   } else {
-    // var errMsg = '';
-    if (
-      req.session.data['nino-number-ur-8'] == '' ||
-      req.session.data['nino-number-ur-8'] == undefined
-    ) {
-      // errMsg = "Enter the customer's National Insurance number";
-      res.redirect('/prototype-dev-baseline/mvp-1_4/error-nino-number');
+    if (!req.session.data['nino-number-ur-8']) {
+      return res.redirect('/prototype-dev-baseline/mvp-1_4/error-nino-number');
     } else {
-      res.redirect('back');
+      return res.redirect('back');
     }
   }
 });
@@ -157,22 +193,36 @@ router.post('/add-log-outbound-call-attempt-failed', function (req, res) {
 
 });
 
-router.post('/telephony/home', function (req, res) {
-  req.session.data['what-benefit-discussed'] = '';
-  req.session.data['addNote']= '';
+// ======================================================================
+// SAVE SUPPORT NEEDS (when user clicks "Return to home" on confirmation)
+// ======================================================================
+router.post('/prototype-dev-baseline/mvp-1_4/telephony/home', function (req, res) {
 
-  if (
-      req.session.data['Who-is-the-phone-call-with-ur8'] == 'someone else' ||
-      req.session.data['Who-is-the-phone-call-with-ur8'] == 'Christopher Fox'
-      ) {
-      req.session.data['Who-is-the-engagement-with'] = '';
-      }
-    if (req.session.data['What-type-of-contact'] == 'Inbound phone call with') {
-        res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/home');
-      } else if (req.session.data['What-type-of-contact'] == 'Outbound phone call with') {
-        res.redirect('/prototype-dev-baseline/mvp-1_4/call-status');
-      }
+  // 1. Read checked support needs from session
+  let selections = req.session.data['what-additional-support'];
+
+  // Normalise to array
+  if (selections && !Array.isArray(selections)) {
+    selections = [ selections ];
+  }
+
+  const otherText = (req.session.data['something-else-detail'] || '').trim();
+  const note      = (req.session.data['addNote-additional-support'] || '').trim();
+
+  // 2. Save structured data for Home banner + Notes page
+  req.session.data.supportNeeds = {
+    items: selections || [],
+    otherText: otherText,
+    note: note
+  };
+
+  // 3. Optional success banner on home
+  req.session.data.supportNeedsJustSaved = true;
+
+  // 4. Redirect to home
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/home');
 });
+
 
 router.post('/non-telephony/home', function (req, res) {
   // var contactType = req.session.data['Who-is-the-phone-call-with-ur8'];
@@ -191,6 +241,11 @@ router.post('/non-telephony/home', function (req, res) {
     res.redirect('/prototype-dev-baseline/mvp-1_4/non-telephony/home');
   }
 });
+// Render Home (GET) so the banner sees updated session state
+router.get('/prototype-dev-baseline/mvp-1_4/telephony/home', function (req, res) {
+  return res.render('prototype-dev-baseline/mvp-1_4/telephony/home');
+});
+
 // -------------------------------------------
 // OLD ROUTE (causes redirect to wrong page) to be removed
 // -------------------------------------------
@@ -741,5 +796,291 @@ router.post('/telephony/add-call/option-b/added-call-details', function (req, re
 });
 
 // ---------------close here CoC secondary data design options -------------------
+
+// DEBUG: show session data
+router.get('/session', function (req, res) {
+  res.json(req.session.data);
+});
+
+// ---------------MVP-1_4 -------------------
+
+function formatContactTime(date = new Date()) {
+  return date.toLocaleString('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  }).replace(',', '');
+}
+
+function getContactType(req) {
+  return req.session.data['What-type-of-contact'] || 'Contact';
+}
+
+function getWhoWith(req) {
+  return req.session.data['Who-is-the-phone-call-with-ur8'] || '';
+}
+
+// additional support router
+router.post('/additional-support-router-3', function (req, res) {
+  const answer = req.body['additional-support-needs'];
+
+  if (answer === 'add') {
+    return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/add-support-needs');
+  }
+
+  if (answer === 'remove') {
+    return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/remove-support-needs');
+  }
+
+  if (answer === 'update') {
+    return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/update-support-needs');
+  }
+
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/home');
+});
+
+router.post('/telephony/added-support-needs', function (req, res) {
+
+  // Extract NEW selections
+  let selections = req.session.data['what-additional-support'] || [];
+  if (typeof selections === 'string') selections = [ selections ];
+
+  const newOther = (req.session.data['something-else-detail'] || '').trim();
+  const newNote  = (req.session.data['addNote-additional-support'] || '').trim();
+
+  req.session.data.supportNeedsFlow = 'add';
+  req.session.data.supportNeedsJustAdded = {
+    items: selections,
+    otherText: newOther,
+    note: newNote
+  };
+  delete req.session.data.supportNeedsJustRemoved;
+
+  const previousSnapshot =
+    req.session.data.supportNeedsPrevious ||
+    req.session.data.supportNeeds ||
+    { items: [], otherText: '', note: '' };
+
+  const mergedItems = Array.from(
+    new Set([...(previousSnapshot.items || []), ...selections])
+  );
+  const finalOther = newOther || previousSnapshot.otherText || '';
+  const finalNote  = newNote  || previousSnapshot.note      || '';
+
+  // SAVE merged support needs
+  req.session.data.supportNeeds = {
+    items: mergedItems,
+    otherText: finalOther,
+    note: finalNote
+  };
+
+  // ⭐ INSERT EVENT LOGGING HERE ⭐
+  req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
+  req.session.data.supportNeedsEvents.unshift({
+    action: 'add',
+    needs: selections,
+    note: newNote,
+    at: new Date().toISOString(),
+    contactType: getContactType(req),
+    contactTime: formatContactTime(),
+    whoWith: getWhoWith(req)
+  });
+
+  // Cleanup
+  delete req.session.data.supportNeedsPrevious;
+  req.session.data['what-additional-support']    = [];
+  req.session.data['something-else-detail']      = '';
+  req.session.data['addNote-additional-support'] = '';
+
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/confirmed-support-needs');
+});
+
+router.post('/telephony/confirmed-support-needs', function (req, res) {
+  // NEW selections
+  let selections = req.session.data['what-additional-support'] || [];
+  if (typeof selections === 'string') selections = [selections];
+
+  const newOther = (req.session.data['something-else-detail'] || '').trim();
+  const newNote  = (req.session.data['addNote-additional-support'] || '').trim();
+
+  // ⭐ Tell the success template we are in ADD flow
+  req.session.data.supportNeedsJustAdded = {
+    items: selections,
+    otherText: newOther,
+    note: newNote
+  };
+
+  // OLD snapshot/fallback
+  const previousSnapshot = req.session.data.supportNeedsPrevious
+                        || req.session.data.supportNeeds
+                        || { items: [], otherText: '', note: '' };
+
+  const mergedItems = Array.from(new Set([...(previousSnapshot.items || []), ...selections]));
+  const finalOther  = newOther || previousSnapshot.otherText || '';
+  const finalNote   = newNote  || previousSnapshot.note      || '';
+
+  req.session.data.supportNeeds = { items: mergedItems, otherText: finalOther, note: finalNote };
+
+  // Clean temp fields
+  delete req.session.data.supportNeedsPrevious;
+  req.session.data['what-additional-support']    = [];
+  req.session.data['something-else-detail']      = '';
+  req.session.data['addNote-additional-support'] = '';
+
+  // 🔒 Clear the REMOVE flag so success page cannot mistake mode
+  delete req.session.data.supportNeedsJustRemoved;
+
+  // Go to shared success page
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/confirmed-support-needs');
+});
+
+router.get('/telephony/change-support-needs', function (req, res) {
+
+  req.session.data.supportNeedsFlow = 'change';
+  
+  req.session.data.supportNeedsPrevious =
+    req.session.data.supportNeeds || { items: [], otherText: '', note: '' };
+
+  // Clear only temp fields
+  req.session.data['what-additional-support'] = [];
+  req.session.data['something-else-detail'] = '';
+  req.session.data['addNote-additional-support'] = '';
+
+  return res.render('prototype-dev-baseline/mvp-1_4/telephony/change-support-needs');
+});
+
+router.post('/telephony/check-support-needs', function (req, res) {
+  let selections = req.session.data['what-additional-support'];
+
+  if (!selections) {
+    selections = [];
+  } else if (typeof selections === 'string') {
+    selections = [ selections ];
+  }
+
+  req.session.data['what-additional-support'] = selections;
+  req.session.data['something-else-detail'] =
+    (req.session.data['something-else-detail'] || '').trim();
+
+  req.session.data['addNote-additional-support'] =
+    (req.session.data['addNote-additional-support'] || '').trim();
+
+  return res.render('prototype-dev-baseline/mvp-1_4/telephony/check-support-needs');
+});
+
+// Show the shared confirmed page (add/remove/update)
+// You can clear one-time flags after rendering if you want to keep session tidy.
+router.get('/telephony/confirmed-support-needs', function (req, res) {
+  res.render('prototype-dev-baseline/mvp-1_4/telephony/confirmed-support-needs');
+
+  // OPTIONAL clean-up (uncomment if you want these cleared after showing)
+  // delete req.session.data.supportNeedsFlow;
+  // delete req.session.data.supportNeedsJustAdded;
+  // delete req.session.data.supportNeedsJustRemoved;
+  // delete req.session.data.supportNeedsJustUpdated;
+});
+
+// Confirm removal – update saved supportNeeds and show success page
+router.post('/telephony/removed-support-needs', function (req, res) {
+
+  let removeList = req.session.data['remove-support-needs'] || [];
+  if (typeof removeList === 'string') removeList = [removeList];
+
+  req.session.data.supportNeedsFlow = 'remove';
+  req.session.data.supportNeedsJustRemoved = { items: removeList };
+  delete req.session.data.supportNeedsJustAdded;
+
+  const current = req.session.data.supportNeeds || { items: [], otherText: '', note: '' };
+  let items = current.items || [];
+  let other = current.otherText || '';
+  let note  = current.note || '';
+
+  // Remove items + handle Something else
+  items = items.filter(i => !removeList.includes(i));
+  if (removeList.includes('Something else')) {
+    items = items.filter(i => i !== 'Something else');
+    other = '';
+  }
+  if (items.length === 0 && !other) {
+    note = '';
+  }
+
+  // SAVE updated supportNeeds
+  req.session.data.supportNeeds = {
+    items,
+    otherText: other,
+    note
+  };
+
+  // INSERT EVENT LOGGING HERE ⭐
+  req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
+  req.session.data.supportNeedsEvents.unshift({
+    action: 'remove',
+    needs: removeList,
+    at: new Date().toISOString(),
+    contactType: getContactType(req),
+    contactTime: formatContactTime(),
+    whoWith: getWhoWith(req)
+  });
+
+  req.session.data['remove-support-needs'] = [];
+  req.session.data['remove-support-note']  = '';
+
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/confirmed-support-needs');
+});
+
+router.post('/telephony/updated-support-needs', function (req, res) {
+
+  let updateList = req.session.data['update-support-needs'] || [];
+  if (typeof updateList === 'string') updateList = [updateList];
+
+  const newNote = (req.session.data['update-note'] || '').trim();
+
+  req.session.data.supportNeedsFlow = 'update';
+  req.session.data.supportNeedsJustUpdated = {
+    items: updateList,
+    note: newNote
+  };
+
+  req.session.data.supportNeeds = req.session.data.supportNeeds || {};
+  const support = req.session.data.supportNeeds;
+
+  support.items = Array.isArray(support.items) ? support.items : [];
+  support.otherText = support.otherText || '';
+  support.notesByNeed = support.notesByNeed || {};
+
+  const timestamp = new Date().toISOString();
+
+  updateList.forEach((need) => {
+    support.notesByNeed[need] = support.notesByNeed[need] || [];
+    support.notesByNeed[need].unshift({
+      text: newNote,
+      date: timestamp
+    });
+  });
+
+  // ⭐ INSERT EVENT LOGGING HERE ⭐
+  req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
+  req.session.data.supportNeedsEvents.unshift({
+    action: 'update',
+    needs: updateList,
+    note: newNote,
+    at: new Date().toISOString(),
+    contactType: getContactType(req),
+    contactTime: formatContactTime(),
+    whoWith: getWhoWith(req)
+  });
+
+  // Cleanup
+  req.session.data['update-support-needs'] = [];
+  req.session.data['update-note'] = '';
+
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/confirmed-support-needs');
+});
+
+
 
 module.exports = router;

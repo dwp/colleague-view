@@ -4,29 +4,99 @@
 Home
 {% endblock %}
 
-
 {% block header %}
   {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
   {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-{% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
 {% endblock %}
-
 
 {% block beforeContent %}
   {% include "/prototype-sprint-wise/ur-8/scenario-1/common/phase-banner.html" %}
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
-        <li class="govuk-breadcrumbs__list-item">
-            <a class="govuk-breadcrumbs__link" href="#">Home</a>
-        </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
     </ol>
-</div>
+  </div>
 {% endblock %}
 
 {% block content %}
+
+  {# =============================================================
+     SUPPORT NEEDS BANNER (must be inside the content block)
+     ============================================================= #}
+  {% set support = data['supportNeeds'] %}
+  {% set items = support and support.items or [] %}
+  {% set count = items | length %}
+
+  {% if count > 0 %}
+    <div class="govuk-notification-banner support-alert"
+         role="region"
+         aria-labelledby="govuk-notification-banner-title"
+         data-module="govuk-notification-banner">
+
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+
+      <div class="govuk-notification-banner__content">
+
+        {# =======================
+           SINGLE NEED FORMAT
+           ======================= #}
+        {% if count == 1 %}
+          {% set only = items[0] %}
+          <h3 class="govuk-heading-s">
+            Support needs
+            <span class="govuk-body">–
+              {% if only == "Something else" %}
+                {{ support.otherText }}.
+              {% else %}
+                {{ only }}.
+              {% endif %}
+              <a class="govuk-notification-banner__link"
+                 href="/prototype-dev-baseline/mvp-1_4/telephony/support-needs-notes">
+                View support needs notes
+              </a>
+            </span>
+          </h3>
+
+        {# =======================
+           MULTIPLE NEEDS FORMAT
+           ======================= #}
+        {% else %}
+          <h3 class="govuk-heading-s">Support needs</h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            {% for need in items %}
+              <li>
+                {% if need == "Something else" %}
+                  {{ support.otherText }}
+                {% else %}
+                  {{ need }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+
+          <p class="govuk-body">
+            <a class="govuk-notification-banner__link"
+               href="/prototype-dev-baseline/mvp-1_4/telephony/support-needs-notes">
+              View support needs notes
+            </a>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {# ======== REST OF YOUR HOME PAGE CONTENT ======== #}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
@@ -34,70 +104,119 @@ Home
         <div class="govuk-grid-column-one-half">
           <h1 class="govuk-heading-xl">Home</h1>
         </div>
+
         <div class="govuk-grid-column-one-half">
           {% set base = "/prototype-dev-baseline/mvp-1_4" %}
           <div class="govuk-button-group">
             {% set completed = data['Do-you-want-to-complete-the-call'] %}
 
             {% if completed %}
-              <a class="govuk-button" data-module="govuk-button" href="{{ base }}/telephony/add-call/reviewed" style="margin-left:auto">
+              <a class="govuk-button" data-module="govuk-button"
+                 href="{{ base }}/telephony/add-call/reviewed"
+                 style="margin-left:auto">
                 Add or change call details
               </a>
 
-              <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="{{ base }}/telephony/add-call/do-you-want-to-complete-call">
+              <a class="govuk-button govuk-button--secondary" data-module="govuk-button"
+                 href="{{ base }}/telephony/add-call/do-you-want-to-complete-call">
                 Start service again
               </a>
+
             {% else %}
-              <a class="govuk-button" data-module="govuk-button" href="{{ base }}/telephony/add-call/reviewed" style="margin-left:auto">
+              <a class="govuk-button" data-module="govuk-button"
+                 href="{{ base }}/telephony/add-call/reviewed"
+                 style="margin-left:auto">
                 Add call details
               </a>
             {% endif %}
           </div>
         </div>
       </div>
-        <!-- to be card styel -->
-        <ul class="govuk-grid-row nhsuk-card-group">
-          <li class="govuk-grid-column-one-third nhsuk-card-group__item">
-            <div class="nhsuk-card nhsuk-card--clickable">
-              <div class="nhsuk-card__content">
-                <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                  <a class="nhsuk-card__link govuk-link" href="personal-details.html">Personal details</a>
-                </h2>
-                <p class="nhsuk-card__description">View personal details, including contact numbers and addresses.</p>
-              </div>
+
+      <ul class="govuk-grid-row nhsuk-card-group">
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="personal-details.html">
+                  Personal details
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                View personal details, including contact numbers and addresses.
+              </p>
             </div>
-          </li>
-          <li class="govuk-grid-column-one-third nhsuk-card-group__item">
-            <div class="nhsuk-card nhsuk-card--clickable">
-              <div class="nhsuk-card__content">
-                <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                  <a class="nhsuk-card__link govuk-link" href="contact-history.html">Contact history</a>
-                </h2>
-                <p class="nhsuk-card__description">View notes and details about previous contact.</p>
-              </div>
+          </div>
+        </li>
+
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="contact-history.html">
+                  Contact history
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                View notes and details about previous contact.
+              </p>
             </div>
-          </li>
-          <li class="govuk-grid-column-one-third nhsuk-card-group__item">
-            <div class="nhsuk-card nhsuk-card--clickable">
-              <div class="nhsuk-card__content">
-                <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                  <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
-                </h2>
-                <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
-              </div>
+          </div>
+        </li>
+
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">
+                  Benefit payments
+                </a>
+              </h2>
+              <p class="nhsuk-card__description">
+                View details, including payment frequency and amounts.
+              </p>
             </div>
-          </li>
-          <li class="govuk-grid-column-one-third nhsuk-card-group__item">
-            <div class="nhsuk-card nhsuk-card--clickable">
-              <div class="nhsuk-card__content">
-                <h2 class="nhsuk-card__heading nhsuk-heading-m">
-                  <a class="nhsuk-card__link govuk-link" href="add-support-needs.html">Add support needs</a>
-                </h2>
-                <p class="nhsuk-card__description">Add a new support need to this account.</p>
-              </div>
+          </div>
+        </li>
+
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+
+              {# Read saved support needs #}
+              {% set support = data['supportNeeds'] %}
+              {% set items = support and support.items or [] %}
+              {% set count = items | length %}
+
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                {% if count > 0 %}
+                  {# ==== CHANGE SUPPORT NEEDS ==== #}
+                  <a class="nhsuk-card__link govuk-link"
+                     href="/prototype-dev-baseline/mvp-1_4/telephony/change-support-needs">
+                    Change support needs
+                  </a>
+                {% else %}
+                  {# ==== ADD SUPPORT NEEDS ==== #}
+                  <a class="nhsuk-card__link govuk-link"
+                     href="/prototype-dev-baseline/mvp-1_4/telephony/add-support-needs">
+                    Add support needs
+                  </a>
+                {% endif %}
+              </h2>
+
+              <p class="nhsuk-card__description">
+                {% if count > 0 %}
+                  Update or remove support needs for this account.
+                {% else %}
+                  Add a new support need to this account.
+                {% endif %}
+              </p>
+
             </div>
-          </li>
-        </ul>
+          </div>
+        </li>
+      </ul>
+
     </div>
   </div>
 

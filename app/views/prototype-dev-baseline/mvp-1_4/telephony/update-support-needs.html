@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Update support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+{% set support = data['supportNeeds'] or {} %}
+{% set items = support.items or [] %}
+{% set other = support.otherText or '' %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Step 1 of 2</span>
+            <h1 class="govuk-fieldset__heading">Which support needs do you want to update?</h1>
+          </legend>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+            {% for need in items %}
+              {% if need != "Something else" %}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input"
+                         id="update-need-{{ loop.index }}"
+                         name="update-support-needs"
+                         type="checkbox"
+                         value="{{ need }}">
+                  <label class="govuk-label govuk-checkboxes__label" for="update-need-{{ loop.index }}">
+                    {{ need }}
+                  </label>
+                </div>
+              {% endif %}
+            {% endfor %}
+
+            {% if items.includes("Something else") %}
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                       id="update-need-se"
+                       name="update-support-needs"
+                       type="checkbox"
+                       value="Something else">
+                <label class="govuk-label govuk-checkboxes__label" for="update-need-se">
+                  {% if other %}{{ other }}{% endif %}
+                </label>
+              </div>
+            {% endif %}
+
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group govuk-character-count"
+           data-module="govuk-character-count"
+           data-maxlength="5000">
+
+        <label class="govuk-label govuk-label--m" for="update-note">
+          Add your updated note
+        </label>
+
+        <div id="more-detail-hint" class="govuk-hint">
+          This note will be held separately from the main contact history.
+          It will be accessible from the homepage of this account.
+        </div>
+
+        <div class="govuk-warning-text govuk-!-margin-bottom-2">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Do not include personal identifiable information such as name, National Insurance number, or date of birth.
+          </strong>
+        </div>
+
+        <textarea class="govuk-textarea govuk-js-character-count"
+                  id="update-note"
+                  name="update-note"
+                  rows="7"
+                  maxlength="5000">{{ data['update-note'] }}</textarea>
+
+        <div id="update-note-info" class="govuk-hint govuk-character-count__message">
+          You have 5000 characters remaining
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" type="submit">Save and continue</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

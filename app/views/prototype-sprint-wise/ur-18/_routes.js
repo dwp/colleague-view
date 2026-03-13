@@ -690,6 +690,40 @@ router.post('/prototype-sprint-wise/ur-18/telephony/add-call/add-additional-supp
   return res.redirect('/prototype-sprint-wise/ur-18/telephony/add-call/add-additional-support-needs');
 });
 
+// UR 18 routes
+
+router.post('/check-additional-needs', function (req, res) {
+  let sel = req.session.data['what-additional-support'];
+
+  // Normalize to an array:
+  if (sel === undefined || sel === null || sel === '') {
+    sel = [];
+  } else if (typeof sel === 'string') {
+    sel = [sel];
+  } // if it's already an array, leave as-is
+
+  req.session.data['what-additional-support'] = sel;
+
+  // Continue to your check page
+  res.redirect('/check-the-details-you-have-added'); // update to your actual URL
+});
+
+router.post('/additional-support-router-2', function (req, res) {
+  const answer = req.body['additional-support-needs']
+
+  if (answer === 'add') {
+    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/add-additional-support-needs')
+  } 
+  if (answer === 'remove') {
+    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/remove-additional-support-needs')
+  } 
+  else if (answer === 'both') {
+    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/add-additional-support-needs-2')
+  }
+  else {
+    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/identified-additional-support-needs')
+  }
+})
 
 
 module.exports = router;

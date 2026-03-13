@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Remove support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{# -----------------------------------------------------------
+   Pull current saved support needs dynamically
+------------------------------------------------------------ #}
+{% set support = data['supportNeeds'] or {} %}
+{% set items = support.items or [] %}
+{% set other = support.otherText or '' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Step 1 of 2</span>
+            <h1 class="govuk-fieldset__heading">What do you want to remove?</h1>
+          </legend>
+
+          <div id="contact-hint" class="govuk-hint">
+            You should remove a need if it no longer applies or if the account holder requests it to be removed. 
+            You do not need to record a note about this.
+          </div>
+
+          {% if (items | length) or other %}
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes" id="support-needs-group">
+
+                {# ------------------------------
+                   SELECT ALL
+                ------------------------------- #}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input"
+                         id="remove-support-all"
+                         name="selectAllSupportNeeds"
+                         type="checkbox"
+                         value="all"
+                         data-behaviour="select-all">
+                  <label class="govuk-label govuk-checkboxes__label" for="remove-support-all">
+                    Remove all support needs
+                  </label>
+                </div>
+
+                {# -----------------------------------------
+                   Dynamically list existing support needs
+                ------------------------------------------ #}
+
+                {% for need in items %}
+                  {% if need != 'Something else' %}
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input"
+                             id="remove-support-{{ loop.index }}"
+                             name="remove-support-needs"
+                             type="checkbox"
+                             value="{{ need }}">
+                      <label class="govuk-label govuk-checkboxes__label" for="remove-support-{{ loop.index }}">
+                        {{ need }}
+                      </label>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+
+                {# "Something else" entry if present #}
+                {% if items.includes('Something else') or other %}
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input"
+                           id="remove-support-se"
+                           name="remove-support-needs"
+                           type="checkbox"
+                           value="Something else">
+                    <label class="govuk-label govuk-checkboxes__label" for="remove-support-se">
+                      {% if other %}{{ other }}{% endif %}
+                    </label>
+                  </div>
+                {% endif %}
+
+              </div>
+            </fieldset>
+          {% else %}
+            <p class="govuk-hint">There are no support needs to remove.</p>
+          {% endif %}
+        </fieldset>
+      </div>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" type="submit" data-module="govuk-button">Save and continue</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{# -----------------------------------------------------------------
+   EXISTING JAVASCRIPT — unchanged, Select All works automatically
+------------------------------------------------------------------ #}
+<script>
+  (function () {
+    const group = document.getElementById('support-needs-group');
+    if (!group) return;
+
+    const selectAll = group.querySelector('[data-behaviour="select-all"]');
+    const items = Array.from(group.querySelectorAll('.govuk-checkboxes__input'))
+      .filter(i => i !== selectAll);
+
+    function enabled() {
+      return items.filter(i => !i.disabled);
+    }
+
+    function syncSelectAll() {
+      const enabledItems = enabled();
+      const allChecked = enabledItems.length > 0 && enabledItems.every(i => i.checked);
+      const someChecked = enabledItems.some(i => i.checked);
+
+      selectAll.checked = allChecked;
+      selectAll.indeterminate = !allChecked && someChecked;
+    }
+
+    function toggleAll(checked) {
+      enabled().forEach(i => { i.checked = checked; });
+    }
+
+    if (selectAll) {
+      selectAll.addEventListener('change', () => {
+        toggleAll(selectAll.checked);
+        syncSelectAll();
+      });
+    }
+
+    items.forEach(i => {
+      i.addEventListener('change', () => syncSelectAll());
+    });
+
+    syncSelectAll();
+  })();
+</script>
+
+{% endblock %}

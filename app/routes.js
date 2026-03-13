@@ -7813,72 +7813,23 @@ router.use('/prototype-dev-baseline/mvp-1_3_1', require('./views/prototype-dev-b
 // for UR 16
 router.use('/prototype-sprint-wise/ur-16', require('./views/prototype-sprint-wise/ur-16/\_routes'));
 // for UR 17
-router.use('/prototype-sprint-wise/ur-16', require('./views/prototype-sprint-wise/ur-16/\_routes'));
+router.use('/prototype-sprint-wise/ur-17', require('./views/prototype-sprint-wise/ur-17/\_routes'));
+// for UR 17-2
+router.use('/prototype-sprint-wise/ur-17-2', require('./views/prototype-sprint-wise/ur-17-2/_routes'));
+// for UR 18
+router.use('/prototype-sprint-wise/ur-18', require('./views/prototype-sprint-wise/ur-18/_routes'));
+// for UR 18-2
+router.use('/prototype-sprint-wise/ur-18-2', require('./views/prototype-sprint-wise/ur-18-2/_routes'));
 // version 1.3.2
 router.use('/prototype-dev-baseline/mvp-1_3_2', require('./views/prototype-dev-baseline/mvp-1_3_2/\_routes'));
 // version 1.4
 router.use('/prototype-dev-baseline/mvp-1_4', require('./views/prototype-dev-baseline/mvp-1_4/\_routes'));
 
 
-// UR 17-2 routes
 
-router.post('/additional-support-router', function (req, res) {
-  const answer = req.body['additional-support-needs']
-
-  if (answer === 'remove') {
-    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/remove-additional-support-needs')
-  } 
-  else if (answer === 'add') {
-    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/add-additional-support-needs')
-  } 
-  else {
-    res.redirect('/prototype-sprint-wise/ur-17-2/telephony/add-call/select-contact-type')
-  }
-})
-
-// UR 18 routes
-
-router.post('/check-additional-needs', function (req, res) {
-  let sel = req.session.data['what-additional-support'];
-
-  // Normalize to an array:
-  if (sel === undefined || sel === null || sel === '') {
-    sel = [];
-  } else if (typeof sel === 'string') {
-    sel = [sel];
-  } // if it's already an array, leave as-is
-
-  req.session.data['what-additional-support'] = sel;
-
-  // Continue to your check page
-  res.redirect('/check-the-details-you-have-added'); // update to your actual URL
+router.get('/session', function (req, res) {
+  res.json(req.session.data);
 });
-
-router.post('/additional-support-router-2', function (req, res) {
-  const answer = req.body['additional-support-needs']
-
-  if (answer === 'add') {
-    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/add-additional-support-needs')
-  } 
-  if (answer === 'remove') {
-    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/remove-additional-support-needs')
-  } 
-  else if (answer === 'both') {
-    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/add-additional-support-needs-2')
-  }
-  else {
-    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/identified-additional-support-needs')
-  }
-})
-
-// app/routes.js
-module.exports = function (router) {
-  // POST → redirect to GET for the Check page so auto-store-data persists form values
-  router.post('/prototype-sprint-wise/ur-18-2/telephony/add-call/check-additional-needs-3', function (req, res) {
-    res.redirect('/prototype-sprint-wise/ur-18-2/telephony/add-call/check-additional-needs-3');
-  });
-};
-``
 
 
 module.exports = router
