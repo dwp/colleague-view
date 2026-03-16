@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Support needs
+  Support needs notes
 {% endblock %}
 
 {% block header %}
@@ -22,7 +22,7 @@
         <a href="/prototype-dev-baseline/mvp-1_4/telephony/home" class="govuk-breadcrumbs__link">Home</a>
       </li>
       <li class="govuk-breadcrumbs__list-item" aria-current="page">
-        <span class="govuk-breadcrumbs__link">Support needs</span>
+        <span class="govuk-breadcrumbs__link">Support needs notes</span>
       </li>
     </ol>
   </nav>
@@ -48,7 +48,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl" aria-describedby="support-needs-notes-hint">
-      Support needs
+      Support needs notes
     </h1>
 
     <div id="support-needs-notes-hint" class="govuk-hint">
@@ -96,11 +96,22 @@
            and **explicitly hide "Something else"** in the notes timeline.
            -------------------------------------------- #}
         {% set visibleNeeds = [] %}
-        {% for need in ev.needs %}
-          {% if activeNeeds.includes(need) and (need != 'Something else') %}
-            {% set visibleNeeds = visibleNeeds.concat([need]) %}
-          {% endif %}
-        {% endfor %}
+          {% set otherText = (data['supportNeeds'] or {}).otherText or '' %}
+
+          {% for need in ev.needs %}
+            {% if activeNeeds.includes(need) %}
+              {% if need == 'Something else' %}
+                {# Show the titled version; if no text, still show “Something else” #}
+                {% if otherText %}
+                  {% set visibleNeeds = visibleNeeds.concat(['' ~ otherText]) %}
+                {% else %}
+                  {% set visibleNeeds = visibleNeeds.concat(['Something else']) %}
+                {% endif %}
+              {% else %}
+                {% set visibleNeeds = visibleNeeds.concat([need]) %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
 
         {% set shownCount = shownCount + 1 %}
 

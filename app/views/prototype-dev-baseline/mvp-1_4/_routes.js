@@ -804,15 +804,26 @@ router.get('/session', function (req, res) {
 
 // ---------------MVP-1_4 -------------------
 
+// Always returns: "13 March 2026, 11:55"
 function formatContactTime(date = new Date()) {
-  return date.toLocaleString('en-GB', {
+  const parts = new Intl.DateTimeFormat('en-GB', {
     day: '2-digit',
     month: 'long',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
     hour12: false
-  }).replace(',', '');
+  }).formatToParts(date);
+
+  const get = (type) => (parts.find(p => p.type === type) || {}).value || '';
+
+  const day = get('day');       // "13"
+  const month = get('month');   // "March"
+  const year = get('year');     // "2026"
+  const hour = get('hour');     // "11"
+  const minute = get('minute'); // "55"
+
+  return `${day} ${month} ${year}, ${hour}:${minute}`;
 }
 
 function getContactType(req) {
@@ -877,7 +888,7 @@ router.post('/telephony/added-support-needs', function (req, res) {
     note: finalNote
   };
 
-  // ⭐ INSERT EVENT LOGGING HERE ⭐
+  // EVENT LOGGING (Add)
   req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
   req.session.data.supportNeedsEvents.unshift({
     action: 'add',
@@ -885,7 +896,7 @@ router.post('/telephony/added-support-needs', function (req, res) {
     note: newNote,
     at: new Date().toISOString(),
     contactType: getContactType(req),
-    contactTime: formatContactTime(),
+    contactTime: formatContactTime(new Date()), 
     whoWith: getWhoWith(req)
   });
 
@@ -906,7 +917,7 @@ router.post('/telephony/confirmed-support-needs', function (req, res) {
   const newOther = (req.session.data['something-else-detail'] || '').trim();
   const newNote  = (req.session.data['addNote-additional-support'] || '').trim();
 
-  // ⭐ Tell the success template we are in ADD flow
+  // Tell the success template we are in ADD flow
   req.session.data.supportNeedsJustAdded = {
     items: selections,
     otherText: newOther,
@@ -1015,17 +1026,18 @@ router.post('/telephony/removed-support-needs', function (req, res) {
     note
   };
 
-  // INSERT EVENT LOGGING HERE ⭐
+  // ⭐ EVENT LOGGING (Remove)
   req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
   req.session.data.supportNeedsEvents.unshift({
     action: 'remove',
     needs: removeList,
     at: new Date().toISOString(),
     contactType: getContactType(req),
-    contactTime: formatContactTime(),
+    contactTime: formatContactTime(new Date()),   // ⭐ FIXED LINE
     whoWith: getWhoWith(req)
   });
 
+  // Cleanup
   req.session.data['remove-support-needs'] = [];
   req.session.data['remove-support-note']  = '';
 
@@ -1062,7 +1074,7 @@ router.post('/telephony/updated-support-needs', function (req, res) {
     });
   });
 
-  // ⭐ INSERT EVENT LOGGING HERE ⭐
+  // EVENT LOGGING HERE 
   req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
   req.session.data.supportNeedsEvents.unshift({
     action: 'update',
@@ -1070,7 +1082,7 @@ router.post('/telephony/updated-support-needs', function (req, res) {
     note: newNote,
     at: new Date().toISOString(),
     contactType: getContactType(req),
-    contactTime: formatContactTime(),
+    contactTime: formatContactTime(new Date()), // ✅ pass a Date instance
     whoWith: getWhoWith(req)
   });
 
