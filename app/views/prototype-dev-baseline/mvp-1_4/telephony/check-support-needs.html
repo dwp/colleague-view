@@ -108,19 +108,34 @@
               ------------------------------ #}
               {% elseif mode == "remove" %}
 
-                {% if removeSelections | length > 1 %}
-                  <ul class="govuk-list govuk-list--bullet">
-                    {% for item in removeSelections %}
-                      <li>{{ item }}</li>
-                    {% endfor %}
-                  </ul>
+              {% if removeSelections | length > 1 %}
 
-                {% elseif removeSelections | length == 1 %}
-                  <p>{{ removeSelections[0] }}</p>
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for item in removeSelections %}
+                    <li>
+                      {% if item == "Something else" %}
+                        {{ (data['supportNeeds'] or {}).otherText }}
+                      {% else %}
+                        {{ item }}
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
 
+              {% elseif removeSelections | length == 1 %}
+
+                {% set only = removeSelections[0] %}
+                {% if only == "Something else" %}
+                  <p>{{ (data['supportNeeds'] or {}).otherText }}</p>
                 {% else %}
-                  <p>None selected</p>
+                  <p>{{ only }}</p>
                 {% endif %}
+
+              {% else %}
+
+                <p>None selected</p>
+
+              {% endif %}
 
               {# ----------------------------
                  ADD MODE

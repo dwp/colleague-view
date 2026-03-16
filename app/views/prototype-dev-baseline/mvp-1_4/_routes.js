@@ -1001,39 +1001,47 @@ router.post('/telephony/removed-support-needs', function (req, res) {
   if (typeof removeList === 'string') removeList = [removeList];
 
   req.session.data.supportNeedsFlow = 'remove';
-  req.session.data.supportNeedsJustRemoved = { items: removeList };
-  delete req.session.data.supportNeedsJustAdded;
 
   const current = req.session.data.supportNeeds || { items: [], otherText: '', note: '' };
   let items = current.items || [];
   let other = current.otherText || '';
   let note  = current.note || '';
 
+  // ⭐ FIX: Save snapshot BEFORE removal happens
+  req.session.data.supportNeedsJustRemoved = {
+    items: removeList,
+    otherText: other    // <-- THIS IS THE REAL SOMETHING ELSE LABEL
+  };
+
+  delete req.session.data.supportNeedsJustAdded;
+
   // Remove items + handle Something else
   items = items.filter(i => !removeList.includes(i));
+
   if (removeList.includes('Something else')) {
     items = items.filter(i => i !== 'Something else');
-    other = '';
+    other = '';   // Now safe to wipe (snapshot already saved)
   }
+
   if (items.length === 0 && !other) {
     note = '';
   }
 
-  // SAVE updated supportNeeds
+  // Save updated supportNeeds
   req.session.data.supportNeeds = {
     items,
     otherText: other,
     note
   };
 
-  // ⭐ EVENT LOGGING (Remove)
+  // Event logging
   req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
   req.session.data.supportNeedsEvents.unshift({
     action: 'remove',
     needs: removeList,
     at: new Date().toISOString(),
     contactType: getContactType(req),
-    contactTime: formatContactTime(new Date()),   // ⭐ FIXED LINE
+    contactTime: formatContactTime(new Date()),
     whoWith: getWhoWith(req)
   });
 

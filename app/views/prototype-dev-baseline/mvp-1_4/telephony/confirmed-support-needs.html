@@ -61,7 +61,7 @@
   {% set removed = data['supportNeedsJustRemoved'] or {} %}
   {% set items   = removed.items or [] %}
   {% set note    = '' %}
-  {% set other   = '' %}
+  {% set other   = removed.otherText or '' %}
 
 {% else %}
   {% set added = data['supportNeedsJustAdded'] or {} %}
@@ -119,30 +119,31 @@
             </dt>
 
             <dd class="govuk-summary-list__value">
-              {% if items | length > 1 %}
-              <ul class="govuk-list govuk-list--bullet">
-                {% for item in items %}
-                  <li>
-                    {% if item == "Something else" and mode == "add" %}
-                      {{ other or "Not provided" }}
-                    {% else %}
-                      {{ item }}
-                    {% endif %}
-                  </li>
-                {% endfor %}
-              </ul>
+              {% set otherText = other %}
 
-            {% elseif items | length == 1 %}
-              {% set only = items[0] %}
-              {% if only == "Something else" and mode == "add" %}
-                <p>{{ other or "Not provided" }}</p>
+                {% if items | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for item in items %}
+                    <li>
+                      {% if item == "Something else" %}
+                        {{ otherText }}
+                      {% else %}
+                        {{ item }}
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+
+              {% elseif items | length == 1 %}
+                {% set only = items[0] %}
+                {% if only == "Something else" %}
+                  <p>{{ otherText }}</p>
+                {% else %}
+                  <p>{{ only }}</p>
+                {% endif %}
               {% else %}
-                <p>{{ only }}</p>
+                <p>Not provided</p>
               {% endif %}
-
-            {% else %}
-              <p>Not provided</p>
-            {% endif %}
             </dd>
           </div>
 
