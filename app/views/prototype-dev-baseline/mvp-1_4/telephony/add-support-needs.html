@@ -56,7 +56,8 @@
 -------------------------------------------------------------- #}
 {% set addable = [] %}
 {% for need in ALL_NEEDS %}
-  {% if not existing.includes(need) %}
+  {# Always include "Something else"; hide other options if already present #}
+  {% if need == 'Something else' or not existing.includes(need) %}
     {% set addable = addable.concat([need]) %}
   {% endif %}
 {% endfor %}

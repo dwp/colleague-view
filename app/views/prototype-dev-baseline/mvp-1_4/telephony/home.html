@@ -51,15 +51,16 @@ Home
            SINGLE NEED FORMAT
            ======================= #}
         {% if count == 1 %}
-          {% set only = items[0] %}
-          <h3 class="govuk-heading-s">
-            Support needs
-            <span class="govuk-body">–
-              {% if only == "Something else" %}
-                {{ support.otherText }}.
-              {% else %}
-                {{ only }}.
-              {% endif %}
+          {% set only = items[0] %}
+
+          {# Normalise the display label: strip "Something else:" prefix if present #}
+          {% set display = only %}
+          {% if only and only.startsWith and only.startsWith('Something else:') %}
+            {% set display = only.substr(16) | trim %}
+          {% elseif only and (only.split) and (only.split('Something else:')[0] == '') %}
+            {# Fallback if startsWith isn't available #}
+            {% set display = only.split('Something else:')[1] | trim %}
+          {% endif %}
               <a class="govuk-notification-banner__link"
                  href="/prototype-dev-baseline/mvp-1_4/telephony/support-needs-notes">
                 View support needs notes
@@ -75,13 +76,16 @@ Home
 
           <ul class="govuk-list govuk-list--bullet">
             {% for need in items %}
-              <li>
-                {% if need == "Something else" %}
-                  {{ support.otherText }}
-                {% else %}
-                  {{ need }}
-                {% endif %}
-              </li>
+
+              {# Normalise the display label per item #}
+              {% set display = need %}
+              {% if need and need.startsWith and need.startsWith('Something else:') %}
+                {% set display = need.substr(16) | trim %}
+              {% elseif need and (need.split) and (need.split('Something else:')[0] == '') %}
+                {% set display = need.split('Something else:')[1] | trim %}
+              {% endif %}
+
+              <li>{{ display }}</li>
             {% endfor %}
           </ul>
 

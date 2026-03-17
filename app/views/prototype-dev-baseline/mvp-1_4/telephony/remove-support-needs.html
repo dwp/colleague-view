@@ -46,57 +46,52 @@
 
           {% if (items | length) or other %}
             <fieldset class="govuk-fieldset">
-              <div class="govuk-checkboxes" data-module="govuk-checkboxes" id="support-needs-group">
-
-                {# ------------------------------
-                   SELECT ALL
-                ------------------------------- #}
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input"
-                         id="remove-support-all"
-                         name="selectAllSupportNeeds"
-                         type="checkbox"
-                         value="all"
-                         data-behaviour="select-all">
-                  <label class="govuk-label govuk-checkboxes__label" for="remove-support-all">
-                    Remove all support needs
-                  </label>
-                </div>
 
                 {# -----------------------------------------
-                   Dynamically list existing support needs
+                  Dynamically list existing support needs
                 ------------------------------------------ #}
 
-                {% for need in items %}
-                  {% if need != 'Something else' %}
-                    <div class="govuk-checkboxes__item">
-                      <input class="govuk-checkboxes__input"
-                             id="remove-support-{{ loop.index }}"
-                             name="remove-support-needs"
-                             type="checkbox"
-                             value="{{ need }}">
-                      <label class="govuk-label govuk-checkboxes__label" for="remove-support-{{ loop.index }}">
-                        {{ need }}
-                      </label>
-                    </div>
-                  {% endif %}
-                {% endfor %}
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes" id="support-needs-group">
 
-                {# "Something else" entry if present #}
-                {% if items.includes('Something else') or other %}
+                  {# --- SELECT ALL --- #}
                   <div class="govuk-checkboxes__item">
                     <input class="govuk-checkboxes__input"
-                           id="remove-support-se"
-                           name="remove-support-needs"
-                           type="checkbox"
-                           value="Something else">
-                    <label class="govuk-label govuk-checkboxes__label" for="remove-support-se">
-                      {% if other %}{{ other }}{% endif %}
+                          id="remove-support-all"
+                          name="selectAllSupportNeeds"
+                          type="checkbox"
+                          value="all"
+                          data-behaviour="select-all">
+                    <label class="govuk-label govuk-checkboxes__label" for="remove-support-all">
+                      Remove all support needs
                     </label>
                   </div>
-                {% endif %}
 
-              </div>
+                  {# --- INDIVIDUAL SUPPORT NEEDS --- #}
+                  {% for need in items %}
+
+                    {# Strip "Something else:" prefix for display only #}
+                    {% set display = need %}
+                    {% if need and need.startsWith and need.startsWith('Something else:') %}
+                      {% set display = need.substr(16) | trim %}
+                    {% elseif need and (need.split) and (need.split('Something else:')[0] == '') %}
+                      {% set display = (need.split('Something else:')[1] or '') | trim %}
+                    {% endif %}
+
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input"
+                            id="remove-support-{{ loop.index }}"
+                            name="remove-support-needs"
+                            type="checkbox"
+                            value="{{ need }}">
+                      <label class="govuk-label govuk-checkboxes__label"
+                            for="remove-support-{{ loop.index }}">
+                        {{ display }}
+                      </label>
+                    </div>
+
+                  {% endfor %}
+
+            </div>
             </fieldset>
           {% else %}
             <p class="govuk-hint">There are no support needs to remove.</p>

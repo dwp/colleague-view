@@ -98,18 +98,10 @@
         {% set visibleNeeds = [] %}
           {% set otherText = (data['supportNeeds'] or {}).otherText or '' %}
 
+          {% set visibleNeeds = [] %}
           {% for need in ev.needs %}
             {% if activeNeeds.includes(need) %}
-              {% if need == 'Something else' %}
-                {# Show the titled version; if no text, still show “Something else” #}
-                {% if otherText %}
-                  {% set visibleNeeds = visibleNeeds.concat(['' ~ otherText]) %}
-                {% else %}
-                  {% set visibleNeeds = visibleNeeds.concat(['Something else']) %}
-                {% endif %}
-              {% else %}
-                {% set visibleNeeds = visibleNeeds.concat([need]) %}
-              {% endif %}
+              {% set visibleNeeds = visibleNeeds.concat([need]) %}
             {% endif %}
           {% endfor %}
 
@@ -129,17 +121,36 @@
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">Support needs</dt>
                 <dd class="govuk-summary-list__value">
+
                   {% if visibleNeeds | length > 1 %}
                     <ul class="govuk-list govuk-list--bullet">
                       {% for n in visibleNeeds %}
-                        <li>{{ n }}</li>
+                        {% set display = n %}
+                        {# Strip "Something else:" prefix if present #}
+                        {% if n and n.startsWith and n.startsWith('Something else:') %}
+                          {% set display = n.substr(16) | trim %}
+                        {% elseif n and (n.split) and (n.split('Something else:')[0] == '') %}
+                          {% set display = (n.split('Something else:')[1] or '') | trim %}
+                        {% endif %}
+                        <li>{{ display }}</li>
                       {% endfor %}
                     </ul>
+
                   {% elseif visibleNeeds | length == 1 %}
-                    <p>{{ visibleNeeds[0] }}</p>
+                    {% set n = visibleNeeds[0] %}
+                    {% set display = n %}
+                    {# Strip prefix for single item #}
+                    {% if n and n.startsWith and n.startsWith('Something else:') %}
+                      {% set display = n.substr(16) | trim %}
+                    {% elseif n and (n.split) and (n.split('Something else:')[0] == '') %}
+                      {% set display = (n.split('Something else:')[1] or '') | trim %}
+                    {% endif %}
+                    <p>{{ display }}</p>
+
                   {% else %}
                     <span class="govuk-hint">None recorded</span>
                   {% endif %}
+
                 </dd>
               </div>
 

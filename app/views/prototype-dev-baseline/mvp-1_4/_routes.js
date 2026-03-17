@@ -862,14 +862,32 @@ router.post('/telephony/added-support-needs', function (req, res) {
   const newOther = (req.session.data['something-else-detail'] || '').trim();
   const newNote  = (req.session.data['addNote-additional-support'] || '').trim();
 
+
+  // ⭐ CONVERT "Something else" into a titled support need
+  // Allows unlimited Something elses without overwriting previous ones
+  if (selections.includes("Something else")) {
+    const idx = selections.indexOf("Something else");
+
+    if (newOther) {
+      selections.splice(idx, 1, `Something else: ${newOther}`);
+    } else {
+      // Prevent empty entries if the user ticked Something else but didn't type
+      selections.splice(idx, 1);
+    }
+  }
+
+
+  // Store one-shot payload for check/confirm page
   req.session.data.supportNeedsFlow = 'add';
   req.session.data.supportNeedsJustAdded = {
     items: selections,
-    otherText: newOther,
+    otherText: newOther,   // still useful for confirm page
     note: newNote
   };
   delete req.session.data.supportNeedsJustRemoved;
 
+
+  // Merge with previous state
   const previousSnapshot =
     req.session.data.supportNeedsPrevious ||
     req.session.data.supportNeeds ||
@@ -878,17 +896,20 @@ router.post('/telephony/added-support-needs', function (req, res) {
   const mergedItems = Array.from(
     new Set([...(previousSnapshot.items || []), ...selections])
   );
-  const finalOther = newOther || previousSnapshot.otherText || '';
-  const finalNote  = newNote  || previousSnapshot.note      || '';
 
-  // SAVE merged support needs
+  const finalOther = previousSnapshot.otherText || '';
+  const finalNote  = newNote || previousSnapshot.note || '';
+
+
+  // SAVE updated supportNeeds
   req.session.data.supportNeeds = {
     items: mergedItems,
-    otherText: finalOther,
+    otherText: finalOther,   // kept only for backwards compatibility
     note: finalNote
   };
 
-  // EVENT LOGGING (Add)
+
+  // ⭐ EVENT LOGGING (Add)
   req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
   req.session.data.supportNeedsEvents.unshift({
     action: 'add',
@@ -896,11 +917,12 @@ router.post('/telephony/added-support-needs', function (req, res) {
     note: newNote,
     at: new Date().toISOString(),
     contactType: getContactType(req),
-    contactTime: formatContactTime(new Date()), 
+    contactTime: formatContactTime(new Date()),
     whoWith: getWhoWith(req)
   });
 
-  // Cleanup
+
+  // Cleanup temporary fields
   delete req.session.data.supportNeedsPrevious;
   req.session.data['what-additional-support']    = [];
   req.session.data['something-else-detail']      = '';
