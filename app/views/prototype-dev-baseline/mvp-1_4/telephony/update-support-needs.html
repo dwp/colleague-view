@@ -43,33 +43,31 @@
 
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-            {% for need in items %}
-              {% if need != "Something else" %}
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+              {% for need in items %}
+                {# Derive display: strip "Something else:" prefix if present #}
+                {% set display = need %}
+                {% if need and need.startsWith and need.startsWith('Something else:') %}
+                  {% set display = need.substr(16) | trim %}
+                {% elseif need and (need.split) and (need.split('Something else:')[0] == '') %}
+                  {# Fallback if startsWith isn't available in your Nunjucks env #}
+                  {% set display = (need.split('Something else:')[1] or '') | trim %}
+                {% endif %}
+
                 <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input"
-                         id="update-need-{{ loop.index }}"
-                         name="update-support-needs"
-                         type="checkbox"
-                         value="{{ need }}">
+                        id="update-need-{{ loop.index }}"
+                        name="update-support-needs"
+                        type="checkbox"
+                        value="{{ need }}">
                   <label class="govuk-label govuk-checkboxes__label" for="update-need-{{ loop.index }}">
-                    {{ need }}
+                    {{ display }}
                   </label>
                 </div>
-              {% endif %}
-            {% endfor %}
+              {% endfor %}
 
-            {% if items.includes("Something else") %}
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input"
-                       id="update-need-se"
-                       name="update-support-needs"
-                       type="checkbox"
-                       value="Something else">
-                <label class="govuk-label govuk-checkboxes__label" for="update-need-se">
-                  {% if other %}{{ other }}{% endif %}
-                </label>
-              </div>
-            {% endif %}
+            </div>
 
           </div>
         </fieldset>

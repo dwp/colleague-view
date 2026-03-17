@@ -119,31 +119,38 @@
             </dt>
 
             <dd class="govuk-summary-list__value">
-              {% set otherText = other %}
+              {% if items | length > 1 %}
+              <ul class="govuk-list govuk-list--bullet">
+                {% for item in items %}
 
-                {% if items | length > 1 %}
-                <ul class="govuk-list govuk-list--bullet">
-                  {% for item in items %}
-                    <li>
-                      {% if item == "Something else" %}
-                        {{ otherText }}
-                      {% else %}
-                        {{ item }}
-                      {% endif %}
-                    </li>
-                  {% endfor %}
-                </ul>
+                  {# Strip "Something else:" prefix #}
+                  {% set display = item %}
+                  {% if item and item.startsWith and item.startsWith('Something else:') %}
+                    {% set display = item.substr(16) | trim %}
+                  {% elseif item and (item.split) and (item.split('Something else:')[0] == '') %}
+                    {% set display = (item.split('Something else:')[1] or '') | trim %}
+                  {% endif %}
 
-              {% elseif items | length == 1 %}
-                {% set only = items[0] %}
-                {% if only == "Something else" %}
-                  <p>{{ otherText }}</p>
-                {% else %}
-                  <p>{{ only }}</p>
-                {% endif %}
-              {% else %}
-                <p>Not provided</p>
+                  <li>{{ display }}</li>
+                {% endfor %}
+              </ul>
+
+            {% elseif items | length == 1 %}
+              {% set item = items[0] %}
+              {% set display = item %}
+
+              {# Strip prefix for single item #}
+              {% if item and item.startsWith and item.startsWith('Something else:') %}
+                {% set display = item.substr(16) | trim %}
+              {% elseif item and (item.split) and (item.split('Something else:')[0] == '') %}
+                {% set display = (item.split('Something else:')[1] or '') | trim %}
               {% endif %}
+
+              <p>{{ display }}</p>
+
+            {% else %}
+              <p>Not provided</p>
+            {% endif %}
             </dd>
           </div>
 
