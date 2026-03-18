@@ -1015,48 +1015,62 @@ router.get('/telephony/confirmed-support-needs', function (req, res) {
   // delete req.session.data.supportNeedsJustRemoved;
   // delete req.session.data.supportNeedsJustUpdated;
 });
+// --- START replacement for removed-support-needs route ---
 
-// Confirm removal – update saved supportNeeds and show success page
-router.post('/telephony/removed-support-needs', function (req, res) {
+// Handle both single (Yes/No) and multi-select removal flows
+function handleRemovedSupportNeeds(req, res) {
+  // Read the Yes/No radio (present only in the single-need flow)
+  const confirmChoice = (req.body['confirm-remove'] || '').toLowerCase();
 
-  let removeList = req.session.data['remove-support-needs'] || [];
+  // ❌ NO: Do not change any data, just go back to change page
+  if (confirmChoice === 'no') {
+    return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/change-support-needs');
+  }
+
+  // From here on: YES or no radio present (multi-select confirmation)
+  // Gather items to remove (string or array)
+  let removeList = req.body['remove-support-needs'];
+  if (!removeList || (Array.isArray(removeList) && removeList.length === 0)) {
+    removeList = req.session.data['remove-support-needs'] || [];
+  }
   if (typeof removeList === 'string') removeList = [removeList];
+  removeList = Array.isArray(removeList) ? removeList.filter(Boolean) : [];
 
+  // If nothing selected, safely go back
+  if (removeList.length === 0) {
+    return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/change-support-needs');
+  }
+
+  // Proceed with your existing removal logic
   req.session.data.supportNeedsFlow = 'remove';
 
   const current = req.session.data.supportNeeds || { items: [], otherText: '', note: '' };
-  let items = current.items || [];
+  let items = Array.isArray(current.items) ? current.items.slice() : [];
   let other = current.otherText || '';
   let note  = current.note || '';
 
-  // ⭐ FIX: Save snapshot BEFORE removal happens
-  req.session.data.supportNeedsJustRemoved = {
-    items: removeList,
-    otherText: other    // <-- THIS IS THE REAL SOMETHING ELSE LABEL
-  };
-
+  // Snapshot BEFORE removal (for confirmed page)
+  req.session.data.supportNeedsJustRemoved = { items: removeList, otherText: other };
   delete req.session.data.supportNeedsJustAdded;
+  delete req.session.data.supportNeedsJustUpdated;
 
-  // Remove items + handle Something else
+  // Remove the selected items (exact match)
   items = items.filter(i => !removeList.includes(i));
 
+  // Legacy safeguard for literal 'Something else' token
   if (removeList.includes('Something else')) {
     items = items.filter(i => i !== 'Something else');
-    other = '';   // Now safe to wipe (snapshot already saved)
+    other = '';
   }
 
   if (items.length === 0 && !other) {
     note = '';
   }
 
-  // Save updated supportNeeds
-  req.session.data.supportNeeds = {
-    items,
-    otherText: other,
-    note
-  };
+  // Save
+  req.session.data.supportNeeds = { items, otherText: other, note };
 
-  // Event logging
+  // Event log
   req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
   req.session.data.supportNeedsEvents.unshift({
     action: 'remove',
@@ -1067,12 +1081,20 @@ router.post('/telephony/removed-support-needs', function (req, res) {
     whoWith: getWhoWith(req)
   });
 
-  // Cleanup
+  // Clean temp
   req.session.data['remove-support-needs'] = [];
   req.session.data['remove-support-note']  = '';
 
+  // Go to confirmed page
   return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/confirmed-support-needs');
-});
+}
+
+// Register BOTH paths (prefixed + unprefixed) so either action works
+router.post('/prototype-dev-baseline/mvp-1_4/telephony/removed-support-needs', handleRemovedSupportNeeds);
+router.post('/telephony/removed-support-needs', handleRemovedSupportNeeds);
+
+// --- END replacement for removed-support-needs route ---
+
 
 router.post('/telephony/updated-support-needs', function (req, res) {
 

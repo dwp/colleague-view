@@ -53,8 +53,6 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <span class="govuk-caption-l">Step 2 of 2</span>
-
     {% if mode == "update" %}
       <h1 class="govuk-heading-l">Check the details you want to update</h1>
     {% elseif mode == "remove" %}
@@ -74,11 +72,11 @@
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               {% if mode == "update" %}
-                Updated support needs
+                Updated support need
               {% elseif mode == "remove" %}
-                Removed support needs
+                Removed support need
               {% else %}
-                Added support needs
+                Added support need
               {% endif %}
             </dt>
 

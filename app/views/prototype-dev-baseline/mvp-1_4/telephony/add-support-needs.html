@@ -24,24 +24,21 @@
    Pull PREVIOUS support needs if in change flow,
    otherwise fall back to CURRENT support needs (normal add)
 -------------------------------------------------------------- #}
-{# If the user came from the Change page, use supportNeedsPrevious.
-   Otherwise always default to current saved supportNeeds. #}
-
 {% if data['supportNeedsFlow'] == 'change' %}
   {% set prev = data['supportNeedsPrevious'] or {} %}
 {% else %}
   {% set prev = data['supportNeeds'] or {} %}
 {% endif %}
-
 {% set existing = prev.items or [] %}
 
 {# -------------------------------------------------------------
-   List of ALL possible support needs
+   Define ALL possible support needs (SPLIT domestic/financial)
 -------------------------------------------------------------- #}
 {% set ALL_NEEDS = [
   "This person has a mental health condition",
   "This person is struggling with financial hardship",
-  "This person is living with domestic or financial abuse",
+  "This person is living with domestic abuse",
+  "This person is living with financial abuse",
   "This person has thoughts of suicide or self harm (6 point plan)",
   "This person is experiencing bereavement",
   "This person has a drug or alcohol addiction",
@@ -52,12 +49,27 @@
 ] %}
 
 {# -------------------------------------------------------------
-   Compute ADDABLE options (exclude any 'existing')
+   Legacy compatibility:
+   If existing includes the OLD combined label, treat it as both new ones.
+-------------------------------------------------------------- #}
+{% set LEGACY_COMBINED = "This person is living with domestic or financial abuse" %}
+{% set legacyHasCombined = LEGACY_COMBINED in existing %}
+
+{# -------------------------------------------------------------
+   Compute ADDABLE options (exclude any that already exist)
+   Always keep "Something else"
 -------------------------------------------------------------- #}
 {% set addable = [] %}
 {% for need in ALL_NEEDS %}
-  {# Always include "Something else"; hide other options if already present #}
-  {% if need == 'Something else' or not existing.includes(need) %}
+  {# Is this need already present? #}
+  {% set already = (need in existing) %}
+
+  {# If legacy combined label exists, treat both split needs as already present #}
+  {% if not already and legacyHasCombined and (need == "This person is living with domestic abuse" or need == "This person is living with financial abuse") %}
+    {% set already = true %}
+  {% endif %}
+
+  {% if need == 'Something else' or not already %}
     {% set addable = addable.concat([need]) %}
   {% endif %}
 {% endfor %}
@@ -65,14 +77,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {# Use an absolute path so it works from anywhere #}
     <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Step 1 of 2</span>
             <h1 class="govuk-fieldset__heading">
               What do you want to add?
             </h1>
@@ -87,52 +97,49 @@
             <div class="govuk-inset-text govuk-!-margin-top-3">
               All available support needs have already been added.
             </div>
-
           {% else %}
 
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            {# Radios (single selection) with conditional reveal for "Something else" #}
+            <div class="govuk-radios" data-module="govuk-radios">
 
-              {# Normal options (filtered) #}
+              {# Keep checked state if user returns #}
+              {% set currentChoice = data['what-additional-support'] %}
+
+              {# Normal radio options #}
               {% for need in addable %}
                 {% if need != 'Something else' %}
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input"
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
                            id="what-additional-support-{{ loop.index }}"
                            name="what-additional-support"
-                           type="checkbox"
-                           value="{{ need }}">
-                    <label class="govuk-label govuk-checkboxes__label"
+                           type="radio"
+                           value="{{ need }}"
+                           {% if currentChoice == need %}checked{% endif %}>
+                    <label class="govuk-label govuk-radios__label"
                            for="what-additional-support-{{ loop.index }}">
                       {{ need }}
                     </label>
                   </div>
                 {% else %}
-                  {# "Something else" — only offered if not previously selected #}
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input"
-                           id="what-additional-support-10"
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
+                           id="what-additional-support-else"
                            name="what-additional-support"
-                           type="checkbox"
+                           type="radio"
                            value="Something else"
-                           data-aria-controls="conditional-what-additional-support-10">
-                    <label class="govuk-label govuk-checkboxes__label"
-                           for="what-additional-support-10">
+                           data-aria-controls="conditional-what-additional-support-else"
+                           {% if currentChoice == 'Something else' %}checked{% endif %}>
+                    <label class="govuk-label govuk-radios__label" for="what-additional-support-else">
                       Something else
                     </label>
-
-                    <div id="something-else-item-hint"
-                         class="govuk-hint govuk-checkboxes__hint">
-                      You must write a note providing context
-                    </div>
                   </div>
 
-                  <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
-                       id="conditional-what-additional-support-10">
+                  <div class="govuk-radios__conditional {% if currentChoice != 'Something else' %}govuk-radios__conditional--hidden{% endif %}"
+                       id="conditional-what-additional-support-else">
 
                     <div class="govuk-form-group govuk-character-count"
                          data-module="govuk-character-count"
                          data-maxlength="70">
-
                       <h3 class="govuk-heading-m govuk-!-margin-bottom-1">What is the need?</h3>
                       <p class="govuk-hint govuk-!-margin-top-1">Give a high level description and do not use acronyms.</p>
 
@@ -145,7 +152,6 @@
                            class="govuk-hint govuk-character-count__message">
                         You have 70 characters remaining
                       </div>
-
                     </div>
                   </div>
                 {% endif %}
@@ -198,6 +204,7 @@
         </button>
       </div>
     </form>
+
   </div>
 </div>
 
