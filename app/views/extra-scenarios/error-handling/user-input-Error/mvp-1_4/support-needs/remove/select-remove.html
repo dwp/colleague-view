@@ -1,0 +1,248 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Remove support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  javascript:window.history.back()Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- ERROR SUMMARY (fixed link) -->
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">There is a problem</h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <li><a href="#remove-support-all">Select what support need you want to remove</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
+
+      <!-- ERROR BLOCK -->
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" aria-describedby="remove-support-error contact-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Step 1 of 2</span>
+            <h1 class="govuk-fieldset__heading">What do you want to remove?</h1>
+          </legend>
+
+          <div id="contact-hint" class="govuk-hint">
+            You should remove a need if it no longer applies or if the account holder requests it. 
+            You do not need to record a note about this.
+          </div>
+
+          <!-- INLINE ERROR MESSAGE (fixed id) -->
+          <p id="remove-support-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span>
+            Select what support need you want to remove
+          </p>
+
+          <!-- STATIC SUPPORT NEEDS LIST -->
+          <fieldset class="govuk-fieldset">
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes" id="support-needs-group">
+
+              <!-- REMOVE ALL (anchor target) -->
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-all"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="all"
+                      data-behaviour="select-all">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-all">
+                  Remove all support needs
+                </label>
+              </div>
+
+              <!-- FULL STATIC LIST -->
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-1"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person has a mental health condition">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-1">
+                  This person has a mental health condition
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-2"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person is struggling with financial hardship">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-2">
+                  This person is struggling with financial hardship
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-3"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person is living with domestic or financial abuse">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-3">
+                  This person is living with domestic or financial abuse
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-4"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person has thoughts of suicide or self harm (6 point plan)">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-4">
+                  This person has thoughts of suicide or self harm (6 point plan)
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-5"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person is experiencing bereavement">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-5">
+                  This person is experiencing bereavement
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-6"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person has a drug or alcohol addiction">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-6">
+                  This person has a drug or alcohol addiction
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-7"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person needs third party support (such as a support worker)">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-7">
+                  This person needs third party support (such as a support worker)
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-8"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person is homeless or is at risk of being homeless">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-8">
+                  This person is homeless or is at risk of being homeless
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-9"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="This person is an asylum seeker">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-9">
+                  This person is an asylum seeker
+                </label>
+              </div>
+
+              <!-- “Something else” removed entirely → replaced with plain text -->
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input"
+                      id="remove-support-10"
+                      name="remove-support-needs"
+                      type="checkbox"
+                      value="Cannot speak to female staff">
+                <label class="govuk-label govuk-checkboxes__label" for="remove-support-10">
+                  Cannot speak to female staff
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+
+        </fieldset>
+      </div>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" type="submit" data-module="govuk-button">Save and continue</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<!-- Select all JS unchanged -->
+<script>
+  (function () {
+    const group = document.getElementById('support-needs-group');
+    if (!group) return;
+
+    const selectAll = group.querySelector('[data-behaviour="select-all"]');
+    const items = Array.from(group.querySelectorAll('.govuk-checkboxes__input'))
+      .filter(i => i !== selectAll);
+
+    function enabled() {
+      return items.filter(i => !i.disabled);
+    }
+
+    function syncSelectAll() {
+      const enabledItems = enabled();
+      const allChecked = enabledItems.length > 0 && enabledItems.every(i => i.checked);
+      const someChecked = enabledItems.some(i => i.checked);
+
+      selectAll.checked = allChecked;
+      selectAll.indeterminate = !allChecked && someChecked;
+    }
+
+    function toggleAll(checked) {
+      enabled().forEach(i => { i.checked = checked; });
+    }
+
+    if (selectAll) {
+      selectAll.addEventListener('change', () => {
+        toggleAll(selectAll.checked);
+        syncSelectAll();
+      });
+    }
+
+    items.forEach(i => {
+      i.addEventListener('change', () => syncSelectAll());
+    });
+
+    syncSelectAll();
+  })();
+</script>
+
+{% endblock %}

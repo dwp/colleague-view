@@ -1,0 +1,217 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Update support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- ERROR SUMMARY (correct <a> tag) -->
+    <div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">There is a problem</h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#update-need-1">Select what support need you want to update</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Correct form tag -->
+    <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
+
+      <!-- ERROR WRAPPER -->
+      <div class="govuk-form-group govuk-form-group--error">
+        <fieldset class="govuk-fieldset" aria-describedby="update-error contact-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">Step 1 of 2</span>
+            <h1 class="govuk-fieldset__heading">Which support needs do you want to update?</h1>
+          </legend>
+
+          <p id="update-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span>
+            Select what support need you want to update
+          </p>
+
+          <!-- STATIC CHECKBOXES -->
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-1"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person has a mental health condition">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-1">
+                This person has a mental health condition
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-2"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person is struggling with financial hardship">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-2">
+                This person is struggling with financial hardship
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-3"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person is living with domestic or financial abuse">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-3">
+                This person is living with domestic or financial abuse
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-4"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person has thoughts of suicide or self harm (6 point plan)">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-4">
+                This person has thoughts of suicide or self harm (6 point plan)
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-5"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person is experiencing bereavement">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-5">
+                This person is experiencing bereavement
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-6"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person has a drug or alcohol addiction">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-6">
+                This person has a drug or alcohol addiction
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-7"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person needs third party support (such as a support worker)">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-7">
+                This person needs third party support (such as a support worker)
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-8"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person is homeless or is at risk of being homeless">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-8">
+                This person is homeless or is at risk of being homeless
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-9"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="This person is an asylum seeker">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-9">
+                This person is an asylum seeker
+              </label>
+            </div>
+
+            <!-- Former "Something else" as static text -->
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input"
+                     id="update-need-10"
+                     name="update-support-needs"
+                     type="checkbox"
+                     value="Cannot speak to female staff">
+              <label class="govuk-label govuk-checkboxes__label" for="update-need-10">
+                Cannot speak to female staff
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Note field (unchanged) -->
+      <div class="govuk-form-group govuk-character-count"
+           data-module="govuk-character-count"
+           data-maxlength="5000">
+
+        <label class="govuk-label govuk-label--m" for="update-note">
+          Add your updated note
+        </label>
+
+        <div id="more-detail-hint" class="govuk-hint">
+          This note will be held separately from the main contact history.
+          It will be accessible from the homepage of this account.
+        </div>
+
+        <div class="govuk-warning-text govuk-!-margin-bottom-2">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Do not include personal identifiable information such as name, National Insurance number, or date of birth.
+          </strong>
+        </div>
+
+        <textarea class="govuk-textarea govuk-js-character-count"
+                  id="update-note"
+                  name="update-note"
+                  rows="7"
+                  maxlength="5000">{{ data['update-note'] }}</textarea>
+
+        <div id="update-note-info" class="govuk-hint govuk-character-count__message">
+          You have 5000 characters remaining
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" type="submit">Save and continue</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

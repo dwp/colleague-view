@@ -1,0 +1,222 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Display error message - prototype
+{% endblock %}
+
+
+{% block header %}
+  {% include "extra-scenarios/error-handling/common/header.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "extra-scenarios/error-handling/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="../index">Back</a>
+{% endblock %}
+
+{% block footer %}
+  {% include "extra-scenarios/error-handling/common/footer.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+  <!-- <div class="govuk-grid-column-two-thirds"> -->
+    <div class="govuk-grid-column-full">
+    <span class="govuk-caption-l">Input errors</span>
+    <h1 class="govuk-heading-l">Support needs</h1>
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#add">
+            Add support needs
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#change">
+            Change support needs
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#remove">
+            Remove support needs
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#update">
+            Update support needs
+          </a>
+        </li>
+      </ul>
+
+      <!-- add support needs -->
+      <div class="govuk-tabs__panel" id="add">
+        <h2 class="govuk-heading-m">Add support needs</h2>
+       <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Screen</th>
+        <th scope="col" class="govuk-table__header">Validation rule</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Add support need</td>
+        <td class="govuk-table__cell">Select the support need you want to add</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/add/select-support-need.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Add support needs</td>
+        <td class="govuk-table__cell">Enter what the need is</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/add/enter-need.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Add support needs</td>
+        <td class="govuk-table__cell">Enter a note less than 70 characters</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/add/over-70-characters.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Add support needs</td>
+        <td class="govuk-table__cell">Enter a note</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/add/enter-note.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Add support needs</td>
+        <td class="govuk-table__cell">User note input is over 5000 characters</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/add/over-5000.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<!-- change support needs -->
+      <div class="govuk-tabs__panel" id="change">
+        <h2 class="govuk-heading-m">Change support needs</h2>
+       <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Screen</th>
+        <th scope="col" class="govuk-table__header">Validation rule</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Change support needs</td>
+        <td class="govuk-table__cell">Select how you want to change the support needs</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/change/select-change.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<!-- remove support needs -->
+      <div class="govuk-tabs__panel" id="remove">
+        <h2 class="govuk-heading-m">Remove support needs</h2>
+       <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Screen</th>
+        <th scope="col" class="govuk-table__header">Validation rule</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Remove support need</td>
+        <td class="govuk-table__cell">Select what support need you want to remove</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/remove/select-remove.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<!--  update support needs -->
+      <div class="govuk-tabs__panel" id="update">
+        <h2 class="govuk-heading-m">Update support needs</h2>
+       <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Screen</th>
+        <th scope="col" class="govuk-table__header">Validation rule</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Update support needs</td>
+        <td class="govuk-table__cell">Select what support need you want to update</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/update/select-update.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Update support needs</td>
+        <td class="govuk-table__cell">Enter a note</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/update/enter-note.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Update support needs</td>
+        <td class="govuk-table__cell">User note input is over 5000 characters</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a href="support-needs/update/over-5000.html" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            View prototype
+          </a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+
+{% endblock %}
