@@ -46,18 +46,19 @@
               Current support needs
             </h2>
 
+            {# Build clean list of display labels #}
             {% set needList = [] %}
 
-            {# Build a combined list of needs including Something else text #}
             {% for need in items %}
-              {% if need != 'Something else' %}
-                {% set needList = needList.concat([need]) %}
-              {% endif %}
-            {% endfor %}
+              {% set display = need %}
 
-            {% if otherText %}
-              {% set needList = needList.concat(["Something else: " + otherText]) %}
-            {% endif %}
+              {# Remove "Something else:" prefix if present #}
+              {% if 'Something else:' in need %}
+                {% set display = need | replace('Something else:', '') | trim %}
+              {% endif %}
+
+              {% set needList = needList.concat([display]) %}
+            {% endfor %}
 
             {# OUTPUT LOGIC #}
             {% if needList | length > 1 %}
@@ -68,12 +69,14 @@
               </ul>
 
             {% elseif needList | length == 1 %}
-              <p>{{ needList[0] }}</p>
+              {% set display = needList[0] %}
+              <p>{{ display }}</p>
 
             {% else %}
               <p class="govuk-hint">No support needs recorded.</p>
             {% endif %}
           </div>
+
 
           <!-- RADIO OPTIONS -->
           <div class="govuk-radios" data-module="govuk-radios">

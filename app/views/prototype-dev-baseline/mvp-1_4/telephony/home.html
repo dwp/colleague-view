@@ -51,22 +51,28 @@ Home
            SINGLE NEED FORMAT
            ======================= #}
         {% if count == 1 %}
-          {% set only = items[0] %}
 
-          {# Normalise the display label: strip "Something else:" prefix if present #}
-          {% set display = only %}
-          {% if only and only.startsWith and only.startsWith('Something else:') %}
-            {% set display = only.substr(16) | trim %}
-          {% elseif only and (only.split) and (only.split('Something else:')[0] == '') %}
-            {# Fallback if startsWith isn't available #}
-            {% set display = only.split('Something else:')[1] | trim %}
-          {% endif %}
-              <a class="govuk-notification-banner__link"
-                 href="/prototype-dev-baseline/mvp-1_4/telephony/support-needs-notes">
-                View support needs notes
-              </a>
-            </span>
+          {% set only = items[0] %}
+          {% set display = only %}
+
+          {# Normalise Something else #}
+          {% if display and 'Something else:' in display %}
+            {% set display = display | replace('Something else:', '') | trim %}
+          {% endif %}
+
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+            <strong>Support needs:</strong>
+            <span class="govuk-body">{{ display }}</span>
           </h3>
+
+          <p class="govuk-body">
+            <a class="govuk-notification-banner__link"
+              href="/prototype-dev-baseline/mvp-1_4/telephony/support-needs-notes">
+              View support needs notes
+            </a>
+          </p>
+        
+ 
 
         {# =======================
            MULTIPLE NEEDS FORMAT

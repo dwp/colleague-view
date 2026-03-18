@@ -92,23 +92,19 @@
                 {% if updateSelections | length > 1 %}
                 <ul class="govuk-list govuk-list--bullet">
                   {% for item in updateSelections %}
-                    {% set display = item %}
-                    {% if item and item.startsWith and item.startsWith('Something else:') %}
-                      {% set display = item.substr(16) | trim %}
-                    {% elseif item and (item.split) and (item.split('Something else:')[0] == '') %}
-                      {% set display = (item.split('Something else:')[1] or '') | trim %}
-                    {% endif %}
-                    <li>{{ display }}</li>
-                  {% endfor %}
+                  {% set display = item %}
+                  {% if 'Something else:' in item %}
+                    {% set display = item | replace('Something else:', '') | trim %}
+                  {% endif %}
+                  <li>{{ display }}</li>
+                {% endfor %}
                 </ul>
 
               {% elseif updateSelections | length == 1 %}
                 {% set only = updateSelections[0] %}
                 {% set display = only %}
-                {% if only and only.startsWith and only.startsWith('Something else:') %}
-                  {% set display = only.substr(16) | trim %}
-                {% elseif only and (only.split) and (only.split('Something else:')[0] == '') %}
-                  {% set display = (only.split('Something else:')[1] or '') | trim %}
+                {% if 'Something else:' in only %}
+                  {% set display = only | replace('Something else:', '') | trim %}
                 {% endif %}
                 <p>{{ display }}</p>
 
@@ -124,23 +120,19 @@
               {% if removeSelections | length > 1 %}
                 <ul class="govuk-list govuk-list--bullet">
                   {% for item in removeSelections %}
-                    {% set display = item %}
-                    {% if item and item.startsWith and item.startsWith('Something else:') %}
-                      {% set display = item.substr(16) | trim %}
-                    {% elseif item and (item.split) and (item.split('Something else:')[0] == '') %}
-                      {% set display = (item.split('Something else:')[1] or '') | trim %}
-                    {% endif %}
-                    <li>{{ display }}</li>
-                  {% endfor %}
+                  {% set display = item %}
+                  {% if 'Something else:' in item %}
+                    {% set display = item | replace('Something else:', '') | trim %}
+                  {% endif %}
+                  <li>{{ display }}</li>
+                {% endfor %}
                 </ul>
 
               {% elseif removeSelections | length == 1 %}
                 {% set only = removeSelections[0] %}
                 {% set display = only %}
-                {% if only and only.startsWith and only.startsWith('Something else:') %}
-                  {% set display = only.substr(16) | trim %}
-                {% elseif only and (only.split) and (only.split('Something else:')[0] == '') %}
-                  {% set display = (only.split('Something else:')[1] or '') | trim %}
+                {% if 'Something else:' in only %}
+                  {% set display = only | replace('Something else:', '') | trim %}
                 {% endif %}
                 <p>{{ display }}</p>
 
@@ -148,8 +140,8 @@
                 <p>None selected</p>
               {% endif %}
 
-              {# ----------------------------
-                 ADD MODE
+             {# ----------------------------
+                ADD MODE
               ------------------------------ #}
               {% else %}
 
@@ -157,11 +149,14 @@
                   <ul class="govuk-list govuk-list--bullet">
                     {% for item in addSelections %}
                       {% set display = item %}
-                      {% if item and item.startsWith and item.startsWith('Something else:') %}
-                        {% set display = item.substr(16) | trim %}
-                      {% elseif item and (item.split) and (item.split('Something else:')[0] == '') %}
-                        {% set display = (item.split('Something else:')[1] or '') | trim %}
+
+                      {# Handle Something else BEFORE it gets converted by the POST route #}
+                      {% if item == 'Something else' %}
+                        {% set display = (data['something-else-detail'] or '') | trim %}
+                      {% elseif 'Something else:' in item %}
+                        {% set display = item | replace('Something else:', '') | trim %}
                       {% endif %}
+
                       <li>{{ display }}</li>
                     {% endfor %}
                   </ul>
@@ -169,11 +164,14 @@
                 {% elseif addSelections | length == 1 %}
                   {% set only = addSelections[0] %}
                   {% set display = only %}
-                  {% if only and only.startsWith and only.startsWith('Something else:') %}
-                    {% set display = only.substr(16) | trim %}
-                  {% elseif only and (only.split) and (only.split('Something else:')[0] == '') %}
-                    {% set display = (only.split('Something else:')[1] or '') | trim %}
+
+                  {# Handle Something else BEFORE it gets converted #}
+                  {% if only == 'Something else' %}
+                    {% set display = (data['something-else-detail'] or '') | trim %}
+                  {% elseif 'Something else:' in only %}
+                    {% set display = only | replace('Something else:', '') | trim %}
                   {% endif %}
+
                   <p>{{ display }}</p>
 
                 {% else %}
