@@ -4,7 +4,7 @@
   {% set flow = data['supportNeedsFlow'] or '' %}
   {% if flow == 'update' %}
     You have updated details
-  {% elseif flow == 'remove' or data['supportNeedsJustRemoved'] %}
+  {% elif flow == 'remove' %}
     You have removed details
   {% else %}
     You have added details
@@ -34,9 +34,9 @@
 
 {% if flow == 'update' %}
   {% set mode = 'update' %}
-{% elseif flow == 'remove' %}
+{% elif flow == 'remove' %}
   {% set mode = 'remove' %}
-{% elseif flow == 'add' %}
+{% elif flow == 'add' %}
   {% set mode = 'add' %}
 {% else %}
   {# Legacy fallback: detect by presence of old payloads #}
@@ -57,7 +57,7 @@
   {% set note    = updated.note  or '' %}
   {% set other   = '' %} {# not used in update #}
 
-{% elseif mode == 'remove' %}
+{% elif mode == 'remove' %}
   {% set removed = data['supportNeedsJustRemoved'] or {} %}
   {% set items   = removed.items or [] %}
   {% set note    = '' %}
@@ -70,35 +70,73 @@
   {% set other = added.otherText or '' %}
 {% endif %}
 
+{# -------------------------------------------------------------
+   CLEAN DISPLAY LIST (strip "Something else:" prefix safely)
+-------------------------------------------------------------- #}
+{% set cleanedItems = [] %}
+{% for it in items %}
+  {% set display = it %}
+  {% if 'Something else:' in it %}
+    {% set display = it | replace('Something else:', '') | trim %}
+  {% endif %}
+  {% set cleanedItems = cleanedItems.concat([display]) %}
+{% endfor %}
+
+{% set count = cleanedItems | length %}
+
+{# -------------------------------------------------------------
+   SUCCESS BANNER MESSAGE (singular/plural by mode + count)
+-------------------------------------------------------------- #}
+{% set successMessage = "Changes saved successfully." %}
+
+{% if mode == 'add' %}
+  {% if count == 1 %}
+    {% set successMessage = "Support need added successfully." %}
+  {% elif count > 1 %}
+    {% set successMessage = "Support needs added successfully." %}
+  {% endif %}
+{% elif mode == 'remove' %}
+  {% if count == 1 %}
+    {% set successMessage = "Support need removed successfully." %}
+  {% elif count > 1 %}
+    {% set successMessage = "Support needs removed successfully." %}
+  {% endif %}
+{% elif mode == 'update' %}
+  {% if count == 1 %}
+    {% set successMessage = "Support need updated successfully." %}
+  {% elif count > 1 %}
+    {% set successMessage = "Support needs updated successfully." %}
+  {% endif %}
+{% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    {# SUCCESS BANNER #}
     <div class="govuk-notification-banner govuk-notification-banner--success"
          role="alert"
          aria-labelledby="govuk-notification-banner-title"
          data-module="govuk-notification-banner">
-
       <div class="govuk-notification-banner__header">
         <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
           Success
         </h2>
       </div>
-
       <div class="govuk-notification-banner__content">
-        <h3 class="govuk-notification-banner__heading">
-          Support needs have been saved successfully.
-        </h3>
+        <h3 class="govuk-notification-banner__heading">{{ successMessage }}</h3>
       </div>
     </div>
 
+    {# PAGE HEADING #}
     {% if mode == 'update' %}
       <h1 class="govuk-heading-l">You have updated details</h1>
-    {% elseif mode == 'remove' %}
+    {% elif mode == 'remove' %}
       <h1 class="govuk-heading-l">You have removed details</h1>
     {% else %}
       <h1 class="govuk-heading-l">You have added details</h1>
     {% endif %}
 
+    {# SUMMARY CARD #}
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">Support needs</h2>
@@ -111,7 +149,7 @@
             <dt class="govuk-summary-list__key">
               {% if mode == 'update' %}
                 Updated support need
-              {% elseif mode == 'remove' %}
+              {% elif mode == 'remove' %}
                 Removed support need
               {% else %}
                 Added support need
@@ -119,62 +157,32 @@
             </dt>
 
             <dd class="govuk-summary-list__value">
-              {% if items | length > 1 %}
-              <ul class="govuk-list govuk-list--bullet">
-                {% for item in items %}
-
-                  {# Strip "Something else:" prefix #}
-                  {% set display = item %}
-                  {% if item and item.startsWith and item.startsWith('Something else:') %}
-                    {% set display = item.substr(16) | trim %}
-                  {% elseif item and (item.split) and (item.split('Something else:')[0] == '') %}
-                    {% set display = (item.split('Something else:')[1] or '') | trim %}
-                  {% endif %}
-
-                  <li>{{ display }}</li>
-                {% endfor %}
-              </ul>
-
-            {% elseif items | length == 1 %}
-              {% set item = items[0] %}
-              {% set display = item %}
-
-              {# Strip prefix for single item #}
-              {% if item and item.startsWith and item.startsWith('Something else:') %}
-                {% set display = item.substr(16) | trim %}
-              {% elseif item and (item.split) and (item.split('Something else:')[0] == '') %}
-                {% set display = (item.split('Something else:')[1] or '') | trim %}
+              {% if cleanedItems | length > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for need in cleanedItems %}
+                    <li>{{ need }}</li>
+                  {% endfor %}
+                </ul>
+              {% elif cleanedItems | length == 1 %}
+                <p>{{ cleanedItems[0] }}</p>
+              {% else %}
+                <p>Not provided</p>
               {% endif %}
-
-              <p>{{ display }}</p>
-
-            {% else %}
-              <p>Not provided</p>
-            {% endif %}
             </dd>
           </div>
 
-          {# Show a note row for ADD and UPDATE; nothing for REMOVE #}
           {% if mode == 'add' %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Note</dt>
               <dd class="govuk-summary-list__value">
-                {% if note %}
-                  {{ note }}
-                {% else %}
-                  <span class="govuk-body">Not provided</span>
-                {% endif %}
+                {% if note %}{{ note }}{% else %}Not provided{% endif %}
               </dd>
             </div>
-          {% elseif mode == 'update' %}
+          {% elif mode == 'update' %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Updated note</dt>
               <dd class="govuk-summary-list__value">
-                {% if note %}
-                  {{ note }}
-                {% else %}
-                  <span class="govuk-body">Not provided</span>
-                {% endif %}
+                {% if note %}{{ note }}{% else %}Not provided{% endif %}
               </dd>
             </div>
           {% endif %}

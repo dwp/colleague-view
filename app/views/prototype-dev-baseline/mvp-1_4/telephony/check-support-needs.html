@@ -61,10 +61,31 @@
       <h1 class="govuk-heading-l">Check the details you have added</h1>
     {% endif %}
 
+    {# Decide the destination once, based on mode #}
+    {% if mode == "update" %}
+      {% set changeHref = "/prototype-dev-baseline/mvp-1_4/telephony/update-support-needs" %}
+    {% elif mode == "remove" %}
+      {% set changeHref = "/prototype-dev-baseline/mvp-1_4/telephony/remove-support-needs" %}
+    {% else %}
+      {% set changeHref = "/prototype-dev-baseline/mvp-1_4/telephony/add-support-needs" %}
+    {% endif %}
+
+
+    
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">Support needs</h2>
+
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link" href="{{ changeHref }}">
+              Change <span class="govuk-visually-hidden"> the support need</span>
+            </a>
+          </li>
+        </ul>
       </div>
+
+
 
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list govuk-!-margin-bottom-0">
