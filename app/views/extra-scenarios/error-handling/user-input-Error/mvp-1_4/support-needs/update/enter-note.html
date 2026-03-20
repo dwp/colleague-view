@@ -39,126 +39,145 @@
 
     <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
 
-      <!-- CHECKBOXES (not in error state) -->
+      <!-- RADIOS (single-select; not in error state) -->
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Step 1 of 2</span>
             <h1 class="govuk-fieldset__heading">Which support needs do you want to update?</h1>
           </legend>
 
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-            <!-- MENTAL HEALTH SELECTED -->
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
+            <!-- 1. Mental health (pre-selected, mirroring earlier state) -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
                      id="update-need-1"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person has a mental health condition"
                      checked>
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-1">
+              <label class="govuk-label govuk-radios__label" for="update-need-1">
                 This person has a mental health condition
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
+            <!-- 2. Financial hardship -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
                      id="update-need-2"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person is struggling with financial hardship">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-2">
+              <label class="govuk-label govuk-radios__label" for="update-need-2">
                 This person is struggling with financial hardship
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
+            <!-- 3. Domestic abuse (split out) -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
                      id="update-need-3"
                      name="update-support-needs"
-                     type="checkbox"
-                     value="This person is living with domestic or financial abuse">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-3">
-                This person is living with domestic or financial abuse
+                     type="radio"
+                     value="This person is living with domestic abuse">
+              <label class="govuk-label govuk-radios__label" for="update-need-3">
+                This person is living with domestic abuse
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
+            <!-- 4. Financial abuse (new separate option) -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
                      id="update-need-4"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
+                     value="This person is living with financial abuse">
+              <label class="govuk-label govuk-radios__label" for="update-need-4">
+                This person is living with financial abuse
+              </label>
+            </div>
+
+            <!-- 5. Thoughts of suicide or self harm -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-5"
+                     name="update-support-needs"
+                     type="radio"
                      value="This person has thoughts of suicide or self harm (6 point plan)">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-4">
+              <label class="govuk-label govuk-radios__label" for="update-need-5">
                 This person has thoughts of suicide or self harm (6 point plan)
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-5"
+            <!-- 6. Bereavement -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-6"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person is experiencing bereavement">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-5">
+              <label class="govuk-label govuk-radios__label" for="update-need-6">
                 This person is experiencing bereavement
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-6"
+            <!-- 7. Drug or alcohol addiction -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-7"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person has a drug or alcohol addiction">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-6">
+              <label class="govuk-label govuk-radios__label" for="update-need-7">
                 This person has a drug or alcohol addiction
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-7"
+            <!-- 8. Third party support -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-8"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person needs third party support (such as a support worker)">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-7">
+              <label class="govuk-label govuk-radios__label" for="update-need-8">
                 This person needs third party support (such as a support worker)
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-8"
+            <!-- 9. Homeless or at risk -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-9"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person is homeless or is at risk of being homeless">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-8">
+              <label class="govuk-label govuk-radios__label" for="update-need-9">
                 This person is homeless or is at risk of being homeless
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-9"
+            <!-- 10. Asylum seeker -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-10"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person is an asylum seeker">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-9">
+              <label class="govuk-label govuk-radios__label" for="update-need-10">
                 This person is an asylum seeker
               </label>
             </div>
 
-            <!-- Former “Something else” -->
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-10"
+            <!-- 11. Former “Something else” as fixed option; no hint text -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-11"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="Cannot speak to female staff">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-10">
+              <label class="govuk-label govuk-radios__label" for="update-need-11">
                 Cannot speak to female staff
               </label>
             </div>

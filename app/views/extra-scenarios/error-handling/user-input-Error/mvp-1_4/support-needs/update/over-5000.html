@@ -15,7 +15,7 @@
 
 {% block beforeContent %}
   {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
-  javascript:window.history.back()Back</a>
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -39,126 +39,145 @@
 
     <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
 
-      <!-- CHECKBOXES (not in error state) -->
+      <!-- RADIOS (single select; NOT in error state) -->
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Step 1 of 2</span>
             <h1 class="govuk-fieldset__heading">Which support needs do you want to update?</h1>
           </legend>
 
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-            <!-- MENTAL HEALTH SELECTED -->
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
+            <!-- Mental health (checked as before) -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
                      id="update-need-1"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person has a mental health condition"
                      checked>
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-1">
+              <label class="govuk-label govuk-radios__label" for="update-need-1">
                 This person has a mental health condition
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
+            <!-- Financial hardship -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
                      id="update-need-2"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person is struggling with financial hardship">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-2">
+              <label class="govuk-label govuk-radios__label" for="update-need-2">
                 This person is struggling with financial hardship
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
+            <!-- Domestic abuse (SPLIT OUT) -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
                      id="update-need-3"
                      name="update-support-needs"
-                     type="checkbox"
-                     value="This person is living with domestic or financial abuse">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-3">
-                This person is living with domestic or financial abuse
+                     type="radio"
+                     value="This person is living with domestic abuse">
+              <label class="govuk-label govuk-radios__label" for="update-need-3">
+                This person is living with domestic abuse
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
+            <!-- Financial abuse (NEW separate option) -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
                      id="update-need-4"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
+                     value="This person is living with financial abuse">
+              <label class="govuk-label govuk-radios__label" for="update-need-4">
+                This person is living with financial abuse
+              </label>
+            </div>
+
+            <!-- Thoughts of suicide -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-5"
+                     name="update-support-needs"
+                     type="radio"
                      value="This person has thoughts of suicide or self harm (6 point plan)">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-4">
+              <label class="govuk-label govuk-radios__label" for="update-need-5">
                 This person has thoughts of suicide or self harm (6 point plan)
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-5"
+            <!-- Bereavement -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-6"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person is experiencing bereavement">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-5">
+              <label class="govuk-label govuk-radios__label" for="update-need-6">
                 This person is experiencing bereavement
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-6"
+            <!-- Addiction -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-7"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person has a drug or alcohol addiction">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-6">
+              <label class="govuk-label govuk-radios__label" for="update-need-7">
                 This person has a drug or alcohol addiction
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-7"
+            <!-- Third party support -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-8"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person needs third party support (such as a support worker)">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-7">
+              <label class="govuk-label govuk-radios__label" for="update-need-8">
                 This person needs third party support (such as a support worker)
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-8"
+            <!-- Homeless -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-9"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person is homeless or is at risk of being homeless">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-8">
+              <label class="govuk-label govuk-radios__label" for="update-need-9">
                 This person is homeless or is at risk of being homeless
               </label>
             </div>
 
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-9"
+            <!-- Asylum seeker -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-10"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="This person is an asylum seeker">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-9">
+              <label class="govuk-label govuk-radios__label" for="update-need-10">
                 This person is an asylum seeker
               </label>
             </div>
 
-            <!-- Former Something else -->
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input"
-                     id="update-need-10"
+            <!-- Something else (fixed label, no hint) -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="update-need-11"
                      name="update-support-needs"
-                     type="checkbox"
+                     type="radio"
                      value="Cannot speak to female staff">
-              <label class="govuk-label govuk-checkboxes__label" for="update-need-10">
+              <label class="govuk-label govuk-radios__label" for="update-need-11">
                 Cannot speak to female staff
               </label>
             </div>
@@ -167,7 +186,7 @@
         </fieldset>
       </div>
 
-      <!-- NOTE FIELD WITH ERROR (over 5000 characters inserted) -->
+      <!-- NOTE FIELD IN ERROR STATE -->
       <div class="govuk-form-group govuk-form-group--error govuk-character-count"
            data-module="govuk-character-count"
            data-maxlength="5000">
@@ -176,7 +195,6 @@
           Add your updated note
         </label>
 
-        <!-- Inline error -->
         <p id="update-note-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span>
           Enter a note that is less than 5000 characters
@@ -201,20 +219,19 @@
                   rows="7"
                   maxlength="5000"
                   aria-describedby="update-note-error more-detail-hint">
+                    The customer has recently been experiencing an extended period of difficulty managing their mental health, and they have shared that day‑to‑day tasks have felt increasingly challenging. They reported feeling overwhelmed and less able to focus on the responsibilities they normally manage without issue. After recognising these changes, they attended an appointment with their GP to discuss their symptoms and any potential underlying factors. During this appointment, the GP reviewed their medical history, explored how long the challenges had been happening, and asked a number of questions to understand how these symptoms were affecting the customer’s ability to stay well. Following that assessment, the GP agreed that additional support would be beneficial and prescribed a new course of medication intended to help stabilise their mood and support their overall wellbeing.
 
-The customer has recently been experiencing an extended period of difficulty managing their mental health, and they have shared that day‑to‑day tasks have felt increasingly challenging. They reported feeling overwhelmed and less able to focus on the responsibilities they normally manage without issue. After recognising these changes, they attended an appointment with their GP to discuss their symptoms and any potential underlying factors. During this appointment, the GP reviewed their medical history, explored how long the challenges had been happening, and asked a number of questions to understand how these symptoms were affecting the customer’s ability to stay well. Following that assessment, the GP agreed that additional support would be beneficial and prescribed a new course of medication intended to help stabilise their mood and support their overall wellbeing.
+                    The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
 
-The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
+                    The customer has recently been experiencing an extended period of difficulty managing their mental health, and they have shared that day‑to‑day tasks have felt increasingly challenging. They reported feeling overwhelmed and less able to focus on the responsibilities they normally manage without issue. After recognising these changes, they attended an appointment with their GP to discuss their symptoms and any potential underlying factors. During this appointment, the GP reviewed their medical history, explored how long the challenges had been happening, and asked a number of questions to understand how these symptoms were affecting the customer’s ability to stay well. Following that assessment, the GP agreed that additional support would be beneficial and prescribed a new course of medication intended to help stabilise their mood and support their overall wellbeing.
 
-The customer has recently been experiencing an extended period of difficulty managing their mental health, and they have shared that day‑to‑day tasks have felt increasingly challenging. They reported feeling overwhelmed and less able to focus on the responsibilities they normally manage without issue. After recognising these changes, they attended an appointment with their GP to discuss their symptoms and any potential underlying factors. During this appointment, the GP reviewed their medical history, explored how long the challenges had been happening, and asked a number of questions to understand how these symptoms were affecting the customer’s ability to stay well. Following that assessment, the GP agreed that additional support would be beneficial and prescribed a new course of medication intended to help stabilise their mood and support their overall wellbeing.
+                    The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
 
-The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
+                    The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
 
-The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
+                    The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
 
-The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
-
-The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
+                    The customer noted that they were relieved to have taken the first step in seeking help from a healthcare professional and expressed hope that the new medication would gradually make a positive difference. They were advised that it may take some time for the treatment to take full effect, and that follow‑up appointments will be needed to monitor progress and ensure that the medication remains appropriate. The customer shared that they plan to attend these follow‑ups as scheduled and have been encouraged to keep track of how they are feeling so they can discuss any changes with their GP. They were also offered general wellbeing advice and guidance about how to look after themselves while adjusting to the new medication, including maintaining regular routines, staying hydrated, and seeking support from trusted family members or friends if needed.
 
         </textarea>
 

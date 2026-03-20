@@ -28,7 +28,6 @@
 
 {# -------------------------------------------------------------
    DETERMINE MODE (ADD / REMOVE / UPDATE)
-   Prefer explicit flow flag; fall back to legacy keys if needed
 -------------------------------------------------------------- #}
 {% set flow = data['supportNeedsFlow'] or '' %}
 
@@ -39,7 +38,6 @@
 {% elif flow == 'add' %}
   {% set mode = 'add' %}
 {% else %}
-  {# Legacy fallback: detect by presence of old payloads #}
   {% if (data['supportNeedsJustRemoved'] or {}).items %}
     {% set mode = 'remove' %}
   {% else %}
@@ -48,14 +46,13 @@
 {% endif %}
 
 {# -------------------------------------------------------------
-   EXTRACT ITEMS + NOTE BASED ON MODE
-   (use the one-shot payload objects populated by the confirm routes)
+   EXTRACT ITEMS + NOTE
 -------------------------------------------------------------- #}
 {% if mode == 'update' %}
   {% set updated = data['supportNeedsJustUpdated'] or {} %}
   {% set items   = updated.items or [] %}
   {% set note    = updated.note  or '' %}
-  {% set other   = '' %} {# not used in update #}
+  {% set other   = '' %}
 
 {% elif mode == 'remove' %}
   {% set removed = data['supportNeedsJustRemoved'] or {} %}
@@ -71,7 +68,7 @@
 {% endif %}
 
 {# -------------------------------------------------------------
-   CLEAN DISPLAY LIST (strip "Something else:" prefix safely)
+   CLEAN DISPLAY LIST
 -------------------------------------------------------------- #}
 {% set cleanedItems = [] %}
 {% for it in items %}
@@ -85,7 +82,7 @@
 {% set count = cleanedItems | length %}
 
 {# -------------------------------------------------------------
-   SUCCESS BANNER MESSAGE (singular/plural by mode + count)
+   SUCCESS BANNER MESSAGE (plural/singular)
 -------------------------------------------------------------- #}
 {% set successMessage = "Changes saved successfully." %}
 
@@ -112,7 +109,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {# SUCCESS BANNER #}
+    <!-- SUCCESS BANNER -->
     <div class="govuk-notification-banner govuk-notification-banner--success"
          role="alert"
          aria-labelledby="govuk-notification-banner-title"
@@ -127,7 +124,6 @@
       </div>
     </div>
 
-    {# PAGE HEADING #}
     {% if mode == 'update' %}
       <h1 class="govuk-heading-l">You have updated details</h1>
     {% elif mode == 'remove' %}
@@ -136,34 +132,67 @@
       <h1 class="govuk-heading-l">You have added details</h1>
     {% endif %}
 
-    {# SUMMARY CARD #}
+    <!-- SUMMARY CARD -->
     <div class="govuk-summary-card">
+
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Support needs</h2>
+
+        {# =====================================================
+           SUMMARY TITLE (plural when needed)
+           ===================================================== #}
+        <h2 class="govuk-summary-card__title">
+
+          {% if count > 1 %}
+            Support needs
+          {% else %}
+            Support need
+          {% endif %}
+
+        </h2>
+
       </div>
 
       <div class="govuk-summary-card__content">
+
         <dl class="govuk-summary-list govuk-!-margin-bottom-0">
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+
+              {# =====================================================
+                 SUMMARY LABEL (plural when needed)
+                 ===================================================== #}
+
               {% if mode == 'update' %}
-                Updated support need
+                {% if count > 1 %}
+                  Updated support needs
+                {% else %}
+                  Updated support need
+                {% endif %}
               {% elif mode == 'remove' %}
-                Removed support need
+                {% if count > 1 %}
+                  Removed support needs
+                {% else %}
+                  Removed support need
+                {% endif %}
               {% else %}
-                Added support need
+                {% if count > 1 %}
+                  Added support needs
+                {% else %}
+                  Added support need
+                {% endif %}
               {% endif %}
+
             </dt>
 
             <dd class="govuk-summary-list__value">
-              {% if cleanedItems | length > 1 %}
+              {% if count > 1 %}
                 <ul class="govuk-list govuk-list--bullet">
                   {% for need in cleanedItems %}
                     <li>{{ need }}</li>
                   {% endfor %}
                 </ul>
-              {% elif cleanedItems | length == 1 %}
+              {% elif count == 1 %}
                 <p>{{ cleanedItems[0] }}</p>
               {% else %}
                 <p>Not provided</p>
@@ -178,6 +207,7 @@
                 {% if note %}{{ note }}{% else %}Not provided{% endif %}
               </dd>
             </div>
+
           {% elif mode == 'update' %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">Updated note</dt>

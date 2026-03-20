@@ -38,7 +38,8 @@
 {% set ALL_NEEDS = [
   "This person has a mental health condition",
   "This person is struggling with financial hardship",
-  "This person is living with domestic or financial abuse",
+  "This person is living with domestic abuse",
+  "This person is living with financial abuse",
   "This person has thoughts of suicide or self harm (6 point plan)",
   "This person is experiencing bereavement",
   "This person has a drug or alcohol addiction",
@@ -64,6 +65,7 @@
 
     {# =========================================================
        STATIC ERROR SUMMARY for "Something else" missing details
+       (kept as-is, just ensuring the link is valid)
        ========================================================= #}
     <div class="govuk-error-summary" data-module="govuk-error-summary">
       <div role="alert">
@@ -85,7 +87,6 @@
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Step 1 of 2</span>
             <h1 class="govuk-fieldset__heading">
               What do you want to add?
             </h1>
@@ -103,18 +104,21 @@
 
           {% else %}
 
-            <div class="govuk-checkboxes" id="what-additional-support" data-module="govuk-checkboxes">
+            {# ---------------------------
+               RADIOS (converted from checkboxes)
+               --------------------------- #}
+            <div class="govuk-radios" id="what-additional-support" data-module="govuk-radios">
 
               {# Normal options (filtered) #}
               {% for need in addable %}
                 {% if need != 'Something else' %}
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input"
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
                            id="what-additional-support-{{ loop.index }}"
                            name="what-additional-support"
-                           type="checkbox"
+                           type="radio"
                            value="{{ need }}">
-                    <label class="govuk-label govuk-checkboxes__label"
+                    <label class="govuk-label govuk-radios__label"
                            for="what-additional-support-{{ loop.index }}">
                       {{ need }}
                     </label>
@@ -124,26 +128,21 @@
                      "Something else" — shown as selected for this static
                      error state; conditional input shows an error
                      ----------------------------------------------------- #}
-                  <div class="govuk-checkboxes__item">
-                    <input class="govuk-checkboxes__input"
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
                            id="what-additional-support-10"
                            name="what-additional-support"
-                           type="checkbox"
+                           type="radio"
                            value="Something else"
                            checked
                            data-aria-controls="conditional-what-additional-support-10">
-                    <label class="govuk-label govuk-checkboxes__label"
+                    <label class="govuk-label govuk-radios__label"
                            for="what-additional-support-10">
                       Something else
                     </label>
-
-                    <div id="something-else-item-hint"
-                         class="govuk-hint govuk-checkboxes__hint">
-                      You must write a note providing context
-                    </div>
                   </div>
 
-                  <div class="govuk-checkboxes__conditional" id="conditional-what-additional-support-10">
+                  <div class="govuk-radios__conditional" id="conditional-what-additional-support-10">
 
                     {# Error styling applied to this conditional block #}
                     <div class="govuk-form-group govuk-form-group--error govuk-character-count"

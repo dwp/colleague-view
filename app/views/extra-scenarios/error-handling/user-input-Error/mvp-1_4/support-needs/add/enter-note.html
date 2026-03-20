@@ -20,25 +20,18 @@
 
 {% block content %}
 
-{# -------------------------------------------------------------
-   Pull PREVIOUS support needs if in change flow
--------------------------------------------------------------- #}
-
 {% if data['supportNeedsFlow'] == 'change' %}
   {% set prev = data['supportNeedsPrevious'] or {} %}
 {% else %}
   {% set prev = data['supportNeeds'] or {} %}
 {% endif %}
-
 {% set existing = prev.items or [] %}
 
-{# -------------------------------------------------------------
-   ALL support needs
--------------------------------------------------------------- #}
 {% set ALL_NEEDS = [
   "This person has a mental health condition",
   "This person is struggling with financial hardship",
-  "This person is living with domestic or financial abuse",
+  "This person is living with domestic abuse",
+  "This person is living with financial abuse",
   "This person has thoughts of suicide or self harm (6 point plan)",
   "This person is experiencing bereavement",
   "This person has a drug or alcohol addiction",
@@ -48,39 +41,26 @@
   "Something else"
 ] %}
 
-{# ---- Build addable list ---- #}
-{% set addable = [] %}
-{% for need in ALL_NEEDS %}
-  {% if need == "Something else" or not existing.includes(need) %}
-    {% set addable = addable.concat([need]) %}
-  {% endif %}
-{% endfor %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <!-- ERROR SUMMARY with a valid anchor link -->
     <div class="govuk-error-summary" data-module="govuk-error-summary">
       <div role="alert">
         <h2 class="govuk-error-summary__title">There is a problem</h2>
         <div class="govuk-error-summary__body">
           <ul class="govuk-list govuk-error-summary__list">
-            <li>
-              <a href="#with-hint-additional-support-needs">Enter a note</a>
-            </li>
+            <li><a href="#with-hint-additional-support-needs">Enter a note</a></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- REAL <form> TAG (was previously plain text) -->
     <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Step 1 of 2</span>
             <h1 class="govuk-fieldset__heading">What do you want to add?</h1>
           </legend>
 
@@ -89,71 +69,73 @@
             We will ask you for more information.
           </div>
 
-          <div class="govuk-checkboxes" id="what-additional-support" data-module="govuk-checkboxes">
+          <div class="govuk-radios" data-module="govuk-radios">
 
-            {% for need in addable %}
-              {% if need != "Something else" %}
+            {% set idx = 0 %}
+            {% for need in ALL_NEEDS %}
+              {% if need == "Something else" or not (need in existing) %}
+                {% set idx = idx + 1 %}
+                {% set id = "what-additional-support-" ~ idx %}
 
-                <!-- Normal checkboxes preserved -->
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input"
-                         id="what-additional-support-{{ loop.index }}"
-                         name="what-additional-support"
-                         type="checkbox"
-                         value="{{ need }}">
-                  <label class="govuk-label govuk-checkboxes__label"
-                         for="what-additional-support-{{ loop.index }}">
-                    {{ need }}
-                  </label>
-                </div>
+                {% if need != "Something else" %}
 
-              {% else %}
-
-                <!-- SOMETHING ELSE selected -->
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input"
-                         id="what-additional-support-10"
-                         name="what-additional-support"
-                         type="checkbox"
-                         value="Something else"
-                         checked
-                         data-aria-controls="conditional-what-additional-support-10">
-                  <label class="govuk-label govuk-checkboxes__label"
-                         for="what-additional-support-10">
-                    Something else
-                  </label>
-
-                  <div class="govuk-hint govuk-checkboxes__hint">
-                    You must write a note providing context
+                  {# --------------------------------------------- #}
+                  {# PRE‑SELECT MENTAL HEALTH CONDITION HERE       #}
+                  {# --------------------------------------------- #}
+                  <div class="govuk-radios__item">
+                    <input
+                      class="govuk-radios__input"
+                      id="{{ id }}"
+                      name="what-additional-support"
+                      type="radio"
+                      value="{{ need }}"
+                      {% if need == "This person has a mental health condition" %}checked{% endif %}
+                    >
+                    <label class="govuk-label govuk-radios__label" for="{{ id }}">
+                      {{ need }}
+                    </label>
                   </div>
-                </div>
 
-                <!-- CONDITIONAL TEXTBOX OPEN -->
-                <div class="govuk-checkboxes__conditional" id="conditional-what-additional-support-10">
+                {% else %}
 
-                  <div class="govuk-form-group govuk-character-count"
-                       data-module="govuk-character-count"
-                       data-maxlength="70">
+                  <div class="govuk-radios__item">
+                    <input
+                      class="govuk-radios__input"
+                      id="{{ id }}"
+                      name="what-additional-support"
+                      type="radio"
+                      value="Something else"
+                      data-aria-controls="conditional-{{ id }}"
+                    >
+                    <label class="govuk-label govuk-radios__label" for="{{ id }}">
+                      Something else
+                    </label>
+                  </div>
 
-                    <h3 class="govuk-heading-m govuk-!-margin-bottom-1">What is the need?</h3>
-                    <p class="govuk-hint govuk-!-margin-top-1">
-                      Give a high level description and do not use acronyms.
-                    </p>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ id }}">
+                    <div class="govuk-form-group govuk-character-count"
+                         data-module="govuk-character-count"
+                         data-maxlength="70">
 
-                    <input class="govuk-input govuk-js-character-count"
-                           id="something-else-detail"
-                           name="something-else-detail"
-                           maxlength="70"
-                           value="Cannot speak to female staff">
+                      <h3 class="govuk-heading-m govuk-!-margin-bottom-1">What is the need?</h3>
+                      <p class="govuk-hint govuk-!-margin-top-1">Give a high level description and do not use acronyms.</p>
 
-                    <div id="something-else-detail-info"
-                         class="govuk-hint govuk-character-count__message">
-                      You have {{ 70 - "Cannot speak to female staff".length }} characters remaining
+                      <input
+                        class="govuk-input govuk-js-character-count"
+                        id="something-else-detail"
+                        name="something-else-detail"
+                        maxlength="70"
+                        value=""
+                      >
+
+                      <div id="something-else-detail-info"
+                           class="govuk-hint govuk-character-count__message">
+                        You have 70 characters remaining
+                      </div>
                     </div>
-
                   </div>
-                </div>
 
+                {% endif %}
               {% endif %}
             {% endfor %}
 
@@ -162,7 +144,6 @@
         </fieldset>
       </div>
 
-      <!-- MAIN NOTE ERROR (Enter a note) -->
       <div class="govuk-form-group govuk-form-group--error govuk-character-count govuk-!-margin-top-5"
            data-module="govuk-character-count"
            data-maxlength="5000"
@@ -174,7 +155,6 @@
           </label>
         </h2>
 
-        <!-- Inline error with ID for SR + anchor clarity -->
         <p id="with-hint-additional-support-needs-error" class="govuk-error-message">
           <span class="govuk-visually-hidden">Error:</span>
           Enter a note
@@ -193,7 +173,6 @@
           </strong>
         </div>
 
-        <!-- ERROR TEXTAREA (anchor target) -->
         <textarea class="govuk-textarea govuk-textarea--error govuk-js-character-count govuk-!-margin-bottom-3"
                   id="with-hint-additional-support-needs"
                   name="addNote-additional-support"

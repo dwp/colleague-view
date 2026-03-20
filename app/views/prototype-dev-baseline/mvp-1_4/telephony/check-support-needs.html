@@ -24,17 +24,14 @@
    INPUTS
 ------------------------------ #}
 
-{# ADD selections #}
 {% set addSelections = data['what-additional-support'] %}
 {% if addSelections is string %}{% set addSelections = [addSelections] %}{% endif %}
 {% set addSelections = addSelections or [] %}
 
-{# REMOVE selections #}
 {% set removeSelections = data['remove-support-needs'] %}
 {% if removeSelections is string %}{% set removeSelections = [removeSelections] %}{% endif %}
 {% set removeSelections = removeSelections or [] %}
 
-{# UPDATE selections #}
 {% set updateSelections = data['update-support-needs'] %}
 {% if updateSelections is string %}{% set updateSelections = [updateSelections] %}{% endif %}
 {% set updateSelections = updateSelections or [] %}
@@ -61,7 +58,7 @@
       <h1 class="govuk-heading-l">Check the details you have added</h1>
     {% endif %}
 
-    {# Decide the destination once, based on mode #}
+    {# Destination #}
     {% if mode == "update" %}
       {% set changeHref = "/prototype-dev-baseline/mvp-1_4/telephony/update-support-needs" %}
     {% elif mode == "remove" %}
@@ -70,11 +67,26 @@
       {% set changeHref = "/prototype-dev-baseline/mvp-1_4/telephony/add-support-needs" %}
     {% endif %}
 
-
-    
     <div class="govuk-summary-card">
+
       <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">Support needs</h2>
+
+        {# ================================================================
+           SUMMARY CARD TITLE — UPDATED TO HANDLE MULTIPLE REMOVALS
+           ================================================================ #}
+        <h2 class="govuk-summary-card__title">
+
+          {% if mode == "remove" and removeSelections|length > 1 %}
+            Support needs
+          {% elseif mode == "update" and updateSelections|length > 1 %}
+            Support needs
+          {% elseif mode == "add" and addSelections|length > 1 %}
+            Support needs
+          {% else %}
+            Support need
+          {% endif %}
+
+        </h2>
 
         <ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
@@ -85,20 +97,42 @@
         </ul>
       </div>
 
-
-
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list govuk-!-margin-bottom-0">
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+
+              {# ================================================================
+                 SUMMARY ROW LABEL — UPDATED FOR MULTIPLE REMOVALS
+                 ================================================================ #}
+
               {% if mode == "update" %}
-                Updated support need
+                
+                {% if updateSelections|length > 1 %}
+                  Updated support needs
+                {% else %}
+                  Updated support need
+                {% endif %}
+
               {% elseif mode == "remove" %}
-                Removed support need
+
+                {% if removeSelections|length > 1 %}
+                  Removed support needs
+                {% else %}
+                  Removed support need
+                {% endif %}
+
               {% else %}
-                Added support need
+
+                {% if addSelections|length > 1 %}
+                  Added support needs
+                {% else %}
+                  Added support need
+                {% endif %}
+
               {% endif %}
+
             </dt>
 
             <dd class="govuk-summary-list__value">
@@ -108,18 +142,18 @@
               ------------------------------ #}
               {% if mode == "update" %}
 
-                {% if updateSelections | length > 1 %}
+                {% if updateSelections|length > 1 %}
                 <ul class="govuk-list govuk-list--bullet">
                   {% for item in updateSelections %}
-                  {% set display = item %}
-                  {% if 'Something else:' in item %}
-                    {% set display = item | replace('Something else:', '') | trim %}
-                  {% endif %}
-                  <li>{{ display }}</li>
-                {% endfor %}
+                    {% set display = item %}
+                    {% if 'Something else:' in item %}
+                      {% set display = item | replace('Something else:', '') | trim %}
+                    {% endif %}
+                    <li>{{ display }}</li>
+                  {% endfor %}
                 </ul>
 
-              {% elseif updateSelections | length == 1 %}
+              {% elseif updateSelections|length == 1 %}
                 {% set only = updateSelections[0] %}
                 {% set display = only %}
                 {% if 'Something else:' in only %}
@@ -132,22 +166,22 @@
               {% endif %}
 
               {# ----------------------------
-                 REMOVE MODE — FIXED
+                 REMOVE MODE — UPDATED LABEL ABOVE ONLY
               ------------------------------ #}
               {% elseif mode == "remove" %}
 
-              {% if removeSelections | length > 1 %}
+              {% if removeSelections|length > 1 %}
                 <ul class="govuk-list govuk-list--bullet">
                   {% for item in removeSelections %}
-                  {% set display = item %}
-                  {% if 'Something else:' in item %}
-                    {% set display = item | replace('Something else:', '') | trim %}
-                  {% endif %}
-                  <li>{{ display }}</li>
-                {% endfor %}
+                    {% set display = item %}
+                    {% if 'Something else:' in item %}
+                      {% set display = item | replace('Something else:', '') | trim %}
+                    {% endif %}
+                    <li>{{ display }}</li>
+                  {% endfor %}
                 </ul>
 
-              {% elseif removeSelections | length == 1 %}
+              {% elseif removeSelections|length == 1 %}
                 {% set only = removeSelections[0] %}
                 {% set display = only %}
                 {% if 'Something else:' in only %}
@@ -160,37 +194,31 @@
               {% endif %}
 
              {# ----------------------------
-                ADD MODE
+                ADD MODE (unchanged)
               ------------------------------ #}
               {% else %}
 
-                {% if addSelections | length > 1 %}
+                {% if addSelections|length > 1 %}
                   <ul class="govuk-list govuk-list--bullet">
                     {% for item in addSelections %}
                       {% set display = item %}
-
-                      {# Handle Something else BEFORE it gets converted by the POST route #}
                       {% if item == 'Something else' %}
                         {% set display = (data['something-else-detail'] or '') | trim %}
                       {% elseif 'Something else:' in item %}
                         {% set display = item | replace('Something else:', '') | trim %}
                       {% endif %}
-
                       <li>{{ display }}</li>
                     {% endfor %}
                   </ul>
 
-                {% elseif addSelections | length == 1 %}
+                {% elseif addSelections|length == 1 %}
                   {% set only = addSelections[0] %}
                   {% set display = only %}
-
-                  {# Handle Something else BEFORE it gets converted #}
                   {% if only == 'Something else' %}
                     {% set display = (data['something-else-detail'] or '') | trim %}
                   {% elseif 'Something else:' in only %}
                     {% set display = only | replace('Something else:', '') | trim %}
                   {% endif %}
-
                   <p>{{ display }}</p>
 
                 {% else %}
@@ -204,7 +232,7 @@
 
           {# ----------------------------
              NOTES AREA
------------------------------- #}
+          ------------------------------ #}
 
           {% if mode == "add" %}
             <div class="govuk-summary-list__row">

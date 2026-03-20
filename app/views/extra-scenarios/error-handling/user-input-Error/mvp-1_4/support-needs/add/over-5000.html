@@ -31,7 +31,8 @@
 {% set ALL_NEEDS = [
   "This person has a mental health condition",
   "This person is struggling with financial hardship",
-  "This person is living with domestic or financial abuse",
+  "This person is living with domestic abuse",
+  "This person is living with financial abuse",
   "This person has thoughts of suicide or self harm (6 point plan)",
   "This person is experiencing bereavement",
   "This person has a drug or alcohol addiction",
@@ -40,13 +41,6 @@
   "This person is an asylum seeker",
   "Something else"
 ] %}
-
-{% set addable = [] %}
-{% for need in ALL_NEEDS %}
-  {% if need == "Something else" or not existing.includes(need) %}
-    {% set addable = addable.concat([need]) %}
-  {% endif %}
-{% endfor %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -69,7 +63,6 @@
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
 
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Step 1 of 2</span>
             <h1 class="govuk-fieldset__heading">What do you want to add?</h1>
           </legend>
 
@@ -78,71 +71,75 @@
             We will ask you for more information.
           </div>
 
-          <div class="govuk-checkboxes" id="what-additional-support" data-module="govuk-checkboxes">
+          {# Radios instead of checkboxes. We render items directly (no array methods). #}
+          <div class="govuk-radios" id="what-additional-support" data-module="govuk-radios">
 
-            {% for need in addable %}
-              {% if need != "Something else" %}
+            {% set idx = 0 %}
+            {% for need in ALL_NEEDS %}
+              {# Only show items that aren't already in existing, except always include "Something else" #}
+              {% if need == "Something else" or not (need in existing) %}
+                {% set idx = idx + 1 %}
+                {% set id = "what-additional-support-" ~ idx %}
+                {% set isSomethingElse = (need == "Something else") %}
 
-                <!-- Normal checkbox options -->
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input"
-                         id="what-additional-support-{{ loop.index }}"
-                         name="what-additional-support"
-                         type="checkbox"
-                         value="{{ need }}">
-                  <label class="govuk-label govuk-checkboxes__label"
-                         for="what-additional-support-{{ loop.index }}">
-                    {{ need }}
-                  </label>
-                </div>
-
-              {% else %}
-
-                <!-- SOMETHING ELSE SELECTED -->
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input"
-                         id="what-additional-support-10"
-                         name="what-additional-support"
-                         type="checkbox"
-                         value="Something else"
-                         checked
-                         data-aria-controls="conditional-what-additional-support-10">
-                  <label class="govuk-label govuk-checkboxes__label"
-                         for="what-additional-support-10">
-                    Something else
-                  </label>
-
-                  <div class="govuk-hint govuk-checkboxes__hint">
-                    You must write a note providing context
+                {% if not isSomethingElse %}
+                  <!-- Normal radio options -->
+                  <div class="govuk-radios__item">
+                    <input
+                      class="govuk-radios__input"
+                      id="{{ id }}"
+                      name="what-additional-support"
+                      type="radio"
+                      value="{{ need }}"
+                    >
+                    <label class="govuk-label govuk-radios__label" for="{{ id }}">
+                      {{ need }}
+                    </label>
                   </div>
-                </div>
 
-                <!-- CONDITIONAL REVEAL OPEN -->
-                <div class="govuk-checkboxes__conditional" id="conditional-what-additional-support-10">
+                {% else %}
+                  <!-- SOMETHING ELSE pre-selected -->
+                  <div class="govuk-radios__item">
+                    <input
+                      class="govuk-radios__input"
+                      id="{{ id }}"
+                      name="what-additional-support"
+                      type="radio"
+                      value="Something else"
+                      checked
+                      data-aria-controls="conditional-{{ id }}"
+                    >
+                    <label class="govuk-label govuk-radios__label" for="{{ id }}">
+                      Something else
+                    </label>
+                  </div>
 
-                  <div class="govuk-form-group govuk-character-count"
-                       data-module="govuk-character-count"
-                       data-maxlength="70">
+                  <!-- CONDITIONAL REVEAL OPEN when pre-selected -->
+                  <div class="govuk-radios__conditional" id="conditional-{{ id }}">
+                    <div class="govuk-form-group govuk-character-count"
+                         data-module="govuk-character-count"
+                         data-maxlength="70">
 
-                    <h3 class="govuk-heading-m govuk-!-margin-bottom-1">What is the need?</h3>
-                    <p class="govuk-hint govuk-!-margin-top-1">Give a high level description and do not use acronyms.</p>
+                      <h3 class="govuk-heading-m govuk-!-margin-bottom-1">What is the need?</h3>
+                      <p class="govuk-hint govuk-!-margin-top-1">Give a high level description and do not use acronyms.</p>
 
-                    <input class="govuk-input govuk-js-character-count"
-                           id="something-else-detail"
-                           name="something-else-detail"
-                           maxlength="70"
-                           value="Cannot speak to female staff">
+                      <input class="govuk-input govuk-js-character-count"
+                             id="something-else-detail"
+                             name="something-else-detail"
+                             maxlength="70"
+                             value="Cannot speak to female staff">
 
-                    <div id="something-else-detail-info"
-                         class="govuk-hint govuk-character-count__message">
-                      You have {{ 70 - "Cannot speak to female staff".length }} characters remaining
+                      <div id="something-else-detail-info"
+                           class="govuk-hint govuk-character-count__message">
+                        You have {{ 70 - ("Cannot speak to female staff")|length }} characters remaining
+                      </div>
+
                     </div>
-
                   </div>
-                </div>
-
+                {% endif %}
               {% endif %}
             {% endfor %}
+
           </div>
 
         </fieldset>
@@ -174,7 +171,7 @@
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            Do not include personal identifiable information.
+            Do not include personal identifiable information such as name, National Insurance number, or date of birth.
           </strong>
         </div>
 
@@ -184,9 +181,7 @@
                   name="addNote-additional-support"
                   rows="7"
                   maxlength="5000">
-
 The claimant has repeatedly been extremely rude and verbally aggressive to female staff members, including raising their voice, interrupting conversations, refusing to follow guidance, and behaving in a confrontational manner on several previous interactions. This behaviour caused distress to staff, disrupted service delivery, and required escalation. Despite previous reminders regarding expected conduct, the claimant has continued to demonstrate these behaviours in subsequent calls and appointments. The claimant has repeatedly been extremely rude and verbally aggressive to female staff members, including raising their voice, interrupting conversations, refusing to follow guidance, and behaving in a confrontational manner on several previous interactions. This behaviour caused distress to staff, disrupted service delivery, and required escalation. Despite previous reminders regarding expected conduct, the claimant has continued to demonstrate these behaviours in subsequent calls and appointments. The claimant has repeatedly been extremely rude and verbally aggressive to female staff members, including raising their voice, interrupting conversations, refusing to follow guidance, and behaving in a confrontational manner on several previous interactions. This behaviour caused distress to staff, disrupted service delivery, and required escalation. Despite previous reminders regarding expected conduct, the claimant has continued to demonstrate these behaviours in subsequent calls and appointments. The claimant has repeatedly been extremely rude and verbally aggressive to female staff members, including raising their voice, interrupting conversations, refusing to follow guidance, and behaving in a confrontational manner on several previous interactions. This behaviour caused distress to staff, disrupted service delivery, and required escalation. Despite previous reminders regarding expected conduct, the claimant has continued to demonstrate these behaviours in subsequent calls and appointments.
-
         </textarea>
 
         <!-- Character count message -->
