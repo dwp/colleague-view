@@ -44,7 +44,6 @@ Contact history
           </form>
         </div>
       </div>
-    
     <div class="govuk-tabs" data-module="govuk-tabs" id="filter">
       <h2 class="govuk-tabs__title">
         Contents
@@ -59,11 +58,6 @@ Contact history
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#jsaps-notes">
             JSAPS notes for ESA
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#additional-needs-history">
-            Support needs history
           </a>
         </li>
       </ul>
@@ -147,13 +141,12 @@ Contact history
                           <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="contact-type-3" name="contact-type" type="checkbox" value="JobCentre visit">
                             <label class="govuk-label govuk-checkboxes__label" for="contact-type-3">
-                              JobCentre visit
+                              Jobcentre visit
                             </label>
                           </div>
                         </div>
                       </fieldset>
                     </div>
-
                     <!-- filter by contact topics -->
                     <div class="govuk-form-group">
                       <fieldset class="govuk-fieldset">
@@ -219,7 +212,7 @@ Contact history
                           Contact date
                         </legend>
                         <div id="dob-hint" class="govuk-hint">
-                          For example, 3 1980
+                          For example, 12 2024
                         </div>
                         <div class="govuk-date-input" id="from-date">
                           <div class="govuk-date-input__item">
@@ -832,70 +825,12 @@ Contact history
               <span class="govuk-caption-m">Ended at</span>
               <h2 class="govuk-heading-m">Monday 17 Oct 2023, 13:18</h2>
             </div>
-           </div>
-           </div>
-          <!-- Tab3 content start here -->
-<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="additional-needs-history">
-
-  <h2 class="govuk-heading-l">Support needs history</h2>
-
-  <table class="govuk-table">
-    <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header">When the change was made</th>
-        <th scope="col" class="govuk-table__header">Action taken</th>
-      </tr>
-    </thead>
-
-    <tbody class="govuk-table__body">
-
-      <!-- Hard-coded row 1 -->
-      <tr class="govuk-table__row">
-
-        <td class="govuk-table__cell">
-          23 March 2026, 13:35
-        </td>
-
-        <td class="govuk-table__cell">
-          <div>
-            <p class="govuk-body">Agent 1003 added support need:</p>
-
-            <ul class="govuk-list govuk-list">
-              <li>This person is experiencing financial hardship</li>
-            </ul>
           </div>
-        </td>
-
-      </tr>
-
-      <!-- Hard-coded row 2 -->
-      <tr class="govuk-table__row">
-
-        <td class="govuk-table__cell">
-          20 May 2025, 12:34
-        </td>
-
-        <td class="govuk-table__cell">
-          <div>
-            <p class="govuk-body">Agent 1003 added support need:</p>
-
-            <ul class="govuk-list govuk-list">
-              <li>This person has a mental health condition</li>
-            </ul>
-          </div>
-        </td>
-
-      </tr>
-
-    </tbody>
-  </table>
-
+      </div>
+    </div>
+  </div>
 </div>
-
-</div>
-</div>
-</div>
-
+  
 <!-- logic for filter function -->
 <script type="text/javascript">
   function showfull() {
@@ -922,6 +857,7 @@ Contact history
     lessText.classList.remove("govuk-!-display-none");
     lessTextlink.classList.add("govuk-!-display-none");
   }
+
 
   function showfull2() {
     var fullText2 = document.getElementById('full-text-2');
@@ -972,6 +908,6 @@ Contact history
     lessText3.classList.remove("govuk-!-display-none");
     lessTextlink3.classList.add("govuk-!-display-none");
   }
-</script>
+  </script>
 
 {% endblock %}

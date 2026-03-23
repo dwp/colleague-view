@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Personal details
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/view-only/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-17/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "/prototype-sprint-wise/ur-16/common/phase-banner.html" %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="home.html">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Support needs notes</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl" aria-describedby="additiona-needs-hint">Support needs notes</h1>
+    <div id="additiona-needs-hint" class="govuk-hint">
+      Theses notes only apply to support needs. You can find general contact notes in the account's main contact history.
+    </div>
+  </div>
+    <div class="govuk-grid-column-one-third">
+    <form action="/prototype-sprint-wise/ur-16/telephony/add-call/reviewed" method="post">
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button" formaction="#">
+          Add call details
+        </button>
+      </div>
+    </form>
+    </div>
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-two-thirds">
+
+    {# ========================================================== #}
+    {# SUMMARY CARD 1 — Financial hardship (NEWEST)              #}
+    {# ========================================================== #}
+    <div class="govuk-summary-card govuk-!-margin-bottom-4">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Inbound phone call: 13 March 2026, 10:45
+        </h2>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+          <!-- SUPPORT NEED (single, no bullet) -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Support need</dt>
+            <dd class="govuk-summary-list__value">
+              This person is struggling with financial hardship
+            </dd>
+          </div>
+
+          <!-- NOTE -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Note</dt>
+            <dd class="govuk-summary-list__value">
+              Customer explained they cannot manage regular repayments and feels under increased pressure.
+              Extra care should be taken when discussing financial issues.
+            </dd>
+          </div>
+
+          <!-- WHO CONTACT WAS WITH -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Who the contact was with</dt>
+            <dd class="govuk-summary-list__value">Christopher Fox</dd>
+          </div>
+
+          <!-- AGENT ID -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Agent ID</dt>
+            <dd class="govuk-summary-list__value">1003</dd>
+          </div>
+
+        </dl>
+      </div>
+    </div>
+
+
+    {# ========================================================== #}
+    {# SUMMARY CARD 2 — Mental health (OLDER)                    #}
+    {# ========================================================== #}
+    <div class="govuk-summary-card govuk-!-margin-bottom-4">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Inbound phone call: 20 May 2025, 12:34
+        </h2>
+      </div>
+
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+          <!-- SUPPORT NEED (single, no bullet) -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Support need</dt>
+            <dd class="govuk-summary-list__value">
+              This person has a mental health condition
+            </dd>
+          </div>
+
+          <!-- NOTE -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Note</dt>
+            <dd class="govuk-summary-list__value">
+              Caller reported recent anxiety and difficulties processing official letters.
+              Recommended using simple language and checking understanding throughout the call.
+            </dd>
+          </div>
+
+          <!-- WHO CONTACT WAS WITH -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Who the contact was with</dt>
+            <dd class="govuk-summary-list__value">Christopher Fox</dd>
+          </div>
+
+          <!-- AGENT ID -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Agent ID</dt>
+            <dd class="govuk-summary-list__value">1003</dd>
+          </div>
+
+        </dl>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{%endblock%}

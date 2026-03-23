@@ -29,8 +29,10 @@
       </dd>
       <dt class="govuk-visually-hidden">Who is the engagement with</dt>
       <dd>
-        {{ data['Who-is-contact-with'] }}
-        {{ data['Who-is-the-engagement-with'] }}
+        {% set whoName = (data['Who-is-contact-with'] or '') %}
+        {% set whoSuffix = (data['Who-is-the-engagement-with'] or '') %}
+        {% set who = (whoName ~ (whoSuffix and (' ' ~ whoSuffix) or '')) %}
+        {{ who | replace('(Customer)', '') | trim }}
       </dd>
     </dl>
   </div>

@@ -5,17 +5,17 @@ Contact history
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/view-only/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  {% include "/prototype-sprint-wise/ur-16/common/phase-banner.html" %}
   <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
@@ -32,19 +32,22 @@ Contact history
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-half">
-          <h1 class="govuk-heading-xl">Contact history</h1>
-        </div>
-        <div class="govuk-grid-column-one-half govuk-!-text-align-right">
-          <form action="/prototype-dev-baseline/mvp-1_4/index" method="post">
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                Start service again
-              </button>
-          </form>
-        </div>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <h1 class="govuk-heading-xl">Contact history</h1>
       </div>
-    
+      <div class="govuk-grid-column-one-half">
+      <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
+        <div class="govuk-button-group" style="justify-content: flex-end;">
+            <button type="submit"
+                    class="govuk-button"
+                    data-module="govuk-button">
+              Add call details
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <div class="govuk-tabs" data-module="govuk-tabs" id="filter">
       <h2 class="govuk-tabs__title">
         Contents
@@ -834,70 +837,93 @@ Contact history
             </div>
            </div>
            </div>
-          <!-- Tab3 content start here -->
-<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="additional-needs-history">
+           <!-- Tab3 content start here -->
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="additional-needs-history">
 
-  <h2 class="govuk-heading-l">Support needs history</h2>
+              <h2 class="govuk-heading-l">Support needs history</h2>
 
-  <table class="govuk-table">
-    <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header">When the change was made</th>
-        <th scope="col" class="govuk-table__header">Action taken</th>
-      </tr>
-    </thead>
+              {% set events = data['supportNeedsEvents'] or [] %}
+              {% set support = data['supportNeeds'] or {} %}
+              {% set otherText = support.otherText or '' %}
 
-    <tbody class="govuk-table__body">
+              {% if events | length == 0 %}
+                <div class="govuk-inset-text">
+                  No support needs history recorded.
+                </div>
+              {% else %}
 
-      <!-- Hard-coded row 1 -->
-      <tr class="govuk-table__row">
+                <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header">When the change was made</th>
+                      <th scope="col" class="govuk-table__header">Action taken</th>
+                    </tr>
+                  </thead>
 
-        <td class="govuk-table__cell">
-          23 March 2026, 13:35
-        </td>
+                  <tbody class="govuk-table__body">
 
-        <td class="govuk-table__cell">
-          <div>
-            <p class="govuk-body">Agent 1003 added support need:</p>
+                    {% for ev in events %}
 
-            <ul class="govuk-list govuk-list">
-              <li>This person is experiencing financial hardship</li>
-            </ul>
-          </div>
-        </td>
+                      {# Build visible needs list (hide Something else) #}
+                      {% set list = [] %}
+                      {% for n in ev.needs %}
+                        {% if n != "Something else" %}
+                          {% set list = list.concat([n]) %}
+                        {% endif %}
+                      {% endfor %}
 
-      </tr>
+                      <tr class="govuk-table__row">
+                        
+                        <!-- Column 1: Date -->
+                        <td class="govuk-table__cell">
+                          {{ ev.contactTime or ev.at }}
+                        </td>
 
-      <!-- Hard-coded row 2 -->
-      <tr class="govuk-table__row">
+                        <!-- Column 2: Details -->
+                        <td class="govuk-table__cell">
+                          <div>
 
-        <td class="govuk-table__cell">
-          20 May 2025, 12:34
-        </td>
+                            {% if ev.action == 'add' %}
+                              <p class="govuk-body">Agent 1003 added support needs:</p>
+                            {% elseif ev.action == 'update' %}
+                              <p class="govuk-body">Agent 1003 updated support needs:</p>
+                            {% elseif ev.action == 'remove' %}
+                              <p class="govuk-body">Agent 1003 removed support needs:</p>
+                            {% endif %}
 
-        <td class="govuk-table__cell">
-          <div>
-            <p class="govuk-body">Agent 1003 added support need:</p>
+                            {# Needs list (no notes) #}
+                            {% if list | length > 1 %}
+                              <ul class="govuk-list govuk-list--bullet">
+                                {% for item in list %}
+                                  <li>{{ item }}</li>
+                                {% endfor %}
+                              </ul>
 
-            <ul class="govuk-list govuk-list">
-              <li>This person has a mental health condition</li>
-            </ul>
-          </div>
-        </td>
+                            {% elseif list | length == 1 %}
+                              <p class="govuk-body">{{ list[0] }}</p>
 
-      </tr>
+                            {% else %}
+                              <p class="govuk-hint">None recorded</p>
+                            {% endif %}
 
-    </tbody>
-  </table>
+                          </div>
+                        </td>
 
+                      </tr>
+
+                    {% endfor %}
+
+                  </tbody>
+                </table>
+
+              {% endif %}
+
+            </div>
+  </div>
 </div>
-
-</div>
-</div>
-</div>
-
-<!-- logic for filter function -->
-<script type="text/javascript">
+  
+  <!-- logic for filter function -->
+  <script type="text/javascript">
   function showfull() {
     var fullText = document.getElementById('full-text');
     var fullTextlink = document.getElementById('full-text-link');
@@ -922,6 +948,7 @@ Contact history
     lessText.classList.remove("govuk-!-display-none");
     lessTextlink.classList.add("govuk-!-display-none");
   }
+
 
   function showfull2() {
     var fullText2 = document.getElementById('full-text-2');
@@ -972,6 +999,6 @@ Contact history
     lessText3.classList.remove("govuk-!-display-none");
     lessTextlink3.classList.add("govuk-!-display-none");
   }
-</script>
+  </script>
 
 {% endblock %}

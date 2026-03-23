@@ -1145,6 +1145,304 @@ router.post('/telephony/updated-support-needs', function (req, res) {
   return res.redirect('/prototype-dev-baseline/mvp-1_4/telephony/confirmed-support-needs');
 });
 
+// ========== NON-TELEPHONY SUPPORT NEEDS FLOW (mirrors telephony) ==========
+
+// Base helpers (reuse your existing ones)
+function formatContactTime(date = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  }).formatToParts(date);
+
+  const get = (type) => (parts.find(p => p.type === type) || {}).value || '';
+
+  const day = get('day');
+  const month = get('month');
+  const year = get('year');
+  const hour = get('hour');
+  const minute = get('minute');
+
+  return `${day} ${month} ${year}, ${hour}:${minute}`;
+}
+
+// You can keep these identical; fallbacks ensure it still logs sensibly
+function getContactType(req) {
+  return req.session.data['What-type-of-contact'] || 'Contact';
+}
+
+function getWhoWith(req) {
+  // Reuse the telephony key if your prototype uses this everywhere
+  // Add a gentle fallback in case your non-telephony screens store a different key
+  return (
+    req.session.data['Who-is-the-phone-call-with-ur8'] ||
+    req.session.data['Who-is-the-contact-with'] ||
+    ''
+  );
+}
+
+// Convenience base paths for non-telephony
+const NT_BASE = '/prototype-dev-baseline/mvp-1_4/non-telephony';
+
+// ── Router to send user to add / remove / update ─────────────────────────────
+router.post('/non-telephony/additional-support-router-4', function (req, res) {
+  const answer = req.body['additional-support-needs'];
+
+  if (answer === 'add')    return res.redirect(`${NT_BASE}/add-support-needs`);
+  if (answer === 'remove') return res.redirect(`${NT_BASE}/remove-support-needs`);
+  if (answer === 'update') return res.redirect(`${NT_BASE}/update-support-needs`);
+
+  return res.redirect(`${NT_BASE}/home`);
+});
+
+// additional support router
+router.post('/additional-support-router-4', function (req, res) {
+  const answer = req.body['additional-support-needs'];
+
+  if (answer === 'add') {
+    return res.redirect('/prototype-dev-baseline/mvp-1_4/non-telephony/add-support-needs');
+  }
+
+  if (answer === 'remove') {
+    return res.redirect('/prototype-dev-baseline/mvp-1_4/non-telephony/remove-support-needs');
+  }
+
+  if (answer === 'update') {
+    return res.redirect('/prototype-dev-baseline/mvp-1_4/non-telephony/update-support-needs');
+  }
+
+  return res.redirect('/prototype-dev-baseline/mvp-1_4/non-telephony/home');
+});
+
+// ── ADD flow (POST) ──────────────────────────────────────────────────────────
+router.post('/non-telephony/added-support-needs', function (req, res) {
+  // Extract NEW selections
+  let selections = req.session.data['what-additional-support'] || [];
+  if (typeof selections === 'string') selections = [selections];
+
+  const newOther = (req.session.data['something-else-detail'] || '').trim();
+  const newNote  = (req.session.data['addNote-additional-support'] || '').trim();
+
+  // Convert "Something else" to titled support need
+  if (selections.includes('Something else')) {
+    const idx = selections.indexOf('Something else');
+    if (newOther) {
+      selections.splice(idx, 1, `Something else: ${newOther}`);
+    } else {
+      selections.splice(idx, 1);
+    }
+  }
+
+  // One-shot payload for check/confirm page
+  req.session.data.supportNeedsFlow = 'add';
+  req.session.data.supportNeedsJustAdded = {
+    items: selections,
+    otherText: newOther,
+    note: newNote
+  };
+  delete req.session.data.supportNeedsJustRemoved;
+
+  // Merge with previous state
+  const previousSnapshot =
+    req.session.data.supportNeedsPrevious ||
+    req.session.data.supportNeeds ||
+    { items: [], otherText: '', note: '' };
+
+  const mergedItems = Array.from(
+    new Set([...(previousSnapshot.items || []), ...selections])
+  );
+
+  const finalOther = previousSnapshot.otherText || '';
+  const finalNote  = newNote || previousSnapshot.note || '';
+
+  // Save
+  req.session.data.supportNeeds = {
+    items: mergedItems,
+    otherText: finalOther,
+    note: finalNote
+  };
+
+  // Event log
+  req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
+  req.session.data.supportNeedsEvents.unshift({
+    action: 'add',
+    needs: selections,
+    note: newNote,
+    at: new Date().toISOString(),
+    contactType: getContactType(req),
+    contactTime: formatContactTime(new Date()),
+    whoWith: getWhoWith(req)
+  });
+
+  // Cleanup temporary fields
+  delete req.session.data.supportNeedsPrevious;
+  req.session.data['what-additional-support']    = [];
+  req.session.data['something-else-detail']      = '';
+  req.session.data['addNote-additional-support'] = '';
+
+  return res.redirect(`${NT_BASE}/confirmed-support-needs`);
+});
+
+// ── Confirmed (GET) ─────────────────────────────────────────────────────────
+router.get('/non-telephony/confirmed-support-needs', function (req, res) {
+  return res.render('prototype-dev-baseline/mvp-1_4/non-telephony/confirmed-support-needs');
+});
+
+// ── Change (GET) ─────────────────────────────────────────────────────────────
+router.get('/non-telephony/change-support-needs', function (req, res) {
+  req.session.data.supportNeedsFlow = 'change';
+  req.session.data.supportNeedsPrevious =
+    req.session.data.supportNeeds || { items: [], otherText: '', note: '' };
+
+  // Clear only temp fields
+  req.session.data['what-additional-support']    = [];
+  req.session.data['something-else-detail']      = '';
+  req.session.data['addNote-additional-support'] = '';
+
+  return res.render('prototype-dev-baseline/mvp-1_4/non-telephony/change-support-needs');
+});
+
+// ── Check (POST) ─────────────────────────────────────────────────────────────
+router.post('/non-telephony/check-support-needs', function (req, res) {
+  let selections = req.session.data['what-additional-support'];
+
+  if (!selections) {
+    selections = [];
+  } else if (typeof selections === 'string') {
+    selections = [selections];
+  }
+
+  req.session.data['what-additional-support']    = selections;
+  req.session.data['something-else-detail']      = (req.session.data['something-else-detail'] || '').trim();
+  req.session.data['addNote-additional-support'] = (req.session.data['addNote-additional-support'] || '').trim();
+
+  return res.render('prototype-dev-baseline/mvp-1_4/non-telephony/check-support-needs');
+});
+
+// ── Remove (POST) ────────────────────────────────────────────────────────────
+function handleRemovedSupportNeedsNonTelephony(req, res) {
+  // Read Yes/No radio (single-need flow)
+  const confirmChoice = (req.body['confirm-remove'] || '').toLowerCase();
+
+  if (confirmChoice === 'no') {
+    return res.redirect(`${NT_BASE}/change-support-needs`);
+  }
+
+  // Gather items to remove
+  let removeList = req.body['remove-support-needs'];
+  if (!removeList || (Array.isArray(removeList) && removeList.length === 0)) {
+    removeList = req.session.data['remove-support-needs'] || [];
+  }
+  if (typeof removeList === 'string') removeList = [removeList];
+  removeList = Array.isArray(removeList) ? removeList.filter(Boolean) : [];
+
+  if (removeList.length === 0) {
+    return res.redirect(`${NT_BASE}/change-support-needs`);
+  }
+
+  req.session.data.supportNeedsFlow = 'remove';
+
+  const current = req.session.data.supportNeeds || { items: [], otherText: '', note: '' };
+  let items = Array.isArray(current.items) ? current.items.slice() : [];
+  let other = current.otherText || '';
+  let note  = current.note || '';
+
+  // Snapshot BEFORE removal (for confirmed page)
+  req.session.data.supportNeedsJustRemoved = { items: removeList, otherText: other };
+  delete req.session.data.supportNeedsJustAdded;
+  delete req.session.data.supportNeedsJustUpdated;
+
+  // Remove the selected items (exact match)
+  items = items.filter(i => !removeList.includes(i));
+
+  // Legacy safeguard for literal 'Something else' token
+  if (removeList.includes('Something else')) {
+    items = items.filter(i => i !== 'Something else');
+    other = '';
+  }
+
+  if (items.length === 0 && !other) {
+    note = '';
+  }
+
+  // Save
+  req.session.data.supportNeeds = { items, otherText: other, note };
+
+  // Event log
+  req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
+  req.session.data.supportNeedsEvents.unshift({
+    action: 'remove',
+    needs: removeList,
+    at: new Date().toISOString(),
+    contactType: getContactType(req),
+    contactTime: formatContactTime(new Date()),
+    whoWith: getWhoWith(req)
+  });
+
+  // Clean temp
+  req.session.data['remove-support-needs'] = [];
+  req.session.data['remove-support-note']  = '';
+
+  return res.redirect(`${NT_BASE}/confirmed-support-needs`);
+}
+
+router.post('/prototype-dev-baseline/mvp-1_4/non-telephony/removed-support-needs', handleRemovedSupportNeedsNonTelephony);
+router.post('/non-telephony/removed-support-needs', handleRemovedSupportNeedsNonTelephony);
+
+// ── Update (POST) ────────────────────────────────────────────────────────────
+router.post('/non-telephony/updated-support-needs', function (req, res) {
+
+  let updateList = req.session.data['update-support-needs'] || [];
+  if (typeof updateList === 'string') updateList = [updateList];
+
+  const newNote = (req.session.data['update-note'] || '').trim();
+
+  req.session.data.supportNeedsFlow = 'update';
+  req.session.data.supportNeedsJustUpdated = {
+    items: updateList,
+    note: newNote
+  };
+
+  req.session.data.supportNeeds = req.session.data.supportNeeds || {};
+  const support = req.session.data.supportNeeds;
+
+  support.items = Array.isArray(support.items) ? support.items : [];
+  support.otherText = support.otherText || '';
+  support.notesByNeed = support.notesByNeed || {};
+
+  const timestamp = new Date().toISOString();
+
+  updateList.forEach((need) => {
+    support.notesByNeed[need] = support.notesByNeed[need] || [];
+    support.notesByNeed[need].unshift({
+      text: newNote,
+      date: timestamp
+    });
+  });
+
+  // Event log
+  req.session.data.supportNeedsEvents = req.session.data.supportNeedsEvents || [];
+  req.session.data.supportNeedsEvents.unshift({
+    action: 'update',
+    needs: updateList,
+    note: newNote,
+    at: new Date().toISOString(),
+    contactType: getContactType(req),
+    contactTime: formatContactTime(new Date()),
+    whoWith: getWhoWith(req)
+  });
+
+  // Cleanup
+  req.session.data['update-support-needs'] = [];
+  req.session.data['update-note'] = '';
+
+  return res.redirect(`${NT_BASE}/confirmed-support-needs`);
+});
+
+
 
 
 module.exports = router;
