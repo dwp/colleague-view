@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Update support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{% set support = data['supportNeeds'] or {} %}
+{% set items = support.items or [] %}
+{% set currentChoice = data['update-support-needs'] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if items | length == 1 %}
+      {# =========================================================
+         SINGLE NEED
+         - Title: Add an update
+         - Hint under title
+         - Inset: Name of need (prefix removed)
+         - Warning
+         - Note textarea
+         - Hidden input for the only need (no radios)
+         ========================================================= #}
+
+      {% set only = items[0] %}
+      {% set display = only %}
+      {% if 'Something else:' in display %}
+        {% set display = display | replace('Something else:', '') | trim %}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">Add an update</h1>
+      <p class="govuk-hint">
+        This note will be held separately from the main contact history. It will be accessible from the homepage of this account.
+      </p>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body govuk-!-margin-top-0">{{ display }}</p>
+      </div>
+
+      <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
+        {# Pass the single need forward so downstream knows which one to update #}
+        <input type="hidden" name="update-support-needs" value="{{ only }}">
+
+        <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+
+          <div class="govuk-warning-text govuk-!-margin-bottom-2">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              Do not include personal identifiable information such as name, National Insurance number, or date of birth.
+            </strong>
+          </div>
+
+          <textarea class="govuk-textarea govuk-js-character-count"
+                    id="update-note"
+                    name="update-note"
+                    rows="7"
+                    maxlength="5000">{{ data['update-note'] }}</textarea>
+
+          <div id="update-note-info" class="govuk-hint govuk-character-count__message">
+            You have 5000 characters remaining
+          </div>
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" type="submit" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+      </form>
+
+    {% else %}
+      {# =========================================================
+         MULTIPLE NEEDS
+         - Radios to choose which need to update
+         - Hint under legend
+         - Warning
+         - Note textarea
+         ========================================================= #}
+
+      <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="update-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">Which support needs do you want to update?</h1>
+            </legend>
+
+            <div id="update-hint" class="govuk-hint">
+              This note will be held separately from the main contact history. It will be accessible from the homepage of this account.
+            </div>
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              {% if items | length > 0 %}
+                {% for need in items %}
+                  {% set display = need %}
+                  {% if 'Something else:' in display %}
+                    {% set display = display | replace('Something else:', '') | trim %}
+                  {% endif %}
+
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
+                           id="update-need-{{ loop.index }}"
+                           name="update-support-needs"
+                           type="radio"
+                           value="{{ need }}"
+                           {% if currentChoice == need %}checked{% endif %}>
+                    <label class="govuk-label govuk-radios__label" for="update-need-{{ loop.index }}">
+                      {{ display }}
+                    </label>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <p class="govuk-hint">There are no support needs to update.</p>
+              {% endif %}
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="5000">
+          <label class="govuk-label govuk-label--m" for="update-note">Add your updated note</label>
+
+          <div class="govuk-warning-text govuk-!-margin-bottom-2">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              Do not include personal identifiable information such as name, National Insurance number, or date of birth.
+            </strong>
+          </div>
+
+          <textarea class="govuk-textarea govuk-js-character-count"
+                    id="update-note"
+                    name="update-note"
+                    rows="7"
+                    maxlength="5000">{{ data['update-note'] }}</textarea>
+
+          <div id="update-note-info" class="govuk-hint govuk-character-count__message">
+            You have 5000 characters remaining
+          </div>
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" type="submit" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+      </form>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -7822,6 +7822,8 @@ router.use('/prototype-sprint-wise/ur-18', require('./views/prototype-sprint-wis
 router.use('/prototype-sprint-wise/ur-18-2', require('./views/prototype-sprint-wise/ur-18-2/_routes'));
 // version 1.3.2
 router.use('/prototype-dev-baseline/mvp-1_3_2', require('./views/prototype-dev-baseline/mvp-1_3_2/\_routes'));
+// version 1.3.3
+router.use('/prototype-dev-baseline/mvp-1_3_3', require('./views/prototype-dev-baseline/mvp-1_3_3/\_routes'));
 // version 1.4
 router.use('/prototype-dev-baseline/mvp-1_4', require('./views/prototype-dev-baseline/mvp-1_4/\_routes'));
 

@@ -79,9 +79,6 @@
 
                 {% if need != "Something else" %}
 
-                  {# --------------------------------------------- #}
-                  {# PRE‑SELECT MENTAL HEALTH CONDITION HERE       #}
-                  {# --------------------------------------------- #}
                   <div class="govuk-radios__item">
                     <input
                       class="govuk-radios__input"
@@ -89,7 +86,6 @@
                       name="what-additional-support"
                       type="radio"
                       value="{{ need }}"
-                      {% if need == "This person has a mental health condition" %}checked{% endif %}
                     >
                     <label class="govuk-label govuk-radios__label" for="{{ id }}">
                       {{ need }}
@@ -97,6 +93,10 @@
                   </div>
 
                 {% else %}
+
+                  {# ------------------------ #}
+                  {# SOMETHING ELSE — UPDATED #}
+                  {# ------------------------ #}
 
                   <div class="govuk-radios__item">
                     <input
@@ -106,26 +106,29 @@
                       type="radio"
                       value="Something else"
                       data-aria-controls="conditional-{{ id }}"
+                      checked
                     >
                     <label class="govuk-label govuk-radios__label" for="{{ id }}">
                       Something else
                     </label>
                   </div>
 
-                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-{{ id }}">
+                  <div class="govuk-radios__conditional" id="conditional-{{ id }}">
                     <div class="govuk-form-group govuk-character-count"
                          data-module="govuk-character-count"
                          data-maxlength="70">
 
                       <h3 class="govuk-heading-m govuk-!-margin-bottom-1">What is the need?</h3>
-                      <p class="govuk-hint govuk-!-margin-top-1">Give a high level description and do not use acronyms.</p>
+                      <p class="govuk-hint govuk-!-margin-top-1">
+                        Give a high level description and do not use acronyms.
+                      </p>
 
                       <input
                         class="govuk-input govuk-js-character-count"
                         id="something-else-detail"
                         name="something-else-detail"
                         maxlength="70"
-                        value=""
+                        value="Cannot speak to female staff"
                       >
 
                       <div id="something-else-detail-info"

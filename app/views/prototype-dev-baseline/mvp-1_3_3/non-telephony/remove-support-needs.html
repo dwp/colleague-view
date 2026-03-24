@@ -1,0 +1,188 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Remove support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/non-telephony/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{# Pull current saved support needs #}
+{% set support = data['supportNeeds'] or {} %}
+{% set savedItems = support.items or [] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {# ================= A) EXACTLY ONE SAVED NEED → YES/NO ================= #}
+    {% if savedItems | length == 1 %}
+
+      {% set only = savedItems[0] %}
+      {% set display = only %}
+      {% if 'Something else:' in display %}
+        {% set display = display | replace('Something else:', '') | trim %}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">Do you want to remove this need?</h1>
+
+      <p class="govuk-hint">
+        You should remove a need if it no longer applies or if the account holder requests it to be removed.
+        You do not need to record a note about this.
+      </p>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body govuk-!-margin-top-0">{{ display }}</p>
+      </div>
+
+      <form action="/prototype-dev-baseline/mvp-1_4/non-telephony/removed-support-needs" method="post" novalidate>
+        {# Pass the single need to remove #}
+        <input type="hidden" name="remove-support-needs" value="{{ only }}">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input"
+                       id="confirm-remove-yes"
+                       name="confirm-remove"
+                       type="radio"
+                       value="yes">
+                <label class="govuk-label govuk-radios__label" for="confirm-remove-yes">Yes</label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input"
+                       id="confirm-remove-no"
+                       name="confirm-remove"
+                       type="radio"
+                       value="no">
+                <label class="govuk-label govuk-radios__label" for="confirm-remove-no">No</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+        </div>
+      </form>
+
+    {# ================= B) ZERO or MULTIPLE SAVED NEEDS → CHECKBOXES ================= #}
+    {% else %}
+
+      <h1 class="govuk-heading-l">What do you want to remove?</h1>
+
+      {% if savedItems | length > 0 %}
+
+        <p class="govuk-hint">
+          You should remove a need if it no longer applies or if the account holder requests it to be removed.
+          You do not need to record a note about this.
+        </p>
+
+        <form action="/prototype-dev-baseline/mvp-1_4/telephony/check-support-needs" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes" id="support-needs-group">
+
+                {# --- SELECT ALL --- #}
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input"
+                         id="remove-support-all"
+                         name="selectAllSupportNeeds"
+                         type="checkbox"
+                         value="all"
+                         data-behaviour="select-all">
+                  <label class="govuk-label govuk-checkboxes__label" for="remove-support-all">
+                    Remove all support needs
+                  </label>
+                </div>
+
+                {# --- INDIVIDUAL SUPPORT NEEDS --- #}
+                {% for need in savedItems %}
+                  {% set display = need %}
+                  {% if 'Something else:' in display %}
+                    {% set display = display | replace('Something else:', '') | trim %}
+                  {% endif %}
+
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input"
+                           id="remove-support-{{ loop.index }}"
+                           name="remove-support-needs"
+                           type="checkbox"
+                           value="{{ need }}">
+                    <label class="govuk-label govuk-checkboxes__label"
+                           for="remove-support-{{ loop.index }}">
+                      {{ display }}
+                    </label>
+                  </div>
+                {% endfor %}
+              </div>
+
+            </fieldset>
+          </div>
+
+
+            <div class="govuk-button-group">
+              <button class="govuk-button" type="submit" data-module="govuk-button">
+                Save and continue
+              </button>
+            </div>
+          </div>
+        </form>
+
+      {% else %}
+        <p class="govuk-hint">There are no support needs to remove.</p>
+        <p class="govuk-body">
+          <a class="govuk-link" href="/prototype-dev-baseline/mvp-1_4/telephony/change-support-needs">Back to change support needs</a>
+        </p>
+      {% endif %}
+    {% endif %}
+
+  </div>
+</div>
+
+{# Optional "Select all" behaviour (unchanged) #}
+<script>
+  (function () {
+    var group = document.getElementById('support-needs-group');
+    if (!group) return;
+
+    var selectAll = group.querySelector('[data-behaviour="select-all"]');
+    var items = Array.prototype.slice.call(group.querySelectorAll('.govuk-checkboxes__input'))
+      .filter(function (i) { return i !== selectAll; });
+
+    function enabled() { return items.filter(function (i) { return !i.disabled; }); }
+    function syncSelectAll() {
+      var enabledItems = enabled();
+      var allChecked = enabledItems.length > 0 && enabledItems.every(function (i) { return i.checked; });
+      var someChecked = enabledItems.some(function (i) { return i.checked; });
+      selectAll.checked = allChecked;
+      selectAll.indeterminate = !allChecked && someChecked;
+    }
+    function toggleAll(checked) { enabled().forEach(function (i) { i.checked = checked; }); }
+
+    selectAll && selectAll.addEventListener('change', function () {
+      toggleAll(selectAll.checked);
+      syncSelectAll();
+    });
+    items.forEach(function (i) { i.addEventListener('change', syncSelectAll); });
+    syncSelectAll();
+  })();
+</script>
+
+{% endblock %}

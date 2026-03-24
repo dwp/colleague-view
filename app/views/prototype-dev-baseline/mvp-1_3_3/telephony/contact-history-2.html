@@ -5,17 +5,17 @@ Contact history
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-16/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-16/common/keydetail-bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
 {% endblock %}
 
 
 {% block beforeContent %}
-  {% include "/prototype-sprint-wise/ur-16/common/phase-banner.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
   <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-display-none-print">Back</a> -->
   <div class="govuk-breadcrumbs">
     <ol class="govuk-breadcrumbs__list">
@@ -37,18 +37,29 @@ Contact history
         <h1 class="govuk-heading-xl">Contact history</h1>
       </div>
       <div class="govuk-grid-column-one-half">
-      <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
-        <div class="govuk-button-group" style="justify-content: flex-end;">
-            <button type="submit"
-                    class="govuk-button"
-                    data-module="govuk-button">
+        <form action="/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed" method="post">
+          <div class="govuk-button-group">
+            {% set benefits =  data['what-benefit-discussed'] | length %}
+            {% set benefitAdded = data['Do-you-want-to-complete-the-call'] %}
+            {%if benefitAdded != '' %}
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed">
+              Add or change call details
+            </button>
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_4/telephony/add-call/do-you-want-to-complete-call">
+              Start service again
+            </button>
+            {%else%}
+            <button type="submit" class="govuk-button" style="margin-left: auto;" data-module="govuk-button"  onclick="global_var['a']['b']=1;" formaction="/prototype-dev-baseline/mvp-1_4/telephony/add-call/reviewed">
               Add call details
             </button>
+            {%endif%}
+            <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/prototype-dev-baseline/mvp-1_4/telephony/add-call/do-you-want-to-complete-call">
+              Complete phone call
+            </button> -->
           </div>
         </form>
       </div>
     </div>
-    
     <div class="govuk-tabs" data-module="govuk-tabs" id="filter">
       <h2 class="govuk-tabs__title">
         Contents
@@ -63,11 +74,6 @@ Contact history
         <li class="govuk-tabs__list-item">
           <a class="govuk-tabs__tab" href="#jsaps-notes">
             JSAPS notes for ESA
-          </a>
-        </li>
-        <li class="govuk-tabs__list-item">
-          <a class="govuk-tabs__tab" href="#additional-needs-history">
-            Support needs history
           </a>
         </li>
       </ul>
@@ -344,47 +350,70 @@ Contact history
                   </table>
                 </div>
               </div> -->
-              <div class="govuk-summary-card">
+              <div class="govuk-summary-card govuk-!-margin-bottom-6">
                 <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
+                  <h2 class="govuk-summary-card__title">
+                    Inbound phone call: 2 February 2026, 14:04
+                  </h2>
                 </div>
+
                 <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          No notes added
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Reported a change of circumstance: Address changed on all relevant systems
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>George Wood (Appointee)</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1003</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <dl class="govuk-summary-list">
+
+                    <!-- Notes (editable) -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key summary-key-25">Notes</dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p class="govuk govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+                          <span class="govuk-!-display-none" id="full-text">
+                            Call disconnected before reason was established. Did not call back because caller was not identified as vulnerable.
+                          </span>
+
+                          <span id="less-text">
+                            Call disconnected before reason was established. Did not call back because... </span> <br/>
+                          </span>
+                          <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">View full notes</a>
+                          <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> View less</a>   
+                        </p>
+
+                        <div class="govuk-inset-text">
+                          Inaccurate note corrected
+                          <p class="govuk-hint govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                            <a href="add-call/note-history" class="govuk-link">View note history</a>
+                          </p>
+                        </div>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="add-call/change-this-note">
+                          Change
+                          <span class="govuk-visually-hidden">
+                            notes from inbound phone call on 2 February 2026, 14:04
+                          </span>
+                        </a>
+                      </dd>
+                    </div>
+
+                    <!-- Benefit type -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key summary-key-25">Employment and Support Allowance</dt>
+                      <dd class="govuk-summary-list__value">Call disconnected</dd>
+                    </div>
+
+                    <!-- Who the contact was with -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key summary-key-25">Who was the contact with</dt>
+                      <dd class="govuk-summary-list__value">George Wood (Appointee)</dd>
+                    </div>
+
+                    <!-- Agent ID -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key summary-key-25">Agent ID</dt>
+                      <dd class="govuk-summary-list__value">1003</dd>
+                    </div>
+
+                  </dl>
                 </div>
               </div>
               <div class="govuk-summary-card">
@@ -395,15 +424,15 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                          Notes
                         </th>
                         <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">Call disconnected before reason was established. Did not call back because caller was not identified as vulnerable.</span> <span class="" id="less-text">Call disconnected before reason was established. Did not call back because...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">View full notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
+                          <span class="govuk-!-display-none" id="full-text">Call disconnected before reason was established. Did not call back because caller was not identified as vulnerable.</span> <span class="" id="less-text">Call disconnected before reason was established. Did not call back because...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">View full notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> View less</a>
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -411,7 +440,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Who the contact was with
                         </th>
                         <td class="govuk-summary-list__value">
@@ -419,7 +448,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Agent ID
                         </th>
                         <td class="govuk-summary-list__value">
@@ -438,7 +467,7 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                          Notes
                         </th>
                         <td class="govuk-summary-list__value">
@@ -446,7 +475,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -454,7 +483,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Who the contact was with
                         </th>
                         <td class="govuk-summary-list__value">
@@ -462,7 +491,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Agent ID
                         </th>
                         <td class="govuk-summary-list__value">
@@ -481,7 +510,7 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                          Notes
                         </th>
                         <td class="govuk-summary-list__value">
@@ -489,7 +518,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -498,7 +527,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Who the contact was with
                         </th>
                         <td class="govuk-summary-list__value">
@@ -506,7 +535,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Agent ID
                         </th>
                         <td class="govuk-summary-list__value">
@@ -525,7 +554,7 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                          Notes
                         </th>
                         <td class="govuk-summary-list__value">
@@ -533,7 +562,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -541,7 +570,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Who the contact was with
                         </th>
                         <td class="govuk-summary-list__value">
@@ -549,7 +578,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Agent ID
                         </th>
                         <td class="govuk-summary-list__value">
@@ -568,7 +597,7 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                          Notes
                         </th>
                         <td class="govuk-summary-list__value">
@@ -576,7 +605,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -584,7 +613,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Who the contact was with
                         </th>
                         <td class="govuk-summary-list__value">
@@ -592,7 +621,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Agent ID
                         </th>
                         <td class="govuk-summary-list__value">
@@ -611,7 +640,7 @@ Contact history
                   <table class="govuk-summary-list govuk-!-margin-bottom-0">
                     <tbody class="govuk-summary-list">
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                          Notes
                         </th>
                         <td class="govuk-summary-list__value">
@@ -619,7 +648,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Employment and Support Allowance
                         </th>
                         <td class="govuk-summary-list__value">
@@ -627,7 +656,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Personal Independence Payment
                         </th>
                         <td class="govuk-summary-list__value">
@@ -635,7 +664,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Who the contact was with
                         </th>
                         <td class="govuk-summary-list__value">
@@ -643,7 +672,7 @@ Contact history
                         </td>
                       </tr>
                       <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
+                        <th scope="row" class="govuk-summary-list__key summary-key-25">
                           Agent ID
                         </th>
                         <td class="govuk-summary-list__value">
@@ -836,90 +865,9 @@ Contact history
               <span class="govuk-caption-m">Ended at</span>
               <h2 class="govuk-heading-m">Monday 17 Oct 2023, 13:18</h2>
             </div>
-           </div>
-           </div>
-           <!-- Tab3 content start here -->
-            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="additional-needs-history">
-
-              <h2 class="govuk-heading-l">Support needs history</h2>
-
-              {% set events = data['supportNeedsEvents'] or [] %}
-              {% set support = data['supportNeeds'] or {} %}
-              {% set otherText = support.otherText or '' %}
-
-              {% if events | length == 0 %}
-                <div class="govuk-inset-text">
-                  No support needs history recorded.
-                </div>
-              {% else %}
-
-                <table class="govuk-table">
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">When the change was made</th>
-                      <th scope="col" class="govuk-table__header">Action taken</th>
-                    </tr>
-                  </thead>
-
-                  <tbody class="govuk-table__body">
-
-                    {% for ev in events %}
-
-                      {# Build visible needs list (hide Something else) #}
-                      {% set list = [] %}
-                      {% for n in ev.needs %}
-                        {% if n != "Something else" %}
-                          {% set list = list.concat([n]) %}
-                        {% endif %}
-                      {% endfor %}
-
-                      <tr class="govuk-table__row">
-                        
-                        <!-- Column 1: Date -->
-                        <td class="govuk-table__cell">
-                          {{ ev.contactTime or ev.at }}
-                        </td>
-
-                        <!-- Column 2: Details -->
-                        <td class="govuk-table__cell">
-                          <div>
-
-                            {% if ev.action == 'add' %}
-                              <p class="govuk-body">Agent 1003 added support needs:</p>
-                            {% elseif ev.action == 'update' %}
-                              <p class="govuk-body">Agent 1003 updated support needs:</p>
-                            {% elseif ev.action == 'remove' %}
-                              <p class="govuk-body">Agent 1003 removed support needs:</p>
-                            {% endif %}
-
-                            {# Needs list (no notes) #}
-                            {% if list | length > 1 %}
-                              <ul class="govuk-list govuk-list--bullet">
-                                {% for item in list %}
-                                  <li>{{ item }}</li>
-                                {% endfor %}
-                              </ul>
-
-                            {% elseif list | length == 1 %}
-                              <p class="govuk-body">{{ list[0] }}</p>
-
-                            {% else %}
-                              <p class="govuk-hint">None recorded</p>
-                            {% endif %}
-
-                          </div>
-                        </td>
-
-                      </tr>
-
-                    {% endfor %}
-
-                  </tbody>
-                </table>
-
-              {% endif %}
-
-            </div>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
   

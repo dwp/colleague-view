@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+ Why are you deleting this record? 
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-18/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-18/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}  
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <form action="/prototype-dev-baseline/mvp-1_3_3/delete-record-router" method="post">
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Why are you deleting this record?
+            </h1>
+          </legend>
+
+          <!-- RADIO OPTIONS -->
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                    id="delete-reason-incorrect"
+                    name="delete-reason"
+                    type="radio"
+                    value="incorrect-information">
+              <label class="govuk-label govuk-radios__label"
+                    for="delete-reason-incorrect">
+                To remove incorrect information
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                    id="delete-reason-sensitive"
+                    name="delete-reason"
+                    type="radio"
+                    value="sensitive-information">
+              <label class="govuk-label govuk-radios__label"
+                    for="delete-reason-sensitive">
+                To remove information that should not be widely available
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                    id="delete-reason-requested"
+                    name="delete-reason"
+                    type="radio"
+                    value="account-holder-request">
+              <label class="govuk-label govuk-radios__label"
+                    for="delete-reason-requested">
+                The account holder has asked for this record to be removed
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                    id="delete-reason-retention"
+                    name="delete-reason"
+                    type="radio"
+                    value="retention-requirement">
+              <label class="govuk-label govuk-radios__label"
+                    for="delete-reason-retention">
+                To meet retention requirements
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+        <a class="govuk-link" href="#">Cancel</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
