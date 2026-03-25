@@ -32,13 +32,33 @@ Contact history
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+
+    {% if banner %}
+      <div class="govuk-notification-banner govuk-notification-banner--success"
+          role="alert"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            Contact record deleted successfully.
+          </p>
+        </div>
+      </div>
+    {% endif %}
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half">
         <h1 class="govuk-heading-xl">Contact history</h1>
       </div>
+
       <div class="govuk-grid-column-one-half">
-      <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
-        <div class="govuk-button-group" style="justify-content: flex-end;">
+        <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
+          <div class="govuk-button-group" style="justify-content: flex-end;">
             <button type="submit"
                     class="govuk-button"
                     data-module="govuk-button">
@@ -237,33 +257,6 @@ Contact history
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="govuk-form-group govuk-!-margin-top-2">
-                          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
-                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-visually-hidden">
-                              search by month
-                            </legend>
-                            <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="Last one month">
-                                <label class="govuk-label govuk-radios__label" for="changedName">
-                                  Last one month
-                                </label>
-                              </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="Last 3 months">
-                                <label class="govuk-label govuk-radios__label" for="changedName-2">
-                                  Last 3 months
-                                </label>
-                              </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="Last 6 months">
-                                <label class="govuk-label govuk-radios__label" for="changedName-3">
-                                  Last 6 months
-                                </label>
-                              </div>
-                            </div>
-                          </fieldset>
-                        </div> -->
                       </fieldset>
                     </div>
                     <!-- filter by Keywors -->
@@ -295,91 +288,49 @@ Contact history
                 <span class="govuk-!-font-weight-bold">Date</span>
             </p>
             <div class="summry-card">
-              <!-- <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Outbound letter: 20 January 2025, 11:02</h2>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          No notes added
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          General change of circumstance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>A request for evidence</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>George Wood (Appointee)</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1003</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div> -->
+              
               {# ------------------------------------------------------------ #}
-{# CARD 1 — Inbound phone call: 15 March 2026, 09:37            #}
-{# ------------------------------------------------------------ #}
+            {# CARD 1 — Inbound phone call: 15 March 2026, 09:37            #}
+            {# ------------------------------------------------------------ #}
 
-{% set cardId = "call-2026-03-15-0937" %}
+            {% set cardId = "call-2026-03-15-0937" %}
 
-{% if data.deletions[cardId] %}
+            {% if data.deletions[cardId] %}
 
-  {# ========== DELETED VERSION OF THIS CARD ========== #}
+              {# ========== DELETED VERSION OF THIS CARD ========== #}
 
-  <div class="govuk-summary-card">
-    <div class="govuk-summary-card__title-wrapper">
-      <h2 class="govuk-summary-card__title">
-        Deleted record: 15 March 2026, 09:37
-      </h2>
-    </div>
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Deleted record: 15 March 2026, 09:37
+                  </h2>
+                </div>
 
-    <div class="govuk-summary-card__content">
-      <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-0">
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Reason for deletion</dt>
-          <dd class="govuk-summary-list__value">
-            {{ data.deletions[cardId].reasonLabel }}
-          </dd>
-        </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Reason for deletion</dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data.deletions[cardId].reasonLabel }}
+                      </dd>
+                    </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Deleted on</dt>
-          <dd class="govuk-summary-list__value">
-            {{ data.deletions[cardId].deletedAtDate }}, {{ data.deletions[cardId].deletedAtTime }}
-          </dd>
-        </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Deleted on</dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data.deletions[cardId].deletedAtDate }}, {{ data.deletions[cardId].deletedAtTime }}
+                      </dd>
+                    </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">Agent ID</dt>
-          <dd class="govuk-summary-list__value">1007</dd>
-        </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">Agent ID</dt>
+                      <dd class="govuk-summary-list__value">1007</dd>
+                    </div>
 
-      </dl>
-    </div>
-  </div>
+                  </dl>
+                </div>
+              </div>
 
               {% else %}
 
@@ -1060,6 +1011,7 @@ Contact history
                   </div>
 
                 </div>
+              </div>
 
               {% endif %}
 
@@ -1245,92 +1197,12 @@ Contact history
               <span class="govuk-caption-m">Ended at</span>
               <h2 class="govuk-heading-m">Monday 17 Oct 2023, 13:18</h2>
             </div>
-           </div>
-           </div>
-           <!-- Tab3 content start here -->
-            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="additional-needs-history">
-
-              <h2 class="govuk-heading-l">Support needs history</h2>
-
-              {% set events = data['supportNeedsEvents'] or [] %}
-              {% set support = data['supportNeeds'] or {} %}
-              {% set otherText = support.otherText or '' %}
-
-              {% if events | length == 0 %}
-                <div class="govuk-inset-text">
-                  No support needs history recorded.
-                </div>
-              {% else %}
-
-                <table class="govuk-table">
-                  <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                      <th scope="col" class="govuk-table__header">When the change was made</th>
-                      <th scope="col" class="govuk-table__header">Action taken</th>
-                    </tr>
-                  </thead>
-
-                  <tbody class="govuk-table__body">
-
-                    {% for ev in events %}
-
-                      {# Build visible needs list (hide Something else) #}
-                      {% set list = [] %}
-                      {% for n in ev.needs %}
-                        {% if n != "Something else" %}
-                          {% set list = list.concat([n]) %}
-                        {% endif %}
-                      {% endfor %}
-
-                      <tr class="govuk-table__row">
-                        
-                        <!-- Column 1: Date -->
-                        <td class="govuk-table__cell">
-                          {{ ev.contactTime or ev.at }}
-                        </td>
-
-                        <!-- Column 2: Details -->
-                        <td class="govuk-table__cell">
-                          <div>
-
-                            {% if ev.action == 'add' %}
-                              <p class="govuk-body">Agent 1003 added support needs:</p>
-                            {% elseif ev.action == 'update' %}
-                              <p class="govuk-body">Agent 1003 updated support needs:</p>
-                            {% elseif ev.action == 'remove' %}
-                              <p class="govuk-body">Agent 1003 removed support needs:</p>
-                            {% endif %}
-
-                            {# Needs list (no notes) #}
-                            {% if list | length > 1 %}
-                              <ul class="govuk-list govuk-list--bullet">
-                                {% for item in list %}
-                                  <li>{{ item }}</li>
-                                {% endfor %}
-                              </ul>
-
-                            {% elseif list | length == 1 %}
-                              <p class="govuk-body">{{ list[0] }}</p>
-
-                            {% else %}
-                              <p class="govuk-hint">None recorded</p>
-                            {% endif %}
-
-                          </div>
-                        </td>
-
-                      </tr>
-
-                    {% endfor %}
-
-                  </tbody>
-                </table>
-
-              {% endif %}
-
-            </div>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
+
   
   <!-- logic for filter function -->
   <script type="text/javascript">

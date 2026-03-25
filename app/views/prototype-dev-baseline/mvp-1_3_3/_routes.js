@@ -1474,24 +1474,36 @@ router.post('/delete-record-router', function (req, res) {
   };
 
   const now = new Date();
-
   const deletionRecord = {
     reasonLabel: reasonLabels[reasonValue],
-    deletedAtDate: now.toLocaleDateString('en-GB', {
-      day: 'numeric', month: 'long', year: 'numeric'
-    }),
-    deletedAtTime: now.toLocaleTimeString('en-GB', {
-      hour: '2-digit', minute: '2-digit'
-    }),
+    deletedAtDate: now.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }),
+    deletedAtTime: now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }),
     agentId: "1007"
   };
 
+  // Store deletion
   req.session.data.deletions = req.session.data.deletions || {};
   req.session.data.deletions[recordId] = deletionRecord;
 
-  // Redirect back to your contact history page
-  res.redirect('/prototype-dev-baseline/mvp-1_3_3/telephony/contact-history');;
+  // FLAG to show the success banner on next page load
+  req.session.data.justDeleted = true;
+
+  // Redirect to your MVP 1.3.3 contact history page
+  res.redirect('/prototype-dev-baseline/mvp-1_3_3/telephony/contact-history');
 });
 
+router.get('/telephony/contact-history', function (req, res) {
+
+  // Capture the banner flag (so we can show it once)
+  const banner = req.session.data.justDeleted;
+
+  // Clear the flag immediately so it only shows once
+  req.session.data.justDeleted = false;
+
+  // Pass banner flag into the template
+  res.render('prototype-dev-baseline/mvp-1_3_3/telephony/contact-history', {
+    banner: banner
+  });
+});
 
 module.exports = router;
