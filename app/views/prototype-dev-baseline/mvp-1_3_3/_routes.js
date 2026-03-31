@@ -1445,17 +1445,22 @@ router.post('/non-telephony/updated-support-needs', function (req, res) {
 // DELETE NOTES //////////////////////////////////////////////////////////////
 
 
-// GET delete page
+// GET delete reason page
 router.get('/delete-record.html', function (req, res) {
-  const recordId = req.query.recordId;
 
-  // Store ID so POST can use it
-  req.session.data.recordId = recordId;
+  // Record ID for the deletion flow
+  req.session.data.recordId = req.query.recordId;
+
+  // ORIGINAL RECORD INFORMATION (sent from Delete link)
+  req.session.data.deleteOriginalTitle = req.query.title;
+  req.session.data.deleteOriginalTimestamp = req.query.timestamp;
+  req.session.data.deleteOriginalDetails = req.query.details || "";
 
   res.render('prototype-dev-baseline/mvp-1_3_3/delete-record');
 });
 
-// POST delete form
+
+// POST delete reason -> GO TO CHECK DETAILS
 router.post('/delete-record-router', function (req, res) {
 
   const recordId = req.session.data.recordId;
@@ -1466,6 +1471,7 @@ router.post('/delete-record-router', function (req, res) {
     return res.redirect('back');
   }
 
+  // Radio labels
   const reasonLabels = {
     "incorrect-information": "To remove incorrect information",
     "sensitive-information": "To remove information that should not be widely available",
@@ -1473,34 +1479,56 @@ router.post('/delete-record-router', function (req, res) {
     "retention-requirement": "To meet retention requirements"
   };
 
+  // Store readable reason for the check-details page
+  req.session.data.deleteReasonLabel = reasonLabels[reasonValue];
+
+  // 🚀 SEND USER TO CHECK DETAILS PAGE
+  res.redirect('/prototype-dev-baseline/mvp-1_3_3/telephony/check-details');
+});
+
+
+// GET CHECK DETAILS BEFORE DELETING
+router.get('/telephony/check-details', function (req, res) {
+  res.render('prototype-dev-baseline/mvp-1_3_3/telephony/check-details.html');
+});
+
+
+// POST: FINAL CONFIRM DELETE (Actual Deletion Happens Here)
+router.post('/delete-record-confirm', function (req, res) {
+
+  const recordId = req.session.data.recordId;
+
   const now = new Date();
   const deletionRecord = {
-    reasonLabel: reasonLabels[reasonValue],
-    deletedAtDate: now.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }),
-    deletedAtTime: now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }),
+    reasonLabel: req.session.data.deleteReasonLabel,
+    deletedAtDate: now.toLocaleDateString("en-GB", {
+      day: "numeric", month: "long", year: "numeric"
+    }),
+    deletedAtTime: now.toLocaleTimeString("en-GB", {
+      hour: "2-digit", minute: "2-digit"
+    }),
     agentId: "1007"
   };
 
-  // Store deletion
+  // Store deleted record info into session
   req.session.data.deletions = req.session.data.deletions || {};
   req.session.data.deletions[recordId] = deletionRecord;
 
-  // FLAG to show the success banner on next page load
+  // Show success banner after redirect
   req.session.data.justDeleted = true;
 
-  // Redirect to your MVP 1.3.3 contact history page
   res.redirect('/prototype-dev-baseline/mvp-1_3_3/telephony/contact-history');
 });
 
+
+// GET CONTACT HISTORY (shows banner once)
 router.get('/telephony/contact-history', function (req, res) {
 
-  // Capture the banner flag (so we can show it once)
   const banner = req.session.data.justDeleted;
 
-  // Clear the flag immediately so it only shows once
+  // Reset banner flag so it only appears once
   req.session.data.justDeleted = false;
 
-  // Pass banner flag into the template
   res.render('prototype-dev-baseline/mvp-1_3_3/telephony/contact-history', {
     banner: banner
   });

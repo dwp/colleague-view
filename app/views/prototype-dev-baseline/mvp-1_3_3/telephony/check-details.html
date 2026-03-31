@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check details
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{# --------- INPUTS  -------- #}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check the details before deleting this record</h1>
+
+    <p class="govuk-body">
+      Review the information below. You can make changes before deleting the record.
+    </p>
+
+    {# ============================================================
+       SUMMARY CARD 1 — ORIGINAL RECORD
+       ============================================================ #}
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+
+        <h2 class="govuk-summary-card__title">
+          Inbound phone call: 15 March 2026, 09:37
+        </h2>
+
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+
+            {# Change link back to the page where delete was triggered #}
+            <a class="govuk-link"
+               href="/prototype-dev-baseline/mvp-1_3_3/telephony/contact-history#{{ data.recordId }}">
+              Change
+              <span class="govuk-visually-hidden"> the original record</span>
+            </a>
+
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Notes</dt>
+            <dd class="govuk-summary-list__value">
+              No notes added
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Employment and Support Allowance</dt>
+            <dd class="govuk-summary-list__value">
+              Reported a change of circumstance: Address changed on all relevant systems
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Who the contact was with</dt>
+            <dd class="govuk-summary-list__value">
+              Christopher Fox
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Agent ID</dt>
+            <dd class="govuk-summary-list__value">
+              1003
+            </dd>
+          </div>
+
+    
+
+        </dl>
+
+      </div>
+    </div>
+
+
+    {# ============================================================
+       SUMMARY CARD 2 — REASON FOR DELETION
+       ============================================================ #}
+    <div class="govuk-summary-card govuk-!-margin-top-6">
+      <div class="govuk-summary-card__title-wrapper">
+
+        <h2 class="govuk-summary-card__title">
+          Reason for deletion
+        </h2>
+
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+
+            {# Change link back to delete reason page #}
+            <a class="govuk-link"
+               href="/prototype-dev-baseline/mvp-1_3_3/delete-record.html?recordId={{ data.recordId }}">
+              Change
+              <span class="govuk-visually-hidden"> the deletion reason</span>
+            </a>
+
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Selected reason</dt>
+            <dd class="govuk-summary-list__value">
+              {{ data.deleteReasonLabel }}
+            </dd>
+          </div>
+        </dl>
+
+      </div>
+    </div>
+
+    <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              You will not be able to restore this note if this record is deleted
+            </strong>
+          </div>
+
+
+    {# ============================================================
+        CONFIRMATION BUTTON + CANCEL LINK (INLINE)
+        ============================================================ #}
+
+      <form action="/prototype-dev-baseline/mvp-1_3_3/delete-record-confirm" method="post">
+
+        <div class="govuk-button-group">
+
+          <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+            Confirm deletion
+          </button>
+
+          <a href="/prototype-dev-baseline/mvp-1_3_3/telephony/contact-history"
+            class="govuk-link">
+            Cancel
+          </a>
+
+        </div>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}
