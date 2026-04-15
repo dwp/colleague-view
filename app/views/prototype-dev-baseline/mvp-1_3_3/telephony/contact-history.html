@@ -1199,6 +1199,64 @@ Contact history
             </div>
           </div>
       </div>
+      <!-- Tab 3 Deleted contact history log -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="contact-deletion-log">
+
+        <h2 class="govuk-heading-l">Contact deletion log</h2>
+
+        {% set deletions = data['contactDeletionEvents'] or [] %}
+
+        {% if deletions | length == 0 %}
+          <div class="govuk-inset-text">
+            No deleted contact records.
+          </div>
+        {% else %}
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">When</th>
+                <th scope="col" class="govuk-table__header">Action taken</th>
+              </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+
+              {% for ev in deletions %}
+                <tr class="govuk-table__row">
+
+                  <!-- Date/time -->
+                  <td class="govuk-table__cell">
+                    {{ ev.deletedAt }}
+                  </td>
+
+                  <!-- Details -->
+                  <td class="govuk-table__cell">
+                    <div>
+
+                      <p class="govuk-body">
+                        {{ ev.deletedBy }} deleted a contact record.
+                      </p>
+
+                      {% if ev.reason %}
+                        <p class="govuk-body">Reason: {{ ev.reason }}</p>
+                      {% endif %}
+
+                      {% if ev.type %}
+                        <p class="govuk-hint">Record type: {{ ev.type }}</p>
+                      {% endif %}
+
+                    </div>
+                  </td>
+
+                </tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>

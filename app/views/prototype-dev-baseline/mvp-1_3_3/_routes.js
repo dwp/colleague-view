@@ -1529,9 +1529,22 @@ router.get('/telephony/contact-history', function (req, res) {
   // Reset banner flag so it only appears once
   req.session.data.justDeleted = false;
 
-  res.render('prototype-dev-baseline/mvp-1_3_3/telephony/contact-history', {
+  res.render('prototype-dev-baseline/mvp-1_3_3/telephony/contact-history-log', {
     banner: banner
   });
 });
+
+// DELETE RECORD ROUTES
+
+module.exports = function (router) {
+
+  router.get('/delete-record', function (req, res) {
+    res.render('prototype-dev-baseline/mvp-1_3_3/delete-record', {
+      recordId: req.query.recordId
+    })
+  })
+
+}
+
 
 module.exports = router;

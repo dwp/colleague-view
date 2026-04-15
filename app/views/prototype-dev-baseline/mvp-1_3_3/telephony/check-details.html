@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/keydetail-bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_3/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_3/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_3/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_3_3/common/phase-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -25,11 +25,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Check the details before deleting this record</h1>
-
-    <p class="govuk-body">
-      Review the information below. You can make changes before deleting the record.
-    </p>
+    <h1 class="govuk-heading-l">Check the record you want to delete</h1>
 
     {# ============================================================
        SUMMARY CARD 1 — ORIGINAL RECORD
@@ -46,7 +42,7 @@
 
             {# Change link back to the page where delete was triggered #}
             <a class="govuk-link"
-               href="/prototype-dev-baseline/mvp-1_3_3/telephony/contact-history#{{ data.recordId }}">
+               href="/prototype-dev-baseline/mvp-1_3_3/telephony/contact-history">
               Change
               <span class="govuk-visually-hidden"> the original record</span>
             </a>
@@ -111,7 +107,7 @@
 
             {# Change link back to delete reason page #}
             <a class="govuk-link"
-               href="/prototype-dev-baseline/mvp-1_3_3/delete-record.html?recordId={{ data.recordId }}">
+               href="/prototype-dev-baseline/mvp-1_3_3/telephony/delete-record?recordId={{ data.recordId }}">
               Change
               <span class="govuk-visually-hidden"> the deletion reason</span>
             </a>
@@ -139,7 +135,7 @@
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
               <span class="govuk-visually-hidden">Warning</span>
-              You will not be able to restore this note if this record is deleted
+              You will not be able to restore this record once it is deleted.
             </strong>
           </div>
 
