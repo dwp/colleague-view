@@ -218,7 +218,7 @@ Payment history
           <th scope="col" class="govuk-table__header">Due date</th>
           <th scope="col" class="govuk-table__header ">Status</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Adjustment</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
         </tr>
       </thead>
@@ -229,7 +229,7 @@ Payment history
           <td class="govuk-table__cell">{{item.dueData}}</td>
           <td class="govuk-table__cell">{{item.status}}</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">{{item.award}}</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">{{item.deduction}}</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">{{item.adjustment}}</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">{{item.amount}}</td>
         </tr>
         {%endfor%}
@@ -245,7 +245,7 @@ Payment history
           <th scope="col" class="govuk-table__header">Due date</th>
           <th scope="col" class="govuk-table__header ">Status</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric">Award</th>
-          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Deduction</th>
+          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Adjustment</th>
           <th scope="col" class="govuk-table__header govuk-table__header--numeric">Amount</th>
         </tr>
       </thead>
@@ -255,7 +255,7 @@ Payment history
           <td class="govuk-table__cell">01 August 2023</td>
           <td class="govuk-table__cell">Issued</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-£8.97</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
         </tr>
         <tr class="govuk-table__row">
@@ -263,7 +263,7 @@ Payment history
           <td class="govuk-table__cell">18 July 2023</td>
           <td class="govuk-table__cell">Not issued yet</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-£8.97</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
         </tr>
         <tr class="govuk-table__row">
@@ -279,7 +279,7 @@ Payment history
           <td class="govuk-table__cell">14 July 2023</td>
           <td class="govuk-table__cell">Issued</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-£80.00</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£479.00</td>
         </tr>
         <tr class="govuk-table__row">
@@ -287,7 +287,7 @@ Payment history
           <td class="govuk-table__cell">04 July 2023</td>
           <td class="govuk-table__cell">Issued</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£377.23</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-£8.97</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£368.26</td>
         </tr>
         <tr class="govuk-table__row">
@@ -295,7 +295,7 @@ Payment history
           <td class="govuk-table__cell">20 June 2023</td>
           <td class="govuk-table__cell">Cancelled</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£193.10</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">£8.97</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-£8.97</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£184.13</td>
         </tr>
         <tr class="govuk-table__row">
@@ -311,7 +311,7 @@ Payment history
           <td class="govuk-table__cell">14 June 2023</td>
           <td class="govuk-table__cell">Issued</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">£80.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-£80.00</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£479.80</td>
         </tr>
         <tr class="govuk-table__row">
@@ -327,7 +327,7 @@ Payment history
           <td class="govuk-table__cell">12 May 2023</td>
           <td class="govuk-table__cell">Issued</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£559.00</td>
-          <td class="govuk-table__cell govuk-table__cell--numeric">£40.00</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">-£40.00</td>
           <td class="govuk-table__cell govuk-table__cell--numeric">£519.00</td>
         </tr>
       </tbody>
