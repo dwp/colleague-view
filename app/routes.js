@@ -7820,6 +7820,8 @@ router.use('/prototype-sprint-wise/ur-17-2', require('./views/prototype-sprint-w
 router.use('/prototype-sprint-wise/ur-18', require('./views/prototype-sprint-wise/ur-18/_routes'));
 // for UR 18-2
 router.use('/prototype-sprint-wise/ur-18-2', require('./views/prototype-sprint-wise/ur-18-2/_routes'));
+// for UR 20
+router.use('/prototype-sprint-wise/ur-20', require('./views/prototype-sprint-wise/ur-20/_routes'));
 // version 1.3.2
 router.use('/prototype-dev-baseline/mvp-1_3_2', require('./views/prototype-dev-baseline/mvp-1_3_2/\_routes'));
 // version 1.3.3

@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Who is the message to?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-16/common/non-telephony/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/prototype-sprint-wise/ur-16/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="home" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <!-- a letter -->
+              {%if data['contact-types'] == 'A letter' %}
+                {%if data['What-type-of-contact'] == 'Inbound letter from' %}
+                <h1 class="govuk-fieldset__heading">
+                  Who is the letter from?
+                </h1>
+                {%else%}
+                <h1 class="govuk-fieldset__heading">
+                  Who is the letter to?
+                </h1>
+                {%endif%}
+              {%endif%}
+              <!-- an email -->
+              {%if data['contact-types'] == 'An email' %}
+                {%if data['What-type-of-contact'] == 'Inbound email from' %}
+                <h1 class="govuk-fieldset__heading">
+                  Who is the email from?
+                </h1>
+                {%endif%}
+                {%if data['What-type-of-contact'] == 'Outbound email to' %}
+                <h1 class="govuk-fieldset__heading">
+                  Who is the email to?
+                </h1>
+                {%endif%}
+              {%endif%}
+              <!-- a text message -->
+              {%if data['contact-types'] == 'Text message to' %}
+              <h1 class="govuk-fieldset__heading">
+                Who is the message to?
+              </h1>
+              {%endif%}
+              <!-- a visit -->
+              {%if data['contact-types'] == 'A visit or appointment' %}
+              <h1 class="govuk-fieldset__heading">
+                Who is the visit with?
+              </h1>
+              {%endif%}
+            </legend>
+            <!-- <div id="changed-name-hint" class="govuk-hint">
+              Select one option
+            </div> -->
+            <div class="govuk-radios govuk-!-margin-top-3" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Who-is-the-engagement-with-1" name="Who-is-contact-with" type="radio" value="Christopher Fox" aria-describedby="Customer-hint" onchange="handleRadio('Who-is-the-engagement-with','(Customer)')">
+                <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-1">
+                  Christopher Fox
+                </label>
+                <!-- <div id="Customer-hint" class="govuk-hint govuk-radios__hint" name="govuk-hint govuk-radios__hint">
+                  Customer
+                </div> -->
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Who-is-the-engagement-with-2" name="Who-is-contact-with" type="radio" value="George Wood" aria-describedby="Corporate-PAB-hint" onchange="handleRadio('Who-is-the-engagement-with','(appointee)')">
+                <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-2">
+                  George Wood
+                </label>
+                <div id="Corporate-PAB-hint" class="govuk-hint govuk-radios__hint" name="govuk-hint govuk-radios__hint">
+                  Corporate Personal Acting Body 
+                  <!-- <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-1" type="text" value="(Corporate PAB)" hidden> -->
+                </div>
+              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Who-is-the-engagement-with-3" name="Who-is-contact-with" type="radio" value="Susan Jones" aria-describedby="Partner-hint" onchange="handleRadio('Who-is-the-engagement-with','(Partner)')">
+              <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-3">
+                Susan Jones
+              </label>
+              <div id="Partner-hint" class="govuk-hint govuk-radios__hint" name="govuk-hint govuk-radios__hint">
+                Partner 
+                <!-- <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with-1" name="Who-is-the-engagement-with-1" type="text" value="(Partner)" hidden> -->
+              </div>
+            </div>
+            <!-- <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Who-is-the-engagement-with-4" name="Who-is-contact-with" type="radio" value="Visiting officer">
+              <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-4">
+                Visiting officer
+              </label>
+            </div> -->
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Who-is-the-engagement-with-5" name="Who-is-contact-with" type="radio" value="someone else">
+              <label class="govuk-label govuk-radios__label" for="Who-is-the-engagement-with-5">
+                Someone else  
+              </label>
+            </div>
+            <input class="govuk-input govuk-visually-hidden" id="Who-is-the-engagement-with" name="Who-is-the-engagement-with" type="text" autocomplete="on" hidden>
+            </div>
+          </fieldset>
+        </div>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function handleRadio(name, value) {
+      document.getElementById(name).value = value;
+    }
+  </script>
+    
+{% endblock %}

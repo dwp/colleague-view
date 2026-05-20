@@ -60,12 +60,12 @@ Home
             {% set display = display | replace('Something else:', '') | trim %}
           {% endif %}
 
-          <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-            <strong>Support needs</strong>
-            <span class="govuk-body">– {{ display }}</span>
+          <h3 class="govuk-notification-banner__heading">
+            Support needs
           </h3>
 
           <p class="govuk-body">
+            <span class="govuk-body">{{ display }}.</span>
             <a class="govuk-notification-banner__link"
               href="/prototype-dev-baseline/mvp-1_4/telephony/support-needs-notes">
               View support needs notes
@@ -78,7 +78,9 @@ Home
            MULTIPLE NEEDS FORMAT
            ======================= #}
         {% else %}
-          <h3 class="govuk-heading-s">Support needs</h3>
+          <h3 class="govuk-notification-banner__heading">
+            Support needs
+          </h3>
 
           <ul class="govuk-list govuk-list--bullet">
             {% for need in items %}
