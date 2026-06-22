@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+ How do you want to change the support needs? 
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-18/common/header_keydetail_bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-18/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}  
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{# -------------------------------------------------------------
+   Pull the CURRENT support needs dynamically from session
+-------------------------------------------------------------- #}
+
+{% set support = data['supportNeeds'] or {} %}
+{% set items = support.items or [] %}
+{% set otherText = support.otherText or '' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <form action="/prototype-dev-baseline/mvp-1_4/additional-support-router-3" method="post" novalidate>
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              How do you want to change the support needs?
+            </h1>
+          </legend>
+
+          <!-- CURRENT SUPPORT NEEDS (DYNAMIC) -->
+          <div class="govuk-inset-text">
+            <h2 class="govuk-heading-s">
+              Current support needs
+            </h2>
+
+            {# Build clean list of display labels #}
+            {% set needList = [] %}
+
+            {% for need in items %}
+              {% set display = need %}
+
+              {# Remove "Something else:" prefix if present #}
+              {% if 'Something else:' in need %}
+                {% set display = need | replace('Something else:', '') | trim %}
+              {% endif %}
+
+              {% set needList = needList.concat([display]) %}
+            {% endfor %}
+
+            {# OUTPUT LOGIC #}
+            {% if needList | length > 1 %}
+              <ul class="govuk-list govuk-list--bullet">
+                {% for n in needList %}
+                  <li>{{ n }}</li>
+                {% endfor %}
+              </ul>
+
+            {% elseif needList | length == 1 %}
+              {% set display = needList[0] %}
+              <p>{{ display }}</p>
+
+            {% else %}
+              <p class="govuk-hint">No support needs recorded.</p>
+            {% endif %}
+          </div>
+
+
+          <!-- RADIO OPTIONS -->
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="additional-support-add"
+                     name="additional-support-needs"
+                     type="radio"
+                     value="add">
+              <label class="govuk-label govuk-radios__label"
+                     for="additional-support-add">
+                Add a new support need
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="additional-support-remove"
+                     name="additional-support-needs"
+                     type="radio"
+                     value="remove">
+              <label class="govuk-label govuk-radios__label"
+                     for="additional-support-remove">
+                Remove an existing support need
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                     id="additional-support-update"
+                     name="additional-support-needs"
+                     type="radio"
+                     value="update">
+              <label class="govuk-label govuk-radios__label"
+                     for="additional-support-update">
+                Update an existing support need
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

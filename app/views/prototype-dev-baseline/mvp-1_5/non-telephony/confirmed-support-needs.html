@@ -1,0 +1,233 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  {% set flow = data['supportNeedsFlow'] or '' %}
+  {% if flow == 'update' %}
+    You have updated details
+  {% elif flow == 'remove' %}
+    You have removed details
+  {% else %}
+    You have added details
+  {% endif %}
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/non-telephony/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+{# -------------------------------------------------------------
+   DETERMINE MODE (ADD / REMOVE / UPDATE)
+-------------------------------------------------------------- #}
+{% set flow = data['supportNeedsFlow'] or '' %}
+
+{% if flow == 'update' %}
+  {% set mode = 'update' %}
+{% elif flow == 'remove' %}
+  {% set mode = 'remove' %}
+{% elif flow == 'add' %}
+  {% set mode = 'add' %}
+{% else %}
+  {% if (data['supportNeedsJustRemoved'] or {}).items %}
+    {% set mode = 'remove' %}
+  {% else %}
+    {% set mode = 'add' %}
+  {% endif %}
+{% endif %}
+
+{# -------------------------------------------------------------
+   EXTRACT ITEMS + NOTE
+-------------------------------------------------------------- #}
+{% if mode == 'update' %}
+  {% set updated = data['supportNeedsJustUpdated'] or {} %}
+  {% set items   = updated.items or [] %}
+  {% set note    = updated.note  or '' %}
+  {% set other   = '' %}
+
+{% elif mode == 'remove' %}
+  {% set removed = data['supportNeedsJustRemoved'] or {} %}
+  {% set items   = removed.items or [] %}
+  {% set note    = '' %}
+  {% set other   = removed.otherText or '' %}
+
+{% else %}
+  {% set added = data['supportNeedsJustAdded'] or {} %}
+  {% set items = added.items or [] %}
+  {% set note  = added.note or '' %}
+  {% set other = added.otherText or '' %}
+{% endif %}
+
+{# -------------------------------------------------------------
+   CLEAN DISPLAY LIST
+-------------------------------------------------------------- #}
+{% set cleanedItems = [] %}
+{% for it in items %}
+  {% set display = it %}
+  {% if 'Something else:' in it %}
+    {% set display = it | replace('Something else:', '') | trim %}
+  {% endif %}
+  {% set cleanedItems = cleanedItems.concat([display]) %}
+{% endfor %}
+
+{% set count = cleanedItems | length %}
+
+{# -------------------------------------------------------------
+   SUCCESS BANNER MESSAGE (plural/singular)
+-------------------------------------------------------------- #}
+{% set successMessage = "Changes saved successfully." %}
+
+{% if mode == 'add' %}
+  {% if count == 1 %}
+    {% set successMessage = "Support need added successfully." %}
+  {% elif count > 1 %}
+    {% set successMessage = "Support needs added successfully." %}
+  {% endif %}
+{% elif mode == 'remove' %}
+  {% if count == 1 %}
+    {% set successMessage = "Support need removed successfully." %}
+  {% elif count > 1 %}
+    {% set successMessage = "Support needs removed successfully." %}
+  {% endif %}
+{% elif mode == 'update' %}
+  {% if count == 1 %}
+    {% set successMessage = "Support need updated successfully." %}
+  {% elif count > 1 %}
+    {% set successMessage = "Support needs updated successfully." %}
+  {% endif %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- SUCCESS BANNER -->
+    <div class="govuk-notification-banner govuk-notification-banner--success"
+         role="alert"
+         aria-labelledby="govuk-notification-banner-title"
+         data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <h3 class="govuk-notification-banner__heading">{{ successMessage }}</h3>
+      </div>
+    </div>
+
+    {% if mode == 'update' %}
+      <h1 class="govuk-heading-l">You have updated details</h1>
+    {% elif mode == 'remove' %}
+      <h1 class="govuk-heading-l">You have removed details</h1>
+    {% else %}
+      <h1 class="govuk-heading-l">You have added details</h1>
+    {% endif %}
+
+    <!-- SUMMARY CARD -->
+    <div class="govuk-summary-card">
+
+      <div class="govuk-summary-card__title-wrapper">
+
+        {# =====================================================
+           SUMMARY TITLE (plural when needed)
+           ===================================================== #}
+        <h2 class="govuk-summary-card__title">
+
+          {% if count > 1 %}
+            Support needs
+          {% else %}
+            Support need
+          {% endif %}
+
+        </h2>
+
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+
+              {# =====================================================
+                 SUMMARY LABEL (plural when needed)
+                 ===================================================== #}
+
+              {% if mode == 'update' %}
+                {% if count > 1 %}
+                  Updated support needs
+                {% else %}
+                  Updated support need
+                {% endif %}
+              {% elif mode == 'remove' %}
+                {% if count > 1 %}
+                  Removed support needs
+                {% else %}
+                  Removed support need
+                {% endif %}
+              {% else %}
+                {% if count > 1 %}
+                  Added support needs
+                {% else %}
+                  Added support need
+                {% endif %}
+              {% endif %}
+
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+              {% if count > 1 %}
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for need in cleanedItems %}
+                    <li>{{ need }}</li>
+                  {% endfor %}
+                </ul>
+              {% elif count == 1 %}
+                <p>{{ cleanedItems[0] }}</p>
+              {% else %}
+                <p>Not provided</p>
+              {% endif %}
+            </dd>
+          </div>
+
+          {% if mode == 'add' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Note</dt>
+              <dd class="govuk-summary-list__value">
+                {% if note %}{{ note }}{% else %}Not provided{% endif %}
+              </dd>
+            </div>
+
+          {% elif mode == 'update' %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">Updated note</dt>
+              <dd class="govuk-summary-list__value">
+                {% if note %}{{ note }}{% else %}Not provided{% endif %}
+              </dd>
+            </div>
+          {% endif %}
+
+        </dl>
+      </div>
+    </div>
+
+    <p class="govuk-body">
+      <a href="/prototype-dev-baseline/mvp-1_4/non-telephony/home">
+        Return to home
+      </a>
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

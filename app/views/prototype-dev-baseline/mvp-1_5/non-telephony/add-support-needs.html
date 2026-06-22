@@ -1,0 +1,211 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add support needs
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/non-telephony/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-dev-baseline/mvp-1_4/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{# -------------------------------------------------------------
+   Pull PREVIOUS support needs if in change flow,
+   otherwise fall back to CURRENT support needs (normal add)
+-------------------------------------------------------------- #}
+{% if data['supportNeedsFlow'] == 'change' %}
+  {% set prev = data['supportNeedsPrevious'] or {} %}
+{% else %}
+  {% set prev = data['supportNeeds'] or {} %}
+{% endif %}
+{% set existing = prev.items or [] %}
+
+{# -------------------------------------------------------------
+   Define ALL possible support needs (SPLIT domestic/financial)
+-------------------------------------------------------------- #}
+{% set ALL_NEEDS = [
+  "This person has a mental health condition",
+  "This person is struggling with financial hardship",
+  "This person is living with domestic abuse",
+  "This person is living with financial abuse",
+  "This person has thoughts of suicide or self harm (6 point plan)",
+  "This person is experiencing bereavement",
+  "This person has a drug or alcohol addiction",
+  "This person needs third party support (such as a support worker)",
+  "This person is homeless or is at risk of being homeless",
+  "This person is an asylum seeker",
+  "Something else"
+] %}
+
+{# -------------------------------------------------------------
+   Legacy compatibility:
+   If existing includes the OLD combined label, treat it as both new ones.
+-------------------------------------------------------------- #}
+{% set LEGACY_COMBINED = "This person is living with domestic or financial abuse" %}
+{% set legacyHasCombined = LEGACY_COMBINED in existing %}
+
+{# -------------------------------------------------------------
+   Compute ADDABLE options (exclude any that already exist)
+   Always keep "Something else"
+-------------------------------------------------------------- #}
+{% set addable = [] %}
+{% for need in ALL_NEEDS %}
+  {# Is this need already present? #}
+  {% set already = (need in existing) %}
+
+  {# If legacy combined label exists, treat both split needs as already present #}
+  {% if not already and legacyHasCombined and (need == "This person is living with domestic abuse" or need == "This person is living with financial abuse") %}
+    {% set already = true %}
+  {% endif %}
+
+  {% if need == 'Something else' or not already %}
+    {% set addable = addable.concat([need]) %}
+  {% endif %}
+{% endfor %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/prototype-dev-baseline/mvp-1_4/non-telephony/check-support-needs" method="post" novalidate>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What do you want to add?
+            </h1>
+          </legend>
+
+          <div id="contact-hint" class="govuk-hint">
+            You need to give details of any circumstances that affect how we communicate with this person.
+            We will ask you for more information.
+          </div>
+
+          {% if addable | length == 0 %}
+            <div class="govuk-inset-text govuk-!-margin-top-3">
+              All available support needs have already been added.
+            </div>
+          {% else %}
+
+            {# Radios (single selection) with conditional reveal for "Something else" #}
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              {# Keep checked state if user returns #}
+              {% set currentChoice = data['what-additional-support'] %}
+
+              {# Normal radio options #}
+              {% for need in addable %}
+                {% if need != 'Something else' %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
+                           id="what-additional-support-{{ loop.index }}"
+                           name="what-additional-support"
+                           type="radio"
+                           value="{{ need }}"
+                           {% if currentChoice == need %}checked{% endif %}>
+                    <label class="govuk-label govuk-radios__label"
+                           for="what-additional-support-{{ loop.index }}">
+                      {{ need }}
+                    </label>
+                  </div>
+                {% else %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input"
+                           id="what-additional-support-else"
+                           name="what-additional-support"
+                           type="radio"
+                           value="Something else"
+                           data-aria-controls="conditional-what-additional-support-else"
+                           {% if currentChoice == 'Something else' %}checked{% endif %}>
+                    <label class="govuk-label govuk-radios__label" for="what-additional-support-else">
+                      Something else
+                    </label>
+                  </div>
+
+                  <div class="govuk-radios__conditional {% if currentChoice != 'Something else' %}govuk-radios__conditional--hidden{% endif %}"
+                       id="conditional-what-additional-support-else">
+
+                    <div class="govuk-form-group govuk-character-count"
+                         data-module="govuk-character-count"
+                         data-maxlength="70">
+                      <h3 class="govuk-heading-m govuk-!-margin-bottom-1">What is the need?</h3>
+                      <p class="govuk-hint govuk-!-margin-top-1">Give a high level description and do not use acronyms.</p>
+
+                      <input class="govuk-input govuk-js-character-count"
+                             id="something-else-detail"
+                             name="something-else-detail"
+                             maxlength="70"
+                             value="{{ data['something-else-detail'] }}">
+                      <div id="something-else-detail-info"
+                           class="govuk-hint govuk-character-count__message">
+                        You have 70 characters remaining
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+          {% endif %}
+        </fieldset>
+      </div>
+
+      {# Notes (optional) #}
+      <div class="govuk-form-group govuk-character-count govuk-!-margin-top-5"
+           data-module="govuk-character-count"
+           data-maxlength="5000"
+           id="additional-support-note">
+
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="with-hint-additional-support-needs">
+            Add a note (optional)
+          </label>
+        </h2>
+
+        <div id="more-detail-hint" class="govuk-hint">
+          This note will be held separately from the main contact history.
+          It will be accessible from the homepage of this account.
+        </div>
+
+        <div class="govuk-warning-text govuk-!-margin-bottom-2">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Do not include personal identifiable information such as name, National Insurance number, or date of birth.
+          </strong>
+        </div>
+
+        <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3"
+                  id="with-hint-additional-support-needs"
+                  name="addNote-additional-support"
+                  rows="7"
+                  maxlength="5000">{{ data['addNote-additional-support'] }}</textarea>
+
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You have 5000 characters remaining
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

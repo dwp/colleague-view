@@ -7828,6 +7828,8 @@ router.use('/prototype-dev-baseline/mvp-1_3_2', require('./views/prototype-dev-b
 router.use('/prototype-dev-baseline/mvp-1_3_3', require('./views/prototype-dev-baseline/mvp-1_3_3/\_routes'));
 // version 1.4
 router.use('/prototype-dev-baseline/mvp-1_4', require('./views/prototype-dev-baseline/mvp-1_4/\_routes'));
+// version 1.5
+router.use('/prototype-dev-baseline/mvp-1_5', require('./views/prototype-dev-baseline/mvp-1_5/\_routes'));
 
 
 

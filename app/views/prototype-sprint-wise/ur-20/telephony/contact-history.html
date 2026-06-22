@@ -343,95 +343,103 @@ Contact history
              <-- Card component -->
               <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">
-                  {{ data['What-type-of-contact'] }}: (Date and time)
-                </h2>
+                  <h2 class="govuk-summary-card__title">
+                    {{ data['What-type-of-contact'] }}: (Date and time)
+                  </h2>
 
-                <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="delete-record.html?recordId=call-2026-03-15-0937">
-                      Delete record
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="delete-record.html?recordId=call-2026-03-15-0937">
+                        Delete record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
 
                 <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-0">
 
-                      <!-- Notes -->
-                      <tr class="govuk-summary-list__row">
-                        <th class="govuk-summary-list__key">Notes</th>
-                        <td class="govuk-summary-list__value">
-                          {{ data['addNote'] or "No notes added" }}
-                        </td>
-                      </tr>
+                    <!-- Notes -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Notes
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['addNote'] or "No notes added" }}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="add-call/change-this-note">
+                          Change
+                          <span class="govuk-visually-hidden">this note</span>
+                        </a>
+                      </dd>
+                    </div>
 
-                      {% set benefits = data['what-benefit-discussed'] or [] %}
+                    <!-- Benefits -->
+                    {% set benefits = data['what-benefit-discussed'] or [] %}
 
-                      {% if benefits and benefits.length %}
+                    {% if benefits | length %}
 
+                      {% if benefits | length > 1 %}
+                        {% for benefit in benefits %}
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              {{ benefit }}
+                            </dt>
+                            <dd class="govuk-summary-list__value">
 
-                        {% if benefits | length > 1 %}
-                          <!-- Multiple benefits -->
-                          {% for benefit in benefits %}
-                            <tr class="govuk-summary-list__row">
-                              <th class="govuk-summary-list__key">
-                                {{ benefit }}
-                              </th>
-                              <td class="govuk-summary-list__value">
-                                
-                                {% if benefit == "Employment and Support Allowance" %}
-                                  {{ data['contact-type-esa'] | join(", ") }}
-                                {% elif benefit == "Personal Independence Payment" %}
-                                  {{ data['contact-type-pip'] | join(", ") }}
-                                {% elif benefit == "Attendance Allowance" %}
-                                  {{ data['contact-type-aa'] | join(", ") }}
-                                {% else %}
-                                  No details provided
-                                {% endif %}
+                              {% if benefit == "Employment and Support Allowance" %}
+                                {{ (data['contact-type-esa'] or []) | join(", ") or "No details provided" }}
+                              {% elif benefit == "Personal Independence Payment" %}
+                                {{ (data['contact-type-pip'] or []) | join(", ") or "No details provided" }}
+                              {% elif benefit == "Attendance Allowance" %}
+                                {{ (data['contact-type-aa'] or []) | join(", ") or "No details provided" }}
+                              {% else %}
+                                No details provided
+                              {% endif %}
 
-                              </td>
-                            </tr>
-                          {% endfor %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions"></dd>
+                          </div>
+                        {% endfor %}
 
-                        {% else %}
-                          <!-- Single benefit -->
-                          <tr class="govuk-summary-list__row">
-                            <th class="govuk-summary-list__key">
-                              {{ benefits }}
-                            </th>
-                            <td class="govuk-summary-list__value">
-                              {{ data['contact-type'] or "No details provided" }}
-                            </td>
-                          </tr>
-                        {% endif %}
-
+                      {% else %}
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            {{ benefits[0] }}
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            {{ data['contact-type'] or "No details provided" }}
+                          </dd>
+                          <dd class="govuk-summary-list__actions"></dd>
+                        </div>
                       {% endif %}
 
-                      <!-- Who -->
-                      <tr class="govuk-summary-list__row">
-                        <th class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Christopher Fox
-                        </td>
-                      </tr>
+                    {% endif %}
 
-                      <!-- Agent -->
-                      <tr class="govuk-summary-list__row">
-                        <th class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          1003
-                        </td>
-                      </tr>
+                    <!-- Who -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Who the contact was with
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Christopher Fox
+                      </dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
 
-                    </tbody>
-                  </table>
+                    <!-- Agent -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Agent ID
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        1003
+                      </dd>
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                  </dl>
                 </div>
               </div>
 
@@ -439,365 +447,582 @@ Contact history
               
 
               <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:37</h2>
-                  <ul class="govuk-summary-card__actions">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Inbound phone call: 20 January 2025, 09:37
+                </h2>
+
+                <ul class="govuk-summary-card__actions">
                   <li class="govuk-summary-card__action">
                     <a class="govuk-link" href="#">
                       Delete record
                     </a>
                   </li>
                 </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          No notes added
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Reported a change of circumstance: Address changed on all relevant systems
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>George Wood (Appointee)</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1003</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
               </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Inbound phone call: 20 January 2025, 09:00</h2>
-                  <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">
-                      Delete record
-                    </a>
-                  </li>
-                </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <span class="govuk-!-display-none" id="full-text">Call disconnected before reason was established. Did not call back because caller was not identified as vulnerable.</span> <span class="" id="less-text">Call disconnected before reason was established. Did not call back because...</span> <br/><a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">View full notes</a> <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()"> view less</a>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Call disconnected
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>George Wood (Appointee)</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1003</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Outbound letter: 15 October 2024, 12:00</h2>
-                  <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">
-                      Delete record
-                    </a>
-                  </li>
-                </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          No notes added.
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Sent a proof of benefit letter
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>Christopher Fox</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1208</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Inbound phone call: 15 October 2024, 11:10</h2>
-                  <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">
-                      Delete record
-                    </a>
-                  </li>
-                </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Requested an entitlement certificate.
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>Helped with a payment enquiry</p>
-                          <p>Sent a proof of benefit letter</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>Christopher Fox</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1208</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Outbound phone call: 25 September 2024, 13:36</h2>
-                  <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">
-                      Delete record
-                    </a>
-                  </li>
-                </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Confirmed partner's annual income. Claim updated.
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Requested missing information for a new claim
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>George Wood (Appointee)</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1999</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Inbound phone call: 10 September 2024, 09:05</h2>
-                  <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">
-                      Delete record
-                    </a>
-                  </li>
-                </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          No notes added.
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Supported with a new claim
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>George Wood (Appointee)</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1003</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Jobcentre visit: 01 September 2024, 14:20</h2>
-                  <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="#">
-                      Delete record
-                    </a>
-                  </li>
-                </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <table class="govuk-summary-list govuk-!-margin-bottom-0">
-                    <tbody class="govuk-summary-list">
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                         Notes
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Eligible for ESA but not PIP.
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Employment and Support Allowance
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Checked eligibility
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Personal Independence Payment
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          Checked eligibility
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Who the contact was with
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>Christopher Fox</p>
-                        </td>
-                      </tr>
-                      <tr class="govuk-summary-list__row">
-                        <th scope="row" class="govuk-summary-list__key">
-                          Agent ID
-                        </th>
-                        <td class="govuk-summary-list__value">
-                          <p>1092</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+                  <!-- Notes -->
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      No notes added
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">this note</span>
+                        </a>
+                      </dd>
+                  </div>
+
+                  <!-- Benefit -->
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Employment and Support Allowance
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Reported a change of circumstance: Address changed on all relevant systems
+                    </dd>
+                  </div>
+
+                  <!-- Who -->
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Who the contact was with
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>George Wood (Appointee)</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+
+                  <!-- Agent -->
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Agent ID
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>1003</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+
+                </dl>
               </div>
             </div>
+
+
+              <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">
+                  Inbound phone call: 20 January 2025, 09:00
+                </h2>
+
+                <ul class="govuk-summary-card__actions">
+                  <li class="govuk-summary-card__action">
+                    <a class="govuk-link" href="#">
+                      Delete record
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+                  <!-- Notes -->
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+
+                      <span class="govuk-!-display-none" id="full-text">
+                        Call disconnected before reason was established. Did not call back because caller was not identified as vulnerable.
+                      </span>
+
+                      <span id="less-text">
+                        Call disconnected before reason was established. Did not call back because...
+                      </span>
+
+                      <br>
+
+                      <a href="#/" class="govuk-link" id="full-text-link" onclick="showfull()">
+                        View full notes
+                      </a>
+
+                      <a href="#/" class="govuk-link govuk-!-display-none" id="less-text-link" onclick="showless()">
+                        View less
+                      </a>
+
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">this note</span>
+                        </a>
+                      </dd>
+                  </div>
+
+                  <!-- Benefit -->
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Employment and Support Allowance
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Call disconnected
+                    </dd>
+                  </div>
+
+                  <!-- Who -->
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Who the contact was with
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>George Wood (Appointee)</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+
+                  <!-- Agent -->
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Agent ID
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>1003</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions"></dd>
+                  </div>
+
+                </dl>
+              </div>
+            </div>
+
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Outbound letter: 15 October 2024, 12:00
+                  </h2>
+
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="#">
+                        Delete record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+                    <!-- Notes -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Notes
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        No notes added.
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">this note</span>
+                        </a>
+                      </dd>
+                    </div>
+
+                    <!-- Benefit -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Employment and Support Allowance
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        Sent a proof of benefit letter
+                      </dd>
+                    </div>
+
+                    <!-- Who -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Who the contact was with
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>Christopher Fox</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- Agent -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Agent ID
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>1208</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                  </dl>
+                </div>
+              </div>
+
+
+              
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Inbound phone call: 15 October 2024, 11:10
+                  </h2>
+
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="#">
+                        Delete record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+                    <!-- Notes -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Notes
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        Requested an entitlement certificate.
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">this note</span>
+                        </a>
+                      </dd>
+                    </div>
+
+                    <!-- Benefit -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Employment and Support Allowance
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <ul class="govuk-list govuk-list--bullet">
+                          <li>Helped with a payment enquiry</li>
+                          <li>Sent a proof of benefit letter</li>
+                        </ul>
+                      </dd>
+                    </div>
+
+                    <!-- Who -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Who the contact was with
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>Christopher Fox</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- Agent -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Agent ID
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>1208</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                  </dl>
+                </div>
+              </div>
+
+
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Outbound phone call: 25 September 2024, 13:36
+                  </h2>
+
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="#">
+                        Delete record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+                    <!-- Notes -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Notes
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        Confirmed partner's annual income. Claim updated.
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">this note</span>
+                        </a>
+                      </dd>
+                    </div>
+
+                    <!-- Benefit -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Employment and Support Allowance
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        Requested missing information for a new claim
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- Who -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Who the contact was with
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>George Wood (Appointee)</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- Agent -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Agent ID
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>1999</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                  </dl>
+                </div>
+              </div>
+
+
+
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Inbound phone call: 10 September 2024, 09:05
+                  </h2>
+
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="#">
+                        Delete record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+                    <!-- Notes -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Notes
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        No notes added.
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">this note</span>
+                        </a>
+                      </dd>
+                    </div>
+
+                    <!-- Benefit -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Employment and Support Allowance
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        Supported with a new claim
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- Who -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Who the contact was with
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>George Wood (Appointee)</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- Agent -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Agent ID
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>1003</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                  </dl>
+                </div>
+              </div>
+
+
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Jobcentre visit: 01 September 2024, 14:20
+                  </h2>
+
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link" href="#">
+                        Delete record
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+                    <!-- Notes -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Notes
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        Eligible for ESA but not PIP.
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">this note</span>
+                        </a>
+                      </dd>
+                    </div>
+
+                    <!-- ESA -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Employment and Support Allowance
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        Checked eligibility
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- PIP -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Personal Independence Payment
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        Checked eligibility
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- Who -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Who the contact was with
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>Christopher Fox</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                    <!-- Agent -->
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Agent ID
+                      </dt>
+
+                      <dd class="govuk-summary-list__value">
+                        <p>1092</p>
+                      </dd>
+
+                      <dd class="govuk-summary-list__actions"></dd>
+                    </div>
+
+                  </dl>
+                </div>
+              </div>
+
+
             <!-- pagination start here -->
             <nav class="govuk-pagination" aria-label="Pagination">
               <ul class="govuk-pagination__list">
