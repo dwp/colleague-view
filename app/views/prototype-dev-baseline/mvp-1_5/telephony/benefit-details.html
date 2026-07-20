@@ -664,15 +664,6 @@
 
     <div class="govuk-summary-list__row">
       <dt class="govuk-summary-list__key">
-        Benefit type
-      </dt>
-      <dd class="govuk-summary-list__value">
-        This benefit does not have separate components
-      </dd>
-    </div>
-
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
         Payment frequency
       </dt>
       <dd class="govuk-summary-list__value">
@@ -696,7 +687,7 @@
   </dl>
 
     <h3 class="govuk-heading-m govuk-!-margin-top-6">
-      Payment breakdown
+      How this payment is calculated
     </h3>
 
     <dl class="govuk-summary-list">
@@ -715,7 +706,7 @@
           Total deductions
         </dt>
         <dd class="govuk-summary-list__value">
-          -£30 per week
+          -£102.30 per week
         </dd>
       </div>
 
@@ -724,7 +715,7 @@
           Total additions
         </dt>
         <dd class="govuk-summary-list__value">
-          £0
+          £12.50 per week
         </dd>
       </div>
 
@@ -733,54 +724,70 @@
           Final payment amount
         </dt>
         <dd class="govuk-summary-list__value">
-          £157.18 per week
+          £97.38 per week
         </dd>
       </div>
 
     </dl>
 
-      <table class="govuk-table govuk-!-margin-top-6">
-      <caption class="govuk-table__caption govuk-table__caption--m">
+      <h3 class="govuk-heading-m govuk-!-margin-top-6">
         Payment adjustments
-      </caption>
+      </h3>
 
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header">Reason</th>
-          <th class="govuk-table__header">Type</th>
-          <th class="govuk-table__header">Amount</th>
-          <th class="govuk-table__header">Period</th>
-        </tr>
-      </thead>
+      <p class="govuk-hint">
+        Payments may include deductions or additions, such as other benefits or payment corrections.
+      </p>
 
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Child maintenance</td>
-          <td class="govuk-table__cell">Deduction</td>
-          <td class="govuk-table__cell">-£20 per week</td>
-          <td class="govuk-table__cell">Ongoing</td>
-        </tr>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header">Reason</th>
+            <th class="govuk-table__header">Type</th>
+            <th class="govuk-table__header">Amount</th>
+            <th class="govuk-table__header">Period</th>
+          </tr>
+        </thead>
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Overpayment recovery</td>
-          <td class="govuk-table__cell">Deduction</td>
-          <td class="govuk-table__cell">-£10 per week</td>
-          <td class="govuk-table__cell">From 01 June 2026</td>
-        </tr>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Carer’s Allowance</td>
+            <td class="govuk-table__cell">Deduction</td>
+            <td class="govuk-table__cell">-£84.80 per week</td>
+            <td class="govuk-table__cell">Ongoing</td>
+          </tr>
 
-        <!-- Total row (not bold) -->
-        <tr class="govuk-table__row">
-          <th class="govuk-table__header" colspan="2">
-            Total adjustments
-          </th>
-          <td class="govuk-table__cell">
-            -£30 per week
-          </td>
-          <td class="govuk-table__cell"></td>
-        </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Child maintenance</td>
+            <td class="govuk-table__cell">Deduction</td>
+            <td class="govuk-table__cell">-£20 per week</td>
+            <td class="govuk-table__cell">Ongoing</td>
+          </tr>
 
-      </tbody>
-    </table>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Overpayment recovery</td>
+            <td class="govuk-table__cell">Deduction</td>
+            <td class="govuk-table__cell">-£10 per week</td>
+            <td class="govuk-table__cell">From 1 Jun 2026</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Underpayment correction</td>
+            <td class="govuk-table__cell">Addition</td>
+            <td class="govuk-table__cell">£12.50 per week</td>
+            <td class="govuk-table__cell">From 15 Jun 2026 to 3 Aug 2026 (8 weeks)</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" colspan="2">
+              Total adjustments
+            </th>
+            <td class="govuk-table__cell">
+              -£102.30 per week
+            </td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </tbody>
+      </table>
 
 
   {% endif %}
