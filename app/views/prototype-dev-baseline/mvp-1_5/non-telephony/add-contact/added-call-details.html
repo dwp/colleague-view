@@ -5,12 +5,12 @@ Check the details you have added
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/non-telephony/header_keydetail_bar.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_5/common/non-telephony/header_keydetail_bar.html" %}
 {% endblock %}
 
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_4/common/footer.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_5/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,7 +21,6 @@ Check the details you have added
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <span class="govuk-caption-l">Step 3 of 3</span>
     <h1 class="govuk-heading-l">Check the details you have added</h1>
     {% set contactType =  data['What-type-of-contact'] %}
     {% set benefits =  data['what-benefit-discussed-non-telephony'] %}
@@ -460,7 +459,7 @@ Check the details you have added
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
           <span class="govuk-visually-hidden">Warning</span>
-          When you select confirm, you will not be able to remove the benefits you have added.
+          When you select save, you will not be able to remove the benefits you have added.
         </strong>
       </div>
     {% else %}
@@ -560,7 +559,7 @@ Check the details you have added
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            When you select confirm, you will not be able to remove the benefits you have added.
+            When you select save, you will not be able to remove the benefits you have added.
           </strong>
         </div>
       {% else %}
@@ -622,7 +621,7 @@ Check the details you have added
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            When you select confirm, you will not be able to remove the no benefit subject. You will be able to update your note and add new benefits.
+            When you select save, you will not be able to remove the no benefit subject. You will be able to update your note and add new benefits.
           </strong>
         </div>
       {% endif %} 
@@ -1007,7 +1006,7 @@ Check the details you have added
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
           <span class="govuk-visually-hidden">Warning</span>
-          When you select confirm, you will not be able to remove the benefits you have added.
+          When you select save, you will not be able to remove the benefits you have added.
         </strong>
       </div>
     {% else %}
@@ -1090,7 +1089,7 @@ Check the details you have added
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
         <span class="govuk-visually-hidden">Warning</span>
-        When you select confirm, you will not be able to remove the benefits you have added.
+        When you select save, you will not be able to remove the benefits you have added.
       </strong>
     </div>
     {% endif %} 
@@ -1476,7 +1475,7 @@ Check the details you have added
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
           <span class="govuk-visually-hidden">Warning</span>
-          When you select confirm, you will not be able to remove the benefits you have added.
+          When you select save, you will not be able to remove the benefits you have added.
         </strong>
       </div>
     {% else %}
@@ -1564,7 +1563,7 @@ Check the details you have added
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            When you select confirm, you will not be able to remove the benefits you have added.
+            When you select save, you will not be able to remove the benefits you have added.
           </strong>
         </div>
       {% else %}
@@ -1626,7 +1625,7 @@ Check the details you have added
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            When you select confirm, you will not be able to remove the no benefit subject. You will be able to update your note and add new benefits.
+            When you select save, you will not be able to remove the no benefit subject. You will be able to update your note and add new benefits.
           </strong>
         </div>
       {% endif %} 
@@ -2021,7 +2020,7 @@ Check the details you have added
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
           <span class="govuk-visually-hidden">Warning</span>
-          When you select confirm, you will not be able to remove the benefits you have added.
+          When you select save, you will not be able to remove the benefits you have added.
         </strong>
       </div>
     {% else %}
@@ -2111,7 +2110,7 @@ Check the details you have added
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            When you select confirm, you will not be able to remove the benefits you have added.
+            When you select save, you will not be able to remove the benefits you have added.
           </strong>
         </div>
       {% else %}
@@ -2178,7 +2177,7 @@ Check the details you have added
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            When you select confirm, you will not be able to remove the no benefit subject. You will be able to update your note and add new benefits.
+            When you select save, you will not be able to remove the no benefit subject. You will be able to update your note and add new benefits.
           </strong>
         </div>
       {% endif %} 
@@ -2189,7 +2188,7 @@ Check the details you have added
     <form action="added-details" method="post" novalidate>
       <input type="hidden" name="answers-checked" value="true">
       <button class="govuk-button" data-module="govuk-button">
-        Confirm
+        Save
       </button>
     </form>
   </div>

@@ -54,44 +54,39 @@
     <!-- nunjuck code -->
     {% from "side-navigation/macro.njk" import dwpSideNavigation %}
 
-{{ 
-    dwpSideNavigation({
-        pageId: "side-navigation-1",
-        selectedItem: "benefit-details?benefit=" + data.benefit,
-        items: [
-            {
-              text: "Personal Independence Payment",
-              href: "benefit-details?benefit=pip",
-              id: "Personal-Independence-Payment"
-            },
-            {
-              text: "Employment and Support Allowance",
-              href: "benefit-details?benefit=esa",
-              id: "Employment-and-Support-Allowance"
-            },
-            {
-              text: "Disability Living Allowance",
-              href: "benefit-details?benefit=dla",
-              id: "Disability-Living-Allowance"
-            },
-            {
-              text: "Jobseeker's Allowance",
-              href: "benefit-details?benefit=jsa",
-              id: "Jobseeker's-Allowance"
-            },
-            {
-              text: "Industrial Injuries Disablement Benefit",
-              href: "benefit-details?benefit=iidb",
-              id: "Industrial-Injuries-Disablement-Benefit"
-            },
-            {
-              text: "Maternity Allowance",
-              href: "benefit-details?benefit=ma",
-              id: "Maternity-Allowance"
-            }
-        ]
-    }) 
-}}
+    {{ 
+        dwpSideNavigation({
+            pageId: "side-navigation-1",
+            selectedItem: "benefit-details?benefit=" + data.benefit,
+            items: [
+                {
+                  text: "Personal Independence Payment",
+                  href: "benefit-details?benefit=pip",
+                  id: "Personal-Independence-Payment"
+                },
+                {
+                  text: "Employment and Support Allowance",
+                  href: "benefit-details?benefit=esa",
+                  id: "Employment-and-Support-Allowance"
+                },
+                {
+                  text: "Disability Living Allowance",
+                  href: "benefit-details?benefit=dla",
+                  id: "Disability-Living-Allowance"
+                },
+                {
+                  text: "Jobseeker's Allowance",
+                  href: "benefit-details?benefit=jsa",
+                  id: "Jobseeker's-Allowance"
+                },
+                {
+                  text: "Industrial Injuries Disablement Benefit",
+                  href: "benefit-details?benefit=iidb",
+                  id: "Industrial-Injuries-Disablement-Benefit"
+                }
+            ]
+        })
+    }}
   </div>
   <div class="govuk-grid-column-two-thirds">
     {% if data.benefit == "pip" %}
@@ -619,178 +614,6 @@
       </table>
     </section>
     {% endif %}
-
-    {% if data.benefit == "ma" %}
-    <!-- Maternity Allowance details -->
-     <section class="govuk-!-padding-top-2" id="ma-details">
-      <h2 class="govuk-heading-l">
-        Maternity Allowance
-      </h2>
-
-  <dl class="govuk-summary-list">
-
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Status
-      </dt>
-      <dd class="govuk-summary-list__value">
-        <p>In payment</p>
-        
-        <span class="govuk-hint">
-          Payments are currently being made
-        </span>
-
-      </dd>
-    </div>
-
-
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Claim start date
-      </dt>
-      <dd class="govuk-summary-list__value">
-        12 May 2026
-      </dd>
-    </div>
-
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Claim end date
-      </dt>
-      <dd class="govuk-summary-list__value">
-        10 February 2027
-      </dd>
-    </div>
-
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Payment frequency
-      </dt>
-      <dd class="govuk-summary-list__value">
-        <p>Every 2 weeks in arrears</p>
-        <details class="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              How payments are made
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <p>Maternity Allowance is usually paid every 2 or 4 weeks.</p>
-
-            <p>Payments are made in arrears, which means you are paid after the period has passed.</p>
-
-            <p>For example, if you are paid every 2 weeks, you will receive payment at the end of those 2 weeks.</p>
-          </div>
-        </details>
-      </dd>
-    </div>
-  </dl>
-
-    <h3 class="govuk-heading-m govuk-!-margin-top-6">
-      How this payment is calculated
-    </h3>
-
-    <dl class="govuk-summary-list">
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Payment before adjustments
-        </dt>
-        <dd class="govuk-summary-list__value">
-          £187.18 per week
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Total deductions
-        </dt>
-        <dd class="govuk-summary-list__value">
-          -£102.30 per week
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Total additions
-        </dt>
-        <dd class="govuk-summary-list__value">
-          £12.50 per week
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Final payment amount
-        </dt>
-        <dd class="govuk-summary-list__value">
-          £97.38 per week
-        </dd>
-      </div>
-
-    </dl>
-
-      <h3 class="govuk-heading-m govuk-!-margin-top-6">
-        Payment adjustments
-      </h3>
-
-      <p class="govuk-hint">
-        Payments may include deductions or additions, such as other benefits or payment corrections.
-      </p>
-
-      <table class="govuk-table">
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header">Reason</th>
-            <th class="govuk-table__header">Type</th>
-            <th class="govuk-table__header">Amount</th>
-            <th class="govuk-table__header">Period</th>
-          </tr>
-        </thead>
-
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Carer’s Allowance</td>
-            <td class="govuk-table__cell">Deduction</td>
-            <td class="govuk-table__cell">-£84.80 per week</td>
-            <td class="govuk-table__cell">Ongoing</td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Child maintenance</td>
-            <td class="govuk-table__cell">Deduction</td>
-            <td class="govuk-table__cell">-£20 per week</td>
-            <td class="govuk-table__cell">Ongoing</td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Overpayment recovery</td>
-            <td class="govuk-table__cell">Deduction</td>
-            <td class="govuk-table__cell">-£10 per week</td>
-            <td class="govuk-table__cell">From 1 Jun 2026</td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">Underpayment correction</td>
-            <td class="govuk-table__cell">Addition</td>
-            <td class="govuk-table__cell">£12.50 per week</td>
-            <td class="govuk-table__cell">From 15 Jun 2026 to 3 Aug 2026 (8 weeks)</td>
-          </tr>
-
-          <tr class="govuk-table__row">
-            <th class="govuk-table__header" colspan="2">
-              Total adjustments
-            </th>
-            <td class="govuk-table__cell">
-              -£102.30 per week
-            </td>
-            <td class="govuk-table__cell"></td>
-          </tr>
-        </tbody>
-      </table>
-
-
-  {% endif %}
 
   </div>
 </div>
