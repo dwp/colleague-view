@@ -396,17 +396,23 @@ router.post('/telephony/add-call/you-have-added-details', function (req, res) {
 
 router.post('/telephony/add-call/add-more-call-details', function (req, res) {
   var addCallDetails = req.session.data['do-you-want-to-add-more-call-detail'];
+
   if (addCallDetails == 'Yes I want to add'){
-    req.session.data['what-benefit-discussed'] = '';
-    res.redirect('/prototype-dev-baseline/mvp-1_5/telephony/add-call/reviewed')
+
+    // Keep existing selections so users can update benefits
+4   // without losing previously selected values
+
+    res.redirect('/prototype-dev-baseline/mvp-1_5/telephony/add-call/reviewed');
   }
+
   if (addCallDetails == 'Complete phone call'){
-    // res.redirect('/prototype-dev-baseline/mvp-1_5//add-call/call-completed');
-    res.redirect('/prototype-dev-baseline/mvp-1_5/index')
+    res.redirect('/prototype-dev-baseline/mvp-1_5/index');
   }
+
   if (addCallDetails == 'Change your note'){
     res.redirect('/prototype-dev-baseline/mvp-1_5/telephony/add-call/change-notes');
   }
+
   if (addCallDetails == 'Add a note'){
     res.redirect('/prototype-dev-baseline/mvp-1_5/telephony/add-call/add-a-note');
   }
