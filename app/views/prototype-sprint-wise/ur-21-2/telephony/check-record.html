@@ -1,0 +1,206 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check details
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-20/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-20/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/ur-20/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-20/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{# --------- INPUTS  -------- #}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check the record you want to delete</h1>
+
+    {# ============================================================
+       SUMMARY CARD 1 — ORIGINAL RECORD
+       ============================================================ #}
+    {% if data['What-type-of-contact'] %}
+
+      <div class="govuk-summary-card">
+
+        <div class="govuk-summary-card__title-wrapper">
+
+          <h2 class="govuk-summary-card__title">
+            {{ data['What-type-of-contact'] }}: (Date and time)
+          </h2>
+
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link"
+                href="/prototype-sprint-wise/ur-20/telephony/contact-history">
+                Change
+                <span class="govuk-visually-hidden">the record</span>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="govuk-summary-card__content">
+          <table class="govuk-summary-list govuk-!-margin-bottom-0">
+
+            <!-- Notes -->
+            <tr class="govuk-summary-list__row">
+              <th class="govuk-summary-list__key">Notes</th>
+              <td class="govuk-summary-list__value">
+                {{ data['addNote'] or "No notes added" }}
+              </td>
+            </tr>
+
+            {% set benefits = data['what-benefit-discussed'] or [] %}
+
+            {% if benefits.length %}
+
+              {% if benefits | length > 1 %}
+                {% for benefit in benefits %}
+                  <tr class="govuk-summary-list__row">
+                    <th class="govuk-summary-list__key">
+                      {{ benefit }}
+                    </th>
+                    <td class="govuk-summary-list__value">
+
+                      {% if benefit == "Employment and Support Allowance" %}
+                        {{ data['contact-type-esa'] | join(", ") }}
+                      {% elif benefit == "Personal Independence Payment" %}
+                        {{ data['contact-type-pip'] | join(", ") }}
+                      {% elif benefit == "Attendance Allowance" %}
+                        {{ data['contact-type-aa'] | join(", ") }}
+                      {% else %}
+                        No details provided
+                      {% endif %}
+
+                    </td>
+                  </tr>
+                {% endfor %}
+
+              {% else %}
+                <tr class="govuk-summary-list__row">
+                  <th class="govuk-summary-list__key">
+                    {{ benefits }}
+                  </th>
+                  <td class="govuk-summary-list__value">
+                    {{ data['contact-type'] or "No details provided" }}
+                  </td>
+                </tr>
+              {% endif %}
+
+            {% endif %}
+
+            <!-- Who -->
+            <tr class="govuk-summary-list__row">
+              <th class="govuk-summary-list__key">
+                Who the contact was with
+              </th>
+              <td class="govuk-summary-list__value">
+                {{ data['Who-is-the-phone-call-with-ur8'] or "Not provided" }}
+              </td>
+            </tr>
+
+            <!-- Agent -->
+            <tr class="govuk-summary-list__row">
+              <th class="govuk-summary-list__key">
+                Agent ID
+              </th>
+              <td class="govuk-summary-list__value">
+                1003
+              </td>
+            </tr>
+
+          </table>
+        </div>
+
+      </div>
+
+      {% endif %}
+
+
+
+    {# ============================================================
+       SUMMARY CARD 2 — REASON FOR DELETION
+       ============================================================ #}
+    <div class="govuk-summary-card govuk-!-margin-top-6">
+      <div class="govuk-summary-card__title-wrapper">
+
+        <h2 class="govuk-summary-card__title">
+          Reason for deletion
+        </h2>
+
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+
+            {# Change link back to delete reason page #}
+            <a class="govuk-link"
+               href="/prototype-sprint-wise/ur-20/telephony/delete-record?recordId={{ data.recordId }}">
+              Change
+              <span class="govuk-visually-hidden"> the deletion reason</span>
+            </a>
+
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">Selected reason</dt>
+            <dd class="govuk-summary-list__value">
+              {{ data.deleteReasonLabel }}
+            </dd>
+          </div>
+        </dl>
+
+      </div>
+    </div>
+
+    <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              You will not be able to restore this record once it is deleted.
+            </strong>
+          </div>
+
+
+    {# ============================================================
+        CONFIRMATION BUTTON + CANCEL LINK (INLINE)
+        ============================================================ #}
+
+      <form action="/prototype-sprint-wise/ur-20/delete-record-confirm" method="post">
+
+        <div class="govuk-button-group">
+
+          <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+            Confirm deletion
+          </button>
+
+          <a href="/prototype-sprint-wise/ur-20/telephony/contact-history"
+            class="govuk-link">
+            Cancel
+          </a>
+
+        </div>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

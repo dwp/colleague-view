@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Additional needs
+{% endblock %}
+
+
+{% block header %}
+  {% include "/prototype-sprint-wise/ur-18/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-18/common/keydetail-bar-additional-support-needs.html" %}
+{% endblock %}
+
+{% block footer %}
+{% include "/prototype-sprint-wise/ur-18/common/footer.html" %}
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/scenario-1/common/phase-banner.html" %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+        <li class="govuk-breadcrumbs__list-item">
+            <a class="govuk-breadcrumbs__link" href="#"></a>
+        </li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Notification banner -->
+<div class="govuk-notification-banner support-alert" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+         Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+      <h3 class="govuk-heading-s">
+      Support needs
+      <span class="govuk-body">– This person is homeless or is at risk of being homeless. <a class="govuk-notification-banner__link" href="additional-needs.html">View support needs notes</a></span>
+      </h3>
+    </div>
+    </div>
+
+
+
+
+  <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Home</h1>
+  </div>
+    <div class="govuk-grid-column-one-third">
+      <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
+        <div class="govuk-button-group" style="justify-content: flex-end;">
+            <button type="submit"
+                    class="govuk-button"
+                    data-module="govuk-button">
+              Add call details
+            </button>
+          </div>
+        </form>
+    </div>
+</div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <!-- to be card style -->
+      <ul class="govuk-grid-row nhsuk-card-group">
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="personal-details.html">Personal details</a>
+              </h2>
+              <p class="nhsuk-card__description">View personal details, including contact numbers and addresses.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="contact-history.html">Contact history</a>
+              </h2>
+              <p class="nhsuk-card__description">View notes and details about previous contact.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="benefit-payment.html">Benefit payments</a>
+              </h2>
+              <p class="nhsuk-card__description">View details, including payment frequency and amounts.</p>
+            </div>
+          </div>
+        </li>
+        <li class="govuk-grid-column-one-third nhsuk-card-group__item">
+          <div class="nhsuk-card nhsuk-card--clickable">
+            <div class="nhsuk-card__content">
+              <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                <a class="nhsuk-card__link govuk-link" href="add-call/add-additional-support-needs.html">Change support needs</a>
+              </h2>
+              <p class="nhsuk-card__description">Add, update or remove support needs on this account.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

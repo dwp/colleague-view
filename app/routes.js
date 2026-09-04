@@ -7833,7 +7833,10 @@ router.use(
   '/prototype-dev-baseline/mvp-1_5',
   require('./views/prototype-dev-baseline/mvp-1_5/_routes')
 );
-
+// for UR 21
+router.use('/prototype-sprint-wise/ur-21', require('./views/prototype-sprint-wise/ur-21/_routes'));
+// for UR 21-2
+router.use('/prototype-sprint-wise/ur-21-2', require('./views/prototype-sprint-wise/ur-21-2/_routes'));
 
 
 router.get('/session', function (req, res) {
