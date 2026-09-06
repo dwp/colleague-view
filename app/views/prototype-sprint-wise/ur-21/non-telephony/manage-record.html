@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+{% block pageTitle %}
+ Why are you deleting this record? 
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/UR-21/common/header.html" %}
+  {% include "/prototype-sprint-wise/UR-21/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/UR-21/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-8/common/phase-banner.html" %}  
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <form action="/prototype-sprint-wise/UR-21/manage-record-router" method="post">
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What do you want to do?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="delete-reason-change-contact-type"
+                name="delete-reason"
+                type="radio"
+                value="change-contact-type">
+              <label
+                class="govuk-label govuk-radios__label"
+                for="delete-reason-change-contact-type">
+                Change the contact type
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="delete-reason-change-benefit"
+                name="delete-reason"
+                type="radio"
+                value="change-benefit-information">
+              <label
+                class="govuk-label govuk-radios__label"
+                for="delete-reason-change-benefit">
+                Change the benefit information
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="delete-reason-change-contact-person"
+                name="delete-reason"
+                type="radio"
+                value="change-contact-person">
+              <label
+                class="govuk-label govuk-radios__label"
+                for="delete-reason-change-contact-person">
+                Change who the contact was with
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="delete-reason-change-note"
+                name="delete-reason"
+                type="radio"
+                value="change-note">
+              <label
+                class="govuk-label govuk-radios__label"
+                for="delete-reason-change-note">
+                Change the note
+              </label>
+            </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input
+                class="govuk-radios__input"
+                id="delete-reason-delete-record"
+                name="delete-reason"
+                type="radio"
+                value="delete-record">
+              <label
+                class="govuk-label govuk-radios__label"
+                for="delete-reason-delete-record">
+                Delete the contact record
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+        <a class="govuk-link" href="/prototype-sprint-wise/UR-21/non-telephony/contact-history">Cancel</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check details
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-sprint-wise/UR-21/common/header.html" %}
+  {% include "/prototype-sprint-wise/UR-21/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-sprint-wise/UR-21/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/UR-21/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Check the details you have changed
+    </h1>
+
+    <div class="govuk-summary-card">
+
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Agent 1000: 10 September 2026, 13:56
+        </h2>
+      </div>
+
+      <div class="govuk-summary-card__content">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact type
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+
+              {% if data['What-type-of-contact'] %}
+                {{ data['What-type-of-contact']
+                    | replace(' from', '')
+                    | replace(' to', '') }}
+              {% else %}
+                Inbound phone call
+              {% endif %}
+
+            </dd>
+          </div>
+
+          {% if data['what-benefit-discussed-non-telephony'] %}
+
+            {% for benefit in data['what-benefit-discussed-non-telephony'] %}
+
+              <div class="govuk-summary-list__row">
+
+                <dt class="govuk-summary-list__key">
+                  {{ benefit }}
+                </dt>
+
+                <dd class="govuk-summary-list__value">
+
+                  {% set benefitIndex = loop.index0 %}
+
+                  {% if data['actions-' + benefitIndex] %}
+
+                    {% if data['actions-' + benefitIndex].length > 1 %}
+
+                      <ul class="govuk-list govuk-list--bullet">
+                        {% for action in data['actions-' + benefitIndex] %}
+                          <li>{{ action }}</li>
+                        {% endfor %}
+                      </ul>
+
+                    {% else %}
+
+                      {{ data['actions-' + benefitIndex][0] }}
+
+                    {% endif %}
+
+                  {% endif %}
+
+                </dd>
+
+              </div>
+
+            {% endfor %}
+
+          {% else %}
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Personal Independence Payment
+              </dt>
+
+              <dd class="govuk-summary-list__value">
+                Helped with a payment enquiry
+              </dd>
+            </div>
+
+          {% endif %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Who the contact was with
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+
+              {% if data['Who-is-the-phone-call-with-ur8'] == 'George Wood' %}
+
+                George Wood (Corporate Personal Acting Body)
+
+              {% elif data['Who-is-the-phone-call-with-ur8'] == 'Susan Jones' %}
+
+                Susan Jones (Partner)
+
+              {% elif data['Who-is-the-phone-call-with-ur8'] == 'someone else' %}
+
+                Someone else
+
+              {% elif data['Who-is-the-phone-call-with-ur8'] %}
+
+                {{ data['Who-is-the-phone-call-with-ur8'] }}
+
+              {% else %}
+
+                Christopher Fox
+
+              {% endif %}
+
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Notes
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {% if data['addNote'] %}
+                {{ data['addNote'] }}
+              {% else %}
+                No notes added
+              {% endif %}
+
+            </dd>
+          </div>
+
+        </dl>
+
+      </div>
+
+    </div>
+
+    <form action="/prototype-sprint-wise/UR-21/non-telephony/contact-history-changed" method="post">
+
+        <div class="govuk-button-group">
+
+          <button class="govuk-button govuk-button" data-module="govuk-button">
+            Save
+          </button>
+
+          <a href="/prototype-sprint-wise/UR-21/non-telephony/contact-history"
+            class="govuk-link">
+            Cancel
+          </a>
+
+        </div>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

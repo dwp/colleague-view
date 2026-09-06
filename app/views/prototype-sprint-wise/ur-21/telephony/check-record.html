@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-20/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-20/common/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/UR-21/common/header.html" %}
+  {% include "/prototype-sprint-wise/UR-21/common/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-sprint-wise/ur-20/common/footer.html" %}
+  {% include "/prototype-sprint-wise/UR-21/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
-  {% include "/prototype-sprint-wise/ur-20/common/phase-banner.html" %}
+  {% include "/prototype-sprint-wise/UR-21/common/phase-banner.html" %}
   <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
@@ -43,7 +43,7 @@
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action">
               <a class="govuk-link"
-                href="/prototype-sprint-wise/ur-20/telephony/contact-history">
+                href="/prototype-sprint-wise/UR-21/telephony/contact-history">
                 Change
                 <span class="govuk-visually-hidden">the record</span>
               </a>
@@ -146,7 +146,7 @@
 
             {# Change link back to delete reason page #}
             <a class="govuk-link"
-               href="/prototype-sprint-wise/ur-20/telephony/delete-record?recordId={{ data.recordId }}">
+               href="/prototype-sprint-wise/UR-21/telephony/delete-record?recordId={{ data.recordId }}">
               Change
               <span class="govuk-visually-hidden"> the deletion reason</span>
             </a>
@@ -183,7 +183,7 @@
         CONFIRMATION BUTTON + CANCEL LINK (INLINE)
         ============================================================ #}
 
-      <form action="/prototype-sprint-wise/ur-20/delete-record-confirm" method="post">
+      <form action="/prototype-sprint-wise/UR-21/delete-record-confirm" method="post">
 
         <div class="govuk-button-group">
 
@@ -191,7 +191,7 @@
             Confirm deletion
           </button>
 
-          <a href="/prototype-sprint-wise/ur-20/telephony/contact-history"
+          <a href="/prototype-sprint-wise/UR-21/telephony/contact-history"
             class="govuk-link">
             Cancel
           </a>
