@@ -752,13 +752,7 @@ router.post('/delete-record-router', function (req, res) {
   req.session.data.deleteReasonLabel = reasonLabels[reasonValue];
 
   // 🚀 SEND USER TO CHECK DETAILS PAGE
-  res.redirect('/prototype-sprint-wise/ur-21-2/telephony/check-record');
-});
-
-
-// GET CHECK DETAILS BEFORE DELETING
-router.get('/telephony/check-record', function (req, res) {
-  res.render('/prototype-sprint-wise/ur-21-2/telephony/check-record.html');
+  res.redirect('/prototype-sprint-wise/ur-21/telephony/check-record');
 });
 
 
@@ -821,19 +815,19 @@ router.post('/delete-record-router-2', function (req, res) {
     return res.redirect('back');
   }
 
-  // Radio labels
   const reasonLabels = {
-    "incorrect-information": "To remove incorrect information",
-    "sensitive-information": "To remove information that should not be widely available",
-    "account-holder-request": "The account holder has asked for this record to be removed",
-    "retention-requirement": "To meet retention requirements"
-  };
+  "incorrect-information": "To remove incorrect information",
+  "incorrect-note": "To remove incorrect note recorded",
+  "inappropriate-note": "To remove inappropriate note recorded",
+  "sensitive-information": "To remove information that should not be widely available",
+  "account-holder-request": "The account holder has asked for this record to be removed",
+  "retention-requirement": "To meet retention requirements"
+};
 
-  // Store readable reason for the check record page
   req.session.data.deleteReasonLabel = reasonLabels[reasonValue];
 
-  // 🚀 SEND USER TO CHECK DETAILS PAGE
-  res.redirect('/prototype-sprint-wise/ur-21-2/non-telephony/check-record');
+  res.redirect('/prototype-sprint-wise/ur-21-2/non-telephony/check-record-delete');
+
 });
 
 // POST: FINAL CONFIRM DELETE
@@ -843,41 +837,68 @@ router.post('/delete-record-confirm-2', function (req, res) {
   const now = new Date();
 
   const deletionRecord = {
+
     reasonLabel: req.session.data.deleteReasonLabel,
 
-    deletedAtDate: now.toLocaleDateString("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
+    deletedAtDate: now.toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
     }),
 
-    deletedAtTime: now.toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit"
+    deletedAtTime: now.toLocaleTimeString('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit'
     }),
 
-    agentId: "1007",
+    agentId: '1007',
 
     originalType: (req.session.data['What-type-of-contact'] || '').replace(' with', ''),
 
-    originalTimestamp: new Date().toLocaleString("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
+    originalTimestamp: new Date().toLocaleString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
     })
+
   };
 
-  // ✅ Store deletion
   req.session.data.deletions = req.session.data.deletions || {};
   req.session.data.deletions[recordId] = deletionRecord;
 
-  // ✅ Banner flag
   req.session.data.justDeleted = true;
 
-  // ✅ Redirect to YOUR correct page
-  res.redirect('/prototype-sprint-wise/ur-21-2/non-telephony/contact-history-log');
+  res.redirect('/prototype-sprint-wise/ur-21-2/non-telephony/contact-history-deleted');
+
+});
+
+router.post('/check-record-change', function (req, res) {
+
+  console.log(req.body);
+
+  req.session.data['change-type'] = req.body['change-type'];
+
+  res.redirect('/prototype-sprint-wise/ur-21-2/non-telephony/check-record-change');
+
+});
+
+router.post('/non-telephony/contact-history-changed', function (req, res) {
+
+  const changeType = req.session.data['change-type'];
+
+  req.session.data['delete-reason'] = changeType;
+  req.session.data.justChanged = true;
+
+  res.redirect('/prototype-sprint-wise/ur-21-2/non-telephony/contact-history-changed');
+});
+
+router.post('/action-type', function (req, res) {
+
+  req.session.data['change-type'] = 'TEST';
+
+  res.redirect('/prototype-sprint-wise/ur-21-2/non-telephony/check-record-change');
 
 });
 

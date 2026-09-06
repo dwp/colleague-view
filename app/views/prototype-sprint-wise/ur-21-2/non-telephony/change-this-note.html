@@ -1,15 +1,16 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Change your note
+  Change note
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-dev-baseline/mvp-1_3_2/common/header_keydetail_bar.html" %}
+  {% include "/prototype-sprint-wise/ur-21/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-21/common/view-only/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-dev-baseline/mvp-1_3_2/common/footer.html" %}
+  {% include "/prototype-sprint-wise/ur-21/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -21,7 +22,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="#" method="post" novalidate>
+      <form action="check-record-change" method="post" novalidate>
+        <input
+          type="hidden"
+          name="change-type"
+          value="change-note">
 
         <div
           class="govuk-form-group govuk-character-count"
@@ -30,7 +35,7 @@
         >
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="note-textarea">
-              Change this note
+              Change note
             </label>
           </h1>
 
@@ -67,7 +72,7 @@
         <button type="submit" class="govuk-button" data-module="govuk-button">
           Continue
         </button>
-        <a class="govuk-link" href="/prototype-sprint-wise/UR-21/non-telephony/contact-history-2">Cancel</a>
+        <a class="govuk-link" href="/prototype-sprint-wise/ur-21/non-telephony/contact-history-2">Cancel</a>
       </div>
       </form>
 

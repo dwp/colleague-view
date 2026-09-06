@@ -6,7 +6,7 @@ Contact history
 
 {% block header %}
   {% include "/prototype-sprint-wise/ur-21/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-21/common/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-21/common/view-only/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
@@ -53,7 +53,6 @@ Contact history
       <div class="govuk-grid-column-one-half">
         <h1 class="govuk-heading-xl">Contact history</h1>
       </div>
-      <pre>{{ data | dump }}</pre>
 
       <div class="govuk-grid-column-one-half">
         <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
@@ -452,7 +451,8 @@ Contact history
                     </dd>
 
                     <dd class="govuk-summary-list__actions">
-                      {% if data['delete-reason'] == 'change-note' %}
+                      {% if data['delete-reason'] == 'change-note'
+                        or (data['addNote'] and data['addNote'] != 'No notes added') %}
                         <span class="govuk-hint">
                           Edited
                         </span>

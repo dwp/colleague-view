@@ -1,13 +1,14 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}
+{% block pageTitle %} 
 What action did you take?
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/ur-21/common/header.html" %}
-  {% include "/prototype-sprint-wise/ur-21/common/view-only/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-21-2/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-21-2/common/view-only/keydetail-bar.html" %}
 {% endblock %}
+
 
 {% block footer %}
   {% include "/prototype-sprint-wise/ur-16/common/footer.html" %}
@@ -268,6 +269,10 @@ What action did you take?
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form class="form" action="check-record-change" method="post">
+      <input
+        type="hidden"
+        name="change-type"
+        value="change-benefit-information">
       <h1 class="govuk-heading-l">What action did you take?</h1>
 
       {% for benefit in data['what-benefit-discussed-non-telephony'] %}

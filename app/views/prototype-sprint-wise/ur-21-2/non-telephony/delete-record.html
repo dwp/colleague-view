@@ -4,12 +4,12 @@
 {% endblock %}
 
 {% block header %}
-  {% include "/prototype-sprint-wise/UR-21-2/common/header.html" %}
-  {% include "/prototype-sprint-wise/UR-21-2/common/keydetail-bar.html" %}
+  {% include "/prototype-sprint-wise/ur-21-2/common/header.html" %}
+  {% include "/prototype-sprint-wise/ur-21-2/common/view-only/keydetail-bar.html" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "/prototype-sprint-wise/UR-21-2/common/footer.html" %}
+  {% include "/prototype-sprint-wise/ur-21-2/common/footer.html" %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,7 +22,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
-    <form action="/prototype-sprint-wise/UR-21-2/delete-record-router-2" method="post">
+    <form action="/prototype-sprint-wise/ur-21-2/delete-record-router-2" method="post">
       
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
@@ -45,6 +45,31 @@
               <label class="govuk-label govuk-radios__label"
                     for="delete-reason-incorrect">
                 To remove incorrect information
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                    id="delete-reason-note-incorrect"
+                    name="delete-reason"
+                    type="radio"
+                    value="incorrect-note">
+              <label class="govuk-label govuk-radios__label"
+                    for="delete-reason-note-incorrect">
+                To remove incorrect note recorded
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input"
+                    id="delete-reason-note-inappropriate"
+                    name="delete-reason"
+                    type="radio"
+                    value="inappropriate-note">
+
+              <label class="govuk-label govuk-radios__label"
+                    for="delete-reason-note-inappropriate">
+                To remove inappropriate note recorded
               </label>
             </div>
 
@@ -92,7 +117,7 @@
         <button type="submit" class="govuk-button" data-module="govuk-button">
           Save and continue
         </button>
-        <a class="govuk-link" href="/prototype-sprint-wise/UR-21-2/telephony/contact-history">Cancel</a>
+        <a class="govuk-link" href="/prototype-sprint-wise/ur-21-2/non-telephony/contact-history-2">Cancel</a>
       </div>
     </form>
 

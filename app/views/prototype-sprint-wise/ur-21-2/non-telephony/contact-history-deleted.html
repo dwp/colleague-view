@@ -32,13 +32,31 @@ Contact history
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+
+      <div class="govuk-notification-banner govuk-notification-banner--success"
+          role="alert"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <p class="govuk-notification-banner__heading">
+            Contact record deleted successfully.
+          </p>
+        </div>
+      </div>
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half">
         <h1 class="govuk-heading-xl">Contact history</h1>
       </div>
+
       <div class="govuk-grid-column-one-half">
-      <form action="#" method="post">
-        <div class="govuk-button-group" style="justify-content: flex-end;">
+        <form action="/prototype-sprint-wise/ur-18/telephony/add-call/reviewed" method="post">
+          <div class="govuk-button-group" style="justify-content: flex-end;">
             <button type="submit"
                     class="govuk-button"
                     data-module="govuk-button">
@@ -52,7 +70,7 @@ Contact history
       <h2 class="govuk-tabs__title">
         Contents
       </h2>
-      <!-- Tab buttons here -->
+      <!-- Tab button here -->
       <ul class="govuk-tabs__list">
         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
           <a class="govuk-tabs__tab" href="#view">
@@ -83,7 +101,7 @@ Contact history
               <div class="moj-filter__content">
                 <!-- filter options -->
                 <div class="moj-filter__options">
-                  <form action="#" method="post">
+                  <form action="contact-history-filter-selected" method="post">
                     <!-- apply filter button -->
                     <button type="submit" class="govuk-button" data-module="govuk-button" id="apply-filter-btn">
                     Apply filters
@@ -237,33 +255,6 @@ Contact history
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="govuk-form-group govuk-!-margin-top-2">
-                          <fieldset class="govuk-fieldset" role="group" aria-describedby="date-range-from-hint">
-                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s govuk-visually-hidden">
-                              search by month
-                            </legend>
-                            <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="Last one month">
-                                <label class="govuk-label govuk-radios__label" for="changedName">
-                                  Last one month
-                                </label>
-                              </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="Last 3 months">
-                                <label class="govuk-label govuk-radios__label" for="changedName-2">
-                                  Last 3 months
-                                </label>
-                              </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="changedName-3" name="changedName" type="radio" value="Last 6 months">
-                                <label class="govuk-label govuk-radios__label" for="changedName-3">
-                                  Last 6 months
-                                </label>
-                              </div>
-                            </div>
-                          </fieldset>
-                        </div> -->
                       </fieldset>
                     </div>
                     <!-- filter by Keywors -->
@@ -289,75 +280,12 @@ Contact history
           <!-- Sumary result section -->
           <div class="govuk-grid-column-two-thirds">  
             <!-- default ch table -->
-            <h3 class="govuk-heading-m">32 results</h3>
+            <h3 class="govuk-heading-m">31 results</h3>
             <p class="govuk-body govuk-!-margin-bottom-6">
                 Sorted by:
                 <span class="govuk-!-font-weight-bold">Date</span>
             </p>
 
-            <!-- Sumary cards section -->
-
-            <div class="govuk-summary-card">
-              <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">
-                  Agent 1000: 10 September 2026, 13:56
-                </h2>
-
-                <ul class="govuk-summary-card__actions">
-                  <li class="govuk-summary-card__action">
-                    <a class="govuk-link" href="manage-record.html?recordId=call-2026-03-15-0937">
-                      Manage record
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="govuk-summary-card__content">
-                <dl class="govuk-summary-list govuk-!-margin-bottom-0">
-
-                  <!-- Contact type -->
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Contact type
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      Inbound phone call
-                    </dd>
-                  </div>
-
-                  <!-- Benefit -->
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Personal Independence Payment
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      Helped with a payment enquiry
-                    </dd>
-                  </div>
-
-                  <!-- Who -->
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Who the contact was with
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <p>Christopher Fox</p>
-                    </dd>
-                  </div>
-
-                  <!-- Agent -->
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Notes
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <p>No notes added</p>
-                    </dd>
-                  </div>
-
-                </dl>
-              </div>
-            </div>
 
               <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
@@ -368,7 +296,7 @@ Contact history
                 <ul class="govuk-summary-card__actions">
                   <li class="govuk-summary-card__action">
                     <a class="govuk-link" href="#">
-                      Manage record
+                      Delete record
                     </a>
                   </li>
                 </ul>
@@ -385,6 +313,12 @@ Contact history
                     <dd class="govuk-summary-list__value">
                       Inbound phone call
                     </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact type</span>
+                        </a>
+                      </dd>
                   </div>
 
                   <!-- Benefit -->
@@ -395,6 +329,12 @@ Contact history
                     <dd class="govuk-summary-list__value">
                       Reported a change of circumstance: Address changed on all relevant systems
                     </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">benefit</span>
+                        </a>
+                      </dd>
                   </div>
 
                   <!-- Who -->
@@ -405,6 +345,12 @@ Contact history
                     <dd class="govuk-summary-list__value">
                       <p>George Wood (Appointee)</p>
                     </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                   </div>
 
                   <!-- Agent -->
@@ -415,6 +361,12 @@ Contact history
                     <dd class="govuk-summary-list__value">
                       <p>No notes added</p>
                     </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                   </div>
 
                 </dl>
@@ -431,7 +383,7 @@ Contact history
                 <ul class="govuk-summary-card__actions">
                   <li class="govuk-summary-card__action">
                     <a class="govuk-link" href="#">
-                      Manage record
+                      Delete record
                     </a>
                   </li>
                 </ul>
@@ -448,6 +400,12 @@ Contact history
                     <dd class="govuk-summary-list__value">
                       Inbound phone call
                     </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact type</span>
+                        </a>
+                      </dd>
                   </div>
 
                   <!-- Benefit -->
@@ -458,6 +416,12 @@ Contact history
                     <dd class="govuk-summary-list__value">
                       Call disconnected
                     </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">benefit</span>
+                        </a>
+                      </dd>
                   </div>
 
                   <!-- Who -->
@@ -468,6 +432,12 @@ Contact history
                     <dd class="govuk-summary-list__value">
                       <p>George Wood (Appointee)</p>
                     </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                   </div>
 
                   <!-- Notes -->
@@ -495,6 +465,12 @@ Contact history
                       </a>
 
                     </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                   </div>
 
                 </dl>
@@ -511,7 +487,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <a class="govuk-link" href="#">
-                        Manage record
+                        Delete record
                       </a>
                     </li>
                   </ul>
@@ -528,6 +504,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         Outbound letter
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact type</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Benefit -->
@@ -538,6 +520,12 @@ Contact history
 
                       <dd class="govuk-summary-list__value">
                         Sent a proof of benefit letter
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">benefit</span>
+                        </a>
                       </dd>
                     </div>
 
@@ -550,6 +538,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         <p>Christopher Fox</p>
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                     </div>
 
                      <!-- Notes -->
@@ -560,6 +554,12 @@ Contact history
 
                       <dd class="govuk-summary-list__value">
                         No notes added
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
                       </dd>
                     </div>
 
@@ -578,7 +578,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <a class="govuk-link" href="#">
-                        Manage record
+                        Delete record
                       </a>
                     </li>
                   </ul>
@@ -595,6 +595,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         Inbound phone call
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact type</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Benefit -->
@@ -609,6 +615,12 @@ Contact history
                           <li>Sent a proof of benefit letter</li>
                         </ul>
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">benefit</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Who -->
@@ -620,6 +632,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         <p>Christopher Fox</p>
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                     </div>
 
                      <!-- Notes -->
@@ -630,6 +648,12 @@ Contact history
 
                       <dd class="govuk-summary-list__value">
                         Requested an entitlement certificate.
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
                       </dd>
                     </div>
 
@@ -648,7 +672,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <a class="govuk-link" href="#">
-                        Manage record
+                        Delete record
                       </a>
                     </li>
                   </ul>
@@ -665,6 +689,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         Outbound phone call
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact type</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Benefit -->
@@ -675,6 +705,12 @@ Contact history
 
                       <dd class="govuk-summary-list__value">
                         Requested missing information for a new claim
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">benefit</span>
+                        </a>
                       </dd>
                     </div>
 
@@ -687,6 +723,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         <p>George Wood (Appointee)</p>
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Notes -->
@@ -697,6 +739,12 @@ Contact history
 
                       <dd class="govuk-summary-list__value">
                         Confirmed partner's annual income. Claim updated.
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
                       </dd>
                     </div>
 
@@ -716,7 +764,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <a class="govuk-link" href="#">
-                        Manage record
+                        Delete record
                       </a>
                     </li>
                   </ul>
@@ -733,6 +781,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         Inbound phone call
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact type</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Benefit -->
@@ -744,8 +798,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         Supported with a new claim
                       </dd>
-
-                      <dd class="govuk-summary-list__actions"></dd>
+                     <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">benefit</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Who -->
@@ -758,7 +816,12 @@ Contact history
                         <p>George Wood (Appointee)</p>
                       </dd>
 
-                      <dd class="govuk-summary-list__actions"></dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Notes -->
@@ -768,7 +831,13 @@ Contact history
                       </dt>
 
                       <dd class="govuk-summary-list__value">
-                        No notes added.
+                        No notes added
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
                       </dd>
                     </div>
 
@@ -787,7 +856,7 @@ Contact history
                   <ul class="govuk-summary-card__actions">
                     <li class="govuk-summary-card__action">
                       <a class="govuk-link" href="#">
-                        Manage record
+                        Delete record
                       </a>
                     </li>
                   </ul>
@@ -804,6 +873,12 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         Jobcentre visit
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact type</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- ESA -->
@@ -816,7 +891,12 @@ Contact history
                         Checked eligibility
                       </dd>
 
-                      <dd class="govuk-summary-list__actions"></dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">benefit</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- PIP -->
@@ -829,7 +909,12 @@ Contact history
                         Checked eligibility
                       </dd>
 
-                      <dd class="govuk-summary-list__actions"></dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">benefit</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Who -->
@@ -842,7 +927,12 @@ Contact history
                         <p>Christopher Fox</p>
                       </dd>
 
-                      <dd class="govuk-summary-list__actions"></dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                     </div>
 
                     <!-- Notes -->
@@ -854,13 +944,107 @@ Contact history
                       <dd class="govuk-summary-list__value">
                         Eligible for ESA but not PIP.
                       </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          Change
+                          <span class="govuk-visually-hidden">contact with</span>
+                        </a>
+                      </dd>
                     </div>
 
                   </dl>
                 </div>
               </div>
 
+            <!-- pagination start here -->
+            <nav class="govuk-pagination" aria-label="Pagination">
+              <ul class="govuk-pagination__list">
+                <li class="govuk-pagination__item govuk-pagination__item--current">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+                    1
+                  </a>
+                </li>
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                    2
+                  </a>
+                </li>
+                <li class="govuk-pagination__item">
+                  <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                    3
+                  </a>
+                </li>
+              </ul>
+              <div class="govuk-pagination__next">
+                <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+                  <span class="govuk-pagination__link-title">
+                    Next<span class="govuk-visually-hidden"> page</span>
+                  </span>
+                  <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                  </svg>
+                </a>
+              </div>
+            </nav>
 
+          </div>
+        </div>
+      </div>
+      <!-- Tab2 content start here -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="jsaps-notes">
+        <div id="showContactHistory-bydefault">
+          <h2 class="govuk-heading-l">JSAPS notes for ESA</h2>
+          <!-- data table -->
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">When note was created</th>
+                <th scope="col" class="govuk-table__header">Notes</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">15 October 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">17 October 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">10 November 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">17 November 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">25 November 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">11 December 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">20 December 2023</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">20 January 2024</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">12 February 2024</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">15 March 2024</td>
+                <td class="govuk-table__cell">This is an example of JSAPS notes added</td>
+              </tr>
+            </tbody>
+          </table>
           <!-- table pagination -->
           <nav class="moj-pagination" aria-label="Pagination navigation" role="navigation">
             <ul class="moj-pagination__list">
@@ -953,22 +1137,140 @@ Contact history
               <span class="govuk-caption-m">Ended at</span>
               <h2 class="govuk-heading-m">Monday 17 Oct 2023, 13:18</h2>
             </div>
-          </div>   
-        </div>  
-      </div>
-          
-      <!-- Tab 2: Deleted contact history log -->
-          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="contact-deletion-log">
-
-            <h2 class="govuk-heading-l">Contact history log</h2>
-
-            <p class="govuk-body">There have been no changes or deletions.</p>
           </div>
-        </div>
+      </div>
+      <!-- Tab 3: Deleted contact history log -->
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="contact-deletion-log">
+
+        <h2 class="govuk-heading-l">Contact history log</h2>
+
+        <div class="moj-timeline">
+
+  {# Dynamic deleted record #}
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">
+        Record deleted
+      </h2>
+
+      <p class="moj-timeline__byline">
+        by Agent 1000
+      </p>
+    </div>
+
+    <p class="moj-timeline__date">
+      <time datetime="2026-09-10T13:56:00">
+        10 September 2026 at 1:56pm
+      </time>
+    </p>
+
+    <div class="moj-timeline__description">
+      <p>
+        Reason:
+
+        {% if data['delete-reason'] == 'incorrect-information' %}
+          To remove incorrect information
+
+        {% elif data['delete-reason'] == 'incorrect-note' %}
+          To remove incorrect note recorded
+
+        {% elif data['delete-reason'] == 'inappropriate-note' %}
+          To remove inappropriate note recorded
+
+        {% elif data['delete-reason'] == 'sensitive-information' %}
+          To remove information that should not be widely available
+
+        {% elif data['delete-reason'] == 'account-holder-request' %}
+          The account holder has asked for this record to be removed
+
+        {% elif data['delete-reason'] == 'retention-requirement' %}
+          To meet retention requirements
+
+        {% else %}
+          {{ data['delete-reason'] }}
+        {% endif %}
+
+      </p>
+
+    </div>
+
+  </div>
+
+  {# Deleted record 1 #}
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Record deleted</h2>
+      <p class="moj-timeline__byline">by Agent 1007</p>
+    </div>
+
+    <p class="moj-timeline__date">
+      29 March 2026, 14:08
+    </p>
+
+    <div class="moj-timeline__description">
+
+      <p>
+        Reason: Incorrect information
+      </p>
+    </div>
+
+  </div>
+
+  {# Deleted record 2 #}
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Record deleted</h2>
+      <p class="moj-timeline__byline">by Agent 1208</p>
+    </div>
+
+    <p class="moj-timeline__date">
+      12 February 2026, 10:22
+    </p>
+
+    <div class="moj-timeline__description">
+
+      <p>
+        Reason: Information should not be widely available
+      </p>
+    </div>
+
+  </div>
+
+  {# Deleted record 3 #}
+
+  <div class="moj-timeline__item">
+
+    <div class="moj-timeline__header">
+      <h2 class="moj-timeline__title">Record deleted</h2>
+      <p class="moj-timeline__byline">by Agent 1003</p>
+    </div>
+
+    <p class="moj-timeline__date">
+      18 March 2026, 09:55
+    </p>
+
+    <div class="moj-timeline__description">
+
+      <p>
+        Reason: Account holder requested removal
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
       </div>
     </div>
-      </div>
-    </div>
+  </div>
+</div>
+
   
   <!-- logic for filter function -->
   <script type="text/javascript">
