@@ -322,14 +322,6 @@ Contact history
 
                     </dd>
 
-                    <dd class="govuk-summary-list__actions">
-                      {% if data['delete-reason'] == 'change-contact-type' %}
-                        <span class="govuk-hint">
-                          Edited
-                        </span>
-                      {% endif %}
-                    </dd>
-
                   </div>
 
                   {% if data['what-benefit-discussed-non-telephony'] %}
@@ -364,14 +356,6 @@ Contact history
 
                           {% endif %}
 
-                        </dd>
-
-                        <dd class="govuk-summary-list__actions">
-                          {% if data['delete-reason'] == 'change-benefit-information' %}
-                            <span class="govuk-hint">
-                              Edited
-                            </span>
-                          {% endif %}
                         </dd>
                         
 
@@ -424,14 +408,6 @@ Contact history
 
                     </dd>
 
-                    <dd class="govuk-summary-list__actions">
-                      {% if data['delete-reason'] == 'change-contact-person' %}
-                        <span class="govuk-hint">
-                          Edited
-                        </span>
-                      {% endif %}
-                    </dd>
-
                   </div>
 
 
@@ -448,15 +424,6 @@ Contact history
                         No notes added
                       {% endif %}
 
-                    </dd>
-
-                    <dd class="govuk-summary-list__actions">
-                      {% if data['delete-reason'] == 'change-note'
-                        or (data['addNote'] and data['addNote'] != 'No notes added') %}
-                        <span class="govuk-hint">
-                          Edited
-                        </span>
-                      {% endif %}
                     </dd>
 
                   </div>
@@ -1184,7 +1151,7 @@ Contact history
 
               {% if data['delete-reason'] == 'change-benefit-information' %}
 
-                Benefit information updated
+              Benefit information updated
 
                 <div class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">
 
@@ -1205,6 +1172,12 @@ Contact history
                     {% endif %}
 
                   {% endfor %}
+
+                  {% if data['addNote'] and data['addNote'] != 'No notes added' %}
+                    <br>
+                    Note updated:<br>
+                    {{ data['addNote'] }}
+                  {% endif %}
 
                 </div>
 
