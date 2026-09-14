@@ -27,6 +27,146 @@
       Check the details you have changed
     </h1>
 
+    <table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">
+    Changes you have made
+  </caption>
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Category</th>
+      <th scope="col" class="govuk-table__header">Before</th>
+      <th scope="col" class="govuk-table__header">After</th>
+    </tr>
+  </thead>
+
+  <tbody class="govuk-table__body">
+
+    {% if data['What-type-of-contact'] %}
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          Contact type
+        </td>
+
+        <td class="govuk-table__cell">
+          Inbound phone call
+        </td>
+
+        <td class="govuk-table__cell">
+          {% if data['What-type-of-contact'] == 'Text message' %}
+            Text message
+          {% elif data['What-type-of-contact'] == 'Visit from' %}
+            Inbound visit
+          {% elif data['What-type-of-contact'] == 'Visit to' %}
+            Outbound visit
+          {% else %}
+            {{ data['What-type-of-contact']
+                | replace(' from', '')
+                | replace(' to', '') }}
+          {% endif %}
+        </td>
+      </tr>
+
+    {% endif %}
+
+    {% if data['what-benefit-discussed-non-telephony'] %}
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          Benefit information
+        </td>
+
+        <td class="govuk-table__cell">
+          Personal Independence Payment
+
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+            <li>Helped with a payment enquiry</li>
+          </ul>
+        </td>
+
+        <td class="govuk-table__cell">
+
+          {% for benefit in data['what-benefit-discussed-non-telephony'] %}
+
+            <p class="govuk-!-margin-bottom-1">
+              {{ benefit }}
+            </p>
+
+            {% set benefitIndex = loop.index0 %}
+
+            {% if data['actions-' + benefitIndex] %}
+              <ul class="govuk-list govuk-list--bullet">
+
+                {% for action in data['actions-' + benefitIndex] %}
+                  <li>{{ action }}</li>
+                {% endfor %}
+
+              </ul>
+            {% endif %}
+
+          {% endfor %}
+
+        </td>
+      </tr>
+
+    {% endif %}
+
+    {% if data['Who-is-the-phone-call-with-ur8']
+      and data['Who-is-the-phone-call-with-ur8'] != 'Christopher Fox' %}
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          Contact name
+        </td>
+
+        <td class="govuk-table__cell">
+          Christopher Fox
+        </td>
+
+        <td class="govuk-table__cell">
+
+          {% if data['Who-is-the-phone-call-with-ur8'] == 'George Wood' %}
+            George Wood (Corporate Personal Acting Body)
+          {% elif data['Who-is-the-phone-call-with-ur8'] == 'Susan Jones' %}
+            Susan Jones (Partner)
+          {% else %}
+            {{ data['Who-is-the-phone-call-with-ur8'] }}
+          {% endif %}
+
+        </td>
+      </tr>
+
+    {% endif %}
+
+          {% if data['addNote']
+          and data['addNote'] != 'No notes added'
+          and data['addNote'] | trim %}
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">
+          Notes
+        </th>
+
+        <td class="govuk-table__cell">
+          No notes added
+        </td>
+
+        <td class="govuk-table__cell">
+          {{ data['addNote'] }}
+        </td>
+      </tr>
+
+      {% endif %}
+
+  </tbody>
+</table>
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-7">
+      Updated contact record
+      </h2>
+
+
     <div class="govuk-summary-card">
 
       <div class="govuk-summary-card__title-wrapper">
