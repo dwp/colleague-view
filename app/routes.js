@@ -7837,6 +7837,11 @@ router.use(
 router.use('/prototype-sprint-wise/ur-21', require('./views/prototype-sprint-wise/ur-21/_routes'));
 // for UR 21-2
 router.use('/prototype-sprint-wise/ur-21-2', require('./views/prototype-sprint-wise/ur-21-2/_routes'));
+// version 1.6
+router.use(
+  '/prototype-dev-baseline/mvp-1_6',
+  require('./views/prototype-dev-baseline/mvp-1_6/_routes')
+);
 
 
 router.get('/session', function (req, res) {

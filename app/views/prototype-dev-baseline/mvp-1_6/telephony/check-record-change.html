@@ -1,0 +1,388 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check the details you want to change
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_6/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_6/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_6/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-21/common/phase-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Check the details you want to change
+      </h1>
+
+        {% if data['delete-reason'] == 'change-benefit-information' %}
+
+          <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Original benefit information
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Personal Independence Payment
+
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+                  <li>Helped with a payment enquiry</li>
+                </ul>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Updated benefit information
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                {% for benefit in data['changed-benefits'] %}
+
+                  <div class="govuk-!-margin-bottom-5">
+
+                    <p class="govuk-!-margin-bottom-1">
+                      {{ benefit }}
+                    </p>
+
+                    {% set benefitIndex = loop.index0 %}
+
+                    {% if data['changed-actions-' + benefitIndex] %}
+                      <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-2 govuk-!-margin-bottom-0">
+                        {% for action in data['changed-actions-' + benefitIndex] %}
+                          <li>{{ action }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+
+                  </div>
+
+                {% endfor %}
+
+              </dd>
+            </div>
+            {% if data['changed-note'] %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <div class="govuk-!-padding-top-6"></div>
+                Original note
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['contactHistoryNote'] %}
+                  {{ data['contactHistoryNote'] }}
+                {% else %}
+                  No notes added
+                {% endif %}
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Updated note
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['changed-note'] }}
+              </dd>
+            </div>
+          {% endif %}
+
+          </dl>
+
+        {% endif %}
+
+        {% if data['delete-reason'] == 'change-contact-type' %}
+
+          <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Original contact type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Inbound phone call
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Updated contact type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['changed-contact-type'] == 'Text message' %}
+                Text message
+              {% elif data['changed-contact-type'] == 'Visit from' %}
+                Inbound visit
+              {% elif data['changed-contact-type'] == 'Visit to' %}
+                Outbound visit
+              {% else %}
+                {{ data['changed-contact-type']
+                  | replace(' from', '')
+                  | replace(' to', '') }}
+              {% endif %}
+            </dd>
+          </div>
+
+          </dl>
+
+          {% endif %}
+
+
+        {% if data['delete-reason'] == 'change-contact-person' %}
+
+          <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Original contact name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Christopher Fox
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Updated contact name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if data['changed-contact-person'] == 'George Wood' %}
+                  George Wood (Appointee)
+                {% elif data['changed-contact-person'] == 'Susan Jones' %}
+                  Susan Jones (Partner)
+                {% else %}
+                  {{ data['changed-contact-person'] }}
+                {% endif %}
+              </dd>
+            </div>
+
+          </dl>
+
+          {% endif %}
+
+          {% if data['delete-reason'] == 'change-note' %}
+
+          <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Original note
+              </dt>
+              <dd class="govuk-summary-list__value">
+                No notes added
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Updated note
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['changed-note'] }}
+              </dd>
+            </div>
+
+          </dl>
+
+          {% endif %}
+
+            
+
+   <details class="govuk-details" data-module="govuk-details">
+
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            View updated contact record
+          </span>
+        </summary>
+
+        <div class="govuk-details__text">
+
+          <div class="govuk-summary-card">
+
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Agent 1000: 10 September 2026, 13:56
+            </h2>
+          </div>
+
+          <div class="govuk-summary-card__content">
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Contact type
+                </dt>
+
+                <dd class="govuk-summary-list__value">
+
+                  {% if data['changed-contact-type'] == 'Text message' %}
+
+                    Text message
+
+                  {% elif data['changed-contact-type'] == 'Visit from' %}
+
+                    Inbound visit
+
+                  {% elif data['changed-contact-type'] == 'Visit to' %}
+
+                    Outbound visit
+
+                  {% elif data['changed-contact-type'] %}
+
+                    {{ data['changed-contact-type']
+                        | replace(' from', '')
+                        | replace(' to', '') }}
+
+                  {% else %}
+
+                    Inbound phone call
+
+                  {% endif %}
+                </dd>
+              </div>
+
+              {% if data['changed-benefits'] %}
+
+                {% for benefit in data['changed-benefits'] %}
+
+                  <div class="govuk-summary-list__row">
+
+                    <dt class="govuk-summary-list__key">
+                      {{ benefit }}
+                    </dt>
+
+                    <dd class="govuk-summary-list__value">
+
+                      {% set benefitIndex = loop.index0 %}
+
+                      {% if data['changed-actions-' + benefitIndex] %}
+
+                        {% if data['changed-actions-' + benefitIndex].length > 1 %}
+
+                          <ul class="govuk-list govuk-list--bullet">
+                            {% for action in data['changed-actions-' + benefitIndex] %}
+                              <li>{{ action }}</li>
+                            {% endfor %}
+                          </ul>
+
+                        {% else %}
+
+                          {{ data['changed-actions-' + benefitIndex][0] }}
+
+                        {% endif %}
+
+                      {% endif %}
+
+                    </dd>
+
+                  </div>
+
+                {% endfor %}
+
+              {% else %}
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Personal Independence Payment
+                  </dt>
+
+                  <dd class="govuk-summary-list__value">
+                    Helped with a payment enquiry
+                  </dd>
+                </div>
+
+              {% endif %}
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Who the contact was with
+                </dt>
+
+                <dd class="govuk-summary-list__value">
+
+                  {% if data['changed-contact-person'] == 'George Wood' %}
+
+                    George Wood (Corporate Personal Acting Body)
+
+                  {% elif data['changed-contact-person'] == 'Susan Jones' %}
+
+                    Susan Jones (Partner)
+
+                  {% elif data['changed-contact-person'] == 'someone else' %}
+
+                    Someone else
+
+                  {% elif data['changed-contact-person'] %}
+
+                    {{ data['changed-contact-person'] }}
+
+                  {% else %}
+
+                    Christopher Fox
+
+                  {% endif %}
+
+                </dd>
+              </div>
+
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Notes
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                  {% if data['changed-note'] %}
+                    {{ data['changed-note'] }}
+                  {% else %}
+                    No notes added
+                  {% endif %}
+
+                </dd>
+              </div>
+
+            </dl>
+
+          </div>
+
+        </div>
+
+        </div>
+
+      </details>
+
+    <form action="/prototype-dev-baseline/mvp-1_6/telephony/save-record-change" method="post">
+
+        <div class="govuk-button-group">
+
+          <button class="govuk-button govuk-button" data-module="govuk-button">
+            Save
+          </button>
+
+          <a href="/prototype-sprint-wise/ur-21/non-telephony/contact-history"
+            class="govuk-link">
+            Cancel
+          </a>
+
+        </div>
+
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

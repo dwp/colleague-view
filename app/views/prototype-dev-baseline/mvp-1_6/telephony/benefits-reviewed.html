@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What did you review?
+{% endblock %}
+
+{% block header %}
+  {% include "/prototype-dev-baseline/mvp-1_6/common/header.html" %}
+  {% include "/prototype-dev-baseline/mvp-1_6/common/keydetail-bar.html" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "/prototype-dev-baseline/mvp-1_6/common/footer.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "/prototype-sprint-wise/ur-21/common/phase-banner.html" %}  
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="action-type" method="post" novalidate>
+     
+
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What did you review?
+            </h1>
+          </legend>
+
+          <div class="govuk-hint">
+            You can make multiple selections which will automatically be added to the contact record.
+          </div>
+
+          <div class="govuk-checkboxes govuk-!-margin-top-5" data-module="govuk-checkboxes">
+
+            <div class="govuk-radios__divider colleague-view-benefit-list">
+              Active benefits
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_ca" name="changed-benefits" type="checkbox" value="Carer's Allowance" {{ checked('changed-benefits',"Carer's Allowance") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_ca">
+                Carer's Allowance
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_esa" name="changed-benefits" type="checkbox" value="Employment and Support Allowance" {{ checked('changed-benefits','Employment and Support Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_esa">
+                Employment and Support Allowance
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+            <input
+              class="govuk-checkboxes__input"
+              id="benefit_pip"
+              name="changed-benefits"
+              type="checkbox"
+              value="Personal Independence Payment"
+              checked>
+
+            <label class="govuk-label govuk-checkboxes__label" for="benefit_pip">
+              Personal Independence Payment
+            </label>
+          </div>
+
+            <div class="govuk-radios__divider colleague-view-benefit-list">
+              Other benefits
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_aa" name="changed-benefits" type="checkbox" value="Attendance Allowance" {{ checked('changed-benefits','Attendance Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_aa">
+                Attendance Allowance
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_bsp" name="changed-benefits" type="checkbox" value="Bereavement Support Payment" {{ checked('changed-benefits','Bereavement Support Payment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_bsp">
+                Bereavement Support Payment
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_cwp" name="changed-benefits" type="checkbox" value="Cold Weather Payment" {{ checked('changed-benefits','Cold Weather Payment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_cwp">
+                Cold Weather Payment
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_dla1" name="changed-benefits" type="checkbox" value="Disability Living Allowance 65+" {{ checked('changed-benefits','Disability Living Allowance 65+') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_dla1">
+                Disability Living Allowance 65+
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_dla2" name="changed-benefits" type="checkbox" value="Disability Living Allowance Adult" {{ checked('changed-benefits','Disability Living Allowance Adult') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_dla2">
+                Disability Living Allowance Adult
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_dla3" name="changed-benefits" type="checkbox" value="Disability Living Allowance Child" {{ checked('changed-benefits','Disability Living Allowance Child') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_dla3">
+                Disability Living Allowance Child
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_jsa" name="changed-benefits" type="checkbox" value="Income-based Job Seeker's Allowance" {{ checked('changed-benefits',"Income-based Job Seeker's Allowance") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_jsa">
+                Income-based Job Seeker's Allowance
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_nsjsa" name="changed-benefits" type="checkbox" value="New Style Job Seeker's Allowance" {{ checked('changed-benefits',"New Style Job Seeker's Allowance") }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_nsjsa">
+                New Style Job Seeker's Allowance
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_ma" name="changed-benefits" type="checkbox" value="Maternity Allowance" {{ checked('changed-benefits','Maternity Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_ma">
+                Maternity Allowance
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_pc" name="changed-benefits" type="checkbox" value="Pension Credit" {{ checked('changed-benefits','Pension Credit') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_pc">
+                Pension Credit
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_sp" name="changed-benefits" type="checkbox" value="State Pension" {{ checked('changed-benefits','State Pension') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_sp">
+                State Pension
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_sda" name="changed-benefits" type="checkbox" value="Severe Disablement Allowance" {{ checked('changed-benefits','Severe Disablement Allowance') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_sda">
+                Severe Disablement Allowance
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_uc" name="changed-benefits" type="checkbox" value="Universal Credit" {{ checked('changed-benefits','Universal Credit') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_uc">
+                Universal Credit
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="benefit_wfp" name="changed-benefits" type="checkbox" value="Winter Fuel Payment" {{ checked('changed-benefits','Winter Fuel Payment') }}>
+              <label class="govuk-label govuk-checkboxes__label" for="benefit_wfp">
+                Winter Fuel Payment
+              </label>
+            </div>
+
+          </div>
+
+        </fieldset>
+
+      </div>
+
+      <p>changed-benefits: {{ data['changed-benefits'] }}</p>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
