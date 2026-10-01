@@ -271,8 +271,6 @@ What action did you take?
     <form class="form" action="/prototype-dev-baseline/mvp-1_6/check-record-change-router" method="post">
       <h1 class="govuk-heading-l">What action did you take?</h1>
 
-      <p>changed-benefits: {{ data['changed-benefits'] | dump }}</p>
-
       {% for benefit in data['changed-benefits'] %}
       {% set benefitIndex = loop.index0 %}
 
@@ -344,7 +342,7 @@ What action did you take?
           <textarea
             class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3"
             id="with-hint"
-            name="changed-note"
+            name="benefit-note"
             rows="7"
             aria-describedby="with-hint-info with-hint-hint">{% if data['changed-note'] %}{{ data['changed-note'] }}{% else %}No notes added{% endif %}</textarea>
 

@@ -74,30 +74,32 @@
 
               </dd>
             </div>
-            {% if data['changed-note'] %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                <div class="govuk-!-padding-top-6"></div>
-                Original note
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {% if data['contactHistoryNote'] %}
-                  {{ data['contactHistoryNote'] }}
-                {% else %}
-                  No notes added
-                {% endif %}
-              </dd>
-            </div>
 
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Updated note
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['changed-note'] }}
-              </dd>
-            </div>
-          {% endif %}
+            {% set originalNote = data['contactHistoryNote'] or 'No notes added' %}
+              {% set updatedNote = data['benefit-note'] or 'No notes added' %}
+
+              {% if originalNote != updatedNote %}
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    <div class="govuk-!-padding-top-6"></div>
+                    Original note
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ originalNote }}
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Updated note
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ updatedNote }}
+                  </dd>
+                </div>
+
+              {% endif %}
 
           </dl>
 

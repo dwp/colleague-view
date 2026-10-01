@@ -32,8 +32,53 @@ Contact history
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
+    {% if data.justDeleted %}
+
+          <div class="govuk-notification-banner govuk-notification-banner--success"
+              role="alert"
+              data-module="govuk-notification-banner">
+
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title">
+                Success
+              </h2>
+            </div>
+
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-notification-banner__heading">
+                The contact record has been deleted.
+              </p>
+            </div>
+
+          </div>
+
+        {% endif %}
+
+        {% if data.justUpdated %}
+
+          <div class="govuk-notification-banner govuk-notification-banner--success"
+              role="alert"
+              data-module="govuk-notification-banner">
+
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title">
+                Success
+              </h2>
+            </div>
+
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-notification-banner__heading">
+                The contact record has been updated.
+              </p>
+            </div>
+
+          </div>
+
+      {% endif %}
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half">
+
         <h1 class="govuk-heading-xl">Contact history</h1>
       </div>
       <div class="govuk-grid-column-one-half">
@@ -311,15 +356,8 @@ Contact history
                 Sorted by:
                 <span class="govuk-!-font-weight-bold">Date</span>
             </p>
+
             <!-- Sumary cards section -->
-
-            <p>debugType: {{ data.debugType }}</p>
-
-            <p>contactHistoryType: {{ data.contactHistoryType }}</p>
-
-            <p>debugPerson: {{ data.debugPerson }}</p>
-
-            <p>contactHistoryPerson: {{ data.contactHistoryPerson }}</p>
 
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
@@ -416,13 +454,55 @@ Contact history
                     </dd>
                   </div>
 
-                  <!-- Agent -->
+                  <!-- Notes -->
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Notes
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data.contactHistoryNote or 'No notes added' }}
+
+                      {% if data.contactHistoryNote %}
+
+                        {% if data.contactHistoryNote.length > 100 %}
+
+                          <span id="record-less-text">
+                            {{ data.contactHistoryNote.substring(0, 80) }}...
+                          </span>
+
+                          <span id="record-full-text" class="govuk-!-display-none">
+                            {{ data.contactHistoryNote }}
+                          </span>
+
+                          <br>
+
+                          <a
+                            href="#"
+                            class="govuk-link"
+                            onclick="showRecordNote(); return false;"
+                            id="record-show-link">
+                            View full note
+                          </a>
+                          <a
+                            href="#"
+                            class="govuk-link govuk-!-display-none"
+                            onclick="hideRecordNote(); return false;"
+                            id="record-hide-link">
+                            View less
+                          </a>
+
+                      
+                      {% else %}
+
+                      {{ data.contactHistoryNote }}
+
+                    {% endif %}
+
+                    {% else %}
+
+                      No notes added
+
+                    {% endif %}
+
                     </dd>
                   </div>
 
@@ -965,12 +1045,138 @@ Contact history
         </div>
       </div>
       <!-- Tab 2: Deleted contact history log -->
-          <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="contact-history-log">
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="contact-history-log">
+          
+          <h2 class="govuk-heading-l">Contact history log</h2>
 
-            <h2 class="govuk-heading-l">Contact history log</h2>
+            {% if data.contactHistoryLog and data.contactHistoryLog.length %}
 
-            <p class="govuk-body">There have been no changes or deletions.</p>
+              <table class="govuk-table">
+
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th class="govuk-table__header">Original record</th>
+                    <th class="govuk-table__header">Actioned on</th>
+                    <th class="govuk-table__header">Action taken</th>
+                    <th class="govuk-table__header">Actioned by</th>
+                  </tr>
+                </thead>
+
+                <tbody class="govuk-table__body">
+
+                  {% for item in data.contactHistoryLog %}
+
+                    <tr class="govuk-table__row">
+
+                    <td class="govuk-table__cell">
+                      10 September 2026, 13:56
+                    </td>
+
+                    <td class="govuk-table__cell">
+                      {{ item.actionedOn }}
+                    </td>
+
+                    <td class="govuk-table__cell">
+
+                      {{ item.action }}
+
+                      {% if item.reason %}
+                        <div class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+                          Reason: {{ item.reason }}
+                        </div>
+                      {% endif %}
+
+                      {% if item.from and item.to %}
+                        <div class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+
+                          From: {{ item.from }}<br>
+
+                          {% if item.to.length > 100 %}
+                            To: {{ item.to.substring(0, 80) }}...
+                            <br>
+                             <a
+                            href="#"
+                            class="govuk-link"
+                            onclick="showRecordNote(); return false;"
+                            id="record-show-link">
+                            View full note
+                          </a>
+                          <a
+                            href="#"
+                            class="govuk-link govuk-!-display-none"
+                            onclick="hideRecordNote(); return false;"
+                            id="record-hide-link">
+                            View less
+                          </a>
+                          {% else %}
+                            To: {{ item.to }}
+                          {% endif %}
+
+                        </div>
+                      {% endif %}
+
+                      {% if item.added %}
+
+                        <div class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+
+                          Added:
+
+                          <ul class="govuk-list govuk-list--bullet govuk-hint">
+
+                            {% for change in item.added %}
+                              <li>{{ change }}</li>
+                            {% endfor %}
+
+                          </ul>
+
+                        </div>
+
+                      {% endif %}
+
+                    
+
+                     {% if item.noteFrom and item.noteTo and item.noteFrom != item.noteTo %}
+
+                      <div class="govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+
+                        Notes updated
+
+                        <div class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+                          From: {{ item.noteFrom }}
+                          <br>
+                          To: {{ item.noteTo }}
+                        </div>
+
+                      </div>
+
+                    {% endif %}
+
+
+                    </td>
+
+                    <td class="govuk-table__cell">
+                      Agent 1000
+                    </td>
+
+                  </tr>
+
+                  {% endfor %}
+
+                </tbody>
+
+              </table>
+
+            {% else %}
+
+              <p class="govuk-body">
+                There have been no changes or deletions.
+              </p>
+
+            {% endif %}
+
           </div>
+
+
       <!-- Tab 3: content start here -->
       <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="jsaps-notes">
         <div id="showContactHistory-bydefault">
@@ -1201,6 +1407,34 @@ Contact history
     lessText3.classList.remove("govuk-!-display-none");
     lessTextlink3.classList.add("govuk-!-display-none");
   }
+
+  function showFullNote(id) {
+  document.getElementById('less-text-' + id)
+    .classList.add('govuk-!-display-none');
+
+  document.getElementById('full-text-' + id)
+    .classList.remove('govuk-!-display-none');
+
+  document.getElementById('show-link-' + id)
+    .classList.add('govuk-!-display-none');
+
+  document.getElementById('hide-link-' + id)
+    .classList.remove('govuk-!-display-none');
+}
+
+function showLessNote(id) {
+  document.getElementById('less-text-' + id)
+    .classList.remove('govuk-!-display-none');
+
+  document.getElementById('full-text-' + id)
+    .classList.add('govuk-!-display-none');
+
+  document.getElementById('show-link-' + id)
+    .classList.remove('govuk-!-display-none');
+
+  document.getElementById('hide-link-' + id)
+    .classList.add('govuk-!-display-none');
+}
   </script>
 
 {% endblock %}

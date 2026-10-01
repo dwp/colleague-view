@@ -1504,6 +1504,9 @@ router.post('/check-record-change-router', function(req, res) {
 
 router.post('/telephony/save-record-change', function (req, res) {
 
+  req.session.data.contactHistoryLog =
+  req.session.data.contactHistoryLog || [];
+
   if (req.session.data['delete-reason'] === 'change-contact-type') {
 
     const contactType = req.session.data['changed-contact-type'];
@@ -1520,6 +1523,19 @@ router.post('/telephony/save-record-change', function (req, res) {
           .replace(' from', '')
           .replace(' to', '');
     }
+
+    req.session.data.contactHistoryLog.unshift({
+      action: 'Contact type updated',
+      actionedOn: new Date().toLocaleString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      from: 'Inbound phone call',
+      to: req.session.data.contactHistoryType
+    });
   }
 
   if (req.session.data['delete-reason'] === 'change-contact-person') {
@@ -1530,6 +1546,20 @@ router.post('/telephony/save-record-change', function (req, res) {
     req.session.data.contactHistoryPerson =
       req.session.data['changed-contact-person'];
 
+      req.session.data.contactHistoryLog.unshift({
+        action: 'Contact updated',
+        actionedOn: new Date().toLocaleString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        }),
+        from: 'Christopher Fox',
+        to: req.session.data['changed-contact-person']
+      
+    });
+
   }
 
   if (req.session.data['delete-reason'] === 'change-note') {
@@ -1539,6 +1569,19 @@ router.post('/telephony/save-record-change', function (req, res) {
 
     req.session.data.contactHistoryNote =
       req.session.data['changed-note'];
+
+    req.session.data.contactHistoryLog.unshift({
+      action: 'Notes updated',
+      actionedOn: new Date().toLocaleString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      from: 'No notes added',
+      to: req.session.data['changed-note']
+    });
 
   }
 
@@ -1554,14 +1597,67 @@ router.post('/telephony/save-record-change', function (req, res) {
     req.session.data.contactHistoryActions1 =
       req.session.data['changed-actions-1'];
 
-    if (req.session.data['changed-note']) {
-      req.session.data.contactHistoryNote =
-        req.session.data['changed-note'];
+    req.session.data.contactHistoryActions2 =
+      req.session.data['changed-actions-2'];
+
+    const originalNote =
+  req.session.data.contactHistoryNote || 'No notes added';
+
+      if (req.session.data['benefit-note']) {
+        req.session.data.contactHistoryNote =
+          req.session.data['benefit-note'];
+
     }
+
+     req.session.data.contactHistoryLog.unshift({
+      action: 'Benefit information updated',
+      actionedOn: new Date().toLocaleString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      added: [],
+      removed: [],
+      noteFrom: originalNote,
+      noteTo: req.session.data['benefit-note'] || 'No notes added'
+    });
+
+    const benefits = req.session.data['changed-benefits'] || [];
+
+    if (benefits[0] && req.session.data['changed-actions-0']) {
+      req.session.data.contactHistoryLog[0].added.push(
+        benefits[0] +
+        ' - ' +
+        req.session.data['changed-actions-0'].join(', ')
+      );
+    }
+
+    if (benefits[1] && req.session.data['changed-actions-1']) {
+        req.session.data.contactHistoryLog[0].added.push(
+          benefits[1] +
+        ' - ' +
+        req.session.data['changed-actions-1'].join(', ')
+        );
+      }
+
+      if (benefits[2] && req.session.data['changed-actions-2']) {
+        req.session.data.contactHistoryLog[0].added.push(
+          benefits[2] +
+        ' - ' +
+        req.session.data['changed-actions-2'].join(', ')
+        );
+      }
 
   }
 
+  
+  req.session.data.justDeleted = false;
+  req.session.data.justUpdated = true;
+
   res.redirect('/prototype-dev-baseline/mvp-1_6/telephony/contact-history');
+  
 
 });
 
@@ -1637,9 +1733,25 @@ router.post('/delete-record-confirm-2', function (req, res) {
   req.session.data.deletions = req.session.data.deletions || {};
   req.session.data.deletions[recordId] = deletionRecord;
 
+  req.session.data.contactHistoryLog =
+  req.session.data.contactHistoryLog || [];
+
+      req.session.data.contactHistoryLog.unshift({
+      action: 'Record deleted',
+      actionedOn: new Date().toLocaleString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      reason: req.session.data.deleteReasonLabel
+    });
+
+
   req.session.data.justDeleted = true;
 
-  res.redirect('/prototype-dev-baseline/mvp-1_6/telephony/contact-history-deleted');
+  res.redirect('/prototype-dev-baseline/mvp-1_6/telephony/contact-history');
 
 });
 
