@@ -1,4 +1,4 @@
-FROM node:16.14-bullseye-slim
+FROM node:16.14.2-bullseye-slim@sha256:d54981fe891c9e3442ea05cb668bc8a2a3ee38609ecce52c7b5a609fadc6f64b
 
 ENV NODE_ENV=production
 
