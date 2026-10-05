@@ -1588,7 +1588,19 @@ router.post('/telephony/save-record-change', function (req, res) {
   // NEW BLOCK
   if (req.session.data['delete-reason'] === 'change-benefit-information') {
 
-    req.session.data.contactHistoryBenefits =
+    const originalBenefits =
+      req.session.data.contactHistoryBenefits || [];
+
+    const originalActions0 =
+      req.session.data.contactHistoryActions0 || [];
+
+    const originalActions1 =
+      req.session.data.contactHistoryActions1 || [];
+
+    const originalActions2 =
+      req.session.data.contactHistoryActions2 || [];
+  
+  req.session.data.contactHistoryBenefits =
       req.session.data['changed-benefits'];
 
     req.session.data.contactHistoryActions0 =
@@ -1648,6 +1660,14 @@ router.post('/telephony/save-record-change', function (req, res) {
         ' - ' +
         req.session.data['changed-actions-2'].join(', ')
         );
+      }
+
+      if (!benefits.includes('Personal Independence Payment')) {
+
+        req.session.data.contactHistoryLog[0].removed.push(
+          'Personal Independence Payment - Helped with a payment enquiry'
+        );
+
       }
 
   }
@@ -1750,6 +1770,7 @@ router.post('/delete-record-confirm-2', function (req, res) {
 
 
   req.session.data.justDeleted = true;
+  req.session.data.justUpdated = false;
 
   res.redirect('/prototype-dev-baseline/mvp-1_6/telephony/contact-history');
 

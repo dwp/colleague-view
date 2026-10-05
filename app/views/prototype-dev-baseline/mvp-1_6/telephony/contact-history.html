@@ -1133,6 +1133,25 @@ Contact history
 
                       {% endif %}
 
+                      {% if item.removed and item.removed.length %}
+
+                      <div class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-0">
+
+                        Removed:
+
+                        <ul class="govuk-list govuk-list--bullet govuk-hint">
+
+                          {% for change in item.removed %}
+                            <li>{{ change }}</li>
+                          {% endfor %}
+
+                        </ul>
+
+                      </div>
+
+                    {% endif %}
+
+
                     
 
                      {% if item.noteFrom and item.noteTo and item.noteFrom != item.noteTo %}
