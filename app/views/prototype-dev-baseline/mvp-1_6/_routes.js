@@ -1526,13 +1526,15 @@ router.post('/telephony/save-record-change', function (req, res) {
 
     req.session.data.contactHistoryLog.unshift({
       action: 'Contact type updated',
-      actionedOn: new Date().toLocaleString('en-GB', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      }),
+      actionedOn: new Date()
+        .toLocaleString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+        .replace(' at ', ', '),
       from: 'Inbound phone call',
       to: req.session.data.contactHistoryType
     });
@@ -1546,18 +1548,19 @@ router.post('/telephony/save-record-change', function (req, res) {
     req.session.data.contactHistoryPerson =
       req.session.data['changed-contact-person'];
 
-      req.session.data.contactHistoryLog.unshift({
-        action: 'Contact updated',
-        actionedOn: new Date().toLocaleString('en-GB', {
+    req.session.data.contactHistoryLog.unshift({
+      action: 'Contact updated',
+      actionedOn: new Date()
+        .toLocaleString('en-GB', {
           day: 'numeric',
           month: 'long',
           year: 'numeric',
           hour: '2-digit',
           minute: '2-digit'
-        }),
-        from: 'Christopher Fox',
-        to: req.session.data['changed-contact-person']
-      
+        })
+        .replace(' at ', ', '),
+      from: 'Christopher Fox',
+      to: req.session.data['changed-contact-person']
     });
 
   }
@@ -1572,13 +1575,15 @@ router.post('/telephony/save-record-change', function (req, res) {
 
     req.session.data.contactHistoryLog.unshift({
       action: 'Notes updated',
-      actionedOn: new Date().toLocaleString('en-GB', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      }),
+      actionedOn: new Date()
+        .toLocaleString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+        .replace(' at ', ', '),
       from: 'No notes added',
       to: req.session.data['changed-note']
     });
@@ -1623,13 +1628,15 @@ router.post('/telephony/save-record-change', function (req, res) {
 
      req.session.data.contactHistoryLog.unshift({
       action: 'Benefit information updated',
-      actionedOn: new Date().toLocaleString('en-GB', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-      }),
+      actionedOn: new Date()
+        .toLocaleString('en-GB', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+        .replace(' at ', ', '),
       added: [],
       removed: [],
       noteFrom: originalNote,
@@ -1645,6 +1652,17 @@ router.post('/telephony/save-record-change', function (req, res) {
         req.session.data['changed-actions-0'].join(', ')
       );
     }
+
+    if (
+      benefits[0] === 'Personal Independence Payment' &&
+      req.session.data['changed-actions-0'] &&
+      !req.session.data['changed-actions-0'].includes('Helped with a payment enquiry')
+    ) {
+      req.session.data.contactHistoryLog[0].removed.push(
+        'Personal Independence Payment - Helped with a payment enquiry'
+      );
+    }
+    
 
     if (benefits[1] && req.session.data['changed-actions-1']) {
         req.session.data.contactHistoryLog[0].added.push(
@@ -1754,27 +1772,27 @@ router.post('/delete-record-confirm-2', function (req, res) {
   req.session.data.deletions[recordId] = deletionRecord;
 
   req.session.data.contactHistoryLog =
-  req.session.data.contactHistoryLog || [];
+    req.session.data.contactHistoryLog || [];
 
-      req.session.data.contactHistoryLog.unshift({
-      action: 'Record deleted',
-      actionedOn: new Date().toLocaleString('en-GB', {
+  req.session.data.contactHistoryLog.unshift({
+    action: 'Record deleted',
+    actionedOn: new Date()
+      .toLocaleString('en-GB', {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
-      }),
-      reason: req.session.data.deleteReasonLabel
-    });
-
+      })
+      .replace(' at ', ', '),
+    reason: req.session.data.deleteReasonLabel
+  });
 
   req.session.data.justDeleted = true;
   req.session.data.justUpdated = false;
 
   res.redirect('/prototype-dev-baseline/mvp-1_6/telephony/contact-history');
-
-});
+  });
 
 
 
