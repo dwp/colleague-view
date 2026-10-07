@@ -1775,7 +1775,7 @@ router.post('/delete-record-confirm-2', function (req, res) {
     req.session.data.contactHistoryLog || [];
 
   req.session.data.contactHistoryLog.unshift({
-    action: 'Record deleted',
+    action: 'Contact record deleted',
     actionedOn: new Date()
       .toLocaleString('en-GB', {
         day: 'numeric',

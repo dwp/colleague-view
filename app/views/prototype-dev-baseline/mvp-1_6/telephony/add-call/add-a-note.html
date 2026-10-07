@@ -28,17 +28,14 @@ Add a note
             Add a note
           </label>
         </h1>
-        <p class="govuk-body">You do not need to repeat anything you have already selected.</p>
-        <!-- <p class="govuk-body">Add a note to give details of:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>what the call was about if you have not logged it already</li>
-          <li>who the call was with if it was not with the claimant or a known representative</li>
-        </ul> -->
+        <div id="note-name-hint" class="govuk-hint">
+            This note applies to the whole contact record.
+          </div>
         <div class="govuk-warning-text ">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            Do not include any personal details.
+            Do not include personal identifiable information, such as a name, National Insurance number or date of birth.
           </strong>
         </div>
         <textarea class="govuk-textarea govuk-js-character-count govuk-!-margin-bottom-3" id="with-hint" name="addNote" rows="7" aria-describedby="with-hint-info with-hint-hint">{{ data['addNote'] }}</textarea>
@@ -47,7 +44,7 @@ Add a note
         </div>
       </div>
       <button class="govuk-button" data-module="govuk-button">
-        Save and continue
+        Save
       </button>
     </form>
   </div>
