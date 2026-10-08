@@ -1567,6 +1567,9 @@ router.post('/telephony/save-record-change', function (req, res) {
 
   if (req.session.data['delete-reason'] === 'change-note') {
 
+    const originalNote =
+      req.session.data.contactHistoryNote || 'No notes added';
+
     req.session.data.debugNote =
       req.session.data['changed-note'];
 
@@ -1584,7 +1587,7 @@ router.post('/telephony/save-record-change', function (req, res) {
           minute: '2-digit'
         })
         .replace(' at ', ', '),
-      from: 'No notes added',
+      from: originalNote,
       to: req.session.data['changed-note']
     });
 

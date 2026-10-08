@@ -348,11 +348,10 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
 
-                  {% if data['changed-note'] %}
-                    {{ data['changed-note'] }}
-                  {% else %}
-                    No notes added
-                  {% endif %}
+                  {{ data['changed-note']
+                    or data['benefit-note']
+                    or data['contactHistoryNote']
+                    or 'No notes added' }}
 
                 </dd>
               </div>
