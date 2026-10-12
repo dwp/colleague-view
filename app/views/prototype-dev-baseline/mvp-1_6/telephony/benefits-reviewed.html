@@ -64,7 +64,12 @@ What did you review?
               name="changed-benefits"
               type="checkbox"
               value="Personal Independence Payment"
-              checked>
+              {% if not data['changed-benefits'] %}
+                checked
+              {% else %}
+                {{ checked('changed-benefits', 'Personal Independence Payment') }}
+              {% endif %}
+            >
 
             <label class="govuk-label govuk-checkboxes__label" for="benefit_pip">
               Personal Independence Payment

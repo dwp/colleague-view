@@ -1596,17 +1596,30 @@ router.post('/telephony/save-record-change', function (req, res) {
   // NEW BLOCK
   if (req.session.data['delete-reason'] === 'change-benefit-information') {
 
-    const originalBenefits =
-      req.session.data.contactHistoryBenefits || [];
+    // Original record for first edit
+      if (!req.session.data.contactHistoryBenefits) {
+        req.session.data.contactHistoryBenefits = [
+          'Personal Independence Payment'
+        ];
+      }
 
-    const originalActions0 =
-      req.session.data.contactHistoryActions0 || [];
+      if (!req.session.data.contactHistoryActions0) {
+        req.session.data.contactHistoryActions0 = [
+          'Helped with a payment enquiry'
+        ];
+      }
 
-    const originalActions1 =
-      req.session.data.contactHistoryActions1 || [];
+      const originalBenefits =
+        req.session.data.contactHistoryBenefits;
 
-    const originalActions2 =
-      req.session.data.contactHistoryActions2 || [];
+      const originalActions0 =
+        req.session.data.contactHistoryActions0;
+
+      const originalActions1 =
+        req.session.data.contactHistoryActions1 || [];
+
+      const originalActions2 =
+        req.session.data.contactHistoryActions2 || [];
   
   req.session.data.contactHistoryBenefits =
       req.session.data['changed-benefits'];
@@ -1648,23 +1661,26 @@ router.post('/telephony/save-record-change', function (req, res) {
 
     const benefits = req.session.data['changed-benefits'] || [];
 
-    if (benefits[0] && req.session.data['changed-actions-0']) {
+    const addedActions0 =
+      (req.session.data['changed-actions-0'] || []).filter(
+        action => !originalActions0.includes(action)
+      );
+
+    if (benefits[0] && addedActions0.length) {
       req.session.data.contactHistoryLog[0].added.push(
-        benefits[0] +
-        ' - ' +
-        req.session.data['changed-actions-0'].join(', ')
+        benefits[0] + ' - ' + addedActions0.join(', ')
       );
     }
 
-    if (
-      benefits[0] === 'Personal Independence Payment' &&
-      req.session.data['changed-actions-0'] &&
-      !req.session.data['changed-actions-0'].includes('Helped with a payment enquiry')
-    ) {
+    const removedActions0 = originalActions0.filter(
+      action => !(req.session.data['changed-actions-0'] || []).includes(action)
+    );
+
+    removedActions0.forEach(action => {
       req.session.data.contactHistoryLog[0].removed.push(
-        'Personal Independence Payment - Helped with a payment enquiry'
+        'Personal Independence Payment - ' + action
       );
-    }
+    });
     
 
     if (benefits[1] && req.session.data['changed-actions-1']) {
